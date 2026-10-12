@@ -1,7 +1,0 @@
-# Information Theory for Data Science
-
-> Information theory for data science courses
-
-## Pages
-
-- [Information Theory for Data Science](https://morrison-lab.github.io/ids/index.llms.md)
