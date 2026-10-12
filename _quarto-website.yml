@@ -3,7 +3,6 @@ project:
   output-dir: _site
   render:
     - "*.qmd"
-    - "chapters/*.qmd"
     - "!README.md"
     - "!appendix-document-metadata.qmd"
     - "!references.qmd"

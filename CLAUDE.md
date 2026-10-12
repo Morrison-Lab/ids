@@ -18,7 +18,7 @@ Authoritative style guides:
   `_quarto-website.yml`, in a docked sidebar and in matching navbar
   dropdowns. The navbar's `left` menus mirror the sidebar's `contents`
   one-for-one, so a page added, renamed, or moved must be edited in both.
-- `_subfiles/` --- the fragments the topic pages include
+- `_subfiles/` --- the fragments the topic pages include (created with the first fragment)
 - `references.qmd` --- standalone reference page; excluded from the default website
   render (`!references.qmd` in `_quarto-website.yml`), so it isn't part of the
   normal site build
