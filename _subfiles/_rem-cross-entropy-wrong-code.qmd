@@ -1,19 +1,21 @@
 ::: {#rem-cross-entropy-wrong-code}
 #### Cross-entropy is the cost of the wrong code
 
-Cross-entropy splits into the entropy of $p$
-and the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
-of $q$ from $p$:
+Write $H_2(p)$ for the entropy of a random variable with mass function $p$,
+and $D_2(p \,\|\, q)$ for the
+[Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
+of $q$ from $p$, both with base-2 logarithms.
+Cross-entropy splits into those two parts:
 
-$$H_2(p, q) = H_2(p) + D_{\mathrm{KL}}(p \,\|\, q).$$
+$$H_2(p, q) = H_2(p) + D_2(p \,\|\, q).$$
 
 By @thm-source-coding, no uniquely decodable code averages fewer than $H_2(p)$ bits.
-By @thm-wrong-code, a code built for the wrong distribution $q$
-costs about $D_{\mathrm{KL}}(p \,\|\, q)$ bits per value more than that.
+By @thm-wrong-code, a code built for $q$
+costs about $D_2(p \,\|\, q)$ bits per value more than that.
 The divergence is never negative,
 and it is $0$ only when $q = p$ [@cover2006elements, section 2.6],
 so the excess vanishes only when the code was built for the true distribution.
 @cover2006elements [section 5.4] state @thm-wrong-code
-in this form, with $H_2(p) + D_{\mathrm{KL}}(p \,\|\, q)$ in place of $H_2(p, q)$.
+in this form, with $H_2(p) + D_2(p \,\|\, q)$ in place of $H_2(p, q)$.
 
 :::

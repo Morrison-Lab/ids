@@ -1,13 +1,14 @@
 :::{#thm-source-coding}
 #### Source coding theorem
 
-Let $X$ be a discrete random variable with finitely many values,
+Let $X$ be a discrete random variable
+that takes finitely many values, at least two of them with positive probability,
 and let $H_2(X)$ be its
 [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
 with base-2 logarithms.
 
-1. Every uniquely decodable binary code for $X$ has expected length
-   $L \ge H_2(X)$.
+1. Every [uniquely decodable](#def-uniquely-decodable) binary code for $X$
+   has [expected length](#def-expected-length) $L \ge H_2(X)$.
 
 2. Some uniquely decodable binary code for $X$ has expected length
    $L < H_2(X) + 1$.

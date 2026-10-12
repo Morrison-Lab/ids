@@ -1,7 +1,7 @@
 :::{#thm-mutual-information-symmetric}
 #### Mutual information is symmetric
 
-For discrete random variables $X$ and $Y$,
+For discrete random variables $X$ and $Y$ with finite entropies,
 
 $$I(X; Y) = H(X) - H(X \mid Y) = I(Y; X).$$
 

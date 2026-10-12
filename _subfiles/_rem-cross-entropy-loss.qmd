@@ -5,12 +5,14 @@ Fitting a classifier by minimizing cross-entropy
 chooses the model's distribution $q$
 so that a code built for $q$ would spend as few bits as possible
 on the observed labels.
-By @rem-cross-entropy-wrong-code, that pushes $q$ toward
-the distribution the labels came from.
-For one labeled example, $p$ puts all its mass on the observed label,
-so $H_2(p) = 0$
+By @rem-cross-entropy-wrong-code, that pushes $q$
+toward the distribution the labels came from.
+
+For a single labeled example,
+let $e$ be the distribution that puts all its mass on the observed label.
+Then $H_2(e) = 0$
 ([as for a coin that always lands heads](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-coin)),
-and the cross-entropy loss equals $D_{\mathrm{KL}}(p \,\|\, q)$:
+so the example's cross-entropy loss $H_2(e, q)$ equals $D_2(e \,\|\, q)$:
 every bit the loss reports is a wasted one.
 
 :::

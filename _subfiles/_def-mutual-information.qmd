@@ -2,6 +2,7 @@
 #### Mutual information
 
 The **mutual information** between discrete random variables $X$ and $Y$
+with finite entropies
 is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
 of $Y$ from learning $X$:
 

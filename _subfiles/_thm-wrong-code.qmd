@@ -1,11 +1,12 @@
 :::{#thm-wrong-code}
 #### The cost of coding with the wrong distribution
 
-Let $X$ take finitely many values, with probability mass function $p$.
-Suppose a code is built for a different probability mass function $q$,
-with $q(x) > 0$ wherever $p(x) > 0$,
-by giving each value the length $\ell(x) = \lceil -\log_2 q(x) \rceil$.
-Then its expected length $L$ under $p$ satisfies
+Let $X$ take finitely many values, with probability mass function $p$,
+and let $q$ be a probability mass function,
+possibly different from $p$, with $q(x) > 0$ wherever $p(x) > 0$.
+Suppose a code gives each value $x$ with $p(x) > 0$
+the length $\ell(x) = \lceil -\log_2 q(x) \rceil$.
+Then its [expected length](#def-expected-length) $L$ under $p$ satisfies
 
 $$H_2(p, q) \le L < H_2(p, q) + 1,$$
 
@@ -17,11 +18,12 @@ of $q$ relative to $p$, with base-2 logarithms.
 
 ::: {.proof}
 
-Rounding up adds less than one binary digit, so for every $x$
+Every sum here runs over the values $x$ with $p(x) > 0$.
+Rounding up adds less than one binary digit, so for each such $x$
 
 $$-\log_2 q(x) \le \ell(x) < -\log_2 q(x) + 1.$$
 
-Multiply each part by $p(x) \ge 0$ and sum over the values of $X$.
+Multiply each part by $p(x) > 0$ and sum.
 Since $\sum_{x} p(x) = 1$,
 
 $$

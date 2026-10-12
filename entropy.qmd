@@ -42,6 +42,10 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_def-entropy-given-value.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_def-conditional-entropy.qmd >}}
 
 {{< slidebreak >}}
@@ -61,6 +65,10 @@ in *Probability for Data Science*.
 {{< slidebreak >}}
 
 {{< include ids/_subfiles/_rem-mutual-information-kl.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-information-gain.qmd >}}
 
 {{< slidebreak >}}
 

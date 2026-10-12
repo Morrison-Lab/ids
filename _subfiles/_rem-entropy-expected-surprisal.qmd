@@ -17,8 +17,8 @@ $$
 So $H(X)$ is the average number of bits (with base-2 logarithms)
 needed to record an outcome of $X$
 when each outcome $x$ costs $s(x)$ bits.
-Source coding makes that average precise:
-no code that can always be decoded does better on average
-([Source coding](source-coding.qmd#thm-source-coding)).
+The [source coding theorem](source-coding.qmd#thm-source-coding),
+on a later page of these notes, makes that average precise:
+no uniquely decodable code does better.
 
 :::

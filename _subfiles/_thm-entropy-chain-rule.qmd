@@ -9,7 +9,7 @@ $$H(X, Y) = H(X) + H(Y \mid X).$$
 
 ::: {.proof}
 
-Use the notation of @def-conditional-entropy,
+Use the notation of @def-entropy-given-value and @def-conditional-entropy,
 with every sum over the pairs with $p(x, y) > 0$.
 Since $p(x, y) = p(x) \, p(y \mid x)$,
 

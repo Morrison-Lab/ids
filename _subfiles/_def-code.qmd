@@ -1,14 +1,8 @@
 :::{#def-code}
-#### Binary code and expected length
+#### Binary code
 
-Let $X$ be a discrete random variable with probability mass function $p(x) \eqdef \P(X=x)$.
+Let $X$ be a discrete random variable.
 A **binary code** for $X$ assigns each value $x$ a *codeword*,
 a finite string of binary digits, of length $\ell(x)$.
-The code is **uniquely decodable**
-if every finite sequence of codewords, written one after another,
-can be split back into codewords in only one way.
-The **expected length** of the code is
-
-$$L \eqdef \E{\ell(X)} = \sum_{x} p(x) \, \ell(x).$$
 
 :::

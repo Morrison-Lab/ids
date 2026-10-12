@@ -59,9 +59,11 @@
    - split B: $1 - 0.689 = 0.311$ bits
 
    Split B has the larger gain.
-   Both splits isolate a branch of one color;
-   B wins because its other branch, $5$ red against $10$ green,
-   is more lopsided than A's $6$ against $10$,
-   so it has less entropy left.
+   Both splits isolate a branch of one color,
+   so the gain depends on the other, mixed branch.
+   B's mixed branch, $5$ red against $10$ green,
+   is more lopsided than A's $6$ against $10$, so it has less entropy,
+   and it also holds fewer of the points, $15$ against $16$,
+   so its entropy gets less weight.
 
 :::

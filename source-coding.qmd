@@ -20,6 +20,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_def-uniquely-decodable.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-expected-length.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-short-codes-for-common-symbols.qmd >}}
 
 ## The source coding theorem {#sec-source-coding-theorem}

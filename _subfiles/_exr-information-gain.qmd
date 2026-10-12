@@ -14,6 +14,7 @@ Two candidate splits each send the points into two branches:
 Draw one point uniformly at random from the node,
 let $Y$ be its color, and let $X$ be the branch it falls into
 (@rem-information-gain).
+The information gain of each split (@def-information-gain) is then $I(X; Y)$.
 Use base-2 logarithms throughout.
 
 1. Compute $H(Y)$.

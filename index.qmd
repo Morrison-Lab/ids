@@ -21,7 +21,8 @@ Kullback--Leibler divergence links maximum likelihood to model fit,
 and mutual information drives the information gain of decision trees.
 
 These notes collect the information theory that data science courses use.
-They are new. The pages written so far are:
+They are new.
+The pages written so far are:
 
 - [Entropy and mutual information](entropy.qmd):
   surprisal, joint and conditional entropy, mutual information,
