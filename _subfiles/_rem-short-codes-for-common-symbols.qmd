@@ -1,0 +1,8 @@
+::: {#rem-short-codes-for-common-symbols}
+#### Short codewords for common values
+
+A code with a small [expected length](#def-expected-length)
+gives frequent values short codewords and rare values long ones,
+since each value's length counts in $L$ in proportion to its probability.
+
+:::

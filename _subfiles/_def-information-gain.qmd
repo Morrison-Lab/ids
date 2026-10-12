@@ -1,0 +1,11 @@
+:::{#def-information-gain}
+#### Information gain
+
+A decision tree splits the points at a node into branches.
+The **information gain** of the split is
+the entropy of the class labels at the node,
+minus the entropy of the labels in each branch,
+weighted by the share of the node's points that branch holds
+[@quinlan1986induction].
+
+:::

@@ -1,0 +1,13 @@
+:::{#def-mutual-information}
+#### Mutual information
+
+The **mutual information** between discrete random variables $X$ and $Y$
+with finite entropies
+is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
+of $Y$ from learning $X$:
+
+$$I(X; Y) \eqdef H(Y) - H(Y \mid X),$$
+
+where $H(Y \mid X)$ is the [conditional entropy](#def-conditional-entropy).
+
+:::

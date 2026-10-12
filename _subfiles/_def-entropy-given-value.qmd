@@ -1,0 +1,12 @@
+:::{#def-entropy-given-value}
+#### Entropy given one value
+
+For $X$ and $Y$ as in @def-joint-entropy,
+write $p(y \mid x) \eqdef \P(Y=y \mid X=x)$.
+The **entropy of $Y$ given $X=x$**, for a value $x$ with $\P(X=x) > 0$, is
+
+$$H(Y \mid X=x) \eqdef -\sum_{y} p(y \mid x) \log p(y \mid x),$$
+
+where the sum runs over the values $y$ with $p(y \mid x) > 0$.
+
+:::

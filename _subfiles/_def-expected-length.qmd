@@ -1,0 +1,9 @@
+:::{#def-expected-length}
+#### Expected length
+
+The **expected length** of a [binary code](#def-code) for $X$,
+where $X$ has probability mass function $p(x) \eqdef \P(X=x)$, is
+
+$$L \eqdef \E{\ell(X)} = \sum_{x} p(x) \, \ell(x).$$
+
+:::

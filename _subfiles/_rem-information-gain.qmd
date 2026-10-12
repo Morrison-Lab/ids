@@ -1,0 +1,10 @@
+::: {#rem-information-gain}
+#### Information gain is mutual information
+
+Draw one point uniformly at random from the node of @def-information-gain,
+and let $Y$ be its class and $X$ the branch it falls into.
+Then the entropy at the node is $H(Y)$,
+the weighted entropy left in the branches is $H(Y \mid X)$,
+and the information gain is the [mutual information](#def-mutual-information) $I(X; Y)$.
+
+:::

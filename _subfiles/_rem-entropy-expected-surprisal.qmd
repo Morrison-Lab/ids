@@ -1,0 +1,24 @@
+::: {#rem-entropy-expected-surprisal}
+#### Entropy is expected surprisal
+
+The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
+of a discrete random variable $X$ is the
+[expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
+of its [surprisal](#def-surprisal):
+
+$$
+\begin{aligned}
+H(X)
+&= \E{-\log \P(X)} \\
+&= \E{s(X)}.
+\end{aligned}
+$$
+
+So $H(X)$ is the average number of bits (with base-2 logarithms)
+needed to record an outcome of $X$
+when each outcome $x$ costs $s(x)$ bits.
+The [source coding theorem](source-coding.qmd#thm-source-coding),
+on a later page of these notes, makes that average precise:
+no uniquely decodable code does better.
+
+:::

@@ -1,0 +1,12 @@
+:::{#def-surprisal}
+#### Surprisal
+
+The **surprisal** of an outcome $x$ of a discrete random variable $X$
+with $\P(X=x) > 0$ is
+
+$$s(x) \eqdef -\log \P(X=x).$$
+
+With base-2 logarithms, surprisal is measured in *bits*;
+with natural logarithms, in *nats*.
+
+:::

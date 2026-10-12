@@ -1,0 +1,69 @@
+::: {#sol-information-gain}
+
+1. Half the points are red, so
+
+   $$
+   \begin{aligned}
+   H(Y)
+   &= -\tfrac{1}{2} \log_2 \tfrac{1}{2} - \tfrac{1}{2} \log_2 \tfrac{1}{2} \\
+   &= 1 \text{ bit}.
+   \end{aligned}
+   $$
+
+2. A branch holding one color only has entropy $0$.
+   For split A, the "no" branch holds $6$ red and $10$ green points of $16$:
+
+   $$
+   \begin{aligned}
+   H(Y \mid X = \text{no})
+   &= -\tfrac{6}{16} \log_2 \tfrac{6}{16} - \tfrac{10}{16} \log_2 \tfrac{10}{16} \\
+   &\approx 0.531 + 0.424 \\
+   &\approx 0.954 \text{ bits}.
+   \end{aligned}
+   $$
+
+   The "yes" branch holds $4$ of the $20$ points and the "no" branch $16$, so
+
+   $$
+   \begin{aligned}
+   H(Y \mid X)
+   &= \tfrac{4}{20} \cdot 0 + \tfrac{16}{20} \cdot 0.954 \\
+   &\approx 0.764 \text{ bits}.
+   \end{aligned}
+   $$
+
+   For split B, the "yes" branch holds $5$ red and $10$ green points of $15$:
+
+   $$
+   \begin{aligned}
+   H(Y \mid X = \text{yes})
+   &= -\tfrac{1}{3} \log_2 \tfrac{1}{3} - \tfrac{2}{3} \log_2 \tfrac{2}{3} \\
+   &\approx 0.528 + 0.390 \\
+   &\approx 0.918 \text{ bits}.
+   \end{aligned}
+   $$
+
+   The "yes" branch holds $15$ of the $20$ points and the "no" branch $5$, so
+
+   $$
+   \begin{aligned}
+   H(Y \mid X)
+   &= \tfrac{15}{20} \cdot 0.918 + \tfrac{5}{20} \cdot 0 \\
+   &\approx 0.689 \text{ bits}.
+   \end{aligned}
+   $$
+
+3. By @def-mutual-information, the gain is $H(Y) - H(Y \mid X)$:
+
+   - split A: $1 - 0.764 = 0.236$ bits
+   - split B: $1 - 0.689 = 0.311$ bits
+
+   Split B has the larger gain.
+   Both splits isolate a branch of one color,
+   so the gain depends on the other, mixed branch.
+   B's mixed branch, $5$ red against $10$ green,
+   is more lopsided than A's $6$ against $10$, so it has less entropy,
+   and it also holds fewer of the points, $15$ against $16$,
+   so its entropy gets less weight.
+
+:::

@@ -1,0 +1,28 @@
+::: {#exr-information-gain}
+#### Choosing between two splits
+
+A node holds $20$ points, $10$ red and $10$ green.
+Two candidate splits each send the points into two branches:
+
+| split | branch | red | green |
+|---|---|---|---|
+| A | yes | $4$ | $0$ |
+| | no | $6$ | $10$ |
+| B | yes | $5$ | $10$ |
+| | no | $5$ | $0$ |
+
+Draw one point uniformly at random from the node,
+let $Y$ be its color, and let $X$ be the branch it falls into
+(@rem-information-gain).
+The information gain of each split (@def-information-gain) is then $I(X; Y)$.
+Use base-2 logarithms throughout.
+
+1. Compute $H(Y)$.
+
+2. For each split, compute $H(Y \mid X = x)$ for both branches,
+   and then $H(Y \mid X)$.
+
+3. Compute the information gain $I(X; Y)$ for each split.
+   Which split has the larger gain?
+
+:::

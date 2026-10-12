@@ -1,0 +1,13 @@
+:::{#def-conditional-entropy}
+#### Conditional entropy
+
+For $X$ and $Y$ as in @def-joint-entropy, write $p(x) \eqdef \P(X=x)$.
+The **conditional entropy** of $Y$ given $X$
+averages the [entropy of $Y$ given each value of $X$](#def-entropy-given-value)
+over the distribution of $X$:
+
+$$H(Y \mid X) \eqdef \sum_{x} p(x) \, H(Y \mid X=x),$$
+
+where the sum runs over the values $x$ with $p(x) > 0$.
+
+:::

@@ -1,0 +1,88 @@
+---
+title: "Entropy and mutual information"
+format:
+  html: default
+  revealjs:
+    output-file: entropy-slides.html
+  pdf:
+    output-file: entropy-handout.pdf
+  docx:
+    output-file: entropy.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+This page builds on the definitions of
+[entropy, cross-entropy and Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy)
+in *Probability for Data Science*.
+
+## Surprisal {#sec-surprisal}
+
+<!-- No slidebreak here: the heading shares its slide with the def-surprisal div. -->
+
+{{< include ids/_subfiles/_def-surprisal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-surprisal-coins.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-surprisal-meaning.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-entropy-expected-surprisal.qmd >}}
+
+## Joint and conditional entropy {#sec-conditional-entropy}
+
+<!-- No slidebreak here: the heading shares its slide with the def-joint-entropy div. -->
+
+{{< include ids/_subfiles/_def-joint-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-entropy-given-value.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-conditional-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-entropy-chain-rule.qmd >}}
+
+## Mutual information {#sec-mutual-information}
+
+<!-- No slidebreak here: the heading shares its slide with the def-mutual-information div. -->
+
+{{< include ids/_subfiles/_def-mutual-information.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-mutual-information-symmetric.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-mutual-information-kl.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-information-gain.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-information-gain.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exr-information-gain.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_sol-information-gain.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

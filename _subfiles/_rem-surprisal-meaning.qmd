@@ -1,0 +1,11 @@
+::: {#rem-surprisal-meaning}
+#### Unlikely outcomes carry more information
+
+Surprisal is large when an outcome was unlikely,
+and it falls to $0$ as the outcome becomes certain.
+Correctly predicting heads on one toss of a fair coin is worth $1$ bit;
+correctly predicting ten heads in a row is worth $10$ bits.
+@mackay2003information [section 2.4] calls $s(x)$ in bits
+the *Shannon information content* of the outcome $x$.
+
+:::
