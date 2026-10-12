@@ -1,0 +1,13 @@
+::: {#rem-mutual-information-kl}
+#### Mutual information as a divergence
+
+@cover2006elements [section 2.3] define mutual information
+as the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
+of the joint distribution of $(X, Y)$ from the product of its marginals,
+and show that this equals $H(Y) - H(Y \mid X)$ [@cover2006elements, section 2.4].
+Since a Kullback--Leibler divergence is never negative,
+and is $0$ only when the two distributions are equal [@cover2006elements, section 2.6],
+$I(X; Y) \ge 0$, with equality exactly when $X$ and $Y$ are independent.
+Learning $X$ never raises the entropy of $Y$ on average.
+
+:::

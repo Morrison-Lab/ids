@@ -1,0 +1,15 @@
+::: {#rem-information-gain}
+#### Information gain in decision trees
+
+A decision tree splits the points at a node into branches
+and scores the split by its **information gain**:
+the entropy of the class labels at the node,
+minus the entropy left in the branches,
+each branch weighted by its share of the points [@quinlan1986induction].
+Draw one point uniformly at random from the node,
+and let $Y$ be its class and $X$ the branch it falls into.
+Then the entropy at the node is $H(Y)$,
+the weighted entropy left in the branches is $H(Y \mid X)$,
+and the information gain is the [mutual information](#def-mutual-information) $I(X; Y)$.
+
+:::

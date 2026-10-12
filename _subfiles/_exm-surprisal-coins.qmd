@@ -1,0 +1,31 @@
+:::{#exm-surprisal-coins}
+#### Counting bits with fair coins
+
+One toss of a fair coin has $2$ equally likely outcomes,
+and one binary digit is enough to record which one happened.
+Two tosses have $4$ outcomes, and two binary digits record them.
+In general, $n$ equally likely outcomes take $\log_2 n$ binary digits.
+
+Each of those $n$ outcomes has probability $p = 1/n$, so
+
+$$
+\begin{aligned}
+\log_2 n
+&= \log_2 \frac{1}{p} \\
+&= -\log_2 p,
+\end{aligned}
+$$
+
+which is the [surprisal](#def-surprisal) of the outcome, in bits.
+
+Ten tosses that all land heads have probability $2^{-10}$, so
+
+$$
+\begin{aligned}
+s(\text{ten heads})
+&= -\log_2 2^{-10} \\
+&= 10 \text{ bits}.
+\end{aligned}
+$$
+
+:::

@@ -1,0 +1,52 @@
+---
+title: "Source coding"
+format:
+  html: default
+  revealjs:
+    output-file: source-coding-slides.html
+  pdf:
+    output-file: source-coding-handout.pdf
+  docx:
+    output-file: source-coding.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+## Codes {#sec-codes}
+
+<!-- No slidebreak here: the heading shares its slide with the def-code div. -->
+
+{{< include ids/_subfiles/_def-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-short-codes-for-common-symbols.qmd >}}
+
+## The source coding theorem {#sec-source-coding-theorem}
+
+<!-- No slidebreak here: the heading shares its slide with the thm-source-coding div. -->
+
+{{< include ids/_subfiles/_thm-source-coding.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-source-coding-source.qmd >}}
+
+## Coding with the wrong distribution {#sec-wrong-code}
+
+<!-- No slidebreak here: the heading shares its slide with the thm-wrong-code div. -->
+
+{{< include ids/_subfiles/_thm-wrong-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-cross-entropy-wrong-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-cross-entropy-loss.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

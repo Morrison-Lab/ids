@@ -1,0 +1,11 @@
+::: {#rem-source-coding-source}
+#### Where the theorem comes from
+
+@shannon1948mathematical proved that entropy is the limit on how far
+the output of a source can be compressed.
+@cover2006elements [sections 5.3 to 5.5] prove each part of @thm-source-coding.
+The code in part 2 gives each value $x$ the length
+$\ell(x) = \lceil -\log_2 p(x) \rceil$,
+its [surprisal](entropy.qmd#def-surprisal) in bits rounded up.
+
+:::
