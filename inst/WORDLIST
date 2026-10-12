@@ -1,5 +1,7 @@
 CLI
 DOCX
+Kullback
+Leibler
 RevealJS
 SERG
 TinyTeX
@@ -15,4 +17,5 @@ qwt
 rulesets
 submodule
 submodules
+symlink
 uarto
