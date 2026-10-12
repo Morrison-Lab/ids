@@ -12,6 +12,7 @@ _freeze/
 ^\.github$
 ^README\.Rmd$
 ^data-raw$
+^data$
 ^\.quarto$
 ^AGENTS\.md$
 ^CLAUDE\.md$

@@ -8,7 +8,7 @@
 # posting Claude's prose reply when no code was committed, dispatching
 # claude-code-review.yml on an explicit "@claude review" (including one
 # absorbed late by the polling loop), and the late-comment dedup / rescue
-# machinery (`<!-- claude-absorbed: ... -->` marker + 🚀 reaction) that was
+# machinery (`<!-- claude-absorbed: ... -->` marker + rocket reaction) that was
 # originally ported FROM this repo's own #73/#90/#95 into gha's claude.yml.
 # See https://github.com/Morrison-Lab/gha for inputs and versioning.
 #
@@ -53,12 +53,12 @@ jobs:
       issues: write         # so Claude can comment on issues
       id-token: write
       actions: write        # dispatch claude-code-review.yml via `gh workflow run`
-    uses: Morrison-Lab/gha/.github/workflows/claude.yml@v2
+    uses: Morrison-Lab/gha/.github/workflows/claude.yml@v3
     secrets:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}   # Max-plan OAuth; empty when using API key
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}               # direct API key; empty when using OAuth
       SUBMODULES_TOKEN: ${{ secrets.SUBMODULES_TOKEN }}   # optional; latex-macros/ is public, so unset is fine
       WORKFLOW_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}       # optional; for editing .github/workflows
     with:
-      install-quarto: true      # qwt is a Quarto site; Claude may need to render .qmd files
+      install-quarto: true      # ids is a Quarto site; Claude may need to render .qmd files
       checkout-submodules: true # latex-macros/ (public; no SUBMODULES_TOKEN needed)

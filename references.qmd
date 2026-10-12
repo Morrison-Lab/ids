@@ -10,8 +10,6 @@ format:
     output-file: references.docx
 ---
 
-# References {.unnumbered}
-
 ::: {#refs}
 :::
 

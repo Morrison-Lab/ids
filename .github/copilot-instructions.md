@@ -30,12 +30,12 @@ When describing lists of three or more items, use a bullet list instead of a com
 
 **Examples:**
 
-❌ **Don't** use comma-separated lists for three or more items:
+**Don't** use comma-separated lists for three or more items:
 ```
 The template includes GitHub Actions workflows for publishing, link checking, and spell checking.
 ```
 
-✅ **Do** use bullet lists instead:
+**Do** use bullet lists instead:
 ```
 The template includes GitHub Actions workflows for:
 

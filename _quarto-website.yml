@@ -12,58 +12,38 @@ project:
     # directly: macros-table.qmd uses DT::datatable() (an HTML widget) that
     # errors when the project also renders to PDF.
     - "!latex-macros/"
+    - "!ids/"
 
 website:
-  title: "Quarto Website Template"
-  site-url: https://ucd-serg.github.io/qwt/
-  description: "A template for creating websites with Quarto"
+  title: "Information Theory for Data Science"
+  site-url: https://morrison-lab.github.io/ids/
+  description: "Information theory for data science courses"
   # https://quarto.org/docs/websites/website-llms.html --- use `llms-txt:`, not `llms:` (schema error)
   llms-txt: true
   page-footer:
     center: "Built with [Quarto](https://quarto.org/)"
   back-to-top-navigation: true
-  # Previous/next links at the foot of each page follow the sidebar's order,
-  # so page-navigation does nothing without the sidebar below.
-  # https://quarto.org/docs/websites/website-navigation.html#page-navigation
   page-navigation: true
   reader-mode: true
-  repo-url: https://github.com/UCD-SERG/qwt
+  repo-url: https://github.com/Morrison-Lab/ids
   repo-actions: [edit, issue, source]
   navbar:
-    left:
-      - text: "Home"
-        href: index.qmd
-      - text: "Chapters"
-        menu:
-          - text: "Chapter 1: Introduction"
-            href: chapters/chapter1.qmd
-          - text: "Chapter 2: Advanced Topics"
-            href: chapters/chapter2.qmd
-          - text: "Theorem Examples"
-            href: chapters/theorem-examples.qmd
+    # Add a `left:` list of menus here that mirrors the sidebar's `contents`
+    # one-for-one (same groups, same names, same order, same pages), as pds
+    # does, once the first topic pages exist. The site title (which links
+    # home), search, and the GitHub link round out the navbar.
+    search: true
     right:
       - icon: github
-        href: https://github.com/UCD-SERG/qwt
+        href: https://github.com/Morrison-Lab/ids
         aria-label: GitHub
-
-  # The sidebar sets the previous/next page links, so keep it in the same
-  # order as the navbar and add each new page to both.
-  # Home is the first entry, so the chain starts at the home page.
-  # Quarto highlights the first navbar link whose target appears anywhere in
-  # the sidebar, which would be "Home" on every page;
-  # page-navigation.html (see `include-after-body` under `format.html`)
-  # corrects that.
   sidebar:
+    # Topic pages in reading order, grouped into sections, each group
+    # depending only on earlier ones; the navbar's `left` menus mirror it.
+    # There is no Home entry: the navbar title already links to the home page.
     style: docked
-    search: false # the navbar already has search
-    contents:
-      - text: "Home"
-        href: index.qmd
-      - section: "Chapters"
-        contents:
-          - chapters/chapter1.qmd
-          - chapters/chapter2.qmd
-          - chapters/theorem-examples.qmd
+    search: false
+    contents: []
 
 callouty-theorem:
   thm:
@@ -166,10 +146,6 @@ format:
       dark: darkly
     # Replaces Quarto's two-way toggle with a Light / Off-white / Parchment / Dark dropdown.
     include-in-header: theme-picker.html
-    # Floating previous/next arrows in the page margins, and navbar
-    # highlighting for the current page (needed because Home is in the
-    # sidebar).
-    include-after-body: page-navigation.html
     css: styles.css
     toc: true
     anchor-sections: true
@@ -178,7 +154,7 @@ format:
     code-fold: true
     code-tools: true
     code-link: true
-    code-summary: "Show R code"
+    code-summary: "Show code"
     highlight-style: arrow
     lightbox: true
     link-external-icon: true
@@ -218,7 +194,7 @@ format:
     margin: 0.0
     code-fold: true
     code-link: true
-    code-summary: "[R code]"
+    code-summary: "[Code]"
     auto-stretch: true
     fig-height: 5
     fig-width: 7
