@@ -27,16 +27,11 @@ exclude = [
   "https://127.0.0.1.*",
   # quarto.org is a trusted site but may be unreachable from CI runners
   "https://quarto.org/.*",
-  # Login-gated course sites (lecture videos and Canvas) return 401 to CI
-  "https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/.*",
-  "https://wwu.instructure.com/.*",
   # StackExchange and etymonline sites answer automated clients such as CI
   # link checkers with 403 Forbidden; the links work in a browser.
   "https://math.stackexchange.com/.*",
   "https://stats.stackexchange.com/.*",
   "https://www.etymonline.com/.*",
-  # Stanford su.domains server periodically throttles or times out under CI requests
-  "https://adembo.su.domains/.*",
 ]
 
 # `ids` is a symlink to the repository root, so include paths read

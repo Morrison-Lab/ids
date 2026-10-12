@@ -10,10 +10,10 @@ If you're working on content for this book:
 
 1. **Create a new branch** for your work:
    ```bash
-   git checkout -b chapter/your-topic
+   git checkout -b page/your-topic
    ```
 
-2. **Edit or create `.qmd` files** for your chapter
+2. **Edit or create `.qmd` files** for your topic page
 
 3. **Preview your changes** locally:
    ```bash
@@ -23,12 +23,12 @@ If you're working on content for this book:
 4. **Commit your changes**:
    ```bash
    git add .
-   git commit -m "Add chapter on your topic"
+   git commit -m "Add a page on your topic"
    ```
 
 5. **Push and create a pull request**:
    ```bash
-   git push origin chapter/your-topic
+   git push origin page/your-topic
    ```
 
 ### Content guidelines

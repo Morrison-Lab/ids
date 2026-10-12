@@ -27,6 +27,7 @@ so clone it with submodules:
 
 ```sh
 git clone --recurse-submodules https://github.com/Morrison-Lab/ids.git
+cd ids
 quarto preview
 ```
 

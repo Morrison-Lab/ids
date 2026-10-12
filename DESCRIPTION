@@ -14,7 +14,6 @@ BugReports: https://github.com/Morrison-Lab/ids/issues
 Depends: 
     R (>= 4.1.0)
 Suggests:
-    ggplot2,
     knitr,
     rmarkdown,
     spelling,
@@ -22,5 +21,4 @@ Suggests:
     devtools
 VignetteBuilder: knitr
 Imports: 
-    dplyr,
-    tibble
+    dplyr

@@ -15,6 +15,8 @@ it first is safe: it only deletes the symlink, never the directory it points
 into.
 
 Then run `Rscript -e 'lintr::lint_dir()'` to check all R source files against `.lintr.R`.
+Afterwards restore the symlink with `git checkout -- ids`,
+so the deletion is never committed.
 
 Report all lint issues grouped by file, including:
 
