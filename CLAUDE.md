@@ -4,7 +4,7 @@ Project guidance for Claude Code (CLI, IDE, and the GitHub Action). The same con
 
 ## Project context
 
-`qwt` (Quarto Website Template) is a template repository for [Quarto](https://quarto.org/) websites maintained by the UCD-SERG lab. Downstream repos are created from this template via the GitHub "Use this template" button, so changes here propagate to new books.
+`ids` holds the information theory that the Morrison-Lab data science courses use, as [Quarto](https://quarto.org/) fragments. It renders on its own as a website, and course sites such as `lds` link to its pages by URL, so a page's path and its `#id` anchors are an interface: renaming either breaks those links. The scaffolding came from the `qwt` template, with the fragment-library setup of [`pds`](https://github.com/Morrison-Lab/pds).
 
 Authoritative style guides:
 
@@ -13,18 +13,39 @@ Authoritative style guides:
 
 ## Repository layout
 
-- `index.qmd`, `chapters/`, `appendix-*.qmd` --- Quarto source pages
+- `index.qmd`, `appendix-*.qmd`, and the top-level topic pages --- Quarto
+  source pages. The topic pages are listed in reading order in
+  `_quarto-website.yml`, in a docked sidebar and in matching navbar
+  dropdowns. The navbar's `left` menus mirror the sidebar's `contents`
+  one-for-one, so a page added, renamed, or moved must be edited in both.
+- `_subfiles/` --- the fragments the topic pages include (created with the first fragment)
 - `references.qmd` --- standalone reference page; excluded from the default website
   render (`!references.qmd` in `_quarto-website.yml`), so it isn't part of the
   normal site build
 - `_quarto.yml`, `_quarto-website.yml` --- Quarto project + website config
-- `_extensions/` --- vendored Quarto extensions (including `code-language-labels`, which labels each code block with its language in HTML and revealjs output; vendored from [`d-morrison/code-language-labels`](https://github.com/d-morrison/code-language-labels))
+- `ids` --- a self-referential symlink (`ids -> .`), so include paths written
+  as `ids/...` (the paths a host site that keeps a copy of this repo at its root would use)
+  also resolve when this repo renders standalone. This creates an unbounded
+  `ids/ids/ids/...` path loop; `_quarto-website.yml`'s `!ids/` render
+  exclusion keeps Quarto's own render-list glob from walking into it, but the
+  symlink is not otherwise sandboxed --- avoid recursive/symlink-following
+  operations (`find -L`, `rsync -a --copy-links`, unscoped `grep -r`) rooted
+  at the repo root; scope such commands to real subdirectories instead.
+  **lintr cannot be pointed away from it via `.lintr.R`'s `exclusions` field**:
+  `lintr::normalize_exclusions()` always resolves exclusion paths with
+  `normalize_path()`, which follows symlinks, so any exclusion naming `ids`
+  (the directory, or a file under it) collapses onto the exact same absolute
+  path as the real file it aliases and silently excludes that real file too
+  --- there is no exclusions-list syntax that can single out the symlinked
+  duplicate without also matching the original. `lint-project.yaml` and
+  `lint-changed-files.yaml` instead `rm -f ids` right after checkout, before
+  invoking lintr, so its directory walk never sees the symlink at all.
+- `_extensions/` --- vendored Quarto extensions
 - `latex-macros/` --- git submodule for shortcode/macro definitions (see `.gitmodules`)
 - `R/`, `man/`, `DESCRIPTION`, `NAMESPACE` --- the project is also a small R package
 - `references.bib` --- BibTeX bibliography
-- `offwhite.scss`, `theme-picker.html` --- the website's Light / Off-white / Parchment / Dark theme dropdown (`theme-picker.html` builds it, `offwhite.scss` styles the two tinted palettes); the choice is saved under `mln-theme`, shared with the slides and with the other sites on this origin
-- `page-navigation.html` --- HTML include (`format.html.include-after-body`) that adds floating previous/next arrows in the page margins and fixes navbar highlighting now that Home is in the sidebar; vendored from `Morrison-Lab/lbt` (a private repo, so not linked)
-- `styles.css` --- website styling; `styles-reveal.scss`, `qwt-reveal-toggle.html` (the same four-theme dropdown for slides), and the `revealjs-*.lua` filters drive the reveal.js slide output
+- `offwhite.scss`, `theme-picker.html` --- the website's Light / Off-white / Parchment / Dark theme dropdown (saved under `mln-theme`, shared with the slides and the other sites on this origin)
+- `styles.css` --- website styling; `styles-reveal.scss`, `qwt-reveal-toggle.html` (the same dropdown for slides), and the `revealjs-*.lua` filters drive the reveal.js slide output
 - `assets/`, `images/` --- static image and asset files (site pages, docs, CI/PR screenshots)
 - `.github/workflows/` --- CI workflow definitions
 - `.github/scripts/` --- helper scripts used by workflows
@@ -39,7 +60,6 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 - **Lists of 3+ items**: use bullet lists rather than comma-separated prose. Always leave a blank line before a markdown bullet list (especially in `.qmd` files).
 - **Code chunks**: HTML output folds code by default: `_quarto-website.yml` sets `code-fold: true` (with `code-tools: true`, so readers can show all code at once), as rme does. Keep the default when the *output* (plot, table) is the point and the code is incidental. Set `#| code-fold: false` on tutorial code, short examples, code that is the main focus, and chunks where the console output is the main content.
 - **R style**: respect `.lintr.R`. Run `lintr::lint_dir()` before declaring R changes done.
-- **Navigation**: `_quarto-website.yml` defines a docked sidebar because `page-navigation: true` builds its previous/next links from the sidebar. Add each new page to both the navbar and the sidebar, in the same order. Keep Home as the first sidebar entry and keep `page-navigation.html` included, which fixes the navbar highlighting that entry would otherwise break (see the README's "Page navigation" section).
 - **Quarto chunks**: prefer chunk options as YAML-style `#|` directives, not as inline `r, opt = val` arguments.
 
 ## Working in this repo
@@ -52,18 +72,6 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 - **Other CI checks**: workflows also verify bibliography DOIs (`check-bibliography-dois.yml`) and flag non-standard characters (`check-non-standard-chars.yaml`). Fix the flagged source rather than relaxing the check.
 - **Dependencies**: Dependabot auto-updates the `latex-macros` submodule and GitHub Actions (see `.github/dependabot.yml`); don't bump those by hand unless a PR needs it.
 
-## ai-config plugin
-
-`.claude/settings.json` declares the `Morrison-Lab` marketplace (source:
-[`Morrison-Lab/ai-config`](https://github.com/Morrison-Lab/ai-config)) and enables
-its `ai-config@Morrison-Lab` plugin, along with the `posit-dev-skills` and `sembr`
-marketplaces this template also carries, matching
-[`Morrison-Lab/qbt`](https://github.com/Morrison-Lab/qbt). Declaring is not
-installing: a local session still needs `claude plugin install ai-config@Morrison-Lab`
-once. Because this is a template repository, this declaration is copied once into
-every repo created from it --- an omission here silently ships to every downstream
-site.
-
 ## Pull request expectations
 
 - Keep PRs scoped --- bug fixes shouldn't smuggle in refactors.
@@ -71,9 +79,20 @@ site.
 - Don't bypass CI failures (spell check, link check, lint, bibliography DOIs, non-standard chars) --- fix the underlying issue.
 - Don't commit `_site/` or `_freeze/` changes unless that is genuinely the intent of the PR.
 
+## Shared lab rules
+
+The lab's cross-repository rules live in [`Morrison-Lab/ai-config`](https://github.com/Morrison-Lab/ai-config),
+which `.claude/settings.json` enables as the `ai-config@Morrison-Lab` plugin.
+Enabling is not installing: a local session needs `claude plugin install ai-config@Morrison-Lab` once.
+When the plugin is not loaded (for example, in a session rooted above this checkout),
+read the rules from a clone of ai-config before content work, in particular:
+
+- `shared/writing/` --- definitions, derivation steps, fact-checking, cross-references, plain prose
+- `shared/coding/` --- R style, ASCII punctuation in source
+- `skills/quarto-authoring/references/divs-and-spans.md` --- no theorem-type div nested inside another
+
 ## Things to avoid
 
-- Adding new top-level dependencies (R packages, Quarto extensions) without a clear reason; this is a template, so every dependency lands in every downstream book.
 - Reformatting unrelated files.
 - Inventing URLs or citations --- only use sources actually present in `references.bib` or explicitly provided.
 
@@ -88,4 +107,9 @@ the ai-config plugin), read
 before starting work, and follow it alongside this file.
 This file's own instructions add to those rules, and win only where they are
 more specific.
+
+Also follow the [UCD-SERG Lab Manual](https://ucd-serg.github.io/lab-manual/)
+(source: <https://github.com/UCD-SERG/lab-manual>) and, for prose,
+[*Principles of Scientific Writing*](https://morrison-lab.github.io/psw/)
+(source: <https://github.com/Morrison-Lab/psw>).
 <!-- ai-config:end -->

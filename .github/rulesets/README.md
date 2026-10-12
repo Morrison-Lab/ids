@@ -26,7 +26,7 @@ Applies to the default branch:
 - **No force-pushes, no branch deletion.**
 - **Copilot code review** runs on every push and on draft PRs.
 - **No mandatory approval by default** --- PRs require no approvals to merge
-  (`required_approving_review_count: 0`); raise this under Settings → Rules →
+  (`required_approving_review_count: 0`); raise this under Settings -> Rules ->
   Rulesets if you want a review gate.
 - **Bypass** in `pull_request` mode for the Maintain role (role id 2) ---
   Maintainers can merge pull requests even when the ruleset's PR requirements
@@ -35,7 +35,7 @@ Applies to the default branch:
 ## Editing the ruleset
 
 Edit `main.json` here, then run `apply-rulesets.sh` to push the change to
-the live repo. Or edit in the GitHub UI (Settings → Rules → Rulesets) and
+the live repo. Or edit in the GitHub UI (Settings -> Rules -> Rulesets) and
 re-export with:
 
 ```sh

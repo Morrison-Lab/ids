@@ -52,8 +52,8 @@ jobs:
       changed-chapters-banner: true
       highlight-changes: ${{ !contains(github.event.pull_request.labels.*.name, 'no-preview-highlights') }}
       docx-tracked-changes: true
-      # The home page plus chapters/, and the slide decks that sit beside them
-      # (gha's default `chapters/*.html` and `chapters/*.docx` would miss index).
+      # Pages render at the site root, beside their slide decks
+      # (gha's default `chapters/*.html` and `chapters/*.docx` would miss them).
       changed-chapters-glob: '**/*.html'
       docx-tracked-changes-glob: '**/*.docx'
 

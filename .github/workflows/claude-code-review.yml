@@ -5,7 +5,7 @@
 # line, and already skips drafts, Dependabot bumps, fork PRs, and PRs that
 # edit this workflow file itself (the action can't review its own diff --
 # see gha's own comments on the App-token validation 401). This caller only
-# supplies qwt's Quarto/R-specific review guidance on top.
+# supplies ids's Quarto/R-specific review guidance on top.
 # See https://github.com/Morrison-Lab/gha for inputs and versioning.
 #
 # Secrets are passed explicitly rather than via `secrets: inherit`: GitHub
@@ -41,15 +41,15 @@ jobs:
       contents: read
       pull-requests: write  # post review + inline comments
       issues: write
-      id-token: write        # required by claude-code-action for the App-token exchange
-      actions: read          # lets the reviewer read CI status
-    uses: Morrison-Lab/gha/.github/workflows/claude-code-review.yml@v2
+      actions: read          # lets the reviewer read CI status (github_ci MCP server)
+      checks: read           # required by v3 reusable workflow (gha#833)
+    uses: Morrison-Lab/gha/.github/workflows/claude-code-review.yml@v3
     secrets:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}   # Max-plan OAuth; empty when using API key
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}               # direct API key; empty when using OAuth
       SUBMODULES_TOKEN: ${{ secrets.SUBMODULES_TOKEN }}   # optional; latex-macros/ is public, so unset is fine
     with:
-      pr-number: ${{ inputs.pr_number }}
+      pr-number: ${{ github.event.pull_request.number || inputs.pr_number }}
       checkout-submodules: true  # latex-macros/ so the reviewer can read it, not report it "not initialized"
       # `claude` is included because a remote Claude session pushing a
       # commit directly to a PR fires `synchronize` with `claude` as the
@@ -58,9 +58,8 @@ jobs:
       # "non-human actor".
       allowed-bots: 'github-actions[bot],claude'
       prompt-addendum: |
-        In addition to the standard checks above, this is the qwt Quarto
-        website template -- small, prose-heavy, and re-used as a template
-        for downstream books -- so also prioritize:
+        In addition to the standard checks above, this is a small,
+        prose-heavy Quarto website, so also prioritize:
 
         1. **Quarto / prose correctness**
            - `.qmd` syntax: chunk options use `#|` directives, fenced
@@ -73,15 +72,13 @@ jobs:
 
         2. **R code**
            - Conforms to `.lintr.R` settings (snake_case, line length, etc.).
-           - No new package dependencies without justification -- every
-             dependency added here lands in every downstream book.
 
         3. **Build hygiene**
            - No accidental commits of `_site/`, `_freeze/`, or `.quarto/`.
            - `README.md` is generated; edits should go to `README.Rmd`.
            - Bibliography entries in `references.bib` are well-formed BibTeX.
 
-        4. **CI / template impact**
+        4. **CI impact**
            - Workflow changes don't break the `copilot-setup-steps.yml`
              contract or the publish/preview pipelines.
            - Spell-check / link-check failures are fixed at the source
