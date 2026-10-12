@@ -4,17 +4,21 @@ Code
 
 Published
 
-Last modified: 2026-10-12 01:05:26 (PDT)
+Last modified: 2026-10-12 02:31:20 (PDT)
 
 ## Welcome
 
 Information theory measures uncertainty and information: how many bits a message needs, how much one random variable tells us about another, and how fast data can cross a noisy channel. Data science uses its quantities directly: cross-entropy is the loss in logistic regression and neural networks, Kullback–Leibler divergence links maximum likelihood to model fit, and mutual information drives the information gain of decision trees.
 
-These notes collect the information theory that data science courses use. They are new, and the topic pages are still to be written. The planned topics are:
+These notes collect the information theory that data science courses use. They are new. The pages written so far are:
 
-- entropy, joint and conditional entropy, and mutual information
+- [Entropy and mutual information](entropy.llms.md): surprisal, joint and conditional entropy, mutual information, and the information gain of decision trees
+- [Source coding](source-coding.llms.md): the source coding theorem, and cross-entropy as the cost of coding with the wrong distribution
+
+The planned topics still to come are:
+
 - Kullback–Leibler divergence and its link to maximum likelihood
-- source coding: the source coding theorem, Huffman and arithmetic codes
+- Huffman and arithmetic codes
 - channel coding: channel capacity and the noisy-channel coding theorem
 - Kolmogorov complexity, and how it relates to Shannon entropy
 
