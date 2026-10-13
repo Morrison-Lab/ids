@@ -46,7 +46,7 @@ Computational complexity has its own library,
 
 ## Where to read about the planned topics {.unnumbered}
 
-Stanford's information theory courses cover the planned topics above,
+Stanford's information theory courses cover many of the planned topics above,
 and they publish their course pages:
 
 - [EE 276, *Information Theory*](https://web.stanford.edu/class/ee276/)
