@@ -177,7 +177,7 @@
     "href": "index-slides.html#where-to-read-about-the-planned-topics",
     "title": "Information Theory for Data Science",
     "section": "Where to read about the planned topics",
-    "text": "Where to read about the planned topics\nStanford’s information theory courses cover the planned topics above, and they publish their course pages:\n\nEE 276, Information Theory (Tsachy Weissman) covers entropy and mutual information, the asymptotic equipartition property, prefix codes and Huffman codes, channel capacity and the channel coding theorem, and rate distortion. Its reading page lists books and Shannon’s papers.\nEE 274, Data Compression, Theory and Applications covers entropy coding and how tools such as gzip and bzip2 work, then lossy image and video coding.\n\nThe courses’ own notes and slides carry no license, so these notes link to them and do not reuse their text."
+    "text": "Where to read about the planned topics\nStanford’s information theory courses cover many of the planned topics above, and they publish their course pages:\n\nEE 276, Information Theory (Tsachy Weissman) covers entropy and mutual information, the asymptotic equipartition property, prefix codes and Huffman codes, channel capacity and the channel coding theorem, and rate distortion. Its reading page lists books and Shannon’s papers.\nEE 274, Data Compression, Theory and Applications covers entropy coding and how tools such as gzip and bzip2 work, then lossy image and video coding.\n\nThe courses’ own notes and slides carry no license, so these notes link to them and do not reuse their text."
   },
   {
     "objectID": "index-slides.html#using-these-notes-in-another-site",
@@ -205,7 +205,7 @@
     "href": "index.html#where-to-read-about-the-planned-topics",
     "title": "Information Theory for Data Science",
     "section": "Where to read about the planned topics",
-    "text": "Where to read about the planned topics\nStanford’s information theory courses cover the planned topics above, and they publish their course pages:\n\nEE 276, Information Theory (Tsachy Weissman) covers entropy and mutual information, the asymptotic equipartition property, prefix codes and Huffman codes, channel capacity and the channel coding theorem, and rate distortion. Its reading page lists books and Shannon’s papers.\nEE 274, Data Compression, Theory and Applications covers entropy coding and how tools such as gzip and bzip2 work, then lossy image and video coding.\n\nThe courses’ own notes and slides carry no license, so these notes link to them and do not reuse their text."
+    "text": "Where to read about the planned topics\nStanford’s information theory courses cover many of the planned topics above, and they publish their course pages:\n\nEE 276, Information Theory (Tsachy Weissman) covers entropy and mutual information, the asymptotic equipartition property, prefix codes and Huffman codes, channel capacity and the channel coding theorem, and rate distortion. Its reading page lists books and Shannon’s papers.\nEE 274, Data Compression, Theory and Applications covers entropy coding and how tools such as gzip and bzip2 work, then lossy image and video coding.\n\nThe courses’ own notes and slides carry no license, so these notes link to them and do not reuse their text."
   },
   {
     "objectID": "index.html#using-these-notes-in-another-site",

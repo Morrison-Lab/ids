@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-13 14:07:46 (PDT)
+Last modified: 2026-10-13 14:15:59 (PDT)
 
 ## Welcome
 
@@ -26,7 +26,7 @@ Entropy, cross-entropy and KL divergence are defined in [*Probability for Data S
 
 ## Where to read about the planned topics
 
-Stanford’s information theory courses cover the planned topics above, and they publish their course pages:
+Stanford’s information theory courses cover many of the planned topics above, and they publish their course pages:
 
 - [EE 276, *Information Theory*](https://web.stanford.edu/class/ee276/) (Tsachy Weissman) covers entropy and mutual information, the asymptotic equipartition property, prefix codes and Huffman codes, channel capacity and the channel coding theorem, and rate distortion. Its [reading page](https://web.stanford.edu/class/ee276/reading.html) lists books and Shannon’s papers.
 - [EE 274, *Data Compression, Theory and Applications*](https://stanforddatacompressionclass.github.io/Fall22/) covers entropy coding and how tools such as gzip and bzip2 work, then lossy image and video coding.
