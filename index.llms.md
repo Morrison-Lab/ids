@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 02:31:20 (PDT)
+Last modified: 2026-10-13 14:27:11 (PDT)
 
 ## Welcome
 
@@ -23,6 +23,15 @@ The planned topics still to come are:
 - Kolmogorov complexity, and how it relates to Shannon entropy
 
 Entropy, cross-entropy and KL divergence are defined in [*Probability for Data Science*](https://morrison-lab.github.io/pds/expectation.html#sec-entropy); pages here link to those definitions rather than repeating them. Computational complexity has its own library, [*Computational Complexity for Data Science*](https://morrison-lab.github.io/cds/).
+
+## Where to read about the planned topics
+
+Stanford’s information theory courses cover many of the planned topics above, and they publish their course pages:
+
+- [EE 276, *Information Theory*](https://web.stanford.edu/class/ee276/) (Tsachy Weissman) covers entropy and mutual information, the asymptotic equipartition property, prefix codes and Huffman codes, channel capacity and the channel coding theorem, and rate distortion. Its [reading page](https://web.stanford.edu/class/ee276/reading.html) lists books and Shannon’s papers.
+- [EE 274, *Data Compression, Theory and Applications*](https://stanforddatacompressionclass.github.io/Fall22/) covers entropy coding and how tools such as gzip and bzip2 work, then lossy image and video coding.
+
+The courses’ own notes and slides carry no license, so these notes link to them and do not reuse their text.
 
 ## Using these notes in another site
 

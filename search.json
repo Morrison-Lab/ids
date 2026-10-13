@@ -173,6 +173,13 @@
     "text": "Welcome\nInformation theory measures uncertainty and information: how many bits a message needs, how much one random variable tells us about another, and how fast data can cross a noisy channel. Data science uses its quantities directly: cross-entropy is the loss in logistic regression and neural networks, Kullback–Leibler divergence links maximum likelihood to model fit, and mutual information drives the information gain of decision trees.\nThese notes collect the information theory that data science courses use. They are new. The pages written so far are:\n\nEntropy and mutual information: surprisal, joint and conditional entropy, mutual information, and the information gain of decision trees\nSource coding: the source coding theorem, and cross-entropy as the cost of coding with the wrong distribution\n\nThe planned topics still to come are:\n\nKullback–Leibler divergence and its link to maximum likelihood\nHuffman and arithmetic codes\nchannel coding: channel capacity and the noisy-channel coding theorem\nKolmogorov complexity, and how it relates to Shannon entropy\n\nEntropy, cross-entropy and KL divergence are defined in Probability for Data Science; pages here link to those definitions rather than repeating them. Computational complexity has its own library, Computational Complexity for Data Science."
   },
   {
+    "objectID": "index-slides.html#where-to-read-about-the-planned-topics",
+    "href": "index-slides.html#where-to-read-about-the-planned-topics",
+    "title": "Information Theory for Data Science",
+    "section": "Where to read about the planned topics",
+    "text": "Where to read about the planned topics\nStanford’s information theory courses cover many of the planned topics above, and they publish their course pages:\n\nEE 276, Information Theory (Tsachy Weissman) covers entropy and mutual information, the asymptotic equipartition property, prefix codes and Huffman codes, channel capacity and the channel coding theorem, and rate distortion. Its reading page lists books and Shannon’s papers.\nEE 274, Data Compression, Theory and Applications covers entropy coding and how tools such as gzip and bzip2 work, then lossy image and video coding.\n\nThe courses’ own notes and slides carry no license, so these notes link to them and do not reuse their text."
+  },
+  {
     "objectID": "index-slides.html#using-these-notes-in-another-site",
     "href": "index-slides.html#using-these-notes-in-another-site",
     "title": "Information Theory for Data Science",
@@ -192,6 +199,13 @@
     "title": "Information Theory for Data Science",
     "section": "",
     "text": "Information theory measures uncertainty and information: how many bits a message needs, how much one random variable tells us about another, and how fast data can cross a noisy channel. Data science uses its quantities directly: cross-entropy is the loss in logistic regression and neural networks, Kullback–Leibler divergence links maximum likelihood to model fit, and mutual information drives the information gain of decision trees.\nThese notes collect the information theory that data science courses use. They are new. The pages written so far are:\n\nEntropy and mutual information: surprisal, joint and conditional entropy, mutual information, and the information gain of decision trees\nSource coding: the source coding theorem, and cross-entropy as the cost of coding with the wrong distribution\n\nThe planned topics still to come are:\n\nKullback–Leibler divergence and its link to maximum likelihood\nHuffman and arithmetic codes\nchannel coding: channel capacity and the noisy-channel coding theorem\nKolmogorov complexity, and how it relates to Shannon entropy\n\nEntropy, cross-entropy and KL divergence are defined in Probability for Data Science; pages here link to those definitions rather than repeating them. Computational complexity has its own library, Computational Complexity for Data Science."
+  },
+  {
+    "objectID": "index.html#where-to-read-about-the-planned-topics",
+    "href": "index.html#where-to-read-about-the-planned-topics",
+    "title": "Information Theory for Data Science",
+    "section": "Where to read about the planned topics",
+    "text": "Where to read about the planned topics\nStanford’s information theory courses cover many of the planned topics above, and they publish their course pages:\n\nEE 276, Information Theory (Tsachy Weissman) covers entropy and mutual information, the asymptotic equipartition property, prefix codes and Huffman codes, channel capacity and the channel coding theorem, and rate distortion. Its reading page lists books and Shannon’s papers.\nEE 274, Data Compression, Theory and Applications covers entropy coding and how tools such as gzip and bzip2 work, then lossy image and video coding.\n\nThe courses’ own notes and slides carry no license, so these notes link to them and do not reuse their text."
   },
   {
     "objectID": "index.html#using-these-notes-in-another-site",
