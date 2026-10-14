@@ -1,0 +1,19 @@
+:::{#thm-singleton-bound}
+#### Singleton bound
+
+Every [block code](#def-block-code) over an alphabet of $q$ symbols,
+with message length $k$, block length $n$ and
+[minimum distance](#def-hamming-distance) $d$,
+satisfies $d \le n - k + 1$.
+
+:::
+
+::: {.proof}
+Delete the last $d - 1$ symbols of every codeword.
+Two different codewords differ in at least $d$ positions,
+so they still differ in one of the first $n - d + 1$ positions.
+So the $q^k$ codewords stay distinct as strings of length $n - d + 1$,
+of which there are $q^{n - d + 1}$.
+Hence $q^k \le q^{n - d + 1}$, that is, $k \le n - d + 1$.
+
+:::

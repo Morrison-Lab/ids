@@ -1,0 +1,122 @@
+---
+title: "Error-correcting codes"
+format:
+  html: default
+  revealjs:
+    output-file: error-correcting-codes-slides.html
+  pdf:
+    output-file: error-correcting-codes-handout.pdf
+  docx:
+    output-file: error-correcting-codes.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+An error-correcting code adds redundancy to a message
+so that the receiver can recover it even after some symbols are changed.
+This page covers the basic definitions,
+the Hamming and Reed--Solomon codes,
+and then how codes that can be decoded by reading only a few symbols
+lead to central results of computational complexity.
+
+## Codes and distance {#sec-codes-and-distance}
+
+<!-- No slidebreak here: the heading shares its slide with the def-block-code div. -->
+
+{{< include ids/_subfiles/_def-block-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-hamming-distance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-distance-corrects-errors.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-repetition-code-distance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-shannon-vs-hamming.qmd >}}
+
+## Linear codes {#sec-linear-codes}
+
+<!-- No slidebreak here: the heading shares its slide with the def-linear-code div. -->
+
+{{< include ids/_subfiles/_def-linear-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-weight.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-linear-code-weight.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-hamming-code.qmd >}}
+
+## Reed--Solomon codes {#sec-reed-solomon}
+
+<!-- No slidebreak here: the heading shares its slide with the thm-singleton-bound div. -->
+
+{{< include ids/_subfiles/_thm-singleton-bound.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-reed-solomon-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-reed-solomon-distance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-reed-solomon.qmd >}}
+
+## From codes to complexity {#sec-codes-to-complexity}
+
+Complexity theory uses codes that can be decoded
+by reading only a few symbols of the received word.
+The [*Computational Complexity for Data Science*](https://morrison-lab.github.io/cds/)
+library covers the complexity classes these results are about.
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-hadamard-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-hadamard-distance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-hadamard-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-hadamard-local-decoding.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-locally-decodable.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-local-decoding.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-hardness-amplification.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-codes-pcp.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

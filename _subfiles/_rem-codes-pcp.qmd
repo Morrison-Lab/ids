@@ -1,0 +1,17 @@
+::: {#rem-codes-pcp}
+#### Codes in the PCP theorem
+
+The PCP theorem says that every statement in NP
+has a proof that a randomized verifier can check
+by reading a constant number of its bits
+and using only $O(\log n)$ random bits,
+where $n$ is the length of the statement.
+@arora2009computational [chapter 11] prove a weaker version,
+in which the verifier uses polynomially many random bits,
+by writing the proof in the [Hadamard code](#def-hadamard-code).
+The verifier then tests a few random positions of the encoded proof,
+in the spirit of @thm-hadamard-local-decoding,
+instead of reading all of it.
+They prove the full theorem in chapter 22.
+
+:::

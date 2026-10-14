@@ -1,0 +1,12 @@
+:::{#def-locally-decodable}
+#### Locally decodable code
+
+A [block code](#def-block-code) $E$ is **locally decodable**
+with $r$ queries and error fraction $\delta$
+if there is a randomized decoder with the following property.
+Given an index $i$ and access to any word $w$ that differs from some codeword $E(x)$
+in at most a fraction $\delta$ of its positions,
+the decoder reads at most $r$ symbols of $w$
+and outputs $x_i$ with probability at least $2/3$.
+
+:::

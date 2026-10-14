@@ -1,0 +1,38 @@
+:::{#thm-distance-corrects-errors}
+#### Minimum distance sets how many errors a code handles
+
+Let a [block code](#def-block-code) have
+[minimum distance](#def-hamming-distance) $d$,
+and let $y$ be a codeword $c$ with some of its symbols changed.
+
+1. If at most $d - 1$ symbols changed and at least one did,
+   then $y$ is not a codeword, so the receiver detects the error.
+
+2. If at most $t \eqdef \lfloor (d - 1)/2 \rfloor$ symbols changed,
+   then $c$ is the only codeword nearest to $y$ in Hamming distance,
+   so decoding $y$ to its nearest codeword corrects the errors.
+
+:::
+
+::: {.proof}
+For part 1, $0 < \Delta(c, y) \le d - 1 < d$,
+so $y \ne c$.
+If $y$ were another codeword $c'$, then $\Delta(c, c') = \Delta(c, y) < d$,
+which the minimum distance rules out.
+
+For part 2, Hamming distance satisfies the triangle inequality,
+since a position where $c$ and $c'$ differ is a position
+where $y$ differs from $c$ or from $c'$.
+So for any codeword $c' \ne c$,
+
+$$
+\Delta(c', y)
+\ge \Delta(c, c') - \Delta(c, y)
+\ge d - t
+\ge t + 1
+> \Delta(c, y),
+$$
+
+where $d - t \ge t + 1$ because $2t \le d - 1$.
+
+:::

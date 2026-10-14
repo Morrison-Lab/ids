@@ -1,0 +1,16 @@
+:::{#def-linear-code}
+#### Linear code
+
+Let the alphabet be a finite field $\mathbb{F}_q$,
+such as $\mathbb{F}_2 = \{0, 1\}$ with addition and multiplication modulo 2.
+A **linear code** is a [block code](#def-block-code)
+whose set of codewords $C$ is a $k$-dimensional subspace of $\mathbb{F}_q^n$.
+One way to describe it is by a **parity-check matrix**:
+an $(n - k) \times n$ matrix $H$ of rank $n - k$ with
+$C = \{y \in \mathbb{F}_q^n : H y = 0\}$,
+where $y$ is treated as a column vector.
+A linear code with block length $n$, dimension $k$
+and [minimum distance](#def-hamming-distance) $d$
+is called an $[n, k, d]_q$ code.
+
+:::
