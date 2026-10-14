@@ -1,7 +1,7 @@
 :::{#def-hadamard-code}
 #### Hadamard code
 
-The **Hadamard code** sends a message $x \in \mathbb{F}_2^k$
+The **Hadamard code** sends a message $x \in \mathbb{F}_2^k$, for $k \ge 1$,
 to the $2^k$ inner products
 
 $$\langle x, a \rangle = x_1 a_1 + \cdots + x_k a_k \pmod 2,$$

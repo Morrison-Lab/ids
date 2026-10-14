@@ -6,6 +6,8 @@ has a proof that a randomized verifier can check
 by reading a constant number of its bits
 and using only $O(\log n)$ random bits,
 where $n$ is the length of the statement.
+If the statement is true, some proof makes the verifier accept with probability 1;
+if it is false, every proof makes the verifier reject with probability at least $1/2$.
 @arora2009computational [chapter 11] prove a weaker version,
 in which the verifier uses polynomially many random bits,
 by writing the proof in the [Hadamard code](#def-hadamard-code).

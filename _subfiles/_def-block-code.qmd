@@ -1,7 +1,7 @@
 :::{#def-block-code}
 #### Block code
 
-Let $\Sigma$ be a finite alphabet with $q$ symbols,
+Let $\Sigma$ be a finite alphabet with $q \ge 2$ symbols,
 and let $k \le n$ be positive integers.
 A **block code** with message length $k$ and block length $n$
 is a one-to-one map $E : \Sigma^k \to \Sigma^n$.

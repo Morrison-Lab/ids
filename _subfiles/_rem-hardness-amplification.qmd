@@ -4,7 +4,8 @@
 A Boolean function $f : \{0,1\}^\ell \to \{0,1\}$
 is determined by its *truth table*, a binary string of length $2^\ell$,
 so it can be encoded like any message.
-Encode the truth table with a locally decodable code,
+Encode the truth table with a [locally decodable code](#def-locally-decodable)
+whose decoder is itself a small circuit,
 and read the codeword as the truth table of a new function $\hat f$.
 If a small circuit computed $\hat f$ correctly on most inputs,
 then running a local decoder on that circuit's outputs

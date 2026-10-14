@@ -9,7 +9,7 @@ When $\delta < 1/4$, the decoder is right with probability above $1/2$,
 and repeating it with fresh random choices and taking a majority vote
 drives its error probability as low as needed.
 Decoding to the nearest codeword, as in @thm-distance-corrects-errors,
-instead reads all $2^k$ symbols.
+instead reads the whole received word.
 The Hadamard code pays for local decoding with block length $2^k$;
 polynomial codes in several variables,
 which extend [Reed--Solomon codes](#def-reed-solomon-code),

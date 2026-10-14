@@ -1,5 +1,5 @@
 :::{#thm-hadamard-local-decoding}
-#### The Hadamard code is locally decodable
+#### Two-query decoding of the Hadamard code
 
 Let $w$ be a binary string of length $2^k$,
 with $w(a)$ its symbol at the position indexed by $a \in \mathbb{F}_2^k$,
@@ -7,7 +7,7 @@ that differs from the [Hadamard codeword](#def-hadamard-code) of $x$
 in at most a fraction $\delta$ of its positions.
 Fix $i \in \{1, \ldots, k\}$,
 and let $e_i$ have a 1 in position $i$ only.
-Choose $a \in \mathbb{F}_2^k$ uniformly at random and output $w(a) + w(a + e_i)$.
+Choose $a \in \mathbb{F}_2^k$ uniformly at random and output $w(a) + w(a + e_i) \pmod 2$.
 The output equals $x_i$ with probability at least $1 - 2\delta$.
 
 :::

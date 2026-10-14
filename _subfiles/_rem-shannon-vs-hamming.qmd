@@ -5,7 +5,8 @@
 error-correcting codes add redundancy back, in a controlled way,
 so that the receiver can undo errors.
 @shannon1948mathematical modeled errors as random
-and found the highest rate at which a code can make
+and found the highest rate, the
+[channel capacity](channel-capacity.qmd#def-channel-capacity), at which a code can make
 the probability of a decoding error as small as wanted.
 The codes on this page instead guard against any pattern of
 up to $t$ errors, however they arise,
