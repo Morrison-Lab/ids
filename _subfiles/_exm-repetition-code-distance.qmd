@@ -1,5 +1,5 @@
-::: {#exm-repetition-code}
-#### The repetition code
+::: {#exm-repetition-code-distance}
+#### The repetition code corrects one error
 
 The binary repetition code sends each bit three times:
 $E(0) = 000$ and $E(1) = 111$.

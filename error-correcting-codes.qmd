@@ -35,7 +35,7 @@ lead to central results of computational complexity.
 
 {{< slidebreak >}}
 
-{{< include ids/_subfiles/_exm-repetition-code.qmd >}}
+{{< include ids/_subfiles/_exm-repetition-code-distance.qmd >}}
 
 {{< slidebreak >}}
 
