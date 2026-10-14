@@ -1,0 +1,27 @@
+:::{#exm-bsc-capacity}
+#### A channel that flips one bit in ten
+
+For a [binary symmetric channel](#def-binary-symmetric-channel)
+with $\epsilon = 0.1$,
+
+$$
+\begin{aligned}
+h(0.1)
+&= -0.1 \log_2 0.1 - 0.9 \log_2 0.9 \\
+&\approx 0.332 + 0.137 \\
+&\approx 0.469 \text{ bits},
+\end{aligned}
+$$
+
+so by @thm-bsc-capacity the capacity is
+
+$$C \approx 1 - 0.469 = 0.531 \text{ bits per channel use}.$$
+
+Each use carries one binary digit,
+but on average only about half a bit of it gets through.
+At $\epsilon = 1/2$, $h(1/2) = 1$ and $C = 0$:
+the output is independent of the input.
+At $\epsilon = 1$, $C = 1$ again,
+since the receiver can flip every bit back.
+
+:::

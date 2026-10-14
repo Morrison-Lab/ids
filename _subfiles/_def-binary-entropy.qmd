@@ -1,0 +1,10 @@
+:::{#def-binary-entropy}
+#### Binary entropy function
+
+The **binary entropy function** is
+
+$$h(\epsilon) \eqdef -\epsilon \log_2 \epsilon - (1 - \epsilon) \log_2 (1 - \epsilon)$$
+
+for $0 < \epsilon < 1$, with $h(0) = h(1) \eqdef 0$.
+
+:::

@@ -1,0 +1,19 @@
+:::{#def-binary-erasure-channel}
+#### Binary erasure channel
+
+The **binary erasure channel** with *erasure probability* $\alpha \in [0, 1]$
+is the [discrete memoryless channel](#def-channel)
+with $\mathcal{X} = \{0, 1\}$ and $\mathcal{Y} = \{0, \mathrm{e}, 1\}$
+that delivers its input with probability $1 - \alpha$
+and otherwise outputs the erasure symbol $\mathrm{e}$:
+
+$$
+p(y \mid x) =
+\begin{cases}
+1 - \alpha & \text{if } y = x, \\
+\alpha & \text{if } y = \mathrm{e}, \\
+0 & \text{otherwise}.
+\end{cases}
+$$
+
+:::

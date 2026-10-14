@@ -1,0 +1,93 @@
+---
+title: "Channel capacity"
+format:
+  html: default
+  revealjs:
+    output-file: channel-capacity-slides.html
+  pdf:
+    output-file: channel-capacity-handout.pdf
+  docx:
+    output-file: channel-capacity.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+A channel carries symbols from a sender to a receiver, and noise corrupts some of them.
+This page measures how much information a channel can carry,
+using the [mutual information](entropy.qmd#sec-mutual-information)
+between what goes in and what comes out.
+
+## Channels {#sec-channels}
+
+<!-- No slidebreak here: the heading shares its slide with the def-channel div. -->
+
+{{< include ids/_subfiles/_def-channel.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-binary-symmetric-channel.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-binary-erasure-channel.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-erasure-known.qmd >}}
+
+## Capacity {#sec-channel-capacity}
+
+<!-- No slidebreak here: the heading shares its slide with the def-channel-capacity div. -->
+
+{{< include ids/_subfiles/_def-channel-capacity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-capacity-meaning.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-binary-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-binary-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-bsc-capacity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-bsc-capacity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exr-bec-capacity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_sol-bec-capacity.qmd >}}
+
+## The noisy-channel coding theorem {#sec-channel-coding-theorem}
+
+<!-- No slidebreak here: the heading shares its slide with the def-channel-code div. -->
+
+{{< include ids/_subfiles/_def-channel-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-repetition-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-channel-coding.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-channel-coding-meaning.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

@@ -1,0 +1,20 @@
+:::{#def-channel-capacity}
+#### Channel capacity
+
+Send one input $X$ through a [discrete memoryless channel](#def-channel),
+and let $Y$ be the output.
+The joint distribution of $(X, Y)$ is
+$\P(X = x, Y = y) = \P(X = x) \, p(y \mid x)$,
+so the
+[mutual information](entropy.qmd#def-mutual-information) $I(X; Y)$
+depends on the channel and on the input distribution.
+The **capacity** of the channel is the largest mutual information
+any input distribution achieves:
+
+$$C \eqdef \max_{\P(X = \cdot)} I(X; Y),$$
+
+where the maximum runs over all probability mass functions on $\mathcal{X}$
+[@cover2006elements, chapter 7].
+With base-2 logarithms, $C$ is measured in *bits per channel use*.
+
+:::

@@ -1,0 +1,21 @@
+:::{#def-channel-code}
+#### Channel code and rate
+
+An $(M, n)$ **channel code** for a [discrete memoryless channel](#def-channel)
+sends one of $M$ messages, $w \in \{1, \dots, M\}$, in $n$ uses of the channel.
+It has
+
+- an *encoder*, which maps each message $w$ to a *codeword*
+  $(x_1(w), \dots, x_n(w))$ of $n$ inputs, and
+- a *decoder*, which maps each sequence of $n$ outputs to a guess at $w$.
+
+Its **rate** is
+
+$$R \eqdef \frac{\log_2 M}{n} \text{ bits per channel use},$$
+
+and its **maximal probability of error** $\lambda^{(n)}$
+is the largest, over messages $w$,
+of the probability that the decoder's guess is wrong when $w$ is sent.
+These are the definitions of @cover2006elements [section 7.5].
+
+:::

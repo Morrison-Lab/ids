@@ -30,12 +30,15 @@ The pages written so far are:
 - [Source coding](source-coding.qmd):
   the source coding theorem, and cross-entropy as the cost of coding
   with the wrong distribution
+- [Channel capacity](channel-capacity.qmd):
+  discrete memoryless channels, the capacity of the binary symmetric
+  and erasure channels, and the noisy-channel coding theorem
 
 The planned topics still to come are:
 
 - Kullback--Leibler divergence and its link to maximum likelihood
 - Huffman and arithmetic codes
-- channel coding: channel capacity and the noisy-channel coding theorem
+- proofs of the noisy-channel coding theorem, and codes that approach capacity
 - Kolmogorov complexity, and how it relates to Shannon entropy
 
 Entropy, cross-entropy and KL divergence are defined in

@@ -39,6 +39,7 @@ website:
       - text: "Coding"
         menu:
           - source-coding.qmd
+          - channel-capacity.qmd
     right:
       - icon: github
         href: https://github.com/Morrison-Lab/ids
@@ -56,6 +57,7 @@ website:
       - section: "Coding"
         contents:
           - source-coding.qmd
+          - channel-capacity.qmd
 
 callouty-theorem:
   thm:

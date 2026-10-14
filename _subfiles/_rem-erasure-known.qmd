@@ -1,0 +1,9 @@
+::: {#rem-erasure-known}
+#### Erasures are visible
+
+On the binary erasure channel the receiver knows which symbols were lost,
+but not what they were.
+On the binary symmetric channel the receiver cannot tell
+which symbols were flipped.
+
+:::
