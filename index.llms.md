@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 01:49:15 (PDT)
+Last modified: 2026-10-14 11:35:38 (PDT)
 
 ## Welcome
 
@@ -14,15 +14,15 @@ These notes collect the information theory that data science courses use. They a
 
 - [Entropy and mutual information](entropy.llms.md): surprisal, joint and conditional entropy, mutual information, and the information gain of decision trees
 - [Source coding](source-coding.llms.md): the source coding theorem, and cross-entropy as the cost of coding with the wrong distribution
+- [Error-correcting codes](error-correcting-codes.llms.md): Hamming distance, the Hamming and Reed–Solomon codes, and how locally decodable codes lead to hardness amplification and the PCP theorem
 
 The planned topics still to come are:
 
 - Kullback–Leibler divergence and its link to maximum likelihood
 - Huffman and arithmetic codes
 - channel coding: channel capacity and the noisy-channel coding theorem
-- Kolmogorov complexity, and how it relates to Shannon entropy
 
-Entropy, cross-entropy and KL divergence are defined in [*Probability for Data Science*](https://morrison-lab.github.io/pds/expectation.html#sec-entropy); pages here link to those definitions rather than repeating them. Computational complexity has its own library, [*Computational Complexity for Data Science*](https://morrison-lab.github.io/cds/).
+Entropy, cross-entropy and KL divergence are defined in [*Probability for Data Science*](https://morrison-lab.github.io/pds/expectation.html#sec-entropy); pages here link to those definitions rather than repeating them. Computational complexity has its own library, [*Computational Complexity for Data Science*](https://morrison-lab.github.io/cds/). Kolmogorov complexity, which relates the shortest description of a single string to Shannon entropy, is covered there.
 
 ## Where to read about the planned topics
 
