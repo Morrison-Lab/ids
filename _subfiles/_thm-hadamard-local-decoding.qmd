@@ -1,0 +1,25 @@
+:::{#thm-hadamard-local-decoding}
+#### The Hadamard code is locally decodable
+
+Let $w$ be a binary string of length $2^k$,
+with $w(a)$ its symbol at the position indexed by $a \in \mathbb{F}_2^k$,
+that differs from the [Hadamard codeword](#def-hadamard-code) of $x$
+in at most a fraction $\delta$ of its positions.
+Fix $i \in \{1, \ldots, k\}$,
+and let $e_i$ have a 1 in position $i$ only.
+Choose $a \in \mathbb{F}_2^k$ uniformly at random and output $w(a) + w(a + e_i)$.
+The output equals $x_i$ with probability at least $1 - 2\delta$.
+
+:::
+
+::: {.proof}
+Both $a$ and $a + e_i$ are uniformly distributed on $\mathbb{F}_2^k$,
+so each of $w(a)$ and $w(a + e_i)$ is wrong with probability at most $\delta$,
+and by the union bound both are correct with probability at least $1 - 2\delta$.
+When both are correct, the output is
+
+$$\langle x, a \rangle + \langle x, a + e_i \rangle = \langle x, e_i \rangle = x_i,$$
+
+because $\langle x, a \rangle + \langle x, a \rangle = 0$ modulo 2.
+
+:::

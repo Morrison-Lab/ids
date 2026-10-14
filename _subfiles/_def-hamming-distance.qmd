@@ -1,0 +1,10 @@
+:::{#def-hamming-distance}
+#### Hamming distance and minimum distance
+
+The **Hamming distance** $\Delta(x, y)$ between two strings
+$x, y \in \Sigma^n$ is the number of positions $i$ with $x_i \ne y_i$.
+The **minimum distance** of a [block code](#def-block-code) with codewords $C$ is
+
+$$d \eqdef \min \{ \Delta(c, c') : c, c' \in C, \ c \ne c' \}.$$
+
+:::

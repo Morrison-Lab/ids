@@ -40,6 +40,7 @@ website:
         menu:
           - source-coding.qmd
           - channel-capacity.qmd
+          - error-correcting-codes.qmd
     right:
       - icon: github
         href: https://github.com/Morrison-Lab/ids
@@ -58,6 +59,7 @@ website:
         contents:
           - source-coding.qmd
           - channel-capacity.qmd
+          - error-correcting-codes.qmd
 
 callouty-theorem:
   thm:

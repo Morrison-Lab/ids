@@ -1,0 +1,12 @@
+::: {#exm-repetition-code-distance}
+#### The repetition code corrects one error
+
+The binary repetition code sends each bit three times:
+$E(0) = 000$ and $E(1) = 111$.
+Its minimum distance is $d = 3$,
+so by @thm-distance-corrects-errors it corrects $t = 1$ error:
+a received $010$ decodes to $000$, the codeword it is nearest to.
+The price is the rate, $R = 1/3$.
+@mackay2003information [chapter 1] calls this code $R_3$.
+
+:::

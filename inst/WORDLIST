@@ -34,3 +34,11 @@ gzip
 lossy
 Fano's
 memoryless
+Hadamard
+Hamming
+PCP
+Reed
+Solomon
+Walsh
+NP
+pseudorandom
