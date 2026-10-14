@@ -55,34 +55,6 @@
     ]
   },
   {
-    "objectID": "source-coding-slides.html#sec-codes",
-    "href": "source-coding-slides.html#sec-codes",
-    "title": "Source coding",
-    "section": "1 Codes",
-    "text": "1 Codes\n\n\nDefinition 1 (Binary code) Let \\(X\\) be a discrete random variable. A binary code for \\(X\\) assigns each value \\(x\\) a codeword, a finite string of binary digits, of length \\(\\ell(x)\\)."
-  },
-  {
-    "objectID": "source-coding-slides.html#sec-source-coding-theorem",
-    "href": "source-coding-slides.html#sec-source-coding-theorem",
-    "title": "Source coding",
-    "section": "2 The source coding theorem",
-    "text": "2 The source coding theorem\n\n\nTheorem 1 (Source coding theorem) Let \\(X\\) be a discrete random variable that takes finitely many values, at least two of them with positive probability, and let \\(H_2(X)\\) be its entropy with base-2 logarithms.\n\nEvery uniquely decodable binary code for \\(X\\) has expected length \\(L \\ge H_2(X)\\).\nSome uniquely decodable binary code for \\(X\\) has expected length \\(L &lt; H_2(X) + 1\\).\nCoding blocks of \\(n\\) independent copies of \\(X\\) at a time, some uniquely decodable binary code spends, on average, fewer than \\(H_2(X) + 1/n\\) binary digits per copy."
-  },
-  {
-    "objectID": "source-coding-slides.html#sec-wrong-code",
-    "href": "source-coding-slides.html#sec-wrong-code",
-    "title": "Source coding",
-    "section": "3 Coding with the wrong distribution",
-    "text": "3 Coding with the wrong distribution\n\n\nTheorem 2 (The cost of coding with the wrong distribution) Let \\(X\\) take finitely many values, with probability mass function \\(p\\), and let \\(q\\) be a probability mass function, possibly different from \\(p\\), with \\(q(x) &gt; 0\\) wherever \\(p(x) &gt; 0\\). Suppose a code gives each value \\(x\\) with \\(p(x) &gt; 0\\) the length \\(\\ell(x) = \\lceil -\\log_2 q(x) \\rceil\\). Then its expected length \\(L\\) under \\(p\\) satisfies\n\\[H_2(p, q) \\le L &lt; H_2(p, q) + 1,\\]\nwhere \\(H_2(p, q)\\) is the cross-entropy of \\(q\\) relative to \\(p\\), with base-2 logarithms.\n\n\nProof. Every sum here runs over the values \\(x\\) with \\(p(x) &gt; 0\\). Rounding up adds less than one binary digit, so for each such \\(x\\)\n\\[-\\log_2 q(x) \\le \\ell(x) &lt; -\\log_2 q(x) + 1.\\]\nMultiply each part by \\(p(x) &gt; 0\\) and sum. Since \\(\\sum_{x} p(x) = 1\\),\n\\[\n-\\sum_{x} p(x) \\log_2 q(x)\n\\le \\sum_{x} p(x) \\, \\ell(x)\n&lt; -\\sum_{x} p(x) \\log_2 q(x) + 1.\n\\]\nThe middle sum is \\(L\\), and the outer sums are \\(H_2(p, q)\\)."
-  },
-  {
-    "objectID": "source-coding-slides.html#references",
-    "href": "source-coding-slides.html#references",
-    "title": "Source coding",
-    "section": "References",
-    "text": "References\n\n\nCover, Thomas M., and Joy A. Thomas. 2006. Elements of Information Theory. 2nd ed. Wiley-Interscience. https://doi.org/10.1002/047174882X.\n\n\nShannon, C. E. 1948. “A Mathematical Theory of Communication.” Bell System Technical Journal 27 (3): 379–423. https://doi.org/10.1002/j.1538-7305.1948.tb01338.x."
-  },
-  {
     "objectID": "entropy.html",
     "href": "entropy.html",
     "title": "Entropy and mutual information",
@@ -136,55 +108,6 @@
       "Measuring information",
       "Entropy and mutual information"
     ]
-  },
-  {
-    "objectID": "entropy-slides.html#sec-surprisal",
-    "href": "entropy-slides.html#sec-surprisal",
-    "title": "Entropy and mutual information",
-    "section": "1 Surprisal",
-    "text": "1 Surprisal\n\n\nDefinition 1 (Surprisal) The surprisal of an outcome \\(x\\) of a discrete random variable \\(X\\) with \\(\\operatorname{P}(X=x) &gt; 0\\) is\n\\[s(x) \\stackrel{\\text{def}}{=}-\\log \\operatorname{P}(X=x).\\]\nWith base-2 logarithms, surprisal is measured in bits; with natural logarithms, in nats."
-  },
-  {
-    "objectID": "entropy-slides.html#sec-conditional-entropy",
-    "href": "entropy-slides.html#sec-conditional-entropy",
-    "title": "Entropy and mutual information",
-    "section": "2 Joint and conditional entropy",
-    "text": "2 Joint and conditional entropy\n\n\nDefinition 2 (Joint entropy) Let \\(X\\) and \\(Y\\) be discrete random variables with joint probability mass function \\(p(x, y) \\stackrel{\\text{def}}{=}\\operatorname{P}(X=x, Y=y)\\). Their joint entropy is the entropy of the pair \\((X, Y)\\):\n\\[H(X, Y) \\stackrel{\\text{def}}{=}-\\sum_{x, y} p(x, y) \\log p(x, y),\\]\nwhere the sum runs over the pairs with \\(p(x, y) &gt; 0\\)."
-  },
-  {
-    "objectID": "entropy-slides.html#sec-mutual-information",
-    "href": "entropy-slides.html#sec-mutual-information",
-    "title": "Entropy and mutual information",
-    "section": "3 Mutual information",
-    "text": "3 Mutual information\n\n\nDefinition 5 (Mutual information) The mutual information between discrete random variables \\(X\\) and \\(Y\\) with finite entropies is the reduction in the entropy of \\(Y\\) from learning \\(X\\):\n\\[I(X; Y) \\stackrel{\\text{def}}{=}H(Y) - H(Y \\mid X),\\]\nwhere \\(H(Y \\mid X)\\) is the conditional entropy."
-  },
-  {
-    "objectID": "entropy-slides.html#references",
-    "href": "entropy-slides.html#references",
-    "title": "Entropy and mutual information",
-    "section": "References",
-    "text": "References\n\n\nCover, Thomas M., and Joy A. Thomas. 2006. Elements of Information Theory. 2nd ed. Wiley-Interscience. https://doi.org/10.1002/047174882X.\n\n\nMacKay, David J. C. 2003. Information Theory, Inference, and Learning Algorithms. Cambridge University Press.\n\n\nQuinlan, J. R. 1986. “Induction of Decision Trees.” Machine Learning 1 (1): 81–106. https://doi.org/10.1007/BF00116251."
-  },
-  {
-    "objectID": "index-slides.html#welcome",
-    "href": "index-slides.html#welcome",
-    "title": "Information Theory for Data Science",
-    "section": "Welcome",
-    "text": "Welcome\nInformation theory measures uncertainty and information: how many bits a message needs, how much one random variable tells us about another, and how fast data can cross a noisy channel. Data science uses its quantities directly: cross-entropy is the loss in logistic regression and neural networks, Kullback–Leibler divergence links maximum likelihood to model fit, and mutual information drives the information gain of decision trees.\nThese notes collect the information theory that data science courses use. They are new. The pages written so far are:\n\nEntropy and mutual information: surprisal, joint and conditional entropy, mutual information, and the information gain of decision trees\nSource coding: the source coding theorem, and cross-entropy as the cost of coding with the wrong distribution\n\nThe planned topics still to come are:\n\nKullback–Leibler divergence and its link to maximum likelihood\nHuffman and arithmetic codes\nchannel coding: channel capacity and the noisy-channel coding theorem\nKolmogorov complexity, and how it relates to Shannon entropy\n\nEntropy, cross-entropy and KL divergence are defined in Probability for Data Science; pages here link to those definitions rather than repeating them. Computational complexity has its own library, Computational Complexity for Data Science."
-  },
-  {
-    "objectID": "index-slides.html#where-to-read-about-the-planned-topics",
-    "href": "index-slides.html#where-to-read-about-the-planned-topics",
-    "title": "Information Theory for Data Science",
-    "section": "Where to read about the planned topics",
-    "text": "Where to read about the planned topics\nStanford’s information theory courses cover many of the planned topics above, and they publish their course pages:\n\nEE 276, Information Theory (Tsachy Weissman) covers entropy and mutual information, the asymptotic equipartition property, prefix codes and Huffman codes, channel capacity and the channel coding theorem, and rate distortion. Its reading page lists books and Shannon’s papers.\nEE 274, Data Compression, Theory and Applications covers entropy coding and how tools such as gzip and bzip2 work, then lossy image and video coding.\n\nThe courses’ own notes and slides carry no license, so these notes link to them and do not reuse their text."
-  },
-  {
-    "objectID": "index-slides.html#using-these-notes-in-another-site",
-    "href": "index-slides.html#using-these-notes-in-another-site",
-    "title": "Information Theory for Data Science",
-    "section": "Using these notes in another site",
-    "text": "Using these notes in another site\nCourse sites link to these pages by URL; they do not include this repository as a git submodule. A host site that keeps a copy of this repository at its root, named ids, can still include fragments with paths that start with ids/. This site includes its own fragments the same way, through a ids symlink that points at the repository root.\nQuarto resolves @id cross-references only within one rendered page, so a host site that links to a result here uses an explicit link to the page and anchor."
   },
   {
     "objectID": "index.html",
