@@ -1,0 +1,15 @@
+::: {#exm-hadamard-code}
+#### The Hadamard code with $k = 2$
+
+List the positions $a$ in the order $00, 01, 10, 11$.
+The [Hadamard code](#def-hadamard-code) sends the four messages to
+
+- $x = 00 \mapsto 0000$,
+- $x = 01 \mapsto 0101$, since $\langle x, a \rangle = a_2$,
+- $x = 10 \mapsto 0011$, since $\langle x, a \rangle = a_1$,
+- $x = 11 \mapsto 0110$, since $\langle x, a \rangle = a_1 + a_2 \pmod 2$.
+
+Every nonzero codeword has weight 2, which is $2^{k-1}$,
+as @thm-hadamard-distance says.
+
+:::

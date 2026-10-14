@@ -94,6 +94,10 @@ library covers the complexity classes these results are about.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_exm-hadamard-code.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_thm-hadamard-local-decoding.qmd >}}
 
 {{< slidebreak >}}
