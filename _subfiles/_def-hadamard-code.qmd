@@ -1,0 +1,12 @@
+:::{#def-hadamard-code}
+#### Hadamard code
+
+The **Hadamard code** sends a message $x \in \mathbb{F}_2^k$
+to the $2^k$ inner products
+
+$$\langle x, a \rangle = x_1 a_1 + \cdots + x_k a_k \pmod 2,$$
+
+one for each $a \in \mathbb{F}_2^k$, so its block length is $n = 2^k$.
+@arora2009computational [chapter 11] call it the Walsh--Hadamard code.
+
+:::

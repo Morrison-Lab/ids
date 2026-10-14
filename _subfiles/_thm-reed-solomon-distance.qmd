@@ -1,0 +1,19 @@
+:::{#thm-reed-solomon-distance}
+#### Reed--Solomon codes meet the Singleton bound
+
+The [Reed--Solomon code](#def-reed-solomon-code)
+is an $[n, k, n - k + 1]_q$ [linear code](#def-linear-code).
+
+:::
+
+::: {.proof}
+The map $m \mapsto E(m)$ is linear, because $f_{m + m'} = f_m + f_{m'}$
+and $f_{\lambda m} = \lambda f_m$ for every scalar $\lambda$.
+If $m \ne 0$, then $f_m$ is a nonzero polynomial of degree at most $k - 1$,
+so it has at most $k - 1$ roots,
+and $E(m)$ has at least $n - k + 1 \ge 1$ nonzero entries.
+So $E$ is one-to-one, the codewords form a $k$-dimensional subspace,
+and by @rem-linear-code-weight the minimum distance is at least $n - k + 1$.
+The [Singleton bound](#thm-singleton-bound) says it is at most $n - k + 1$.
+
+:::

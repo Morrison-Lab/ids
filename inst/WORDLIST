@@ -32,3 +32,11 @@ bzip
 equipartition
 gzip
 lossy
+Hadamard
+Hamming
+PCP
+Reed
+Solomon
+Walsh
+NP
+pseudorandom

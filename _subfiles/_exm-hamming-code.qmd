@@ -1,0 +1,43 @@
+::: {#exm-hamming-code}
+#### The (7,4) Hamming code
+
+Let $H$ be the $3 \times 7$ binary matrix whose $j$th column
+is the number $j$ written in binary, most significant digit on top:
+
+$$
+H = \begin{pmatrix}
+0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+0 & 1 & 1 & 0 & 0 & 1 & 1 \\
+1 & 0 & 1 & 0 & 1 & 0 & 1
+\end{pmatrix}.
+$$
+
+Columns 1, 2 and 4 of $H$ are the three unit vectors, so $H$ has rank 3.
+Taking $H$ as the parity-check matrix therefore gives a [linear code](#def-linear-code)
+of dimension $k = 7 - 3 = 4$, with $2^4 = 16$ codewords.
+The weight argument of @rem-linear-code-weight gives $d = 3$:
+
+- No codeword has weight 1, because no column of $H$ is zero.
+- No codeword has weight 2, because no two columns of $H$ are equal,
+  so no two add to zero.
+- $1110000$ is a codeword of weight 3, because columns 1, 2 and 3 add to zero.
+
+So this is a $[7, 4, 3]_2$ code.
+It corrects one error, like the [repetition code](#exm-repetition-code),
+at rate $4/7$ instead of $1/3$.
+
+Decoding is direct.
+If the codeword $c$ arrives with an error in position $j$,
+the received word is $y = c + e_j$,
+where $e_j$ has a 1 in position $j$ only, and
+
+$$H y = H c + H e_j = 0 + (\text{column } j \text{ of } H),$$
+
+which is $j$ in binary.
+For example, if $c = 0101010$ arrives as $y = 0101110$,
+then $H y = (1, 0, 1)$, which is 5 in binary,
+so the decoder flips position 5.
+@mackay2003information [section 1.2] builds the same code from parity checks,
+with its positions in a different order.
+
+:::

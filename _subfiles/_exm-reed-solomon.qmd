@@ -1,0 +1,19 @@
+::: {#exm-reed-solomon}
+#### A small Reed--Solomon code
+
+Take $q = n = 5$, $k = 2$, and the points $0, 1, 2, 3, 4$ of $\mathbb{F}_5$,
+the integers modulo 5.
+The message $m = (1, 2)$ gives the line $f_m(t) = 1 + 2t$, and
+
+$$E(m) = (1, 3, 0, 2, 4),$$
+
+since $f_m(2) = 5 \equiv 0$, $f_m(3) = 7 \equiv 2$ and $f_m(4) = 9 \equiv 4$.
+By @thm-reed-solomon-distance the minimum distance is $5 - 2 + 1 = 4$,
+so the code corrects one error.
+In terms of lines: with one error, the true line passes through
+at least four of the five received values.
+Any other line meets the true line in at most one point,
+so it passes through at most two of the received values,
+and the nearest codeword is the true line.
+
+:::
