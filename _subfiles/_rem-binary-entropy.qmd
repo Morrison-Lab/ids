@@ -1,0 +1,9 @@
+::: {#rem-binary-entropy}
+#### Binary entropy is the entropy of a coin
+
+$h(\epsilon)$ is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+in bits, of a random variable that takes one of two values,
+one of them with probability $\epsilon$.
+It is $0$ when the outcome is certain and largest, $1$ bit, at $\epsilon = 1/2$.
+
+:::

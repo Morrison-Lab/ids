@@ -1,0 +1,54 @@
+:::{#thm-bsc-capacity}
+#### Capacity of the binary symmetric channel
+
+The [binary symmetric channel](#def-binary-symmetric-channel)
+with crossover probability $\epsilon$ has capacity
+
+$$C = 1 - h(\epsilon) \text{ bits per channel use},$$
+
+where $h$ is the [binary entropy function](#def-binary-entropy).
+A uniformly distributed input achieves it.
+
+:::
+
+::: {.proof}
+
+Fix any input distribution.
+By [the definition of mutual information](entropy.qmd#def-mutual-information),
+
+$$I(X; Y) = H(Y) - H(Y \mid X).$$
+
+Given $X = x$, the output equals $x$ with probability $1 - \epsilon$
+and differs from it with probability $\epsilon$,
+so the [entropy of $Y$ given $X = x$](entropy.qmd#def-entropy-given-value)
+is $h(\epsilon)$ for both inputs.
+Averaging over $x$, the [conditional entropy](entropy.qmd#def-conditional-entropy)
+is $H(Y \mid X) = h(\epsilon)$, whatever the input distribution.
+
+$Y$ takes two values, so $H(Y) \le \log_2 2 = 1$ bit
+[@cover2006elements, section 2.6].
+Therefore
+
+$$
+\begin{aligned}
+I(X; Y)
+&= H(Y) - h(\epsilon) \\
+&\le 1 - h(\epsilon).
+\end{aligned}
+$$
+
+If $X$ is uniform on $\{0, 1\}$, then
+
+$$
+\begin{aligned}
+\P(Y = 1)
+&= \P(X = 0) \, \epsilon + \P(X = 1) \, (1 - \epsilon) \\
+&= \tfrac{1}{2} \epsilon + \tfrac{1}{2} (1 - \epsilon) \\
+&= \tfrac{1}{2},
+\end{aligned}
+$$
+
+so $H(Y) = 1$ bit and $I(X; Y) = 1 - h(\epsilon)$.
+The bound is attained, so it is the maximum $C$.
+
+:::

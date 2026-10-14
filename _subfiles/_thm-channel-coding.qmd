@@ -1,0 +1,15 @@
+:::{#thm-channel-coding}
+#### Noisy-channel coding theorem
+
+Let $C$ be the [capacity](#def-channel-capacity)
+of a [discrete memoryless channel](#def-channel).
+
+1. For every rate $R < C$ there is a sequence of
+   $(\lceil 2^{nR} \rceil, n)$ [channel codes](#def-channel-code),
+   for $n = 1, 2, \dots$,
+   whose maximal probability of error $\lambda^{(n)}$ tends to $0$.
+
+2. Conversely, any sequence of $(\lceil 2^{nR} \rceil, n)$ codes
+   with $\lambda^{(n)} \to 0$ has $R \le C$.
+
+:::

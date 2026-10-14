@@ -1,0 +1,13 @@
+::: {#rem-capacity-meaning}
+#### What capacity measures
+
+$I(X; Y) = H(X) - H(X \mid Y)$
+([symmetry of mutual information](entropy.qmd#thm-mutual-information-symmetric))
+is the uncertainty about the input,
+minus the uncertainty about the input left after seeing the output.
+So $I(X; Y)$ is how much one output tells the receiver about the input,
+on average,
+and the capacity is that amount when the sender chooses
+how often to send each input as well as possible.
+
+:::

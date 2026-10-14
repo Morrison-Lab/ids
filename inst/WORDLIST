@@ -32,6 +32,8 @@ bzip
 equipartition
 gzip
 lossy
+Fano's
+memoryless
 Hadamard
 Hamming
 PCP

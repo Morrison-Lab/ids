@@ -1,0 +1,50 @@
+::: {#sol-bec-capacity}
+
+1. Given $X = x$, the output is $x$ with probability $1 - \alpha$
+   and $\mathrm{e}$ with probability $\alpha$,
+   so $H(Y \mid X = x) = h(\alpha)$ for both inputs,
+   and averaging over $x$ gives $H(Y \mid X) = h(\alpha)$.
+
+2. The chain rule gives
+
+   $$H(Y) + H(E \mid Y) = H(Y, E) = H(E) + H(Y \mid E).$$
+
+   Each value $y$ of $Y$ fixes $E$,
+   so $H(E \mid Y = y) = 0$ for every $y$, and $H(E \mid Y) = 0$.
+   Hence $H(Y) = H(E) + H(Y \mid E)$.
+
+3. The channel erases with probability $\alpha$ whatever the input,
+   so $E$ is independent of $X$ and $H(E) = h(\alpha)$.
+   Given $E = 1$, $Y = \mathrm{e}$ for certain, so $H(Y \mid E = 1) = 0$.
+   Given $E = 0$, $Y = X$, and since $E$ is independent of $X$,
+   $\P(Y = 1 \mid E = 0) = \P(X = 1) = \pi$,
+   so $H(Y \mid E = 0) = h(\pi)$.
+   Therefore
+
+   $$
+   \begin{aligned}
+   H(Y)
+   &= H(E) + \P(E = 1) \, H(Y \mid E = 1) + \P(E = 0) \, H(Y \mid E = 0) \\
+   &= h(\alpha) + \alpha \cdot 0 + (1 - \alpha) \, h(\pi) \\
+   &= h(\alpha) + (1 - \alpha) \, h(\pi).
+   \end{aligned}
+   $$
+
+4. Combining parts 1 and 3,
+
+   $$
+   \begin{aligned}
+   I(X; Y)
+   &= H(Y) - H(Y \mid X) \\
+   &= h(\alpha) + (1 - \alpha) \, h(\pi) - h(\alpha) \\
+   &= (1 - \alpha) \, h(\pi).
+   \end{aligned}
+   $$
+
+   Since $h(\pi) \le 1$, with equality at $\pi = 1/2$,
+   the maximum over input distributions is $C = 1 - \alpha$.
+   The receiver loses a fraction $\alpha$ of the bits
+   and learns the rest exactly;
+   @cover2006elements [section 7.1] reach the same capacity.
+
+:::

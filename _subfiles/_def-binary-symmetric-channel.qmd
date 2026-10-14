@@ -1,0 +1,17 @@
+:::{#def-binary-symmetric-channel}
+#### Binary symmetric channel
+
+The **binary symmetric channel** with *crossover probability* $\epsilon \in [0, 1]$
+is the [discrete memoryless channel](#def-channel)
+with $\mathcal{X} = \mathcal{Y} = \{0, 1\}$ that
+flips its input with probability $\epsilon$:
+
+$$
+p(y \mid x) =
+\begin{cases}
+1 - \epsilon & \text{if } y = x, \\
+\epsilon & \text{if } y \ne x.
+\end{cases}
+$$
+
+:::

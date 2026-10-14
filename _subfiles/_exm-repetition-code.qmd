@@ -1,0 +1,26 @@
+:::{#exm-repetition-code}
+#### Sending each bit three times
+
+To send one bit over the
+[binary symmetric channel](#def-binary-symmetric-channel)
+with $\epsilon = 0.1$,
+send it three times and decode by majority vote.
+This is a $(2, 3)$ [channel code](#def-channel-code), with rate $R = 1/3$.
+The decoder is wrong when two or three of the copies are flipped,
+which happens with probability
+
+$$
+\begin{aligned}
+\lambda^{(3)}
+&= 3 \epsilon^2 (1 - \epsilon) + \epsilon^3 \\
+&= 3 (0.01)(0.9) + 0.001 \\
+&= 0.028,
+\end{aligned}
+$$
+
+down from $0.1$ for sending the bit once.
+Repeating more often lowers the error further,
+but the rate falls toward $0$ as it does.
+@mackay2003information [chapter 1] works through this code.
+
+:::

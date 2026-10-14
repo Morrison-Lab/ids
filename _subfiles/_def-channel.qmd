@@ -1,0 +1,19 @@
+:::{#def-channel}
+#### Discrete memoryless channel
+
+A **discrete channel** has a finite *input alphabet* $\mathcal{X}$,
+a finite *output alphabet* $\mathcal{Y}$,
+and, for each input $x \in \mathcal{X}$,
+a probability mass function $p(y \mid x)$ on $\mathcal{Y}$:
+the probability that the channel outputs $y$ when it is sent $x$.
+The channel is **memoryless** if, over $n$ uses,
+each output depends only on the input sent at that use:
+
+$$
+\P(Y_1 = y_1, \dots, Y_n = y_n \mid X_1 = x_1, \dots, X_n = x_n)
+= \prod_{i=1}^{n} p(y_i \mid x_i).
+$$
+
+This is the setup of @cover2006elements [chapter 7].
+
+:::

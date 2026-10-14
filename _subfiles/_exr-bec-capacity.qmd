@@ -1,0 +1,21 @@
+::: {#exr-bec-capacity}
+#### Capacity of the binary erasure channel
+
+Send $X$ through the [binary erasure channel](#def-binary-erasure-channel)
+with erasure probability $\alpha$, where $0 < \alpha < 1$,
+and write $\pi \eqdef \P(X = 1)$.
+Let $E$ be $1$ if the output $Y$ is the erasure symbol $\mathrm{e}$, and $0$ otherwise.
+Use base-2 logarithms and the
+[binary entropy function](#def-binary-entropy) $h$.
+
+1. Show that $H(Y \mid X) = h(\alpha)$.
+
+2. $E$ is a function of $Y$.
+   Use the [chain rule for entropy](entropy.qmd#thm-entropy-chain-rule),
+   expanded in both orders, to show that $H(Y) = H(E) + H(Y \mid E)$.
+
+3. Show that $H(Y) = h(\alpha) + (1 - \alpha) \, h(\pi)$.
+
+4. Conclude that the capacity is $C = 1 - \alpha$ bits per channel use.
+
+:::
