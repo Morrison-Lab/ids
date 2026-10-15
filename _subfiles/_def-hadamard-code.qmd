@@ -7,6 +7,6 @@ to the $2^k$ dot products
 $$\dprod{x}{a} = x_1 a_1 + \cdots + x_k a_k \pmod 2,$$
 
 one for each $a \in \ffield{2}^k$, so its block length is $n = 2^k$.
-@arora2009computational [chapter 11] call it the Walsh--Hadamard code.
+Also called the **Walsh--Hadamard code** [@arora2009computational, chapter 11].
 
 :::
