@@ -1,11 +1,11 @@
 ::: {#rem-local-decoding}
 #### Reading two symbols instead of the whole word
 
-When $\delta \le 1/6$, the success probability $1 - 2\delta$
+When $\errfrac \le 1/6$, the success probability $1 - 2\errfrac$
 in @thm-hadamard-local-decoding is at least $2/3$,
 so the Hadamard code is [locally decodable](#def-locally-decodable) with 2 queries,
 however long the message is.
-When $\delta < 1/4$, the decoder is right with probability above $1/2$,
+When $\errfrac < 1/4$, the decoder is right with probability above $1/2$,
 and repeating it with fresh random choices and taking a majority vote
 drives its error probability as low as needed.
 Decoding to the nearest codeword, as in @thm-distance-corrects-errors,

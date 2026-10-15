@@ -2,7 +2,7 @@
 #### The minimum distance of a linear code is its smallest nonzero weight
 
 For codewords $c \ne c'$ of a [linear code](#def-linear-code),
-$\Delta(c, c')$ is the [weight](#def-weight) of $c - c'$,
+$\hamdist{c}{c'}$ is the [weight](#def-weight) of $c - c'$,
 which is itself a nonzero codeword.
 So the minimum distance is the smallest weight of a nonzero codeword.
 

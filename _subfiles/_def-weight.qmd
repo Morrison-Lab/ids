@@ -1,7 +1,7 @@
 :::{#def-weight}
 #### Weight
 
-The **weight** of a string $x \in \mathbb{F}_q^n$
+The **weight** of a string $x \in \ffield{q}^n$
 is its number of nonzero symbols.
 
 :::

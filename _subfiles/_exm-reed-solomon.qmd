@@ -1,7 +1,7 @@
 ::: {#exm-reed-solomon}
 #### A small Reed--Solomon code
 
-Take $q = n = 5$, $k = 2$, and the points $0, 1, 2, 3, 4$ of $\mathbb{F}_5$,
+Take $q = n = 5$, $k = 2$, and the points $0, 1, 2, 3, 4$ of $\ffield{5}$,
 the integers modulo 5.
 The message $m = (1, 2)$ gives the line $f_m(t) = 1 + 2t$, and
 
