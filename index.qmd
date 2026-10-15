@@ -49,7 +49,8 @@ Entropy, cross-entropy and KL divergence are defined in
 pages here link to those definitions rather than repeating them.
 Computational complexity has its own library,
 [*Computational Complexity for Data Science*](https://morrison-lab.github.io/cds/).
-Kolmogorov complexity, which relates the shortest description of a single string
+[Kolmogorov complexity](https://morrison-lab.github.io/cds/kolmogorov-complexity.html),
+which relates the shortest description of a single string
 to Shannon entropy, is covered there.
 
 ## Where to read about the planned topics {.unnumbered}

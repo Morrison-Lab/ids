@@ -7,13 +7,16 @@ with [minimum distance](#def-hamming-distance) $2^{k-1}$.
 :::
 
 ::: {.proof}
-Each inner product $\langle x, a \rangle$ is linear in $x$, so the code is linear.
 Let $x \ne 0$, and pick $i$ with $x_i = 1$.
 Let $e_i$ have a 1 in position $i$ only.
-Then $\langle x, a + e_i \rangle = \langle x, a \rangle + 1$,
+Then $\dprod{x}{\paren{a + e_i}} = \dprod{x}{a} + 1$,
 so pairing each $a$ with $a + e_i$ pairs a 0 with a 1,
 and exactly half of the $2^k$ entries of the codeword of $x$ are 1.
-So every nonzero codeword has [weight](#def-weight) $2^{k-1}$,
-and @rem-linear-code-weight gives the minimum distance.
+So every nonzero message has a codeword of [weight](#def-weight) $2^{k-1} \ge 1$.
+Each dot product $\dprod{x}{a}$ is linear in $x$,
+so the encoding map is linear,
+and only the zero message has the zero codeword,
+so the map is one-to-one and the code is linear.
+Then @rem-linear-code-weight gives the minimum distance.
 
 :::
