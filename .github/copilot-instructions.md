@@ -11,6 +11,8 @@ The source files for the lab manual are available at <https://github.com/UCD-SER
 For prose, also follow [*Principles of Scientific Writing*](https://morrison-lab.github.io/psw/)
 (source: <https://github.com/Morrison-Lab/psw>).
 
+In a `#def-` div, aliases of the term stay in the same div, in bold and in the div title. Cite a source that uses an alias on the bold alias itself, as in `**training error** [@hastie2009esl, sec. 7.2]`; never write "the book uses that name", because the citation already says so (Ezra, 2026-10-15).
+
 For workflow fixes, do not restrict the publish workflow render target to HTML only.
 Keep publish rendering all configured formats and fix underlying failures instead.
 
