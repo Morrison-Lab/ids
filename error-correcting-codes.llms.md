@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 23:34:53 (PDT)
+Last modified: 2026-10-15 14:43:46 (PDT)
 
 An error-correcting code adds redundancy to a message so that the receiver can recover it even after some symbols are changed. This page covers the basic definitions, the Hamming and Reed–Solomon codes, and then how codes that can be decoded by reading only a few symbols lead to central results of computational complexity.
 
@@ -124,7 +124,7 @@ Complexity theory uses codes that can be decoded by reading only a few symbols o
 >
 > \\x \cdot a = x_1 a_1 + \cdots + x_k a_k \pmod 2,\\
 >
-> one for each \\a \in \mathbb{F}\_{2}^k\\, so its block length is \\n = 2^k\\. Arora and Barak ([2009, chap. 11](#ref-arora2009computational)) call it the Walsh–Hadamard code.
+> one for each \\a \in \mathbb{F}\_{2}^k\\, so its block length is \\n = 2^k\\. Also called the **Walsh–Hadamard code** ([Arora and Barak 2009, chap. 11](#ref-arora2009computational)).
 
 > **NOTE:**
 >
