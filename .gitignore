@@ -80,3 +80,4 @@ lychee-output/
 
 # pak lockfile
 .github/pkg.lock
+!anchor-landing.html
