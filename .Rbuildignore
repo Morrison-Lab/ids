@@ -17,3 +17,6 @@ _freeze/
 ^AGENTS\.md$
 ^CLAUDE\.md$
 ^\.claude$
+^dependency-graph\.js$
+^dependency-graph\.json$
+^tools$
