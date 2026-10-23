@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-23 16:25:31 (PDT)</p>
+  <p class="date">Last modified: 2026-10-23 16:55:58 (PDT)</p>
 </section>
 <section class="slide level2">
 
@@ -326,7 +326,7 @@ H(X)
 <section class="slide level2">
 
 <div id="rem-surprisal-fisher-information" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the surprisal of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \operatorname{p}(x \mid \theta)\)</span>, which is minus the log-likelihood. Its derivative with respect to <span class="math inline">\(\theta\)</span> is minus the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-score">score</a>. The expected squared score is the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf">expected (Fisher) information</a>, which is also the curvature of the Kullback–Leibler divergence at the true parameter value (<a href="https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature">proved in the sds notes</a>).</p>
+<p><span class="proof-title"><em>Remark 3</em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the <a href="#/def-surprisal">surprisal</a> of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \operatorname{p}(x \mid \theta)\)</span>, which is minus the log-likelihood. Its derivative with respect to <span class="math inline">\(\theta\)</span> is minus the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-score">score</a>. The expected squared score is the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf">expected (Fisher) information</a>, which is also the second derivative, at the true parameter value, of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> between the model at that value and the model at the varying value (<a href="https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature">proved in the sds notes</a>).</p>
 </div>
 </section>
 <section id="sec-conditional-entropy" class="slide level2" data-number="2">

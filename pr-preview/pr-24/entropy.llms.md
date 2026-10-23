@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 16:25:31 (PDT)
+Last modified: 2026-10-23 16:55:58 (PDT)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -46,7 +46,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 3* (Surprisal and the Fisher information). When the probabilities depend on a parameter \\\theta\\, the surprisal of an outcome \\x\\ is \\-\log \operatorname{p}(x \mid \theta)\\, which is minus the log-likelihood. Its derivative with respect to \\\theta\\ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score). The expected squared score is the [expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), which is also the curvature of the Kullback–Leibler divergence at the true parameter value ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)).
+> *Remark 3* (Surprisal and the Fisher information). When the probabilities depend on a parameter \\\theta\\, the [surprisal](#def-surprisal) of an outcome \\x\\ is \\-\log \operatorname{p}(x \mid \theta)\\, which is minus the log-likelihood. Its derivative with respect to \\\theta\\ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score). The expected squared score is the [expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), which is also the second derivative, at the true parameter value, of the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) between the model at that value and the model at the varying value ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)).
 
 ## 2 Joint and conditional entropy
 
