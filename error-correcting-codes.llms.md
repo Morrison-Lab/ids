@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 11:40:46 (PDT)
+Last modified: 2026-10-23 23:06:06 (PDT)
 
 An error-correcting code adds redundancy to a message so that the receiver can recover it even after some symbols are changed. This page covers the basic definitions, the Hamming and Reed–Solomon codes, and then how codes that can be decoded by reading only a few symbols lead to central results of computational complexity.
 
@@ -50,7 +50,7 @@ An error-correcting code adds redundancy to a message so that the receiver can r
 
 > **NOTE:**
 >
-> **Definition 3 (Linear code)** Let the alphabet be a finite field \\\mathbb{F}\_{q}\\, such as \\\mathbb{F}\_{2} = \mathopen{}\left\\0, 1\right\\\mathclose{}\\ with addition and multiplication modulo 2. A **linear code** is a [block code](#def-block-code) whose set of codewords \\C\\ is a \\k\\-dimensional subspace of \\\mathbb{F}\_{q}^n\\. One way to describe it is by a **parity-check matrix**: an \\(n - k) \times n\\ matrix \\H\\ of rank \\n - k\\ with \\C = \mathopen{}\left\\y \in \mathbb{F}\_{q}^n : H y = 0\right\\\mathclose{}\\, where \\y\\ is treated as a column vector. A linear code with block length \\n\\, dimension \\k\\ and [minimum distance](#def-hamming-distance) \\d\\ is called an \\\mathopen{}\left\[n, k, d\right\]\mathclose{}\_{q}\\ code.
+> **Definition 3 (Linear code)** Let the alphabet be a finite field \\\mathbb{F}\_{q}\\, such as \\\mathbb{F}\_{2} = \mathopen{}\left\\0, 1\right\\\mathclose{}\\ with addition and multiplication modulo 2. A **linear code** is a [block code](#def-block-code) whose set of codewords \\C\\ is a \\k\\-dimensional subspace of \\\mathbb{F}\_{q}^n\\. One way to describe it is by a **parity-check matrix**: an \\(n - k) \times n\\ matrix \\H\\ of rank \\n - k\\ with \\C = \mathopen{}\left\\y \in \mathbb{F}\_{q}^n : H y = 0\right\\\mathclose{}\\, where \\y\\ is treated as a column vector. A linear code with block length \\n\\, dimension \\k\\ and [minimum distance](#def-hamming-distance) \\d\\ is called an \\{\mathopen{}\left\[n, k, d\right\]\mathclose{}}\_{q}\\ code.
 
 > **NOTE:**
 >
@@ -72,7 +72,7 @@ An error-correcting code adds redundancy to a message so that the receiver can r
 > - No codeword has weight 2, because no two columns of \\H\\ are equal, so no two add to zero.
 > - \\1110000\\ is a codeword of weight 3, because columns 1, 2 and 3 add to zero.
 >
-> So this is a \\\mathopen{}\left\[7, 4, 3\right\]\mathclose{}\_{2}\\ code. It corrects one error, like the [repetition code](#exm-repetition-code-distance), at rate \\4/7\\ instead of \\1/3\\.
+> So this is a \\{\mathopen{}\left\[7, 4, 3\right\]\mathclose{}}\_{2}\\ code. It corrects one error, like the [repetition code](#exm-repetition-code-distance), at rate \\4/7\\ instead of \\1/3\\.
 >
 > Decoding is direct. If the codeword \\c\\ arrives with an error in position \\j\\, the received word is \\y = c + e_j\\, where \\e_j\\ has a 1 in position \\j\\ only, and
 >
@@ -100,7 +100,7 @@ An error-correcting code adds redundancy to a message so that the receiver can r
 
 > **NOTE:**
 >
-> **Theorem 3 (Reed–Solomon codes meet the Singleton bound)** The [Reed–Solomon code](#def-reed-solomon-code) is an \\\mathopen{}\left\[n, k, n - k + 1\right\]\mathclose{}\_{q}\\ [linear code](#def-linear-code).
+> **Theorem 3 (Reed–Solomon codes meet the Singleton bound)** The [Reed–Solomon code](#def-reed-solomon-code) is an \\{\mathopen{}\left\[n, k, n - k + 1\right\]\mathclose{}}\_{q}\\ [linear code](#def-linear-code).
 
 > **NOTE:**
 >

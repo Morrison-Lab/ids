@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-19 11:40:46 (PDT)
+Last modified: 2026-10-23 23:06:06 (PDT)
 
 A channel carries symbols from a sender to a receiver, and noise corrupts some of them. This page measures how much information a channel can carry, using the [mutual information](entropy.llms.md#sec-mutual-information) between what goes in and what comes out.
 
