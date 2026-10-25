@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-23 23:06:06 (PDT)
+Last modified: 2026-10-24 19:16:36 (PDT)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -43,6 +43,10 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > \\ \begin{aligned} H(X) &= \operatorname{E}\mathopen{}\left\[-\log \operatorname{P}(X)\right\]\mathclose{} \\ &= \operatorname{E}\mathopen{}\left\[s(X)\right\]\mathclose{}. \end{aligned} \\
 >
 > So \\H(X)\\ is the average number of bits (with base-2 logarithms) needed to record an outcome of \\X\\ when each outcome \\x\\ costs \\s(x)\\ bits. The [source coding theorem](source-coding.llms.md#thm-source-coding), on a later page of these notes, makes that average precise: no uniquely decodable code does better.
+
+> **NOTE:**
+>
+> *Remark 3* (Surprisal and the Fisher information). When the probabilities depend on a parameter \\\theta\\, the [surprisal](#def-surprisal) of an outcome \\x\\ is \\-\log \operatorname{p}(x \mid \theta)\\, which is minus the log-likelihood. Its derivative with respect to \\\theta\\ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score). The expected squared score is the [expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), which is also the second derivative, at the true parameter value, of the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) between the model at that value and the model at the varying value ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)).
 
 ## 2 Joint and conditional entropy
 
@@ -114,7 +118,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 3* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of \\(X, Y)\\ from the product of its marginals, and show that this equals \\H(Y) - H(Y \mid X)\\ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is \\0\\ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), \\I(X; Y) \ge 0\\, with equality exactly when \\X\\ and \\Y\\ are independent. Learning \\X\\ never raises the entropy of \\Y\\ on average.
+> *Remark 4* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of \\(X, Y)\\ from the product of its marginals, and show that this equals \\H(Y) - H(Y \mid X)\\ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is \\0\\ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), \\I(X; Y) \ge 0\\, with equality exactly when \\X\\ and \\Y\\ are independent. Learning \\X\\ never raises the entropy of \\Y\\ on average.
 
 > **NOTE:**
 >
@@ -122,7 +126,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 4* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 6](#def-information-gain), and let \\Y\\ be its class and \\X\\ the branch it falls into. Then the entropy at the node is \\H(Y)\\, the weighted entropy left in the branches is \\H(Y \mid X)\\, and the information gain is the [mutual information](#def-mutual-information) \\I(X; Y)\\.
+> *Remark 5* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 6](#def-information-gain), and let \\Y\\ be its class and \\X\\ the branch it falls into. Then the entropy at the node is \\H(Y)\\, the weighted entropy left in the branches is \\H(Y \mid X)\\, and the information gain is the [mutual information](#def-mutual-information) \\I(X; Y)\\.
 
 > **NOTE:**
 >
@@ -135,7 +139,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > | B     | yes    | \\5\\ | \\10\\ |
 > |       | no     | \\5\\ | \\0\\  |
 >
-> Draw one point uniformly at random from the node, let \\Y\\ be its color, and let \\X\\ be the branch it falls into ([Remark 4](#rem-information-gain)). The information gain of each split ([Definition 6](#def-information-gain)) is then \\I(X; Y)\\. Use base-2 logarithms throughout.
+> Draw one point uniformly at random from the node, let \\Y\\ be its color, and let \\X\\ be the branch it falls into ([Remark 5](#rem-information-gain)). The information gain of each split ([Definition 6](#def-information-gain)) is then \\I(X; Y)\\. Use base-2 logarithms throughout.
 >
 > 1.  Compute \\H(Y)\\.
 >

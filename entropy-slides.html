@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-23 23:06:06 (PDT)</p>
+  <p class="date">Last modified: 2026-10-24 19:16:36 (PDT)</p>
 </section>
 <section class="slide level2">
 
@@ -321,6 +321,12 @@ H(X)
 \end{aligned}
 \]</span></p>
 <p>So <span class="math inline">\(H(X)\)</span> is the average number of bits (with base-2 logarithms) needed to record an outcome of <span class="math inline">\(X\)</span> when each outcome <span class="math inline">\(x\)</span> costs <span class="math inline">\(s(x)\)</span> bits. The <a href="./source-coding.html#thm-source-coding">source coding theorem</a>, on a later page of these notes, makes that average precise: no uniquely decodable code does better.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="rem-surprisal-fisher-information" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the <a href="#/def-surprisal">surprisal</a> of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \operatorname{p}(x \mid \theta)\)</span>, which is minus the log-likelihood. Its derivative with respect to <span class="math inline">\(\theta\)</span> is minus the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-score">score</a>. The expected squared score is the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf">expected (Fisher) information</a>, which is also the second derivative, at the true parameter value, of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> between the model at that value and the model at the varying value (<a href="https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature">proved in the sds notes</a>).</p>
 </div>
 </section>
 <section id="sec-conditional-entropy" class="slide level2" data-number="2">
@@ -399,7 +405,7 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="rem-mutual-information-kl" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 2.3</a>)</span> define mutual information as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the joint distribution of <span class="math inline">\((X, Y)\)</span> from the product of its marginals, and show that this equals <span class="math inline">\(H(Y) - H(Y \mid X)\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.4</a>)</span>. Since a Kullback–Leibler divergence is never negative, and is <span class="math inline">\(0\)</span> only when the two distributions are equal <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>, <span class="math inline">\(I(X; Y) \ge 0\)</span>, with equality exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Learning <span class="math inline">\(X\)</span> never raises the entropy of <span class="math inline">\(Y\)</span> on average.</p>
+<p><span class="proof-title"><em>Remark 4</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 2.3</a>)</span> define mutual information as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the joint distribution of <span class="math inline">\((X, Y)\)</span> from the product of its marginals, and show that this equals <span class="math inline">\(H(Y) - H(Y \mid X)\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.4</a>)</span>. Since a Kullback–Leibler divergence is never negative, and is <span class="math inline">\(0\)</span> only when the two distributions are equal <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>, <span class="math inline">\(I(X; Y) \ge 0\)</span>, with equality exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Learning <span class="math inline">\(X\)</span> never raises the entropy of <span class="math inline">\(Y\)</span> on average.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -411,7 +417,7 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="rem-information-gain" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Information gain is mutual information). </span>Draw one point uniformly at random from the node of <a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;6</a>, and let <span class="math inline">\(Y\)</span> be its class and <span class="math inline">\(X\)</span> the branch it falls into. Then the entropy at the node is <span class="math inline">\(H(Y)\)</span>, the weighted entropy left in the branches is <span class="math inline">\(H(Y \mid X)\)</span>, and the information gain is the <a href="#/def-mutual-information">mutual information</a> <span class="math inline">\(I(X; Y)\)</span>.</p>
+<p><span class="proof-title"><em>Remark 5</em> (Information gain is mutual information). </span>Draw one point uniformly at random from the node of <a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;6</a>, and let <span class="math inline">\(Y\)</span> be its class and <span class="math inline">\(X\)</span> the branch it falls into. Then the entropy at the node is <span class="math inline">\(H(Y)\)</span>, the weighted entropy left in the branches is <span class="math inline">\(H(Y \mid X)\)</span>, and the information gain is the <a href="#/def-mutual-information">mutual information</a> <span class="math inline">\(I(X; Y)\)</span>.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
@@ -454,7 +460,7 @@ H(X, Y)
 </tr>
 </tbody>
 </table>
-<p>Draw one point uniformly at random from the node, let <span class="math inline">\(Y\)</span> be its color, and let <span class="math inline">\(X\)</span> be the branch it falls into (<a href="#/rem-information-gain" class="quarto-xref">Remark&nbsp;4</a>). The information gain of each split (<a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;6</a>) is then <span class="math inline">\(I(X; Y)\)</span>. Use base-2 logarithms throughout.</p>
+<p>Draw one point uniformly at random from the node, let <span class="math inline">\(Y\)</span> be its color, and let <span class="math inline">\(X\)</span> be the branch it falls into (<a href="#/rem-information-gain" class="quarto-xref">Remark&nbsp;5</a>). The information gain of each split (<a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;6</a>) is then <span class="math inline">\(I(X; Y)\)</span>. Use base-2 logarithms throughout.</p>
 <ol type="1">
 <li><p>Compute <span class="math inline">\(H(Y)\)</span>.</p></li>
 <li><p>For each split, compute <span class="math inline">\(H(Y \mid X = x)\)</span> for both branches, and then <span class="math inline">\(H(Y \mid X)\)</span>.</p></li>
