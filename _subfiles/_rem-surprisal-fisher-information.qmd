@@ -1,0 +1,15 @@
+::: {#rem-surprisal-fisher-information}
+#### Surprisal and the Fisher information
+
+When the probabilities depend on a parameter $\param$,
+the [surprisal](#def-surprisal) of an outcome $x$ is $-\log \p(x \mid \param)$,
+which is minus the log-likelihood.
+Its derivative with respect to $\param$ is minus the
+[score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score).
+The expected squared score is the
+[expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf),
+which is also the second derivative, at the true parameter value,
+of the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
+between the model at that value and the model at the varying value
+([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)).
+:::
