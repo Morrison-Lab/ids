@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-24 19:16:36 (PDT)
+Last modified: 2026-10-24 21:50:48 (PDT)
 
 A channel carries symbols from a sender to a receiver, and noise corrupts some of them. This page measures how much information a channel can carry, using the [mutual information](entropy.llms.md#sec-mutual-information) between what goes in and what comes out.
 
@@ -14,7 +14,7 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 >
 > **Definition 1 (Discrete memoryless channel)** A **discrete channel** has a finite *input alphabet* \\\mathcal{X}\\, a finite *output alphabet* \\\mathcal{Y}\\, and, for each input \\x \in \mathcal{X}\\, a probability mass function \\p(y \mid x)\\ on \\\mathcal{Y}\\: the probability that the channel outputs \\y\\ when it is sent \\x\\. The channel is **memoryless** if, over \\n\\ uses, each output depends only on the input sent at that use:
 >
-> \\ \operatorname{P}(Y_1 = y_1, \dots, Y_n = y_n \mid X_1 = x_1, \dots, X_n = x_n) = \prod\_{i=1}^{n} p(y_i \mid x_i). \\
+> \\ \mathbb{P}(Y_1 = y_1, \dots, Y_n = y_n \mid X_1 = x_1, \dots, X_n = x_n) = \prod\_{i=1}^{n} p(y_i \mid x_i). \\
 >
 > This is the setup of Cover and Thomas ([2006, chap. 7](#ref-cover2006elements)).
 
@@ -38,9 +38,9 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 
 > **NOTE:**
 >
-> **Definition 4 (Channel capacity)** Send one input \\X\\ through a [discrete memoryless channel](#def-channel), and let \\Y\\ be the output. The joint distribution of \\(X, Y)\\ is \\\operatorname{P}(X = x, Y = y) = \operatorname{P}(X = x) \\ p(y \mid x)\\, so the [mutual information](entropy.llms.md#def-mutual-information) \\I(X; Y)\\ depends on the channel and on the input distribution. The **capacity** of the channel is the largest mutual information any input distribution achieves:
+> **Definition 4 (Channel capacity)** Send one input \\X\\ through a [discrete memoryless channel](#def-channel), and let \\Y\\ be the output. The joint distribution of \\(X, Y)\\ is \\\mathbb{P}(X = x, Y = y) = \mathbb{P}(X = x) \\ p(y \mid x)\\, so the [mutual information](entropy.llms.md#def-mutual-information) \\I(X; Y)\\ depends on the channel and on the input distribution. The **capacity** of the channel is the largest mutual information any input distribution achieves:
 >
-> \\C \stackrel{\text{def}}{=}\max\_{\operatorname{P}(X = \cdot)} I(X; Y),\\
+> \\C \stackrel{\text{def}}{=}\max\_{\mathbb{P}(X = \cdot)} I(X; Y),\\
 >
 > where the maximum runs over all probability mass functions on \\\mathcal{X}\\ ([Cover and Thomas 2006, chap. 7](#ref-cover2006elements)). With base-2 logarithms, \\C\\ is measured in *bits per channel use*.
 
@@ -82,7 +82,7 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 >
 > If \\X\\ is uniform on \\\\0, 1\\\\, then
 >
-> \\ \begin{aligned} \operatorname{P}(Y = 1) &= \operatorname{P}(X = 0) \\ \epsilon + \operatorname{P}(X = 1) \\ (1 - \epsilon) \\ &= \tfrac{1}{2} \epsilon + \tfrac{1}{2} (1 - \epsilon) \\ &= \tfrac{1}{2}, \end{aligned} \\
+> \\ \begin{aligned} \mathbb{P}(Y = 1) &= \mathbb{P}(X = 0) \\ \epsilon + \mathbb{P}(X = 1) \\ (1 - \epsilon) \\ &= \tfrac{1}{2} \epsilon + \tfrac{1}{2} (1 - \epsilon) \\ &= \tfrac{1}{2}, \end{aligned} \\
 >
 > so \\H(Y) = 1\\ bit and \\I(X; Y) = 1 - h(\epsilon)\\. The bound is attained, so it is the maximum \\C\\.
 
@@ -100,7 +100,7 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 
 > **NOTE:**
 >
-> **Exercise 1 (Capacity of the binary erasure channel)** Send \\X\\ through the [binary erasure channel](#def-binary-erasure-channel) with erasure probability \\\alpha\\, where \\0 \< \alpha \< 1\\, and write \\\pi \stackrel{\text{def}}{=}\operatorname{P}(X = 1)\\. Let \\E\\ be \\1\\ if the output \\Y\\ is the erasure symbol \\\mathrm{e}\\, and \\0\\ otherwise. Use base-2 logarithms and the [binary entropy function](#def-binary-entropy) \\h\\.
+> **Exercise 1 (Capacity of the binary erasure channel)** Send \\X\\ through the [binary erasure channel](#def-binary-erasure-channel) with erasure probability \\\alpha\\, where \\0 \< \alpha \< 1\\, and write \\\pi \stackrel{\text{def}}{=}\mathbb{P}(X = 1)\\. Let \\E\\ be \\1\\ if the output \\Y\\ is the erasure symbol \\\mathrm{e}\\, and \\0\\ otherwise. Use base-2 logarithms and the [binary entropy function](#def-binary-entropy) \\h\\.
 >
 > 1.  Show that \\H(Y \mid X) = h(\alpha)\\.
 >
@@ -122,9 +122,9 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 >
 >     Each value \\y\\ of \\Y\\ fixes \\E\\, so \\H(E \mid Y = y) = 0\\ for every \\y\\, and \\H(E \mid Y) = 0\\. Hence \\H(Y) = H(E) + H(Y \mid E)\\.
 >
-> 3.  The channel erases with probability \\\alpha\\ whatever the input, so \\E\\ is independent of \\X\\ and \\H(E) = h(\alpha)\\. Given \\E = 1\\, \\Y = \mathrm{e}\\ for certain, so \\H(Y \mid E = 1) = 0\\. Given \\E = 0\\, \\Y = X\\, and since \\E\\ is independent of \\X\\, \\\operatorname{P}(Y = 1 \mid E = 0) = \operatorname{P}(X = 1) = \pi\\, so \\H(Y \mid E = 0) = h(\pi)\\. Therefore
+> 3.  The channel erases with probability \\\alpha\\ whatever the input, so \\E\\ is independent of \\X\\ and \\H(E) = h(\alpha)\\. Given \\E = 1\\, \\Y = \mathrm{e}\\ for certain, so \\H(Y \mid E = 1) = 0\\. Given \\E = 0\\, \\Y = X\\, and since \\E\\ is independent of \\X\\, \\\mathbb{P}(Y = 1 \mid E = 0) = \mathbb{P}(X = 1) = \pi\\, so \\H(Y \mid E = 0) = h(\pi)\\. Therefore
 >
->     \\ \begin{aligned} H(Y) &= H(E) + \operatorname{P}(E = 1) \\ H(Y \mid E = 1) + \operatorname{P}(E = 0) \\ H(Y \mid E = 0) \\ &= h(\alpha) + \alpha \cdot 0 + (1 - \alpha) \\ h(\pi) \\ &= h(\alpha) + (1 - \alpha) \\ h(\pi). \end{aligned} \\
+>     \\ \begin{aligned} H(Y) &= H(E) + \mathbb{P}(E = 1) \\ H(Y \mid E = 1) + \mathbb{P}(E = 0) \\ H(Y \mid E = 0) \\ &= h(\alpha) + \alpha \cdot 0 + (1 - \alpha) \\ h(\pi) \\ &= h(\alpha) + (1 - \alpha) \\ h(\pi). \end{aligned} \\
 >
 > 4.  Combining parts 1 and 3,
 >

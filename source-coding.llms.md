@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-24 19:16:36 (PDT)
+Last modified: 2026-10-24 21:50:48 (PDT)
 
 ## 1 Codes
 
@@ -18,9 +18,9 @@ Last modified: 2026-10-24 19:16:36 (PDT)
 
 > **NOTE:**
 >
-> **Definition 3 (Expected length)** The **expected length** of a [binary code](#def-code) for \\X\\, where \\X\\ has probability mass function \\p(x) \stackrel{\text{def}}{=}\operatorname{P}(X=x)\\, is
+> **Definition 3 (Expected length)** The **expected length** of a [binary code](#def-code) for \\X\\, where \\X\\ has probability mass function \\p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)\\, is
 >
-> \\L \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\ell(X)\right\]\mathclose{} = \sum\_{x} p(x) \\ \ell(x).\\
+> \\L \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left\[\ell(X)\right\]\mathclose{}} = \sum\_{x} p(x) \\ \ell(x).\\
 
 > **NOTE:**
 >

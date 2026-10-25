@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-24 19:16:36 (PDT)
+Last modified: 2026-10-24 21:50:48 (PDT)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -12,9 +12,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 1 (Surprisal)** The **surprisal** of an outcome \\x\\ of a discrete random variable \\X\\ with \\\operatorname{P}(X=x) \> 0\\ is
+> **Definition 1 (Surprisal)** The **surprisal** of an outcome \\x\\ of a discrete random variable \\X\\ with \\\mathbb{P}(X=x) \> 0\\ is
 >
-> \\s(x) \stackrel{\text{def}}{=}-\log \operatorname{P}(X=x).\\
+> \\s(x) \stackrel{\text{def}}{=}-\log \mathbb{P}(X=x).\\
 >
 > With base-2 logarithms, surprisal is measured in *bits*; with natural logarithms, in *nats*.
 
@@ -40,7 +40,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > *Remark 2* (Entropy is expected surprisal). The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a discrete random variable \\X\\ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [surprisal](#def-surprisal):
 >
-> \\ \begin{aligned} H(X) &= \operatorname{E}\mathopen{}\left\[-\log \operatorname{P}(X)\right\]\mathclose{} \\ &= \operatorname{E}\mathopen{}\left\[s(X)\right\]\mathclose{}. \end{aligned} \\
+> \\ \begin{aligned} H(X) &= {\mathbb{E}\mathopen{}\left\[-\log \mathbb{P}(X)\right\]\mathclose{}} \\ &= {\mathbb{E}\mathopen{}\left\[s(X)\right\]\mathclose{}}. \end{aligned} \\
 >
 > So \\H(X)\\ is the average number of bits (with base-2 logarithms) needed to record an outcome of \\X\\ when each outcome \\x\\ costs \\s(x)\\ bits. The [source coding theorem](source-coding.llms.md#thm-source-coding), on a later page of these notes, makes that average precise: no uniquely decodable code does better.
 
@@ -52,7 +52,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 2 (Joint entropy)** Let \\X\\ and \\Y\\ be discrete random variables with joint probability mass function \\p(x, y) \stackrel{\text{def}}{=}\operatorname{P}(X=x, Y=y)\\. Their **joint entropy** is the entropy of the pair \\(X, Y)\\:
+> **Definition 2 (Joint entropy)** Let \\X\\ and \\Y\\ be discrete random variables with joint probability mass function \\p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)\\. Their **joint entropy** is the entropy of the pair \\(X, Y)\\:
 >
 > \\H(X, Y) \stackrel{\text{def}}{=}-\sum\_{x, y} p(x, y) \log p(x, y),\\
 >
@@ -60,7 +60,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 3 (Entropy given one value)** For \\X\\ and \\Y\\ as in [Definition 2](#def-joint-entropy), write \\p(y \mid x) \stackrel{\text{def}}{=}\operatorname{P}(Y=y \mid X=x)\\. The **entropy of \\Y\\ given \\X=x\\**, for a value \\x\\ with \\\operatorname{P}(X=x) \> 0\\, is
+> **Definition 3 (Entropy given one value)** For \\X\\ and \\Y\\ as in [Definition 2](#def-joint-entropy), write \\p(y \mid x) \stackrel{\text{def}}{=}\mathbb{P}(Y=y \mid X=x)\\. The **entropy of \\Y\\ given \\X=x\\**, for a value \\x\\ with \\\mathbb{P}(X=x) \> 0\\, is
 >
 > \\H(Y \mid X=x) \stackrel{\text{def}}{=}-\sum\_{y} p(y \mid x) \log p(y \mid x),\\
 >
@@ -68,7 +68,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 4 (Conditional entropy)** For \\X\\ and \\Y\\ as in [Definition 2](#def-joint-entropy), write \\p(x) \stackrel{\text{def}}{=}\operatorname{P}(X=x)\\. The **conditional entropy** of \\Y\\ given \\X\\ averages the [entropy of \\Y\\ given each value of \\X\\](#def-entropy-given-value) over the distribution of \\X\\:
+> **Definition 4 (Conditional entropy)** For \\X\\ and \\Y\\ as in [Definition 2](#def-joint-entropy), write \\p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)\\. The **conditional entropy** of \\Y\\ given \\X\\ averages the [entropy of \\Y\\ given each value of \\X\\](#def-entropy-given-value) over the distribution of \\X\\:
 >
 > \\H(Y \mid X) \stackrel{\text{def}}{=}\sum\_{x} p(x) \\ H(Y \mid X=x),\\
 >

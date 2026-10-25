@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-24 19:16:36 (PDT)
+Last modified: 2026-10-24 21:50:48 (PDT)
 
 An error-correcting code adds redundancy to a message so that the receiver can recover it even after some symbols are changed. This page covers the basic definitions, the Hamming and Reed–Solomon codes, and then how codes that can be decoded by reading only a few symbols lead to central results of computational complexity.
 
@@ -12,13 +12,13 @@ An error-correcting code adds redundancy to a message so that the receiver can r
 
 > **NOTE:**
 >
-> **Definition 1 (Block code)** Let \\\Sigma\\ be a finite alphabet with \\q \ge 2\\ symbols, and let \\k \le n\\ be positive integers. A **block code** with message length \\k\\ and block length \\n\\ is a one-to-one map \\E : \Sigma^k \to \Sigma^n\\. Its image \\C = \mathopen{}\left\\E(m) : m \in \Sigma^k\right\\\mathclose{}\\ is the set of *codewords*, and its **rate** is \\R \stackrel{\text{def}}{=}k/n\\, the number of message symbols carried per symbol sent.
+> **Definition 1 (Block code)** Let \\\Sigma\\ be a finite alphabet with \\q \ge 2\\ symbols, and let \\k \le n\\ be positive integers. A **block code** with message length \\k\\ and block length \\n\\ is a one-to-one map \\E : \Sigma^k \to \Sigma^n\\. Its image \\C = {\mathopen{}\left\\E(m) : m \in \Sigma^k\right\\\mathclose{}}\\ is the set of *codewords*, and its **rate** is \\R \stackrel{\text{def}}{=}k/n\\, the number of message symbols carried per symbol sent.
 
 > **NOTE:**
 >
-> **Definition 2 (Hamming distance and minimum distance)** The **Hamming distance** \\\Delta\mathopen{}\left(x, y\right)\mathclose{}\\ between two strings \\x, y \in \Sigma^n\\ is the number of positions \\i\\ with \\x_i \ne y_i\\. The **minimum distance** of a [block code](#def-block-code) with codewords \\C\\ is
+> **Definition 2 (Hamming distance and minimum distance)** The **Hamming distance** \\{\Delta\mathopen{}\left(x, y\right)\mathclose{}}\\ between two strings \\x, y \in \Sigma^n\\ is the number of positions \\i\\ with \\x_i \ne y_i\\. The **minimum distance** of a [block code](#def-block-code) with codewords \\C\\ is
 >
-> \\d \stackrel{\text{def}}{=}\min \mathopen{}\left\\\Delta\mathopen{}\left(c, c'\right)\mathclose{} : c, c' \in C, \\ c \ne c'\right\\\mathclose{}.\\
+> \\d \stackrel{\text{def}}{=}\min {\mathopen{}\left\\{\Delta\mathopen{}\left(c, c'\right)\mathclose{}} : c, c' \in C, \\ c \ne c'\right\\\mathclose{}}.\\
 
 > **NOTE:**
 >
@@ -30,11 +30,11 @@ An error-correcting code adds redundancy to a message so that the receiver can r
 
 > **NOTE:**
 >
-> *Proof*. For part 1, \\0 \< \Delta\mathopen{}\left(c, y\right)\mathclose{} \le d - 1 \< d\\, so \\y \ne c\\. If \\y\\ were another codeword \\c'\\, then \\\Delta\mathopen{}\left(c, c'\right)\mathclose{} = \Delta\mathopen{}\left(c, y\right)\mathclose{} \< d\\, which the minimum distance rules out.
+> *Proof*. For part 1, \\0 \< {\Delta\mathopen{}\left(c, y\right)\mathclose{}} \le d - 1 \< d\\, so \\y \ne c\\. If \\y\\ were another codeword \\c'\\, then \\{\Delta\mathopen{}\left(c, c'\right)\mathclose{}} = {\Delta\mathopen{}\left(c, y\right)\mathclose{}} \< d\\, which the minimum distance rules out.
 >
 > For part 2, Hamming distance satisfies the triangle inequality, since a position where \\c\\ and \\c'\\ differ is a position where \\y\\ differs from \\c\\ or from \\c'\\. So for any codeword \\c' \ne c\\,
 >
-> \\ \Delta\mathopen{}\left(c', y\right)\mathclose{} \ge \Delta\mathopen{}\left(c, c'\right)\mathclose{} - \Delta\mathopen{}\left(c, y\right)\mathclose{} \ge d - t \ge t + 1 \> \Delta\mathopen{}\left(c, y\right)\mathclose{}, \\
+> \\ {\Delta\mathopen{}\left(c', y\right)\mathclose{}} \ge {\Delta\mathopen{}\left(c, c'\right)\mathclose{}} - {\Delta\mathopen{}\left(c, y\right)\mathclose{}} \ge d - t \ge t + 1 \> {\Delta\mathopen{}\left(c, y\right)\mathclose{}}, \\
 >
 > where \\d - t \ge t + 1\\ because \\2t \le d - 1\\.
 
@@ -50,7 +50,7 @@ An error-correcting code adds redundancy to a message so that the receiver can r
 
 > **NOTE:**
 >
-> **Definition 3 (Linear code)** Let the alphabet be a finite field \\\mathbb{F}\_{q}\\, such as \\\mathbb{F}\_{2} = \mathopen{}\left\\0, 1\right\\\mathclose{}\\ with addition and multiplication modulo 2. A **linear code** is a [block code](#def-block-code) whose set of codewords \\C\\ is a \\k\\-dimensional subspace of \\\mathbb{F}\_{q}^n\\. One way to describe it is by a **parity-check matrix**: an \\(n - k) \times n\\ matrix \\H\\ of rank \\n - k\\ with \\C = \mathopen{}\left\\y \in \mathbb{F}\_{q}^n : H y = 0\right\\\mathclose{}\\, where \\y\\ is treated as a column vector. A linear code with block length \\n\\, dimension \\k\\ and [minimum distance](#def-hamming-distance) \\d\\ is called an \\{\mathopen{}\left\[n, k, d\right\]\mathclose{}}\_{q}\\ code.
+> **Definition 3 (Linear code)** Let the alphabet be a finite field \\\mathbb{F}\_{q}\\, such as \\\mathbb{F}\_{2} = {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\ with addition and multiplication modulo 2. A **linear code** is a [block code](#def-block-code) whose set of codewords \\C\\ is a \\k\\-dimensional subspace of \\\mathbb{F}\_{q}^n\\. One way to describe it is by a **parity-check matrix**: an \\(n - k) \times n\\ matrix \\H\\ of rank \\n - k\\ with \\C = {\mathopen{}\left\\y \in \mathbb{F}\_{q}^n : H y = 0\right\\\mathclose{}}\\, where \\y\\ is treated as a column vector. A linear code with block length \\n\\, dimension \\k\\ and [minimum distance](#def-hamming-distance) \\d\\ is called an \\{\mathopen{}\left\[n, k, d\right\]\mathclose{}}\_{q}\\ code.
 
 > **NOTE:**
 >
@@ -58,7 +58,7 @@ An error-correcting code adds redundancy to a message so that the receiver can r
 
 > **NOTE:**
 >
-> *Remark 2* (The minimum distance of a linear code is its smallest nonzero weight). For codewords \\c \ne c'\\ of a [linear code](#def-linear-code), \\\Delta\mathopen{}\left(c, c'\right)\mathclose{}\\ is the [weight](#def-weight) of \\c - c'\\, which is itself a nonzero codeword. So the minimum distance is the smallest weight of a nonzero codeword.
+> *Remark 2* (The minimum distance of a linear code is its smallest nonzero weight). For codewords \\c \ne c'\\ of a [linear code](#def-linear-code), \\{\Delta\mathopen{}\left(c, c'\right)\mathclose{}}\\ is the [weight](#def-weight) of \\c - c'\\, which is itself a nonzero codeword. So the minimum distance is the smallest weight of a nonzero codeword.
 
 > **NOTE:**
 >
@@ -147,7 +147,7 @@ Complexity theory uses codes that can be decoded by reading only a few symbols o
 
 > **NOTE:**
 >
-> **Theorem 5 (Two-query decoding of the Hadamard code)** Let \\w\\ be a binary string of length \\2^k\\, with \\w(a)\\ its symbol at the position indexed by \\a \in \mathbb{F}\_{2}^k\\, that differs from the [Hadamard codeword](#def-hadamard-code) of \\x\\ in at most a fraction \\\delta\\ of its positions. Fix \\i \in \mathopen{}\left\\1, \ldots, k\right\\\mathclose{}\\, and let \\e_i\\ have a 1 in position \\i\\ only. Choose \\a \in \mathbb{F}\_{2}^k\\ uniformly at random and output \\w(a) + w(a + e_i) \pmod 2\\. The output equals \\x_i\\ with probability at least \\1 - 2\delta\\.
+> **Theorem 5 (Two-query decoding of the Hadamard code)** Let \\w\\ be a binary string of length \\2^k\\, with \\w(a)\\ its symbol at the position indexed by \\a \in \mathbb{F}\_{2}^k\\, that differs from the [Hadamard codeword](#def-hadamard-code) of \\x\\ in at most a fraction \\\delta\\ of its positions. Fix \\i \in {\mathopen{}\left\\1, \ldots, k\right\\\mathclose{}}\\, and let \\e_i\\ have a 1 in position \\i\\ only. Choose \\a \in \mathbb{F}\_{2}^k\\ uniformly at random and output \\w(a) + w(a + e_i) \pmod 2\\. The output equals \\x_i\\ with probability at least \\1 - 2\delta\\.
 
 > **NOTE:**
 >
@@ -167,11 +167,11 @@ Complexity theory uses codes that can be decoded by reading only a few symbols o
 
 > **NOTE:**
 >
-> *Remark 4* (Hardness amplification). A Boolean function \\f : \mathopen{}\left\\0, 1\right\\\mathclose{}^s \to \mathopen{}\left\\0, 1\right\\\mathclose{}\\ is determined by its *truth table*, a binary string of length \\2^s\\, so it can be encoded like any message. Encode the truth table with a [locally decodable code](#def-locally-decodable) whose decoder is itself a small circuit, and read the codeword as the truth table of a new function \\g\\. If a small circuit computed \\g\\ correctly on most inputs, then running a local decoder on that circuit’s outputs would compute \\f\\ correctly on every input, with high probability, using a circuit not much larger. So if no small circuit computes \\f\\ on every input, then no small circuit computes \\g\\ on most inputs. Arora and Barak ([2009, chap. 19](#ref-arora2009computational)) develop this worst-case to average-case hardness amplification, and their chapter 20 uses it to build pseudorandom generators.
+> *Remark 4* (Hardness amplification). A Boolean function \\f : {\mathopen{}\left\\0, 1\right\\\mathclose{}}^s \to {\mathopen{}\left\\0, 1\right\\\mathclose{}}\\ is determined by its *truth table*, a binary string of length \\2^s\\, so it can be encoded like any message. Encode the truth table with a [locally decodable code](#def-locally-decodable) whose decoder is itself a small circuit, and read the codeword as the truth table of a new function \\g\\. If a small circuit computed \\g\\ correctly on most inputs, then running a local decoder on that circuit’s outputs would compute \\f\\ correctly on every input, with high probability, using a circuit not much larger. So if no small circuit computes \\f\\ on every input, then no small circuit computes \\g\\ on most inputs. Arora and Barak ([2009, chap. 19](#ref-arora2009computational)) develop this worst-case to average-case hardness amplification, and their chapter 20 uses it to build pseudorandom generators.
 
 > **NOTE:**
 >
-> *Remark 5* (Codes in the PCP theorem). The PCP theorem says that every statement in NP has a proof that a randomized verifier can check by reading a constant number of its bits and using only \\O\mathopen{}\left(\log n\right)\mathclose{}\\ random bits, where \\n\\ is the length of the statement. If the statement is true, some proof makes the verifier accept with probability 1; if it is false, every proof makes the verifier reject with probability at least \\1/2\\. Arora and Barak ([2009, chap. 11](#ref-arora2009computational)) prove a weaker version, in which the verifier uses polynomially many random bits, by writing the proof in the [Hadamard code](#def-hadamard-code). The verifier then tests a few random positions of the encoded proof, in the spirit of [Theorem 5](#thm-hadamard-local-decoding), instead of reading all of it. They prove the full theorem in chapter 22.
+> *Remark 5* (Codes in the PCP theorem). The PCP theorem says that every statement in NP has a proof that a randomized verifier can check by reading a constant number of its bits and using only \\{O\mathopen{}\left(\log n\right)\mathclose{}}\\ random bits, where \\n\\ is the length of the statement. If the statement is true, some proof makes the verifier accept with probability 1; if it is false, every proof makes the verifier reject with probability at least \\1/2\\. Arora and Barak ([2009, chap. 11](#ref-arora2009computational)) prove a weaker version, in which the verifier uses polynomially many random bits, by writing the proof in the [Hadamard code](#def-hadamard-code). The verifier then tests a few random positions of the encoded proof, in the spirit of [Theorem 5](#thm-hadamard-local-decoding), instead of reading all of it. They prove the full theorem in chapter 22.
 
 ## References
 

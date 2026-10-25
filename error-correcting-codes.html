@@ -197,6 +197,16 @@ div.csl-indent {
 })();
 </script>
 <style>
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-prp.callout {
   border-left-color: #827717;
 }
@@ -206,6 +216,26 @@ div.callout-prp.callout-style-default .callout-header {
 div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-def.callout {
   border-left-color: #1B5E20;
@@ -227,15 +257,15 @@ div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
+div.callout-lem.callout {
+  border-left-color: #1565C0;
 }
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
 }
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-proof.callout {
   border-left-color: #37474F;
@@ -256,36 +286,6 @@ div.callout-cnj.callout-style-default .callout-header {
 div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-solution.callout {
-  border-left-color: #4E342E;
-}
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
-}
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exr.callout {
   border-left-color: #FFA500;
@@ -658,7 +658,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-24 19:16:36 (PDT)</p>
+      <p class="date">Last modified: 2026-10-24 21:50:48 (PDT)</p>
     </div>
   </div>
   
@@ -681,7 +681,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="def-block-code" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Block code)</strong></span> Let <span class="math inline">\(\Sigma\)</span> be a finite alphabet with <span class="math inline">\(q \ge 2\)</span> symbols, and let <span class="math inline">\(k \le n\)</span> be positive integers. A <strong>block code</strong> with message length <span class="math inline">\(k\)</span> and block length <span class="math inline">\(n\)</span> is a one-to-one map <span class="math inline">\(E : \Sigma^k \to \Sigma^n\)</span>. Its image <span class="math inline">\(C = \mathopen{}\left\{E(m) : m \in \Sigma^k\right\}\mathclose{}\)</span> is the set of <em>codewords</em>, and its <strong>rate</strong> is <span class="math inline">\(R \stackrel{\text{def}}{=}k/n\)</span>, the number of message symbols carried per symbol sent.</p>
+<p><span class="theorem-title"><strong>Definition 1 (Block code)</strong></span> Let <span class="math inline">\(\Sigma\)</span> be a finite alphabet with <span class="math inline">\(q \ge 2\)</span> symbols, and let <span class="math inline">\(k \le n\)</span> be positive integers. A <strong>block code</strong> with message length <span class="math inline">\(k\)</span> and block length <span class="math inline">\(n\)</span> is a one-to-one map <span class="math inline">\(E : \Sigma^k \to \Sigma^n\)</span>. Its image <span class="math inline">\(C = {\mathopen{}\left\{E(m) : m \in \Sigma^k\right\}\mathclose{}}\)</span> is the set of <em>codewords</em>, and its <strong>rate</strong> is <span class="math inline">\(R \stackrel{\text{def}}{=}k/n\)</span>, the number of message symbols carried per symbol sent.</p>
 </div>
 </div>
 </div>
@@ -693,8 +693,8 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="def-hamming-distance" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Hamming distance and minimum distance)</strong></span> The <strong>Hamming distance</strong> <span class="math inline">\(\Delta\mathopen{}\left(x, y\right)\mathclose{}\)</span> between two strings <span class="math inline">\(x, y \in \Sigma^n\)</span> is the number of positions <span class="math inline">\(i\)</span> with <span class="math inline">\(x_i \ne y_i\)</span>. The <strong>minimum distance</strong> of a <a href="#def-block-code">block code</a> with codewords <span class="math inline">\(C\)</span> is</p>
-<p><span class="math display">\[d \stackrel{\text{def}}{=}\min \mathopen{}\left\{\Delta\mathopen{}\left(c, c'\right)\mathclose{} : c, c' \in C, \ c \ne c'\right\}\mathclose{}.\]</span></p>
+<p><span class="theorem-title"><strong>Definition 2 (Hamming distance and minimum distance)</strong></span> The <strong>Hamming distance</strong> <span class="math inline">\({\Delta\mathopen{}\left(x, y\right)\mathclose{}}\)</span> between two strings <span class="math inline">\(x, y \in \Sigma^n\)</span> is the number of positions <span class="math inline">\(i\)</span> with <span class="math inline">\(x_i \ne y_i\)</span>. The <strong>minimum distance</strong> of a <a href="#def-block-code">block code</a> with codewords <span class="math inline">\(C\)</span> is</p>
+<p><span class="math display">\[d \stackrel{\text{def}}{=}\min {\mathopen{}\left\{{\Delta\mathopen{}\left(c, c'\right)\mathclose{}} : c, c' \in C, \ c \ne c'\right\}\mathclose{}}.\]</span></p>
 </div>
 </div>
 </div>
@@ -728,14 +728,14 @@ window.Quarto = {
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>For part 1, <span class="math inline">\(0 &lt; \Delta\mathopen{}\left(c, y\right)\mathclose{} \le d - 1 &lt; d\)</span>, so <span class="math inline">\(y \ne c\)</span>. If <span class="math inline">\(y\)</span> were another codeword <span class="math inline">\(c'\)</span>, then <span class="math inline">\(\Delta\mathopen{}\left(c, c'\right)\mathclose{} = \Delta\mathopen{}\left(c, y\right)\mathclose{} &lt; d\)</span>, which the minimum distance rules out.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>For part 1, <span class="math inline">\(0 &lt; {\Delta\mathopen{}\left(c, y\right)\mathclose{}} \le d - 1 &lt; d\)</span>, so <span class="math inline">\(y \ne c\)</span>. If <span class="math inline">\(y\)</span> were another codeword <span class="math inline">\(c'\)</span>, then <span class="math inline">\({\Delta\mathopen{}\left(c, c'\right)\mathclose{}} = {\Delta\mathopen{}\left(c, y\right)\mathclose{}} &lt; d\)</span>, which the minimum distance rules out.</p>
 <p>For part 2, Hamming distance satisfies the triangle inequality, since a position where <span class="math inline">\(c\)</span> and <span class="math inline">\(c'\)</span> differ is a position where <span class="math inline">\(y\)</span> differs from <span class="math inline">\(c\)</span> or from <span class="math inline">\(c'\)</span>. So for any codeword <span class="math inline">\(c' \ne c\)</span>,</p>
 <p><span class="math display">\[
-\Delta\mathopen{}\left(c', y\right)\mathclose{}
-\ge \Delta\mathopen{}\left(c, c'\right)\mathclose{} - \Delta\mathopen{}\left(c, y\right)\mathclose{}
+{\Delta\mathopen{}\left(c', y\right)\mathclose{}}
+\ge {\Delta\mathopen{}\left(c, c'\right)\mathclose{}} - {\Delta\mathopen{}\left(c, y\right)\mathclose{}}
 \ge d - t
 \ge t + 1
-&gt; \Delta\mathopen{}\left(c, y\right)\mathclose{},
+&gt; {\Delta\mathopen{}\left(c, y\right)\mathclose{}},
 \]</span></p>
 <p>where <span class="math inline">\(d - t \ge t + 1\)</span> because <span class="math inline">\(2t \le d - 1\)</span>.</p>
 </div>
@@ -777,7 +777,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="def-linear-code" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Linear code)</strong></span> Let the alphabet be a finite field <span class="math inline">\(\mathbb{F}_{q}\)</span>, such as <span class="math inline">\(\mathbb{F}_{2} = \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> with addition and multiplication modulo 2. A <strong>linear code</strong> is a <a href="#def-block-code">block code</a> whose set of codewords <span class="math inline">\(C\)</span> is a <span class="math inline">\(k\)</span>-dimensional subspace of <span class="math inline">\(\mathbb{F}_{q}^n\)</span>. One way to describe it is by a <strong>parity-check matrix</strong>: an <span class="math inline">\((n - k) \times n\)</span> matrix <span class="math inline">\(H\)</span> of rank <span class="math inline">\(n - k\)</span> with <span class="math inline">\(C = \mathopen{}\left\{y \in \mathbb{F}_{q}^n : H y = 0\right\}\mathclose{}\)</span>, where <span class="math inline">\(y\)</span> is treated as a column vector. A linear code with block length <span class="math inline">\(n\)</span>, dimension <span class="math inline">\(k\)</span> and <a href="#def-hamming-distance">minimum distance</a> <span class="math inline">\(d\)</span> is called an <span class="math inline">\({\mathopen{}\left[n, k, d\right]\mathclose{}}_{q}\)</span> code.</p>
+<p><span class="theorem-title"><strong>Definition 3 (Linear code)</strong></span> Let the alphabet be a finite field <span class="math inline">\(\mathbb{F}_{q}\)</span>, such as <span class="math inline">\(\mathbb{F}_{2} = {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span> with addition and multiplication modulo 2. A <strong>linear code</strong> is a <a href="#def-block-code">block code</a> whose set of codewords <span class="math inline">\(C\)</span> is a <span class="math inline">\(k\)</span>-dimensional subspace of <span class="math inline">\(\mathbb{F}_{q}^n\)</span>. One way to describe it is by a <strong>parity-check matrix</strong>: an <span class="math inline">\((n - k) \times n\)</span> matrix <span class="math inline">\(H\)</span> of rank <span class="math inline">\(n - k\)</span> with <span class="math inline">\(C = {\mathopen{}\left\{y \in \mathbb{F}_{q}^n : H y = 0\right\}\mathclose{}}\)</span>, where <span class="math inline">\(y\)</span> is treated as a column vector. A linear code with block length <span class="math inline">\(n\)</span>, dimension <span class="math inline">\(k\)</span> and <a href="#def-hamming-distance">minimum distance</a> <span class="math inline">\(d\)</span> is called an <span class="math inline">\({\mathopen{}\left[n, k, d\right]\mathclose{}}_{q}\)</span> code.</p>
 </div>
 </div>
 </div>
@@ -801,7 +801,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <div id="rem-linear-code-weight" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (The minimum distance of a linear code is its smallest nonzero weight). </span>For codewords <span class="math inline">\(c \ne c'\)</span> of a <a href="#def-linear-code">linear code</a>, <span class="math inline">\(\Delta\mathopen{}\left(c, c'\right)\mathclose{}\)</span> is the <a href="#def-weight">weight</a> of <span class="math inline">\(c - c'\)</span>, which is itself a nonzero codeword. So the minimum distance is the smallest weight of a nonzero codeword.</p>
+<p><span class="proof-title"><em>Remark 2</em> (The minimum distance of a linear code is its smallest nonzero weight). </span>For codewords <span class="math inline">\(c \ne c'\)</span> of a <a href="#def-linear-code">linear code</a>, <span class="math inline">\({\Delta\mathopen{}\left(c, c'\right)\mathclose{}}\)</span> is the <a href="#def-weight">weight</a> of <span class="math inline">\(c - c'\)</span>, which is itself a nonzero codeword. So the minimum distance is the smallest weight of a nonzero codeword.</p>
 </div>
 </div>
 </div>
@@ -1001,7 +1001,7 @@ H = \begin{pmatrix}
 </div>
 <div class="callout-body-container">
 <div id="thm-hadamard-local-decoding" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5 (Two-query decoding of the Hadamard code)</strong></span> Let <span class="math inline">\(w\)</span> be a binary string of length <span class="math inline">\(2^k\)</span>, with <span class="math inline">\(w(a)\)</span> its symbol at the position indexed by <span class="math inline">\(a \in \mathbb{F}_{2}^k\)</span>, that differs from the <a href="#def-hadamard-code">Hadamard codeword</a> of <span class="math inline">\(x\)</span> in at most a fraction <span class="math inline">\(\delta\)</span> of its positions. Fix <span class="math inline">\(i \in \mathopen{}\left\{1, \ldots, k\right\}\mathclose{}\)</span>, and let <span class="math inline">\(e_i\)</span> have a 1 in position <span class="math inline">\(i\)</span> only. Choose <span class="math inline">\(a \in \mathbb{F}_{2}^k\)</span> uniformly at random and output <span class="math inline">\(w(a) + w(a + e_i) \pmod 2\)</span>. The output equals <span class="math inline">\(x_i\)</span> with probability at least <span class="math inline">\(1 - 2\delta\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 5 (Two-query decoding of the Hadamard code)</strong></span> Let <span class="math inline">\(w\)</span> be a binary string of length <span class="math inline">\(2^k\)</span>, with <span class="math inline">\(w(a)\)</span> its symbol at the position indexed by <span class="math inline">\(a \in \mathbb{F}_{2}^k\)</span>, that differs from the <a href="#def-hadamard-code">Hadamard codeword</a> of <span class="math inline">\(x\)</span> in at most a fraction <span class="math inline">\(\delta\)</span> of its positions. Fix <span class="math inline">\(i \in {\mathopen{}\left\{1, \ldots, k\right\}\mathclose{}}\)</span>, and let <span class="math inline">\(e_i\)</span> have a 1 in position <span class="math inline">\(i\)</span> only. Choose <span class="math inline">\(a \in \mathbb{F}_{2}^k\)</span> uniformly at random and output <span class="math inline">\(w(a) + w(a + e_i) \pmod 2\)</span>. The output equals <span class="math inline">\(x_i\)</span> with probability at least <span class="math inline">\(1 - 2\delta\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1057,7 +1057,7 @@ H = \begin{pmatrix}
 </div>
 <div class="callout-body-container">
 <div id="rem-hardness-amplification" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Hardness amplification). </span>A Boolean function <span class="math inline">\(f : \mathopen{}\left\{0, 1\right\}\mathclose{}^s \to \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> is determined by its <em>truth table</em>, a binary string of length <span class="math inline">\(2^s\)</span>, so it can be encoded like any message. Encode the truth table with a <a href="#def-locally-decodable">locally decodable code</a> whose decoder is itself a small circuit, and read the codeword as the truth table of a new function <span class="math inline">\(g\)</span>. If a small circuit computed <span class="math inline">\(g\)</span> correctly on most inputs, then running a local decoder on that circuit’s outputs would compute <span class="math inline">\(f\)</span> correctly on every input, with high probability, using a circuit not much larger. So if no small circuit computes <span class="math inline">\(f\)</span> on every input, then no small circuit computes <span class="math inline">\(g\)</span> on most inputs. <span class="citation" data-cites="arora2009computational">Arora and Barak (<a href="#ref-arora2009computational" role="doc-biblioref">2009, chap. 19</a>)</span> develop this worst-case to average-case hardness amplification, and their chapter 20 uses it to build pseudorandom generators.</p>
+<p><span class="proof-title"><em>Remark 4</em> (Hardness amplification). </span>A Boolean function <span class="math inline">\(f : {\mathopen{}\left\{0, 1\right\}\mathclose{}}^s \to {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span> is determined by its <em>truth table</em>, a binary string of length <span class="math inline">\(2^s\)</span>, so it can be encoded like any message. Encode the truth table with a <a href="#def-locally-decodable">locally decodable code</a> whose decoder is itself a small circuit, and read the codeword as the truth table of a new function <span class="math inline">\(g\)</span>. If a small circuit computed <span class="math inline">\(g\)</span> correctly on most inputs, then running a local decoder on that circuit’s outputs would compute <span class="math inline">\(f\)</span> correctly on every input, with high probability, using a circuit not much larger. So if no small circuit computes <span class="math inline">\(f\)</span> on every input, then no small circuit computes <span class="math inline">\(g\)</span> on most inputs. <span class="citation" data-cites="arora2009computational">Arora and Barak (<a href="#ref-arora2009computational" role="doc-biblioref">2009, chap. 19</a>)</span> develop this worst-case to average-case hardness amplification, and their chapter 20 uses it to build pseudorandom generators.</p>
 </div>
 </div>
 </div>
@@ -1069,7 +1069,7 @@ H = \begin{pmatrix}
 </div>
 <div class="callout-body-container">
 <div id="rem-codes-pcp" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Codes in the PCP theorem). </span>The PCP theorem says that every statement in NP has a proof that a randomized verifier can check by reading a constant number of its bits and using only <span class="math inline">\(O\mathopen{}\left(\log n\right)\mathclose{}\)</span> random bits, where <span class="math inline">\(n\)</span> is the length of the statement. If the statement is true, some proof makes the verifier accept with probability 1; if it is false, every proof makes the verifier reject with probability at least <span class="math inline">\(1/2\)</span>. <span class="citation" data-cites="arora2009computational">Arora and Barak (<a href="#ref-arora2009computational" role="doc-biblioref">2009, chap. 11</a>)</span> prove a weaker version, in which the verifier uses polynomially many random bits, by writing the proof in the <a href="#def-hadamard-code">Hadamard code</a>. The verifier then tests a few random positions of the encoded proof, in the spirit of <a href="#thm-hadamard-local-decoding" class="quarto-xref">Theorem&nbsp;5</a>, instead of reading all of it. They prove the full theorem in chapter 22.</p>
+<p><span class="proof-title"><em>Remark 5</em> (Codes in the PCP theorem). </span>The PCP theorem says that every statement in NP has a proof that a randomized verifier can check by reading a constant number of its bits and using only <span class="math inline">\({O\mathopen{}\left(\log n\right)\mathclose{}}\)</span> random bits, where <span class="math inline">\(n\)</span> is the length of the statement. If the statement is true, some proof makes the verifier accept with probability 1; if it is false, every proof makes the verifier reject with probability at least <span class="math inline">\(1/2\)</span>. <span class="citation" data-cites="arora2009computational">Arora and Barak (<a href="#ref-arora2009computational" role="doc-biblioref">2009, chap. 11</a>)</span> prove a weaker version, in which the verifier uses polynomially many random bits, by writing the proof in the <a href="#def-hadamard-code">Hadamard code</a>. The verifier then tests a few random positions of the encoded proof, in the spirit of <a href="#thm-hadamard-local-decoding" class="quarto-xref">Theorem&nbsp;5</a>, instead of reading all of it. They prove the full theorem in chapter 22.</p>
 </div>
 </div>
 </div>
