@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 03:07:59 (PDT)
+Last modified: 2026-10-26 14:03:07 (PDT)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -21,6 +21,12 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > **NOTE:**
 >
 > **Definition 2 (Bit)** A **bit** is the unit of information when the logarithm in [surprisal](#def-surprisal), and in every quantity built from it, has base \\2\\.
+>
+> One bit is the surprisal of an outcome with probability \\1/2\\: for an outcome \\x\\ of a discrete random variable \\X\\,
+>
+> \\ \begin{aligned} s(x) = 1 \text{ bit} &\iff -\log_2 \mathbb{P}(X=x) = 1\\ &\iff \mathbb{P}(X=x) = 2^{-1} = \tfrac{1}{2}. \end{aligned} \\
+>
+> In words, a bit is the surprisal of one binary outcome when its two values are equally likely, such as the result of one toss of a fair coin.
 
 > **NOTE:**
 >
@@ -39,10 +45,14 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > **NOTE:**
 >
 > **Definition 3 (Nat)** A **nat** is the unit of information when the logarithm in [surprisal](#def-surprisal), and in every quantity built from it, is the natural logarithm.
+>
+> One nat is the surprisal of an outcome with probability \\1/\text{e}\\: for an outcome \\x\\ of a discrete random variable \\X\\,
+>
+> \\ \begin{aligned} s(x) = 1 \text{ nat} &\iff -\ln \mathbb{P}(X=x) = 1\\ &\iff \mathbb{P}(X=x) = \text{e}^{-1} \approx 0.368. \end{aligned} \\
 
 > **NOTE:**
 >
-> **Example 2 (One fair coin toss in nats)** By [Example 1](#exm-surprisal-coins) with \\k = 1\\, one toss of a fair coin landing heads has a surprisal of \\1\\ [bit](#def-bit). In [nats](#def-nat), the same outcome has a surprisal of
+> **Example 2 (One fair coin toss in nats)** By [Example 1](#exm-surprisal-coins) with \\k = 1\\, one toss of a fair coin landing heads has a [surprisal](#def-surprisal) of \\1\\ [bit](#def-bit). In [nats](#def-nat), the same outcome has a surprisal of
 >
 > \\ \begin{aligned} s(\text{heads}) &= -\ln \tfrac{1}{2} \\ &= \ln 2 \\ &\approx 0.693 \text{ nats}. \end{aligned} \\
 
@@ -52,7 +62,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > \\ \begin{aligned} -\log_2 p &= \frac{-\ln p}{\ln 2}\\ &\approx 1.443 \times (-\ln p). \end{aligned} \\
 >
-> So an outcome with a surprisal of \\1\\ [nat](#def-nat) has a surprisal of \\1 / \ln 2 \approx 1.443\\ [bits](#def-bit), and the \\\ln 2 \approx 0.693\\ nats of [Example 2](#exm-coin-nats) are \\0.693 \times 1.443 \approx 1\\ bit.
+> So an outcome with a [surprisal](#def-surprisal) of \\1\\ [nat](#def-nat) has a surprisal of \\1 / \ln 2 \approx 1.443\\ [bits](#def-bit), and the \\\ln 2 \approx 0.693\\ [nats](#def-nat) of [Example 2](#exm-coin-nats) are \\0.693 \times 1.443 \approx 1\\ [bit](#def-bit).
 >
 > A bit as a unit of information is not the same thing as a bit as a binary digit. A binary digit whose two values are equally likely has a surprisal of exactly \\1\\ bit, whichever value it takes. A binary digit that is \\0\\ nine times in ten does not: the value \\0\\ has a surprisal of \\-\log_2 0.9 \approx 0.152\\ bits, and the value \\1\\ has a surprisal of \\-\log_2 0.1 \approx 3.322\\ bits.
 

@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-26 03:07:59 (PDT)</p>
+  <p class="date">Last modified: 2026-10-26 14:03:07 (PDT)</p>
 </section>
 <section class="slide level2">
 
@@ -283,6 +283,15 @@
 
 <div id="def-bit" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Bit)</strong></span> A <strong>bit</strong> is the unit of information when the logarithm in <a href="#/def-surprisal">surprisal</a>, and in every quantity built from it, has base <span class="math inline">\(2\)</span>.</p>
+<p>One bit is the surprisal of an outcome with probability <span class="math inline">\(1/2\)</span>: for an outcome <span class="math inline">\(x\)</span> of a discrete random variable <span class="math inline">\(X\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+s(x) = 1 \text{ bit}
+&amp;\iff -\log_2 \mathbb{P}(X=x) = 1\\
+&amp;\iff \mathbb{P}(X=x) = 2^{-1} = \tfrac{1}{2}.
+\end{aligned}
+\]</span></p>
+<p>In words, a bit is the surprisal of one binary outcome when its two values are equally likely, such as the result of one toss of a fair coin.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -313,12 +322,20 @@ s(\text{ten heads})
 
 <div id="def-nat" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Nat)</strong></span> A <strong>nat</strong> is the unit of information when the logarithm in <a href="#/def-surprisal">surprisal</a>, and in every quantity built from it, is the natural logarithm.</p>
+<p>One nat is the surprisal of an outcome with probability <span class="math inline">\(1/\text{e}\)</span>: for an outcome <span class="math inline">\(x\)</span> of a discrete random variable <span class="math inline">\(X\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+s(x) = 1 \text{ nat}
+&amp;\iff -\ln \mathbb{P}(X=x) = 1\\
+&amp;\iff \mathbb{P}(X=x) = \text{e}^{-1} \approx 0.368.
+\end{aligned}
+\]</span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="exm-coin-nats" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (One fair coin toss in nats)</strong></span> By <a href="#/exm-surprisal-coins" class="quarto-xref">Example&nbsp;1</a> with <span class="math inline">\(k = 1\)</span>, one toss of a fair coin landing heads has a surprisal of <span class="math inline">\(1\)</span> <a href="#/def-bit">bit</a>. In <a href="#/def-nat">nats</a>, the same outcome has a surprisal of</p>
+<p><span class="theorem-title"><strong>Example 2 (One fair coin toss in nats)</strong></span> By <a href="#/exm-surprisal-coins" class="quarto-xref">Example&nbsp;1</a> with <span class="math inline">\(k = 1\)</span>, one toss of a fair coin landing heads has a <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(1\)</span> <a href="#/def-bit">bit</a>. In <a href="#/def-nat">nats</a>, the same outcome has a surprisal of</p>
 <p><span class="math display">\[
 \begin{aligned}
 s(\text{heads})
@@ -340,7 +357,7 @@ s(\text{heads})
 &amp;\approx 1.443 \times (-\ln p).
 \end{aligned}
 \]</span></p>
-<p>So an outcome with a surprisal of <span class="math inline">\(1\)</span> <a href="#/def-nat">nat</a> has a surprisal of <span class="math inline">\(1 / \ln 2 \approx 1.443\)</span> <a href="#/def-bit">bits</a>, and the <span class="math inline">\(\ln 2 \approx 0.693\)</span> nats of <a href="#/exm-coin-nats" class="quarto-xref">Example&nbsp;2</a> are <span class="math inline">\(0.693 \times 1.443 \approx 1\)</span> bit.</p>
+<p>So an outcome with a <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(1\)</span> <a href="#/def-nat">nat</a> has a surprisal of <span class="math inline">\(1 / \ln 2 \approx 1.443\)</span> <a href="#/def-bit">bits</a>, and the <span class="math inline">\(\ln 2 \approx 0.693\)</span> <a href="#/def-nat">nats</a> of <a href="#/exm-coin-nats" class="quarto-xref">Example&nbsp;2</a> are <span class="math inline">\(0.693 \times 1.443 \approx 1\)</span> <a href="#/def-bit">bit</a>.</p>
 <p>A bit as a unit of information is not the same thing as a bit as a binary digit. A binary digit whose two values are equally likely has a surprisal of exactly <span class="math inline">\(1\)</span> bit, whichever value it takes. A binary digit that is <span class="math inline">\(0\)</span> nine times in ten does not: the value <span class="math inline">\(0\)</span> has a surprisal of <span class="math inline">\(-\log_2 0.9 \approx 0.152\)</span> bits, and the value <span class="math inline">\(1\)</span> has a surprisal of <span class="math inline">\(-\log_2 0.1 \approx 3.322\)</span> bits.</p>
 </div>
 </section>
