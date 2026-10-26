@@ -5,4 +5,15 @@ A **nat** is the unit of information
 when the logarithm in [surprisal](#def-surprisal),
 and in every quantity built from it, is the natural logarithm.
 
+One nat is the surprisal of an outcome with probability $1/\euler$:
+for an outcome $x$ of a discrete random variable $X$,
+
+$$
+\begin{aligned}
+s(x) = 1 \text{ nat}
+&\iff -\ln \P(X=x) = 1\\
+&\iff \P(X=x) = \e{-1} \approx 0.368.
+\end{aligned}
+$$
+
 :::
