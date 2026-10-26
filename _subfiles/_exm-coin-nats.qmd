@@ -1,0 +1,17 @@
+:::{#exm-coin-nats}
+#### One fair coin toss in nats
+
+By @exm-surprisal-coins with $k = 1$, one toss of a fair coin landing heads
+has a [surprisal](#def-surprisal) of $1$ [bit](#def-bit).
+In [nats](#def-nat), the same outcome has a surprisal of
+
+$$
+\begin{aligned}
+s(\text{heads})
+&= -\ln \tfrac{1}{2} \\
+&= \ln 2 \\
+&\approx 0.693 \text{ nats}.
+\end{aligned}
+$$
+
+:::

@@ -15,6 +15,6 @@ $$C \eqdef \max_{\P(X = \cdot)} I(X; Y),$$
 
 where the maximum runs over all probability mass functions on $\mathcal{X}$
 [@cover2006elements, chapter 7].
-With base-2 logarithms, $C$ is measured in *bits per channel use*.
+With base-2 logarithms, $C$ is measured in [bits](entropy.qmd#def-bit) per channel use.
 
 :::

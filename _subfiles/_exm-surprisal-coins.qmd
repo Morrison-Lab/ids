@@ -18,7 +18,7 @@ k
 \end{aligned}
 $$
 
-which is the [surprisal](#def-surprisal) of the outcome, in bits.
+which is the [surprisal](#def-surprisal) of the outcome, in [bits](#def-bit).
 
 Ten tosses that all land heads have probability $2^{-10}$, so
 

@@ -1,0 +1,23 @@
+:::{#def-bit}
+#### Bit
+
+A **bit** is the unit of information
+when the logarithm in [surprisal](#def-surprisal),
+and in every quantity built from it, has base $2$.
+
+One bit is the surprisal of an outcome with probability $1/2$:
+for an outcome $x$ of a discrete random variable $X$,
+
+$$
+\begin{aligned}
+s(x) = 1 \text{ bit}
+&\iff -\log_2 \P(X=x) = 1\\
+&\iff \P(X=x) = 2^{-1} = \tfrac{1}{2}.
+\end{aligned}
+$$
+
+In words, a bit is the surprisal of the outcome of one binary trial
+whose two outcomes are equally likely,
+such as one toss of a fair coin.
+
+:::

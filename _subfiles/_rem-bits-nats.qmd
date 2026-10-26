@@ -1,0 +1,28 @@
+::: {#rem-bits-nats}
+#### Converting between bits and nats
+
+For any probability $p \in (0, 1]$,
+the change-of-base rule for logarithms gives
+
+$$
+\begin{aligned}
+-\log_2 p
+&= \frac{-\ln p}{\ln 2}\\
+&\approx 1.443 \times (-\ln p).
+\end{aligned}
+$$
+
+So an outcome with a [surprisal](#def-surprisal) of $1$ [nat](#def-nat) has a surprisal of
+$1 / \ln 2 \approx 1.443$ [bits](#def-bit),
+and the $\ln 2 \approx 0.693$ [nats](#def-nat) of @exm-coin-nats
+are exactly $\ln 2 / \ln 2 = 1$ [bit](#def-bit).
+
+A bit as a unit of information is not the same thing as
+a bit as a binary digit.
+A binary digit whose two values are equally likely
+has a surprisal of exactly $1$ bit, whichever value it takes.
+A binary digit that is $0$ nine times in ten does not:
+the value $0$ has a surprisal of $-\log_2 0.9 \approx 0.152$ bits,
+and the value $1$ has a surprisal of $-\log_2 0.1 \approx 3.322$ bits.
+
+:::
