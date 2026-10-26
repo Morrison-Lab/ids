@@ -12,7 +12,7 @@ $$
 \begin{aligned}
 s(x) = 1 \text{ nat}
 &\iff -\ln \P(X=x) = 1\\
-&\iff \P(X=x) = \e{-1} \approx 0.368.
+&\iff \P(X=x) = \e{-1} = 1/\euler \approx 0.368.
 \end{aligned}
 $$
 

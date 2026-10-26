@@ -16,8 +16,8 @@ s(x) = 1 \text{ bit}
 \end{aligned}
 $$
 
-In words, a bit is the surprisal of one binary outcome
-when its two values are equally likely,
-such as the result of one toss of a fair coin.
+In words, a bit is the surprisal of the outcome of one binary trial
+whose two outcomes are equally likely,
+such as one toss of a fair coin.
 
 :::

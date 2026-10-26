@@ -15,7 +15,7 @@ $$
 So an outcome with a [surprisal](#def-surprisal) of $1$ [nat](#def-nat) has a surprisal of
 $1 / \ln 2 \approx 1.443$ [bits](#def-bit),
 and the $\ln 2 \approx 0.693$ [nats](#def-nat) of @exm-coin-nats
-are $0.693 \times 1.443 \approx 1$ [bit](#def-bit).
+are exactly $\ln 2 / \ln 2 = 1$ [bit](#def-bit).
 
 A bit as a unit of information is not the same thing as
 a bit as a binary digit.
