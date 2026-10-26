@@ -2,7 +2,7 @@
 #### One fair coin toss in nats
 
 By @exm-surprisal-coins with $k = 1$, one toss of a fair coin landing heads
-has a surprisal of $1$ [bit](#def-bit).
+has a [surprisal](#def-surprisal) of $1$ [bit](#def-bit).
 In [nats](#def-nat), the same outcome has a surprisal of
 
 $$

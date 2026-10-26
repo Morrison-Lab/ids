@@ -16,8 +16,8 @@ s(x) = 1 \text{ bit}
 \end{aligned}
 $$
 
-So one bit is the information in learning the value of
-a random variable with two equally likely values,
-such as one toss of a fair coin.
+In words, a bit is the surprisal of one binary outcome
+when its two values are equally likely,
+such as the result of one toss of a fair coin.
 
 :::
