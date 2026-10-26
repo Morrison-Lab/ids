@@ -12,13 +12,17 @@ $$
 \end{aligned}
 $$
 
-So an outcome with a surprisal of $1$ nat has a surprisal of
-$1 / \ln 2 \approx 1.443$ bits.
+So an outcome with a surprisal of $1$ [nat](#def-nat) has a surprisal of
+$1 / \ln 2 \approx 1.443$ [bits](#def-bit),
+and the $\ln 2 \approx 0.693$ nats of @exm-coin-nats
+are $0.693 \times 1.443 \approx 1$ bit.
 
 A bit as a unit of information is not the same thing as
 a bit as a binary digit.
-A binary digit has an average surprisal of $1$ bit only when
-its two values are equally likely;
-a digit that is $0$ nine times in ten averages less.
+A binary digit whose two values are equally likely
+has a surprisal of exactly $1$ bit, whichever value it takes.
+A binary digit that is $0$ nine times in ten does not:
+the value $0$ has a surprisal of $-\log_2 0.9 \approx 0.152$ bits,
+and the value $1$ has a surprisal of $-\log_2 0.1 \approx 3.322$ bits.
 
 :::

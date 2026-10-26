@@ -1,0 +1,8 @@
+:::{#def-nat}
+#### Nat
+
+A **nat** is the unit of information
+when the logarithm in [surprisal](#def-surprisal),
+and in every quantity built from it, is the natural logarithm.
+
+:::

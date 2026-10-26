@@ -1,0 +1,8 @@
+:::{#def-bit}
+#### Bit
+
+A **bit** is the unit of information
+when the logarithm in [surprisal](#def-surprisal),
+and in every quantity built from it, has base $2$.
+
+:::
