@@ -3,7 +3,8 @@
 # a div, is not linked to its definition (terms are defined and linked at first use).
 # Blocking and diff-scoped: it fails a PR only for lines the PR adds.
 # No `push` trigger: with no PR base to diff against, the reusable workflow
-# skips, so a push run would report success having checked nothing.
+# skips, so a push run would report success, having checked nothing.
+
 name: Check term links
 
 on:
@@ -17,8 +18,9 @@ jobs:
     uses: Morrison-Lab/gha/.github/workflows/check-term-links.yml@v3
     with:
       # `**`, not `*`: gha's matcher stops a single `*` at a `/`.
-      # `_extensions/` holds vendored Quarto extensions.
+      # `_extensions/` holds vendored Quarto extensions;
+      # `latex-macros/` is the shared macros submodule.
       paths-ignore: '_extensions/**,latex-macros/**'
-      # A manual run has no PR to diff against, and would otherwise skip
+      # A manual run has no PR to diff against and would otherwise skip,
       # having examined nothing; make it report the whole tree instead.
       whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
