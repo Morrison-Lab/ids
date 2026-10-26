@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 14:03:07 (PDT)
+Last modified: 2026-10-26 14:10:46 (PDT)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -26,7 +26,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > \\ \begin{aligned} s(x) = 1 \text{ bit} &\iff -\log_2 \mathbb{P}(X=x) = 1\\ &\iff \mathbb{P}(X=x) = 2^{-1} = \tfrac{1}{2}. \end{aligned} \\
 >
-> In words, a bit is the surprisal of one binary outcome when its two values are equally likely, such as the result of one toss of a fair coin.
+> In words, a bit is the surprisal of the outcome of one binary trial whose two outcomes are equally likely, such as one toss of a fair coin.
 
 > **NOTE:**
 >
@@ -48,7 +48,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > One nat is the surprisal of an outcome with probability \\1/\text{e}\\: for an outcome \\x\\ of a discrete random variable \\X\\,
 >
-> \\ \begin{aligned} s(x) = 1 \text{ nat} &\iff -\ln \mathbb{P}(X=x) = 1\\ &\iff \mathbb{P}(X=x) = \text{e}^{-1} \approx 0.368. \end{aligned} \\
+> \\ \begin{aligned} s(x) = 1 \text{ nat} &\iff -\ln \mathbb{P}(X=x) = 1\\ &\iff \mathbb{P}(X=x) = \text{e}^{-1} = 1/\text{e}\approx 0.368. \end{aligned} \\
 
 > **NOTE:**
 >
@@ -62,7 +62,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > \\ \begin{aligned} -\log_2 p &= \frac{-\ln p}{\ln 2}\\ &\approx 1.443 \times (-\ln p). \end{aligned} \\
 >
-> So an outcome with a [surprisal](#def-surprisal) of \\1\\ [nat](#def-nat) has a surprisal of \\1 / \ln 2 \approx 1.443\\ [bits](#def-bit), and the \\\ln 2 \approx 0.693\\ [nats](#def-nat) of [Example 2](#exm-coin-nats) are \\0.693 \times 1.443 \approx 1\\ [bit](#def-bit).
+> So an outcome with a [surprisal](#def-surprisal) of \\1\\ [nat](#def-nat) has a surprisal of \\1 / \ln 2 \approx 1.443\\ [bits](#def-bit), and the \\\ln 2 \approx 0.693\\ [nats](#def-nat) of [Example 2](#exm-coin-nats) are exactly \\\ln 2 / \ln 2 = 1\\ [bit](#def-bit).
 >
 > A bit as a unit of information is not the same thing as a bit as a binary digit. A binary digit whose two values are equally likely has a surprisal of exactly \\1\\ bit, whichever value it takes. A binary digit that is \\0\\ nine times in ten does not: the value \\0\\ has a surprisal of \\-\log_2 0.9 \approx 0.152\\ bits, and the value \\1\\ has a surprisal of \\-\log_2 0.1 \approx 3.322\\ bits.
 
