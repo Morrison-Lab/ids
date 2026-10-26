@@ -6,7 +6,7 @@ the output of a source can be compressed.
 @cover2006elements [sections 5.3 to 5.5] prove each part of @thm-source-coding.
 For part 2, they give each value $x$ with $p(x) > 0$ the length
 $\ell(x) = \lceil -\log_2 p(x) \rceil$,
-its [surprisal](entropy.qmd#def-surprisal) in bits rounded up;
+its [surprisal](entropy.qmd#def-surprisal) in [bits](entropy.qmd#def-bits-nats) rounded up;
 the Kraft inequality [@cover2006elements, section 5.2]
 guarantees that a code with these lengths exists.
 

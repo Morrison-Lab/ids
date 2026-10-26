@@ -1,0 +1,24 @@
+::: {#rem-bits-nats}
+#### Converting between bits and nats
+
+For any probability $p \in (0, 1]$,
+the change-of-base rule for logarithms gives
+
+$$
+\begin{aligned}
+-\log_2 p
+&= \frac{-\ln p}{\ln 2}\\
+&\approx 1.443 \times (-\ln p).
+\end{aligned}
+$$
+
+So an outcome with a surprisal of $1$ nat has a surprisal of
+$1 / \ln 2 \approx 1.443$ bits.
+
+A bit as a unit of information is not the same thing as
+a bit as a binary digit.
+A binary digit has an average surprisal of $1$ bit only when
+its two values are equally likely;
+a digit that is $0$ nine times in ten averages less.
+
+:::

@@ -24,6 +24,14 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_def-bits-nats.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-bits-nats.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_exm-surprisal-coins.qmd >}}
 
 {{< slidebreak >}}
