@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 09:06:27 (PDT)
+Last modified: 2026-10-26 16:12:37 (PDT)
 
 A channel carries symbols from a sender to a receiver, and noise corrupts some of them. This page measures how much information a channel can carry, using the [mutual information](entropy.llms.md#sec-mutual-information) between what goes in and what comes out.
 
@@ -42,7 +42,7 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 >
 > \\C \stackrel{\text{def}}{=}\max\_{\mathbb{P}(X = \cdot)} I(X; Y),\\
 >
-> where the maximum runs over all probability mass functions on \\\mathcal{X}\\ ([Cover and Thomas 2006, chap. 7](#ref-cover2006elements)). With base-2 logarithms, \\C\\ is measured in *bits per channel use*.
+> where the maximum runs over all probability mass functions on \\\mathcal{X}\\ ([Cover and Thomas 2006, chap. 7](#ref-cover2006elements)). With base-2 logarithms, \\C\\ is measured in [bits](entropy.llms.md#def-bit) per channel use.
 
 > **NOTE:**
 >

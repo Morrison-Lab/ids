@@ -75,6 +75,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#def-bit",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-bit",
+   "kind": "def",
+   "title": "Bit",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-conditional-entropy",
    "site": "ids",
    "page": "entropy",
@@ -117,6 +126,15 @@
    "div": "def-mutual-information",
    "kind": "def",
    "title": "Mutual information",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-nat",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-nat",
+   "kind": "def",
+   "title": "Nat",
    "external": false
   },
   {
@@ -335,6 +353,10 @@
   ],
   [
    "ids/channel-capacity#def-channel-capacity",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
    "ids/entropy#def-mutual-information"
   ],
   [
@@ -362,6 +384,10 @@
    "ids/channel-capacity#def-channel-code"
   ],
   [
+   "ids/entropy#def-bit",
+   "ids/entropy#def-surprisal"
+  ],
+  [
    "ids/entropy#def-conditional-entropy",
    "ids/entropy#def-entropy-given-value"
   ],
@@ -380,6 +406,10 @@
   [
    "ids/entropy#def-mutual-information",
    "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "ids/entropy#def-surprisal"
   ],
   [
    "ids/error-correcting-codes#def-hamming-distance",

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-26 09:06:27 (PDT)
+Last modified: 2026-10-26 16:12:37 (PDT)
 
 ## 1 Codes
 
@@ -40,7 +40,7 @@ Last modified: 2026-10-26 09:06:27 (PDT)
 
 > **NOTE:**
 >
-> *Remark 2* (Where the theorem comes from). Shannon ([1948](#ref-shannon1948mathematical)) proved that entropy is the limit on how far the output of a source can be compressed. Cover and Thomas ([2006, sec. 5.3](#ref-cover2006elements) to 5.5) prove each part of [Theorem 1](#thm-source-coding). For part 2, they give each value \\x\\ with \\p(x) \> 0\\ the length \\\ell(x) = \lceil -\log_2 p(x) \rceil\\, its [surprisal](entropy.llms.md#def-surprisal) in bits rounded up; the Kraft inequality ([Cover and Thomas 2006, sec. 5.2](#ref-cover2006elements)) guarantees that a code with these lengths exists.
+> *Remark 2* (Where the theorem comes from). Shannon ([1948](#ref-shannon1948mathematical)) proved that entropy is the limit on how far the output of a source can be compressed. Cover and Thomas ([2006, sec. 5.3](#ref-cover2006elements) to 5.5) prove each part of [Theorem 1](#thm-source-coding). For part 2, they give each value \\x\\ with \\p(x) \> 0\\ the length \\\ell(x) = \lceil -\log_2 p(x) \rceil\\, its [surprisal](entropy.llms.md#def-surprisal) in [bits](entropy.llms.md#def-bit) rounded up; the Kraft inequality ([Cover and Thomas 2006, sec. 5.2](#ref-cover2006elements)) guarantees that a code with these lengths exists.
 
 ## 3 Coding with the wrong distribution
 
