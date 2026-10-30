@@ -6,9 +6,9 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.19">
+  <meta name="generator" content="quarto-1.10.20">
 
   <title>Information Theory for Data Science – Entropy and mutual information</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-29 18:15:56 (PDT)</p>
+  <p class="date">Last modified: 2026-10-30 16:19:07 (PDT)</p>
 </section>
 <section class="slide level2">
 
@@ -383,8 +383,19 @@ H(X)
 </section>
 <section class="slide level2">
 
+<div id="rem-differential-entropy-vs-entropy" class="proof remark">
+<p><span class="proof-title"><em>Remark 4</em> (Differential entropy differs from entropy). </span>A <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> value is not a probability, so the <a href="https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous">surprisal</a> of a continuous value and the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of a continuous random variable (the differential entropy) behave differently from their discrete counterparts:</p>
+<ul>
+<li><strong>Sign.</strong> A density can exceed <span class="math inline">\(1\)</span>, so the surprisal <span class="math inline">\({s\mathopen{}\left(x\right)\mathclose{}}\)</span> and the differential entropy can be negative, as in the <a href="https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform">uniform example</a> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 8.1</a>)</span>. The entropy of a discrete random variable is never negative.</li>
+<li><strong>Units.</strong> Rescaling changes the differential entropy: <span class="math inline">\({H\mathopen{}\left(aX\right)\mathclose{}} = {H\mathopen{}\left(X\right)\mathclose{}} + \log |a|\)</span> for a constant <span class="math inline">\(a \ne 0\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006</a>, Theorem 8.6.4)</span>. Measuring the same quantity in metres rather than centimetres therefore changes it. Adding a constant does not: <span class="math inline">\({H\mathopen{}\left(X + c\right)\mathclose{}} = {H\mathopen{}\left(X\right)\mathclose{}}\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006</a>, Theorem 8.6.3)</span>.</li>
+<li><strong>Not a limit of entropy.</strong> Round a continuous <span class="math inline">\(X\)</span> to bins of width <span class="math inline">\(\Delta\)</span>, which gives a discrete random variable <span class="math inline">\(X^\Delta\)</span>. Then <span class="math inline">\({H\mathopen{}\left(X^\Delta\right)\mathclose{}} + \log \Delta \to {H\mathopen{}\left(X\right)\mathclose{}}\)</span> as <span class="math inline">\(\Delta \to 0\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006</a>, Theorem 8.3.1)</span>. The entropy <span class="math inline">\({H\mathopen{}\left(X^\Delta\right)\mathclose{}}\)</span> itself grows without bound as <span class="math inline">\(\Delta \to 0\)</span>, so the differential entropy is not its limit.</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
 <div id="rem-surprisal-fisher-information" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the <a href="#/def-surprisal">surprisal</a> of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \operatorname{p}(x \mid \theta)\)</span>, which is minus the log-likelihood. Its derivative with respect to <span class="math inline">\(\theta\)</span> is minus the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-score">score</a>. The expected squared score is the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf">expected (Fisher) information</a>, which is also the second derivative, at the true parameter value, of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> between the model at that value and the model at the varying value (<a href="https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature">proved in the sds notes</a>).</p>
+<p><span class="proof-title"><em>Remark 5</em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the <a href="#/def-surprisal">surprisal</a> of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \operatorname{p}(x \mid \theta)\)</span>, which is minus the log-likelihood. Its derivative with respect to <span class="math inline">\(\theta\)</span> is minus the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-score">score</a>. The expected squared score is the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf">expected (Fisher) information</a>, which is also the second derivative, at the true parameter value, of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> between the model at that value and the model at the varying value (<a href="https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature">proved in the sds notes</a>).</p>
 </div>
 </section>
 <section id="sec-conditional-entropy" class="slide level2" data-number="2">
@@ -463,7 +474,7 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="rem-mutual-information-kl" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 2.3</a>)</span> define mutual information as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the joint distribution of <span class="math inline">\((X, Y)\)</span> from the product of its marginals, and show that this equals <span class="math inline">\(H(Y) - H(Y \mid X)\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.4</a>)</span>. Since a Kullback–Leibler divergence is never negative, and is <span class="math inline">\(0\)</span> only when the two distributions are equal <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>, <span class="math inline">\(I(X; Y) \ge 0\)</span>, with equality exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Learning <span class="math inline">\(X\)</span> never raises the entropy of <span class="math inline">\(Y\)</span> on average.</p>
+<p><span class="proof-title"><em>Remark 6</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 2.3</a>)</span> define mutual information as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the joint distribution of <span class="math inline">\((X, Y)\)</span> from the product of its marginals, and show that this equals <span class="math inline">\(H(Y) - H(Y \mid X)\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.4</a>)</span>. Since a Kullback–Leibler divergence is never negative, and is <span class="math inline">\(0\)</span> only when the two distributions are equal <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>, <span class="math inline">\(I(X; Y) \ge 0\)</span>, with equality exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Learning <span class="math inline">\(X\)</span> never raises the entropy of <span class="math inline">\(Y\)</span> on average.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -475,7 +486,7 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="rem-information-gain" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (Information gain is mutual information). </span>Draw one point uniformly at random from the node of <a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;8</a>, and let <span class="math inline">\(Y\)</span> be its class and <span class="math inline">\(X\)</span> the branch it falls into. Then the entropy at the node is <span class="math inline">\(H(Y)\)</span>, the weighted entropy left in the branches is <span class="math inline">\(H(Y \mid X)\)</span>, and the information gain is the <a href="#/def-mutual-information">mutual information</a> <span class="math inline">\(I(X; Y)\)</span>.</p>
+<p><span class="proof-title"><em>Remark 7</em> (Information gain is mutual information). </span>Draw one point uniformly at random from the node of <a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;8</a>, and let <span class="math inline">\(Y\)</span> be its class and <span class="math inline">\(X\)</span> the branch it falls into. Then the entropy at the node is <span class="math inline">\(H(Y)\)</span>, the weighted entropy left in the branches is <span class="math inline">\(H(Y \mid X)\)</span>, and the information gain is the <a href="#/def-mutual-information">mutual information</a> <span class="math inline">\(I(X; Y)\)</span>.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
@@ -518,7 +529,7 @@ H(X, Y)
 </tr>
 </tbody>
 </table>
-<p>Draw one point uniformly at random from the node, let <span class="math inline">\(Y\)</span> be its color, and let <span class="math inline">\(X\)</span> be the branch it falls into (<a href="#/rem-information-gain" class="quarto-xref">Remark&nbsp;6</a>). The information gain of each split (<a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;8</a>) is then <span class="math inline">\(I(X; Y)\)</span>. Use base-2 logarithms throughout.</p>
+<p>Draw one point uniformly at random from the node, let <span class="math inline">\(Y\)</span> be its color, and let <span class="math inline">\(X\)</span> be the branch it falls into (<a href="#/rem-information-gain" class="quarto-xref">Remark&nbsp;7</a>). The information gain of each split (<a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;8</a>) is then <span class="math inline">\(I(X; Y)\)</span>. Use base-2 logarithms throughout.</p>
 <ol type="1">
 <li><p>Compute <span class="math inline">\(H(Y)\)</span>.</p></li>
 <li><p>For each split, compute <span class="math inline">\(H(Y \mid X = x)\)</span> for both branches, and then <span class="math inline">\(H(Y \mid X)\)</span>.</p></li>
