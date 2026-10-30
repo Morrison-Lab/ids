@@ -1,0 +1,577 @@
+{
+ "site": "ids",
+ "meaning": "edge [A, B] means A uses B: B is a prerequisite of A, A a postrequisite of B",
+ "nodes": [
+  {
+   "id": "ids/channel-capacity#def-binary-entropy",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-binary-entropy",
+   "kind": "def",
+   "title": "Binary entropy function",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-binary-erasure-channel",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-binary-erasure-channel",
+   "kind": "def",
+   "title": "Binary erasure channel",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-binary-symmetric-channel",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-binary-symmetric-channel",
+   "kind": "def",
+   "title": "Binary symmetric channel",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-channel",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-channel",
+   "kind": "def",
+   "title": "Discrete memoryless channel",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-channel-capacity",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-channel-capacity",
+   "kind": "def",
+   "title": "Channel capacity",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-channel-code",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-channel-code",
+   "kind": "def",
+   "title": "Channel code and rate",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#thm-bsc-capacity",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "thm-bsc-capacity",
+   "kind": "thm",
+   "title": "Capacity of the binary symmetric channel",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#thm-channel-coding",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "thm-channel-coding",
+   "kind": "thm",
+   "title": "Noisy-channel coding theorem",
+   "external": false
+  },
+  {
+   "id": "ids/differential-entropy#def-differential-entropy",
+   "site": "ids",
+   "page": "differential-entropy",
+   "div": "def-differential-entropy",
+   "kind": "def",
+   "title": "Differential entropy",
+   "external": false
+  },
+  {
+   "id": "ids/differential-entropy#def-surprisal-continuous",
+   "site": "ids",
+   "page": "differential-entropy",
+   "div": "def-surprisal-continuous",
+   "kind": "def",
+   "title": "Surprisal of a value of a continuous random variable",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-bit",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-bit",
+   "kind": "def",
+   "title": "Bit",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-conditional-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-conditional-entropy",
+   "kind": "def",
+   "title": "Conditional entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-entropy-given-value",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-entropy-given-value",
+   "kind": "def",
+   "title": "Entropy given one value",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-information-gain",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-information-gain",
+   "kind": "def",
+   "title": "Information gain",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-joint-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-joint-entropy",
+   "kind": "def",
+   "title": "Joint entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-mutual-information",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-mutual-information",
+   "kind": "def",
+   "title": "Mutual information",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-nat",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-nat",
+   "kind": "def",
+   "title": "Nat",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-surprisal",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-surprisal",
+   "kind": "def",
+   "title": "Surprisal",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-entropy-chain-rule",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-entropy-chain-rule",
+   "kind": "thm",
+   "title": "Chain rule for entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-symmetric",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-symmetric",
+   "kind": "thm",
+   "title": "Mutual information is symmetric",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-block-code",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-block-code",
+   "kind": "def",
+   "title": "Block code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-hadamard-code",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-hadamard-code",
+   "kind": "def",
+   "title": "Hadamard code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-hamming-distance",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-hamming-distance",
+   "kind": "def",
+   "title": "Hamming distance and minimum distance",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-linear-code",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-linear-code",
+   "kind": "def",
+   "title": "Linear code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-locally-decodable",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-locally-decodable",
+   "kind": "def",
+   "title": "Locally decodable code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-reed-solomon-code",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-reed-solomon-code",
+   "kind": "def",
+   "title": "Reed--Solomon code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-weight",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-weight",
+   "kind": "def",
+   "title": "Weight",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#thm-distance-corrects-errors",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "thm-distance-corrects-errors",
+   "kind": "thm",
+   "title": "Minimum distance sets how many errors a code handles",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#thm-hadamard-distance",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "thm-hadamard-distance",
+   "kind": "thm",
+   "title": "Minimum distance of the Hadamard code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#thm-hadamard-local-decoding",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "thm-hadamard-local-decoding",
+   "kind": "thm",
+   "title": "Two-query decoding of the Hadamard code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "thm-reed-solomon-distance",
+   "kind": "thm",
+   "title": "Reed--Solomon codes meet the Singleton bound",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#thm-singleton-bound",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "thm-singleton-bound",
+   "kind": "thm",
+   "title": "Singleton bound",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#def-code",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "def-code",
+   "kind": "def",
+   "title": "Binary code",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#def-expected-length",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "def-expected-length",
+   "kind": "def",
+   "title": "Expected length",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#def-uniquely-decodable",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "def-uniquely-decodable",
+   "kind": "def",
+   "title": "Uniquely decodable code",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#thm-source-coding",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-source-coding",
+   "kind": "thm",
+   "title": "Source coding theorem",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#thm-wrong-code",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-wrong-code",
+   "kind": "thm",
+   "title": "The cost of coding with the wrong distribution",
+   "external": false
+  },
+  {
+   "id": "pds/expectation#def-cross-entropy",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-cross-entropy",
+   "kind": "def",
+   "title": "cross entropy",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy"
+  },
+  {
+   "id": "pds/expectation#def-entropy",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-entropy",
+   "kind": "def",
+   "title": "entropy",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-entropy"
+  },
+  {
+   "id": "pds/expectation#def-expectation",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-expectation",
+   "kind": "def",
+   "title": "expectation",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-expectation"
+  },
+  {
+   "id": "pds/random-variables#def-continuous-rv",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-continuous-rv",
+   "kind": "def",
+   "title": "continuous rv",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv"
+  },
+  {
+   "id": "pds/random-variables#def-pdf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pdf",
+   "kind": "def",
+   "title": "pdf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pdf"
+  }
+ ],
+ "edges": [
+  [
+   "ids/channel-capacity#def-binary-erasure-channel",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#def-binary-symmetric-channel",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/channel-capacity#def-channel-code",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/channel-capacity#def-binary-entropy"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/channel-capacity#def-binary-symmetric-channel"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "ids/channel-capacity#def-channel-capacity"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "ids/channel-capacity#def-channel-code"
+  ],
+  [
+   "ids/differential-entropy#def-differential-entropy",
+   "ids/differential-entropy#def-surprisal-continuous"
+  ],
+  [
+   "ids/differential-entropy#def-differential-entropy",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/differential-entropy#def-differential-entropy",
+   "pds/random-variables#def-continuous-rv"
+  ],
+  [
+   "ids/differential-entropy#def-differential-entropy",
+   "pds/random-variables#def-pdf"
+  ],
+  [
+   "ids/differential-entropy#def-surprisal-continuous",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/differential-entropy#def-surprisal-continuous",
+   "pds/random-variables#def-continuous-rv"
+  ],
+  [
+   "ids/differential-entropy#def-surprisal-continuous",
+   "pds/random-variables#def-pdf"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#def-conditional-entropy",
+   "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#def-conditional-entropy",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#def-entropy-given-value",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#def-mutual-information",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#def-mutual-information",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/error-correcting-codes#def-hamming-distance",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/error-correcting-codes#def-locally-decodable",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-distance-corrects-errors",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-distance-corrects-errors",
+   "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-distance",
+   "ids/error-correcting-codes#def-hadamard-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-distance",
+   "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-distance",
+   "ids/error-correcting-codes#def-linear-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-local-decoding",
+   "ids/error-correcting-codes#def-hadamard-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "ids/error-correcting-codes#def-linear-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "ids/error-correcting-codes#def-reed-solomon-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-singleton-bound",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-singleton-bound",
+   "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/source-coding#def-expected-length",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#def-uniquely-decodable",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "ids/source-coding#def-uniquely-decodable"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/source-coding#thm-wrong-code",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/source-coding#thm-wrong-code",
+   "pds/expectation#def-cross-entropy"
+  ]
+ ],
+ "cycles": [],
+ "forwardReferences": []
+}
