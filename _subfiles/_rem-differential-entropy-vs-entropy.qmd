@@ -8,7 +8,7 @@ behave differently from their discrete counterparts:
 
 - **Sign.**
   A density can exceed $1$,
-  so the surprisal $s(x)$ and the differential entropy can be negative,
+  so the surprisal $\surprisalf{x}$ and the differential entropy can be negative,
   as in @exm-differential-entropy-uniform with $a < 1$ [@cover2006elements, section 8.1].
   The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a discrete random variable is never negative.
 - **Units.**
@@ -18,9 +18,10 @@ behave differently from their discrete counterparts:
   Adding a constant does not:
   $h(X + c) = h(X)$ [@cover2006elements, Theorem 8.6.3].
 - **Not a limit of entropy.**
-  Round $X$ to bins of width $\Delta$ to get a discrete random variable $X^\Delta$.
-  Then $H(X^\Delta) + \log \Delta \to h(X)$ as $\Delta \to 0$ [@cover2006elements, Theorem 8.3.1].
-  The entropy $H(X^\Delta)$ itself grows without bound as $\Delta \to 0$,
+  Round $X$ to bins of width $\Delta$,
+  which gives a discrete random variable $X^\Delta$.
+  Then $\entropyf{X^\Delta} + \log \Delta \to h(X)$ as $\Delta \to 0$ [@cover2006elements, Theorem 8.3.1].
+  The entropy $\entropyf{X^\Delta}$ itself grows without bound as $\Delta \to 0$,
   so $h(X)$ is not its limit.
 
 :::

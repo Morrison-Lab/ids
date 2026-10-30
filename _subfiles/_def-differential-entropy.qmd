@@ -8,6 +8,6 @@ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-exp
 of its [surprisal](#def-surprisal-continuous), when that expectation exists
 [@cover2006elements, section 8.1]:
 
-$$h(X) \eqdef \E{s(X)} = -\int_{\set{x : f(x) > 0}} f(x) \log f(x) \, dx.$$
+$$h(X) \eqdef \E{\surprisalf{X}} = -\int_{\set{x : f(x) > 0}} f(x) \log f(x) \, dx.$$
 
 :::

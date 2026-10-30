@@ -6,9 +6,9 @@ The **surprisal** of a possible value $x$ of a
 with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $f$
 and $f(x) > 0$ is
 
-$$s(x) \eqdef -\log f(x).$$
+$$\surprisalf{x} \eqdef -\log f(x).$$
 
-This extends the [surprisal](#def-surprisal) of a value of a discrete random variable,
+This extends the [surprisal](entropy.qmd#def-surprisal) of a value of a discrete random variable,
 with the density $f(x)$ in place of the probability $\P(X=x)$.
 
 :::
