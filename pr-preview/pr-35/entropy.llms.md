@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 14:49:10 (PDT)
+Last modified: 2026-10-30 15:41:37 (PDT)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -80,7 +80,15 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 4* (Surprisal and the Fisher information). When the probabilities depend on a parameter \\\theta\\, the [surprisal](#def-surprisal) of an outcome \\x\\ is \\-\log \operatorname{p}(x \mid \theta)\\, which is minus the log-likelihood. Its derivative with respect to \\\theta\\ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score). The expected squared score is the [expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), which is also the second derivative, at the true parameter value, of the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) between the model at that value and the model at the varying value ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)).
+> *Remark 4* (Differential entropy differs from entropy). A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) value is not a probability, so the [surprisal](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous) of a continuous value and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a continuous random variable (the differential entropy) behave differently from their discrete counterparts:
+>
+> - **Sign.** A density can exceed \\1\\, so the surprisal \\{s\mathopen{}\left(x\right)\mathclose{}}\\ and the differential entropy can be negative, as in the [uniform example](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform) ([Cover and Thomas 2006, sec. 8.1](#ref-cover2006elements)). The entropy of a discrete random variable is never negative.
+> - **Units.** Rescaling changes the differential entropy: \\{H\mathopen{}\left(aX\right)\mathclose{}} = {H\mathopen{}\left(X\right)\mathclose{}} + \log \|a\|\\ for a constant \\a \ne 0\\ ([Cover and Thomas 2006](#ref-cover2006elements), Theorem 8.6.4). Measuring the same quantity in metres rather than centimetres therefore changes it. Adding a constant does not: \\{H\mathopen{}\left(X + c\right)\mathclose{}} = {H\mathopen{}\left(X\right)\mathclose{}}\\ ([Cover and Thomas 2006](#ref-cover2006elements), Theorem 8.6.3).
+> - **Not a limit of entropy.** Round a continuous \\X\\ to bins of width \\\Delta\\, which gives a discrete random variable \\X^\Delta\\. Then \\{H\mathopen{}\left(X^\Delta\right)\mathclose{}} + \log \Delta \to {H\mathopen{}\left(X\right)\mathclose{}}\\ as \\\Delta \to 0\\ ([Cover and Thomas 2006](#ref-cover2006elements), Theorem 8.3.1). The entropy \\{H\mathopen{}\left(X^\Delta\right)\mathclose{}}\\ itself grows without bound as \\\Delta \to 0\\, so the differential entropy is not its limit.
+
+> **NOTE:**
+>
+> *Remark 5* (Surprisal and the Fisher information). When the probabilities depend on a parameter \\\theta\\, the [surprisal](#def-surprisal) of an outcome \\x\\ is \\-\log \operatorname{p}(x \mid \theta)\\, which is minus the log-likelihood. Its derivative with respect to \\\theta\\ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score). The expected squared score is the [expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), which is also the second derivative, at the true parameter value, of the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) between the model at that value and the model at the varying value ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)).
 
 ## 2 Joint and conditional entropy
 
@@ -152,7 +160,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 5* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of \\(X, Y)\\ from the product of its marginals, and show that this equals \\H(Y) - H(Y \mid X)\\ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is \\0\\ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), \\I(X; Y) \ge 0\\, with equality exactly when \\X\\ and \\Y\\ are independent. Learning \\X\\ never raises the entropy of \\Y\\ on average.
+> *Remark 6* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of \\(X, Y)\\ from the product of its marginals, and show that this equals \\H(Y) - H(Y \mid X)\\ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is \\0\\ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), \\I(X; Y) \ge 0\\, with equality exactly when \\X\\ and \\Y\\ are independent. Learning \\X\\ never raises the entropy of \\Y\\ on average.
 
 > **NOTE:**
 >
@@ -160,7 +168,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 6* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 8](#def-information-gain), and let \\Y\\ be its class and \\X\\ the branch it falls into. Then the entropy at the node is \\H(Y)\\, the weighted entropy left in the branches is \\H(Y \mid X)\\, and the information gain is the [mutual information](#def-mutual-information) \\I(X; Y)\\.
+> *Remark 7* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 8](#def-information-gain), and let \\Y\\ be its class and \\X\\ the branch it falls into. Then the entropy at the node is \\H(Y)\\, the weighted entropy left in the branches is \\H(Y \mid X)\\, and the information gain is the [mutual information](#def-mutual-information) \\I(X; Y)\\.
 
 > **NOTE:**
 >
@@ -173,7 +181,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > | B     | yes    | \\5\\ | \\10\\ |
 > |       | no     | \\5\\ | \\0\\  |
 >
-> Draw one point uniformly at random from the node, let \\Y\\ be its color, and let \\X\\ be the branch it falls into ([Remark 6](#rem-information-gain)). The information gain of each split ([Definition 8](#def-information-gain)) is then \\I(X; Y)\\. Use base-2 logarithms throughout.
+> Draw one point uniformly at random from the node, let \\Y\\ be its color, and let \\X\\ be the branch it falls into ([Remark 7](#rem-information-gain)). The information gain of each split ([Definition 8](#def-information-gain)) is then \\I(X; Y)\\. Use base-2 logarithms throughout.
 >
 > 1.  Compute \\H(Y)\\.
 >
