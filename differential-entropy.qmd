@@ -13,7 +13,7 @@ format:
 {{< include latex-macros/macros.qmd >}}
 
 This page extends the [surprisal and entropy](entropy.qmd) of discrete random variables
-to continuous random variables.
+to [continuous random variables](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv).
 
 ## Surprisal and entropy of a continuous random variable {#sec-differential-entropy}
 

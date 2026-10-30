@@ -2,9 +2,9 @@
 #### Differential entropy of a uniform random variable
 
 Let $X$ be uniformly distributed on the interval from $0$ to $a > 0$,
-so that its density is $f(x) = 1/a$ for $0 < x < a$ and $0$ elsewhere.
-Every value in the interval has surprisal $s(x) = -\log (1/a) = \log a$,
-so the differential entropy is $\log a$ [@cover2006elements, Example 8.1.1]:
+so that its [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) is $f(x) = 1/a$ for $0 < x < a$ and $0$ elsewhere.
+Every value in the interval has [surprisal](#def-surprisal-continuous) $s(x) = -\log (1/a) = \log a$,
+so the [differential entropy](#def-differential-entropy) is $\log a$ [@cover2006elements, Example 8.1.1]:
 
 $$
 \begin{aligned}
@@ -14,7 +14,7 @@ h(X)
 \end{aligned}
 $$
 
-With $a = 1/2$ and base-2 logarithms, $h(X) = -1$ bit.
+With $a = 1/2$ and base-2 logarithms, $h(X) = -1$ [bit](entropy.qmd#def-bit).
 
 <!-- no-figure: a single closed-form value -->
 
