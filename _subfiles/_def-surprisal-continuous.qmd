@@ -1,0 +1,14 @@
+:::{#def-surprisal-continuous}
+#### Surprisal of a value of a continuous random variable
+
+The **surprisal** of a possible value $x$ of a
+[continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) $X$
+with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $f$
+and $f(x) > 0$ is
+
+$$s(x) \eqdef -\log f(x).$$
+
+This extends the [surprisal](#def-surprisal) of a value of a discrete random variable,
+with the density $f(x)$ in place of the probability $\P(X=x)$.
+
+:::

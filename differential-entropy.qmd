@@ -1,0 +1,39 @@
+---
+title: "Differential entropy"
+format:
+  html: default
+  revealjs:
+    output-file: differential-entropy-slides.html
+  pdf:
+    output-file: differential-entropy-handout.pdf
+  docx:
+    output-file: differential-entropy.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+This page extends the [surprisal and entropy](entropy.qmd) of discrete random variables
+to continuous random variables.
+
+## Surprisal and entropy of a continuous random variable {#sec-differential-entropy}
+
+<!-- No slidebreak here: the heading shares its slide with the def-surprisal-continuous div. -->
+
+{{< include ids/_subfiles/_def-surprisal-continuous.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-differential-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-differential-entropy-uniform.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-differential-entropy-vs-entropy.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

@@ -1,0 +1,10 @@
+:::{#rem-differential-entropy-vs-entropy}
+#### Differential entropy differs from entropy
+
+A density value is not a probability, so the surprisal of a continuous value and the differential entropy behave differently from their discrete counterparts:
+
+- **Sign.** A density can exceed $1$, so the surprisal $s(x)$ and the differential entropy can be negative, as in @exm-differential-entropy-uniform with $a < 1$ [@cover2006elements, section 8.1]. The entropy of a discrete random variable is never negative.
+- **Units.** Rescaling changes the differential entropy: $h(aX) = h(X) + \log |a|$ for a constant $a \ne 0$ [@cover2006elements, Theorem 8.6.4]. Measuring the same quantity in metres rather than centimetres therefore changes $h$. Adding a constant does not: $h(X + c) = h(X)$ [@cover2006elements, Theorem 8.6.3].
+- **Not a limit of entropy.** Round $X$ to bins of width $\Delta$ to get a discrete random variable $X^\Delta$. Then $H(X^\Delta) + \log \Delta \to h(X)$ as $\Delta \to 0$ [@cover2006elements, Theorem 8.3.1]. The entropy $H(X^\Delta)$ itself grows without bound as $\Delta \to 0$, so $h(X)$ is not its limit.
+
+:::
