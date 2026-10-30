@@ -1,0 +1,30 @@
+:::{#rem-differential-entropy-vs-entropy}
+#### Differential entropy differs from entropy
+
+A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) value is not a probability,
+so the [surprisal](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous) of a continuous value
+and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a continuous random variable
+(the differential entropy)
+behave differently from their discrete counterparts:
+
+- **Sign.**
+  A density can exceed $1$,
+  so the surprisal $\surprisalf{x}$ and the differential entropy can be negative,
+  as in the
+  [uniform example](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform)
+  [@cover2006elements, section 8.1].
+  The entropy of a discrete random variable is never negative.
+- **Units.**
+  Rescaling changes the differential entropy:
+  $\entropyf{aX} = \entropyf{X} + \log |a|$ for a constant $a \ne 0$ [@cover2006elements, Theorem 8.6.4].
+  Measuring the same quantity in metres rather than centimetres therefore changes it.
+  Adding a constant does not:
+  $\entropyf{X + c} = \entropyf{X}$ [@cover2006elements, Theorem 8.6.3].
+- **Not a limit of entropy.**
+  Round a continuous $X$ to bins of width $\Delta$,
+  which gives a discrete random variable $X^\Delta$.
+  Then $\entropyf{X^\Delta} + \log \Delta \to \entropyf{X}$ as $\Delta \to 0$ [@cover2006elements, Theorem 8.3.1].
+  The entropy $\entropyf{X^\Delta}$ itself grows without bound as $\Delta \to 0$,
+  so the differential entropy is not its limit.
+
+:::
