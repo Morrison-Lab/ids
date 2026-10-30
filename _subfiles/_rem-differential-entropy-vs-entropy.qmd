@@ -2,7 +2,7 @@
 #### Differential entropy differs from entropy
 
 A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) value is not a probability,
-so the [surprisal of a continuous value](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous)
+so the [surprisal](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous) of a continuous value
 and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a continuous random variable
 (the differential entropy)
 behave differently from their discrete counterparts:
