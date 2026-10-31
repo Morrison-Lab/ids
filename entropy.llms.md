@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-30 16:19:07 (PDT)
+Last modified: 2026-10-30 17:27:53 (PDT)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
