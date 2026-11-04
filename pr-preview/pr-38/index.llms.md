@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-04 09:57:00 (PST)
+Last modified: 2026-11-04 10:23:02 (PST)
 
 ## Welcome
 
@@ -23,7 +23,7 @@ The planned topics still to come are:
 - Huffman and arithmetic codes
 - proofs of the noisy-channel coding theorem, and codes that approach capacity
 
-Entropy, cross-entropy and KL divergence are defined in [*Probability for Data Science*](https://morrison-lab.github.io/pds/expectation.html#sec-entropy); pages here link to those definitions rather than repeating them. Computational complexity has its own library, [*Computational Complexity for Data Science*](https://morrison-lab.github.io/cds/). [Kolmogorov complexity](https://morrison-lab.github.io/cds/kolmogorov-complexity.html), which relates the shortest description of a single string to Shannon entropy, is covered there.
+Entropy, cross-entropy and KL divergence are defined in [*Probability for Data Science*](https://morrison-lab.github.io/pds/expectation.html#sec-entropy); pages here link to those definitions rather than repeating them. Computational complexity has its own library, [*Computational Complexity for Data Science*](https://morrison-lab.github.io/ccds/). [Kolmogorov complexity](https://morrison-lab.github.io/ccds/kolmogorov-complexity.html), which relates the shortest description of a single string to Shannon entropy, is covered there.
 
 ## Where to read about the planned topics
 

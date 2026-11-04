@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-04 09:57:00 (PST)
+Last modified: 2026-11-04 10:23:02 (PST)
 
 An error-correcting code adds redundancy to a message so that the receiver can recover it even after some symbols are changed. This page covers the basic definitions, the Hamming and Reed–Solomon codes, and then how codes that can be decoded by reading only a few symbols lead to central results of computational complexity.
 
@@ -124,7 +124,7 @@ An error-correcting code adds redundancy to a message so that the receiver can r
 
 ## 4 From codes to complexity
 
-Complexity theory uses codes that can be decoded by reading only a few symbols of the received word. The [*Computational Complexity for Data Science*](https://morrison-lab.github.io/cds/) library covers the complexity classes these results are about.
+Complexity theory uses codes that can be decoded by reading only a few symbols of the received word. The [*Computational Complexity for Data Science*](https://morrison-lab.github.io/ccds/) library covers the complexity classes these results are about.
 
 > **NOTE:**
 >
