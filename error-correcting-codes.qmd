@@ -81,7 +81,7 @@ lead to central results of computational complexity.
 
 Complexity theory uses codes that can be decoded
 by reading only a few symbols of the received word.
-The [*Computational Complexity for Data Science*](https://morrison-lab.github.io/cds/)
+The [*Computational Complexity for Data Science*](https://morrison-lab.github.io/ccds/)
 library covers the complexity classes these results are about.
 
 {{< slidebreak >}}
