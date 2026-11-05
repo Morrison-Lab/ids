@@ -48,8 +48,8 @@ Entropy, cross-entropy and KL divergence are defined in
 [*Probability for Data Science*](https://morrison-lab.github.io/pds/expectation.html#sec-entropy);
 pages here link to those definitions rather than repeating them.
 Computational complexity has its own library,
-[*Computational Complexity for Data Science*](https://morrison-lab.github.io/cds/).
-[Kolmogorov complexity](https://morrison-lab.github.io/cds/kolmogorov-complexity.html),
+[*Computational Complexity for Data Science*](https://morrison-lab.github.io/ccds/).
+[Kolmogorov complexity](https://morrison-lab.github.io/ccds/kolmogorov-complexity.html),
 which relates the shortest description of a single string
 to Shannon entropy, is covered there.
 
