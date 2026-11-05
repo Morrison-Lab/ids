@@ -372,6 +372,18 @@
    "ids/channel-capacity#def-binary-symmetric-channel"
   ],
   [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
    "ids/channel-capacity#thm-channel-coding",
    "ids/channel-capacity#def-channel"
   ],
@@ -412,6 +424,22 @@
    "ids/entropy#def-surprisal"
   ],
   [
+   "ids/entropy#thm-entropy-chain-rule",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-symmetric",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-symmetric",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
    "ids/error-correcting-codes#def-hamming-distance",
    "ids/error-correcting-codes#def-block-code"
   ],
@@ -448,6 +476,10 @@
    "ids/error-correcting-codes#def-linear-code"
   ],
   [
+   "ids/error-correcting-codes#thm-hadamard-distance",
+   "ids/error-correcting-codes#def-weight"
+  ],
+  [
    "ids/error-correcting-codes#thm-hadamard-local-decoding",
    "ids/error-correcting-codes#def-hadamard-code"
   ],
@@ -458,6 +490,10 @@
   [
    "ids/error-correcting-codes#thm-reed-solomon-distance",
    "ids/error-correcting-codes#def-reed-solomon-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "ids/error-correcting-codes#thm-singleton-bound"
   ],
   [
    "ids/error-correcting-codes#thm-singleton-bound",
