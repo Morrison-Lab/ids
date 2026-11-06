@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-05 09:41:59 (PST)
+Last modified: 2026-11-05 16:22:12 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -20,7 +20,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 2 (Bit)** A **bit** is the unit of information when the logarithm in [surprisal](#def-surprisal), and in every quantity built from it, has base $2$.
+> **Definition 2 (Bit (shannon))** A **bit**, also called a **shannon** (symbol Sh) ([International Electrotechnical Commission 2008](#ref-iec80000132008)), is the unit of information when the logarithm in [surprisal](#def-surprisal), and in every quantity built from it, has base $2$.
 >
 > One bit is the surprisal of an outcome with probability $1/2$: for an outcome $x$ of a discrete random variable $X$,
 >
@@ -90,7 +90,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > So an outcome with a [surprisal](#def-surprisal) of $1$ [nat](#def-nat) has a surprisal of $1 / \ln 2 \approx 1.443$ [bits](#def-bit), and the $\ln 2 \approx 0.693$ [nats](#def-nat) of [Example 2](#exm-coin-nats) are exactly $\ln 2 / \ln 2 = 1$ [bit](#def-bit).
 >
-> A bit as a unit of information is not the same thing as a bit as a binary digit. A binary digit whose two values are equally likely has a surprisal of exactly $1$ bit, whichever value it takes. A binary digit that is $0$ nine times in ten does not: the value $0$ has a surprisal of $-\log_2 0.9 \approx 0.152$ bits, and the value $1$ has a surprisal of $-\log_2 0.1 \approx 3.322$ bits.
+> A bit as a unit of information is not the same thing as a bit as a binary digit. The name [shannon](#def-bit) refers only to the unit of information, so it avoids this ambiguity. A binary digit whose two values are equally likely has a surprisal of exactly $1$ bit, whichever value it takes. A binary digit that is $0$ nine times in ten does not: the value $0$ has a surprisal of $-\log_2 0.9 \approx 0.152$ bits, and the value $1$ has a surprisal of $-\log_2 0.1 \approx 3.322$ bits.
 
 > **NOTE:**
 >
@@ -286,6 +286,8 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 ## References
 
 Cover, Thomas M., and Joy A. Thomas. 2006. *Elements of Information Theory*. 2nd ed. Wiley-Interscience. <https://doi.org/10.1002/047174882X>.
+
+International Electrotechnical Commission. 2008. *Quantities and Units — Part 13: Information Science and Technology*. IEC 80000-13:2008. International Electrotechnical Commission.
 
 MacKay, David J. C. 2003. *Information Theory, Inference, and Learning Algorithms*. Cambridge University Press.
 

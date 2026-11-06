@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-05 09:41:59 (PST)</p>
+  <p class="date">Last modified: 2026-11-05 16:22:12 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -282,7 +282,7 @@
 <section class="slide level2">
 
 <div id="def-bit" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Bit)</strong></span> A <strong>bit</strong> is the unit of information when the logarithm in <a href="#/def-surprisal">surprisal</a>, and in every quantity built from it, has base <span class="math inline">\(2\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2 (Bit (shannon))</strong></span> A <strong>bit</strong>, also called a <strong>shannon</strong> (symbol Sh) <span class="citation" data-cites="iec80000132008">(<a href="#/references" role="doc-biblioref" onclick="">International Electrotechnical Commission 2008</a>)</span>, is the unit of information when the logarithm in <a href="#/def-surprisal">surprisal</a>, and in every quantity built from it, has base <span class="math inline">\(2\)</span>.</p>
 <p>One bit is the surprisal of an outcome with probability <span class="math inline">\(1/2\)</span>: for an outcome <span class="math inline">\(x\)</span> of a discrete random variable <span class="math inline">\(X\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -358,7 +358,7 @@ s(\text{heads})
 \end{aligned}
 \]</span></p>
 <p>So an outcome with a <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(1\)</span> <a href="#/def-nat">nat</a> has a surprisal of <span class="math inline">\(1 / \ln 2 \approx 1.443\)</span> <a href="#/def-bit">bits</a>, and the <span class="math inline">\(\ln 2 \approx 0.693\)</span> <a href="#/def-nat">nats</a> of <a href="#/exm-coin-nats" class="quarto-xref">Example&nbsp;2</a> are exactly <span class="math inline">\(\ln 2 / \ln 2 = 1\)</span> <a href="#/def-bit">bit</a>.</p>
-<p>A bit as a unit of information is not the same thing as a bit as a binary digit. A binary digit whose two values are equally likely has a surprisal of exactly <span class="math inline">\(1\)</span> bit, whichever value it takes. A binary digit that is <span class="math inline">\(0\)</span> nine times in ten does not: the value <span class="math inline">\(0\)</span> has a surprisal of <span class="math inline">\(-\log_2 0.9 \approx 0.152\)</span> bits, and the value <span class="math inline">\(1\)</span> has a surprisal of <span class="math inline">\(-\log_2 0.1 \approx 3.322\)</span> bits.</p>
+<p>A bit as a unit of information is not the same thing as a bit as a binary digit. The name <a href="#/def-bit">shannon</a> refers only to the unit of information, so it avoids this ambiguity. A binary digit whose two values are equally likely has a surprisal of exactly <span class="math inline">\(1\)</span> bit, whichever value it takes. A binary digit that is <span class="math inline">\(0\)</span> nine times in ten does not: the value <span class="math inline">\(0\)</span> has a surprisal of <span class="math inline">\(-\log_2 0.9 \approx 0.152\)</span> bits, and the value <span class="math inline">\(1\)</span> has a surprisal of <span class="math inline">\(-\log_2 0.1 \approx 3.322\)</span> bits.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -598,6 +598,9 @@ H(Y \mid X)
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-cover2006elements" class="csl-entry" role="listitem">
 Cover, Thomas M., and Joy A. Thomas. 2006. <em>Elements of Information Theory</em>. 2nd ed. Wiley-Interscience. <a href="https://doi.org/10.1002/047174882X">https://doi.org/10.1002/047174882X</a>.
+</div>
+<div id="ref-iec80000132008" class="csl-entry" role="listitem">
+International Electrotechnical Commission. 2008. <em>Quantities and Units — Part 13: Information Science and Technology</em>. IEC 80000-13:2008. International Electrotechnical Commission.
 </div>
 <div id="ref-mackay2003information" class="csl-entry" role="listitem">
 MacKay, David J. C. 2003. <em>Information Theory, Inference, and Learning Algorithms</em>. Cambridge University Press.
