@@ -27,6 +27,6 @@ $$H_2(X) = -\log \E{\P(X)}.$$
 It is smaller than or equal to the Shannon entropy $\entropyf{X} = \E{-\log \P(X)}$,
 because $-\log$ is a convex function and Jensen's inequality gives $\E{-\log \P(X)} \ge -\log \E{\P(X)}$.
 The two are equal when $X$ is uniform on a finite set,
-since then $\P(X)$ is constant.
+since then $\P(X)$ takes the same value for every outcome.
 
 :::
