@@ -19,7 +19,7 @@ are exactly $\ln 2 / \ln 2 = 1$ [bit](#def-bit).
 
 A bit as a unit of information is not the same thing as
 a bit as a binary digit.
-The name shannon refers only to the unit of information,
+The name [shannon](#def-bit) refers only to the unit of information,
 so it avoids this ambiguity.
 A binary digit whose two values are equally likely
 has a surprisal of exactly $1$ bit, whichever value it takes.
