@@ -1,7 +1,7 @@
 :::{#def-bit}
-#### Bit
+#### Bit (shannon)
 
-A **bit** is the unit of information
+A **bit**, also called a **shannon** (symbol Sh) [@iec80000132008], is the unit of information
 when the logarithm in [surprisal](#def-surprisal),
 and in every quantity built from it, has base $2$.
 
