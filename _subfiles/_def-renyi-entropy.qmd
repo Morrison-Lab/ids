@@ -1,8 +1,8 @@
 ::: {#def-renyi-entropy}
 #### Rényi entropy of order 2 (collision entropy)
 
-The **Rényi entropy of order 2**, also called the **collision entropy**, of a random variable $X$ is the negative [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its probability
-[@wikipedia_renyi_entropy]: <!-- check-term-links: allow -->
+The **Rényi entropy of order 2**, also called the **collision entropy**, of a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) $X$ is the negative [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) <!-- check-term-links: allow -->
+[@wikipedia_renyi_entropy]:
 
 $$H_2(X) = -\log \E{\P(X)}.$$
 
