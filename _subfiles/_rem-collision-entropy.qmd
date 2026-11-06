@@ -18,14 +18,14 @@ So the [collision entropy](#def-renyi-entropy) is $H_2(X) = -\log \P(X = X')$.
 
 For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p$,
 the analogue is $\E{\p(X)} = \int \p(x)^2\,dx$.
-The [expected-density exercises](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density) derive this integral,
-then compute it for the [uniform](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-uniform)
-and [normal](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-normal) distributions.
+The [expected-density exercises](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density) derive this quantity,
+then compute it in the [uniform case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-uniform)
+and the [normal case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-normal).
 
 The collision entropy is at most the [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $\entropyf{X} = \E{-\log \P(X)}$.
 This holds because $-\log$ is a [convex function](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function).
 Jensen's inequality then gives $\E{-\log \P(X)} \ge -\log \E{\P(X)}$. <!-- check-term-links: allow -->
-The two coincide exactly when $X$ is uniform on its support,
+The two coincide exactly when all the values $X$ can take are equally likely,
 since then $\P(X)$ takes the same value for every value of $X$.
 
 :::
