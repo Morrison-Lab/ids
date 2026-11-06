@@ -1,7 +1,7 @@
 ::: {#def-collision-probability}
 #### Collision probability
 
-The **collision probability** of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the chance that two [independent](https://morrison-lab.github.io/pds/independence.html#def-independence) copies $X$ and $X'$ of $X$ take the same value:
+The **collision probability** of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the chance that two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies $X$ and $X'$ of $X$ take the same value:
 
 $$\P(X = X') = \sum_x \P(X=x)^2.$$
 

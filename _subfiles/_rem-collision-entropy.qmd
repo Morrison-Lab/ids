@@ -22,8 +22,8 @@ The [expected-density exercise](https://morrison-lab.github.io/pds/expectation.h
 for the uniform and [normal distributions](https://morrison-lab.github.io/pds/random-variables.html#def-normal).
 
 The collision entropy is at most the [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $\entropyf{X} = \E{-\log \P(X)}$.
-This holds because $-\log$ is a [convex function](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function),
-and Jensen's inequality gives $\E{-\log \P(X)} \ge -\log \E{\P(X)}$. <!-- check-term-links: allow -->
+This holds because $-\log$ is a [convex function](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function).
+Jensen's inequality then gives $\E{-\log \P(X)} \ge -\log \E{\P(X)}$. <!-- check-term-links: allow -->
 The two coincide when $X$ is uniform,
 since then $\P(X)$ takes the same value for every value of $X$.
 
