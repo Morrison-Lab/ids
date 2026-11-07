@@ -1,5 +1,5 @@
 ::: {#rem-surprisal-log-rarity}
-#### Reading the rarity of an outcome
+#### Reading the rarity of a value
 
 A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) can exceed $1$,
 so for a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv)
