@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-06 22:52:23 (PST)</p>
+  <p class="date">Last modified: 2026-11-07 01:23:49 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -612,7 +612,18 @@ H(X)
 <section class="slide level2">
 
 <div id="rem-surprisal-fisher-information" class="proof remark">
-<p><span class="proof-title"><em>Remark 9</em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the <a href="#/def-surprisal">surprisal</a> of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \mathbb{p}(x \mid \theta)\)</span>, which is minus the log-likelihood. Its derivative with respect to <span class="math inline">\(\theta\)</span> is minus the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-score">score</a>. The expected squared score is the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf">expected (Fisher) information</a>, which is also the second derivative, at the true parameter value, of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> between the model at that value and the model at the varying value (<a href="https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature">proved in the sds notes</a>).</p>
+<p><span class="proof-title"><em>Remark 9</em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the <a href="#/def-surprisal">surprisal</a> of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \mathbb{p}(x \mid \theta)\)</span>, which is minus the log-likelihood:</p>
+<p><span class="math display">\[\mathbb{s}_{\theta}(x) = -\log \mathbb{p}(x \mid \theta) = -\ell(\theta).\]</span></p>
+<p>Its derivative with respect to <span class="math inline">\(\theta\)</span> is minus the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-score">score</a>:</p>
+<p><span class="math display">\[\frac{\partial}{\partial \theta} \mathbb{s}_{\theta}(x) = -{\ell'\mathopen{}\left(\theta\right)\mathclose{}}.\]</span></p>
+<p>The expected squared score is the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf">expected information</a>, also called the Fisher information. It is also the expected <a href="https://morrison-lab.github.io/mds/calculus-derivatives.html#def-second-derivative">second derivative</a> of the surprisal, when the outcome <span class="math inline">\(X\)</span> is drawn from the model at the true parameter value <span class="math inline">\(\theta_0\)</span>, and the score is evaluated at that same outcome <span class="math inline">\(X\)</span>:</p>
+<p><span class="math display">\[
+\mathcal{I}(\theta_0)
+= \mathbb{E}_{\theta_0}\mathopen{}\left[{\ell'\mathopen{}\left(\theta_0\right)\mathclose{}}^2\right]\mathclose{}
+= \mathbb{E}_{\theta_0}\mathopen{}\left[\left.{\frac{\partial^2}{\partial \theta^2} \mathbb{s}_{\theta}(X)}\right|_{\theta= \theta_0}\right]\mathclose{}.
+\]</span></p>
+<p>It is also the second derivative, at the true parameter value, of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> between the model at that value and the model at the varying value (<a href="https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature">proved in the sds notes</a>):</p>
+<p><span class="math display">\[\left.{\frac{\partial^2}{\partial \theta^2} {{D_{\mathrm{KL}}}\mathopen{}\left(\theta_0 \,\Vert\, \theta\right)\mathclose{}}}\right|_{\theta= \theta_0} = \mathcal{I}(\theta_0).\]</span></p>
 </div>
 </section>
 <section id="sec-conditional-entropy" class="slide level2" data-number="2">

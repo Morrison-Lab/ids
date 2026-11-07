@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-06 22:52:23 (PST)
+Last modified: 2026-11-07 01:23:49 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -251,7 +251,23 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 9* (Surprisal and the Fisher information). When the probabilities depend on a parameter $\theta$, the [surprisal](#def-surprisal) of an outcome $x$ is $-\log \mathbb{p}(x \mid \theta)$, which is minus the log-likelihood. Its derivative with respect to $\theta$ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score). The expected squared score is the [expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), which is also the second derivative, at the true parameter value, of the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) between the model at that value and the model at the varying value ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)).
+> *Remark 9* (Surprisal and the Fisher information). When the probabilities depend on a parameter $\theta$, the [surprisal](#def-surprisal) of an outcome $x$ is $-\log \mathbb{p}(x \mid \theta)$, which is minus the log-likelihood:
+>
+> $$\mathbb{s}_{\theta}(x) = -\log \mathbb{p}(x \mid \theta) = -\ell(\theta).$$
+>
+> Its derivative with respect to $\theta$ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score):
+>
+> $$\frac{\partial}{\partial \theta} \mathbb{s}_{\theta}(x) = -{\ell'\mathopen{}\left(\theta\right)\mathclose{}}.$$
+>
+> The expected squared score is the [expected information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), also called the Fisher information. It is also the expected [second derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-second-derivative) of the surprisal, when the outcome $X$ is drawn from the model at the true parameter value $\theta_0$, and the score is evaluated at that same outcome $X$:
+>
+> $$\mathcal{I}(\theta_0)
+> = \mathbb{E}_{\theta_0}\mathopen{}\left[{\ell'\mathopen{}\left(\theta_0\right)\mathclose{}}^2\right]\mathclose{}
+> = \mathbb{E}_{\theta_0}\mathopen{}\left[\left.{\frac{\partial^2}{\partial \theta^2} \mathbb{s}_{\theta}(X)}\right|_{\theta= \theta_0}\right]\mathclose{}.$$
+>
+> It is also the second derivative, at the true parameter value, of the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) between the model at that value and the model at the varying value ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)):
+>
+> $$\left.{\frac{\partial^2}{\partial \theta^2} {{D_{\mathrm{KL}}}\mathopen{}\left(\theta_0 \,\Vert\, \theta\right)\mathclose{}}}\right|_{\theta= \theta_0} = \mathcal{I}(\theta_0).$$
 
 ## 2 Joint and conditional entropy
 
