@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-06 17:46:21 (PST)
+Last modified: 2026-11-06 17:54:17 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -143,11 +143,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.
 > \end{aligned}$$
 >
-> The rarity is at least $1$, with equality exactly when $\mathbb{P}(X=x) = 1$, so the surprisal is never below $0$. A rarity of $r$ reads “one in $r$”: an outcome with rarity $4$ has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$ and a surprisal of $2$ [bits](#def-bit).
+> For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), the rarity is at least $1$, with equality exactly when $\mathbb{P}(X=x) = 1$, so the surprisal is never below $0$. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the same equalities hold with the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) in place of the mass: ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = -{\operatorname{log}\mathopen{}\left\{\mathbb{p}(x)\right\}\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}$. A density can exceed $1$, so there the rarity can be below $1$. For a mass, a rarity of $r$ reads “one in $r$”: an outcome with rarity $4$ has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$ and a surprisal of $2$ [bits](#def-bit).
 
 > **NOTE:**
 >
-> *Remark 6* (Values of the probability, the rarity and the surprisal). For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), the mass $\mathbb{P}(X=x)$ of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with a mass above $0$, its [rarity](#def-rarity) ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}$ and its [surprisal](#def-surprisal) ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ take the values in the middle column. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}(x)$ takes the place of the mass, the rarity ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}$ is the reciprocal of $\mathbb{p}(x)$, and the surprisal ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ is the [surprisal of a continuous value](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous). Their values are in the right column.
+> *Remark 6* (Values of the probability, the rarity and the surprisal). For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), the mass $\mathbb{P}(X=x)$ of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with a mass above $0$, its [rarity](#def-rarity) ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}$ and its [surprisal](#def-surprisal) ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ take the values in the middle column. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}(x)$ takes the place of the mass. At a value $x$ with a density above $0$, the rarity ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}$ is the reciprocal of $\mathbb{p}(x)$, and the surprisal ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ is the [surprisal of a continuous value](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous). Their values are in the right column.
 >
 > |  | Mass $\mathbb{P}(X=x)$ | Density $\mathbb{p}(x)$ |
 > |----|----|----|
@@ -158,7 +158,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > - **Mass.** A mass of $1$ gives the smallest rarity, $1$, and the smallest surprisal, $0$. No mass exceeds $1$, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a certain outcome. So no mass gives a rarity below $1$ or a surprisal below $0$.
 > - **Density.** A density can be arbitrarily large, as in the [uniform example](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform), so the rarity can fall below $1$ and the surprisal can fall below $0$.
 > - **Zero.** A mass or density of $0$ gives a rarity and a surprisal of $\infty$.
-> - **Units.** A mass has no units. A density has the units of $1/x$, so its rarity has the units of $x$. Rescaling $x$ by a nonzero $c$ shifts its surprisal by ${\operatorname{log}\mathopen{}\left\{|c|\right\}\mathclose{}}$.
+> - **Units.** A mass has no units. A density has the units of $1/x$, so its rarity has the units of $x$. Rescaling $x$ by a nonzero $c$ shifts its surprisal by ${\operatorname{log}\mathopen{}\left\{\mathopen{}\left|c\right|\mathclose{}\right\}\mathclose{}}$.
 
 > **NOTE:**
 >
