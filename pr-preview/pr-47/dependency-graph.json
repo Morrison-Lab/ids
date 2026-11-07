@@ -84,15 +84,6 @@
    "external": false
   },
   {
-   "id": "ids/entropy#cor-conditional-surprisal-difference",
-   "site": "ids",
-   "page": "entropy",
-   "div": "cor-conditional-surprisal-difference",
-   "kind": "cor",
-   "title": "Conditional surprisal as a difference",
-   "external": false
-  },
-  {
    "id": "ids/entropy#cor-entropy-chain-rule-reversed",
    "site": "ids",
    "page": "entropy",
@@ -120,15 +111,6 @@
    "external": false
   },
   {
-   "id": "ids/entropy#def-conditional-surprisal",
-   "site": "ids",
-   "page": "entropy",
-   "div": "def-conditional-surprisal",
-   "kind": "def",
-   "title": "Conditional surprisal",
-   "external": false
-  },
-  {
    "id": "ids/entropy#def-entropy-given-value",
    "site": "ids",
    "page": "entropy",
@@ -153,15 +135,6 @@
    "div": "def-joint-entropy",
    "kind": "def",
    "title": "Joint entropy",
-   "external": false
-  },
-  {
-   "id": "ids/entropy#def-joint-surprisal",
-   "site": "ids",
-   "page": "entropy",
-   "div": "def-joint-surprisal",
-   "kind": "def",
-   "title": "Joint surprisal",
    "external": false
   },
   {
@@ -207,15 +180,6 @@
    "div": "thm-mutual-information-symmetric",
    "kind": "thm",
    "title": "Mutual information is symmetric",
-   "external": false
-  },
-  {
-   "id": "ids/entropy#thm-surprisal-chain-rule",
-   "site": "ids",
-   "page": "entropy",
-   "div": "thm-surprisal-chain-rule",
-   "kind": "thm",
-   "title": "Chain rule for surprisal",
    "external": false
   },
   {
@@ -392,16 +356,6 @@
    "url": "https://morrison-lab.github.io/pds/expectation.html#def-entropy"
   },
   {
-   "id": "pds/probability-basics#def-experiment-outcome",
-   "site": "pds",
-   "page": "probability-basics",
-   "div": "def-experiment-outcome",
-   "kind": "def",
-   "title": "experiment outcome",
-   "external": true,
-   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome"
-  },
-  {
    "id": "pds/probability-basics#def-probability",
    "site": "pds",
    "page": "probability-basics",
@@ -420,16 +374,6 @@
    "title": "discrete rv",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv"
-  },
-  {
-   "id": "pds/random-variables#def-joint-pmf",
-   "site": "pds",
-   "page": "random-variables",
-   "div": "def-joint-pmf",
-   "kind": "def",
-   "title": "joint pmf",
-   "external": true,
-   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf"
   }
  ],
  "edges": [
@@ -498,10 +442,6 @@
    "pds/random-variables#def-discrete-rv"
   ],
   [
-   "ids/entropy#cor-conditional-surprisal-difference",
-   "ids/entropy#thm-surprisal-chain-rule"
-  ],
-  [
    "ids/entropy#cor-entropy-chain-rule-reversed",
    "ids/entropy#thm-entropy-chain-rule"
   ],
@@ -526,32 +466,8 @@
    "ids/entropy#def-joint-entropy"
   ],
   [
-   "ids/entropy#def-conditional-surprisal",
-   "ids/entropy#def-joint-surprisal"
-  ],
-  [
-   "ids/entropy#def-conditional-surprisal",
-   "pds/probability-basics#def-experiment-outcome"
-  ],
-  [
    "ids/entropy#def-entropy-given-value",
    "ids/entropy#def-joint-entropy"
-  ],
-  [
-   "ids/entropy#def-joint-surprisal",
-   "ids/entropy#def-surprisal"
-  ],
-  [
-   "ids/entropy#def-joint-surprisal",
-   "pds/probability-basics#def-experiment-outcome"
-  ],
-  [
-   "ids/entropy#def-joint-surprisal",
-   "pds/random-variables#def-discrete-rv"
-  ],
-  [
-   "ids/entropy#def-joint-surprisal",
-   "pds/random-variables#def-joint-pmf"
   ],
   [
    "ids/entropy#def-mutual-information",
@@ -580,14 +496,6 @@
   [
    "ids/entropy#thm-mutual-information-symmetric",
    "ids/entropy#thm-entropy-chain-rule"
-  ],
-  [
-   "ids/entropy#thm-surprisal-chain-rule",
-   "pds/probability-basics#def-experiment-outcome"
-  ],
-  [
-   "ids/entropy#thm-surprisal-chain-rule",
-   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/error-correcting-codes#def-hamming-distance",
