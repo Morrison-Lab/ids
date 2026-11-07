@@ -13,8 +13,8 @@ Equality holds exactly when $X$ and $Y$ are
 
 ::: {.proof}
 
-Let $p(x, y)$ be the joint mass function, with marginals $p(x)$ and $p(y)$,
-and let $b$ be the base of the logarithm.
+Let $p(x, y)$ be the joint mass function, with marginals $p(x)$ and $p(y)$, <!-- check-term-links: allow -->
+and let $b$ be the base of the logarithm. <!-- check-term-links: allow -->
 Every $t > 0$ satisfies $\ln t \le t - 1$, with equality only at $t = 1$.
 Apply it to $t = p(x) \, p(y) / p(x, y)$ for each pair with $p(x, y) > 0$.
 By @thm-mutual-information-kl,
@@ -30,12 +30,12 @@ $$
 \end{aligned}
 $$
 
-The first sum in the third line runs over the pairs with $p(x, y) > 0$,
+The first sum in the third line runs over the pairs with $p(x, y) > 0$, <!-- check-term-links: allow -->
 so it is at most $\sum_{x, y} p(x) \, p(y) = 1$ over all pairs,
 which gives the fourth line.
 Hence $I(X; Y) \ge 0$.
 
-Equality holds exactly when both inequalities are equalities.
+Equality holds exactly when both inequalities are equalities. <!-- check-term-links: allow -->
 The first is an equality exactly when $p(x) \, p(y) = p(x, y)$ for every pair with $p(x, y) > 0$.
 The second is an equality exactly when no pair has $p(x, y) = 0$ and $p(x) \, p(y) > 0$.
 Together they say $p(x, y) = p(x) \, p(y)$ for every pair,

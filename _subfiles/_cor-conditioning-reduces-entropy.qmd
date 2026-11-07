@@ -19,6 +19,6 @@ $$H(Y) - H(Y \mid X) = I(X; Y).$$
 
 By @thm-mutual-information-nonnegative,
 the right side is nonnegative,
-and it is $0$ exactly when $X$ and $Y$ are independent.
+and it is $0$ exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
 
 :::
