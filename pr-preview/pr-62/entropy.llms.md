@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-06 23:00:07 (PST)
+Last modified: 2026-11-06 23:02:54 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -233,7 +233,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > The first printed line shows that, for each $p$, the rarity of the outcome exceeds the odds against its event by exactly $1$. An outcome with probability $1/4$ has rarity $4$, and its event has odds of $3$ to $1$ against. The two differ by exactly $1$, so they are relatively close when the rarity is large. At $p = 1$ the rarity is $1$ and the odds against are $0$, but the odds in favour divide by zero.
 >
-> The odds compare an event with its [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement), and the odds against take values in $[0, \infty)$ when $p$ is above $0$. At $p = 0$, the odds against and the rarity divide by zero. The rarity of an outcome takes values in $[1, \infty)$. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the event $X = x$ for a single value has probability $0$, so its odds against and $1/\mathbb{P}(X=x)$ are not defined, but the rarity of the value is defined from the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). An event such as $X \le c$ can have a probability above $0$, so it can have odds.
+> The odds compare an event with its [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement), and the odds against take values in $[0, \infty)$ when $p$ is above $0$. At $p = 0$, the odds against and the rarity divide by zero, and both tend to $\infty$ as $p$ decreases to $0$. For an outcome of a discrete random variable with $p$ above $0$, the rarity takes values in $[1, \infty)$. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the event $X = x$ for a single value has probability $0$, so its odds against and $1/\mathbb{P}(X=x)$ are not defined, but the rarity of the value is defined from the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). An event such as $X \le c$ can have a probability above $0$, so it can have odds.
 
 > **NOTE:**
 >
