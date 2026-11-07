@@ -6,13 +6,31 @@
 Let $X$ be the roll of a fair six-sided die.
 Each [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)
 has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/6$.
-So each has [rarity](#def-rarity) $\rarityf{x} = 6$:
+
+```{r}
+#| label: rarity-die
+rarity <- function(p) 1 / p
+p_fair <- 1 / 6
+p_loaded_six <- 1 / 2
+p_loaded_other <- (1 - p_loaded_six) / 5
+rarity_fair <- rarity(p_fair)
+rarity_loaded_six <- rarity(p_loaded_six)
+rarity_loaded_other <- rarity(p_loaded_other)
+rarities <- c(
+  fair = rarity_fair,
+  loaded_six = rarity_loaded_six,
+  loaded_other = rarity_loaded_other
+)
+rarities
+```
+
+So each face of the fair die has [rarity](#def-rarity) $\rarityf{x} = `r rarity_fair`$:
 one roll in six.
 
 Suppose the die is loaded so that a six has probability $1/2$.
-Then $\rarityf{6} = 2$.
+Then $\rarityf{6} = `r rarity_loaded_six`$.
 If the other five faces share the rest equally,
-each has $\rarityf{x} = 10$.
+each has $\rarityf{x} = `r rarity_loaded_other`$.
 The more probable an outcome, the lower its rarity.
 
 :::

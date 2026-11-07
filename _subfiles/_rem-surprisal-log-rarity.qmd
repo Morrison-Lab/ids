@@ -18,9 +18,28 @@ with equality exactly when $\P(X=x) = 1$,
 so the surprisal is never below $0$.
 For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
 the same equalities hold with the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) in place of the mass:
-$\surprisalf{x} = -\logf{\p(x)} = \logf{\rarityf{x}}$.
+
+$$
+\begin{aligned}
+\surprisalf{x}
+&= -\logf{\p(x)} \\
+&= \logf{\frac{1}{\p(x)}} \\
+&= \logf{\rarityf{x}}.
+\end{aligned}
+$$
+
 A density can exceed $1$, so there the rarity can be below $1$.
-For a mass, a rarity of $r$ reads "one in $r$":
-an outcome with rarity $4$ has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$ and a surprisal of $2$ [bits](#def-bit).
+For a mass, a rarity of $r$ reads "one in $r$".
+For example, take an outcome with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$:
+
+```{r}
+#| label: surprisal-rarity-four
+p_four <- 1 / 4
+rarity_four <- 1 / p_four
+surprisal_four <- log2(rarity_four)
+surprisal_four
+```
+
+It has rarity $`r rarity_four`$ and a surprisal of $`r surprisal_four`$ [bits](#def-bit).
 
 :::
