@@ -14,9 +14,9 @@ Applying @thm-surprisal-chain-rule with the roles of $X$ and $Y$ swapped gives
 
 $$\surprisalf{y, x} = \surprisalf{y} + \surprisalf{x \mid y}.$$
 
-The joint event $\{Y=y, X=x\}$ is the event $\{X=x, Y=y\}$,
+The probability $\P(Y=y, X=x)$ equals $\P(X=x, Y=y)$,
 so $\surprisalf{y, x} = \surprisalf{x, y}$.
 Substituting this into the display above,
-and reordering the two terms on the right, gives the claim.
+and swapping the order of the two summands, gives the claim.
 
 :::
