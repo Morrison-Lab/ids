@@ -3,7 +3,17 @@
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 
 For the pair of values in @exm-joint-conditional-surprisal,
-the [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$
+the chunk recomputes the three surprisals in bits.
+
+```{r}
+#| code-fold: show
+s_xy <- -log2(0.1)
+s_x <- -log2(0.5)
+s_y_given_x <- -log2(0.2)
+c(sum = s_x + s_y_given_x, joint = s_xy)
+```
+
+The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$
 is $`r round(s_x + s_y_given_x, 3)`$ [bits](#def-bit).
 This sum is the [joint surprisal](#def-joint-surprisal) $\surprisalf{0, 1} = `r round(s_xy, 3)`$ bits <!-- check-term-links: allow -->
 (@thm-surprisal-chain-rule).
