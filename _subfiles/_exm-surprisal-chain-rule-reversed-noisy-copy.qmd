@@ -1,0 +1,22 @@
+:::{#exm-surprisal-chain-rule-reversed-noisy-copy}
+#### Chain rule for surprisal with the conditioning reversed, for a noisy copy
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+For the pair of values in @exm-joint-conditional-surprisal,
+$\P(X=0, Y=1) = 0.1$, $\P(Y=1) = 0.5$ and $\P(X=0 \mid Y=1) = 0.2$.
+The chunk computes the three [surprisals](#def-surprisal) in [bits](#def-bit).
+
+```{r}
+#| code-fold: show
+s_xy <- -log2(0.1)
+s_y <- -log2(0.5)
+s_x_given_y <- -log2(0.2)
+c(sum = s_x_given_y + s_y, joint = s_xy)
+```
+
+The [conditional surprisal](#def-conditional-surprisal) of $x = 0$ given $y = 1$ plus the [surprisal](#def-surprisal) of $y = 1$
+is $`r round(s_x_given_y + s_y, 3)`$ bits.
+This sum is the [joint surprisal](#def-joint-surprisal) $\surprisalf{0, 1} = `r round(s_xy, 3)`$ bits <!-- check-term-links: allow -->
+(@lem-surprisal-chain-rule-reversed).
+
+:::
