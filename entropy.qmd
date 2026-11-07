@@ -92,6 +92,22 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_thm-mutual-information-kl.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-mutual-information-nonnegative.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-conditioning-reduces-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-mutual-information-self.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_def-information-gain.qmd >}}
 
 {{< slidebreak >}}

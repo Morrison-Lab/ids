@@ -1,0 +1,42 @@
+:::{#thm-mutual-information-kl}
+#### Mutual information as a divergence
+
+Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+with joint probability mass function $p(x, y)$
+and marginal probability mass functions $p(x)$ and $p(y)$.
+If their entropies are finite, <!-- check-term-links: allow -->
+then their mutual information is the
+[Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
+of the joint distribution from the product of the marginals:
+
+$$I(X; Y) = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$
+
+where the sum runs over the pairs with $p(x, y) > 0$.
+
+:::
+
+::: {.proof}
+
+Write $p(y \mid x) = p(x, y) / p(x)$.
+By @def-mutual-information and the definitions of
+[entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
+and [conditional entropy](#def-conditional-entropy),
+
+$$
+\begin{aligned}
+I(X; Y)
+&= H(Y) - H(Y \mid X) \\
+&= -\sum_{y} p(y) \log p(y) + \sum_{x, y} p(x, y) \log p(y \mid x) \\
+&= -\sum_{x, y} p(x, y) \log p(y) + \sum_{x, y} p(x, y) \log p(y \mid x) \\
+&= \sum_{x, y} p(x, y) \sb{\log p(y \mid x) - \log p(y)} \\
+&= \sum_{x, y} p(x, y) \log \frac{p(y \mid x)}{p(y)} \\
+&= \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)}.
+\end{aligned}
+$$
+
+The third line uses $\sum_{x} p(x, y) = p(y)$,
+and the last line uses $p(y \mid x) = p(x, y) / p(x)$.
+The sum in the last line is the divergence of $p(x, y)$ from $p(x) \, p(y)$
+by the [discrete formula](https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete).
+
+:::
