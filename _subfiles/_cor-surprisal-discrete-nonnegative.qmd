@@ -1,0 +1,22 @@
+:::{#cor-surprisal-discrete-nonnegative}
+#### Surprisal of a discrete outcome is nonnegative
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+and let $x$ be an outcome with $\P(X=x) > 0$.
+Then the [rarity](#def-rarity) of $x$ is at least $1$,
+with equality exactly when $\P(X=x) = 1$,
+and the [surprisal](#def-surprisal) satisfies
+
+$$\surprisalf{x} \ge 0.$$
+
+:::
+
+::: proof
+
+Since $0 < \P(X=x) \le 1$, the rarity $\rarityf{x} = 1 / \P(X=x)$ is at least $1$,
+with equality exactly when $\P(X=x) = 1$.
+The logarithm is increasing and $\logf{1} = 0$,
+so by @thm-surprisal-log-rarity,
+$\surprisalf{x} = \logf{\rarityf{x}} \ge 0$.
+
+:::

@@ -1,0 +1,24 @@
+:::{#thm-surprisal-log-rarity-continuous}
+#### Surprisal of a continuous value is the logarithm of the rarity
+
+Let $X$ be a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv)
+with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p$,
+and let $x$ be a value with $\p(x) > 0$.
+Then the [surprisal](#def-surprisal) of $x$ is the logarithm of its [rarity](#def-rarity):
+
+$$\surprisalf{x} = \logf{\rarityf{x}}.$$
+
+:::
+
+::: proof
+
+$$
+\begin{aligned}
+\surprisalf{x}
+&= -\logf{\p(x)} && \text{(definition of surprisal)} \\
+&= \logf{\frac{1}{\p(x)}} && \text{(logarithm of a reciprocal)} \\
+&= \logf{\rarityf{x}}. && \text{(definition of rarity)}
+\end{aligned}
+$$
+
+:::

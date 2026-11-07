@@ -1,0 +1,18 @@
+:::{#exm-surprisal-rarity-four}
+#### Surprisal and rarity of an outcome with probability one quarter
+
+Take an outcome with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$:
+
+```{r}
+#| label: surprisal-rarity-four
+p_four <- 1 / 4
+rarity_four <- 1 / p_four
+surprisal_four <- log2(rarity_four)
+surprisal_four
+```
+
+By @thm-surprisal-log-rarity, it has rarity $`r rarity_four`$ and a surprisal of $`r surprisal_four`$ [bits](#def-bit).
+
+<!-- no-figure: a single closed-form value -->
+
+:::

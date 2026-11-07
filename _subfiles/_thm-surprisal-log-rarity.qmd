@@ -1,0 +1,23 @@
+:::{#thm-surprisal-log-rarity}
+#### Surprisal is the logarithm of the rarity
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+and let $x$ be an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with $\P(X=x) > 0$.
+Then the [surprisal](#def-surprisal) of $x$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [rarity](#def-rarity):
+
+$$\surprisalf{x} = \logf{\rarityf{x}}.$$
+
+:::
+
+::: proof
+
+$$
+\begin{aligned}
+\surprisalf{x}
+&= -\logf{\P(X=x)} && \text{(definition of surprisal)} \\
+&= \logf{\frac{1}{\P(X=x)}} && \text{(logarithm of a reciprocal)} \\
+&= \logf{\rarityf{x}}. && \text{(definition of rarity)}
+\end{aligned}
+$$
+
+:::
