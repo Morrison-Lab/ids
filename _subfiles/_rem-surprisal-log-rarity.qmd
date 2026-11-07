@@ -12,9 +12,13 @@ $$
 \end{aligned}
 $$
 
-The rarity is at least $1$, with equality exactly when $\P(X=x) = 1$,
+For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+the rarity is at least $1$,
+with equality exactly when $\P(X=x) = 1$,
 so the surprisal is never below $0$.
-A rarity of $r$ reads "one in $r$":
+The [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) of a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) can give a rarity below $1$,
+as the [ranges](#rem-rarity-ranges) show.
+For a mass, a rarity of $r$ reads "one in $r$":
 an outcome with rarity $4$ has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$ and a surprisal of $2$ [bits](#def-bit).
 
 :::
