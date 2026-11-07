@@ -1,0 +1,30 @@
+:::{#exm-cross-entropy-decomposition}
+#### Cross-entropy, entropy and divergence for a uniform code
+
+<!-- no-figure: the example is three numbers -->
+
+Let $p = (1/2, 1/4, 1/4)$ be the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of a three-valued [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable),
+and let $q = (1/3, 1/3, 1/3)$ assign $1/3$ to each of the three values.
+The code below computes the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and the divergence in [bits](entropy.qmd#def-bit).
+
+```{r}
+#| label: cross-entropy-decomposition
+p <- c(1 / 2, 1 / 4, 1 / 4)
+q <- rep(1 / 3, 3)
+cross_entropy <- -sum(p * log2(q))
+shannon_entropy <- -sum(p * log2(p))
+divergence <- sum(p * log2(p / q))
+c(
+  cross_entropy = cross_entropy,
+  shannon_entropy = shannon_entropy,
+  divergence = divergence
+)
+```
+
+The cross-entropy is $H_2(p, q) = `r round(cross_entropy, 3)`$ bits.
+The entropy is $H_2(p) = `r shannon_entropy`$ bits,
+and the divergence is $D_2(p \,\|\, q) = `r round(divergence, 3)`$ bits.
+They satisfy @thm-cross-entropy-decomposition:
+`r shannon_entropy` + `r round(divergence, 3)` = `r round(cross_entropy, 3)`.
+
+:::
