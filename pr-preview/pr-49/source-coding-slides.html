@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-06 16:25:43 (PST)</p>
+  <p class="date">Last modified: 2026-11-07 13:05:16 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -339,7 +339,7 @@
 <div id="rem-cross-entropy-wrong-code" class="proof remark">
 <p><span class="proof-title"><em>Remark 3</em> (Cross-entropy is the cost of the wrong code). </span>Write <span class="math inline">\(H_2(p)\)</span> for the entropy of a random variable with mass function <span class="math inline">\(p\)</span>, and <span class="math inline">\(D_2(p \,\|\, q)\)</span> for the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of <span class="math inline">\(q\)</span> from <span class="math inline">\(p\)</span>, both with base-2 logarithms. Cross-entropy splits into those two parts:</p>
 <p><span class="math display">\[H_2(p, q) = H_2(p) + D_2(p \,\|\, q).\]</span></p>
-<p>By <a href="#/thm-source-coding" class="quarto-xref">Theorem&nbsp;1</a>, no uniquely decodable code averages fewer than <span class="math inline">\(H_2(p)\)</span> bits. By <a href="#/thm-wrong-code" class="quarto-xref">Theorem&nbsp;2</a>, a code built for <span class="math inline">\(q\)</span> costs about <span class="math inline">\(D_2(p \,\|\, q)\)</span> bits per value more than that. The divergence is never negative, and it is <span class="math inline">\(0\)</span> only when <span class="math inline">\(q = p\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>, so the excess vanishes only when the code was built for the true distribution. <span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 5.4</a>)</span> state <a href="#/thm-wrong-code" class="quarto-xref">Theorem&nbsp;2</a> in this form, with <span class="math inline">\(H_2(p) + D_2(p \,\|\, q)\)</span> in place of <span class="math inline">\(H_2(p, q)\)</span>.</p>
+<p>By <a href="#/thm-source-coding" class="quarto-xref">Theorem&nbsp;1</a>, no uniquely decodable code averages fewer than <span class="math inline">\(H_2(p)\)</span> bits. By <a href="#/thm-wrong-code" class="quarto-xref">Theorem&nbsp;2</a>, a code built for <span class="math inline">\(q\)</span> costs about <span class="math inline">\(D_2(p \,\|\, q)\)</span> bits per value more than that. The divergence is never negative, and it is <span class="math inline">\(0\)</span> only when <span class="math inline">\(q = p\)</span> <span class="citation" data-cites="cover2006elements yeung2008information">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>; <a href="#/references" role="doc-biblioref" onclick="">Yeung 2008, sec. 2.5</a>)</span>, so the excess vanishes only when the code was built for the true distribution. <span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 5.4</a>)</span> state <a href="#/thm-wrong-code" class="quarto-xref">Theorem&nbsp;2</a> in this form, with <span class="math inline">\(H_2(p) + D_2(p \,\|\, q)\)</span> in place of <span class="math inline">\(H_2(p, q)\)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -357,6 +357,9 @@ Cover, Thomas M., and Joy A. Thomas. 2006. <em>Elements of Information Theory</e
 </div>
 <div id="ref-shannon1948mathematical" class="csl-entry" role="listitem">
 Shannon, C. E. 1948. <span>“A Mathematical Theory of Communication.”</span> <em>Bell System Technical Journal</em> 27 (3): 379–423. <a href="https://doi.org/10.1002/j.1538-7305.1948.tb01338.x">https://doi.org/10.1002/j.1538-7305.1948.tb01338.x</a>.
+</div>
+<div id="ref-yeung2008information" class="csl-entry" role="listitem">
+Yeung, Raymond W. 2008. <em>Information Theory and Network Coding</em>. Springer. <a href="https://doi.org/10.1007/978-0-387-79234-7">https://doi.org/10.1007/978-0-387-79234-7</a>.
 </div>
 </div>
 
