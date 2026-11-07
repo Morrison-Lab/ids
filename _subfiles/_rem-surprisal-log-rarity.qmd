@@ -1,0 +1,11 @@
+::: {#rem-surprisal-log-rarity}
+#### Reading the rarity of an outcome
+
+A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) can exceed $1$,
+so for a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv)
+the [rarity](#def-rarity) can be below $1$,
+and then the [surprisal](#def-surprisal) is negative (@thm-surprisal-log-rarity-continuous).
+For a mass, a rarity of $r$ reads "one in $r$",
+and the surprisal is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of $r$ (@thm-surprisal-log-rarity).
+
+:::
