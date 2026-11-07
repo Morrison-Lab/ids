@@ -1,0 +1,28 @@
+::: {#exm-perplexity-loaded-die}
+#### Perplexity of a loaded die
+
+<!-- no-figure: the example is a single number -->
+
+Let $X$ be the roll of the loaded die from @exm-rarity-die,
+where a six has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$
+and each other face has probability $1/10$.
+The code computes the perplexity from the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) in [bits](#def-bit),
+and then as the geometric mean of the [rarities](#def-rarity) from @thm-perplexity-geometric-mean.
+
+```{r}
+#| label: perplexity-loaded-die
+p_other <- rep(1 / 10, 5)
+p <- c(1 / 2, p_other)
+surprisal <- -log2(p)
+entropy <- sum(p * surprisal)
+perplexity_from_entropy <- 2^entropy
+rarity <- 1 / p
+perplexity_from_rarities <- prod(rarity^p)
+c(perplexity_from_entropy, perplexity_from_rarities)
+```
+
+Both routes give a perplexity of about $`r round(perplexity_from_entropy, 2)`$.
+The loaded die is as hard to predict as a fair die with about that many faces,
+fewer than the $6$ faces it has.
+
+:::

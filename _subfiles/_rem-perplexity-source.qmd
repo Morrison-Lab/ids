@@ -1,0 +1,8 @@
+::: {#rem-perplexity-source}
+#### Source of the name
+
+The name comes from speech recognition [@jelinek1977perplexity].
+Leinster calls the same quantity an effective number of species,
+the diversity of "order 1" [@leinster2021entropy, Section 2.4]. <!-- check-term-links: allow -->
+
+:::
