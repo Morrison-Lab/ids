@@ -33,7 +33,8 @@ but the odds in favour divide by zero.
 The odds compare an event with its
 [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement),
 and the odds against take values in $[0, \infty)$ when $p$ is above $0$.
-At $p = 0$, the odds against and the rarity divide by zero, so both are infinite.
+At $p = 0$, the odds against and the rarity divide by zero,
+and both tend to $\infty$ as $p$ decreases to $0$.
 For an outcome of a discrete random variable with $p$ above $0$,
 the rarity takes values in $[1, \infty)$.
 For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
