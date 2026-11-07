@@ -13,9 +13,11 @@ $$\surprisalf{x} \ge 0.$$
 
 ::: proof
 
-Since $0 < \P(X=x) \le 1$, the [rarity](#def-rarity) $\rarityf{x} = 1 / \P(X=x)$ is at least $1$,
+Since $0 < \P(X=x) \le 1$,
+the [rarity](#def-rarity) $\rarityf{x} = 1 / \P(X=x)$ is at least $1$,
 with equality exactly when $\P(X=x) = 1$.
-The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) is increasing and $\logf{1} = 0$,
+The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) is increasing,
+and $\logf{1} = 0$,
 so by @thm-surprisal-log-rarity,
 $\surprisalf{x} = \logf{\rarityf{x}} \ge 0$.
 
