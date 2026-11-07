@@ -4,7 +4,7 @@
 Let $X$ be a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv)
 with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p$,
 and let $x$ be a value with $\p(x) > 0$.
-Then the [surprisal](#def-surprisal) of $x$ is the logarithm of its [rarity](#def-rarity):
+Then the [surprisal](#def-surprisal) of $x$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [rarity](#def-rarity):
 
 $$\surprisalf{x} = \logf{\rarityf{x}}.$$
 
