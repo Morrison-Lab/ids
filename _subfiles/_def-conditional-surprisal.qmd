@@ -5,6 +5,6 @@ For $X$ and $Y$ as in @def-joint-surprisal,
 the **conditional surprisal** of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $y$ given an outcome $x$
 with $\P(X=x) > 0$ and $\P(Y=y \mid X=x) > 0$ is
 
-$$s(y \mid x) \eqdef -\log \P(Y=y \mid X=x).$$
+$$\surprisalf{y \mid x} \eqdef -\log \P(Y=y \mid X=x).$$
 
 :::

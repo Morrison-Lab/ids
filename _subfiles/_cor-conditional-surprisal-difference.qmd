@@ -3,19 +3,19 @@
 
 For $X$, $Y$, $x$ and $y$ as in @thm-surprisal-chain-rule,
 
-$$s(y \mid x) = s(x, y) - s(x).$$
+$$\surprisalf{y \mid x} = \surprisalf{x, y} - \surprisalf{x}.$$
 
 :::
 
 ::: {.proof}
 
-Subtract $s(x)$ from both sides of @thm-surprisal-chain-rule:
+Subtract $\surprisalf{x}$ from both sides of @thm-surprisal-chain-rule:
 
 $$
 \begin{aligned}
-s(x, y) - s(x)
-&= s(x) + s(y \mid x) - s(x) \\
-&= s(y \mid x).
+\surprisalf{x, y} - \surprisalf{x}
+&= \surprisalf{x} + \surprisalf{y \mid x} - \surprisalf{x} \\
+&= \surprisalf{y \mid x}.
 \end{aligned}
 $$
 

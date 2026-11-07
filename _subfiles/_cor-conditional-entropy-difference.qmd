@@ -4,19 +4,19 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite entropies, <!-- check-term-links: allow -->
 
-$$H(X \mid Y) = H(X, Y) - H(Y).$$
+$$\entropyf{X \mid Y} = \entropyf{X, Y} - \entropyf{Y}.$$
 
 :::
 
 ::: {.proof}
 
-Subtract $H(Y)$ from both sides of @cor-entropy-chain-rule-reversed:
+Subtract $\entropyf{Y}$ from both sides of @cor-entropy-chain-rule-reversed:
 
 $$
 \begin{aligned}
-H(X, Y) - H(Y)
-&= H(X \mid Y) + H(Y) - H(Y) \\
-&= H(X \mid Y).
+\entropyf{X, Y} - \entropyf{Y}
+&= \entropyf{X \mid Y} + \entropyf{Y} - \entropyf{Y} \\
+&= \entropyf{X \mid Y}.
 \end{aligned}
 $$
 
