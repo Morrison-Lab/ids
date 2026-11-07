@@ -84,12 +84,30 @@
    "external": false
   },
   {
+   "id": "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-surprisal-discrete-nonnegative",
+   "kind": "cor",
+   "title": "Surprisal of a discrete outcome is nonnegative",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-bit",
    "site": "ids",
    "page": "entropy",
    "div": "def-bit",
    "kind": "def",
    "title": "Bit (shannon)",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-collision-probability",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-collision-probability",
+   "kind": "def",
+   "title": "Collision probability",
    "external": false
   },
   {
@@ -165,6 +183,24 @@
    "external": false
   },
   {
+   "id": "ids/entropy#def-rarity",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-rarity",
+   "kind": "def",
+   "title": "Rarity",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-renyi-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-renyi-entropy",
+   "kind": "def",
+   "title": "R\u00e9nyi entropy of order 2 (collision entropy)",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-surprisal",
    "site": "ids",
    "page": "entropy",
@@ -174,12 +210,30 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-collision-entropy-at-most-entropy",
+   "kind": "thm",
+   "title": "The collision entropy is at most the Shannon entropy",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-entropy-chain-rule",
    "site": "ids",
    "page": "entropy",
    "div": "thm-entropy-chain-rule",
    "kind": "thm",
    "title": "Chain rule for entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-expected-probability-collision",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-expected-probability-collision",
+   "kind": "thm",
+   "title": "The expected probability is the collision probability",
    "external": false
   },
   {
@@ -198,6 +252,24 @@
    "div": "thm-surprisal-chain-rule",
    "kind": "thm",
    "title": "Chain rule for surprisal",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-surprisal-log-rarity",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-log-rarity",
+   "kind": "thm",
+   "title": "Surprisal is the logarithm of the rarity",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-log-rarity-continuous",
+   "kind": "thm",
+   "title": "Surprisal of a continuous value is the logarithm of the rarity",
    "external": false
   },
   {
@@ -354,6 +426,36 @@
    "external": false
   },
   {
+   "id": "mds/algebra-exponentials#def-logarithm",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-logarithm",
+   "kind": "def",
+   "title": "logarithm",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm"
+  },
+  {
+   "id": "mds/algebra-sums#def-convex-function",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "def-convex-function",
+   "kind": "def",
+   "title": "convex function",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function"
+  },
+  {
+   "id": "mds/algebra-sums#def-summation",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "def-summation",
+   "kind": "def",
+   "title": "summation",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-summation"
+  },
+  {
    "id": "pds/expectation#def-cross-entropy",
    "site": "pds",
    "page": "expectation",
@@ -374,6 +476,26 @@
    "url": "https://morrison-lab.github.io/pds/expectation.html#def-entropy"
   },
   {
+   "id": "pds/expectation#def-expectation",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-expectation",
+   "kind": "def",
+   "title": "expectation",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-expectation"
+  },
+  {
+   "id": "pds/independence#def-indpt",
+   "site": "pds",
+   "page": "independence",
+   "div": "def-indpt",
+   "kind": "def",
+   "title": "indpt",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/independence.html#def-indpt"
+  },
+  {
    "id": "pds/probability-basics#def-experiment-outcome",
    "site": "pds",
    "page": "probability-basics",
@@ -382,6 +504,26 @@
    "title": "experiment outcome",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome"
+  },
+  {
+   "id": "pds/probability-basics#def-probability",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-probability",
+   "kind": "def",
+   "title": "probability",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-probability"
+  },
+  {
+   "id": "pds/random-variables#def-continuous-rv",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-continuous-rv",
+   "kind": "def",
+   "title": "continuous rv",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv"
   },
   {
    "id": "pds/random-variables#def-discrete-rv",
@@ -402,6 +544,36 @@
    "title": "joint pmf",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf"
+  },
+  {
+   "id": "pds/random-variables#def-pdf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pdf",
+   "kind": "def",
+   "title": "pdf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pdf"
+  },
+  {
+   "id": "pds/random-variables#def-pmf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pmf",
+   "kind": "def",
+   "title": "pmf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pmf"
+  },
+  {
+   "id": "pds/random-variables#def-random-variable",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-random-variable",
+   "kind": "def",
+   "title": "random variable",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-random-variable"
   }
  ],
  "edges": [
@@ -466,8 +638,40 @@
    "ids/entropy#thm-surprisal-chain-rule"
   ],
   [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "ids/entropy#thm-surprisal-log-rarity"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#def-bit",
    "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#def-collision-probability",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/entropy#def-collision-probability",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#def-conditional-entropy",
@@ -518,12 +722,104 @@
    "ids/entropy#def-surprisal"
   ],
   [
+   "ids/entropy#def-rarity",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-continuous-rv"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-pdf"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "ids/entropy#def-renyi-entropy"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "mds/algebra-sums#def-convex-function"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/random-variables#def-pmf"
+  ],
+  [
    "ids/entropy#thm-entropy-chain-rule",
    "ids/entropy#def-conditional-entropy"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule",
    "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "ids/entropy#def-collision-probability"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#thm-mutual-information-symmetric",
@@ -540,6 +836,46 @@
   [
    "ids/entropy#thm-surprisal-chain-rule",
    "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "pds/random-variables#def-continuous-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "pds/random-variables#def-pdf"
   ],
   [
    "ids/error-correcting-codes#def-hamming-distance",
