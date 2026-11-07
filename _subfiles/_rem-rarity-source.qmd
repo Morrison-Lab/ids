@@ -1,9 +1,9 @@
 ::: {#rem-rarity-source}
 #### Source of the name
 
-Leinster calls $1/p_i$ "a measure of [the $i$th species'] rarity or specialness" <!-- check-term-links: allow -->
-[@leinster2021entropy, Section 2.4].
-We know of no source that names the reciprocal of a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) outside that setting,
-so "rarity" is borrowed from there.
+Leinster writes that, for a community whose $i$th species has relative abundance $p_i$,
+"$1/p_i$ is a measure of its rarity or specialness" <!-- check-term-links: allow -->
+[@leinster2021entropy, Section 2.4, p. 52].
+The name "rarity" for the reciprocal of a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is borrowed from there.
 
 :::
