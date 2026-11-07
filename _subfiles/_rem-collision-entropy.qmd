@@ -13,7 +13,6 @@ The [expected-density exercises](https://morrison-lab.github.io/pds/expectation.
 then compute it in the [uniform case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-uniform)
 and the [normal case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-normal).
 
-@thm-collision-entropy-at-most-entropy shows that the collision entropy never exceeds the [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
-The two differ most for random variables that put a large share of the probability on a few values.
+@thm-collision-entropy-at-most-entropy compares the collision entropy with the [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
 
 :::
