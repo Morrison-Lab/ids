@@ -4,7 +4,8 @@
 [Entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [surprisal](#def-surprisal) $-\log \P(X)$.
 Taking the expectation of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\P(X)$ itself summarizes $X$ differently.
 For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
-the expected probability is the [collision probability](#def-collision-probability):
+the expected probability is the [collision probability](#def-collision-probability),
+where $X'$ is an [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copy of $X$:
 
 $$
 \begin{aligned}
