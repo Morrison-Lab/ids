@@ -34,6 +34,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -253,6 +319,8 @@
     }
   })();
   </script>
+  <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+  <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -264,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-07 13:37:42 (PST)</p>
+  <p class="date">Last modified: 2026-11-07 13:41:03 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -336,10 +404,99 @@
 </section>
 <section class="slide level2">
 
-<div id="rem-cross-entropy-wrong-code" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Cross-entropy is the cost of the wrong code). </span>Write <span class="math inline">\(H_2(p)\)</span> for the entropy of a random variable with mass function <span class="math inline">\(p\)</span>, and <span class="math inline">\(D_2(p \,\|\, q)\)</span> for the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of <span class="math inline">\(q\)</span> from <span class="math inline">\(p\)</span>, both with base-2 logarithms. Cross-entropy splits into those two parts:</p>
+<div id="thm-cross-entropy-decomposition" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Cross-entropy is entropy plus divergence)</strong></span> Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> be <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass functions</a> on the values <span class="math inline">\(x_1, \ldots, x_n\)</span>, with <span class="math inline">\(q(x) &gt; 0\)</span> wherever <span class="math inline">\(p(x) &gt; 0\)</span>. Write <span class="math inline">\(H_2(p)\)</span> for the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(p\)</span>, <span class="math inline">\(H_2(p, q)\)</span> for the <a href="https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy">cross-entropy</a> of <span class="math inline">\(q\)</span> relative to <span class="math inline">\(p\)</span>, and <span class="math inline">\(D_2(p \,\|\, q)\)</span> for the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of <span class="math inline">\(q\)</span> from <span class="math inline">\(p\)</span>, all with base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithms</a>. Then</p>
 <p><span class="math display">\[H_2(p, q) = H_2(p) + D_2(p \,\|\, q).\]</span></p>
-<p>By <a href="#/thm-source-coding" class="quarto-xref">Theorem&nbsp;1</a>, no uniquely decodable code averages fewer than <span class="math inline">\(H_2(p)\)</span> bits. By <a href="#/thm-wrong-code" class="quarto-xref">Theorem&nbsp;2</a>, a code built for <span class="math inline">\(q\)</span> costs about <span class="math inline">\(D_2(p \,\|\, q)\)</span> bits per value more than that. The divergence is never negative, and it is <span class="math inline">\(0\)</span> only when <span class="math inline">\(q = p\)</span> <span class="citation" data-cites="cover2006elements yeung2008information">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>; <a href="#/references" role="doc-biblioref" onclick="">Yeung 2008, sec. 2.5</a>)</span>, so the excess vanishes only when the code was built for the true distribution. <span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 5.4</a>)</span> state <a href="#/thm-wrong-code" class="quarto-xref">Theorem&nbsp;2</a> in this form, with <span class="math inline">\(H_2(p) + D_2(p \,\|\, q)\)</span> in place of <span class="math inline">\(H_2(p, q)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Every <a href="https://morrison-lab.github.io/mds/algebra-sums.html#def-summation">sum</a> here runs over the values <span class="math inline">\(x\)</span> with <span class="math inline">\(p(x) &gt; 0\)</span>. For every such <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
+-\log_2 q(x)
+= -\log_2 p(x) + \log_2 \frac{p(x)}{q(x)}.
+\]</span></p>
+<p>Multiply by <span class="math inline">\(p(x)\)</span> and add over <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+-\sum_x p(x) \log_2 q(x)
+= -\sum_x p(x) \log_2 p(x) + \sum_x p(x) \log_2 \frac{p(x)}{q(x)}.
+\]</span></p>
+<p>Reading left to right, these are <span class="math inline">\(H_2(p, q)\)</span>, <span class="math inline">\(H_2(p)\)</span> and <span class="math inline">\(D_2(p \,\|\, q)\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-cross-entropy-decomposition" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Cross-entropy, entropy and divergence for a uniform code)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is three numbers -->
+<p>Let <span class="math inline">\(p = (1/2, 1/4, 1/4)\)</span> be the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> of a three-valued <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">random variable</a>, and let <span class="math inline">\(q = (1/3, 1/3, 1/3)\)</span> assign <span class="math inline">\(1/3\)</span> to each of the three values. The code below computes the <a href="https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy">cross-entropy</a>, the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> and the divergence in <a href="./entropy.html#def-bit">bits</a>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span>)</span>
+<span id="cb1-2"><a aria-label="2"></a>q <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb1-3"><a aria-label="3"></a>cross_entropy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(q))</span>
+<span id="cb1-4"><a aria-label="4"></a>shannon_entropy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p))</span>
+<span id="cb1-5"><a aria-label="5"></a>divergence <span class="ot">&lt;-</span> <span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p <span class="sc">/</span> q))</span>
+<span id="cb1-6"><a aria-label="6"></a><span class="fu">c</span>(</span>
+<span id="cb1-7"><a aria-label="7"></a>  <span class="at">cross_entropy =</span> cross_entropy,</span>
+<span id="cb1-8"><a aria-label="8"></a>  <span class="at">shannon_entropy =</span> shannon_entropy,</span>
+<span id="cb1-9"><a aria-label="9"></a>  <span class="at">divergence =</span> divergence</span>
+<span id="cb1-10"><a aria-label="10"></a>)</span>
+<span id="cb1-11"><a aria-label="11"></a><span class="co">#&gt;   cross_entropy shannon_entropy      divergence </span></span>
+<span id="cb1-12"><a aria-label="12"></a><span class="co">#&gt;       1.5849625       1.5000000       0.0849625</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>The cross-entropy is <span class="math inline">\(H_2(p, q) = 1.585\)</span> bits. The entropy is <span class="math inline">\(H_2(p) = 1.5\)</span> bits, and the divergence is <span class="math inline">\(D_2(p \,\|\, q) = 0.085\)</span> bits. They satisfy <a href="#/thm-cross-entropy-decomposition" class="quarto-xref">Theorem&nbsp;3</a>: 1.5 + 0.085 = 1.585.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="thm-kl-divergence-nonnegative" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (The divergence is nonnegative)</strong></span> Let <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> be <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass functions</a> on the values <span class="math inline">\(x_1, \ldots, x_n\)</span>, with <span class="math inline">\(q(x) &gt; 0\)</span> wherever <span class="math inline">\(p(x) &gt; 0\)</span>. Then the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> satisfies</p>
+<p><span class="math display">\[D_2(p \,\|\, q) \ge 0,\]</span></p>
+<p>with <span class="math inline">\(D_2(p \,\|\, q) = 0\)</span> exactly when <span class="math inline">\(q = p\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Every <a href="https://morrison-lab.github.io/mds/algebra-sums.html#def-summation">sum</a> here runs over the values <span class="math inline">\(x\)</span> with <span class="math inline">\(p(x) &gt; 0\)</span>. For every <span class="math inline">\(t &gt; 0\)</span>, <span class="math inline">\(\ln t \le t - 1\)</span>, with equality exactly when <span class="math inline">\(t = 1\)</span>. Apply this with <span class="math inline">\(t = q(x) / p(x)\)</span>, and multiply by <span class="math inline">\(p(x) &gt; 0\)</span>:</p>
+<p><span class="math display">\[
+p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
+\]</span></p>
+<p>with equality exactly when <span class="math inline">\(q(x) = p(x)\)</span>. Add over <span class="math inline">\(x\)</span>. Since <span class="math inline">\(\sum_x p(x) = 1\)</span> and <span class="math inline">\(\sum_x q(x) \le 1\)</span>,</p>
+<p><span class="math display">\[
+\sum_x p(x) \ln \frac{q(x)}{p(x)}
+\le \sum_x q(x) - 1
+\le 0.
+\]</span></p>
+<p>The left side is <span class="math inline">\(-\ln 2 \cdot D_2(p \,\|\, q)\)</span>, so <span class="math inline">\(D_2(p \,\|\, q) \ge 0\)</span>.</p>
+<p>If <span class="math inline">\(D_2(p \,\|\, q) = 0\)</span>, both relations hold with equality. The first forces <span class="math inline">\(q(x) = p(x)\)</span> at every <span class="math inline">\(x\)</span> with <span class="math inline">\(p(x) &gt; 0\)</span>. The second then gives <span class="math inline">\(\sum_x q(x) = 1\)</span>, so <span class="math inline">\(q\)</span> has no mass where <span class="math inline">\(p\)</span> has none, and <span class="math inline">\(q = p\)</span>. Conversely, <span class="math inline">\(q = p\)</span> gives <span class="math inline">\(\log_2 (p(x)/q(x)) = 0\)</span> for every <span class="math inline">\(x\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-kl-divergence-nonnegative" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Divergence of a biased coin from a fair coin)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is two numbers -->
+<p>Let <span class="math inline">\(p = (0.9, 0.1)\)</span> be the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> of a biased coin, and let <span class="math inline">\(q = (0.5, 0.5)\)</span> be a fair coin. The code below computes the divergence both ways, in <a href="./entropy.html#def-bit">bits</a>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.9</span>, <span class="fl">0.1</span>)</span>
+<span id="cb2-2"><a aria-label="2"></a>q <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb2-3"><a aria-label="3"></a><span class="fu">c</span>(</span>
+<span id="cb2-4"><a aria-label="4"></a>  <span class="at">p_from_q =</span> <span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p <span class="sc">/</span> q)),</span>
+<span id="cb2-5"><a aria-label="5"></a>  <span class="at">q_from_p =</span> <span class="fu">sum</span>(q <span class="sc">*</span> <span class="fu">log2</span>(q <span class="sc">/</span> p)),</span>
+<span id="cb2-6"><a aria-label="6"></a>  <span class="at">p_from_p =</span> <span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p <span class="sc">/</span> p))</span>
+<span id="cb2-7"><a aria-label="7"></a>)</span>
+<span id="cb2-8"><a aria-label="8"></a><span class="co">#&gt;  p_from_q  q_from_p  p_from_p </span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="co">#&gt; 0.5310044 0.7369656 0.0000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Both divergences between the two coins are positive, as <a href="#/thm-kl-divergence-nonnegative" class="quarto-xref">Theorem&nbsp;4</a> requires, and they differ, so swapping <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> changes the divergence. The divergence of <span class="math inline">\(p\)</span> from itself is <span class="math inline">\(0\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="rem-cross-entropy-wrong-code" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (Cross-entropy is the cost of the wrong code). </span><a href="#/thm-cross-entropy-decomposition" class="quarto-xref">Theorem&nbsp;3</a> splits the <a href="https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy">cross-entropy</a> into the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> and the divergence. By <a href="#/thm-source-coding" class="quarto-xref">Theorem&nbsp;1</a>, no uniquely decodable code averages fewer than <span class="math inline">\(H_2(p)\)</span> bits. By <a href="#/thm-wrong-code" class="quarto-xref">Theorem&nbsp;2</a>, a code built for <span class="math inline">\(q\)</span> costs about <span class="math inline">\(D_2(p \,\|\, q)\)</span> bits per value more than that. By <a href="#/thm-kl-divergence-nonnegative" class="quarto-xref">Theorem&nbsp;4</a>, the excess vanishes only when the code was built for <span class="math inline">\(p\)</span> <span class="citation" data-cites="cover2006elements yeung2008information">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>; <a href="#/references" role="doc-biblioref" onclick="">Yeung 2008, sec. 2.5</a>)</span>. <span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 5.4</a>)</span> state <a href="#/thm-wrong-code" class="quarto-xref">Theorem&nbsp;2</a> in this form, with <span class="math inline">\(H_2(p) + D_2(p \,\|\, q)\)</span> in place of <span class="math inline">\(H_2(p, q)\)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
