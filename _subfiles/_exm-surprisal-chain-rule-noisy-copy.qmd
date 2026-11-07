@@ -3,7 +3,7 @@
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 
 For the pair of values in @exm-joint-conditional-surprisal,
-the chunk recomputes the three surprisals in bits.
+the chunk recomputes the three [surprisals](#def-surprisal) in [bits](#def-bit).
 
 ```{r}
 #| code-fold: show
