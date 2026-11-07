@@ -1,0 +1,12 @@
+::: {#rem-surprisal-halvings}
+#### Surprisal as halvings of certainty
+
+Start from certainty, probability $1$.
+Each halving multiplies the probability by $1/2$.
+After $s$ halvings the probability is $(1/2)^s$,
+and solving $(1/2)^s = p$ for $s$ gives $s = \log_{1/2} p$.
+By @thm-surprisal-log-half, this $s$ is the surprisal in bits.
+So the surprisal of an outcome is the number of times certainty must be halved to reach the probability of that outcome.
+For a probability that is not a power of $1/2$, the count of halvings is not a whole number.
+
+:::
