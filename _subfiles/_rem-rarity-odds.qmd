@@ -5,7 +5,7 @@ For an [event](https://morrison-lab.github.io/pds/probability-basics.html#def-ev
 with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p$,
 the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) in favour of $A$ are $p / (1 - p)$,
 and the odds against $A$ are $(1 - p) / p$ [@grinstead1997introduction, Definition 1.4].
-Let $r = 1/p$ be the [rarity](#def-rarity) of an outcome with probability $p$.
+Let $r = 1/p$ be the [rarity](#def-rarity) of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with probability $p$.
 Then the odds against are $r - 1$.
 
 ```{r}
@@ -18,14 +18,14 @@ rarity
 odds_against
 ```
 
-The first line of output shows that the rarity exceeds the odds against by exactly $1$ for each $p$.
+The first printed line shows that the rarity exceeds the odds against by exactly $1$ for each $p$.
 An event with probability $1/4$ has rarity $`r rarity[1]`$ and odds of $`r odds_against[1]`$ to $1$ against.
 The two nearly agree for a small $p$.
 At $p = 1$ the rarity is $`r rarity[3]`$ and the odds against are $`r odds_against[3]`$.
 
 The odds compare an event with its
 [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement),
-so they apply to events and take values in $[0, \infty]$,
+so they apply to an event and take values in $[0, \infty]$,
 for a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) as well.
 The rarity compares an
 [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)
