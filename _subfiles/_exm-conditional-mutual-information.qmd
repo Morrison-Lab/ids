@@ -3,9 +3,9 @@
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 
 Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from @exm-entropy-chain-rule-n-copies.
-Once $X_2$ is known, $X_1$ adds nothing to the prediction of $X_3$,
+Once $X_2$ is known, $X_1$ adds nothing to the prediction of $X_3$, <!-- check-term-links: allow -->
 so $\entropyf{X_3 \mid X_1, X_2} = \entropyf{X_3 \mid X_2}$,
-and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip probability $0.2$.
+and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip probability $0.2$. <!-- check-term-links: allow -->
 The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
 
 ```{r}
