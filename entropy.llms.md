@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 11:37:39 (PST)
+Last modified: 2026-11-07 13:37:42 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -395,6 +395,68 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > \end{aligned}$$
 >
 > The fourth line groups the terms by $x$ and uses $p(x, y) = p(x) \, p(y \mid x)$ in the second sum; the fifth uses $\sum_{y} p(x, y) = p(x)$ and the definition of $H(Y \mid X=x)$.
+
+> **NOTE:**
+>
+> **Corollary 2 (Chain rule for entropy, other order)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
+>
+> $${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. The pair $(Y, X)$ takes each value $(y, x)$ with the same [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that $(X, Y)$ takes $(x, y)$, so
+>
+> $${\mathbb{H}\mathopen{}\left(Y, X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.$$
+>
+> The [chain rule](#thm-entropy-chain-rule), applied with the roles of $X$ and $Y$ exchanged, gives
+>
+> $${\mathbb{H}\mathopen{}\left(Y, X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.$$
+>
+> Combining the two displays gives the claim.
+
+> **NOTE:**
+>
+> **Corollary 3 (Conditional entropy as a difference)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+>
+> $${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Subtract ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ from both sides of [Corollary 2](#cor-entropy-chain-rule-reversed):
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}
+> &= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Example 6 (Chain rule for entropy with a noisy copy)**  
+>
+> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$, and $0.1$ for $(0, 1)$ and $(1, 0)$. The chunk computes each [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) from its definition, in [bits](#def-bit).
+>
+> Show code
+>
+> ``` r
+> entropy <- function(p) -sum(p * log2(p))
+> joint <- matrix(
+>   data = c(0.4, 0.1, 0.1, 0.4),
+>   nrow = 2,
+>   dimnames = list(x = 0:1, y = 0:1)
+> )
+> p_y <- colSums(joint)
+> cond_x_given_y <- sweep(x = joint, MARGIN = 2, STATS = p_y, FUN = "/")
+> h_x_given_y_values <- apply(X = cond_x_given_y, MARGIN = 2, FUN = entropy)
+> h_x_given_y <- sum(p_y * h_x_given_y_values)
+> h_xy <- entropy(joint)
+> h_y <- entropy(p_y)
+> c(h_xy = h_xy, h_x_given_y = h_x_given_y, h_y = h_y)
+> #>        h_xy h_x_given_y         h_y 
+> #>   1.7219281   0.7219281   1.0000000
+> ```
+>
+> Here ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = 1.722$ bits, ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = 0.722$ bits and ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bits. So ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Corollary 2](#cor-entropy-chain-rule-reversed)), and ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 0.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ ([Corollary 3](#cor-conditional-entropy-difference)).
 
 ## 3 Mutual information
 

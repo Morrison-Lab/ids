@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-07 11:37:39 (PST)</p>
+  <p class="date">Last modified: 2026-11-07 13:37:42 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -755,6 +755,66 @@ H(X, Y)
 \end{aligned}
 \]</span></p>
 <p>The fourth line groups the terms by <span class="math inline">\(x\)</span> and uses <span class="math inline">\(p(x, y) = p(x) \, p(y \mid x)\)</span> in the second sum; the fifth uses <span class="math inline">\(\sum_{y} p(x, y) = p(x)\)</span> and the definition of <span class="math inline">\(H(Y \mid X=x)\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="cor-entropy-chain-rule-reversed" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 2 (Chain rule for entropy, other order)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>,</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The pair <span class="math inline">\((Y, X)\)</span> takes each value <span class="math inline">\((y, x)\)</span> with the same <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> that <span class="math inline">\((X, Y)\)</span> takes <span class="math inline">\((x, y)\)</span>, so</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(Y, X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.\]</span></p>
+<p>The <a href="#/thm-entropy-chain-rule">chain rule</a>, applied with the roles of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> exchanged, gives</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(Y, X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.\]</span></p>
+<p>Combining the two displays gives the claim.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="cor-conditional-entropy-difference" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 3 (Conditional entropy as a difference)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Subtract <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}\)</span> from both sides of <a href="#/cor-entropy-chain-rule-reversed" class="quarto-xref">Corollary&nbsp;2</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}
+&amp;= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} \\
+&amp;= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-entropy-chain-rule-noisy-copy" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (Chain rule for entropy with a noisy copy)</strong></span> &nbsp;</p>
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+<p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> be a noisy copy of <span class="math inline">\(X\)</span>: it equals <span class="math inline">\(X\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.8\)</span> <!-- check-term-links: allow --> and the other value with probability <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> The joint probabilities are <span class="math inline">\(0.4\)</span> for <span class="math inline">\((0, 0)\)</span> and <span class="math inline">\((1, 1)\)</span>, and <span class="math inline">\(0.1\)</span> for <span class="math inline">\((0, 1)\)</span> and <span class="math inline">\((1, 0)\)</span>. The chunk computes each <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> from its definition, in <a href="#/def-bit">bits</a>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>entropy <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p))</span>
+<span id="cb4-2"><a aria-label="2"></a>joint <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="at">data =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.4</span>),</span>
+<span id="cb4-4"><a aria-label="4"></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb4-5"><a aria-label="5"></a>  <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">y =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb4-6"><a aria-label="6"></a>)</span>
+<span id="cb4-7"><a aria-label="7"></a>p_y <span class="ot">&lt;-</span> <span class="fu">colSums</span>(joint)</span>
+<span id="cb4-8"><a aria-label="8"></a>cond_x_given_y <span class="ot">&lt;-</span> <span class="fu">sweep</span>(<span class="at">x =</span> joint, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">STATS =</span> p_y, <span class="at">FUN =</span> <span class="st">"/"</span>)</span>
+<span id="cb4-9"><a aria-label="9"></a>h_x_given_y_values <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="at">X =</span> cond_x_given_y, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> entropy)</span>
+<span id="cb4-10"><a aria-label="10"></a>h_x_given_y <span class="ot">&lt;-</span> <span class="fu">sum</span>(p_y <span class="sc">*</span> h_x_given_y_values)</span>
+<span id="cb4-11"><a aria-label="11"></a>h_xy <span class="ot">&lt;-</span> <span class="fu">entropy</span>(joint)</span>
+<span id="cb4-12"><a aria-label="12"></a>h_y <span class="ot">&lt;-</span> <span class="fu">entropy</span>(p_y)</span>
+<span id="cb4-13"><a aria-label="13"></a><span class="fu">c</span>(<span class="at">h_xy =</span> h_xy, <span class="at">h_x_given_y =</span> h_x_given_y, <span class="at">h_y =</span> h_y)</span>
+<span id="cb4-14"><a aria-label="14"></a><span class="co">#&gt;        h_xy h_x_given_y         h_y </span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="co">#&gt;   1.7219281   0.7219281   1.0000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Here <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = 1.722\)</span> bits, <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = 0.722\)</span> bits and <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1\)</span> bits. So <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1.722\)</span> bits agrees with <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}\)</span> (<a href="#/cor-entropy-chain-rule-reversed" class="quarto-xref">Corollary&nbsp;2</a>), and <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 0.722\)</span> bits agrees with <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\)</span> (<a href="#/cor-conditional-entropy-difference" class="quarto-xref">Corollary&nbsp;3</a>).</p>
 </div>
 </section>
 <section id="sec-mutual-information" class="slide level2" data-number="3">

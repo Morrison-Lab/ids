@@ -75,6 +75,24 @@
    "external": false
   },
   {
+   "id": "ids/entropy#cor-conditional-entropy-difference",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-conditional-entropy-difference",
+   "kind": "cor",
+   "title": "Conditional entropy as a difference",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#cor-entropy-chain-rule-reversed",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-entropy-chain-rule-reversed",
+   "kind": "cor",
+   "title": "Chain rule for entropy, other order",
+   "external": false
+  },
+  {
    "id": "ids/entropy#cor-surprisal-discrete-nonnegative",
    "site": "ids",
    "page": "entropy",
@@ -586,6 +604,26 @@
   [
    "ids/channel-capacity#thm-channel-coding",
    "ids/channel-capacity#def-channel-code"
+  ],
+  [
+   "ids/entropy#cor-conditional-entropy-difference",
+   "ids/entropy#cor-entropy-chain-rule-reversed"
+  ],
+  [
+   "ids/entropy#cor-conditional-entropy-difference",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#cor-surprisal-discrete-nonnegative",
