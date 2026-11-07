@@ -13,7 +13,7 @@ By @thm-source-coding, no uniquely decodable code averages fewer than $H_2(p)$ b
 By @thm-wrong-code, a code built for $q$
 costs about $D_2(p \,\|\, q)$ bits per value more than that.
 The divergence is never negative,
-and it is $0$ only when $q = p$ [@cover2006elements, section 2.6],
+and it is $0$ only when $q = p$ [@cover2006elements, section 2.6; @yeung2008information, section 2.5],
 so the excess vanishes only when the code was built for the true distribution.
 @cover2006elements [section 5.4] state @thm-wrong-code
 in this form, with $H_2(p) + D_2(p \,\|\, q)$ in place of $H_2(p, q)$.
