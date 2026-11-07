@@ -12,7 +12,7 @@ surprisal_four
 ```
 
 It has [rarity](#def-rarity) $`r rarity_four`$ by definition.
-By @thm-surprisal-log-rarity, its [surprisal](#def-surprisal) is the base-2 logarithm of that rarity, $`r surprisal_four`$ [bits](#def-bit).
+By @thm-surprisal-log-rarity, its [surprisal](#def-surprisal) is the base-2 [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of that rarity, $`r surprisal_four`$ [bits](#def-bit).
 
 <!-- no-figure: a single closed-form value -->
 
