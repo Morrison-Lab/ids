@@ -201,6 +201,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#def-perplexity",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-perplexity",
+   "kind": "def",
+   "title": "Perplexity",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-rarity",
    "site": "ids",
    "page": "entropy",
@@ -288,6 +297,15 @@
    "div": "thm-mutual-information-symmetric",
    "kind": "thm",
    "title": "Mutual information is symmetric",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-perplexity-geometric-mean",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-perplexity-geometric-mean",
+   "kind": "thm",
+   "title": "Perplexity is the probability-weighted geometric mean of the rarities",
    "external": false
   },
   {
@@ -498,6 +516,16 @@
    "external": false
   },
   {
+   "id": "mds/algebra-exponentials#def-exponential-function",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-exponential-function",
+   "kind": "def",
+   "title": "exponential function",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function"
+  },
+  {
    "id": "mds/algebra-exponentials#def-logarithm",
    "site": "mds",
    "page": "algebra-exponentials",
@@ -506,6 +534,16 @@
    "title": "logarithm",
    "external": true,
    "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm"
+  },
+  {
+   "id": "mds/algebra-exponentials#def-natural-log",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-natural-log",
+   "kind": "def",
+   "title": "natural log",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log"
   },
   {
    "id": "mds/algebra-sums#def-convex-function",
@@ -824,6 +862,34 @@
    "ids/entropy#def-surprisal"
   ],
   [
+   "ids/entropy#def-perplexity",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "ids/entropy#def-nat"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "mds/algebra-exponentials#def-exponential-function"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "mds/algebra-exponentials#def-natural-log"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#def-rarity",
    "pds/probability-basics#def-experiment-outcome"
   ],
@@ -982,6 +1048,22 @@
   [
    "ids/entropy#thm-mutual-information-symmetric",
    "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "ids/entropy#def-perplexity"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#thm-surprisal-chain-rule",
