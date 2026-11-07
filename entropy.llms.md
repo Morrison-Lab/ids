@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 11:34:26 (PST)
+Last modified: 2026-11-07 11:37:39 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -261,19 +261,69 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 8* (The expected probability is the collision probability). [Entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [surprisal](#def-surprisal) $-\log \mathbb{P}(X)$. Taking the expectation of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\mathbb{P}(X)$ itself summarizes $X$ differently. For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, the expected probability is the [collision probability](#def-collision-probability), where $X'$ is an [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copy of $X$:
+> **Theorem 3 (The expected probability is the collision probability)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), and let $X'$ be an [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copy of $X$. Then
+>
+> $${\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}} = \sum_x \mathbb{P}(X=x)^2 = \mathbb{P}(X = X').$$
+
+> **NOTE:**
+>
+> *Proof*. The [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $\mathbb{P}(X)$ adds, over the values $x$, the value $\mathbb{P}(X=x)$ times its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\mathbb{P}(X=x)$:
 >
 > $$\begin{aligned}
 > {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}}
-> &= \sum_x \mathbb{P}(X=x)^2 \\
-> &= \mathbb{P}(X = X').
+> &= \sum_x \mathbb{P}(X=x) \, \mathbb{P}(X=x) \\
+> &= \sum_x \mathbb{P}(X=x)^2.
 > \end{aligned}$$
 >
-> So the [collision entropy](#def-renyi-entropy) is $H_2(X) = -\log \mathbb{P}(X = X')$.
+> By the definition of the [collision probability](#def-collision-probability), the last [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) is $\mathbb{P}(X = X')$.
+
+> **NOTE:**
+>
+> **Theorem 4 (The collision entropy is at most the Shannon entropy)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with values $x_1, \ldots, x_n$. Then the [collision entropy](#def-renyi-entropy) is at most the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy):
+>
+> $$H_2(X) \le {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.$$
+>
+> The two coincide exactly when each value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has the same probability.
+
+> **NOTE:**
+>
+> *Proof*. Write $\mathbb{P}(X)$ for the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at $X$. The function $-\log$ is [strictly convex](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function), so Jensen’s inequality gives
+>
+> $${\mathbb{E}\mathopen{}\left[-\log \mathbb{P}(X)\right]\mathclose{}} \ge -\log {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}},$$
+>
+> with equality exactly when $\mathbb{P}(X)$ is constant. The left side is ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$. The right side is $H_2(X)$ by its definition. The function $\mathbb{P}(X)$ is constant exactly when every value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has that same probability.
+
+> **NOTE:**
+>
+> **Example 5 (Collision entropy and entropy of a three-valued random variable)**  
+>
+> Let $X$ take three values with probabilities $1/2$, $1/4$ and $1/4$. The code below computes the expected [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), the [collision entropy](#def-renyi-entropy) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+>
+> Show code
+>
+> ``` r
+> p <- c(1 / 2, 1 / 4, 1 / 4)
+> expected_prob <- sum(p^2)
+> collision_entropy <- -log2(expected_prob)
+> shannon_entropy <- -sum(p * log2(p))
+> c(
+>   expected_prob = expected_prob,
+>   collision_entropy = collision_entropy,
+>   shannon_entropy = shannon_entropy
+> )
+> #>     expected_prob collision_entropy   shannon_entropy 
+> #>          0.375000          1.415037          1.500000
+> ```
+>
+> By [Theorem 3](#thm-expected-probability-collision), the expected probability ${\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}} = 0.375$ is the [collision probability](#def-collision-probability). The collision entropy is $H_2(X) = 1.415$ [bits](#def-bit). The entropy is ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = 1.5$ bits. As [Theorem 4](#thm-collision-entropy-at-most-entropy) states, $H_2(X) \le {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$, and the two differ because the three values are not equally likely.
+
+> **NOTE:**
+>
+> *Remark 8* (Two ways to summarize a random variable by its probabilities). [Entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [surprisal](#def-surprisal) $-\log \mathbb{P}(X)$. Taking the expectation of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\mathbb{P}(X)$ itself summarizes $X$ differently. For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), [Theorem 3](#thm-expected-probability-collision) identifies that expectation with the [collision probability](#def-collision-probability), so the [collision entropy](#def-renyi-entropy) is $H_2(X) = -\log \mathbb{P}(X = X')$.
 >
 > For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}$, the analogue is ${\mathbb{E}\mathopen{}\left[\mathbb{p}(X)\right]\mathclose{}} = \int \mathbb{p}(x)^2\,dx$. The [expected-density exercises](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density) derive this quantity, then compute it in the [uniform case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-uniform) and the [normal case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-normal).
 >
-> The collision entropy is at most the [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = {\mathbb{E}\mathopen{}\left[-\log \mathbb{P}(X)\right]\mathclose{}}$. This holds because $-\log$ is a [convex function](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function). Jensen’s inequality then gives ${\mathbb{E}\mathopen{}\left[-\log \mathbb{P}(X)\right]\mathclose{}} \ge -\log {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}}$. The two coincide exactly when all the values $X$ can take are equally likely, since then $\mathbb{P}(X)$ takes the same value for every value of $X$.
+> [Theorem 4](#thm-collision-entropy-at-most-entropy) compares the collision entropy with the [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
 
 > **NOTE:**
 >
@@ -323,7 +373,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 3 (Chain rule for entropy)** For discrete random variables $X$ and $Y$,
+> **Theorem 5 (Chain rule for entropy)** For discrete random variables $X$ and $Y$,
 >
 > $$H(X, Y) = H(X) + H(Y \mid X).$$
 
@@ -358,7 +408,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 4 (Mutual information is symmetric)** For discrete random variables $X$ and $Y$ with finite entropies,
+> **Theorem 6 (Mutual information is symmetric)** For discrete random variables $X$ and $Y$ with finite entropies,
 >
 > $$I(X; Y) = H(X) - H(X \mid Y) = I(Y; X).$$
 

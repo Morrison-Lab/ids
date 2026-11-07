@@ -183,12 +183,30 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-collision-entropy-at-most-entropy",
+   "kind": "thm",
+   "title": "The collision entropy is at most the Shannon entropy",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-entropy-chain-rule",
    "site": "ids",
    "page": "entropy",
    "div": "thm-entropy-chain-rule",
    "kind": "thm",
    "title": "Chain rule for entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-expected-probability-collision",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-expected-probability-collision",
+   "kind": "thm",
+   "title": "The expected probability is the collision probability",
    "external": false
   },
   {
@@ -380,6 +398,26 @@
    "title": "logarithm",
    "external": true,
    "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm"
+  },
+  {
+   "id": "mds/algebra-sums#def-convex-function",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "def-convex-function",
+   "kind": "def",
+   "title": "convex function",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function"
+  },
+  {
+   "id": "mds/algebra-sums#def-summation",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "def-summation",
+   "kind": "def",
+   "title": "summation",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-summation"
   },
   {
    "id": "pds/expectation#def-cross-entropy",
@@ -654,12 +692,60 @@
    "pds/random-variables#def-random-variable"
   ],
   [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "ids/entropy#def-renyi-entropy"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "mds/algebra-sums#def-convex-function"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/random-variables#def-pmf"
+  ],
+  [
    "ids/entropy#thm-entropy-chain-rule",
    "ids/entropy#def-conditional-entropy"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule",
    "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "ids/entropy#def-collision-probability"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#thm-mutual-information-symmetric",
