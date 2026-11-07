@@ -9,6 +9,9 @@ and with the pair $(X_1, X_2)$.
 
 ```{r}
 #| code-fold: show
+flip <- 0.2
+h_coin <- -flip * log2(flip) - (1 - flip) * log2(1 - flip)
+h_x3_given_x1_x2 <- h_coin
 i_x2_x3 <- 1 - h_coin
 i_x1_x2_x3 <- 1 - h_x3_given_x1_x2
 c(i_x2_x3 = i_x2_x3, i_x1_x2_x3 = i_x1_x2_x3)
