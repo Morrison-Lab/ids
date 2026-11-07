@@ -197,6 +197,66 @@ div.csl-indent {
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <style>
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-prp.callout {
   border-left-color: #827717;
 }
@@ -226,66 +286,6 @@ div.callout-def.callout-style-default .callout-header {
 div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-solution.callout {
   border-left-color: #4E342E;
@@ -663,7 +663,7 @@ window.Quarto = {
 <!-- gha-preview-page-banner:start -->
 <div class="preview-page-changes-banner" style="background: #f8f9fa; border-left: 4px solid #0d6efd; padding: 10px 15px; margin: 15px 0; border-radius: 4px;">
     <p style="margin: 0;">
-        <strong>📝 Preview Changes:</strong> This page has been modified in this pull request (~18% of content changed).
+        <strong>📝 Preview Changes:</strong> This page has been modified in this pull request (~23% of content changed).
         <br>
         <strong>🎨 Highlighting Legend:</strong> 
         <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 3px; border-radius: 2px;">Modified text (yellow)</mark> shows changed words/phrases, 
@@ -688,7 +688,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-11-06 16:26:10 (PST)</p>
+      <p class="date">Last modified: 2026-11-06 16:43:41 (PST)</p>
     </div>
   </div>
   
@@ -886,7 +886,7 @@ H(X)
 </div>
 <div class="callout-body-container">
 <div id="rem-surprisal-fisher-information" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the <a href="#def-surprisal">surprisal</a> of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \operatorname{p}(x \mid \theta)\)</span>, which is minus the log-likelihood. Its derivative with respect to <span class="math inline">\(\theta\)</span> is minus the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-score">score</a>. The expected squared score is the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf">expected (Fisher) information</a>, which is also the second derivative, at the true parameter value, of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> between the model at that value and the model at the varying value (<a href="https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature">proved in the sds notes</a>).</p>
+<p><span class="proof-title"><em>Remark <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">5</mark></em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the <a href="#def-surprisal">surprisal</a> of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \operatorname{p}(x \mid \theta)\)</span>, which is minus the log-likelihood. Its derivative with respect to <span class="math inline">\(\theta\)</span> is minus the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-score">score</a>. The expected squared score is the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf">expected (Fisher) information</a>, which is also the second derivative, at the true parameter value, of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> between the model at that value and the model at the varying value (<a href="https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature">proved in the sds notes</a>).</p>
 </div>
 </div>
 </div>
@@ -902,7 +902,7 @@ H(X)
 </div>
 <div class="callout-body-container">
 <div id="def-joint-entropy" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Joint entropy)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be discrete random variables with joint probability mass function <span class="math inline">\(p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)\)</span>. Their <strong>joint entropy</strong> is the entropy of the pair <span class="math inline">\((X, Y)\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">4</mark> (Joint entropy)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be discrete random variables with joint probability mass function <span class="math inline">\(p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)\)</span>. Their <strong>joint entropy</strong> is the entropy of the pair <span class="math inline">\((X, Y)\)</span>:</p>
 <p><span class="math display">\[H(X, Y) \stackrel{\text{def}}{=}-\sum_{x, y} p(x, y) \log p(x, y),\]</span></p>
 <p>where the sum runs over the pairs with <span class="math inline">\(p(x, y) &gt; 0\)</span>.</p>
 </div>
@@ -916,7 +916,7 @@ H(X)
 </div>
 <div class="callout-body-container">
 <div id="def-entropy-given-value" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Entropy given one value)</strong></span> For <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as in <a href="#def-joint-entropy" class="quarto-xref">Definition&nbsp;4</a>, write <span class="math inline">\(p(y \mid x) \stackrel{\text{def}}{=}\mathbb{P}(Y=y \mid X=x)\)</span>. The <strong>entropy of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X=x\)</span></strong>, for a value <span class="math inline">\(x\)</span> with <span class="math inline">\(\mathbb{P}(X=x) &gt; 0\)</span>, is</p>
+<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">5</mark> (Entropy given one value)</strong></span> For <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as in <a href="#def-joint-entropy" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Definition&nbsp;4</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> write <span class="math inline">\(p(y \mid x) \stackrel{\text{def}}{=}\mathbb{P}(Y=y \mid X=x)\)</span>. The <strong>entropy of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X=x\)</span></strong>, for a value <span class="math inline">\(x\)</span> with <span class="math inline">\(\mathbb{P}(X=x) &gt; 0\)</span>, is</p>
 <p><span class="math display">\[H(Y \mid X=x) \stackrel{\text{def}}{=}-\sum_{y} p(y \mid x) \log p(y \mid x),\]</span></p>
 <p>where the sum runs over the values <span class="math inline">\(y\)</span> with <span class="math inline">\(p(y \mid x) &gt; 0\)</span>.</p>
 </div>
@@ -930,7 +930,7 @@ H(X)
 </div>
 <div class="callout-body-container">
 <div id="def-conditional-entropy" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Conditional entropy)</strong></span> For <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as in <a href="#def-joint-entropy" class="quarto-xref">Definition&nbsp;4</a>, write <span class="math inline">\(p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)\)</span>. The <strong>conditional entropy</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> averages the <a href="#def-entropy-given-value">entropy of <span class="math inline">\(Y\)</span> given each value of <span class="math inline">\(X\)</span></a> over the distribution of <span class="math inline">\(X\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">6</mark> (Conditional entropy)</strong></span> For <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as in <a href="#def-joint-entropy" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Definition&nbsp;4</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> write <span class="math inline">\(p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)\)</span>. The <strong>conditional entropy</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> averages the <a href="#def-entropy-given-value">entropy of <span class="math inline">\(Y\)</span> given each value of <span class="math inline">\(X\)</span></a> over the distribution of <span class="math inline">\(X\)</span>:</p>
 <p><span class="math display">\[H(Y \mid X) \stackrel{\text{def}}{=}\sum_{x} p(x) \, H(Y \mid X=x),\]</span></p>
 <p>where the sum runs over the values <span class="math inline">\(x\)</span> with <span class="math inline">\(p(x) &gt; 0\)</span>.</p>
 </div>
@@ -963,7 +963,7 @@ H(X)
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Use the notation of <a href="#def-entropy-given-value" class="quarto-xref">Definition&nbsp;5</a> and <a href="#def-conditional-entropy" class="quarto-xref">Definition&nbsp;6</a>, with every sum over the pairs with <span class="math inline">\(p(x, y) &gt; 0\)</span>. Since <span class="math inline">\(p(x, y) = p(x) \, p(y \mid x)\)</span>,</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Use the notation of <a href="#def-entropy-given-value" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Definition&nbsp;5</mark></a> and <a href="#def-conditional-entropy" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Definition&nbsp;6</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> with every sum over the pairs with <span class="math inline">\(p(x, y) &gt; 0\)</span>. Since <span class="math inline">\(p(x, y) = p(x) \, p(y \mid x)\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
 H(X, Y)
@@ -994,7 +994,7 @@ H(X, Y)
 </div>
 <div class="callout-body-container">
 <div id="def-mutual-information" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Mutual information)</strong></span> The <strong>mutual information</strong> between discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies is the reduction in the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(Y\)</span> from learning <span class="math inline">\(X\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">7</mark> (Mutual information)</strong></span> The <strong>mutual information</strong> between discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies is the reduction in the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(Y\)</span> from learning <span class="math inline">\(X\)</span>:</p>
 <p><span class="math display">\[I(X; Y) \stackrel{\text{def}}{=}H(Y) - H(Y \mid X),\]</span></p>
 <p>where <span class="math inline">\(H(Y \mid X)\)</span> is the <a href="#def-conditional-entropy">conditional entropy</a>.</p>
 </div>
@@ -1031,7 +1031,7 @@ H(X, Y)
 <p><span class="math display">\[H(X) + H(Y \mid X) = H(X, Y) = H(Y) + H(X \mid Y).\]</span></p>
 <p>Subtracting <span class="math inline">\(H(X \mid Y) + H(Y \mid X)\)</span> from the outer two expressions gives</p>
 <p><span class="math display">\[H(X) - H(X \mid Y) = H(Y) - H(Y \mid X).\]</span></p>
-<p>The right side is <span class="math inline">\(I(X; Y)\)</span> by <a href="#def-mutual-information" class="quarto-xref">Definition&nbsp;7</a>, and the left side is <span class="math inline">\(I(Y; X)\)</span> by the same definition.</p>
+<p>The right side is <span class="math inline">\(I(X; Y)\)</span> by <a href="#def-mutual-information" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Definition&nbsp;7</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> and the left side is <span class="math inline">\(I(Y; X)\)</span> by the same definition.</p>
 </div>
 </div>
 </div>
@@ -1043,7 +1043,7 @@ H(X, Y)
 </div>
 <div class="callout-body-container">
 <div id="rem-mutual-information-kl" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#ref-cover2006elements" role="doc-biblioref">2006, sec. 2.3</a>)</span> define mutual information as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the joint distribution of <span class="math inline">\((X, Y)\)</span> from the product of its marginals, and show that this equals <span class="math inline">\(H(Y) - H(Y \mid X)\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#ref-cover2006elements" role="doc-biblioref">Cover and Thomas 2006, sec. 2.4</a>)</span>. Since a Kullback–Leibler divergence is never negative, and is <span class="math inline">\(0\)</span> only when the two distributions are equal <span class="citation" data-cites="cover2006elements">(<a href="#ref-cover2006elements" role="doc-biblioref">Cover and Thomas 2006, sec. 2.6</a>)</span>, <span class="math inline">\(I(X; Y) \ge 0\)</span>, with equality exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Learning <span class="math inline">\(X\)</span> never raises the entropy of <span class="math inline">\(Y\)</span> on average.</p>
+<p><span class="proof-title"><em>Remark <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">6</mark></em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#ref-cover2006elements" role="doc-biblioref">2006, sec. 2.3</a>)</span> define mutual information as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the joint distribution of <span class="math inline">\((X, Y)\)</span> from the product of its marginals, and show that this equals <span class="math inline">\(H(Y) - H(Y \mid X)\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#ref-cover2006elements" role="doc-biblioref">Cover and Thomas 2006, sec. 2.4</a>)</span>. Since a Kullback–Leibler divergence is never negative, and is <span class="math inline">\(0\)</span> only when the two distributions are equal <span class="citation" data-cites="cover2006elements">(<a href="#ref-cover2006elements" role="doc-biblioref">Cover and Thomas 2006, sec. 2.6</a>)</span>, <span class="math inline">\(I(X; Y) \ge 0\)</span>, with equality exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Learning <span class="math inline">\(X\)</span> never raises the entropy of <span class="math inline">\(Y\)</span> on average.</p>
 </div>
 </div>
 </div>
@@ -1055,7 +1055,7 @@ H(X, Y)
 </div>
 <div class="callout-body-container">
 <div id="def-information-gain" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 8 (Information gain)</strong></span> A decision tree splits the points at a node into branches. The <strong>information gain</strong> of the split is the entropy of the class labels at the node, minus the entropy of the labels in each branch, weighted by the share of the node’s points that branch holds <span class="citation" data-cites="quinlan1986induction">(<a href="#ref-quinlan1986induction" role="doc-biblioref">Quinlan 1986</a>)</span>.</p>
+<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">8</mark> (Information gain)</strong></span> A decision tree splits the points at a node into branches. The <strong>information gain</strong> of the split is the entropy of the class labels at the node, minus the entropy of the labels in each branch, weighted by the share of the node’s points that branch holds <span class="citation" data-cites="quinlan1986induction">(<a href="#ref-quinlan1986induction" role="doc-biblioref">Quinlan 1986</a>)</span>.</p>
 </div>
 </div>
 </div>
@@ -1067,7 +1067,7 @@ H(X, Y)
 </div>
 <div class="callout-body-container">
 <div id="rem-information-gain" class="proof remark">
-<p><span class="proof-title"><em>Remark 7</em> (Information gain is mutual information). </span>Draw one point uniformly at random from the node of <a href="#def-information-gain" class="quarto-xref">Definition&nbsp;8</a>, and let <span class="math inline">\(Y\)</span> be its class and <span class="math inline">\(X\)</span> the branch it falls into. Then the entropy at the node is <span class="math inline">\(H(Y)\)</span>, the weighted entropy left in the branches is <span class="math inline">\(H(Y \mid X)\)</span>, and the information gain is the <a href="#def-mutual-information">mutual information</a> <span class="math inline">\(I(X; Y)\)</span>.</p>
+<p><span class="proof-title"><em>Remark <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">7</mark></em> (Information gain is mutual information). </span>Draw one point uniformly at random from the node of <a href="#def-information-gain" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Definition&nbsp;8</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> and let <span class="math inline">\(Y\)</span> be its class and <span class="math inline">\(X\)</span> the branch it falls into. Then the entropy at the node is <span class="math inline">\(H(Y)\)</span>, the weighted entropy left in the branches is <span class="math inline">\(H(Y \mid X)\)</span>, and the information gain is the <a href="#def-mutual-information">mutual information</a> <span class="math inline">\(I(X; Y)\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1116,7 +1116,7 @@ H(X, Y)
 </tr>
 </tbody>
 </table>
-<p>Draw one point uniformly at random from the node, let <span class="math inline">\(Y\)</span> be its color, and let <span class="math inline">\(X\)</span> be the branch it falls into (<a href="#rem-information-gain" class="quarto-xref">Remark&nbsp;7</a>). The information gain of each split (<a href="#def-information-gain" class="quarto-xref">Definition&nbsp;8</a>) is then <span class="math inline">\(I(X; Y)\)</span>. Use base-2 logarithms throughout.</p>
+<p>Draw one point uniformly at random from the node, let <span class="math inline">\(Y\)</span> be its color, and let <span class="math inline">\(X\)</span> be the branch it falls into <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">(</mark><a href="#rem-information-gain" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Remark&nbsp;7</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">).</mark> The information gain of each split <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">(</mark><a href="#def-information-gain" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Definition&nbsp;8</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">)</mark> is then <span class="math inline">\(I(X; Y)\)</span>. Use base-2 logarithms throughout.</p>
 <ol type="1">
 <li><p>Compute <span class="math inline">\(H(Y)\)</span>.</p></li>
 <li><p>For each split, compute <span class="math inline">\(H(Y \mid X = x)\)</span> for both branches, and then <span class="math inline">\(H(Y \mid X)\)</span>.</p></li>
@@ -1183,7 +1183,7 @@ H(Y \mid X)
 &amp;\approx 0.689 \text{ bits}.
 \end{aligned}
 \]</span></p></li>
-<li><p>By <a href="#def-mutual-information" class="quarto-xref">Definition&nbsp;7</a>, the gain is <span class="math inline">\(H(Y) - H(Y \mid X)\)</span>:</p>
+<li><p>By <a href="#def-mutual-information" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Definition&nbsp;7</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> the gain is <span class="math inline">\(H(Y) - H(Y \mid X)\)</span>:</p>
 <ul>
 <li>split A: <span class="math inline">\(1 - 0.764 = 0.236\)</span> bits</li>
 <li>split B: <span class="math inline">\(1 - 0.689 = 0.311\)</span> bits</li>
@@ -1207,7 +1207,7 @@ H(Y \mid X)
 <div id="thm-entropy-chain-rule-n" class="theorem">
 <p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Theorem 3 (Chain rule for entropy, many variables)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X_1, \ldots, X_n\)</span> with finite entropies, <!-- check-term-links: allow --></mark></p>
 <p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="math display">\[{H\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = \sum_{i=1}^{n} {H\mathopen{}\left(X_i \mid X_1, \ldots, X_{i-1}\right)\mathclose{}},\]</span></mark></p>
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">where the term for <span class="math inline">\(i = 1\)</span> is <span class="math inline">\({H\mathopen{}\left(X_1\right)\mathclose{}}\)</span>. <!-- check-term-links: allow --></mark></p>
+<p><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">where the term for </mark><span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(i = 1\)</mark></span> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">is </mark><span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\({H\mathopen{}\left(X_1\right)\mathclose{}}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">. </mark><!-- check-term-links: allow --></p>
 </div>
 </div>
 </div>
@@ -1254,7 +1254,7 @@ H(Y \mid X)
 <details open="" class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flip <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>copy <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>channel <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> flip, flip, flip, <span class="dv">1</span> <span class="sc">-</span> flip),</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
@@ -1263,7 +1263,7 @@ H(Y \mid X)
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x1 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) {</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (x2 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) {</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (x3 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) {</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      joint[x1, x2, x3] <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> copy[x1, x2] <span class="sc">*</span> copy[x2, x3]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      joint[x1, x2, x3] <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> channel[x1, x2] <span class="sc">*</span> channel[x2, x3]</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span>
@@ -1326,7 +1326,7 @@ H(Y \mid X)
 </div>
 <div class="callout-body-container">
 <div id="thm-mutual-information-chain-rule" class="theorem">
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Theorem 4 (Chain rule for mutual information)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> with finite entropies, <!-- check-term-links: allow --></mark></p>
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Theorem 4 (Chain rule for mutual information)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> for which <span class="math inline">\({H\mathopen{}\left(Y\right)\mathclose{}}\)</span>, <span class="math inline">\({H\mathopen{}\left(Y \mid Z\right)\mathclose{}}\)</span> and <span class="math inline">\({H\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}\)</span> are finite, <!-- check-term-links: allow --></mark></p>
 <p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="math display">\[I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).\]</span></mark></p>
 </div>
 </div>
@@ -1353,13 +1353,13 @@ I(Z; Y) &amp;= {H\mathopen{}\left(Y\right)\mathclose{}} - {H\mathopen{}\left(Y \
 \end{aligned}
 \]</span></mark></p>
 <p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">Subtracting the second display from the first gives</mark></p>
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="math display">\[
+<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 \begin{aligned}
 I(X, Z; Y) - I(Z; Y)
 &amp;= {H\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {H\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
 &amp;= I(X; Y \mid Z),
 \end{aligned}
-\]</span></mark></p>
+\]</mark></span></p>
 <p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">where the last line is <a href="#def-conditional-mutual-information" class="quarto-xref">Definition&nbsp;9</a>.</mark></p>
 </div>
 </div>
@@ -1382,10 +1382,10 @@ I(X, Z; Y) - I(Z; Y)
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>h_coin <span class="ot">&lt;-</span> <span class="sc">-</span>flip <span class="sc">*</span> <span class="fu">log2</span>(flip) <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> flip) <span class="sc">*</span> <span class="fu">log2</span>(<span class="dv">1</span> <span class="sc">-</span> flip)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>h_x3_given_x1_x2 <span class="ot">&lt;-</span> h_coin</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>i_x2_x3 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> h_coin</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>i_x1_x2_x3 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> h_x3_given_x1_x2</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">i_x2_x3 =</span> i_x2_x3, <span class="at">i_x1_x2_x3 =</span> i_x1_x2_x3)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    i_x2_x3 i_x1_x2_x3 </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.2780719  0.2780719</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>i_pair_x3 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> h_x3_given_x1_x2</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">i_x2_x3 =</span> i_x2_x3, <span class="at">i_pair_x3 =</span> i_pair_x3)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   i_x2_x3 i_pair_x3 </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.2780719 0.2780719</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">Here <span class="math inline">\(I(X_2; X_3) = 0.278\)</span> bits <!-- check-term-links: allow --> and <span class="math inline">\(I(X_1, X_2; X_3) = 0.278\)</span> bits. The difference is <span class="math inline">\(I(X_1; X_3 \mid X_2) = 0\)</span> (<a href="#thm-mutual-information-chain-rule" class="quarto-xref">Theorem&nbsp;4</a>), <!-- check-term-links: allow --> as in <a href="#exm-conditional-mutual-information" class="quarto-xref">Example&nbsp;4</a>.</mark></p>

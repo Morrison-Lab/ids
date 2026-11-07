@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-06 16:26:10 (PST)
+Last modified: 2026-11-06 16:43:41 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -329,7 +329,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > ``` r
 > flip <- 0.2
-> copy <- matrix(
+> channel <- matrix(
 >   data = c(1 - flip, flip, flip, 1 - flip),
 >   nrow = 2,
 >   byrow = TRUE
@@ -338,7 +338,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > for (x1 in 1:2) {
 >   for (x2 in 1:2) {
 >     for (x3 in 1:2) {
->       joint[x1, x2, x3] <- 0.5 * copy[x1, x2] * copy[x2, x3]
+>       joint[x1, x2, x3] <- 0.5 * channel[x1, x2] * channel[x2, x3]
 >     }
 >   }
 > }
@@ -379,7 +379,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 4 (Chain rule for mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ with finite entropies,
+> **Theorem 4 (Chain rule for mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ for which ${H\mathopen{}\left(Y\right)\mathclose{}}$, ${H\mathopen{}\left(Y \mid Z\right)\mathclose{}}$ and ${H\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}$ are finite,
 >
 > $$I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).$$
 
@@ -415,10 +415,10 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > h_coin <- -flip * log2(flip) - (1 - flip) * log2(1 - flip)
 > h_x3_given_x1_x2 <- h_coin
 > i_x2_x3 <- 1 - h_coin
-> i_x1_x2_x3 <- 1 - h_x3_given_x1_x2
-> c(i_x2_x3 = i_x2_x3, i_x1_x2_x3 = i_x1_x2_x3)
-> #>    i_x2_x3 i_x1_x2_x3 
-> #>  0.2780719  0.2780719
+> i_pair_x3 <- 1 - h_x3_given_x1_x2
+> c(i_x2_x3 = i_x2_x3, i_pair_x3 = i_pair_x3)
+> #>   i_x2_x3 i_pair_x3 
+> #> 0.2780719 0.2780719
 > ```
 >
 > Here $I(X_2; X_3) = 0.278$ bits and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 4](#thm-mutual-information-chain-rule)), as in [Example 4](#exm-conditional-mutual-information).
