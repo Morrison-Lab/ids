@@ -4,8 +4,8 @@
 
 For the coin $X$ and noisy copy $Y$ in @exm-mutual-information-noisy-copy,
 the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ is $1$ [bit](#def-bit).
-Given $X$, the variable $Y$ is a coin with probabilities $0.8$ and $0.2$,
-so the chunk computes the [conditional entropy](#def-conditional-entropy) from that coin.
+Given $X$, the variable $Y$ is a coin with probabilities $0.8$ and $0.2$.
+The chunk computes the [conditional entropy](#def-conditional-entropy) from that coin.
 
 ```{r}
 #| code-fold: show

@@ -25,7 +25,7 @@ mutual_information
 
 So $I(X; Y) = `r round(mutual_information, 3)`$ bits. <!-- check-term-links: allow -->
 This matches $\entropyf{Y} - \entropyf{Y \mid X}$,
-which is $1$ bit minus the entropy of a coin with probabilities $0.8$ and $0.2$, <!-- check-term-links: allow -->
-or $1 - `r round(-0.8 * log2(0.8) - 0.2 * log2(0.2), 3)`$ bits.
+which is $1$ bit minus the entropy of a coin with probabilities $0.8$ and $0.2$. <!-- check-term-links: allow -->
+That is $1 - `r round(-0.8 * log2(0.8) - 0.2 * log2(0.2), 3)`$ bits.
 
 :::
