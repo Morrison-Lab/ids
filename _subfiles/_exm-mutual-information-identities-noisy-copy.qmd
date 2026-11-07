@@ -5,7 +5,7 @@
 Take the fair coin $X$ and its noisy copy $Y$
 from @exm-entropy-chain-rule-noisy-copy.
 The chunk computes the entropies from the joint probabilities in [bits](#def-bit),
-then the [mutual information](#def-mutual-information) from each formula.
+then the [mutual information](#def-mutual-information) in four ways.
 
 ```{r}
 #| code-fold: show
