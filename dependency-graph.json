@@ -147,6 +147,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#def-rarity",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-rarity",
+   "kind": "def",
+   "title": "Rarity",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-renyi-entropy",
    "site": "ids",
    "page": "entropy",
@@ -386,6 +395,16 @@
    "url": "https://morrison-lab.github.io/pds/independence.html#def-indpt"
   },
   {
+   "id": "pds/probability-basics#def-experiment-outcome",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-experiment-outcome",
+   "kind": "def",
+   "title": "experiment outcome",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome"
+  },
+  {
    "id": "pds/probability-basics#def-probability",
    "site": "pds",
    "page": "probability-basics",
@@ -396,6 +415,16 @@
    "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-probability"
   },
   {
+   "id": "pds/random-variables#def-continuous-rv",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-continuous-rv",
+   "kind": "def",
+   "title": "continuous rv",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv"
+  },
+  {
    "id": "pds/random-variables#def-discrete-rv",
    "site": "pds",
    "page": "random-variables",
@@ -404,6 +433,16 @@
    "title": "discrete rv",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv"
+  },
+  {
+   "id": "pds/random-variables#def-pdf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pdf",
+   "kind": "def",
+   "title": "pdf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pdf"
   },
   {
    "id": "pds/random-variables#def-pmf",
@@ -518,6 +557,26 @@
   [
    "ids/entropy#def-nat",
    "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-continuous-rv"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-pdf"
   ],
   [
    "ids/entropy#def-renyi-entropy",
