@@ -23,10 +23,12 @@ jobs:
     uses: Morrison-Lab/gha/.github/workflows/check-bibliography-dois.yml@v3
     with:
       # mackay2003information: the book has no DOI.
+      # yeung2008information: the book has no DOI.
       # iec80000132008: the standard has no DOI.
       # shannon1948mathematical: the publisher answers the checker with HTTP
       # 202, which the check reads as an error, though the DOI resolves.
       exclude-keys: >-
         mackay2003information
+        yeung2008information
         shannon1948mathematical
         iec80000132008
