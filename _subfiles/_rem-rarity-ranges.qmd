@@ -3,26 +3,26 @@
 
 For a
 [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
-the mass $p = \P(X=x)$ of an
+the mass $\P(X=x)$ of an
 [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)
-with $p > 0$, its [rarity](#def-rarity) $1/p$ and its [surprisal](#def-surprisal) $-\log p$ take the values in the middle column.
+with a mass above $0$, its [rarity](#def-rarity) $\rarityf{x}$ and its [surprisal](#def-surprisal) $\surprisalf{x}$ take the values in the middle column.
 For a
 [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
-the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $f(x)$ takes the place of $p$,
-the rarity is $1/f(x)$,
-and the surprisal $-\log f(x)$ is the
+the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p(x)$ takes the place of the mass,
+the rarity $\rarityf{x}$ is the reciprocal of $\p(x)$,
+and the surprisal $\surprisalf{x}$ is the
 [surprisal of a continuous value](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous).
 Their values are in the right column.
 
-| | Mass $p$ | Density $f$ |
+| | Mass $\P(X=x)$ | Density $\p(x)$ |
 |---|---|---|
 | Mass or density | $(0, 1]$ | $(0, \infty)$ |
-| Rarity | $[1, \infty)$ | $(0, \infty)$ |
-| Surprisal | $[0, \infty)$ | $(-\infty, \infty)$ |
+| Rarity $\rarityf{x}$ | $[1, \infty)$ | $(0, \infty)$ |
+| Surprisal $\surprisalf{x}$ | $[0, \infty)$ | $(-\infty, \infty)$ |
 
 - **Mass.**
-  The values $1$ and $0$ are attained.
-  A certain outcome has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, rarity $1$ and surprisal $0$.
+  A mass of $1$ gives the smallest rarity, $1$, and the smallest surprisal, $0$.
+  A certain outcome has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, so no mass gives a rarity below $1$ or a surprisal below $0$.
 - **Density.**
   A density can be arbitrarily large, as in the
   [uniform example](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform),
@@ -31,6 +31,6 @@ Their values are in the right column.
   A mass or density of $0$ gives a rarity and a surprisal of $\infty$.
 - **Units.**
   A mass has no units.
-  A density has the units of $1/x$, so its rarity has the units of $x$ and rescaling $x$ by $c$ shifts its surprisal by $\log c$.
+  A density has the units of $1/x$, so its rarity has the units of $x$ and rescaling $x$ by $c$ shifts its surprisal by $\logf{c}$.
 
 :::

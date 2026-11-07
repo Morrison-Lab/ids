@@ -56,6 +56,10 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_exm-rarity-die.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-rarity-source.qmd >}}
 
 {{< slidebreak >}}

@@ -6,8 +6,8 @@ The [surprisal](#def-surprisal) of an [outcome](https://morrison-lab.github.io/p
 $$
 \begin{aligned}
 \surprisalf{x}
-&= -\log \P(X=x) \\
-&= \log \frac{1}{\P(X=x)} \\
+&= -\logf{\P(X=x)} \\
+&= \logf{\frac{1}{\P(X=x)}} \\
 &= \logf{\rarityf{x}}.
 \end{aligned}
 $$

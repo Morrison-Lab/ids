@@ -3,8 +3,16 @@
 
 The **rarity** of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$
 of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
-with $\P(X=x) > 0$ is
+is the reciprocal of its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) mass:
 
 $$\rarityf{x} \eqdef \frac{1}{\P(X=x)}.$$
+
+For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) $X$
+with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p$,
+the rarity of a value $x$ is the reciprocal of the density:
+
+$$\rarityf{x} \eqdef \frac{1}{\p(x)}.$$
+
+When the mass or the density is $0$, the rarity is $\infty$.
 
 :::
