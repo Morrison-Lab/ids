@@ -11,8 +11,8 @@ $$\E{\P(X)} = \sum_x \P(X=x)^2 = \P(X = X').$$
 
 ::: proof
 
-The [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of a function of $X$ weights each value of the function by the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of $x$.
-For the function $\P(x)$, which maps each value $x$ to its probability $\P(X=x)$,
+The [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $\P(X)$ adds, over the values $x$,
+the value $\P(X=x)$ times its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\P(X=x)$:
 
 $$
 \begin{aligned}
@@ -22,6 +22,7 @@ $$
 \end{aligned}
 $$
 
-By the definition of the [collision probability](#def-collision-probability), the last sum is $\P(X = X')$.
+By the definition of the [collision probability](#def-collision-probability),
+the last [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) is $\P(X = X')$.
 
 :::

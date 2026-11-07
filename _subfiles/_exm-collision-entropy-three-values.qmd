@@ -4,7 +4,9 @@
 <!-- no-figure: the example is three numbers -->
 
 Let $X$ take three values with probabilities $1/2$, $1/4$ and $1/4$.
-The code below computes the expected probability, the collision entropy and the entropy, with base-2 logarithms.
+The code below computes the expected [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
+the [collision entropy](#def-renyi-entropy) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 
 ```{r}
 #| label: collision-entropy-three-values
@@ -19,8 +21,8 @@ c(
 )
 ```
 
-By @thm-expected-probability-collision, the expected probability $\E{\P(X)} = `r expected_prob`$ is the collision probability.
-The collision entropy is $H_2(X) = `r round(collision_entropy, 3)`$ bits.
+By @thm-expected-probability-collision, the expected probability $\E{\P(X)} = `r expected_prob`$ is the [collision probability](#def-collision-probability).
+The collision entropy is $H_2(X) = `r round(collision_entropy, 3)`$ [bits](#def-bit).
 The entropy is $\entropyf{X} = `r shannon_entropy`$ bits.
 As @thm-collision-entropy-at-most-entropy states, $H_2(X) \le \entropyf{X}$,
 and the two differ because the three values are not equally likely.
