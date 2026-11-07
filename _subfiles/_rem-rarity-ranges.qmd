@@ -31,6 +31,8 @@ Their values are in the right column.
   A mass or density of $0$ gives a rarity and a surprisal of $\infty$.
 - **Units.**
   A mass has no units.
-  A density has the units of $1/x$, so its rarity has the units of $x$ and rescaling $x$ by $c$ shifts its surprisal by $\logf{c}$.
+  A density has the units of $1/x$,
+  so its rarity has the units of $x$.
+  Rescaling $x$ by $c$ shifts its surprisal by $\logf{c}$.
 
 :::
