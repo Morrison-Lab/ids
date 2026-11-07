@@ -1,7 +1,8 @@
 :::{#cor-conditional-entropy-difference}
 #### Conditional entropy as a difference
 
-For discrete random variables $X$ and $Y$ with finite entropies,
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
+with finite entropies, <!-- check-term-links: allow -->
 
 $$H(X \mid Y) = H(X, Y) - H(Y).$$
 

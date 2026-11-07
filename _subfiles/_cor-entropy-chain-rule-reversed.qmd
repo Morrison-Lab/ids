@@ -1,7 +1,7 @@
 :::{#cor-entropy-chain-rule-reversed}
 #### Chain rule for entropy, other order
 
-For discrete random variables $X$ and $Y$,
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
 
 $$H(X, Y) = H(X \mid Y) + H(Y).$$
 
@@ -9,7 +9,8 @@ $$H(X, Y) = H(X \mid Y) + H(Y).$$
 
 ::: {.proof}
 
-The pair $(Y, X)$ has the same probability for each outcome as the pair $(X, Y)$, so
+The pair $(Y, X)$ takes each value $(y, x)$ with the same [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)
+that $(X, Y)$ takes $(x, y)$, so
 
 $$H(Y, X) = H(X, Y).$$
 

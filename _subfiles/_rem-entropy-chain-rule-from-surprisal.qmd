@@ -3,8 +3,9 @@
 
 The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a pair
 is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
-of its joint surprisal,
-and the conditional entropy is the expectation of the conditional surprisal:
+of its [joint surprisal](#def-joint-surprisal),
+and the [conditional entropy](#def-conditional-entropy)
+is the expectation of the [conditional surprisal](#def-conditional-surprisal):
 
 $$
 \begin{aligned}
@@ -15,6 +16,6 @@ $$
 
 Taking the expectation of both sides of @thm-surprisal-chain-rule
 therefore gives @thm-entropy-chain-rule.
-Each identity for entropy in this section has a pointwise version for surprisal.
+Each equation for entropy in this section has a pointwise version for [surprisal](#def-surprisal).
 
 :::
