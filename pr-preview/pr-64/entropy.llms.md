@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 01:24:47 (PST)
+Last modified: 2026-11-07 01:31:11 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -218,11 +218,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 2
 > ```
 >
-> By [Theorem 1](#thm-surprisal-log-rarity), it has [rarity](#def-rarity) $4$ and a [surprisal](#def-surprisal) of $2$ [bits](#def-bit).
+> It has [rarity](#def-rarity) $4$ by definition. By [Theorem 1](#thm-surprisal-log-rarity), its [surprisal](#def-surprisal) is the base-2 [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of that rarity, $2$ [bits](#def-bit).
 
 > **NOTE:**
 >
-> *Remark 5* (Reading the rarity of an outcome). A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) can exceed $1$, so for a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) the [rarity](#def-rarity) can be below $1$ ([Theorem 2](#thm-surprisal-log-rarity-continuous)). For a mass, a rarity of $r$ reads “one in $r$” ([Theorem 1](#thm-surprisal-log-rarity)).
+> *Remark 5* (Reading the rarity of an outcome). A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) can exceed $1$, so for a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) the [rarity](#def-rarity) can be below $1$, and then the [surprisal](#def-surprisal) is negative ([Theorem 2](#thm-surprisal-log-rarity-continuous)). For a mass, a rarity of $r$ reads “one in $r$”, and the surprisal is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of $r$ ([Theorem 1](#thm-surprisal-log-rarity)).
 
 > **NOTE:**
 >
