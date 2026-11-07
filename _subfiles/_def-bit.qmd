@@ -5,8 +5,8 @@ A **bit**, also called a **shannon** (symbol Sh) [@iec80000132008], is the unit 
 when the logarithm in [surprisal](#def-surprisal),
 and in every quantity built from it, has base $2$.
 
-One bit is the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with probability $1/2$:
-for a value $x$ of a discrete random variable $X$,
+One bit is the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$:
+for a value $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
 
 $$
 \begin{aligned}

@@ -1,7 +1,7 @@
 :::{#def-surprisal}
 #### Surprisal
 
-The **surprisal** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a discrete random variable $X$
+The **surprisal** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
 with $\P(X=x) > 0$ is
 
 $$s(x) \eqdef -\log \P(X=x).$$
