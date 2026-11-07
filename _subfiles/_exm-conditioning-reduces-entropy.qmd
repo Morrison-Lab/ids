@@ -1,0 +1,20 @@
+:::{#exm-conditioning-reduces-entropy}
+#### Learning a noisy copy lowers the entropy
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+For the coin $X$ and noisy copy $Y$ in @exm-mutual-information-noisy-copy,
+the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ is $1$ bit.
+Given $X$, the variable $Y$ is a coin with probabilities $0.8$ and $0.2$,
+so the chunk computes the conditional entropy from that coin.
+
+```{r}
+#| code-fold: show
+h_y <- 1
+h_y_given_x <- -0.8 * log2(0.8) - 0.2 * log2(0.2)
+c(h_y = h_y, h_y_given_x = h_y_given_x)
+```
+
+Here $\entropyf{Y \mid X} = `r round(h_y_given_x, 3)`$ bits,
+which is below $\entropyf{Y} = `r h_y`$ bit (@cor-conditioning-reduces-entropy). <!-- check-term-links: allow -->
+
+:::

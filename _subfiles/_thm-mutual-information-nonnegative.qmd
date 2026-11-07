@@ -40,7 +40,7 @@ The first is an equality exactly when $p(x) \, p(y) = p(x, y)$ for every pair wi
 The second is an equality exactly when no pair has $p(x, y) = 0$ and $p(x) \, p(y) > 0$.
 Together they say $p(x, y) = p(x) \, p(y)$ for every pair,
 which is independence.
-Conversely, independence gives $\log \sb{p(x, y) / (p(x) \, p(y))} = 0$ for every pair,
-so $I(X; Y) = 0$ by @thm-mutual-information-kl.
+Each inequality is an equality exactly under its condition,
+so independence is both necessary and sufficient for $I(X; Y) = 0$.
 
 :::

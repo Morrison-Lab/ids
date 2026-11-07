@@ -4,7 +4,7 @@
 For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
 with finite entropy, <!-- check-term-links: allow -->
 
-$$I(X; X) = H(X).$$
+$$I(X; X) = \entropyf{X}.$$
 
 :::
 
@@ -15,14 +15,14 @@ so $p(x \mid x) = 1$ and $p(x' \mid x) = 0$ for every $x' \ne x$.
 Only the term with $x' = x$ contributes to the entropy of $X$ given $X=x$, <!-- check-term-links: allow -->
 and it is $-1 \cdot \log 1 = 0$:
 
-$$H(X \mid X=x) = 0.$$
+$$\entropyf{X \mid X=x} = 0.$$
 
 Averaging over the distribution of $X$ gives <!-- check-term-links: allow -->
 
 $$
 \begin{aligned}
-H(X \mid X)
-&= \sum_{x} p(x) \, H(X \mid X=x) \\
+\entropyf{X \mid X}
+&= \sum_{x} p(x) \, \entropyf{X \mid X=x} \\
 &= 0.
 \end{aligned}
 $$
@@ -32,8 +32,8 @@ By @def-mutual-information with $Y = X$,
 $$
 \begin{aligned}
 I(X; X)
-&= H(X) - H(X \mid X) \\
-&= H(X).
+&= \entropyf{X} - \entropyf{X \mid X} \\
+&= \entropyf{X}.
 \end{aligned}
 $$
 

@@ -4,8 +4,8 @@
 @cover2006elements [section 2.3] define mutual information
 as the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
 of the joint distribution of $(X, Y)$ from the product of its marginals,
-and show that this equals $H(Y) - H(Y \mid X)$ [@cover2006elements, section 2.4].
-@thm-mutual-information-kl proves the equality with $H(Y) - H(Y \mid X)$,
+and show that this equals $\entropyf{Y} - \entropyf{Y \mid X}$ [@cover2006elements, section 2.4].
+@thm-mutual-information-kl proves the equality with $\entropyf{Y} - \entropyf{Y \mid X}$,
 and @thm-mutual-information-nonnegative proves that $I(X; Y) \ge 0$
 [@cover2006elements, section 2.6].
 Learning $X$ never raises the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ on average (@cor-conditioning-reduces-entropy). <!-- check-term-links: allow -->

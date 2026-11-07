@@ -1,0 +1,31 @@
+:::{#exm-mutual-information-noisy-copy}
+#### Mutual information of a noisy copy
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+Let $X$ be a fair coin toss, coded $0$ or $1$.
+Let $Y$ equal $X$ with probability $0.8$ and the other value with probability $0.2$. <!-- check-term-links: allow -->
+The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$ and $0.1$ for $(0, 1)$ and $(1, 0)$. <!-- check-term-links: allow -->
+The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit)
+from the divergence formula in @thm-mutual-information-kl.
+
+```{r}
+#| code-fold: show
+joint <- matrix(
+  data = c(0.4, 0.1, 0.1, 0.4),
+  nrow = 2,
+  dimnames = list(x = 0:1, y = 0:1)
+)
+p_x <- rowSums(joint)
+p_y <- colSums(joint)
+product <- outer(X = p_x, Y = p_y)
+terms <- joint * log2(joint / product)
+mutual_information <- sum(terms)
+mutual_information
+```
+
+So $I(X; Y) = `r round(mutual_information, 3)`$ bits. <!-- check-term-links: allow -->
+This matches $\entropyf{Y} - \entropyf{Y \mid X}$,
+which is $1$ bit minus the entropy of a coin with probabilities $0.8$ and $0.2$,
+or $1 - `r round(-0.8 * log2(0.8) - 0.2 * log2(0.2), 3)`$ bits.
+
+:::

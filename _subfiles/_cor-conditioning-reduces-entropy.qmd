@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite entropies, <!-- check-term-links: allow -->
 
-$$H(Y \mid X) \le H(Y).$$
+$$\entropyf{Y \mid X} \le \entropyf{Y}.$$
 
 Equality holds exactly when $X$ and $Y$ are
 [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
@@ -15,7 +15,7 @@ Equality holds exactly when $X$ and $Y$ are
 
 By @def-mutual-information,
 
-$$H(Y) - H(Y \mid X) = I(X; Y).$$
+$$\entropyf{Y} - \entropyf{Y \mid X} = I(X; Y).$$
 
 By @thm-mutual-information-nonnegative,
 the right side is nonnegative,
