@@ -1,7 +1,7 @@
 :::{#thm-kl-divergence-nonnegative}
 #### The divergence is nonnegative
 
-Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on a finite set of values,
+Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, \ldots, x_n$,
 with $q(x) > 0$ wherever $p(x) > 0$.
 Then the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) satisfies
 
@@ -33,7 +33,7 @@ $$
 
 The left side is $-\ln 2 \cdot D_2(p \,\|\, q)$, so $D_2(p \,\|\, q) \ge 0$.
 
-If $D_2(p \,\|\, q) = 0$, both steps are equalities.
+If $D_2(p \,\|\, q) = 0$, both relations hold with equality.
 The first forces $q(x) = p(x)$ at every $x$ with $p(x) > 0$.
 The second then gives $\sum_x q(x) = 1$,
 so $q$ has no mass where $p$ has none, and $q = p$.

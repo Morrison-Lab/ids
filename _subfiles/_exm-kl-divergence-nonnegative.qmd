@@ -4,7 +4,7 @@
 <!-- no-figure: the example is two numbers -->
 
 Let $p = (0.9, 0.1)$ be the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of a biased coin, and let $q = (0.5, 0.5)$ be a fair coin.
-The code below computes the divergence in both orders, in [bits](entropy.qmd#def-bit).
+The code below computes the divergence both ways, in [bits](entropy.qmd#def-bit).
 
 ```{r}
 #| label: kl-divergence-nonnegative
@@ -19,7 +19,7 @@ c(
 
 Both divergences between the two coins are positive,
 as @thm-kl-divergence-nonnegative requires,
-and they differ, so swapping the two mass functions changes the divergence.
+and they differ, so swapping $p$ and $q$ changes the divergence.
 The divergence of $p$ from itself is $0$.
 
 :::

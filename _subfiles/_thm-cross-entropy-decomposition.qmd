@@ -1,7 +1,7 @@
 :::{#thm-cross-entropy-decomposition}
 #### Cross-entropy is entropy plus divergence
 
-Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on a finite set of values,
+Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, \ldots, x_n$,
 with $q(x) > 0$ wherever $p(x) > 0$.
 Write $H_2(p)$ for the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $p$,
 $H_2(p, q)$ for the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$,
@@ -30,6 +30,6 @@ $$
 = -\sum_x p(x) \log_2 p(x) + \sum_x p(x) \log_2 \frac{p(x)}{q(x)}.
 $$
 
-The three expressions are $H_2(p, q)$, $H_2(p)$ and $D_2(p \,\|\, q)$.
+These three terms are $H_2(p, q)$, $H_2(p)$ and $D_2(p \,\|\, q)$.
 
 :::
