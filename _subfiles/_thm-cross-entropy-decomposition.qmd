@@ -1,0 +1,35 @@
+:::{#thm-cross-entropy-decomposition}
+#### Cross-entropy is entropy plus divergence
+
+Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on finitely many values,
+with $q(x) > 0$ wherever $p(x) > 0$.
+Write $H_2(p)$ for the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a random variable with mass function $p$,
+$H_2(p, q)$ for the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$,
+and $D_2(p \,\|\, q)$ for the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from $p$,
+all with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+Then
+
+$$H_2(p, q) = H_2(p) + D_2(p \,\|\, q).$$
+
+:::
+
+::: {.proof}
+
+Every sum here runs over the values $x$ with $p(x) > 0$.
+By the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of a quotient,
+
+$$
+-\log_2 q(x)
+= -\log_2 p(x) + \log_2 \frac{p(x)}{q(x)}.
+$$
+
+Multiply by $p(x)$ and sum over $x$:
+
+$$
+-\sum_x p(x) \log_2 q(x)
+= -\sum_x p(x) \log_2 p(x) + \sum_x p(x) \log_2 \frac{p(x)}{q(x)}.
+$$
+
+The three sums are $H_2(p, q)$, $H_2(p)$ and $D_2(p \,\|\, q)$.
+
+:::
