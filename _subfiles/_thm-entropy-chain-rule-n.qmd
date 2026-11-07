@@ -1,0 +1,34 @@
+:::{#thm-entropy-chain-rule-n}
+#### Chain rule for entropy, many variables
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$
+with finite entropies, <!-- check-term-links: allow -->
+
+$$\entropyf{X_1, \ldots, X_n} = \sum_{i=1}^{n} \entropyf{X_i \mid X_1, \ldots, X_{i-1}},$$
+
+where the term for $i = 1$ is $\entropyf{X_1}$. <!-- check-term-links: allow -->
+
+:::
+
+::: {.proof}
+
+The proof is by [induction](https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction) on $n$.
+The claim for $n = 1$ is $\entropyf{X_1} = \entropyf{X_1}$.
+
+Let $n \ge 2$, and suppose the claim holds for $n - 1$ variables.
+Treat $(X_1, \ldots, X_{n-1})$ as a single variable.
+The chain rule for two variables (@thm-entropy-chain-rule) gives
+
+$$\entropyf{X_1, \ldots, X_n} = \entropyf{X_1, \ldots, X_{n-1}} + \entropyf{X_n \mid X_1, \ldots, X_{n-1}}.$$
+
+The induction hypothesis expands the first summand on the right:
+
+$$
+\begin{aligned}
+\entropyf{X_1, \ldots, X_n}
+&= \sum_{i=1}^{n-1} \entropyf{X_i \mid X_1, \ldots, X_{i-1}} + \entropyf{X_n \mid X_1, \ldots, X_{n-1}} \\
+&= \sum_{i=1}^{n} \entropyf{X_i \mid X_1, \ldots, X_{i-1}}.
+\end{aligned}
+$$
+
+:::

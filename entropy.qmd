@@ -166,6 +166,32 @@ in *Probability for Data Science*.
 
 {{< include ids/_subfiles/_sol-information-gain.qmd >}}
 
+## Chain rules {#sec-chain-rules}
+
+<!-- No slidebreak here: the heading shares its slide with the thm-entropy-chain-rule-n div. -->
+
+{{< include ids/_subfiles/_thm-entropy-chain-rule-n.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-entropy-chain-rule-n-copies.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-conditional-mutual-information.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-conditional-mutual-information.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-mutual-information-chain-rule.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-mutual-information-chain-rule-copies.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

@@ -1,0 +1,12 @@
+:::{#def-conditional-mutual-information}
+#### Conditional mutual information
+
+The **conditional mutual information** of
+[discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ given a third one, $Z$,
+with finite entropies, <!-- check-term-links: allow -->
+is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$
+from also learning $X$:
+
+$$I(X; Y \mid Z) \eqdef \entropyf{Y \mid Z} - \entropyf{Y \mid X, Z}.$$
+
+:::

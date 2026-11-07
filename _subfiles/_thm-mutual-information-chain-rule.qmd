@@ -1,0 +1,34 @@
+:::{#thm-mutual-information-chain-rule}
+#### Chain rule for mutual information
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$
+whose entropies $\entropyf{X}$, $\entropyf{Y}$ and $\entropyf{Z}$ are finite, <!-- check-term-links: allow -->
+
+$$I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).$$
+
+:::
+
+::: {.proof}
+
+By @def-mutual-information, applied to the pair $(X, Z)$ and to $Z$,
+
+$$
+\begin{aligned}
+I(X, Z; Y) &= \entropyf{Y} - \entropyf{Y \mid X, Z} \\
+I(Z; Y) &= \entropyf{Y} - \entropyf{Y \mid Z}.
+\end{aligned}
+$$
+
+Subtracting the second display from the first gives
+
+$$
+\begin{aligned}
+I(X, Z; Y) - I(Z; Y)
+&= \entropyf{Y \mid Z} - \entropyf{Y \mid X, Z} \\
+&= I(X; Y \mid Z),
+\end{aligned}
+$$
+
+where the last line is @def-conditional-mutual-information.
+
+:::
