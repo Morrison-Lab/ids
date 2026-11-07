@@ -318,6 +318,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-surprisal-log-half",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-log-half",
+   "kind": "thm",
+   "title": "Surprisal as a logarithm to base one half",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-surprisal-log-rarity",
    "site": "ids",
    "page": "entropy",
@@ -1071,6 +1080,22 @@
   ],
   [
    "ids/entropy#thm-surprisal-chain-rule",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
    "pds/random-variables#def-discrete-rv"
   ],
   [

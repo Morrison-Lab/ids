@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-07 15:08:34 (PST)</p>
+  <p class="date">Last modified: 2026-11-07 15:22:56 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -388,6 +388,54 @@ s(\text{ten heads})
 </section>
 <section class="slide level2">
 
+<div id="thm-surprisal-log-half" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Surprisal as a logarithm to base one half)</strong></span> For an <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> <span class="math inline">\(x\)</span> of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> with <span class="math inline">\(\mathbb{P}(X=x) &gt; 0\)</span>, the <a href="#/def-surprisal">surprisal</a> in <a href="#/def-bit">bits</a> is</p>
+<p><span class="math display">\[s(x) = \log_{1/2} \mathbb{P}(X=x).\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Write <span class="math inline">\(p = \mathbb{P}(X=x)\)</span>. The <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#rem-logarithm-formula">change of base formula</a> gives</p>
+<p><span class="math display">\[\log_b y = \frac{{\operatorname{log}\mathopen{}\left\{y\right\}\mathclose{}}}{{\operatorname{log}\mathopen{}\left\{b\right\}\mathclose{}}}\]</span></p>
+<p>for <span class="math inline">\(y &gt; 0\)</span> and <span class="math inline">\(b &gt; 0\)</span> with <span class="math inline">\(b \ne 1\)</span>. With <span class="math inline">\(b = 1/2\)</span> and <span class="math inline">\(y = p\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\log_{1/2} p
+&amp;= \frac{{\operatorname{log}\mathopen{}\left\{p\right\}\mathclose{}}}{{\operatorname{log}\mathopen{}\left\{1/2\right\}\mathclose{}}} \\
+&amp;= \frac{{\operatorname{log}\mathopen{}\left\{p\right\}\mathclose{}}}{-{\operatorname{log}\mathopen{}\left\{2\right\}\mathclose{}}} \\
+&amp;= -\frac{{\operatorname{log}\mathopen{}\left\{p\right\}\mathclose{}}}{{\operatorname{log}\mathopen{}\left\{2\right\}\mathclose{}}} \\
+&amp;= -\log_2 p \\
+&amp;= s(x).
+\end{aligned}
+\]</span></p>
+<p>The step from the third to the fourth line is the change of base formula with <span class="math inline">\(b = 2\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-surprisal-log-half" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Halvings of certainty for a loaded coin)</strong></span> &nbsp;</p>
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+<p>A coin lands heads with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> The chunk computes the <a href="#/def-surprisal">surprisal</a> of heads in two ways: as <span class="math inline">\(-\log_2 0.2\)</span>, and as <span class="math inline">\(\log_{1/2} 0.2\)</span>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>p_heads <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb1-2"><a aria-label="2"></a>from_base_two <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log</span>(<span class="at">x =</span> p_heads, <span class="at">base =</span> <span class="dv">2</span>)</span>
+<span id="cb1-3"><a aria-label="3"></a>from_base_half <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="at">x =</span> p_heads, <span class="at">base =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1-4"><a aria-label="4"></a><span class="fu">c</span>(from_base_two, from_base_half)</span>
+<span id="cb1-5"><a aria-label="5"></a><span class="co">#&gt; [1] 2.321928 2.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Both give <span class="math inline">\(2.322\)</span> <a href="#/def-bit">bits</a> (<a href="#/thm-surprisal-log-half" class="quarto-xref">Theorem&nbsp;1</a>). Halving <span class="math inline">\(1\)</span> that many times gives <span class="math inline">\(0.5^{2.322} = 0.2\)</span>, the probability of heads.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="rem-surprisal-halvings" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Surprisal as halvings of certainty). </span>Start from certainty, <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1\)</span>. Each halving multiplies the probability by <span class="math inline">\(1/2\)</span>. After <span class="math inline">\(s\)</span> halvings the probability is <span class="math inline">\((1/2)^s\)</span>, and solving <span class="math inline">\((1/2)^s = p\)</span> for <span class="math inline">\(s\)</span> gives <span class="math inline">\(s = \log_{1/2} p\)</span>. This count is only motivation. <a href="#/thm-surprisal-log-half" class="quarto-xref">Theorem&nbsp;1</a> proves that this <span class="math inline">\(s\)</span> is the <a href="#/def-surprisal">surprisal</a> in <a href="#/def-bit">bits</a>. So the surprisal of an <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> is the number of times certainty must be halved to reach the probability of that outcome. When <span class="math inline">\(p\)</span> is not <span class="math inline">\((1/2)^k\)</span> for a whole number <span class="math inline">\(k\)</span>, the number of halvings is not a whole number. <!-- check-term-links: allow --></p>
+</div>
+</section>
+<section class="slide level2">
+
 <div id="def-nat" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Nat)</strong></span> A <strong>nat</strong> is the unit of information when the logarithm in <a href="#/def-surprisal">surprisal</a>, and in every quantity built from it, is the natural logarithm.</p>
 <p>One nat is the surprisal of an outcome with probability <span class="math inline">\(1/\text{e}\)</span>: for an outcome <span class="math inline">\(x\)</span> of a discrete random variable <span class="math inline">\(X\)</span>,</p>
@@ -403,7 +451,7 @@ s(x) = 1 \text{ nat}
 <section class="slide level2">
 
 <div id="exm-coin-nats" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (One fair coin toss in nats)</strong></span> By <a href="#/exm-surprisal-coins" class="quarto-xref">Example&nbsp;1</a> with <span class="math inline">\(k = 1\)</span>, one toss of a fair coin landing heads has a <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(1\)</span> <a href="#/def-bit">bit</a>. In <a href="#/def-nat">nats</a>, the same outcome has a surprisal of</p>
+<p><span class="theorem-title"><strong>Example 3 (One fair coin toss in nats)</strong></span> By <a href="#/exm-surprisal-coins" class="quarto-xref">Example&nbsp;1</a> with <span class="math inline">\(k = 1\)</span>, one toss of a fair coin landing heads has a <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(1\)</span> <a href="#/def-bit">bit</a>. In <a href="#/def-nat">nats</a>, the same outcome has a surprisal of</p>
 <p><span class="math display">\[
 \begin{aligned}
 s(\text{heads})
@@ -417,7 +465,7 @@ s(\text{heads})
 <section class="slide level2">
 
 <div id="rem-bits-nats" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Converting between bits and nats). </span>For any probability <span class="math inline">\(p \in (0, 1]\)</span>, the change-of-base rule for logarithms gives</p>
+<p><span class="proof-title"><em>Remark 2</em> (Converting between bits and nats). </span>For any probability <span class="math inline">\(p \in (0, 1]\)</span>, the change-of-base rule for logarithms gives</p>
 <p><span class="math display">\[
 \begin{aligned}
 -\log_2 p
@@ -425,20 +473,20 @@ s(\text{heads})
 &amp;\approx 1.443 \times (-\ln p).
 \end{aligned}
 \]</span></p>
-<p>So an outcome with a <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(1\)</span> <a href="#/def-nat">nat</a> has a surprisal of <span class="math inline">\(1 / \ln 2 \approx 1.443\)</span> <a href="#/def-bit">bits</a>, and the <span class="math inline">\(\ln 2 \approx 0.693\)</span> <a href="#/def-nat">nats</a> of <a href="#/exm-coin-nats" class="quarto-xref">Example&nbsp;2</a> are exactly <span class="math inline">\(\ln 2 / \ln 2 = 1\)</span> <a href="#/def-bit">bit</a>.</p>
+<p>So an outcome with a <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(1\)</span> <a href="#/def-nat">nat</a> has a surprisal of <span class="math inline">\(1 / \ln 2 \approx 1.443\)</span> <a href="#/def-bit">bits</a>, and the <span class="math inline">\(\ln 2 \approx 0.693\)</span> <a href="#/def-nat">nats</a> of <a href="#/exm-coin-nats" class="quarto-xref">Example&nbsp;3</a> are exactly <span class="math inline">\(\ln 2 / \ln 2 = 1\)</span> <a href="#/def-bit">bit</a>.</p>
 <p>A bit as a unit of information is not the same thing as a bit as a binary digit. The name <a href="#/def-bit">shannon</a> refers only to the unit of information, so it avoids this ambiguity. A binary digit whose two values are equally likely has a surprisal of exactly <span class="math inline">\(1\)</span> bit, whichever value it takes. A binary digit that is <span class="math inline">\(0\)</span> nine times in ten does not: the value <span class="math inline">\(0\)</span> has a surprisal of <span class="math inline">\(-\log_2 0.9 \approx 0.152\)</span> bits, and the value <span class="math inline">\(1\)</span> has a surprisal of <span class="math inline">\(-\log_2 0.1 \approx 3.322\)</span> bits.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-surprisal-meaning" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Unlikely outcomes carry more information). </span>Surprisal is large when an outcome was unlikely, and it falls to <span class="math inline">\(0\)</span> as the outcome becomes certain. Correctly predicting heads on one toss of a fair coin is worth <span class="math inline">\(1\)</span> bit; correctly predicting ten heads in a row is worth <span class="math inline">\(10\)</span> bits.</p>
+<p><span class="proof-title"><em>Remark 3</em> (Unlikely outcomes carry more information). </span>Surprisal is large when an outcome was unlikely, and it falls to <span class="math inline">\(0\)</span> as the outcome becomes certain. Correctly predicting heads on one toss of a fair coin is worth <span class="math inline">\(1\)</span> bit; correctly predicting ten heads in a row is worth <span class="math inline">\(10\)</span> bits.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-entropy-expected-surprisal" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Entropy is expected surprisal). </span>The <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of a discrete random variable <span class="math inline">\(X\)</span> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of its <a href="#/def-surprisal">surprisal</a>:</p>
+<p><span class="proof-title"><em>Remark 4</em> (Entropy is expected surprisal). </span>The <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of a discrete random variable <span class="math inline">\(X\)</span> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of its <a href="#/def-surprisal">surprisal</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 H(X)
@@ -462,27 +510,27 @@ H(X)
 <section class="slide level2">
 
 <div id="exm-rarity-die" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (Rarity of the outcomes of a die)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 4 (Rarity of the outcomes of a die)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is two numbers -->
 <p>Let <span class="math inline">\(X\)</span> be the roll of a fair six-sided die. Each <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/6\)</span>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>rarity <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="dv">1</span> <span class="sc">/</span> p</span>
-<span id="cb1-2"><a aria-label="2"></a>p_fair <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">6</span></span>
-<span id="cb1-3"><a aria-label="3"></a>p_loaded_six <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb1-4"><a aria-label="4"></a>p_loaded_other <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">-</span> p_loaded_six) <span class="sc">/</span> <span class="dv">5</span></span>
-<span id="cb1-5"><a aria-label="5"></a>rarity_fair <span class="ot">&lt;-</span> <span class="fu">rarity</span>(p_fair)</span>
-<span id="cb1-6"><a aria-label="6"></a>rarity_loaded_six <span class="ot">&lt;-</span> <span class="fu">rarity</span>(p_loaded_six)</span>
-<span id="cb1-7"><a aria-label="7"></a>rarity_loaded_other <span class="ot">&lt;-</span> <span class="fu">rarity</span>(p_loaded_other)</span>
-<span id="cb1-8"><a aria-label="8"></a>rarities <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb1-9"><a aria-label="9"></a>  <span class="at">fair =</span> rarity_fair,</span>
-<span id="cb1-10"><a aria-label="10"></a>  <span class="at">loaded_six =</span> rarity_loaded_six,</span>
-<span id="cb1-11"><a aria-label="11"></a>  <span class="at">loaded_other =</span> rarity_loaded_other</span>
-<span id="cb1-12"><a aria-label="12"></a>)</span>
-<span id="cb1-13"><a aria-label="13"></a>rarities</span>
-<span id="cb1-14"><a aria-label="14"></a><span class="co">#&gt;         fair   loaded_six loaded_other </span></span>
-<span id="cb1-15"><a aria-label="15"></a><span class="co">#&gt;            6            2           10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>rarity <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="dv">1</span> <span class="sc">/</span> p</span>
+<span id="cb2-2"><a aria-label="2"></a>p_fair <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">6</span></span>
+<span id="cb2-3"><a aria-label="3"></a>p_loaded_six <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb2-4"><a aria-label="4"></a>p_loaded_other <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">-</span> p_loaded_six) <span class="sc">/</span> <span class="dv">5</span></span>
+<span id="cb2-5"><a aria-label="5"></a>rarity_fair <span class="ot">&lt;-</span> <span class="fu">rarity</span>(p_fair)</span>
+<span id="cb2-6"><a aria-label="6"></a>rarity_loaded_six <span class="ot">&lt;-</span> <span class="fu">rarity</span>(p_loaded_six)</span>
+<span id="cb2-7"><a aria-label="7"></a>rarity_loaded_other <span class="ot">&lt;-</span> <span class="fu">rarity</span>(p_loaded_other)</span>
+<span id="cb2-8"><a aria-label="8"></a>rarities <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-9"><a aria-label="9"></a>  <span class="at">fair =</span> rarity_fair,</span>
+<span id="cb2-10"><a aria-label="10"></a>  <span class="at">loaded_six =</span> rarity_loaded_six,</span>
+<span id="cb2-11"><a aria-label="11"></a>  <span class="at">loaded_other =</span> rarity_loaded_other</span>
+<span id="cb2-12"><a aria-label="12"></a>)</span>
+<span id="cb2-13"><a aria-label="13"></a>rarities</span>
+<span id="cb2-14"><a aria-label="14"></a><span class="co">#&gt;         fair   loaded_six loaded_other </span></span>
+<span id="cb2-15"><a aria-label="15"></a><span class="co">#&gt;            6            2           10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>So each face of the fair die has <a href="#/def-rarity">rarity</a> <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 6\)</span>: one roll in six.</p>
@@ -492,13 +540,13 @@ H(X)
 <section class="slide level2">
 
 <div id="rem-rarity-source" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Source of the name). </span>Leinster writes that, for a community whose <span class="math inline">\(i\)</span>th species has relative abundance <span class="math inline">\(p_i\)</span>, “<span class="math inline">\(1/p_i\)</span> is a measure of its rarity or specialness” <!-- check-term-links: allow --> <span class="citation" data-cites="leinster2021entropy">(<a href="#/references" role="doc-biblioref" onclick="">Leinster 2021, sec. 2.4</a>, p.&nbsp;52)</span>. The name “rarity” for the reciprocal of a <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> is borrowed from there.</p>
+<p><span class="proof-title"><em>Remark 5</em> (Source of the name). </span>Leinster writes that, for a community whose <span class="math inline">\(i\)</span>th species has relative abundance <span class="math inline">\(p_i\)</span>, “<span class="math inline">\(1/p_i\)</span> is a measure of its rarity or specialness” <!-- check-term-links: allow --> <span class="citation" data-cites="leinster2021entropy">(<a href="#/references" role="doc-biblioref" onclick="">Leinster 2021, sec. 2.4</a>, p.&nbsp;52)</span>. The name “rarity” for the reciprocal of a <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> is borrowed from there.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="thm-surprisal-log-rarity" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Surprisal is the logarithm of the rarity)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, and let <span class="math inline">\(x\)</span> be an <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> with <span class="math inline">\(\mathbb{P}(X=x) &gt; 0\)</span>. Then the <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x\)</span> is the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of its <a href="#/def-rarity">rarity</a>:</p>
+<p><span class="theorem-title"><strong>Theorem 2 (Surprisal is the logarithm of the rarity)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, and let <span class="math inline">\(x\)</span> be an <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> with <span class="math inline">\(\mathbb{P}(X=x) &gt; 0\)</span>. Then the <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x\)</span> is the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of its <a href="#/def-rarity">rarity</a>:</p>
 <p><span class="math display">\[{\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
@@ -515,7 +563,7 @@ H(X)
 <section class="slide level2">
 
 <div id="thm-surprisal-log-rarity-continuous" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (Surprisal of a continuous value is the logarithm of the rarity)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv">continuous random variable</a> with <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> <span class="math inline">\(\mathbb{p}\)</span>, and let <span class="math inline">\(x\)</span> be a value with <span class="math inline">\(\mathbb{p}(x) &gt; 0\)</span>. Then the <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x\)</span> is the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of its <a href="#/def-rarity">rarity</a>:</p>
+<p><span class="theorem-title"><strong>Theorem 3 (Surprisal of a continuous value is the logarithm of the rarity)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv">continuous random variable</a> with <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> <span class="math inline">\(\mathbb{p}\)</span>, and let <span class="math inline">\(x\)</span> be a value with <span class="math inline">\(\mathbb{p}(x) &gt; 0\)</span>. Then the <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x\)</span> is the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of its <a href="#/def-rarity">rarity</a>:</p>
 <p><span class="math display">\[{\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
@@ -536,37 +584,37 @@ H(X)
 <p><span class="math display">\[{\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} \ge 0.\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Since <span class="math inline">\(0 &lt; \mathbb{P}(X=x) \le 1\)</span>, the <a href="#/def-rarity">rarity</a> <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 1 / \mathbb{P}(X=x)\)</span> is at least <span class="math inline">\(1\)</span>, with equality exactly when <span class="math inline">\(\mathbb{P}(X=x) = 1\)</span>. The <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> is increasing, and <span class="math inline">\({\operatorname{log}\mathopen{}\left\{1\right\}\mathclose{}} = 0\)</span>, so by <a href="#/thm-surprisal-log-rarity" class="quarto-xref">Theorem&nbsp;1</a>, <span class="math inline">\({\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} \ge 0\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Since <span class="math inline">\(0 &lt; \mathbb{P}(X=x) \le 1\)</span>, the <a href="#/def-rarity">rarity</a> <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 1 / \mathbb{P}(X=x)\)</span> is at least <span class="math inline">\(1\)</span>, with equality exactly when <span class="math inline">\(\mathbb{P}(X=x) = 1\)</span>. The <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> is increasing, and <span class="math inline">\({\operatorname{log}\mathopen{}\left\{1\right\}\mathclose{}} = 0\)</span>, so by <a href="#/thm-surprisal-log-rarity" class="quarto-xref">Theorem&nbsp;2</a>, <span class="math inline">\({\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} \ge 0\)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="exm-surprisal-rarity-four" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4 (Surprisal and rarity of an outcome with probability one quarter)</strong></span> Take an <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/4\)</span>:</p>
+<p><span class="theorem-title"><strong>Example 5 (Surprisal and rarity of an outcome with probability one quarter)</strong></span> Take an <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/4\)</span>:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>p_four <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span></span>
-<span id="cb2-2"><a aria-label="2"></a>rarity_four <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> p_four</span>
-<span id="cb2-3"><a aria-label="3"></a>surprisal_four <span class="ot">&lt;-</span> <span class="fu">log2</span>(rarity_four)</span>
-<span id="cb2-4"><a aria-label="4"></a>surprisal_four</span>
-<span id="cb2-5"><a aria-label="5"></a><span class="co">#&gt; [1] 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>p_four <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span></span>
+<span id="cb3-2"><a aria-label="2"></a>rarity_four <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> p_four</span>
+<span id="cb3-3"><a aria-label="3"></a>surprisal_four <span class="ot">&lt;-</span> <span class="fu">log2</span>(rarity_four)</span>
+<span id="cb3-4"><a aria-label="4"></a>surprisal_four</span>
+<span id="cb3-5"><a aria-label="5"></a><span class="co">#&gt; [1] 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>It has <a href="#/def-rarity">rarity</a> <span class="math inline">\(4\)</span> by definition. By <a href="#/thm-surprisal-log-rarity" class="quarto-xref">Theorem&nbsp;1</a>, its <a href="#/def-surprisal">surprisal</a> is the base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of that rarity, <span class="math inline">\(2\)</span> <a href="#/def-bit">bits</a>.</p>
+<p>It has <a href="#/def-rarity">rarity</a> <span class="math inline">\(4\)</span> by definition. By <a href="#/thm-surprisal-log-rarity" class="quarto-xref">Theorem&nbsp;2</a>, its <a href="#/def-surprisal">surprisal</a> is the base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of that rarity, <span class="math inline">\(2\)</span> <a href="#/def-bit">bits</a>.</p>
 <!-- no-figure: a single closed-form value -->
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-surprisal-log-rarity" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Reading the rarity of an outcome). </span>A <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> can exceed <span class="math inline">\(1\)</span>, so for a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv">continuous random variable</a> the <a href="#/def-rarity">rarity</a> can be below <span class="math inline">\(1\)</span>, and then the <a href="#/def-surprisal">surprisal</a> is negative (<a href="#/thm-surprisal-log-rarity-continuous" class="quarto-xref">Theorem&nbsp;2</a>). For a mass, a rarity of <span class="math inline">\(r\)</span> reads “one in <span class="math inline">\(r\)</span>”, and the surprisal is the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of <span class="math inline">\(r\)</span> (<a href="#/thm-surprisal-log-rarity" class="quarto-xref">Theorem&nbsp;1</a>).</p>
+<p><span class="proof-title"><em>Remark 6</em> (Reading the rarity of an outcome). </span>A <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> can exceed <span class="math inline">\(1\)</span>, so for a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv">continuous random variable</a> the <a href="#/def-rarity">rarity</a> can be below <span class="math inline">\(1\)</span>, and then the <a href="#/def-surprisal">surprisal</a> is negative (<a href="#/thm-surprisal-log-rarity-continuous" class="quarto-xref">Theorem&nbsp;3</a>). For a mass, a rarity of <span class="math inline">\(r\)</span> reads “one in <span class="math inline">\(r\)</span>”, and the surprisal is the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of <span class="math inline">\(r\)</span> (<a href="#/thm-surprisal-log-rarity" class="quarto-xref">Theorem&nbsp;2</a>).</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-rarity-ranges" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (Values of the probability, the rarity and the surprisal). </span>For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, the mass <span class="math inline">\(\mathbb{P}(X=x)\)</span> of an <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> with a mass above <span class="math inline">\(0\)</span>, its <a href="#/def-rarity">rarity</a> <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\)</span> and its <a href="#/def-surprisal">surprisal</a> <span class="math inline">\({\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}\)</span> take the values in the middle column. For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv">continuous random variable</a>, the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> <span class="math inline">\(\mathbb{p}(x)\)</span> takes the place of the mass. At a value <span class="math inline">\(x\)</span> with a density above <span class="math inline">\(0\)</span>, the rarity <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\)</span> is the reciprocal of <span class="math inline">\(\mathbb{p}(x)\)</span>, and the surprisal <span class="math inline">\({\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}\)</span> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous">surprisal of a continuous value</a>. Their values are in the right column.</p>
+<p><span class="proof-title"><em>Remark 7</em> (Values of the probability, the rarity and the surprisal). </span>For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, the mass <span class="math inline">\(\mathbb{P}(X=x)\)</span> of an <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> with a mass above <span class="math inline">\(0\)</span>, its <a href="#/def-rarity">rarity</a> <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\)</span> and its <a href="#/def-surprisal">surprisal</a> <span class="math inline">\({\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}\)</span> take the values in the middle column. For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv">continuous random variable</a>, the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> <span class="math inline">\(\mathbb{p}(x)\)</span> takes the place of the mass. At a value <span class="math inline">\(x\)</span> with a density above <span class="math inline">\(0\)</span>, the rarity <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\)</span> is the reciprocal of <span class="math inline">\(\mathbb{p}(x)\)</span>, and the surprisal <span class="math inline">\({\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}\)</span> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous">surprisal of a continuous value</a>. Their values are in the right column.</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -604,19 +652,19 @@ H(X)
 <section class="slide level2">
 
 <div id="rem-rarity-odds" class="proof remark">
-<p><span class="proof-title"><em>Remark 7</em> (Rarity and odds). </span>Let <span class="math inline">\(x\)</span> be an <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span>, and let <span class="math inline">\(A\)</span> be the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">event</a> <span class="math inline">\(X = x\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(p = \mathbb{P}(X=x)\)</span>. The <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-odds">odds</a> in favour of <span class="math inline">\(A\)</span> are <span class="math inline">\(p / (1 - p)\)</span>, and the odds against <span class="math inline">\(A\)</span> are <span class="math inline">\((1 - p) / p\)</span> <span class="citation" data-cites="grinstead1997introduction">(<a href="#/references" role="doc-biblioref" onclick="">Grinstead and Snell 1997</a>, Definition 1.4)</span>. The <a href="#/def-rarity">rarity</a> of <span class="math inline">\(x\)</span> is <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 1/p\)</span>, so the odds against <span class="math inline">\(A\)</span> are <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} - 1\)</span>.</p>
+<p><span class="proof-title"><em>Remark 8</em> (Rarity and odds). </span>Let <span class="math inline">\(x\)</span> be an <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span>, and let <span class="math inline">\(A\)</span> be the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">event</a> <span class="math inline">\(X = x\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(p = \mathbb{P}(X=x)\)</span>. The <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-odds">odds</a> in favour of <span class="math inline">\(A\)</span> are <span class="math inline">\(p / (1 - p)\)</span>, and the odds against <span class="math inline">\(A\)</span> are <span class="math inline">\((1 - p) / p\)</span> <span class="citation" data-cites="grinstead1997introduction">(<a href="#/references" role="doc-biblioref" onclick="">Grinstead and Snell 1997</a>, Definition 1.4)</span>. The <a href="#/def-rarity">rarity</a> of <span class="math inline">\(x\)</span> is <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 1/p\)</span>, so the odds against <span class="math inline">\(A\)</span> are <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} - 1\)</span>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>p_outcome <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">100</span>, <span class="dv">1</span>)</span>
-<span id="cb3-2"><a aria-label="2"></a>rarity_outcome <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> p_outcome</span>
-<span id="cb3-3"><a aria-label="3"></a>odds_against <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">-</span> p_outcome) <span class="sc">/</span> p_outcome</span>
-<span id="cb3-4"><a aria-label="4"></a>rarity_outcome <span class="sc">-</span> odds_against</span>
-<span id="cb3-5"><a aria-label="5"></a><span class="co">#&gt; [1] 1 1 1</span></span>
-<span id="cb3-6"><a aria-label="6"></a>rarity_outcome</span>
-<span id="cb3-7"><a aria-label="7"></a><span class="co">#&gt; [1]   4 100   1</span></span>
-<span id="cb3-8"><a aria-label="8"></a>odds_against</span>
-<span id="cb3-9"><a aria-label="9"></a><span class="co">#&gt; [1]  3 99  0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>p_outcome <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb4-2"><a aria-label="2"></a>rarity_outcome <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> p_outcome</span>
+<span id="cb4-3"><a aria-label="3"></a>odds_against <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">-</span> p_outcome) <span class="sc">/</span> p_outcome</span>
+<span id="cb4-4"><a aria-label="4"></a>rarity_outcome <span class="sc">-</span> odds_against</span>
+<span id="cb4-5"><a aria-label="5"></a><span class="co">#&gt; [1] 1 1 1</span></span>
+<span id="cb4-6"><a aria-label="6"></a>rarity_outcome</span>
+<span id="cb4-7"><a aria-label="7"></a><span class="co">#&gt; [1]   4 100   1</span></span>
+<span id="cb4-8"><a aria-label="8"></a>odds_against</span>
+<span id="cb4-9"><a aria-label="9"></a><span class="co">#&gt; [1]  3 99  0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>The first printed line shows that, for each <span class="math inline">\(p\)</span>, the rarity of the outcome exceeds the odds against its event by exactly <span class="math inline">\(1\)</span>. An outcome with probability <span class="math inline">\(1/4\)</span> has rarity <span class="math inline">\(4\)</span>, and its event has odds of <span class="math inline">\(3\)</span> to <span class="math inline">\(1\)</span> against. The two differ by exactly <span class="math inline">\(1\)</span>, so they are relatively close when the rarity is large. At <span class="math inline">\(p = 1\)</span> the rarity is <span class="math inline">\(1\)</span> and the odds against are <span class="math inline">\(0\)</span>, but the odds in favour divide by zero.</p>
@@ -634,7 +682,7 @@ H(X)
 <section class="slide level2">
 
 <div id="thm-perplexity-geometric-mean" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (Perplexity is the probability-weighted geometric mean of the rarities)</strong></span> For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span>, the <a href="#/def-perplexity">perplexity</a> is a weighted geometric mean <!-- check-term-links: allow --> of the <a href="#/def-rarity">rarities</a>, each raised to its <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>. Take <span class="math inline">\(x\)</span> over the values with <span class="math inline">\(\mathbb{P}(X=x) &gt; 0\)</span>. Then</p>
+<p><span class="theorem-title"><strong>Theorem 4 (Perplexity is the probability-weighted geometric mean of the rarities)</strong></span> For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span>, the <a href="#/def-perplexity">perplexity</a> is a weighted geometric mean <!-- check-term-links: allow --> of the <a href="#/def-rarity">rarities</a>, each raised to its <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>. Take <span class="math inline">\(x\)</span> over the values with <span class="math inline">\(\mathbb{P}(X=x) &gt; 0\)</span>. Then</p>
 <p><span class="math display">\[{\mathrm{PP}\mathopen{}\left(X\right)\mathclose{}} = \prod_x {\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}^{\mathbb{P}(X=x)}.\]</span></p>
 </div>
 <div class="proof">
@@ -658,29 +706,29 @@ H(X)
 <section class="slide level2">
 
 <div id="exm-perplexity-uniform" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Perplexity of a uniform distribution)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 6 (Perplexity of a uniform distribution)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is a single number -->
-<p>If <span class="math inline">\(X\)</span> is uniform on <span class="math inline">\(k\)</span> <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a>s, then every outcome has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/k\)</span> and <a href="#/def-rarity">rarity</a> <span class="math inline">\(k\)</span>, so by <a href="#/thm-perplexity-geometric-mean" class="quarto-xref">Theorem&nbsp;3</a> the <a href="#/def-perplexity">perplexity</a> of <span class="math inline">\(X\)</span> is <span class="math inline">\(k\)</span>. In general, the perplexity is the count of equally likely values that would give the same <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> as <span class="math inline">\(X\)</span>.</p>
+<p>If <span class="math inline">\(X\)</span> is uniform on <span class="math inline">\(k\)</span> <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a>s, then every outcome has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/k\)</span> and <a href="#/def-rarity">rarity</a> <span class="math inline">\(k\)</span>, so by <a href="#/thm-perplexity-geometric-mean" class="quarto-xref">Theorem&nbsp;4</a> the <a href="#/def-perplexity">perplexity</a> of <span class="math inline">\(X\)</span> is <span class="math inline">\(k\)</span>. In general, the perplexity is the count of equally likely values that would give the same <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> as <span class="math inline">\(X\)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="exm-perplexity-loaded-die" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6 (Perplexity of a loaded die)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 7 (Perplexity of a loaded die)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is a single number -->
-<p>Let <span class="math inline">\(X\)</span> be the roll of the loaded die from <a href="#/exm-rarity-die" class="quarto-xref">Example&nbsp;3</a>, where a six has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/2\)</span> and each other face has probability <span class="math inline">\(1/10\)</span>. The code computes the <a href="#/def-perplexity">perplexity</a> from the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> in <a href="#/def-bit">bits</a>, and then from the <a href="#/def-rarity">rarities</a> by <a href="#/thm-perplexity-geometric-mean" class="quarto-xref">Theorem&nbsp;3</a>.</p>
+<p>Let <span class="math inline">\(X\)</span> be the roll of the loaded die from <a href="#/exm-rarity-die" class="quarto-xref">Example&nbsp;4</a>, where a six has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/2\)</span> and each other face has probability <span class="math inline">\(1/10\)</span>. The code computes the <a href="#/def-perplexity">perplexity</a> from the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> in <a href="#/def-bit">bits</a>, and then from the <a href="#/def-rarity">rarities</a> by <a href="#/thm-perplexity-geometric-mean" class="quarto-xref">Theorem&nbsp;4</a>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>p_other_faces <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">10</span>, <span class="dv">5</span>)</span>
-<span id="cb4-2"><a aria-label="2"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, p_other_faces)</span>
-<span id="cb4-3"><a aria-label="3"></a>surprisal <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(p)</span>
-<span id="cb4-4"><a aria-label="4"></a>entropy <span class="ot">&lt;-</span> <span class="fu">sum</span>(p <span class="sc">*</span> surprisal)</span>
-<span id="cb4-5"><a aria-label="5"></a>perplexity_from_entropy <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">^</span>entropy</span>
-<span id="cb4-6"><a aria-label="6"></a>rarity <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> p</span>
-<span id="cb4-7"><a aria-label="7"></a>perplexity_from_rarities <span class="ot">&lt;-</span> <span class="fu">prod</span>(rarity<span class="sc">^</span>p)</span>
-<span id="cb4-8"><a aria-label="8"></a><span class="fu">c</span>(perplexity_from_entropy, perplexity_from_rarities)</span>
-<span id="cb4-9"><a aria-label="9"></a><span class="co">#&gt; [1] 4.472136 4.472136</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>p_other_faces <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">10</span>, <span class="dv">5</span>)</span>
+<span id="cb5-2"><a aria-label="2"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, p_other_faces)</span>
+<span id="cb5-3"><a aria-label="3"></a>surprisal <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(p)</span>
+<span id="cb5-4"><a aria-label="4"></a>entropy <span class="ot">&lt;-</span> <span class="fu">sum</span>(p <span class="sc">*</span> surprisal)</span>
+<span id="cb5-5"><a aria-label="5"></a>perplexity_from_entropy <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">^</span>entropy</span>
+<span id="cb5-6"><a aria-label="6"></a>rarity <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> p</span>
+<span id="cb5-7"><a aria-label="7"></a>perplexity_from_rarities <span class="ot">&lt;-</span> <span class="fu">prod</span>(rarity<span class="sc">^</span>p)</span>
+<span id="cb5-8"><a aria-label="8"></a><span class="fu">c</span>(perplexity_from_entropy, perplexity_from_rarities)</span>
+<span id="cb5-9"><a aria-label="9"></a><span class="co">#&gt; [1] 4.472136 4.472136</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Both routes give a perplexity of about <span class="math inline">\(4.47\)</span>. The loaded die has the same entropy as a fair die with about that many faces, fewer than the <span class="math inline">\(6\)</span> faces it has.</p>
@@ -689,13 +737,13 @@ H(X)
 <section class="slide level2">
 
 <div id="rem-perplexity-source" class="proof remark">
-<p><span class="proof-title"><em>Remark 8</em> (Source of the name). </span>The name comes from speech recognition <span class="citation" data-cites="jelinek1977perplexity">(<a href="#/references" role="doc-biblioref" onclick="">Jelinek et al. 1977</a>)</span>. Leinster defines the “diversity of order 1” <!-- check-term-links: allow --> as the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function">exponential</a> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> <span class="citation" data-cites="leinster2021entropy">(<a href="#/references" role="doc-biblioref" onclick="">Leinster 2021</a>, Definition 2.4.1)</span>. He calls a diversity index an “effective number” <!-- check-term-links: allow --> when it is <span class="math inline">\(k\)</span> for <span class="math inline">\(k\)</span> species with the same abundance <span class="citation" data-cites="leinster2021entropy">(<a href="#/references" role="doc-biblioref" onclick="">Leinster 2021</a>, Definition 2.4.5)</span>.</p>
+<p><span class="proof-title"><em>Remark 9</em> (Source of the name). </span>The name comes from speech recognition <span class="citation" data-cites="jelinek1977perplexity">(<a href="#/references" role="doc-biblioref" onclick="">Jelinek et al. 1977</a>)</span>. Leinster defines the “diversity of order 1” <!-- check-term-links: allow --> as the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function">exponential</a> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> <span class="citation" data-cites="leinster2021entropy">(<a href="#/references" role="doc-biblioref" onclick="">Leinster 2021</a>, Definition 2.4.1)</span>. He calls a diversity index an “effective number” <!-- check-term-links: allow --> when it is <span class="math inline">\(k\)</span> for <span class="math inline">\(k\)</span> species with the same abundance <span class="citation" data-cites="leinster2021entropy">(<a href="#/references" role="doc-biblioref" onclick="">Leinster 2021</a>, Definition 2.4.5)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-differential-entropy-vs-entropy" class="proof remark">
-<p><span class="proof-title"><em>Remark 9</em> (Differential entropy differs from entropy). </span>A <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> value is not a probability, so the <a href="https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous">surprisal</a> of a continuous value and the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of a continuous random variable (the differential entropy) behave differently from their discrete counterparts:</p>
+<p><span class="proof-title"><em>Remark 10</em> (Differential entropy differs from entropy). </span>A <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> value is not a probability, so the <a href="https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous">surprisal</a> of a continuous value and the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of a continuous random variable (the differential entropy) behave differently from their discrete counterparts:</p>
 <ul>
 <li><strong>Sign.</strong> A density can exceed <span class="math inline">\(1\)</span>, so the surprisal <span class="math inline">\({\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}\)</span> and the differential entropy can be negative, as in the <a href="https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform">uniform example</a> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 8.1</a>)</span>. The entropy of a discrete random variable is never negative.</li>
 <li><strong>Units.</strong> Rescaling changes the differential entropy: <span class="math inline">\({\mathbb{H}\mathopen{}\left(aX\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + \log |a|\)</span> for a constant <span class="math inline">\(a \ne 0\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006</a>, Theorem 8.6.4)</span>. Measuring the same quantity in metres rather than centimetres therefore changes it. Adding a constant does not: <span class="math inline">\({\mathbb{H}\mathopen{}\left(X + c\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006</a>, Theorem 8.6.3)</span>.</li>
@@ -720,7 +768,7 @@ H(X)
 <section class="slide level2">
 
 <div id="thm-expected-probability-collision" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (The expected probability is the collision probability)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, and let <span class="math inline">\(X'\)</span> be an <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> copy of <span class="math inline">\(X\)</span>. Then</p>
+<p><span class="theorem-title"><strong>Theorem 5 (The expected probability is the collision probability)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, and let <span class="math inline">\(X'\)</span> be an <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> copy of <span class="math inline">\(X\)</span>. Then</p>
 <p><span class="math display">\[{\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}} = \sum_x \mathbb{P}(X=x)^2 = \mathbb{P}(X = X').\]</span></p>
 </div>
 <div class="proof">
@@ -738,7 +786,7 @@ H(X)
 <section class="slide level2">
 
 <div id="thm-collision-entropy-at-most-entropy" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5 (The collision entropy is at most the Shannon entropy)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> with values <span class="math inline">\(x_1, \ldots, x_n\)</span>. Then the <a href="#/def-renyi-entropy">collision entropy</a> is at most the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>:</p>
+<p><span class="theorem-title"><strong>Theorem 6 (The collision entropy is at most the Shannon entropy)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> with values <span class="math inline">\(x_1, \ldots, x_n\)</span>. Then the <a href="#/def-renyi-entropy">collision entropy</a> is at most the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>:</p>
 <p><span class="math display">\[H_2(X) \le {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.\]</span></p>
 <p>The two coincide exactly when each value that <span class="math inline">\(X\)</span> takes with positive <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> has the same probability.</p>
 </div>
@@ -751,40 +799,40 @@ H(X)
 <section class="slide level2">
 
 <div id="exm-collision-entropy-three-values" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Collision entropy and entropy of a three-valued random variable)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 8 (Collision entropy and entropy of a three-valued random variable)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is three numbers -->
 <p>Let <span class="math inline">\(X\)</span> take three values with probabilities <span class="math inline">\(1/2\)</span>, <span class="math inline">\(1/4\)</span> and <span class="math inline">\(1/4\)</span>. The code below computes the expected <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>, the <a href="#/def-renyi-entropy">collision entropy</a> and the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>, with base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithms</a>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span>)</span>
-<span id="cb5-2"><a aria-label="2"></a>expected_prob <span class="ot">&lt;-</span> <span class="fu">sum</span>(p<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb5-3"><a aria-label="3"></a>collision_entropy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(expected_prob)</span>
-<span id="cb5-4"><a aria-label="4"></a>shannon_entropy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p))</span>
-<span id="cb5-5"><a aria-label="5"></a><span class="fu">c</span>(</span>
-<span id="cb5-6"><a aria-label="6"></a>  <span class="at">expected_prob =</span> expected_prob,</span>
-<span id="cb5-7"><a aria-label="7"></a>  <span class="at">collision_entropy =</span> collision_entropy,</span>
-<span id="cb5-8"><a aria-label="8"></a>  <span class="at">shannon_entropy =</span> shannon_entropy</span>
-<span id="cb5-9"><a aria-label="9"></a>)</span>
-<span id="cb5-10"><a aria-label="10"></a><span class="co">#&gt;     expected_prob collision_entropy   shannon_entropy </span></span>
-<span id="cb5-11"><a aria-label="11"></a><span class="co">#&gt;          0.375000          1.415037          1.500000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span>)</span>
+<span id="cb6-2"><a aria-label="2"></a>expected_prob <span class="ot">&lt;-</span> <span class="fu">sum</span>(p<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-3"><a aria-label="3"></a>collision_entropy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(expected_prob)</span>
+<span id="cb6-4"><a aria-label="4"></a>shannon_entropy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p))</span>
+<span id="cb6-5"><a aria-label="5"></a><span class="fu">c</span>(</span>
+<span id="cb6-6"><a aria-label="6"></a>  <span class="at">expected_prob =</span> expected_prob,</span>
+<span id="cb6-7"><a aria-label="7"></a>  <span class="at">collision_entropy =</span> collision_entropy,</span>
+<span id="cb6-8"><a aria-label="8"></a>  <span class="at">shannon_entropy =</span> shannon_entropy</span>
+<span id="cb6-9"><a aria-label="9"></a>)</span>
+<span id="cb6-10"><a aria-label="10"></a><span class="co">#&gt;     expected_prob collision_entropy   shannon_entropy </span></span>
+<span id="cb6-11"><a aria-label="11"></a><span class="co">#&gt;          0.375000          1.415037          1.500000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>By <a href="#/thm-expected-probability-collision" class="quarto-xref">Theorem&nbsp;4</a>, the expected probability <span class="math inline">\({\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}} = 0.375\)</span> is the <a href="#/def-collision-probability">collision probability</a>. The collision entropy is <span class="math inline">\(H_2(X) = 1.415\)</span> <a href="#/def-bit">bits</a>. The entropy is <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = 1.5\)</span> bits. As <a href="#/thm-collision-entropy-at-most-entropy" class="quarto-xref">Theorem&nbsp;5</a> states, <span class="math inline">\(H_2(X) \le {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>, and the two differ because the three values are not equally likely.</p>
+<p>By <a href="#/thm-expected-probability-collision" class="quarto-xref">Theorem&nbsp;5</a>, the expected probability <span class="math inline">\({\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}} = 0.375\)</span> is the <a href="#/def-collision-probability">collision probability</a>. The collision entropy is <span class="math inline">\(H_2(X) = 1.415\)</span> <a href="#/def-bit">bits</a>. The entropy is <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = 1.5\)</span> bits. As <a href="#/thm-collision-entropy-at-most-entropy" class="quarto-xref">Theorem&nbsp;6</a> states, <span class="math inline">\(H_2(X) \le {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>, and the two differ because the three values are not equally likely.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-collision-entropy" class="proof remark">
-<p><span class="proof-title"><em>Remark 10</em> (Two ways to summarize a random variable by its probabilities). </span><a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Entropy</a> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of the <a href="#/def-surprisal">surprisal</a> <span class="math inline">\(-\log \mathbb{P}(X)\)</span>. Taking the expectation of the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\mathbb{P}(X)\)</span> itself summarizes <span class="math inline">\(X\)</span> differently. For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, <a href="#/thm-expected-probability-collision" class="quarto-xref">Theorem&nbsp;4</a> identifies that expectation with the <a href="#/def-collision-probability">collision probability</a>, so the <a href="#/def-renyi-entropy">collision entropy</a> is <span class="math inline">\(H_2(X) = -\log \mathbb{P}(X = X')\)</span>.</p>
+<p><span class="proof-title"><em>Remark 11</em> (Two ways to summarize a random variable by its probabilities). </span><a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Entropy</a> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of the <a href="#/def-surprisal">surprisal</a> <span class="math inline">\(-\log \mathbb{P}(X)\)</span>. Taking the expectation of the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\mathbb{P}(X)\)</span> itself summarizes <span class="math inline">\(X\)</span> differently. For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, <a href="#/thm-expected-probability-collision" class="quarto-xref">Theorem&nbsp;5</a> identifies that expectation with the <a href="#/def-collision-probability">collision probability</a>, so the <a href="#/def-renyi-entropy">collision entropy</a> is <span class="math inline">\(H_2(X) = -\log \mathbb{P}(X = X')\)</span>.</p>
 <p>For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv">continuous random variable</a> with <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> <span class="math inline">\(\mathbb{p}\)</span>, the analogue is <span class="math inline">\({\mathbb{E}\mathopen{}\left[\mathbb{p}(X)\right]\mathclose{}} = \int \mathbb{p}(x)^2\,dx\)</span>. The <a href="https://morrison-lab.github.io/pds/expectation.html#exr-expected-density">expected-density exercises</a> derive this quantity, then compute it in the <a href="https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-uniform">uniform case</a> and the <a href="https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-normal">normal case</a>.</p>
-<p><a href="#/thm-collision-entropy-at-most-entropy" class="quarto-xref">Theorem&nbsp;5</a> compares the collision entropy with the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Shannon entropy</a>.</p>
+<p><a href="#/thm-collision-entropy-at-most-entropy" class="quarto-xref">Theorem&nbsp;6</a> compares the collision entropy with the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Shannon entropy</a>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-surprisal-fisher-information" class="proof remark">
-<p><span class="proof-title"><em>Remark 11</em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the <a href="#/def-surprisal">surprisal</a> of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \mathbb{p}(x \mid \theta)\)</span>, which is minus the log-likelihood:</p>
+<p><span class="proof-title"><em>Remark 12</em> (Surprisal and the Fisher information). </span>When the probabilities depend on a parameter <span class="math inline">\(\theta\)</span>, the <a href="#/def-surprisal">surprisal</a> of an outcome <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log \mathbb{p}(x \mid \theta)\)</span>, which is minus the log-likelihood:</p>
 <p><span class="math display">\[\mathbb{s}_{\theta}(x) = -\log \mathbb{p}(x \mid \theta) = -\ell(\theta).\]</span></p>
 <p>Its derivative with respect to <span class="math inline">\(\theta\)</span> is minus the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-score">score</a>:</p>
 <p><span class="math display">\[\frac{\partial}{\partial \theta} \mathbb{s}_{\theta}(x) = -{\ell'\mathopen{}\left(\theta\right)\mathclose{}}.\]</span></p>
@@ -826,7 +874,7 @@ H(X)
 <section class="slide level2">
 
 <div id="thm-entropy-chain-rule" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 6 (Chain rule for entropy)</strong></span> For discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>,</p>
+<p><span class="theorem-title"><strong>Theorem 7 (Chain rule for entropy)</strong></span> For discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>,</p>
 <p><span class="math display">\[H(X, Y) = H(X) + H(Y \mid X).\]</span></p>
 </div>
 <div class="proof">
@@ -882,27 +930,27 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="exm-entropy-chain-rule-noisy-copy" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8 (Chain rule for entropy with a noisy copy)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 9 (Chain rule for entropy with a noisy copy)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 <p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> be a noisy copy of <span class="math inline">\(X\)</span>: it equals <span class="math inline">\(X\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.8\)</span> <!-- check-term-links: allow --> and the other value with probability <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> The joint probabilities are <span class="math inline">\(0.4\)</span> for <span class="math inline">\((0, 0)\)</span> and <span class="math inline">\((1, 1)\)</span>, and <span class="math inline">\(0.1\)</span> for <span class="math inline">\((0, 1)\)</span> and <span class="math inline">\((1, 0)\)</span>. The chunk computes each <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> from its definition, in <a href="#/def-bit">bits</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>entropy <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p))</span>
-<span id="cb6-2"><a aria-label="2"></a>joint <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb6-3"><a aria-label="3"></a>  <span class="at">data =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.4</span>),</span>
-<span id="cb6-4"><a aria-label="4"></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
-<span id="cb6-5"><a aria-label="5"></a>  <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">y =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>)</span>
-<span id="cb6-6"><a aria-label="6"></a>)</span>
-<span id="cb6-7"><a aria-label="7"></a>p_y <span class="ot">&lt;-</span> <span class="fu">colSums</span>(joint)</span>
-<span id="cb6-8"><a aria-label="8"></a>cond_x_given_y <span class="ot">&lt;-</span> <span class="fu">sweep</span>(<span class="at">x =</span> joint, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">STATS =</span> p_y, <span class="at">FUN =</span> <span class="st">"/"</span>)</span>
-<span id="cb6-9"><a aria-label="9"></a>h_x_given_y_values <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="at">X =</span> cond_x_given_y, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> entropy)</span>
-<span id="cb6-10"><a aria-label="10"></a>h_x_given_y <span class="ot">&lt;-</span> <span class="fu">sum</span>(p_y <span class="sc">*</span> h_x_given_y_values)</span>
-<span id="cb6-11"><a aria-label="11"></a>h_xy <span class="ot">&lt;-</span> <span class="fu">entropy</span>(joint)</span>
-<span id="cb6-12"><a aria-label="12"></a>h_y <span class="ot">&lt;-</span> <span class="fu">entropy</span>(p_y)</span>
-<span id="cb6-13"><a aria-label="13"></a><span class="fu">c</span>(<span class="at">h_xy =</span> h_xy, <span class="at">h_x_given_y =</span> h_x_given_y, <span class="at">h_y =</span> h_y)</span>
-<span id="cb6-14"><a aria-label="14"></a><span class="co">#&gt;        h_xy h_x_given_y         h_y </span></span>
-<span id="cb6-15"><a aria-label="15"></a><span class="co">#&gt;   1.7219281   0.7219281   1.0000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>entropy <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p))</span>
+<span id="cb7-2"><a aria-label="2"></a>joint <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb7-3"><a aria-label="3"></a>  <span class="at">data =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.4</span>),</span>
+<span id="cb7-4"><a aria-label="4"></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb7-5"><a aria-label="5"></a>  <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">y =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb7-6"><a aria-label="6"></a>)</span>
+<span id="cb7-7"><a aria-label="7"></a>p_y <span class="ot">&lt;-</span> <span class="fu">colSums</span>(joint)</span>
+<span id="cb7-8"><a aria-label="8"></a>cond_x_given_y <span class="ot">&lt;-</span> <span class="fu">sweep</span>(<span class="at">x =</span> joint, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">STATS =</span> p_y, <span class="at">FUN =</span> <span class="st">"/"</span>)</span>
+<span id="cb7-9"><a aria-label="9"></a>h_x_given_y_values <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="at">X =</span> cond_x_given_y, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> entropy)</span>
+<span id="cb7-10"><a aria-label="10"></a>h_x_given_y <span class="ot">&lt;-</span> <span class="fu">sum</span>(p_y <span class="sc">*</span> h_x_given_y_values)</span>
+<span id="cb7-11"><a aria-label="11"></a>h_xy <span class="ot">&lt;-</span> <span class="fu">entropy</span>(joint)</span>
+<span id="cb7-12"><a aria-label="12"></a>h_y <span class="ot">&lt;-</span> <span class="fu">entropy</span>(p_y)</span>
+<span id="cb7-13"><a aria-label="13"></a><span class="fu">c</span>(<span class="at">h_xy =</span> h_xy, <span class="at">h_x_given_y =</span> h_x_given_y, <span class="at">h_y =</span> h_y)</span>
+<span id="cb7-14"><a aria-label="14"></a><span class="co">#&gt;        h_xy h_x_given_y         h_y </span></span>
+<span id="cb7-15"><a aria-label="15"></a><span class="co">#&gt;   1.7219281   0.7219281   1.0000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Here <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = 1.722\)</span> bits, <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = 0.722\)</span> bits and <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1\)</span> bits. So <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1.722\)</span> bits agrees with <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}\)</span> (<a href="#/cor-entropy-chain-rule-reversed" class="quarto-xref">Corollary&nbsp;2</a>), and <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 0.722\)</span> bits agrees with <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\)</span> (<a href="#/cor-conditional-entropy-difference" class="quarto-xref">Corollary&nbsp;3</a>).</p>
@@ -925,18 +973,18 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="exm-joint-conditional-surprisal" class="theorem example">
-<p><span class="theorem-title"><strong>Example 9 (Joint and conditional surprisal of a noisy copy)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 10 (Joint and conditional surprisal of a noisy copy)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 <p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> be a noisy copy of <span class="math inline">\(X\)</span>: it equals <span class="math inline">\(X\)</span> with probability <span class="math inline">\(0.8\)</span> and the other value with probability <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> Take the pair of values <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(y = 1\)</span>. The joint <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> is <span class="math inline">\(\mathbb{P}(X=0, Y=1) = 0.1\)</span>, the probability of <span class="math inline">\(X=0\)</span> is <span class="math inline">\(0.5\)</span>, and the conditional probability is <span class="math inline">\(\mathbb{P}(Y=1 \mid X=0) = 0.2\)</span>. <!-- check-term-links: allow --> The chunk computes the three <a href="#/def-surprisal">surprisals</a>, in <a href="#/def-bit">bits</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>s_xy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.1</span>)</span>
-<span id="cb7-2"><a aria-label="2"></a>s_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.5</span>)</span>
-<span id="cb7-3"><a aria-label="3"></a>s_y_given_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.2</span>)</span>
-<span id="cb7-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">s_xy =</span> s_xy, <span class="at">s_x =</span> s_x, <span class="at">s_y_given_x =</span> s_y_given_x)</span>
-<span id="cb7-5"><a aria-label="5"></a><span class="co">#&gt;        s_xy         s_x s_y_given_x </span></span>
-<span id="cb7-6"><a aria-label="6"></a><span class="co">#&gt;    3.321928    1.000000    2.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>s_xy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.1</span>)</span>
+<span id="cb8-2"><a aria-label="2"></a>s_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.5</span>)</span>
+<span id="cb8-3"><a aria-label="3"></a>s_y_given_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.2</span>)</span>
+<span id="cb8-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">s_xy =</span> s_xy, <span class="at">s_x =</span> s_x, <span class="at">s_y_given_x =</span> s_y_given_x)</span>
+<span id="cb8-5"><a aria-label="5"></a><span class="co">#&gt;        s_xy         s_x s_y_given_x </span></span>
+<span id="cb8-6"><a aria-label="6"></a><span class="co">#&gt;    3.321928    1.000000    2.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>The <a href="#/def-joint-surprisal">joint surprisal</a> is <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits, the surprisal of <span class="math inline">\(x = 0\)</span> alone is <span class="math inline">\({\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1\)</span> bit, <!-- check-term-links: allow --> and the <a href="#/def-conditional-surprisal">conditional surprisal</a> is <span class="math inline">\({\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322\)</span> bits.</p>
@@ -945,7 +993,7 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="thm-surprisal-chain-rule" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 7 (Chain rule for surprisal)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcomes</a> <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> with <span class="math inline">\(\mathbb{P}(X=x, Y=y) &gt; 0\)</span>,</p>
+<p><span class="theorem-title"><strong>Theorem 8 (Chain rule for surprisal)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> and <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcomes</a> <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> with <span class="math inline">\(\mathbb{P}(X=x, Y=y) &gt; 0\)</span>,</p>
 <p><span class="math display">\[{\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
@@ -964,11 +1012,11 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="cor-conditional-surprisal-difference" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 4 (Conditional surprisal as a difference)</strong></span> For <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> as in <a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;7</a>,</p>
+<p><span class="theorem-title"><strong>Corollary 4 (Conditional surprisal as a difference)</strong></span> For <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> as in <a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;8</a>,</p>
 <p><span class="math display">\[{\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Subtract <span class="math inline">\({\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}\)</span> from both sides of <a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;7</a>:</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Subtract <span class="math inline">\({\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}\)</span> from both sides of <a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;8</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}
@@ -981,34 +1029,34 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="exm-surprisal-chain-rule-noisy-copy" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10 (Chain rule for surprisal with a noisy copy)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 11 (Chain rule for surprisal with a noisy copy)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>For the pair of values in <a href="#/exm-joint-conditional-surprisal" class="quarto-xref">Example&nbsp;9</a>, the chunk recomputes the three <a href="#/def-surprisal">surprisals</a> in <a href="#/def-bit">bits</a>.</p>
+<p>For the pair of values in <a href="#/exm-joint-conditional-surprisal" class="quarto-xref">Example&nbsp;10</a>, the chunk recomputes the three <a href="#/def-surprisal">surprisals</a> in <a href="#/def-bit">bits</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>s_xy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.1</span>)</span>
-<span id="cb8-2"><a aria-label="2"></a>s_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.5</span>)</span>
-<span id="cb8-3"><a aria-label="3"></a>s_y_given_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.2</span>)</span>
-<span id="cb8-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">sum =</span> s_x <span class="sc">+</span> s_y_given_x, <span class="at">joint =</span> s_xy)</span>
-<span id="cb8-5"><a aria-label="5"></a><span class="co">#&gt;      sum    joint </span></span>
-<span id="cb8-6"><a aria-label="6"></a><span class="co">#&gt; 3.321928 3.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>s_xy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.1</span>)</span>
+<span id="cb9-2"><a aria-label="2"></a>s_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.5</span>)</span>
+<span id="cb9-3"><a aria-label="3"></a>s_y_given_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.2</span>)</span>
+<span id="cb9-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">sum =</span> s_x <span class="sc">+</span> s_y_given_x, <span class="at">joint =</span> s_xy)</span>
+<span id="cb9-5"><a aria-label="5"></a><span class="co">#&gt;      sum    joint </span></span>
+<span id="cb9-6"><a aria-label="6"></a><span class="co">#&gt; 3.321928 3.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x = 0\)</span> plus the <a href="#/def-conditional-surprisal">conditional surprisal</a> of <span class="math inline">\(y = 1\)</span> given <span class="math inline">\(x = 0\)</span> is <span class="math inline">\(3.322\)</span> <a href="#/def-bit">bits</a>. This sum is the <a href="#/def-joint-surprisal">joint surprisal</a> <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits <!-- check-term-links: allow --> (<a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;7</a>). Subtracting <span class="math inline">\({\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1\)</span> bit from the joint surprisal <!-- check-term-links: allow --> recovers <span class="math inline">\({\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322\)</span> bits (<a href="#/cor-conditional-surprisal-difference" class="quarto-xref">Corollary&nbsp;4</a>).</p>
+<p>The <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x = 0\)</span> plus the <a href="#/def-conditional-surprisal">conditional surprisal</a> of <span class="math inline">\(y = 1\)</span> given <span class="math inline">\(x = 0\)</span> is <span class="math inline">\(3.322\)</span> <a href="#/def-bit">bits</a>. This sum is the <a href="#/def-joint-surprisal">joint surprisal</a> <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits <!-- check-term-links: allow --> (<a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;8</a>). Subtracting <span class="math inline">\({\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1\)</span> bit from the joint surprisal <!-- check-term-links: allow --> recovers <span class="math inline">\({\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322\)</span> bits (<a href="#/cor-conditional-surprisal-difference" class="quarto-xref">Corollary&nbsp;4</a>).</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-entropy-chain-rule-from-surprisal" class="proof remark">
-<p><span class="proof-title"><em>Remark 12</em> (The chain rule for entropy is the chain rule for surprisal on average). </span>The <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of a pair is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of its <a href="#/def-joint-surprisal">joint surprisal</a>, and the <a href="#/def-conditional-entropy">conditional entropy</a> is the expectation of the <a href="#/def-conditional-surprisal">conditional surprisal</a>:</p>
+<p><span class="proof-title"><em>Remark 13</em> (The chain rule for entropy is the chain rule for surprisal on average). </span>The <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of a pair is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of its <a href="#/def-joint-surprisal">joint surprisal</a>, and the <a href="#/def-conditional-entropy">conditional entropy</a> is the expectation of the <a href="#/def-conditional-surprisal">conditional surprisal</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} &amp;= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X, Y\right)\mathclose{}}\right]\mathclose{}} \\
 {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} &amp;= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}}.
 \end{aligned}
 \]</span></p>
-<p>Taking the expectation of both sides of <a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;7</a> therefore gives <a href="#/thm-entropy-chain-rule" class="quarto-xref">Theorem&nbsp;6</a>.</p>
+<p>Taking the expectation of both sides of <a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;8</a> therefore gives <a href="#/thm-entropy-chain-rule" class="quarto-xref">Theorem&nbsp;7</a>.</p>
 </div>
 </section>
 <section id="sec-mutual-information" class="slide level2" data-number="3">
@@ -1023,7 +1071,7 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="thm-mutual-information-symmetric" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 8 (Mutual information is symmetric)</strong></span> For discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies,</p>
+<p><span class="theorem-title"><strong>Theorem 9 (Mutual information is symmetric)</strong></span> For discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies,</p>
 <p><span class="math display">\[I(X; Y) = H(X) - H(X \mid Y) = I(Y; X).\]</span></p>
 </div>
 <div class="proof">
@@ -1037,7 +1085,7 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="thm-mutual-information-entropy-sum" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 9 (Mutual information from the joint entropy)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Theorem 10 (Mutual information from the joint entropy)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
 <p><span class="math display">\[I(X; Y) = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
@@ -1057,7 +1105,7 @@ I(X; Y)
 <section class="slide level2">
 
 <div id="thm-mutual-information-joint-minus-conditionals" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 10 (Mutual information from the conditional entropies)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Theorem 11 (Mutual information from the conditional entropies)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
 <p><span class="math display">\[I(X; Y) = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.\]</span></p>
 </div>
 <div class="proof">
@@ -1068,7 +1116,7 @@ I(X; Y)
 {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} &amp;= {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.
 \end{aligned}
 \]</span></p>
-<p>Substituting both into <a href="#/thm-mutual-information-entropy-sum" class="quarto-xref">Theorem&nbsp;9</a> gives</p>
+<p>Substituting both into <a href="#/thm-mutual-information-entropy-sum" class="quarto-xref">Theorem&nbsp;10</a> gives</p>
 <p><span class="math display">\[
 \begin{aligned}
 I(X; Y)
@@ -1082,13 +1130,13 @@ I(X; Y)
 <section class="slide level2">
 
 <div id="thm-entropy-sum-decomposition" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11 (Decomposition of the sum of entropies)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Theorem 12 (Decomposition of the sum of entropies)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
 <p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Rearranging <a href="#/thm-mutual-information-joint-minus-conditionals" class="quarto-xref">Theorem&nbsp;10</a> gives</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Rearranging <a href="#/thm-mutual-information-joint-minus-conditionals" class="quarto-xref">Theorem&nbsp;11</a> gives</p>
 <p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = I(X; Y) + {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.\]</span></p>
-<p>Rearranging <a href="#/thm-mutual-information-entropy-sum" class="quarto-xref">Theorem&nbsp;9</a> gives</p>
+<p>Rearranging <a href="#/thm-mutual-information-entropy-sum" class="quarto-xref">Theorem&nbsp;10</a> gives</p>
 <p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = I(X; Y) + {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.\]</span></p>
 <p>Substituting the first display into the second gives</p>
 <p><span class="math display">\[
@@ -1103,11 +1151,11 @@ I(X; Y)
 <section class="slide level2">
 
 <div id="thm-twice-mutual-information" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 12 (Twice the mutual information)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Theorem 13 (Twice the mutual information)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
 <p><span class="math display">\[2 \, I(X; Y) = \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\right]\mathclose{} + \mathopen{}\left[{\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/thm-mutual-information-symmetric" class="quarto-xref">Theorem&nbsp;8</a>,</p>
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/thm-mutual-information-symmetric" class="quarto-xref">Theorem&nbsp;9</a>,</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} &amp;= I(X; Y) \\
@@ -1127,43 +1175,43 @@ I(X; Y)
 <section class="slide level2">
 
 <div id="exm-mutual-information-identities-noisy-copy" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11 (Mutual information identities with a noisy copy)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 12 (Mutual information identities with a noisy copy)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>Take the fair coin <span class="math inline">\(X\)</span> and its noisy copy <span class="math inline">\(Y\)</span> from <a href="#/exm-entropy-chain-rule-noisy-copy" class="quarto-xref">Example&nbsp;8</a>. The chunk computes the entropies from the joint probabilities in <a href="#/def-bit">bits</a>, then the <a href="#/def-mutual-information">mutual information</a> in four ways.</p>
+<p>Take the fair coin <span class="math inline">\(X\)</span> and its noisy copy <span class="math inline">\(Y\)</span> from <a href="#/exm-entropy-chain-rule-noisy-copy" class="quarto-xref">Example&nbsp;9</a>. The chunk computes the entropies from the joint probabilities in <a href="#/def-bit">bits</a>, then the <a href="#/def-mutual-information">mutual information</a> in four ways.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>entropy <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p))</span>
-<span id="cb9-2"><a aria-label="2"></a>joint <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb9-3"><a aria-label="3"></a>  <span class="at">data =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.4</span>),</span>
-<span id="cb9-4"><a aria-label="4"></a>  <span class="at">nrow =</span> <span class="dv">2</span></span>
-<span id="cb9-5"><a aria-label="5"></a>)</span>
-<span id="cb9-6"><a aria-label="6"></a>h_xy <span class="ot">&lt;-</span> <span class="fu">entropy</span>(joint)</span>
-<span id="cb9-7"><a aria-label="7"></a>h_x <span class="ot">&lt;-</span> <span class="fu">entropy</span>(<span class="fu">rowSums</span>(joint))</span>
-<span id="cb9-8"><a aria-label="8"></a>h_y <span class="ot">&lt;-</span> <span class="fu">entropy</span>(<span class="fu">colSums</span>(joint))</span>
-<span id="cb9-9"><a aria-label="9"></a>h_x_given_y <span class="ot">&lt;-</span> h_xy <span class="sc">-</span> h_y</span>
-<span id="cb9-10"><a aria-label="10"></a>h_y_given_x <span class="ot">&lt;-</span> h_xy <span class="sc">-</span> h_x</span>
-<span id="cb9-11"><a aria-label="11"></a>mi_definition <span class="ot">&lt;-</span> h_y <span class="sc">-</span> h_y_given_x</span>
-<span id="cb9-12"><a aria-label="12"></a>mi_joint <span class="ot">&lt;-</span> h_x <span class="sc">+</span> h_y <span class="sc">-</span> h_xy</span>
-<span id="cb9-13"><a aria-label="13"></a>mi_conditionals <span class="ot">&lt;-</span> h_xy <span class="sc">-</span> (h_x_given_y <span class="sc">+</span> h_y_given_x)</span>
-<span id="cb9-14"><a aria-label="14"></a>mi_twice <span class="ot">&lt;-</span> ((h_x <span class="sc">-</span> h_x_given_y) <span class="sc">+</span> (h_y <span class="sc">-</span> h_y_given_x)) <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb9-15"><a aria-label="15"></a><span class="fu">c</span>(mi_definition, mi_joint, mi_conditionals, mi_twice)</span>
-<span id="cb9-16"><a aria-label="16"></a><span class="co">#&gt; [1] 0.2780719 0.2780719 0.2780719 0.2780719</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>entropy <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p))</span>
+<span id="cb10-2"><a aria-label="2"></a>joint <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb10-3"><a aria-label="3"></a>  <span class="at">data =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.4</span>),</span>
+<span id="cb10-4"><a aria-label="4"></a>  <span class="at">nrow =</span> <span class="dv">2</span></span>
+<span id="cb10-5"><a aria-label="5"></a>)</span>
+<span id="cb10-6"><a aria-label="6"></a>h_xy <span class="ot">&lt;-</span> <span class="fu">entropy</span>(joint)</span>
+<span id="cb10-7"><a aria-label="7"></a>h_x <span class="ot">&lt;-</span> <span class="fu">entropy</span>(<span class="fu">rowSums</span>(joint))</span>
+<span id="cb10-8"><a aria-label="8"></a>h_y <span class="ot">&lt;-</span> <span class="fu">entropy</span>(<span class="fu">colSums</span>(joint))</span>
+<span id="cb10-9"><a aria-label="9"></a>h_x_given_y <span class="ot">&lt;-</span> h_xy <span class="sc">-</span> h_y</span>
+<span id="cb10-10"><a aria-label="10"></a>h_y_given_x <span class="ot">&lt;-</span> h_xy <span class="sc">-</span> h_x</span>
+<span id="cb10-11"><a aria-label="11"></a>mi_definition <span class="ot">&lt;-</span> h_y <span class="sc">-</span> h_y_given_x</span>
+<span id="cb10-12"><a aria-label="12"></a>mi_joint <span class="ot">&lt;-</span> h_x <span class="sc">+</span> h_y <span class="sc">-</span> h_xy</span>
+<span id="cb10-13"><a aria-label="13"></a>mi_conditionals <span class="ot">&lt;-</span> h_xy <span class="sc">-</span> (h_x_given_y <span class="sc">+</span> h_y_given_x)</span>
+<span id="cb10-14"><a aria-label="14"></a>mi_twice <span class="ot">&lt;-</span> ((h_x <span class="sc">-</span> h_x_given_y) <span class="sc">+</span> (h_y <span class="sc">-</span> h_y_given_x)) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb10-15"><a aria-label="15"></a><span class="fu">c</span>(mi_definition, mi_joint, mi_conditionals, mi_twice)</span>
+<span id="cb10-16"><a aria-label="16"></a><span class="co">#&gt; [1] 0.2780719 0.2780719 0.2780719 0.2780719</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>All four agree: <span class="math inline">\(I(X; Y) = 0.278\)</span> bits (<a href="#/thm-mutual-information-entropy-sum" class="quarto-xref">Theorem&nbsp;9</a>, <a href="#/thm-mutual-information-joint-minus-conditionals" class="quarto-xref">Theorem&nbsp;10</a> and <a href="#/thm-twice-mutual-information" class="quarto-xref">Theorem&nbsp;12</a>). Also <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 2\)</span> bits matches <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 2\)</span> bits (<a href="#/thm-entropy-sum-decomposition" class="quarto-xref">Theorem&nbsp;11</a>).</p>
+<p>All four agree: <span class="math inline">\(I(X; Y) = 0.278\)</span> bits (<a href="#/thm-mutual-information-entropy-sum" class="quarto-xref">Theorem&nbsp;10</a>, <a href="#/thm-mutual-information-joint-minus-conditionals" class="quarto-xref">Theorem&nbsp;11</a> and <a href="#/thm-twice-mutual-information" class="quarto-xref">Theorem&nbsp;13</a>). Also <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 2\)</span> bits matches <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 2\)</span> bits (<a href="#/thm-entropy-sum-decomposition" class="quarto-xref">Theorem&nbsp;12</a>).</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-mutual-information-venn" class="proof remark">
-<p><span class="proof-title"><em>Remark 13</em> (Entropies as areas). </span>The identities above match a picture of two overlapping regions, with the area of one region standing for <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span> and the area of the other for <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}\)</span>. The overlap has area <span class="math inline">\(I(X; Y)\)</span> (<a href="#/thm-mutual-information-entropy-sum" class="quarto-xref">Theorem&nbsp;9</a>). The part of the first region outside the overlap has area <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\)</span>, and the part of the second region outside the overlap has area <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\)</span>. The two regions together have area <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}\)</span> (<a href="#/thm-mutual-information-joint-minus-conditionals" class="quarto-xref">Theorem&nbsp;10</a>). The picture is a mnemonic for two variables only.</p>
+<p><span class="proof-title"><em>Remark 14</em> (Entropies as areas). </span>The identities above match a picture of two overlapping regions, with the area of one region standing for <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span> and the area of the other for <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}\)</span>. The overlap has area <span class="math inline">\(I(X; Y)\)</span> (<a href="#/thm-mutual-information-entropy-sum" class="quarto-xref">Theorem&nbsp;10</a>). The part of the first region outside the overlap has area <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\)</span>, and the part of the second region outside the overlap has area <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\)</span>. The two regions together have area <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}\)</span> (<a href="#/thm-mutual-information-joint-minus-conditionals" class="quarto-xref">Theorem&nbsp;11</a>). The picture is a mnemonic for two variables only.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-mutual-information-kl" class="proof remark">
-<p><span class="proof-title"><em>Remark 14</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 2.3</a>)</span> define mutual information as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the joint distribution of <span class="math inline">\((X, Y)\)</span> from the product of its marginals, and show that this equals <span class="math inline">\(H(Y) - H(Y \mid X)\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.4</a>)</span>. Since a Kullback–Leibler divergence is never negative, and is <span class="math inline">\(0\)</span> only when the two distributions are equal <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>, <span class="math inline">\(I(X; Y) \ge 0\)</span>, with equality exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Learning <span class="math inline">\(X\)</span> never raises the entropy of <span class="math inline">\(Y\)</span> on average.</p>
+<p><span class="proof-title"><em>Remark 15</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 2.3</a>)</span> define mutual information as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the joint distribution of <span class="math inline">\((X, Y)\)</span> from the product of its marginals, and show that this equals <span class="math inline">\(H(Y) - H(Y \mid X)\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.4</a>)</span>. Since a Kullback–Leibler divergence is never negative, and is <span class="math inline">\(0\)</span> only when the two distributions are equal <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>, <span class="math inline">\(I(X; Y) \ge 0\)</span>, with equality exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent. Learning <span class="math inline">\(X\)</span> never raises the entropy of <span class="math inline">\(Y\)</span> on average.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1175,7 +1223,7 @@ I(X; Y)
 <section class="slide level2">
 
 <div id="rem-information-gain" class="proof remark">
-<p><span class="proof-title"><em>Remark 15</em> (Information gain is mutual information). </span>Draw one point uniformly at random from the node of <a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;14</a>, and let <span class="math inline">\(Y\)</span> be its class and <span class="math inline">\(X\)</span> the branch it falls into. Then the entropy at the node is <span class="math inline">\(H(Y)\)</span>, the weighted entropy left in the branches is <span class="math inline">\(H(Y \mid X)\)</span>, and the information gain is the <a href="#/def-mutual-information">mutual information</a> <span class="math inline">\(I(X; Y)\)</span>.</p>
+<p><span class="proof-title"><em>Remark 16</em> (Information gain is mutual information). </span>Draw one point uniformly at random from the node of <a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;14</a>, and let <span class="math inline">\(Y\)</span> be its class and <span class="math inline">\(X\)</span> the branch it falls into. Then the entropy at the node is <span class="math inline">\(H(Y)\)</span>, the weighted entropy left in the branches is <span class="math inline">\(H(Y \mid X)\)</span>, and the information gain is the <a href="#/def-mutual-information">mutual information</a> <span class="math inline">\(I(X; Y)\)</span>.</p>
 </div>
 </section>
 <section class="slide level2 scrollable">
@@ -1218,7 +1266,7 @@ I(X; Y)
 </tr>
 </tbody>
 </table>
-<p>Draw one point uniformly at random from the node, let <span class="math inline">\(Y\)</span> be its color, and let <span class="math inline">\(X\)</span> be the branch it falls into (<a href="#/rem-information-gain" class="quarto-xref">Remark&nbsp;15</a>). The information gain of each split (<a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;14</a>) is then <span class="math inline">\(I(X; Y)\)</span>. Use base-2 logarithms throughout.</p>
+<p>Draw one point uniformly at random from the node, let <span class="math inline">\(Y\)</span> be its color, and let <span class="math inline">\(X\)</span> be the branch it falls into (<a href="#/rem-information-gain" class="quarto-xref">Remark&nbsp;16</a>). The information gain of each split (<a href="#/def-information-gain" class="quarto-xref">Definition&nbsp;14</a>) is then <span class="math inline">\(I(X; Y)\)</span>. Use base-2 logarithms throughout.</p>
 <ol type="1">
 <li><p>Compute <span class="math inline">\(H(Y)\)</span>.</p></li>
 <li><p>For each split, compute <span class="math inline">\(H(Y \mid X = x)\)</span> for both branches, and then <span class="math inline">\(H(Y \mid X)\)</span>.</p></li>
