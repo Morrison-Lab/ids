@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-06 16:21:06 (PST)
+Last modified: 2026-11-07 13:01:37 (PST)
 
 ## 1 Codes
 
@@ -72,7 +72,7 @@ Last modified: 2026-11-06 16:21:06 (PST)
 >
 > $$H_2(p, q) = H_2(p) + D_2(p \,\|\, q).$$
 >
-> By [Theorem 1](#thm-source-coding), no uniquely decodable code averages fewer than $H_2(p)$ bits. By [Theorem 2](#thm-wrong-code), a code built for $q$ costs about $D_2(p \,\|\, q)$ bits per value more than that. The divergence is never negative, and it is $0$ only when $q = p$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), so the excess vanishes only when the code was built for the true distribution. Cover and Thomas ([2006, sec. 5.4](#ref-cover2006elements)) state [Theorem 2](#thm-wrong-code) in this form, with $H_2(p) + D_2(p \,\|\, q)$ in place of $H_2(p, q)$.
+> By [Theorem 1](#thm-source-coding), no uniquely decodable code averages fewer than $H_2(p)$ bits. By [Theorem 2](#thm-wrong-code), a code built for $q$ costs about $D_2(p \,\|\, q)$ bits per value more than that. The divergence is never negative, and it is $0$ only when $q = p$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements); [Yeung 2008, sec. 2.5](#ref-yeung2008information)), so the excess vanishes only when the code was built for the true distribution. Cover and Thomas ([2006, sec. 5.4](#ref-cover2006elements)) state [Theorem 2](#thm-wrong-code) in this form, with $H_2(p) + D_2(p \,\|\, q)$ in place of $H_2(p, q)$.
 
 > **NOTE:**
 >
@@ -85,5 +85,7 @@ Last modified: 2026-11-06 16:21:06 (PST)
 Cover, Thomas M., and Joy A. Thomas. 2006. *Elements of Information Theory*. 2nd ed. Wiley-Interscience. <https://doi.org/10.1002/047174882X>.
 
 Shannon, C. E. 1948. “A Mathematical Theory of Communication.” *Bell System Technical Journal* 27 (3): 379–423. <https://doi.org/10.1002/j.1538-7305.1948.tb01338.x>.
+
+Yeung, Raymond W. 2008. *Information Theory and Network Coding*. Springer. <https://doi.org/10.1007/978-0-387-79234-7>.
 
 Back to top
