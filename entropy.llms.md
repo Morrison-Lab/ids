@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 01:23:49 (PST)
+Last modified: 2026-11-07 11:34:26 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -166,25 +166,47 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 5* (Surprisal is the logarithm of the rarity). The [surprisal](#def-surprisal) of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [rarity](#def-rarity):
+> **Theorem 1 (Surprisal is the logarithm of the rarity)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), and let $x$ be an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with $\mathbb{P}(X=x) > 0$. Then the [surprisal](#def-surprisal) of $x$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [rarity](#def-rarity):
 >
-> $$\begin{aligned}
+> $${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. $$\begin{aligned}
 > {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}
-> &= -{\operatorname{log}\mathopen{}\left\{\mathbb{P}(X=x)\right\}\mathclose{}} \\
-> &= {\operatorname{log}\mathopen{}\left\{\frac{1}{\mathbb{P}(X=x)}\right\}\mathclose{}} \\
-> &= {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.
+> &= -{\operatorname{log}\mathopen{}\left\{\mathbb{P}(X=x)\right\}\mathclose{}} && \text{(definition of surprisal)} \\
+> &= {\operatorname{log}\mathopen{}\left\{\frac{1}{\mathbb{P}(X=x)}\right\}\mathclose{}} && \text{(logarithm of a reciprocal)} \\
+> &= {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}. && \text{(definition of rarity)}
 > \end{aligned}$$
+
+> **NOTE:**
 >
-> For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), the rarity is at least $1$, with equality exactly when $\mathbb{P}(X=x) = 1$, so the surprisal is never below $0$. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the same equalities hold with the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) in place of the mass:
+> **Theorem 2 (Surprisal of a continuous value is the logarithm of the rarity)** Let $X$ be a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}$, and let $x$ be a value with $\mathbb{p}(x) > 0$. Then the [surprisal](#def-surprisal) of $x$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [rarity](#def-rarity):
 >
-> $$\begin{aligned}
+> $${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. $$\begin{aligned}
 > {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}
-> &= -{\operatorname{log}\mathopen{}\left\{\mathbb{p}(x)\right\}\mathclose{}} \\
-> &= {\operatorname{log}\mathopen{}\left\{\frac{1}{\mathbb{p}(x)}\right\}\mathclose{}} \\
-> &= {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.
+> &= -{\operatorname{log}\mathopen{}\left\{\mathbb{p}(x)\right\}\mathclose{}} && \text{(definition of surprisal)} \\
+> &= {\operatorname{log}\mathopen{}\left\{\frac{1}{\mathbb{p}(x)}\right\}\mathclose{}} && \text{(logarithm of a reciprocal)} \\
+> &= {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}. && \text{(definition of rarity)}
 > \end{aligned}$$
+
+> **NOTE:**
 >
-> A density can exceed $1$, so there the rarity can be below $1$. For a mass, a rarity of $r$ reads “one in $r$”. For example, take an outcome with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$:
+> **Corollary 1 (Surprisal of a discrete outcome is nonnegative)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), and let $x$ be an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with $\mathbb{P}(X=x) > 0$. Then the [rarity](#def-rarity) of $x$ is at least $1$, with equality exactly when $\mathbb{P}(X=x) = 1$, and the [surprisal](#def-surprisal) satisfies
+>
+> $${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} \ge 0.$$
+
+> **NOTE:**
+>
+> *Proof*. Since $0 < \mathbb{P}(X=x) \le 1$, the [rarity](#def-rarity) ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 1 / \mathbb{P}(X=x)$ is at least $1$, with equality exactly when $\mathbb{P}(X=x) = 1$. The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) is increasing, and ${\operatorname{log}\mathopen{}\left\{1\right\}\mathclose{}} = 0$, so by [Theorem 1](#thm-surprisal-log-rarity), ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} \ge 0$.
+
+> **NOTE:**
+>
+> **Example 4 (Surprisal and rarity of an outcome with probability one quarter)** Take an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$:
 >
 > Show code
 >
@@ -196,7 +218,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 2
 > ```
 >
-> It has rarity $4$ and a surprisal of $2$ [bits](#def-bit).
+> It has [rarity](#def-rarity) $4$ by definition. By [Theorem 1](#thm-surprisal-log-rarity), its [surprisal](#def-surprisal) is the base-2 [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of that rarity, $2$ [bits](#def-bit).
+
+> **NOTE:**
+>
+> *Remark 5* (Reading the rarity of an outcome). A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) can exceed $1$, so for a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) the [rarity](#def-rarity) can be below $1$, and then the [surprisal](#def-surprisal) is negative ([Theorem 2](#thm-surprisal-log-rarity-continuous)). For a mass, a rarity of $r$ reads “one in $r$”, and the surprisal is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of $r$ ([Theorem 1](#thm-surprisal-log-rarity)).
 
 > **NOTE:**
 >
@@ -297,7 +323,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 1 (Chain rule for entropy)** For discrete random variables $X$ and $Y$,
+> **Theorem 3 (Chain rule for entropy)** For discrete random variables $X$ and $Y$,
 >
 > $$H(X, Y) = H(X) + H(Y \mid X).$$
 
@@ -332,7 +358,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 2 (Mutual information is symmetric)** For discrete random variables $X$ and $Y$ with finite entropies,
+> **Theorem 4 (Mutual information is symmetric)** For discrete random variables $X$ and $Y$ with finite entropies,
 >
 > $$I(X; Y) = H(X) - H(X \mid Y) = I(Y; X).$$
 

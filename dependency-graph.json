@@ -75,6 +75,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-surprisal-discrete-nonnegative",
+   "kind": "cor",
+   "title": "Surprisal of a discrete outcome is nonnegative",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-bit",
    "site": "ids",
    "page": "entropy",
@@ -189,6 +198,24 @@
    "div": "thm-mutual-information-symmetric",
    "kind": "thm",
    "title": "Mutual information is symmetric",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-surprisal-log-rarity",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-log-rarity",
+   "kind": "thm",
+   "title": "Surprisal is the logarithm of the rarity",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-log-rarity-continuous",
+   "kind": "thm",
+   "title": "Surprisal of a continuous value is the logarithm of the rarity",
    "external": false
   },
   {
@@ -523,6 +550,30 @@
    "ids/channel-capacity#def-channel-code"
   ],
   [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "ids/entropy#thm-surprisal-log-rarity"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#def-bit",
    "ids/entropy#def-surprisal"
   ],
@@ -617,6 +668,46 @@
   [
    "ids/entropy#thm-mutual-information-symmetric",
    "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "pds/random-variables#def-continuous-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "pds/random-variables#def-pdf"
   ],
   [
    "ids/error-correcting-codes#def-hamming-distance",
