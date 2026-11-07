@@ -30,6 +30,6 @@ $$
 = -\sum_x p(x) \log_2 p(x) + \sum_x p(x) \log_2 \frac{p(x)}{q(x)}.
 $$
 
-These three terms are $H_2(p, q)$, $H_2(p)$ and $D_2(p \,\|\, q)$.
+Reading left to right, these are $H_2(p, q)$, $H_2(p)$ and $D_2(p \,\|\, q)$.
 
 :::
