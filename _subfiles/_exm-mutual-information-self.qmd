@@ -1,0 +1,12 @@
+:::{#exm-mutual-information-self}
+#### A fair coin is fully informative about itself
+<!-- no-figure: the example reports a single number, with nothing to plot -->
+
+Let $X$ be a fair coin toss.
+Its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is $1$ [bit](#def-bit).
+Given $X$ itself, there is no uncertainty left,
+so $\entropyf{X \mid X} = 0$.
+Hence $I(X; X) = 1 - 0 = 1$ bit (@thm-mutual-information-self),
+the same as $\entropyf{X}$.
+
+:::
