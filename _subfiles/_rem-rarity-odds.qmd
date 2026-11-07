@@ -24,15 +24,18 @@ odds_against
 The first printed line shows that, for each $p$, the rarity of the outcome exceeds the odds against its event by exactly $1$.
 An outcome with probability $1/4$ has rarity $`r rarity_outcome[1]`$,
 and its event has odds of $`r odds_against[1]`$ to $1$ against.
-The two differ by exactly $1$, so they are relatively close when the rarity is large.
-At $p = 1$ the rarity is $`r rarity_outcome[3]`$ and the odds against are $`r odds_against[3]`$,
+The two differ by exactly $1$,
+so they are relatively close when the rarity is large.
+At $p = 1$ the rarity is $`r rarity_outcome[3]`$
+and the odds against are $`r odds_against[3]`$,
 but the odds in favour divide by zero.
 
 The odds compare an event with its
 [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement),
 and the odds against take values in $[0, \infty)$ when $p$ is above $0$.
-At $p = 0$, the odds against and the rarity divide by zero.
-The rarity of an outcome takes values in $[1, \infty)$.
+At $p = 0$, the odds against and the rarity divide by zero, so both are infinite.
+For an outcome of a discrete random variable with $p$ above $0$,
+the rarity takes values in $[1, \infty)$.
 For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
 the event $X = x$ for a single value has probability $0$,
 so its odds against and $1/\P(X=x)$ are not defined,
