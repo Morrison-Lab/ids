@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 13:01:46 (PST)
+Last modified: 2026-11-07 13:41:17 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -398,6 +398,68 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
+> **Corollary 2 (Chain rule for entropy, other order)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
+>
+> $${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. The pair $(Y, X)$ takes each value $(y, x)$ with the same [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that $(X, Y)$ takes $(x, y)$, so
+>
+> $${\mathbb{H}\mathopen{}\left(Y, X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.$$
+>
+> The [chain rule](#thm-entropy-chain-rule), applied with the roles of $X$ and $Y$ exchanged, gives
+>
+> $${\mathbb{H}\mathopen{}\left(Y, X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.$$
+>
+> Combining the two displays gives the claim.
+
+> **NOTE:**
+>
+> **Corollary 3 (Conditional entropy as a difference)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+>
+> $${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Subtract ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ from both sides of [Corollary 2](#cor-entropy-chain-rule-reversed):
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}
+> &= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Example 6 (Chain rule for entropy with a noisy copy)**  
+>
+> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$, and $0.1$ for $(0, 1)$ and $(1, 0)$. The chunk computes each [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) from its definition, in [bits](#def-bit).
+>
+> Show code
+>
+> ``` r
+> entropy <- function(p) -sum(p * log2(p))
+> joint <- matrix(
+>   data = c(0.4, 0.1, 0.1, 0.4),
+>   nrow = 2,
+>   dimnames = list(x = 0:1, y = 0:1)
+> )
+> p_y <- colSums(joint)
+> cond_x_given_y <- sweep(x = joint, MARGIN = 2, STATS = p_y, FUN = "/")
+> h_x_given_y_values <- apply(X = cond_x_given_y, MARGIN = 2, FUN = entropy)
+> h_x_given_y <- sum(p_y * h_x_given_y_values)
+> h_xy <- entropy(joint)
+> h_y <- entropy(p_y)
+> c(h_xy = h_xy, h_x_given_y = h_x_given_y, h_y = h_y)
+> #>        h_xy h_x_given_y         h_y 
+> #>   1.7219281   0.7219281   1.0000000
+> ```
+>
+> Here ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = 1.722$ bits, ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = 0.722$ bits and ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bits. So ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Corollary 2](#cor-entropy-chain-rule-reversed)), and ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 0.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ ([Corollary 3](#cor-conditional-entropy-difference)).
+
+> **NOTE:**
+>
 > **Definition 10 (Joint surprisal)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. The **joint surprisal** of a pair of [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $(x, y)$ with $p(x, y) > 0$ is the [surprisal](#def-surprisal) of that pair:
 >
 > $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} \stackrel{\text{def}}{=}-\log p(x, y).$$
@@ -410,7 +472,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 6 (Joint and conditional surprisal of a noisy copy)**  
+> **Example 7 (Joint and conditional surprisal of a noisy copy)**  
 >
 > Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with probability $0.8$ and the other value with probability $0.2$. Take the pair of values $x = 0$ and $y = 1$. The joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $\mathbb{P}(X=0, Y=1) = 0.1$, the probability of $X=0$ is $0.5$, and the conditional probability is $\mathbb{P}(Y=1 \mid X=0) = 0.2$. The chunk computes the three [surprisals](#def-surprisal), in [bits](#def-bit).
 >
@@ -447,7 +509,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Corollary 2 (Conditional surprisal as a difference)** For $X$, $Y$, $x$ and $y$ as in [Theorem 6](#thm-surprisal-chain-rule),
+> **Corollary 4 (Conditional surprisal as a difference)** For $X$, $Y$, $x$ and $y$ as in [Theorem 6](#thm-surprisal-chain-rule),
 >
 > $${\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}.$$
 
@@ -463,9 +525,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 7 (Chain rule for surprisal with a noisy copy)**  
+> **Example 8 (Chain rule for surprisal with a noisy copy)**  
 >
-> For the pair of values in [Example 6](#exm-joint-conditional-surprisal), the chunk recomputes the three [surprisals](#def-surprisal) in [bits](#def-bit).
+> For the pair of values in [Example 7](#exm-joint-conditional-surprisal), the chunk recomputes the three [surprisals](#def-surprisal) in [bits](#def-bit).
 >
 > Show code
 >
@@ -478,7 +540,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 3.321928 3.321928
 > ```
 >
-> The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$ is $3.322$ [bits](#def-bit). This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Theorem 6](#thm-surprisal-chain-rule)). Subtracting ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ bit from the joint surprisal recovers ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits ([Corollary 2](#cor-conditional-surprisal-difference)).
+> The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$ is $3.322$ [bits](#def-bit). This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Theorem 6](#thm-surprisal-chain-rule)). Subtracting ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ bit from the joint surprisal recovers ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits ([Corollary 4](#cor-conditional-surprisal-difference)).
 
 > **NOTE:**
 >

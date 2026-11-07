@@ -75,12 +75,30 @@
    "external": false
   },
   {
+   "id": "ids/entropy#cor-conditional-entropy-difference",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-conditional-entropy-difference",
+   "kind": "cor",
+   "title": "Conditional entropy as a difference",
+   "external": false
+  },
+  {
    "id": "ids/entropy#cor-conditional-surprisal-difference",
    "site": "ids",
    "page": "entropy",
    "div": "cor-conditional-surprisal-difference",
    "kind": "cor",
    "title": "Conditional surprisal as a difference",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#cor-entropy-chain-rule-reversed",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-entropy-chain-rule-reversed",
+   "kind": "cor",
+   "title": "Chain rule for entropy, other order",
    "external": false
   },
   {
@@ -408,6 +426,24 @@
    "external": false
   },
   {
+   "id": "ids/source-coding#thm-cross-entropy-decomposition",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-cross-entropy-decomposition",
+   "kind": "thm",
+   "title": "Cross-entropy is entropy plus divergence",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#thm-kl-divergence-nonnegative",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-kl-divergence-nonnegative",
+   "kind": "thm",
+   "title": "The divergence is nonnegative",
+   "external": false
+  },
+  {
    "id": "ids/source-coding#thm-source-coding",
    "site": "ids",
    "page": "source-coding",
@@ -484,6 +520,16 @@
    "title": "expectation",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/expectation.html#def-expectation"
+  },
+  {
+   "id": "pds/expectation#def-kl-divergence",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-kl-divergence",
+   "kind": "def",
+   "title": "kl divergence",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence"
   },
   {
    "id": "pds/independence#def-indpt",
@@ -634,8 +680,28 @@
    "ids/channel-capacity#def-channel-code"
   ],
   [
+   "ids/entropy#cor-conditional-entropy-difference",
+   "ids/entropy#cor-entropy-chain-rule-reversed"
+  ],
+  [
+   "ids/entropy#cor-conditional-entropy-difference",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#cor-conditional-surprisal-difference",
    "ids/entropy#thm-surprisal-chain-rule"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#cor-surprisal-discrete-nonnegative",
@@ -948,6 +1014,42 @@
   [
    "ids/source-coding#def-uniquely-decodable",
    "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/expectation#def-cross-entropy"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/source-coding#thm-kl-divergence-nonnegative",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "ids/source-coding#thm-kl-divergence-nonnegative",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/source-coding#thm-kl-divergence-nonnegative",
+   "pds/random-variables#def-pmf"
   ],
   [
    "ids/source-coding#thm-source-coding",

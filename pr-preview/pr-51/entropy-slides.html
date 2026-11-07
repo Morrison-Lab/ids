@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-07 13:01:46 (PST)</p>
+  <p class="date">Last modified: 2026-11-07 13:41:17 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -759,6 +759,66 @@ H(X, Y)
 </section>
 <section class="slide level2">
 
+<div id="cor-entropy-chain-rule-reversed" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 2 (Chain rule for entropy, other order)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>,</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The pair <span class="math inline">\((Y, X)\)</span> takes each value <span class="math inline">\((y, x)\)</span> with the same <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> that <span class="math inline">\((X, Y)\)</span> takes <span class="math inline">\((x, y)\)</span>, so</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(Y, X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.\]</span></p>
+<p>The <a href="#/thm-entropy-chain-rule">chain rule</a>, applied with the roles of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> exchanged, gives</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(Y, X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.\]</span></p>
+<p>Combining the two displays gives the claim.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="cor-conditional-entropy-difference" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 3 (Conditional entropy as a difference)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Subtract <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}\)</span> from both sides of <a href="#/cor-entropy-chain-rule-reversed" class="quarto-xref">Corollary&nbsp;2</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}
+&amp;= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} \\
+&amp;= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-entropy-chain-rule-noisy-copy" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (Chain rule for entropy with a noisy copy)</strong></span> &nbsp;</p>
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+<p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> be a noisy copy of <span class="math inline">\(X\)</span>: it equals <span class="math inline">\(X\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.8\)</span> <!-- check-term-links: allow --> and the other value with probability <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> The joint probabilities are <span class="math inline">\(0.4\)</span> for <span class="math inline">\((0, 0)\)</span> and <span class="math inline">\((1, 1)\)</span>, and <span class="math inline">\(0.1\)</span> for <span class="math inline">\((0, 1)\)</span> and <span class="math inline">\((1, 0)\)</span>. The chunk computes each <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> from its definition, in <a href="#/def-bit">bits</a>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>entropy <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p))</span>
+<span id="cb4-2"><a aria-label="2"></a>joint <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="at">data =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.4</span>),</span>
+<span id="cb4-4"><a aria-label="4"></a>  <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb4-5"><a aria-label="5"></a>  <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">y =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb4-6"><a aria-label="6"></a>)</span>
+<span id="cb4-7"><a aria-label="7"></a>p_y <span class="ot">&lt;-</span> <span class="fu">colSums</span>(joint)</span>
+<span id="cb4-8"><a aria-label="8"></a>cond_x_given_y <span class="ot">&lt;-</span> <span class="fu">sweep</span>(<span class="at">x =</span> joint, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">STATS =</span> p_y, <span class="at">FUN =</span> <span class="st">"/"</span>)</span>
+<span id="cb4-9"><a aria-label="9"></a>h_x_given_y_values <span class="ot">&lt;-</span> <span class="fu">apply</span>(<span class="at">X =</span> cond_x_given_y, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> entropy)</span>
+<span id="cb4-10"><a aria-label="10"></a>h_x_given_y <span class="ot">&lt;-</span> <span class="fu">sum</span>(p_y <span class="sc">*</span> h_x_given_y_values)</span>
+<span id="cb4-11"><a aria-label="11"></a>h_xy <span class="ot">&lt;-</span> <span class="fu">entropy</span>(joint)</span>
+<span id="cb4-12"><a aria-label="12"></a>h_y <span class="ot">&lt;-</span> <span class="fu">entropy</span>(p_y)</span>
+<span id="cb4-13"><a aria-label="13"></a><span class="fu">c</span>(<span class="at">h_xy =</span> h_xy, <span class="at">h_x_given_y =</span> h_x_given_y, <span class="at">h_y =</span> h_y)</span>
+<span id="cb4-14"><a aria-label="14"></a><span class="co">#&gt;        h_xy h_x_given_y         h_y </span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="co">#&gt;   1.7219281   0.7219281   1.0000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Here <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = 1.722\)</span> bits, <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = 0.722\)</span> bits and <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1\)</span> bits. So <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1.722\)</span> bits agrees with <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}\)</span> (<a href="#/cor-entropy-chain-rule-reversed" class="quarto-xref">Corollary&nbsp;2</a>), and <span class="math inline">\({\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 0.722\)</span> bits agrees with <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\)</span> (<a href="#/cor-conditional-entropy-difference" class="quarto-xref">Corollary&nbsp;3</a>).</p>
+</div>
+</section>
+<section class="slide level2">
+
 <div id="def-joint-surprisal" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (Joint surprisal)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> with <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a> <span class="math inline">\(p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)\)</span>. The <strong>joint surprisal</strong> of a pair of <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcomes</a> <span class="math inline">\((x, y)\)</span> with <span class="math inline">\(p(x, y) &gt; 0\)</span> is the <a href="#/def-surprisal">surprisal</a> of that pair:</p>
 <p><span class="math display">\[{\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} \stackrel{\text{def}}{=}-\log p(x, y).\]</span></p>
@@ -774,18 +834,18 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="exm-joint-conditional-surprisal" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6 (Joint and conditional surprisal of a noisy copy)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 7 (Joint and conditional surprisal of a noisy copy)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 <p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> be a noisy copy of <span class="math inline">\(X\)</span>: it equals <span class="math inline">\(X\)</span> with probability <span class="math inline">\(0.8\)</span> and the other value with probability <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> Take the pair of values <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(y = 1\)</span>. The joint <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> is <span class="math inline">\(\mathbb{P}(X=0, Y=1) = 0.1\)</span>, the probability of <span class="math inline">\(X=0\)</span> is <span class="math inline">\(0.5\)</span>, and the conditional probability is <span class="math inline">\(\mathbb{P}(Y=1 \mid X=0) = 0.2\)</span>. <!-- check-term-links: allow --> The chunk computes the three <a href="#/def-surprisal">surprisals</a>, in <a href="#/def-bit">bits</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>s_xy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.1</span>)</span>
-<span id="cb4-2"><a aria-label="2"></a>s_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.5</span>)</span>
-<span id="cb4-3"><a aria-label="3"></a>s_y_given_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.2</span>)</span>
-<span id="cb4-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">s_xy =</span> s_xy, <span class="at">s_x =</span> s_x, <span class="at">s_y_given_x =</span> s_y_given_x)</span>
-<span id="cb4-5"><a aria-label="5"></a><span class="co">#&gt;        s_xy         s_x s_y_given_x </span></span>
-<span id="cb4-6"><a aria-label="6"></a><span class="co">#&gt;    3.321928    1.000000    2.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>s_xy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.1</span>)</span>
+<span id="cb5-2"><a aria-label="2"></a>s_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.5</span>)</span>
+<span id="cb5-3"><a aria-label="3"></a>s_y_given_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.2</span>)</span>
+<span id="cb5-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">s_xy =</span> s_xy, <span class="at">s_x =</span> s_x, <span class="at">s_y_given_x =</span> s_y_given_x)</span>
+<span id="cb5-5"><a aria-label="5"></a><span class="co">#&gt;        s_xy         s_x s_y_given_x </span></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="co">#&gt;    3.321928    1.000000    2.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>The <a href="#/def-joint-surprisal">joint surprisal</a> is <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits, the surprisal of <span class="math inline">\(x = 0\)</span> alone is <span class="math inline">\({\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1\)</span> bit, <!-- check-term-links: allow --> and the <a href="#/def-conditional-surprisal">conditional surprisal</a> is <span class="math inline">\({\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322\)</span> bits.</p>
@@ -813,7 +873,7 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="cor-conditional-surprisal-difference" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 2 (Conditional surprisal as a difference)</strong></span> For <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> as in <a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;6</a>,</p>
+<p><span class="theorem-title"><strong>Corollary 4 (Conditional surprisal as a difference)</strong></span> For <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> as in <a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;6</a>,</p>
 <p><span class="math display">\[{\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
@@ -830,21 +890,21 @@ H(X, Y)
 <section class="slide level2">
 
 <div id="exm-surprisal-chain-rule-noisy-copy" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Chain rule for surprisal with a noisy copy)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 8 (Chain rule for surprisal with a noisy copy)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>For the pair of values in <a href="#/exm-joint-conditional-surprisal" class="quarto-xref">Example&nbsp;6</a>, the chunk recomputes the three <a href="#/def-surprisal">surprisals</a> in <a href="#/def-bit">bits</a>.</p>
+<p>For the pair of values in <a href="#/exm-joint-conditional-surprisal" class="quarto-xref">Example&nbsp;7</a>, the chunk recomputes the three <a href="#/def-surprisal">surprisals</a> in <a href="#/def-bit">bits</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>s_xy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.1</span>)</span>
-<span id="cb5-2"><a aria-label="2"></a>s_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.5</span>)</span>
-<span id="cb5-3"><a aria-label="3"></a>s_y_given_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.2</span>)</span>
-<span id="cb5-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">sum =</span> s_x <span class="sc">+</span> s_y_given_x, <span class="at">joint =</span> s_xy)</span>
-<span id="cb5-5"><a aria-label="5"></a><span class="co">#&gt;      sum    joint </span></span>
-<span id="cb5-6"><a aria-label="6"></a><span class="co">#&gt; 3.321928 3.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>s_xy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.1</span>)</span>
+<span id="cb6-2"><a aria-label="2"></a>s_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.5</span>)</span>
+<span id="cb6-3"><a aria-label="3"></a>s_y_given_x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log2</span>(<span class="fl">0.2</span>)</span>
+<span id="cb6-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">sum =</span> s_x <span class="sc">+</span> s_y_given_x, <span class="at">joint =</span> s_xy)</span>
+<span id="cb6-5"><a aria-label="5"></a><span class="co">#&gt;      sum    joint </span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="co">#&gt; 3.321928 3.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x = 0\)</span> plus the <a href="#/def-conditional-surprisal">conditional surprisal</a> of <span class="math inline">\(y = 1\)</span> given <span class="math inline">\(x = 0\)</span> is <span class="math inline">\(3.322\)</span> <a href="#/def-bit">bits</a>. This sum is the <a href="#/def-joint-surprisal">joint surprisal</a> <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits <!-- check-term-links: allow --> (<a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;6</a>). Subtracting <span class="math inline">\({\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1\)</span> bit from the joint surprisal <!-- check-term-links: allow --> recovers <span class="math inline">\({\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322\)</span> bits (<a href="#/cor-conditional-surprisal-difference" class="quarto-xref">Corollary&nbsp;2</a>).</p>
+<p>The <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x = 0\)</span> plus the <a href="#/def-conditional-surprisal">conditional surprisal</a> of <span class="math inline">\(y = 1\)</span> given <span class="math inline">\(x = 0\)</span> is <span class="math inline">\(3.322\)</span> <a href="#/def-bit">bits</a>. This sum is the <a href="#/def-joint-surprisal">joint surprisal</a> <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits <!-- check-term-links: allow --> (<a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;6</a>). Subtracting <span class="math inline">\({\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1\)</span> bit from the joint surprisal <!-- check-term-links: allow --> recovers <span class="math inline">\({\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322\)</span> bits (<a href="#/cor-conditional-surprisal-difference" class="quarto-xref">Corollary&nbsp;4</a>).</p>
 </div>
 </section>
 <section class="slide level2">
