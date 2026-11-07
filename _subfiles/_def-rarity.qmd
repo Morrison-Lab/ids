@@ -1,0 +1,10 @@
+:::{#def-rarity}
+#### Rarity
+
+The **rarity** of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$
+of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
+with $\P(X=x) > 0$ is
+
+$$\rarityf{x} \eqdef \frac{1}{\P(X=x)}.$$
+
+:::

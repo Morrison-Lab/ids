@@ -1,0 +1,20 @@
+::: {#rem-surprisal-log-rarity}
+#### Surprisal is the logarithm of the rarity
+
+The [surprisal](#def-surprisal) of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [rarity](#def-rarity):
+
+$$
+\begin{aligned}
+\surprisalf{x}
+&= -\log \P(X=x) \\
+&= \log \frac{1}{\P(X=x)} \\
+&= \logf{\rarityf{x}}.
+\end{aligned}
+$$
+
+The rarity is at least $1$, with equality exactly when $\P(X=x) = 1$,
+so the surprisal is never below $0$.
+A rarity of $r$ reads "one in $r$":
+an outcome with rarity $4$ has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$ and a surprisal of $2$ [bits](#def-bit).
+
+:::

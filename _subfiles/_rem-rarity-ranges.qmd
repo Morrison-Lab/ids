@@ -1,0 +1,36 @@
+::: {#rem-rarity-ranges}
+#### Values of the probability, the rarity and the surprisal
+
+For a
+[discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+the mass $p = \P(X=x)$ of an
+[outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)
+with $p > 0$, its [rarity](#def-rarity) $1/p$ and its [surprisal](#def-surprisal) $-\log p$ take the values in the middle column.
+For a
+[continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
+the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $f(x)$ takes the place of $p$,
+the rarity is $1/f(x)$,
+and the surprisal $-\log f(x)$ is the
+[surprisal of a continuous value](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous).
+Their values are in the right column.
+
+| | Mass $p$ | Density $f$ |
+|---|---|---|
+| Mass or density | $(0, 1]$ | $(0, \infty)$ |
+| Rarity | $[1, \infty)$ | $(0, \infty)$ |
+| Surprisal | $[0, \infty)$ | $(-\infty, \infty)$ |
+
+- **Mass.**
+  The values $1$ and $0$ are attained.
+  A certain outcome has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, rarity $1$ and surprisal $0$.
+- **Density.**
+  A density can be arbitrarily large, as in the
+  [uniform example](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform),
+  so the rarity can fall below $1$ and the surprisal can fall below $0$.
+- **Zero.**
+  A mass or density of $0$ gives a rarity and a surprisal of $\infty$.
+- **Units.**
+  A mass has no units.
+  A density has the units of $1/x$, so its rarity has the units of $x$ and rescaling $x$ by $c$ shifts its surprisal by $\log c$.
+
+:::
