@@ -1,0 +1,20 @@
+::: {#rem-entropy-chain-rule-from-surprisal}
+#### The chain rule for entropy is the chain rule for surprisal on average
+
+The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a pair
+is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
+of its joint surprisal,
+and the conditional entropy is the expectation of the conditional surprisal:
+
+$$
+\begin{aligned}
+H(X, Y) &= \E{s(X, Y)} \\
+H(Y \mid X) &= \E{s(Y \mid X)}.
+\end{aligned}
+$$
+
+Taking the expectation of both sides of @thm-surprisal-chain-rule
+therefore gives @thm-entropy-chain-rule.
+Each identity for entropy in this section has a pointwise version for surprisal.
+
+:::

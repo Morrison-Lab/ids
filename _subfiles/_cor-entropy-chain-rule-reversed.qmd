@@ -1,0 +1,22 @@
+:::{#cor-entropy-chain-rule-reversed}
+#### Chain rule for entropy, other order
+
+For discrete random variables $X$ and $Y$,
+
+$$H(X, Y) = H(X \mid Y) + H(Y).$$
+
+:::
+
+::: {.proof}
+
+The pair $(Y, X)$ has the same probability for each outcome as the pair $(X, Y)$, so
+
+$$H(Y, X) = H(X, Y).$$
+
+The [chain rule](#thm-entropy-chain-rule), applied with the roles of $X$ and $Y$ exchanged, gives
+
+$$H(Y, X) = H(Y) + H(X \mid Y).$$
+
+Combining the two displays gives the claim.
+
+:::

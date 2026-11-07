@@ -1,0 +1,22 @@
+:::{#cor-conditional-entropy-difference}
+#### Conditional entropy as a difference
+
+For discrete random variables $X$ and $Y$ with finite entropies,
+
+$$H(X \mid Y) = H(X, Y) - H(Y).$$
+
+:::
+
+::: {.proof}
+
+Subtract $H(Y)$ from both sides of @cor-entropy-chain-rule-reversed:
+
+$$
+\begin{aligned}
+H(X, Y) - H(Y)
+&= H(X \mid Y) + H(Y) - H(Y) \\
+&= H(X \mid Y).
+\end{aligned}
+$$
+
+:::

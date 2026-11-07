@@ -76,6 +76,34 @@ in *Probability for Data Science*.
 
 {{< include ids/_subfiles/_thm-entropy-chain-rule.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-entropy-chain-rule-reversed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-conditional-entropy-difference.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-joint-surprisal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-conditional-surprisal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-surprisal-chain-rule.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-conditional-surprisal-difference.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-entropy-chain-rule-from-surprisal.qmd >}}
+
 ## Mutual information {#sec-mutual-information}
 
 <!-- No slidebreak here: the heading shares its slide with the def-mutual-information div. -->

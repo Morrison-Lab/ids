@@ -1,0 +1,22 @@
+:::{#cor-conditional-surprisal-difference}
+#### Conditional surprisal as a difference
+
+For $X$, $Y$, $x$ and $y$ as in @thm-surprisal-chain-rule,
+
+$$s(y \mid x) = s(x, y) - s(x).$$
+
+:::
+
+::: {.proof}
+
+Subtract $s(x)$ from both sides of @thm-surprisal-chain-rule:
+
+$$
+\begin{aligned}
+s(x, y) - s(x)
+&= s(x) + s(y \mid x) - s(x) \\
+&= s(y \mid x).
+\end{aligned}
+$$
+
+:::

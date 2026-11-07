@@ -1,0 +1,11 @@
+:::{#def-joint-surprisal}
+#### Joint surprisal
+
+Let $X$ and $Y$ be discrete random variables
+with joint probability mass function $p(x, y) \eqdef \P(X=x, Y=y)$.
+The **joint surprisal** of a pair of outcomes $(x, y)$ with $p(x, y) > 0$
+is the [surprisal](#def-surprisal) of that pair:
+
+$$s(x, y) \eqdef -\log p(x, y).$$
+
+:::
