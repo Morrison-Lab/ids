@@ -18,13 +18,13 @@ also called the Fisher information.
 It is also the expected
 [second derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-second-derivative)
 of the surprisal,
-when $x$ is drawn from the model at the true parameter value $\param_0$
-and both are taken under that value:
+when the outcome $X$ is drawn from the model at the true parameter value $\param_0$,
+and the score is evaluated at that same outcome $X$:
 
 $$
 \einf(\param_0)
 = \Expp_{\param_0}\sb{\scoref{\param_0}^2}
-= \Expp_{\param_0}\sb{\evalAt{\dderiv{\param} \surprisal_{\param}(x)}{\param = \param_0}}.
+= \Expp_{\param_0}\sb{\evalAt{\dderiv{\param} \surprisal_{\param}(X)}{\param = \param_0}}.
 $$
 
 It is also the second derivative, at the true parameter value,
