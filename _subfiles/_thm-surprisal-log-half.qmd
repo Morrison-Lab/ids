@@ -1,0 +1,35 @@
+:::{#thm-surprisal-log-half}
+#### Surprisal as a logarithm to base one half
+
+For an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
+with $\P(X=x) > 0$,
+the [surprisal](#def-surprisal) in [bits](#def-bit) is
+
+$$s(x) = \log_{1/2} \P(X=x).$$
+
+:::
+
+::: {.proof}
+
+Write $p = \P(X=x)$.
+The [change of base formula](https://morrison-lab.github.io/mds/algebra-exponentials.html#rem-logarithm-formula) gives
+
+$$\log_b y = \frac{\logf{y}}{\logf{b}}$$
+
+for $y > 0$ and $b > 0$ with $b \ne 1$.
+With $b = 1/2$ and $y = p$,
+
+$$
+\begin{aligned}
+\log_{1/2} p
+&= \frac{\logf{p}}{\logf{1/2}} \\
+&= \frac{\logf{p}}{-\logf{2}} \\
+&= -\frac{\logf{p}}{\logf{2}} \\
+&= -\log_2 p \\
+&= s(x).
+\end{aligned}
+$$
+
+The step from the third to the fourth line is the change of base formula with $b = 2$.
+
+:::

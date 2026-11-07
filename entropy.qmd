@@ -32,6 +32,18 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_thm-surprisal-log-half.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-surprisal-log-half.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-surprisal-halvings.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_def-nat.qmd >}}
 
 {{< slidebreak >}}
