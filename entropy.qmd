@@ -88,6 +88,30 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_rem-rarity-odds.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-perplexity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-perplexity-geometric-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-perplexity-uniform.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-perplexity-loaded-die.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-perplexity-source.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-differential-entropy-vs-entropy.qmd >}}
 
 {{< slidebreak >}}

@@ -24,9 +24,11 @@ jobs:
     with:
       # mackay2003information: the book has no DOI.
       # iec80000132008: the standard has no DOI.
+      # grinstead1997introduction: the book has no DOI.
       # shannon1948mathematical: the publisher answers the checker with HTTP
       # 202, which the check reads as an error, though the DOI resolves.
       exclude-keys: >-
         mackay2003information
         shannon1948mathematical
         iec80000132008
+        grinstead1997introduction

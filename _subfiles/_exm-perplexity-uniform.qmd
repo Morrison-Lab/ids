@@ -1,0 +1,14 @@
+::: {#exm-perplexity-uniform}
+#### Perplexity of a uniform distribution
+
+<!-- no-figure: the example is a single number -->
+
+If $X$ is uniform on $k$ [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)s,
+then every outcome
+has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/k$
+and [rarity](#def-rarity) $k$,
+so by @thm-perplexity-geometric-mean the [perplexity](#def-perplexity) of $X$ is $k$.
+In general, the perplexity is the count of equally likely values
+that would give the same [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) as $X$.
+
+:::

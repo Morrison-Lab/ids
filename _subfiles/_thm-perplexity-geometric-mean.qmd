@@ -1,0 +1,33 @@
+::: {#thm-perplexity-geometric-mean}
+#### Perplexity is the probability-weighted geometric mean of the rarities
+
+For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
+the [perplexity](#def-perplexity) is a weighted geometric mean <!-- check-term-links: allow -->
+of the [rarities](#def-rarity),
+each raised to its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
+Take $x$ over the values with $\P(X=x) > 0$.
+Then
+
+$$\perplexityf{X} = \prod_x \rarityf{x}^{\P(X=x)}.$$
+
+:::
+
+::: proof
+
+$$
+\begin{aligned}
+\perplexityf{X}
+&= b^{\entropyf{X}}
+&& \text{(definition of perplexity)} \\
+&= b^{\E{\surprisalf{X}}}
+&& \text{(entropy is expected surprisal)} \\
+&= b^{\sum_x \P(X=x) \log_b \rarityf{x}}
+&& \text{(surprisal is the logarithm of the rarity)} \\
+&= \prod_x b^{\P(X=x) \log_b \rarityf{x}}
+&& \text{(a sum in the exponent is a product)} \\
+&= \prod_x \rarityf{x}^{\P(X=x)}
+&& \text{(} b^{\log_b y} = y \text{)}
+\end{aligned}
+$$
+
+:::
