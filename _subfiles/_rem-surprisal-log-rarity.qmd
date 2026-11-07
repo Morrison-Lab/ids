@@ -1,0 +1,45 @@
+::: {#rem-surprisal-log-rarity}
+#### Surprisal is the logarithm of the rarity
+
+The [surprisal](#def-surprisal) of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [rarity](#def-rarity):
+
+$$
+\begin{aligned}
+\surprisalf{x}
+&= -\logf{\P(X=x)} \\
+&= \logf{\frac{1}{\P(X=x)}} \\
+&= \logf{\rarityf{x}}.
+\end{aligned}
+$$
+
+For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+the rarity is at least $1$,
+with equality exactly when $\P(X=x) = 1$,
+so the surprisal is never below $0$.
+For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
+the same equalities hold with the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) in place of the mass:
+
+$$
+\begin{aligned}
+\surprisalf{x}
+&= -\logf{\p(x)} \\
+&= \logf{\frac{1}{\p(x)}} \\
+&= \logf{\rarityf{x}}.
+\end{aligned}
+$$
+
+A density can exceed $1$, so there the rarity can be below $1$.
+For a mass, a rarity of $r$ reads "one in $r$".
+For example, take an outcome with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$:
+
+```{r}
+#| label: surprisal-rarity-four
+p_four <- 1 / 4
+rarity_four <- 1 / p_four
+surprisal_four <- log2(rarity_four)
+surprisal_four
+```
+
+It has rarity $`r rarity_four`$ and a surprisal of $`r surprisal_four`$ [bits](#def-bit).
+
+:::

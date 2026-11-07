@@ -1,0 +1,40 @@
+::: {#rem-rarity-ranges}
+#### Values of the probability, the rarity and the surprisal
+
+For a
+[discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+the mass $\P(X=x)$ of an
+[outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)
+with a mass above $0$, its [rarity](#def-rarity) $\rarityf{x}$ and its [surprisal](#def-surprisal) $\surprisalf{x}$ take the values in the middle column.
+For a
+[continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
+the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p(x)$ takes the place of the mass.
+At a value $x$ with a density above $0$,
+the rarity $\rarityf{x}$ is the reciprocal of $\p(x)$,
+and the surprisal $\surprisalf{x}$ is the
+[surprisal of a continuous value](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous).
+Their values are in the right column.
+
+| | Mass $\P(X=x)$ | Density $\p(x)$ |
+|---|---|---|
+| Mass or density | $(0, 1]$ | $(0, \infty)$ |
+| Rarity $\rarityf{x}$ | $[1, \infty)$ | $(0, \infty)$ |
+| Surprisal $\surprisalf{x}$ | $[0, \infty)$ | $(-\infty, \infty)$ |
+
+- **Mass.**
+  A mass of $1$ gives the smallest rarity, $1$, and the smallest surprisal, $0$.
+  No mass exceeds $1$, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a certain outcome.
+  So no mass gives a rarity below $1$ or a surprisal below $0$.
+- **Density.**
+  A density can be arbitrarily large, as in the
+  [uniform example](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform),
+  so the rarity can fall below $1$ and the surprisal can fall below $0$.
+- **Zero.**
+  A mass or density of $0$ gives a rarity and a surprisal of $\infty$.
+- **Units.**
+  A mass has no units.
+  A density has the units of $1/x$,
+  so its rarity has the units of $x$.
+  Rescaling $x$ by a nonzero $c$ shifts its surprisal by $\logf{\abs{c}}$.
+
+:::
