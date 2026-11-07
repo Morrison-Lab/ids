@@ -148,10 +148,6 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
-{{< include ids/_subfiles/_rem-mutual-information-kl.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include ids/_subfiles/_thm-mutual-information-kl.qmd >}}
 
 {{< slidebreak >}}
@@ -173,6 +169,10 @@ in *Probability for Data Science*.
 {{< slidebreak >}}
 
 {{< include ids/_subfiles/_exm-conditioning-reduces-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-mutual-information-kl.qmd >}}
 
 {{< slidebreak >}}
 
