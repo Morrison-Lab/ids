@@ -8,7 +8,8 @@ the mass $\P(X=x)$ of an
 with a mass above $0$, its [rarity](#def-rarity) $\rarityf{x}$ and its [surprisal](#def-surprisal) $\surprisalf{x}$ take the values in the middle column.
 For a
 [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
-the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p(x)$ takes the place of the mass,
+the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p(x)$ takes the place of the mass.
+At a value $x$ with a density above $0$,
 the rarity $\rarityf{x}$ is the reciprocal of $\p(x)$,
 and the surprisal $\surprisalf{x}$ is the
 [surprisal of a continuous value](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous).
@@ -34,6 +35,6 @@ Their values are in the right column.
   A mass has no units.
   A density has the units of $1/x$,
   so its rarity has the units of $x$.
-  Rescaling $x$ by a nonzero $c$ shifts its surprisal by $\logf{|c|}$.
+  Rescaling $x$ by a nonzero $c$ shifts its surprisal by $\logf{\abs{c}}$.
 
 :::
