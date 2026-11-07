@@ -1,0 +1,12 @@
+::: {#rem-perplexity-source}
+#### Source of the name
+
+The name comes from speech recognition [@jelinek1977perplexity].
+Leinster defines the "diversity of order 1" <!-- check-term-links: allow -->
+as the [exponential](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function)
+of the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
+[@leinster2021entropy, Definition 2.4.1].
+He calls a diversity index an "effective number" <!-- check-term-links: allow -->
+when it is $k$ for $k$ species with the same abundance [@leinster2021entropy, Definition 2.4.5].
+
+:::
