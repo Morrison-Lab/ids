@@ -56,6 +56,18 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_def-collision-probability.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-renyi-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-collision-entropy.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-surprisal-fisher-information.qmd >}}
 
 ## Joint and conditional entropy {#sec-conditional-entropy}
