@@ -3,7 +3,8 @@
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 
 For the chain in @exm-entropy-chain-rule-n-copies,
-the marginal distribution of $X_3$ is a fair coin, so $\entropyf{X_3} = 1$ bit. <!-- check-term-links: allow -->
+the marginal distribution of $X_3$ is a fair coin,
+so $\entropyf{X_3} = 1$ bit. <!-- check-term-links: allow -->
 The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$,
 and with the pair $(X_1, X_2)$.
 
