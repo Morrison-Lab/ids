@@ -1,0 +1,22 @@
+:::{#lem-surprisal-chain-rule-reversed}
+#### Chain rule for surprisal with the conditioning reversed
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
+and [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ and $y$ with $\P(X=x, Y=y) > 0$,
+
+$$\surprisalf{x, y} = \surprisalf{x \mid y} + \surprisalf{y}.$$
+
+:::
+
+::: {.proof}
+
+Applying @thm-surprisal-chain-rule with the roles of $X$ and $Y$ swapped gives
+
+$$\surprisalf{y, x} = \surprisalf{y} + \surprisalf{x \mid y}.$$
+
+Both $\P(Y=y, X=x)$ and $\P(X=x, Y=y)$ are the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the same pair of values,
+so $\surprisalf{y, x} = \surprisalf{x, y}$.
+Substituting this into the display above,
+and swapping the two summands, gives the claim.
+
+:::
