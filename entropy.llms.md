@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-05 16:22:12 (PST)
+Last modified: 2026-11-06 16:44:32 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -118,13 +118,41 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 5* (Surprisal and the Fisher information). When the probabilities depend on a parameter $\theta$, the [surprisal](#def-surprisal) of an outcome $x$ is $-\log \operatorname{p}(x \mid \theta)$, which is minus the log-likelihood. Its derivative with respect to $\theta$ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score). The expected squared score is the [expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), which is also the second derivative, at the true parameter value, of the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) between the model at that value and the model at the varying value ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)).
+> **Definition 4 (Collision probability)** The **collision probability** of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the chance that two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies $X$ and $X'$ of $X$ take the same value:
+>
+> $$\mathbb{P}(X = X') = \sum_x \mathbb{P}(X=x)^2.$$
+
+> **NOTE:**
+>
+> **Definition 5 (Rényi entropy of order 2 (collision entropy))** The **Rényi entropy of order 2**, also called the **collision entropy** ([Wikipedia contributors 2026](#ref-wikipedia_renyi_entropy)), of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the negative [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), where $\mathbb{P}(X)$ is the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) $X$ itself:
+>
+> $$H_2(X) = -\log {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Remark 5* (The expected probability is the collision probability). [Entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [surprisal](#def-surprisal) $-\log \mathbb{P}(X)$. Taking the expectation of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\mathbb{P}(X)$ itself summarizes $X$ differently. For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, the expected probability is the [collision probability](#def-collision-probability), where $X'$ is an [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copy of $X$:
+>
+> $$\begin{aligned}
+> {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}}
+> &= \sum_x \mathbb{P}(X=x)^2 \\
+> &= \mathbb{P}(X = X').
+> \end{aligned}$$
+>
+> So the [collision entropy](#def-renyi-entropy) is $H_2(X) = -\log \mathbb{P}(X = X')$.
+>
+> For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\operatorname{p}$, the analogue is ${\mathbb{E}\mathopen{}\left[\operatorname{p}(X)\right]\mathclose{}} = \int \operatorname{p}(x)^2\,dx$. The [expected-density exercises](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density) derive this quantity, then compute it in the [uniform case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-uniform) and the [normal case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-normal).
+>
+> The collision entropy is at most the [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) ${H\mathopen{}\left(X\right)\mathclose{}} = {\mathbb{E}\mathopen{}\left[-\log \mathbb{P}(X)\right]\mathclose{}}$. This holds because $-\log$ is a [convex function](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function). Jensen’s inequality then gives ${\mathbb{E}\mathopen{}\left[-\log \mathbb{P}(X)\right]\mathclose{}} \ge -\log {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}}$. The two coincide exactly when all the values $X$ can take are equally likely, since then $\mathbb{P}(X)$ takes the same value for every value of $X$.
+
+> **NOTE:**
+>
+> *Remark 6* (Surprisal and the Fisher information). When the probabilities depend on a parameter $\theta$, the [surprisal](#def-surprisal) of an outcome $x$ is $-\log \operatorname{p}(x \mid \theta)$, which is minus the log-likelihood. Its derivative with respect to $\theta$ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score). The expected squared score is the [expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), which is also the second derivative, at the true parameter value, of the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) between the model at that value and the model at the varying value ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)).
 
 ## 2 Joint and conditional entropy
 
 > **NOTE:**
 >
-> **Definition 4 (Joint entropy)** Let $X$ and $Y$ be discrete random variables with joint probability mass function $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. Their **joint entropy** is the entropy of the pair $(X, Y)$:
+> **Definition 6 (Joint entropy)** Let $X$ and $Y$ be discrete random variables with joint probability mass function $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. Their **joint entropy** is the entropy of the pair $(X, Y)$:
 >
 > $$H(X, Y) \stackrel{\text{def}}{=}-\sum_{x, y} p(x, y) \log p(x, y),$$
 >
@@ -132,7 +160,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 5 (Entropy given one value)** For $X$ and $Y$ as in [Definition 4](#def-joint-entropy), write $p(y \mid x) \stackrel{\text{def}}{=}\mathbb{P}(Y=y \mid X=x)$. The **entropy of** $Y$ given $X=x$, for a value $x$ with $\mathbb{P}(X=x) > 0$, is
+> **Definition 7 (Entropy given one value)** For $X$ and $Y$ as in [Definition 6](#def-joint-entropy), write $p(y \mid x) \stackrel{\text{def}}{=}\mathbb{P}(Y=y \mid X=x)$. The **entropy of** $Y$ given $X=x$, for a value $x$ with $\mathbb{P}(X=x) > 0$, is
 >
 > $$H(Y \mid X=x) \stackrel{\text{def}}{=}-\sum_{y} p(y \mid x) \log p(y \mid x),$$
 >
@@ -140,7 +168,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 6 (Conditional entropy)** For $X$ and $Y$ as in [Definition 4](#def-joint-entropy), write $p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)$. The **conditional entropy** of $Y$ given $X$ averages the [entropy of](#def-entropy-given-value) $Y$ given each value of $X$ over the distribution of $X$:
+> **Definition 8 (Conditional entropy)** For $X$ and $Y$ as in [Definition 6](#def-joint-entropy), write $p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)$. The **conditional entropy** of $Y$ given $X$ averages the [entropy of](#def-entropy-given-value) $Y$ given each value of $X$ over the distribution of $X$:
 >
 > $$H(Y \mid X) \stackrel{\text{def}}{=}\sum_{x} p(x) \, H(Y \mid X=x),$$
 >
@@ -154,7 +182,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. Use the notation of [Definition 5](#def-entropy-given-value) and [Definition 6](#def-conditional-entropy), with every sum over the pairs with $p(x, y) > 0$. Since $p(x, y) = p(x) \, p(y \mid x)$,
+> *Proof*. Use the notation of [Definition 7](#def-entropy-given-value) and [Definition 8](#def-conditional-entropy), with every sum over the pairs with $p(x, y) > 0$. Since $p(x, y) = p(x) \, p(y \mid x)$,
 >
 > $$\begin{aligned}
 > H(X, Y)
@@ -175,7 +203,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 7 (Mutual information)** The **mutual information** between discrete random variables $X$ and $Y$ with finite entropies is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ from learning $X$:
+> **Definition 9 (Mutual information)** The **mutual information** between discrete random variables $X$ and $Y$ with finite entropies is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ from learning $X$:
 >
 > $$I(X; Y) \stackrel{\text{def}}{=}H(Y) - H(Y \mid X),$$
 >
@@ -197,19 +225,19 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $$H(X) - H(X \mid Y) = H(Y) - H(Y \mid X).$$
 >
-> The right side is $I(X; Y)$ by [Definition 7](#def-mutual-information), and the left side is $I(Y; X)$ by the same definition.
+> The right side is $I(X; Y)$ by [Definition 9](#def-mutual-information), and the left side is $I(Y; X)$ by the same definition.
 
 > **NOTE:**
 >
-> *Remark 6* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of $(X, Y)$ from the product of its marginals, and show that this equals $H(Y) - H(Y \mid X)$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is $0$ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), $I(X; Y) \ge 0$, with equality exactly when $X$ and $Y$ are independent. Learning $X$ never raises the entropy of $Y$ on average.
+> *Remark 7* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of $(X, Y)$ from the product of its marginals, and show that this equals $H(Y) - H(Y \mid X)$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is $0$ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), $I(X; Y) \ge 0$, with equality exactly when $X$ and $Y$ are independent. Learning $X$ never raises the entropy of $Y$ on average.
 
 > **NOTE:**
 >
-> **Definition 8 (Information gain)** A decision tree splits the points at a node into branches. The **information gain** of the split is the entropy of the class labels at the node, minus the entropy of the labels in each branch, weighted by the share of the node’s points that branch holds ([Quinlan 1986](#ref-quinlan1986induction)).
+> **Definition 10 (Information gain)** A decision tree splits the points at a node into branches. The **information gain** of the split is the entropy of the class labels at the node, minus the entropy of the labels in each branch, weighted by the share of the node’s points that branch holds ([Quinlan 1986](#ref-quinlan1986induction)).
 
 > **NOTE:**
 >
-> *Remark 7* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 8](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the entropy at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the information gain is the [mutual information](#def-mutual-information) $I(X; Y)$.
+> *Remark 8* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 10](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the entropy at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the information gain is the [mutual information](#def-mutual-information) $I(X; Y)$.
 
 > **NOTE:**
 >
@@ -222,7 +250,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > | B     | yes    | $5$ | $10$  |
 > |       | no     | $5$ | $0$   |
 >
-> Draw one point uniformly at random from the node, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 7](#rem-information-gain)). The information gain of each split ([Definition 8](#def-information-gain)) is then $I(X; Y)$. Use base-2 logarithms throughout.
+> Draw one point uniformly at random from the node, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 8](#rem-information-gain)). The information gain of each split ([Definition 10](#def-information-gain)) is then $I(X; Y)$. Use base-2 logarithms throughout.
 >
 > 1.  Compute $H(Y)$.
 >
@@ -276,7 +304,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >     &\approx 0.689 \text{ bits}.
 >     \end{aligned}$$
 >
-> 3.  By [Definition 7](#def-mutual-information), the gain is $H(Y) - H(Y \mid X)$:
+> 3.  By [Definition 9](#def-mutual-information), the gain is $H(Y) - H(Y \mid X)$:
 >
 >     - split A: $1 - 0.764 = 0.236$ bits
 >     - split B: $1 - 0.689 = 0.311$ bits
@@ -292,5 +320,7 @@ International Electrotechnical Commission. 2008. *Quantities and Units — Part 
 MacKay, David J. C. 2003. *Information Theory, Inference, and Learning Algorithms*. Cambridge University Press.
 
 Quinlan, J. R. 1986. “Induction of Decision Trees.” *Machine Learning* 1 (1): 81–106. <https://doi.org/10.1007/BF00116251>.
+
+Wikipedia contributors. 2026. *Rényi Entropy — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy>.
 
 Back to top
