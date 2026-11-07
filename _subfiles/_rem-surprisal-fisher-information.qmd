@@ -13,17 +13,21 @@ Its derivative with respect to $\param$ is minus the
 $$\deriv{\param} \surprisal_{\param}(x) = -\scoref{\param}.$$
 
 The expected squared score is the
-[expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf),
-which is also the expected [second derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-second-derivative) of the surprisal,
-when both are taken under the true parameter value $\param_0$:
+[expected information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf),
+also called the Fisher information.
+It is also the expected
+[second derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-second-derivative)
+of the surprisal,
+when $x$ is drawn from the model at the true parameter value $\param_0$
+and both are taken under that value:
 
 $$
 \einf(\param_0)
 = \Expp_{\param_0}\sb{\scoref{\param_0}^2}
-= \Expp_{\param_0}\sb{\dderiv{\param} \surprisal_{\param}(x)\bigg|_{\param = \param_0}}.
+= \Expp_{\param_0}\sb{\evalAt{\dderiv{\param} \surprisal_{\param}(x)}{\param = \param_0}}.
 $$
 
-The [expected information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf) is also the second derivative, at the true parameter value,
+It is also the second derivative, at the true parameter value,
 of the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
 between the model at that value and the model at the varying value
 ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)):
