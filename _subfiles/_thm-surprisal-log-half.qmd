@@ -12,7 +12,7 @@ $$s(x) = \log_{1/2} \P(X=x).$$
 ::: {.proof}
 
 Write $p = \P(X=x)$.
-The [change of base](https://morrison-lab.github.io/mds/algebra-exponentials.html#rem-logarithm-formula) formula gives
+The [change of base formula](https://morrison-lab.github.io/mds/algebra-exponentials.html#rem-logarithm-formula) gives
 
 $$\log_b y = \frac{\logf{y}}{\logf{b}}$$
 
