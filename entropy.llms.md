@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 13:41:03 (PST)
+Last modified: 2026-11-07 15:01:14 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -458,11 +458,106 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > Here ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = 1.722$ bits, ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = 0.722$ bits and ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bits. So ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Corollary 2](#cor-entropy-chain-rule-reversed)), and ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 0.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ ([Corollary 3](#cor-conditional-entropy-difference)).
 
+> **NOTE:**
+>
+> **Definition 10 (Joint surprisal)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. The **joint surprisal** of a pair of [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $(x, y)$ with $p(x, y) > 0$ is the [surprisal](#def-surprisal) of that pair:
+>
+> $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} \stackrel{\text{def}}{=}-\log p(x, y).$$
+
+> **NOTE:**
+>
+> **Definition 11 (Conditional surprisal)** For $X$ and $Y$ as in [Definition 10](#def-joint-surprisal), the **conditional surprisal** of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $y$ given an outcome $x$ with $\mathbb{P}(X=x) > 0$ and $\mathbb{P}(Y=y \mid X=x) > 0$ is
+>
+> $${\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} \stackrel{\text{def}}{=}-\log \mathbb{P}(Y=y \mid X=x).$$
+
+> **NOTE:**
+>
+> **Example 7 (Joint and conditional surprisal of a noisy copy)**  
+>
+> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with probability $0.8$ and the other value with probability $0.2$. Take the pair of values $x = 0$ and $y = 1$. The joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $\mathbb{P}(X=0, Y=1) = 0.1$, the probability of $X=0$ is $0.5$, and the conditional probability is $\mathbb{P}(Y=1 \mid X=0) = 0.2$. The chunk computes the three [surprisals](#def-surprisal), in [bits](#def-bit).
+>
+> Show code
+>
+> ``` r
+> s_xy <- -log2(0.1)
+> s_x <- -log2(0.5)
+> s_y_given_x <- -log2(0.2)
+> c(s_xy = s_xy, s_x = s_x, s_y_given_x = s_y_given_x)
+> #>        s_xy         s_x s_y_given_x 
+> #>    3.321928    1.000000    2.321928
+> ```
+>
+> The [joint surprisal](#def-joint-surprisal) is ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits, the surprisal of $x = 0$ alone is ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ bit, and the [conditional surprisal](#def-conditional-surprisal) is ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits.
+
+> **NOTE:**
+>
+> **Theorem 6 (Chain rule for surprisal)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ and [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ and $y$ with $\mathbb{P}(X=x, Y=y) > 0$,
+>
+> $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Since $\mathbb{P}(X=x, Y=y) = \mathbb{P}(X=x) \, \mathbb{P}(Y=y \mid X=x)$,
+>
+> $$\begin{aligned}
+> {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}}
+> &= -\log \mathbb{P}(X=x, Y=y) \\
+> &= -\log \mathopen{}\left[\mathbb{P}(X=x) \, \mathbb{P}(Y=y \mid X=x)\right]\mathclose{} \\
+> &= -\log \mathbb{P}(X=x) - \log \mathbb{P}(Y=y \mid X=x) \\
+> &= {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Corollary 4 (Conditional surprisal as a difference)** For $X$, $Y$, $x$ and $y$ as in [Theorem 6](#thm-surprisal-chain-rule),
+>
+> $${\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Subtract ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ from both sides of [Theorem 6](#thm-surprisal-chain-rule):
+>
+> $$\begin{aligned}
+> {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}
+> &= {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} \\
+> &= {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Example 8 (Chain rule for surprisal with a noisy copy)**  
+>
+> For the pair of values in [Example 7](#exm-joint-conditional-surprisal), the chunk recomputes the three [surprisals](#def-surprisal) in [bits](#def-bit).
+>
+> Show code
+>
+> ``` r
+> s_xy <- -log2(0.1)
+> s_x <- -log2(0.5)
+> s_y_given_x <- -log2(0.2)
+> c(sum = s_x + s_y_given_x, joint = s_xy)
+> #>      sum    joint 
+> #> 3.321928 3.321928
+> ```
+>
+> The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$ is $3.322$ [bits](#def-bit). This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Theorem 6](#thm-surprisal-chain-rule)). Subtracting ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ bit from the joint surprisal recovers ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits ([Corollary 4](#cor-conditional-surprisal-difference)).
+
+> **NOTE:**
+>
+> *Remark 10* (The chain rule for entropy is the chain rule for surprisal on average). The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a pair is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [joint surprisal](#def-joint-surprisal), and the [conditional entropy](#def-conditional-entropy) is the expectation of the [conditional surprisal](#def-conditional-surprisal):
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X, Y\right)\mathclose{}}\right]\mathclose{}} \\
+> {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}}.
+> \end{aligned}$$
+>
+> Taking the expectation of both sides of [Theorem 6](#thm-surprisal-chain-rule) therefore gives [Theorem 5](#thm-entropy-chain-rule).
+
 ## 3 Mutual information
 
 > **NOTE:**
 >
-> **Definition 10 (Mutual information)** The **mutual information** between discrete random variables $X$ and $Y$ with finite entropies is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ from learning $X$:
+> **Definition 12 (Mutual information)** The **mutual information** between discrete random variables $X$ and $Y$ with finite entropies is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ from learning $X$:
 >
 > $$I(X; Y) \stackrel{\text{def}}{=}H(Y) - H(Y \mid X),$$
 >
@@ -470,7 +565,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 6 (Mutual information is symmetric)** For discrete random variables $X$ and $Y$ with finite entropies,
+> **Theorem 7 (Mutual information is symmetric)** For discrete random variables $X$ and $Y$ with finite entropies,
 >
 > $$I(X; Y) = H(X) - H(X \mid Y) = I(Y; X).$$
 
@@ -484,19 +579,19 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $$H(X) - H(X \mid Y) = H(Y) - H(Y \mid X).$$
 >
-> The right side is $I(X; Y)$ by [Definition 10](#def-mutual-information), and the left side is $I(Y; X)$ by the same definition.
+> The right side is $I(X; Y)$ by [Definition 12](#def-mutual-information), and the left side is $I(Y; X)$ by the same definition.
 
 > **NOTE:**
 >
-> *Remark 10* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of $(X, Y)$ from the product of its marginals, and show that this equals $H(Y) - H(Y \mid X)$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is $0$ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), $I(X; Y) \ge 0$, with equality exactly when $X$ and $Y$ are independent. Learning $X$ never raises the entropy of $Y$ on average.
+> *Remark 11* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of $(X, Y)$ from the product of its marginals, and show that this equals $H(Y) - H(Y \mid X)$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is $0$ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), $I(X; Y) \ge 0$, with equality exactly when $X$ and $Y$ are independent. Learning $X$ never raises the entropy of $Y$ on average.
 
 > **NOTE:**
 >
-> **Definition 11 (Information gain)** A decision tree splits the points at a node into branches. The **information gain** of the split is the entropy of the class labels at the node, minus the entropy of the labels in each branch, weighted by the share of the node’s points that branch holds ([Quinlan 1986](#ref-quinlan1986induction)).
+> **Definition 13 (Information gain)** A decision tree splits the points at a node into branches. The **information gain** of the split is the entropy of the class labels at the node, minus the entropy of the labels in each branch, weighted by the share of the node’s points that branch holds ([Quinlan 1986](#ref-quinlan1986induction)).
 
 > **NOTE:**
 >
-> *Remark 11* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 11](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the entropy at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the information gain is the [mutual information](#def-mutual-information) $I(X; Y)$.
+> *Remark 12* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 13](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the entropy at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the information gain is the [mutual information](#def-mutual-information) $I(X; Y)$.
 
 > **NOTE:**
 >
@@ -509,7 +604,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > | B     | yes    | $5$ | $10$  |
 > |       | no     | $5$ | $0$   |
 >
-> Draw one point uniformly at random from the node, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 11](#rem-information-gain)). The information gain of each split ([Definition 11](#def-information-gain)) is then $I(X; Y)$. Use base-2 logarithms throughout.
+> Draw one point uniformly at random from the node, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 12](#rem-information-gain)). The information gain of each split ([Definition 13](#def-information-gain)) is then $I(X; Y)$. Use base-2 logarithms throughout.
 >
 > 1.  Compute $H(Y)$.
 >
@@ -563,7 +658,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >     &\approx 0.689 \text{ bits}.
 >     \end{aligned}$$
 >
-> 3.  By [Definition 10](#def-mutual-information), the gain is $H(Y) - H(Y \mid X)$:
+> 3.  By [Definition 12](#def-mutual-information), the gain is $H(Y) - H(Y \mid X)$:
 >
 >     - split A: $1 - 0.764 = 0.236$ bits
 >     - split B: $1 - 0.689 = 0.311$ bits
