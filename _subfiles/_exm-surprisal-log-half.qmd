@@ -5,7 +5,7 @@
 A coin lands heads with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.2$. <!-- check-term-links: allow -->
 The chunk computes the [surprisal](#def-surprisal) of heads in two ways:
 as $-\log_2 0.2$,
-and as the base one half logarithm of $0.2$.
+and as $\log_{1/2} 0.2$.
 
 ```{r}
 #| code-fold: show
@@ -15,7 +15,7 @@ from_base_half <- log(x = p_heads, base = 0.5)
 c(from_base_two, from_base_half)
 ```
 
-Both give $`r round(from_base_half, 3)`$ bits (@thm-surprisal-log-half).
+Both give $`r round(from_base_half, 3)`$ [bits](#def-bit) (@thm-surprisal-log-half).
 Halving $1$ that many times gives $0.5^{`r round(from_base_half, 3)`} = `r round(0.5^from_base_half, 3)`$, the probability of heads.
 
 :::
