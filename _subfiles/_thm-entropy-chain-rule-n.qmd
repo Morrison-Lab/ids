@@ -1,0 +1,34 @@
+:::{#thm-entropy-chain-rule-n}
+#### Chain rule for entropy, many variables
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$
+with finite entropies, <!-- check-term-links: allow -->
+
+$$H(X_1, \ldots, X_n) = \sum_{i=1}^{n} H(X_i \mid X_1, \ldots, X_{i-1}),$$
+
+where the term for $i = 1$ is $H(X_1)$. <!-- check-term-links: allow -->
+
+:::
+
+::: {.proof}
+
+The proof is by induction on $n$.
+The claim for $n = 1$ is $H(X_1) = H(X_1)$.
+
+Suppose the claim holds for $n - 1$ variables.
+Treat $(X_1, \ldots, X_{n-1})$ as one discrete random variable.
+The [chain rule](#thm-entropy-chain-rule) for two variables gives
+
+$$H(X_1, \ldots, X_n) = H(X_1, \ldots, X_{n-1}) + H(X_n \mid X_1, \ldots, X_{n-1}).$$
+
+The induction hypothesis expands the first term on the right:
+
+$$
+\begin{aligned}
+H(X_1, \ldots, X_n)
+&= \sum_{i=1}^{n-1} H(X_i \mid X_1, \ldots, X_{i-1}) + H(X_n \mid X_1, \ldots, X_{n-1}) \\
+&= \sum_{i=1}^{n} H(X_i \mid X_1, \ldots, X_{i-1}).
+\end{aligned}
+$$
+
+:::
