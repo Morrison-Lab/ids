@@ -3,7 +3,7 @@
 
 <!-- no-figure: the example is three numbers -->
 
-Let $p = (1/2, 1/4, 1/4)$ be the  of a three-valued [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable),
+Let $p = (1/2, 1/4, 1/4)$ be the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of a three-valued [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable),
 and let $q = (1/3, 1/3, 1/3)$ be the uniform mass function.
 The code below computes the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and the divergence in [bits](entropy.qmd#def-bit).
 
