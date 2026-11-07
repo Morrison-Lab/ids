@@ -3,7 +3,7 @@
 <!-- no-figure: the example reports a single number, with nothing to plot -->
 
 Let $X$ be a fair coin toss.
-Its entropy is $1$ bit,
+Its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is $1$ [bit](#def-bit),
 and given $X$ itself there is no uncertainty left, so $\entropyf{X \mid X} = 0$.
 Hence $I(X; X) = 1 - 0 = 1$ bit (@thm-mutual-information-self),
 the same as $\entropyf{X}$.

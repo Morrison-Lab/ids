@@ -17,9 +17,9 @@ where the sum runs over the pairs with $p(x, y) > 0$. <!-- check-term-links: all
 
 ::: {.proof}
 
-Every sum below runs over the pairs with $p(x, y) > 0$,
+Every sum below runs over the pairs with $p(x, y) > 0$, <!-- check-term-links: allow -->
 and the entropies are finite, <!-- check-term-links: allow -->
-so the sums converge absolutely and can be split and regrouped.
+so the sums converge absolutely and can be split and regrouped. <!-- check-term-links: allow -->
 Write $p(y \mid x) = p(x, y) / p(x)$,
 which is defined for every such pair because $p(x) \ge p(x, y) > 0$.
 By @def-mutual-information and the definitions of

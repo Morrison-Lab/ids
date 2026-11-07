@@ -3,8 +3,8 @@
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 
 For the noisy copy in @exm-mutual-information-noisy-copy,
-the mutual information is positive, because $Y$ depends on $X$.
-For two independent fair coins, every joint probability is $0.25$.
+the [mutual information](#def-mutual-information) is positive, because $Y$ depends on $X$.
+For two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, every joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $0.25$.
 The chunk computes the mutual information of the second pair.
 
 ```{r}
@@ -18,7 +18,7 @@ terms_independent <- joint_independent * log2(joint_independent / product_indepe
 sum(terms_independent)
 ```
 
-So the mutual information of the independent coins is $0$ bits,
+So the mutual information of the independent coins is $0$ bits, <!-- check-term-links: allow -->
 and that of the dependent pair is $`r round(mutual_information, 3)`$ bits
 (@thm-mutual-information-nonnegative).
 
