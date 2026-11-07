@@ -1,0 +1,31 @@
+:::{#thm-entropy-sum-decomposition}
+#### Decomposition of the sum of entropies
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
+with finite entropies, <!-- check-term-links: allow -->
+
+$$\entropyf{X} + \entropyf{Y} = \entropyf{X \mid Y} + 2 \, I(X; Y) + \entropyf{Y \mid X}.$$
+
+:::
+
+::: {.proof}
+
+Rearranging @thm-mutual-information-joint-minus-conditionals gives
+
+$$\entropyf{X, Y} = I(X; Y) + \entropyf{X \mid Y} + \entropyf{Y \mid X}.$$
+
+Rearranging @thm-mutual-information-entropy-sum gives
+
+$$\entropyf{X} + \entropyf{Y} = I(X; Y) + \entropyf{X, Y}.$$
+
+Substituting the first display into the second gives
+
+$$
+\begin{aligned}
+\entropyf{X} + \entropyf{Y}
+&= I(X; Y) + \sb{I(X; Y) + \entropyf{X \mid Y} + \entropyf{Y \mid X}} \\
+&= \entropyf{X \mid Y} + 2 \, I(X; Y) + \entropyf{Y \mid X}.
+\end{aligned}
+$$
+
+:::

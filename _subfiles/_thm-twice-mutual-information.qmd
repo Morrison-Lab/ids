@@ -1,0 +1,32 @@
+:::{#thm-twice-mutual-information}
+#### Twice the mutual information
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
+with finite entropies, <!-- check-term-links: allow -->
+
+$$2 \, I(X; Y) = \sb{\entropyf{X} - \entropyf{X \mid Y}} + \sb{\entropyf{Y} - \entropyf{Y \mid X}}.$$
+
+:::
+
+::: {.proof}
+
+By @thm-mutual-information-symmetric,
+
+$$
+\begin{aligned}
+\entropyf{X} - \entropyf{X \mid Y} &= I(X; Y) \\
+\entropyf{Y} - \entropyf{Y \mid X} &= I(X; Y).
+\end{aligned}
+$$
+
+Adding the two displays gives
+
+$$
+\begin{aligned}
+\sb{\entropyf{X} - \entropyf{X \mid Y}} + \sb{\entropyf{Y} - \entropyf{Y \mid X}}
+&= I(X; Y) + I(X; Y) \\
+&= 2 \, I(X; Y).
+\end{aligned}
+$$
+
+:::

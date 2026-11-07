@@ -1,0 +1,36 @@
+:::{#thm-mutual-information-joint-minus-conditionals}
+#### Mutual information from the conditional entropies
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
+with finite entropies, <!-- check-term-links: allow -->
+
+$$I(X; Y) = \entropyf{X, Y} - \sb{\entropyf{X \mid Y} + \entropyf{Y \mid X}}.$$
+
+:::
+
+::: {.proof}
+
+By @cor-conditional-entropy-difference and the [chain rule](#thm-entropy-chain-rule),
+the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of each variable
+is the [joint entropy](#def-joint-entropy)
+minus a [conditional entropy](#def-conditional-entropy):
+
+$$
+\begin{aligned}
+\entropyf{X} &= \entropyf{X, Y} - \entropyf{Y \mid X} \\
+\entropyf{Y} &= \entropyf{X, Y} - \entropyf{X \mid Y}.
+\end{aligned}
+$$
+
+Substituting both into @thm-mutual-information-entropy-sum gives
+
+$$
+\begin{aligned}
+I(X; Y)
+&= \entropyf{X} + \entropyf{Y} - \entropyf{X, Y} \\
+&= \sb{\entropyf{X, Y} - \entropyf{Y \mid X}} + \sb{\entropyf{X, Y} - \entropyf{X \mid Y}} - \entropyf{X, Y} \\
+&= \entropyf{X, Y} - \sb{\entropyf{X \mid Y} + \entropyf{Y \mid X}}.
+\end{aligned}
+$$
+
+:::

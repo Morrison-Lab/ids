@@ -160,6 +160,30 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_thm-mutual-information-entropy-sum.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-mutual-information-joint-minus-conditionals.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-entropy-sum-decomposition.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-twice-mutual-information.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-mutual-information-identities-noisy-copy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-mutual-information-venn.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-mutual-information-kl.qmd >}}
 
 {{< slidebreak >}}
