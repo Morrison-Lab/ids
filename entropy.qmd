@@ -52,7 +52,67 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_def-rarity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-rarity-die.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-rarity-source.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-surprisal-log-rarity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-surprisal-log-rarity-continuous.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-surprisal-discrete-nonnegative.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-surprisal-rarity-four.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-surprisal-log-rarity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-rarity-ranges.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-differential-entropy-vs-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-collision-probability.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-renyi-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-expected-probability-collision.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-collision-entropy-at-most-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-collision-entropy-three-values.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-collision-entropy.qmd >}}
 
 {{< slidebreak >}}
 

@@ -1,0 +1,18 @@
+::: {#rem-collision-entropy}
+#### Two ways to summarize a random variable by its probabilities
+
+[Entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [surprisal](#def-surprisal) $-\log \P(X)$.
+Taking the expectation of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\P(X)$ itself summarizes $X$ differently.
+For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+@thm-expected-probability-collision identifies that expectation with the [collision probability](#def-collision-probability),
+so the [collision entropy](#def-renyi-entropy) is $H_2(X) = -\log \P(X = X')$.
+
+For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p$,
+the analogue is $\E{\p(X)} = \int \p(x)^2\,dx$.
+The [expected-density exercises](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density) derive this quantity,
+then compute it in the [uniform case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-uniform)
+and the [normal case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-normal).
+
+@thm-collision-entropy-at-most-entropy compares the collision entropy with the [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
+
+:::

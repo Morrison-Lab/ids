@@ -1,0 +1,26 @@
+:::{#thm-collision-entropy-at-most-entropy}
+#### The collision entropy is at most the Shannon entropy
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with values $x_1, \ldots, x_n$.
+Then the [collision entropy](#def-renyi-entropy) is at most the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy):
+
+$$H_2(X) \le \entropyf{X}.$$
+
+The two coincide exactly when each value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has the same probability.
+
+:::
+
+::: proof
+
+Write $\P(X)$ for the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at $X$.
+The function $-\log$ is [strictly convex](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function), <!-- check-term-links: allow -->
+so Jensen's inequality gives <!-- check-term-links: allow -->
+
+$$\E{-\log \P(X)} \ge -\log \E{\P(X)},$$
+
+with equality exactly when $\P(X)$ is constant. <!-- check-term-links: allow -->
+The left side is $\entropyf{X}$.
+The right side is $H_2(X)$ by its definition.
+The function $\P(X)$ is constant exactly when every value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has that same probability.
+
+:::
