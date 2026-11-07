@@ -13,26 +13,30 @@ so the odds against $A$ are $\rarityf{x} - 1$.
 
 ```{r}
 #| label: rarity-odds
-p_event <- c(1 / 4, 1 / 100, 1)
-rarity_event <- 1 / p_event
-odds_against <- (1 - p_event) / p_event
-rarity_event - odds_against
-rarity_event
+p_outcome <- c(1 / 4, 1 / 100, 1)
+rarity_outcome <- 1 / p_outcome
+odds_against <- (1 - p_outcome) / p_outcome
+rarity_outcome - odds_against
+rarity_outcome
 odds_against
 ```
 
-The first printed line shows that the rarity exceeds the odds against by exactly $1$ for each $p$.
-An outcome with probability $1/4$ has rarity $`r rarity_event[1]`$ and odds of $`r odds_against[1]`$ to $1$ against.
+The first printed line shows that, for each $p$, the rarity of the outcome exceeds the odds against its event by exactly $1$.
+An outcome with probability $1/4$ has rarity $`r rarity_outcome[1]`$,
+and its event has odds of $`r odds_against[1]`$ to $1$ against.
 The two differ by exactly $1$, so they are relatively close when the rarity is large.
-At $p = 1$ the rarity is $`r rarity_event[3]`$ and the odds against are $`r odds_against[3]`$.
+At $p = 1$ the rarity is $`r rarity_outcome[3]`$ and the odds against are $`r odds_against[3]`$,
+but the odds in favour divide by zero.
 
 The odds compare an event with its
 [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement),
 and the odds against take values in $[0, \infty)$ when $p$ is above $0$.
+At $p = 0$, the odds against and the rarity divide by zero.
 The rarity of an outcome takes values in $[1, \infty)$.
 For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
-a single value has probability $0$, so it has no odds,
-but its rarity is defined from the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf).
+the event $X = x$ for a single value has probability $0$,
+so its odds against and $1/\P(X=x)$ are not defined,
+but the rarity of the value is defined from the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf).
 An event such as $X \le c$ can have a probability above $0$, so it can have odds.
 
 :::
