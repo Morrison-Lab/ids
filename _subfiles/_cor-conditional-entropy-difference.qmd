@@ -1,0 +1,23 @@
+:::{#cor-conditional-entropy-difference}
+#### Conditional entropy as a difference
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
+with finite entropies, <!-- check-term-links: allow -->
+
+$$\entropyf{X \mid Y} = \entropyf{X, Y} - \entropyf{Y}.$$
+
+:::
+
+::: {.proof}
+
+Subtract $\entropyf{Y}$ from both sides of @cor-entropy-chain-rule-reversed:
+
+$$
+\begin{aligned}
+\entropyf{X, Y} - \entropyf{Y}
+&= \entropyf{X \mid Y} + \entropyf{Y} - \entropyf{Y} \\
+&= \entropyf{X \mid Y}.
+\end{aligned}
+$$
+
+:::

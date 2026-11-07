@@ -1,0 +1,39 @@
+:::{#exm-entropy-chain-rule-noisy-copy}
+#### Chain rule for entropy with a noisy copy
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+Let $X$ be a fair coin toss, coded $0$ or $1$.
+Let $Y$ be a noisy copy of $X$:
+it equals $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ <!-- check-term-links: allow -->
+and the other value with probability $0.2$. <!-- check-term-links: allow -->
+The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$,
+and $0.1$ for $(0, 1)$ and $(1, 0)$.
+The chunk computes each [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) from its definition,
+in [bits](#def-bit).
+
+```{r}
+#| code-fold: show
+entropy <- function(p) -sum(p * log2(p))
+joint <- matrix(
+  data = c(0.4, 0.1, 0.1, 0.4),
+  nrow = 2,
+  dimnames = list(x = 0:1, y = 0:1)
+)
+p_y <- colSums(joint)
+cond_x_given_y <- sweep(x = joint, MARGIN = 2, STATS = p_y, FUN = "/")
+h_x_given_y_values <- apply(X = cond_x_given_y, MARGIN = 2, FUN = entropy)
+h_x_given_y <- sum(p_y * h_x_given_y_values)
+h_xy <- entropy(joint)
+h_y <- entropy(p_y)
+c(h_xy = h_xy, h_x_given_y = h_x_given_y, h_y = h_y)
+```
+
+Here $\entropyf{X, Y} = `r round(h_xy, 3)`$ bits,
+$\entropyf{X \mid Y} = `r round(h_x_given_y, 3)`$ bits
+and $\entropyf{Y} = `r round(h_y, 3)`$ bits.
+So $\entropyf{X \mid Y} + \entropyf{Y} = `r round(h_x_given_y + h_y, 3)`$ bits
+agrees with $\entropyf{X, Y}$ (@cor-entropy-chain-rule-reversed),
+and $\entropyf{X, Y} - \entropyf{Y} = `r round(h_xy - h_y, 3)`$ bits
+agrees with $\entropyf{X \mid Y}$ (@cor-conditional-entropy-difference).
+
+:::

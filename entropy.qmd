@@ -138,6 +138,18 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_cor-entropy-chain-rule-reversed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-conditional-entropy-difference.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-entropy-chain-rule-noisy-copy.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_def-joint-surprisal.qmd >}}
 
 {{< slidebreak >}}
