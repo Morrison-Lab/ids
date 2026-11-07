@@ -1,34 +1,38 @@
 ::: {#rem-rarity-odds}
 #### Rarity and odds
 
-For an [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $A$
-with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p$,
-the [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) in favour of $A$ are $p / (1 - p)$,
+Let $x$ be an
+[outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)
+of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
+and let $A$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $X = x$
+with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p = \P(X=x)$.
+The [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) in favour of $A$ are $p / (1 - p)$,
 and the odds against $A$ are $(1 - p) / p$ [@grinstead1997introduction, Definition 1.4].
-Let $r = 1/p$ be the [rarity](#def-rarity) of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with probability $p$.
-Then the odds against are $r - 1$.
+The [rarity](#def-rarity) of $x$ is $\rarityf{x} = 1/p$,
+so the odds against $A$ are $\rarityf{x} - 1$.
 
 ```{r}
 #| label: rarity-odds
-p <- c(1 / 4, 1 / 100, 1)
-rarity <- 1 / p
-odds_against <- (1 - p) / p
-rarity - odds_against
-rarity
+p_event <- c(1 / 4, 1 / 100, 1)
+rarity_event <- 1 / p_event
+odds_against <- (1 - p_event) / p_event
+rarity_event - odds_against
+rarity_event
 odds_against
 ```
 
 The first printed line shows that the rarity exceeds the odds against by exactly $1$ for each $p$.
-An event with probability $1/4$ has rarity $`r rarity[1]`$ and odds of $`r odds_against[1]`$ to $1$ against.
-The two nearly agree for a small $p$.
-At $p = 1$ the rarity is $`r rarity[3]`$ and the odds against are $`r odds_against[3]`$.
+An outcome with probability $1/4$ has rarity $`r rarity_event[1]`$ and odds of $`r odds_against[1]`$ to $1$ against.
+The two differ by exactly $1$, so they are relatively close when the rarity is large.
+At $p = 1$ the rarity is $`r rarity_event[3]`$ and the odds against are $`r odds_against[3]`$.
 
 The odds compare an event with its
 [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement),
-so they apply to an event and take values in $[0, \infty]$,
-for a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) as well.
-The rarity compares an
-[outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)
-with the whole [sample space](https://morrison-lab.github.io/pds/probability-basics.html#def-sample-space).
+and the odds against take values in $[0, \infty)$ when $p$ is above $0$.
+The rarity of an outcome takes values in $[1, \infty)$.
+For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
+a single value has probability $0$, so it has no odds,
+but its rarity is defined from the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf).
+An event such as $X \le c$ can have a probability above $0$, so it can have odds.
 
 :::

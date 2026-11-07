@@ -11,8 +11,8 @@ and then from the [rarities](#def-rarity) by @thm-perplexity-geometric-mean.
 
 ```{r}
 #| label: perplexity-loaded-die
-p_other <- rep(1 / 10, 5)
-p <- c(1 / 2, p_other)
+p_other_faces <- rep(1 / 10, 5)
+p <- c(1 / 2, p_other_faces)
 surprisal <- -log2(p)
 entropy <- sum(p * surprisal)
 perplexity_from_entropy <- 2^entropy

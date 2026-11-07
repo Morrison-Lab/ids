@@ -1,7 +1,12 @@
 ::: {#thm-perplexity-geometric-mean}
-#### Perplexity is the geometric mean of the rarities
+#### Perplexity is the probability-weighted geometric mean of the rarities
 
 For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
+the [perplexity](#def-perplexity) is a weighted geometric mean <!-- check-term-links: allow -->
+of the [rarities](#def-rarity),
+each raised to its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
+Take $x$ over the values with $\P(X=x) > 0$.
+Then
 
 $$\perplexityf{X} = \prod_x \rarityf{x}^{\P(X=x)}.$$
 
