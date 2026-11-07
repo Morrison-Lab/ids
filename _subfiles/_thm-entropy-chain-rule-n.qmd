@@ -12,16 +12,16 @@ where the term for $i = 1$ is $H(X_1)$. <!-- check-term-links: allow -->
 
 ::: {.proof}
 
-The proof is by induction on $n$.
+The proof is by [induction](https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction) on $n$.
 The claim for $n = 1$ is $H(X_1) = H(X_1)$.
 
 Suppose the claim holds for $n - 1$ variables.
-Treat $(X_1, \ldots, X_{n-1})$ as one discrete random variable.
+Treat $(X_1, \ldots, X_{n-1})$ as a single variable.
 The [chain rule](#thm-entropy-chain-rule) for two variables gives
 
 $$H(X_1, \ldots, X_n) = H(X_1, \ldots, X_{n-1}) + H(X_n \mid X_1, \ldots, X_{n-1}).$$
 
-The induction hypothesis expands the first term on the right:
+The induction hypothesis expands the first summand on the right:
 
 $$
 \begin{aligned}
