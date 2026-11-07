@@ -246,12 +246,39 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-entropy-sum-decomposition",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-entropy-sum-decomposition",
+   "kind": "thm",
+   "title": "Decomposition of the sum of entropies",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-expected-probability-collision",
    "site": "ids",
    "page": "entropy",
    "div": "thm-expected-probability-collision",
    "kind": "thm",
    "title": "The expected probability is the collision probability",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-entropy-sum",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-entropy-sum",
+   "kind": "thm",
+   "title": "Mutual information from the joint entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-joint-minus-conditionals",
+   "kind": "thm",
+   "title": "Mutual information from the conditional entropies",
    "external": false
   },
   {
@@ -288,6 +315,15 @@
    "div": "thm-surprisal-log-rarity-continuous",
    "kind": "thm",
    "title": "Surprisal of a continuous value is the logarithm of the rarity",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-twice-mutual-information",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-twice-mutual-information",
+   "kind": "thm",
+   "title": "Twice the mutual information",
    "external": false
   },
   {
@@ -864,6 +900,18 @@
    "ids/entropy#def-entropy-given-value"
   ],
   [
+   "ids/entropy#thm-entropy-sum-decomposition",
+   "ids/entropy#thm-mutual-information-entropy-sum"
+  ],
+  [
+   "ids/entropy#thm-entropy-sum-decomposition",
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals"
+  ],
+  [
+   "ids/entropy#thm-entropy-sum-decomposition",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#thm-expected-probability-collision",
    "ids/entropy#def-collision-probability"
   ],
@@ -885,6 +933,46 @@
   ],
   [
    "ids/entropy#thm-expected-probability-collision",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-entropy-sum",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-entropy-sum",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-entropy-sum",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#cor-conditional-entropy-difference"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#thm-mutual-information-entropy-sum"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
    "pds/random-variables#def-discrete-rv"
   ],
   [
@@ -942,6 +1030,14 @@
   [
    "ids/entropy#thm-surprisal-log-rarity-continuous",
    "pds/random-variables#def-pdf"
+  ],
+  [
+   "ids/entropy#thm-twice-mutual-information",
+   "ids/entropy#thm-mutual-information-symmetric"
+  ],
+  [
+   "ids/entropy#thm-twice-mutual-information",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/error-correcting-codes#def-hamming-distance",

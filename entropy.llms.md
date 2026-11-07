@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 15:01:14 (PST)
+Last modified: 2026-11-07 15:04:45 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -583,7 +583,132 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 11* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of $(X, Y)$ from the product of its marginals, and show that this equals $H(Y) - H(Y \mid X)$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is $0$ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), $I(X; Y) \ge 0$, with equality exactly when $X$ and $Y$ are independent. Learning $X$ never raises the entropy of $Y$ on average.
+> **Theorem 8 (Mutual information from the joint entropy)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+>
+> $$I(X; Y) = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Subtract ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ from both sides of the [chain rule](#thm-entropy-chain-rule):
+>
+> $${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.$$
+>
+> Substituting into [Definition 12](#def-mutual-information) gives
+>
+> $$\begin{aligned}
+> I(X; Y)
+> &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{} \\
+> &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Theorem 9 (Mutual information from the conditional entropies)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+>
+> $$I(X; Y) = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.$$
+
+> **NOTE:**
+>
+> *Proof*. By [Corollary 3](#cor-conditional-entropy-difference) and the [chain rule](#thm-entropy-chain-rule), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of each variable is the [joint entropy](#def-joint-entropy) minus a [conditional entropy](#def-conditional-entropy):
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} &= {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \\
+> {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} &= {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.
+> \end{aligned}$$
+>
+> Substituting both into [Theorem 8](#thm-mutual-information-entropy-sum) gives
+>
+> $$\begin{aligned}
+> I(X; Y)
+> &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \\
+> &= \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{} + \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\right]\mathclose{} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Theorem 10 (Decomposition of the sum of entropies)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+>
+> $${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Rearranging [Theorem 9](#thm-mutual-information-joint-minus-conditionals) gives
+>
+> $${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = I(X; Y) + {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.$$
+>
+> Rearranging [Theorem 8](#thm-mutual-information-entropy-sum) gives
+>
+> $${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = I(X; Y) + {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.$$
+>
+> Substituting the first display into the second gives
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}
+> &= I(X; Y) + \mathopen{}\left[I(X; Y) + {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{} \\
+> &= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Theorem 11 (Twice the mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+>
+> $$2 \, I(X; Y) = \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\right]\mathclose{} + \mathopen{}\left[{\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.$$
+
+> **NOTE:**
+>
+> *Proof*. By [Theorem 7](#thm-mutual-information-symmetric),
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} &= I(X; Y) \\
+> {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} &= I(X; Y).
+> \end{aligned}$$
+>
+> Adding the two displays gives
+>
+> $$\begin{aligned}
+> \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\right]\mathclose{} + \mathopen{}\left[{\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}
+> &= I(X; Y) + I(X; Y) \\
+> &= 2 \, I(X; Y).
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Example 9 (Mutual information identities with a noisy copy)**  
+>
+> Take the fair coin $X$ and its noisy copy $Y$ from [Example 6](#exm-entropy-chain-rule-noisy-copy). The chunk computes the entropies from the joint probabilities in [bits](#def-bit), then the [mutual information](#def-mutual-information) in four ways.
+>
+> Show code
+>
+> ``` r
+> entropy <- function(p) -sum(p * log2(p))
+> joint <- matrix(
+>   data = c(0.4, 0.1, 0.1, 0.4),
+>   nrow = 2
+> )
+> h_xy <- entropy(joint)
+> h_x <- entropy(rowSums(joint))
+> h_y <- entropy(colSums(joint))
+> h_x_given_y <- h_xy - h_y
+> h_y_given_x <- h_xy - h_x
+> mi_definition <- h_y - h_y_given_x
+> mi_joint <- h_x + h_y - h_xy
+> mi_conditionals <- h_xy - (h_x_given_y + h_y_given_x)
+> mi_twice <- ((h_x - h_x_given_y) + (h_y - h_y_given_x)) / 2
+> c(mi_definition, mi_joint, mi_conditionals, mi_twice)
+> #> [1] 0.2780719 0.2780719 0.2780719 0.2780719
+> ```
+>
+> All four agree: $I(X; Y) = 0.278$ bits ([Theorem 8](#thm-mutual-information-entropy-sum), [Theorem 9](#thm-mutual-information-joint-minus-conditionals) and [Theorem 11](#thm-twice-mutual-information)). Also ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 2$ bits matches ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 2$ bits ([Theorem 10](#thm-entropy-sum-decomposition)).
+
+> **NOTE:**
+>
+> *Remark 11* (Entropies as areas). The identities above match a picture of two overlapping regions, with the area of one region standing for ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ and the area of the other for ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$. The overlap has area $I(X; Y)$ ([Theorem 8](#thm-mutual-information-entropy-sum)). The part of the first region outside the overlap has area ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$, and the part of the second region outside the overlap has area ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$. The two regions together have area ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Theorem 9](#thm-mutual-information-joint-minus-conditionals)). The picture is a mnemonic for two variables only.
+
+> **NOTE:**
+>
+> *Remark 12* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of $(X, Y)$ from the product of its marginals, and show that this equals $H(Y) - H(Y \mid X)$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is $0$ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), $I(X; Y) \ge 0$, with equality exactly when $X$ and $Y$ are independent. Learning $X$ never raises the entropy of $Y$ on average.
 
 > **NOTE:**
 >
@@ -591,7 +716,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 12* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 13](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the entropy at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the information gain is the [mutual information](#def-mutual-information) $I(X; Y)$.
+> *Remark 13* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 13](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the entropy at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the information gain is the [mutual information](#def-mutual-information) $I(X; Y)$.
 
 > **NOTE:**
 >
@@ -604,7 +729,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > | B     | yes    | $5$ | $10$  |
 > |       | no     | $5$ | $0$   |
 >
-> Draw one point uniformly at random from the node, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 12](#rem-information-gain)). The information gain of each split ([Definition 13](#def-information-gain)) is then $I(X; Y)$. Use base-2 logarithms throughout.
+> Draw one point uniformly at random from the node, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 13](#rem-information-gain)). The information gain of each split ([Definition 13](#def-information-gain)) is then $I(X; Y)$. Use base-2 logarithms throughout.
 >
 > 1.  Compute $H(Y)$.
 >
