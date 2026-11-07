@@ -7,7 +7,7 @@ the [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def
 is $`r round(s_x + s_y_given_x, 3)`$ [bits](#def-bit).
 This sum is the [joint surprisal](#def-joint-surprisal) $\surprisalf{0, 1} = `r round(s_xy, 3)`$ bits <!-- check-term-links: allow -->
 (@thm-surprisal-chain-rule).
-Subtracting $\surprisalf{0} = `r round(s_x, 3)`$ bit from the joint surprisal
+Subtracting $\surprisalf{0} = `r round(s_x, 3)`$ bit from the joint surprisal <!-- check-term-links: allow -->
 recovers $\surprisalf{1 \mid 0} = `r round(s_xy - s_x, 3)`$ bits
 (@cor-conditional-surprisal-difference).
 

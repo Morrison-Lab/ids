@@ -4,7 +4,7 @@
 
 Let $X$ be a fair coin toss, coded $0$ or $1$.
 Let $Y$ be a noisy copy of $X$:
-it equals $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$
+it equals $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ <!-- check-term-links: allow -->
 and the other value with probability $0.2$. <!-- check-term-links: allow -->
 The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$,
 and $0.1$ for $(0, 1)$ and $(1, 0)$.
