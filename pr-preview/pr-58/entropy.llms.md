@@ -2,9 +2,19 @@
 
 Code
 
+- [Show All Code](javascript:void(0))
+
+- [Hide All Code](javascript:void(0))
+
+- 
+
+  ------------------------------------------------------------------------
+
+- [View Source](javascript:void(0))
+
 Published
 
-Last modified: 2026-11-06 17:54:17 (PST)
+Last modified: 2026-11-06 18:07:57 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -124,7 +134,29 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 3 (Rarity of the outcomes of a die)**  
 >
-> Let $X$ be the roll of a fair six-sided die. Each [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/6$. So each has [rarity](#def-rarity) ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 6$: one roll in six.
+> Let $X$ be the roll of a fair six-sided die. Each [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/6$.
+>
+> Show code
+>
+> ``` r
+> rarity <- function(p) 1 / p
+> p_fair <- 1 / 6
+> p_loaded_six <- 1 / 2
+> p_loaded_other <- (1 - p_loaded_six) / 5
+> rarity_fair <- rarity(p_fair)
+> rarity_loaded_six <- rarity(p_loaded_six)
+> rarity_loaded_other <- rarity(p_loaded_other)
+> rarities <- c(
+>   fair = rarity_fair,
+>   loaded_six = rarity_loaded_six,
+>   loaded_other = rarity_loaded_other
+> )
+> rarities
+> #>         fair   loaded_six loaded_other 
+> #>            6            2           10
+> ```
+>
+> So each face of the fair die has [rarity](#def-rarity) ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 6$: one roll in six.
 >
 > Suppose the die is loaded so that a six has probability $1/2$. Then ${\mathbb{r}\mathopen{}\left(6\right)\mathclose{}} = 2$. If the other five faces share the rest equally, each has ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 10$. The more probable an outcome, the lower its rarity.
 
@@ -143,7 +175,28 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.
 > \end{aligned}$$
 >
-> For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), the rarity is at least $1$, with equality exactly when $\mathbb{P}(X=x) = 1$, so the surprisal is never below $0$. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the same equalities hold with the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) in place of the mass: ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = -{\operatorname{log}\mathopen{}\left\{\mathbb{p}(x)\right\}\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}$. A density can exceed $1$, so there the rarity can be below $1$. For a mass, a rarity of $r$ reads “one in $r$”: an outcome with rarity $4$ has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$ and a surprisal of $2$ [bits](#def-bit).
+> For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), the rarity is at least $1$, with equality exactly when $\mathbb{P}(X=x) = 1$, so the surprisal is never below $0$. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the same equalities hold with the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) in place of the mass:
+>
+> $$\begin{aligned}
+> {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}
+> &= -{\operatorname{log}\mathopen{}\left\{\mathbb{p}(x)\right\}\mathclose{}} \\
+> &= {\operatorname{log}\mathopen{}\left\{\frac{1}{\mathbb{p}(x)}\right\}\mathclose{}} \\
+> &= {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.
+> \end{aligned}$$
+>
+> A density can exceed $1$, so there the rarity can be below $1$. For a mass, a rarity of $r$ reads “one in $r$”. For example, take an outcome with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$:
+>
+> Show code
+>
+> ``` r
+> p_four <- 1 / 4
+> rarity_four <- 1 / p_four
+> surprisal_four <- log2(rarity_four)
+> surprisal_four
+> #> [1] 2
+> ```
+>
+> It has rarity $4$ and a surprisal of $2$ [bits](#def-bit).
 
 > **NOTE:**
 >

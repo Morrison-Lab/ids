@@ -34,6 +34,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -253,6 +319,8 @@
     }
   })();
   </script>
+  <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+  <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -264,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-06 17:54:17 (PST)</p>
+  <p class="date">Last modified: 2026-11-06 18:07:57 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -396,7 +464,28 @@ H(X)
 <div id="exm-rarity-die" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Rarity of the outcomes of a die)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is two numbers -->
-<p>Let <span class="math inline">\(X\)</span> be the roll of a fair six-sided die. Each <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/6\)</span>. So each has <a href="#/def-rarity">rarity</a> <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 6\)</span>: one roll in six.</p>
+<p>Let <span class="math inline">\(X\)</span> be the roll of a fair six-sided die. Each <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/6\)</span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>rarity <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="dv">1</span> <span class="sc">/</span> p</span>
+<span id="cb1-2"><a aria-label="2"></a>p_fair <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">6</span></span>
+<span id="cb1-3"><a aria-label="3"></a>p_loaded_six <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb1-4"><a aria-label="4"></a>p_loaded_other <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">-</span> p_loaded_six) <span class="sc">/</span> <span class="dv">5</span></span>
+<span id="cb1-5"><a aria-label="5"></a>rarity_fair <span class="ot">&lt;-</span> <span class="fu">rarity</span>(p_fair)</span>
+<span id="cb1-6"><a aria-label="6"></a>rarity_loaded_six <span class="ot">&lt;-</span> <span class="fu">rarity</span>(p_loaded_six)</span>
+<span id="cb1-7"><a aria-label="7"></a>rarity_loaded_other <span class="ot">&lt;-</span> <span class="fu">rarity</span>(p_loaded_other)</span>
+<span id="cb1-8"><a aria-label="8"></a>rarities <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-9"><a aria-label="9"></a>  <span class="at">fair =</span> rarity_fair,</span>
+<span id="cb1-10"><a aria-label="10"></a>  <span class="at">loaded_six =</span> rarity_loaded_six,</span>
+<span id="cb1-11"><a aria-label="11"></a>  <span class="at">loaded_other =</span> rarity_loaded_other</span>
+<span id="cb1-12"><a aria-label="12"></a>)</span>
+<span id="cb1-13"><a aria-label="13"></a>rarities</span>
+<span id="cb1-14"><a aria-label="14"></a><span class="co">#&gt;         fair   loaded_six loaded_other </span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="co">#&gt;            6            2           10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>So each face of the fair die has <a href="#/def-rarity">rarity</a> <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 6\)</span>: one roll in six.</p>
 <p>Suppose the die is loaded so that a six has probability <span class="math inline">\(1/2\)</span>. Then <span class="math inline">\({\mathbb{r}\mathopen{}\left(6\right)\mathclose{}} = 2\)</span>. If the other five faces share the rest equally, each has <span class="math inline">\({\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 10\)</span>. The more probable an outcome, the lower its rarity.</p>
 </div>
 </section>
@@ -418,7 +507,27 @@ H(X)
 &amp;= {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.
 \end{aligned}
 \]</span></p>
-<p>For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, the rarity is at least <span class="math inline">\(1\)</span>, with equality exactly when <span class="math inline">\(\mathbb{P}(X=x) = 1\)</span>, so the surprisal is never below <span class="math inline">\(0\)</span>. For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv">continuous random variable</a>, the same equalities hold with the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> in place of the mass: <span class="math inline">\({\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = -{\operatorname{log}\mathopen{}\left\{\mathbb{p}(x)\right\}\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}\)</span>. A density can exceed <span class="math inline">\(1\)</span>, so there the rarity can be below <span class="math inline">\(1\)</span>. For a mass, a rarity of <span class="math inline">\(r\)</span> reads “one in <span class="math inline">\(r\)</span>”: an outcome with rarity <span class="math inline">\(4\)</span> has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/4\)</span> and a surprisal of <span class="math inline">\(2\)</span> <a href="#/def-bit">bits</a>.</p>
+<p>For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, the rarity is at least <span class="math inline">\(1\)</span>, with equality exactly when <span class="math inline">\(\mathbb{P}(X=x) = 1\)</span>, so the surprisal is never below <span class="math inline">\(0\)</span>. For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv">continuous random variable</a>, the same equalities hold with the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> in place of the mass:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}
+&amp;= -{\operatorname{log}\mathopen{}\left\{\mathbb{p}(x)\right\}\mathclose{}} \\
+&amp;= {\operatorname{log}\mathopen{}\left\{\frac{1}{\mathbb{p}(x)}\right\}\mathclose{}} \\
+&amp;= {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.
+\end{aligned}
+\]</span></p>
+<p>A density can exceed <span class="math inline">\(1\)</span>, so there the rarity can be below <span class="math inline">\(1\)</span>. For a mass, a rarity of <span class="math inline">\(r\)</span> reads “one in <span class="math inline">\(r\)</span>”. For example, take an outcome with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/4\)</span>:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>p_four <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span></span>
+<span id="cb2-2"><a aria-label="2"></a>rarity_four <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> p_four</span>
+<span id="cb2-3"><a aria-label="3"></a>surprisal_four <span class="ot">&lt;-</span> <span class="fu">log2</span>(rarity_four)</span>
+<span id="cb2-4"><a aria-label="4"></a>surprisal_four</span>
+<span id="cb2-5"><a aria-label="5"></a><span class="co">#&gt; [1] 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>It has rarity <span class="math inline">\(4\)</span> and a surprisal of <span class="math inline">\(2\)</span> <a href="#/def-bit">bits</a>.</p>
 </div>
 </section>
 <section class="slide level2">
