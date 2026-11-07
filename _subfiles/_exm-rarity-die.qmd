@@ -8,7 +8,7 @@ Each [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-ex
 has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/6$,
 so each has [rarity](#def-rarity) $\rarityf{x} = 6$: one roll in six.
 
-If the die is loaded so that a six has probability $1/2$, then $\rarityf{6} = 2$, and if the other five outcomes share the rest equally, each has $\rarityf{x} = 10$.
+If the die is loaded so that a six has probability $1/2$, then $\rarityf{6} = 2$, and if the other five [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)s share the rest equally, each has $\rarityf{x} = 10$.
 The more probable an outcome, the lower its rarity.
 
 :::
