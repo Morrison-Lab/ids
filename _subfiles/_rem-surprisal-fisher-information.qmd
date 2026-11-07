@@ -3,13 +3,31 @@
 
 When the probabilities depend on a parameter $\param$,
 the [surprisal](#def-surprisal) of an outcome $x$ is $-\log \p(x \mid \param)$,
-which is minus the log-likelihood.
+which is minus the log-likelihood:
+
+$$\surprisal_{\param}(x) = -\log \p(x \mid \param) = -\llik(\param).$$
+
 Its derivative with respect to $\param$ is minus the
-[score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score).
+[score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score):
+
+$$\deriv{\param} \surprisal_{\param}(x) = -\scoref{\param}.$$
+
 The expected squared score is the
 [expected (Fisher) information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf),
-which is also the second derivative, at the true parameter value,
+which is also the expected second derivative of the surprisal,
+when both are taken under the true parameter value $\param_0$:
+
+$$
+\einf(\param_0)
+= \Expp_{\param_0}\sb{\scoref{\param_0}^2}
+= \Expp_{\param_0}\sb{\dderiv{\param} \surprisal_{\param}(x)\bigg|_{\param = \param_0}}.
+$$
+
+The expected information is also the second derivative, at the true parameter value,
 of the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
 between the model at that value and the model at the varying value
-([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)).
+([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)):
+
+$$\evalAt{\dderiv{\param} \kldivf{\param_0}{\param}}{\param = \param_0} = \einf(\param_0).$$
+
 :::
