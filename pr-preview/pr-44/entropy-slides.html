@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-06 15:06:51 (PST)</p>
+  <p class="date">Last modified: 2026-11-06 16:31:12 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -402,14 +402,14 @@ H(X)
 <section class="slide level2">
 
 <div id="def-renyi-entropy" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Rényi entropy of order 2 (collision entropy))</strong></span> The <strong>Rényi entropy of order 2</strong>, also called the <strong>collision entropy</strong>, of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> is the negative <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of its <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <!-- check-term-links: allow --> <span class="citation" data-cites="wikipedia_renyi_entropy">(<a href="#/references" role="doc-biblioref" onclick="">Wikipedia contributors 2026</a>)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 5 (Rényi entropy of order 2 (collision entropy))</strong></span> The <strong>Rényi entropy of order 2</strong>, also called the <strong>collision entropy</strong>, of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> is the negative <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of its <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>, <!-- check-term-links: allow --> where <span class="math inline">\(\mathbb{P}(X)\)</span> is the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> evaluated at the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">random variable</a> <span class="math inline">\(X\)</span> itself <span class="citation" data-cites="wikipedia_renyi_entropy">(<a href="#/references" role="doc-biblioref" onclick="">Wikipedia contributors 2026</a>)</span>:</p>
 <p><span class="math display">\[H_2(X) = -\log {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}}.\]</span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-collision-entropy" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (The expected probability is the collision probability). </span><a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Entropy</a> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of the <a href="#/def-surprisal">surprisal</a> <span class="math inline">\(-\log \mathbb{P}(X)\)</span>. Taking the expectation of the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\mathbb{P}(X)\)</span> itself summarizes <span class="math inline">\(X\)</span> differently. For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span>, the expected probability is the <a href="#/def-collision-probability">collision probability</a>:</p>
+<p><span class="proof-title"><em>Remark 5</em> (The expected probability is the collision probability). </span><a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Entropy</a> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of the <a href="#/def-surprisal">surprisal</a> <span class="math inline">\(-\log \mathbb{P}(X)\)</span>. Taking the expectation of the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\mathbb{P}(X)\)</span> itself summarizes <span class="math inline">\(X\)</span> differently. For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span>, the expected probability is the <a href="#/def-collision-probability">collision probability</a>, where <span class="math inline">\(X'\)</span> is an <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> copy of <span class="math inline">\(X\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}}

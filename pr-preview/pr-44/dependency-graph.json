@@ -404,6 +404,26 @@
    "title": "discrete rv",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv"
+  },
+  {
+   "id": "pds/random-variables#def-pmf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pmf",
+   "kind": "def",
+   "title": "pmf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pmf"
+  },
+  {
+   "id": "pds/random-variables#def-random-variable",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-random-variable",
+   "kind": "def",
+   "title": "random variable",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-random-variable"
   }
  ],
  "edges": [
@@ -514,6 +534,14 @@
   [
    "ids/entropy#def-renyi-entropy",
    "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/random-variables#def-random-variable"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule",
