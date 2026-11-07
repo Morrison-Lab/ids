@@ -14,7 +14,8 @@ product_independent <- outer(
   X = rowSums(joint_independent),
   Y = colSums(joint_independent)
 )
-terms_independent <- joint_independent * log2(joint_independent / product_independent)
+ratio_independent <- joint_independent / product_independent
+terms_independent <- joint_independent * log2(ratio_independent)
 sum(terms_independent)
 ```
 
