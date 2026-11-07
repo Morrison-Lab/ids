@@ -1,21 +1,11 @@
 ::: {#rem-collision-entropy}
-#### The expected probability is the collision probability
+#### Two ways to summarize a random variable by its probabilities
 
 [Entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [surprisal](#def-surprisal) $-\log \P(X)$.
 Taking the expectation of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\P(X)$ itself summarizes $X$ differently.
-For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
-the expected probability is the [collision probability](#def-collision-probability),
-where $X'$ is an [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copy of $X$:
-
-$$
-\begin{aligned}
-\E{\P(X)}
-&= \sum_x \P(X=x)^2 \\
-&= \P(X = X').
-\end{aligned}
-$$
-
-So the [collision entropy](#def-renyi-entropy) is $H_2(X) = -\log \P(X = X')$.
+For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+@thm-expected-probability-collision identifies that expectation with the [collision probability](#def-collision-probability),
+so the [collision entropy](#def-renyi-entropy) is $H_2(X) = -\log \P(X = X')$.
 
 For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p$,
 the analogue is $\E{\p(X)} = \int \p(x)^2\,dx$.
@@ -23,10 +13,7 @@ The [expected-density exercises](https://morrison-lab.github.io/pds/expectation.
 then compute it in the [uniform case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-uniform)
 and the [normal case](https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-normal).
 
-The collision entropy is at most the [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $\entropyf{X} = \E{-\log \P(X)}$.
-This holds because $-\log$ is a [convex function](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function).
-Jensen's inequality then gives $\E{-\log \P(X)} \ge -\log \E{\P(X)}$. <!-- check-term-links: allow -->
-The two coincide exactly when all the values $X$ can take are equally likely,
-since then $\P(X)$ takes the same value for every value of $X$.
+@thm-collision-entropy-at-most-entropy shows that the collision entropy never exceeds the [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
+The two differ most for distributions that put a large share of the probability on a few values.
 
 :::

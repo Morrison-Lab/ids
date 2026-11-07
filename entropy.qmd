@@ -84,6 +84,18 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_thm-expected-probability-collision.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-collision-entropy-at-most-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-collision-entropy-three-values.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-collision-entropy.qmd >}}
 
 {{< slidebreak >}}
