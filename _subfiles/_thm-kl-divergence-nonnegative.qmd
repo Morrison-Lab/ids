@@ -1,7 +1,7 @@
 :::{#thm-kl-divergence-nonnegative}
 #### The divergence is nonnegative
 
-Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on finitely many values,
+Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on a finite set of values,
 with $q(x) > 0$ wherever $p(x) > 0$.
 Then the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) satisfies
 
@@ -13,7 +13,7 @@ with $D_2(p \,\|\, q) = 0$ exactly when $q = p$.
 
 ::: {.proof}
 
-Every sum here runs over the values $x$ with $p(x) > 0$.
+Every [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) here runs over the values $x$ with $p(x) > 0$.
 For every $t > 0$, $\ln t \le t - 1$, with equality exactly when $t = 1$.
 Apply this with $t = q(x) / p(x)$, and multiply by $p(x) > 0$:
 
@@ -22,7 +22,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 $$
 
 with equality exactly when $q(x) = p(x)$.
-Sum over $x$.
+Add over $x$.
 Since $\sum_x p(x) = 1$ and $\sum_x q(x) \le 1$,
 
 $$
@@ -33,7 +33,7 @@ $$
 
 The left side is $-\ln 2 \cdot D_2(p \,\|\, q)$, so $D_2(p \,\|\, q) \ge 0$.
 
-If $D_2(p \,\|\, q) = 0$, both inequalities are equalities.
+If $D_2(p \,\|\, q) = 0$, both steps are equalities.
 The first forces $q(x) = p(x)$ at every $x$ with $p(x) > 0$.
 The second then gives $\sum_x q(x) = 1$,
 so $q$ has no mass where $p$ has none, and $q = p$.
