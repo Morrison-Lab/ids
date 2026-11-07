@@ -114,11 +114,23 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_exm-entropy-chain-rule-n-copies.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_def-conditional-mutual-information.qmd >}}
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_exm-conditional-mutual-information.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_thm-mutual-information-chain-rule.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-mutual-information-chain-rule-copies.qmd >}}
 
 ## References {.unnumbered}
 

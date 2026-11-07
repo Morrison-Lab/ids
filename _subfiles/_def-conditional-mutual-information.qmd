@@ -7,6 +7,6 @@ with finite entropies, <!-- check-term-links: allow -->
 is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$
 from also learning $X$:
 
-$$I(X; Y \mid Z) \eqdef H(Y \mid Z) - H(Y \mid X, Z).$$
+$$I(X; Y \mid Z) \eqdef \entropyf{Y \mid Z} - \entropyf{Y \mid X, Z}.$$
 
 :::

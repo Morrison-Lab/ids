@@ -1,0 +1,20 @@
+:::{#exm-conditional-mutual-information}
+#### Conditional mutual information along a chain of noisy copies
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from @exm-entropy-chain-rule-n-copies.
+Once $X_2$ is known, $X_1$ adds nothing to the prediction of $X_3$,
+so $\entropyf{X_3 \mid X_1, X_2} = \entropyf{X_3 \mid X_2}$,
+and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip probability $0.2$.
+The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
+
+```{r}
+#| code-fold: show
+h_x3_given_x2 <- h_coin
+h_x3_given_x1_x2 <- h_coin
+h_x3_given_x2 - h_x3_given_x1_x2
+```
+
+So $I(X_1; X_3 \mid X_2) = `r round(h_x3_given_x2 - h_x3_given_x1_x2, 3)`$ bits. <!-- check-term-links: allow -->
+
+:::

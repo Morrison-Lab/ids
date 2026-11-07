@@ -1,0 +1,42 @@
+:::{#exm-entropy-chain-rule-n-copies}
+#### Chain rule for entropy along a chain of noisy copies
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+Let $X_1$ be a fair coin toss, coded $0$ or $1$.
+Let $X_2$ be a noisy copy of $X_1$ that flips it with probability $0.2$,
+and let $X_3$ be a noisy copy of $X_2$ that flips it with probability $0.2$,
+independently of $X_1$ given $X_2$. <!-- check-term-links: allow -->
+The chunk builds the joint probabilities of $(X_1, X_2, X_3)$
+and compares their [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), in [bits](#def-bit),
+with the sum in @thm-entropy-chain-rule-n.
+
+```{r}
+#| code-fold: show
+flip <- 0.2
+copy <- matrix(
+  data = c(1 - flip, flip, flip, 1 - flip),
+  nrow = 2,
+  byrow = TRUE
+)
+joint <- array(data = 0, dim = c(2, 2, 2))
+for (x1 in 1:2) {
+  for (x2 in 1:2) {
+    for (x3 in 1:2) {
+      joint[x1, x2, x3] <- 0.5 * copy[x1, x2] * copy[x2, x3]
+    }
+  }
+}
+h_joint <- -sum(joint * log2(joint))
+h_coin <- -flip * log2(flip) - (1 - flip) * log2(1 - flip)
+h_sum <- 1 + h_coin + h_coin
+c(h_joint = h_joint, h_sum = h_sum)
+```
+
+The first term of the sum is $\entropyf{X_1} = 1$ bit. <!-- check-term-links: allow -->
+Given $X_1$, the variable $X_2$ is a coin with flip probability $0.2$,
+and given $(X_1, X_2)$ the variable $X_3$ is the same kind of coin,
+so each of the other two terms is $`r round(h_coin, 3)`$ bits.
+The sum is $`r round(h_sum, 3)`$ bits,
+which equals $\entropyf{X_1, X_2, X_3} = `r round(h_joint, 3)`$ bits.
+
+:::

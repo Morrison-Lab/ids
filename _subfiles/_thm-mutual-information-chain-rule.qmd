@@ -14,8 +14,8 @@ By @def-mutual-information, applied to the pair $(X, Z)$ and to $Z$,
 
 $$
 \begin{aligned}
-I(X, Z; Y) &= H(Y) - H(Y \mid X, Z) \\
-I(Z; Y) &= H(Y) - H(Y \mid Z).
+I(X, Z; Y) &= \entropyf{Y} - \entropyf{Y \mid X, Z} \\
+I(Z; Y) &= \entropyf{Y} - \entropyf{Y \mid Z}.
 \end{aligned}
 $$
 
@@ -24,7 +24,7 @@ Subtracting the second display from the first gives
 $$
 \begin{aligned}
 I(X, Z; Y) - I(Z; Y)
-&= H(Y \mid Z) - H(Y \mid X, Z) \\
+&= \entropyf{Y \mid Z} - \entropyf{Y \mid X, Z} \\
 &= I(X; Y \mid Z),
 \end{aligned}
 $$
