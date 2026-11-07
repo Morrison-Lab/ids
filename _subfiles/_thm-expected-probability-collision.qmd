@@ -1,0 +1,28 @@
+:::{#thm-expected-probability-collision}
+#### The expected probability is the collision probability
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+and let $X'$ be an [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copy of $X$.
+Then
+
+$$\E{\P(X)} = \sum_x \P(X=x)^2 = \P(X = X').$$
+
+:::
+
+::: proof
+
+The [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $\P(X)$ adds, over the values $x$,
+the value $\P(X=x)$ times its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\P(X=x)$:
+
+$$
+\begin{aligned}
+\E{\P(X)}
+&= \sum_x \P(X=x) \, \P(X=x) \\
+&= \sum_x \P(X=x)^2.
+\end{aligned}
+$$
+
+By the definition of the [collision probability](#def-collision-probability),
+the last [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) is $\P(X = X')$.
+
+:::
