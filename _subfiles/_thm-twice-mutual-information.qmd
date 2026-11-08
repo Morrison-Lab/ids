@@ -10,7 +10,7 @@ $$2 \, I(X; Y) = \sb{\entropyf{X} - \entropyf{X \mid Y}} + \sb{\entropyf{Y} - \e
 
 ::: {.proof}
 
-By @thm-mutual-information-symmetric,
+By @thm-mutual-information-reduction,
 
 $$
 \begin{aligned}

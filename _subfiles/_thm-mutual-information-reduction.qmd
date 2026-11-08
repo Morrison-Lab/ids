@@ -3,7 +3,7 @@
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite entropies, <!-- check-term-links: allow -->
-the [mutual information](#def-mutual-information) is the reduction in the entropy of either variable
+the [mutual information](#def-mutual-information) is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of either variable
 from learning the other:
 
 $$I(X; Y) = \entropyf{Y} - \entropyf{Y \mid X} = \entropyf{X} - \entropyf{X \mid Y}.$$
@@ -28,7 +28,7 @@ $$
 $$
 
 The [chain rule](#thm-entropy-chain-rule) also gives $\entropyf{X \mid Y} = \entropyf{X, Y} - \entropyf{Y}$,
-so the same steps with $X$ and $Y$ exchanged
+so the same steps <!-- check-term-links: allow --> with $X$ and $Y$ exchanged
 give $\entropyf{X} - \entropyf{X \mid Y} = I(X; Y)$.
 
 :::

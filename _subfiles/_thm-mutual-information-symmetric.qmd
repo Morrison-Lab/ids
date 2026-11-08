@@ -9,8 +9,10 @@ $$I(X; Y) = I(Y; X).$$
 
 ::: {.proof}
 
-The joint entropy of the pair $(X, Y)$ equals that of $(Y, X)$,
-because both are the entropy of the same two values, listed in either order.
+The [joint entropy](#def-joint-entropy) of the pair $(X, Y)$ equals <!-- check-term-links: allow -->
+that of $(Y, X)$,
+because both are the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the same two values, <!-- check-term-links: allow -->
+listed in either order. <!-- check-term-links: allow -->
 So @def-mutual-information gives
 
 $$
