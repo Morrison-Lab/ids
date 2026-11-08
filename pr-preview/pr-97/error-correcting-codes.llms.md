@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 19:16:26 (PST)
+Last modified: 2026-11-07 19:41:12 (PST)
 
 An error-correcting code adds redundancy to a message so that the receiver can recover it even after some symbols are changed. This page covers the basic definitions, the Hamming and Reed–Solomon codes, and then how codes that can be decoded by reading only a few symbols lead to central results of computational complexity.
 

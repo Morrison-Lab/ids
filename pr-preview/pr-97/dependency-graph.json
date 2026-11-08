@@ -782,6 +782,16 @@
    "url": "https://morrison-lab.github.io/pds/independence.html#def-cind"
   },
   {
+   "id": "pds/independence#def-iid",
+   "site": "pds",
+   "page": "independence",
+   "div": "def-iid",
+   "kind": "def",
+   "title": "iid",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/independence.html#def-iid"
+  },
+  {
    "id": "pds/independence#def-indpt",
    "site": "pds",
    "page": "independence",
@@ -1035,7 +1045,7 @@
   ],
   [
    "ids/entropy#def-collision-probability",
-   "pds/independence#def-indpt"
+   "pds/independence#def-iid"
   ],
   [
    "ids/entropy#def-collision-probability",
@@ -1383,7 +1393,7 @@
   ],
   [
    "ids/entropy#thm-expected-probability-collision",
-   "pds/independence#def-indpt"
+   "pds/independence#def-iid"
   ],
   [
    "ids/entropy#thm-expected-probability-collision",
