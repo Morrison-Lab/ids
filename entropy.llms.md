@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 15:11:20 (PST)
+Last modified: 2026-11-08 15:26:25 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -745,30 +745,30 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Definition 13 (Mutual information)** The **mutual information** between [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is the sum of their entropies minus their [joint entropy](#def-joint-entropy):
 >
-> $$I(X; Y) \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.$$
+> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
 > **Theorem 10 (Mutual information is symmetric)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
-> $$I(X; Y) = I(Y; X).$$
+> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(Y ; X\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
 > *Proof*. The [joint entropy](#def-joint-entropy) of the pair $(X, Y)$ equals that of $(Y, X)$, because both are the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the same two values, listed in either order. So [Definition 13](#def-mutual-information) gives
 >
 > $$\begin{aligned}
-> I(X; Y)
+> {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
 > &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \\
 > &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y, X\right)\mathclose{}} \\
-> &= I(Y; X).
+> &= {\mathbb{I}\mathopen{}\left(Y ; X\right)\mathclose{}}.
 > \end{aligned}$$
 
 > **NOTE:**
 >
 > **Theorem 11 (Mutual information as a reduction in entropy)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy), the [mutual information](#def-mutual-information) is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of either variable from learning the other:
 >
-> $$I(X; Y) = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.$$
+> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
@@ -782,16 +782,16 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}
 > &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{} \\
 > &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \\
-> &= I(X; Y).
+> &= {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}.
 > \end{aligned}$$
 >
-> The [chain rule](#thm-entropy-chain-rule) also gives ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$, so exchanging $X$ and $Y$ in the aligned display above gives ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = I(X; Y)$.
+> The [chain rule](#thm-entropy-chain-rule) also gives ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$, so exchanging $X$ and $Y$ in the aligned display above gives ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$.
 
 > **NOTE:**
 >
 > **Theorem 12 (Mutual information from the conditional entropies)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
-> $$I(X; Y) = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.$$
+> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.$$
 
 > **NOTE:**
 >
@@ -805,7 +805,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > Substituting both into [Definition 13](#def-mutual-information) gives
 >
 > $$\begin{aligned}
-> I(X; Y)
+> {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
 > &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \\
 > &= \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{} + \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\right]\mathclose{} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \\
 > &= {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.
@@ -895,7 +895,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Theorem 15 (Mutual information as a divergence)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y)$ and [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(x)$ and $p(y)$. If their [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite, then their [mutual information](#def-mutual-information) is the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) from the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution):
 >
-> $$I(X; Y) = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$
+> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$
 >
 > where the sum runs over the pairs with $p(x, y) > 0$.
 
@@ -904,7 +904,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > *Proof*. The [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite, so the [expectations](https://morrison-lab.github.io/pds/expectation.html#def-expectation) below are finite and can be split and regrouped. With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, $p(X, Y) > 0$, $p(X) > 0$ and $p(Y) > 0$. By [Definition 13](#def-mutual-information) and the definitions of [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and [joint entropy](#def-joint-entropy),
 >
 > $$\begin{aligned}
-> I(X; Y)
+> {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
 > &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \\
 > &= {\mathbb{E}\mathopen{}\left[-\log p(X)\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[-\log p(Y)\right]\mathclose{}} - {\mathbb{E}\mathopen{}\left[-\log p(X, Y)\right]\mathclose{}} \\
 > &= {\mathbb{E}\mathopen{}\left[\log p(X, Y) - \log p(X) - \log p(Y)\right]\mathclose{}} \\
@@ -993,13 +993,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Theorem 17 (Mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
-> $$I(X; Y) \ge 0.$$
+> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0.$$
 >
 > Equality holds exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
 
 > **NOTE:**
 >
-> *Proof*. Let $p(x, y)$ be the [joint mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), with [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x)$ and $p(y)$. By [Theorem 15](#thm-mutual-information-kl), $I(X; Y)$ is the divergence of $p(x) \, p(y)$ from $p(x, y)$, and the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) defining it is absolutely summable, as the proof of that result shows. The mass function $p(x) \, p(y)$ is positive wherever $p(x, y)$ is positive, because each marginal is at least $p(x, y)$ there. By [Theorem 16](#thm-kl-divergence-nonnegative), the divergence is nonnegative, with equality exactly when the two mass functions agree. The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) satisfies $\log_b t = \ln t / \ln b$, so the divergence with $\log_b$ is the divergence with $\log_2$ times $\ln 2 / \ln b$, which has the same sign and the same zero. Hence $I(X; Y) \ge 0$, and $I(X; Y) = 0$ exactly when $p(x, y) = p(x) \, p(y)$ for every pair, which is independence.
+> *Proof*. Let $p(x, y)$ be the [joint mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), with [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x)$ and $p(y)$. By [Theorem 15](#thm-mutual-information-kl), ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is the divergence of $p(x) \, p(y)$ from $p(x, y)$, and the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) defining it is absolutely summable, as the proof of that result shows. The mass function $p(x) \, p(y)$ is positive wherever $p(x, y)$ is positive, because each marginal is at least $p(x, y)$ there. By [Theorem 16](#thm-kl-divergence-nonnegative), the divergence is nonnegative, with equality exactly when the two mass functions agree. The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) satisfies $\log_b t = \ln t / \ln b$, so the divergence with $\log_b$ is the divergence with $\log_2$ times $\ln 2 / \ln b$, which has the same sign and the same zero. Hence ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0$, and ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0$ exactly when $p(x, y) = p(x) \, p(y)$ for every pair, which is independence.
 
 > **NOTE:**
 >
@@ -1073,7 +1073,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Theorem 18 (Mutual information of a variable with itself)** For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
-> $$I(X; X) = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.$$
+> $${\mathbb{I}\mathopen{}\left(X ; X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
@@ -1092,7 +1092,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > By [Theorem 11](#thm-mutual-information-reduction) with $Y = X$,
 >
 > $$\begin{aligned}
-> I(X; X)
+> {\mathbb{I}\mathopen{}\left(X ; X\right)\mathclose{}}
 > &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} \\
 > &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.
 > \end{aligned}$$
@@ -1246,7 +1246,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Definition 15 (Conditional mutual information)** The **conditional mutual information** of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ given a third one, $Z$, with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy), is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$ from also learning $X$:
 >
-> $$I(X; Y \mid Z) \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}.$$
+> $${\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
@@ -1271,23 +1271,23 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Theorem 20 (Chain rule for mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ whose [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$, ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ and ${\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}$ are finite,
 >
-> $$I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).$$
+> $${\mathbb{I}\mathopen{}\left(X, Z ; Y\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(Z ; Y\right)\mathclose{}} + {\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
 > *Proof*. By [Theorem 11](#thm-mutual-information-reduction), applied to the pair $(X, Z)$ and to $Z$,
 >
 > $$\begin{aligned}
-> I(X, Z; Y) &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
-> I(Z; Y) &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}.
+> {\mathbb{I}\mathopen{}\left(X, Z ; Y\right)\mathclose{}} &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
+> {\mathbb{I}\mathopen{}\left(Z ; Y\right)\mathclose{}} &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}.
 > \end{aligned}$$
 >
 > Subtracting the second display from the first gives
 >
 > $$\begin{aligned}
-> I(X, Z; Y) - I(Z; Y)
+> {\mathbb{I}\mathopen{}\left(X, Z ; Y\right)\mathclose{}} - {\mathbb{I}\mathopen{}\left(Z ; Y\right)\mathclose{}}
 > &= {\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
-> &= I(X; Y \mid Z),
+> &= {\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}},
 > \end{aligned}$$
 >
 > where the last line is [Definition 15](#def-conditional-mutual-information).
