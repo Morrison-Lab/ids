@@ -16,8 +16,8 @@ Information theory quantifies uncertainty and information:
 how many [bits](entropy.qmd#def-bit) a message needs, how much one [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable)
 tells us about another, and how fast data can cross a noisy channel.
 Data science uses its quantities directly:
-[cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) is the quantity that logistic regression and neural networks minimize,
-[Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) links fitting a model by likelihood to model fit,
+[cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) is the quantity that [logistic regression](https://morrison-lab.github.io/sds/logistic-inference.html#def-logistic-regression) and neural networks minimize,
+[Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) links the fit of a model to the data it describes,
 and [mutual information](entropy.qmd#def-mutual-information) drives the [information gain](entropy.qmd#def-information-gain) of decision trees.
 
 These notes gather the information theory that data science courses use.
@@ -40,7 +40,7 @@ The pages written so far are:
 
 The planned topics still to come are:
 
-- [KL divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) and its link to fitting models by likelihood
+- [KL divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) and its link to fitting models to data
 - Huffman and arithmetic codes
 - proofs of the [noisy-channel coding theorem](channel-capacity.qmd#thm-channel-coding), and codes that approach [capacity](channel-capacity.qmd#def-channel-capacity)
 
