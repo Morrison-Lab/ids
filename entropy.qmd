@@ -32,6 +32,18 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_thm-surprisal-log-half.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-surprisal-log-half.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-surprisal-halvings.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_def-nat.qmd >}}
 
 {{< slidebreak >}}
@@ -88,6 +100,30 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_rem-rarity-odds.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-perplexity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-perplexity-geometric-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-perplexity-uniform.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-perplexity-loaded-die.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-perplexity-source.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-differential-entropy-vs-entropy.qmd >}}
 
 {{< slidebreak >}}
@@ -136,6 +172,46 @@ in *Probability for Data Science*.
 
 {{< include ids/_subfiles/_thm-entropy-chain-rule.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-entropy-chain-rule-reversed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-conditional-entropy-difference.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-entropy-chain-rule-noisy-copy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-joint-surprisal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-conditional-surprisal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-joint-conditional-surprisal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-surprisal-chain-rule.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-conditional-surprisal-difference.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-surprisal-chain-rule-noisy-copy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-entropy-chain-rule-from-surprisal.qmd >}}
+
 ## Mutual information {#sec-mutual-information}
 
 <!-- No slidebreak here: the heading shares its slide with the def-mutual-information div. -->
@@ -145,6 +221,30 @@ in *Probability for Data Science*.
 {{< slidebreak >}}
 
 {{< include ids/_subfiles/_thm-mutual-information-symmetric.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-mutual-information-entropy-sum.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-mutual-information-joint-minus-conditionals.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-entropy-sum-decomposition.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-twice-mutual-information.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-mutual-information-identities-noisy-copy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-mutual-information-venn.qmd >}}
 
 {{< slidebreak >}}
 

@@ -1,0 +1,26 @@
+:::{#exm-joint-conditional-surprisal}
+#### Joint and conditional surprisal of a noisy copy
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+Let $X$ be a fair coin toss, coded $0$ or $1$.
+Let $Y$ be a noisy copy of $X$:
+it equals $X$ with probability $0.8$ and the other value with probability $0.2$. <!-- check-term-links: allow -->
+Take the pair of values $x = 0$ and $y = 1$.
+The joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $\P(X=0, Y=1) = 0.1$,
+the probability of $X=0$ is $0.5$,
+and the conditional probability is $\P(Y=1 \mid X=0) = 0.2$. <!-- check-term-links: allow -->
+The chunk computes the three [surprisals](#def-surprisal), in [bits](#def-bit).
+
+```{r}
+#| code-fold: show
+s_xy <- -log2(0.1)
+s_x <- -log2(0.5)
+s_y_given_x <- -log2(0.2)
+c(s_xy = s_xy, s_x = s_x, s_y_given_x = s_y_given_x)
+```
+
+The [joint surprisal](#def-joint-surprisal) is $\surprisalf{0, 1} = `r round(s_xy, 3)`$ bits,
+the surprisal of $x = 0$ alone is $\surprisalf{0} = `r round(s_x, 3)`$ bit, <!-- check-term-links: allow -->
+and the [conditional surprisal](#def-conditional-surprisal) is $\surprisalf{1 \mid 0} = `r round(s_y_given_x, 3)`$ bits.
+
+:::

@@ -1,7 +1,7 @@
 :::{#def-rarity}
 #### Rarity
 
-The **rarity** of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$
+The **rarity** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$
 of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
 is the reciprocal of its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) mass:
 

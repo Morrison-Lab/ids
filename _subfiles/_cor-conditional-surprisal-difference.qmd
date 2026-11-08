@@ -1,0 +1,22 @@
+:::{#cor-conditional-surprisal-difference}
+#### Conditional surprisal as a difference
+
+For $X$, $Y$, $x$ and $y$ as in @thm-surprisal-chain-rule,
+
+$$\surprisalf{y \mid x} = \surprisalf{x, y} - \surprisalf{x}.$$
+
+:::
+
+::: {.proof}
+
+Subtract $\surprisalf{x}$ from both sides of @thm-surprisal-chain-rule:
+
+$$
+\begin{aligned}
+\surprisalf{x, y} - \surprisalf{x}
+&= \surprisalf{x} + \surprisalf{y \mid x} - \surprisalf{x} \\
+&= \surprisalf{y \mid x}.
+\end{aligned}
+$$
+
+:::

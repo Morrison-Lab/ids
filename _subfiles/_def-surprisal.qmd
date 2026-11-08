@@ -1,13 +1,13 @@
 :::{#def-surprisal}
 #### Surprisal
 
-The **surprisal** of an outcome $x$ of a discrete random variable $X$
+The **surprisal** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
 with $\P(X=x) > 0$ is
 
 $$s(x) \eqdef -\log \P(X=x).$$
 
 With base-2 logarithms, surprisal is also called the
-**Shannon information content** of the outcome $x$
+**Shannon information content** of the value $x$
 [@mackay2003information, section 2.4].
 
 :::

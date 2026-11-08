@@ -48,6 +48,22 @@ format:
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_thm-cross-entropy-decomposition.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-cross-entropy-decomposition.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-kl-divergence-nonnegative.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-kl-divergence-nonnegative.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-cross-entropy-wrong-code.qmd >}}
 
 {{< slidebreak >}}

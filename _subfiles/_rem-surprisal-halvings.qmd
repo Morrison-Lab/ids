@@ -1,0 +1,14 @@
+::: {#rem-surprisal-halvings}
+#### Surprisal as halvings of certainty
+
+Start from certainty, [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$.
+Each halving multiplies the probability by $1/2$.
+After $s$ halvings the probability is $(1/2)^s$,
+and solving $(1/2)^s = p$ for $s$ gives $s = \log_{1/2} p$.
+This count is only motivation.
+@thm-surprisal-log-half proves that this $s$ is the [surprisal](#def-surprisal) in [bits](#def-bit).
+So the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) is the number of times certainty must be halved to reach the probability of that value.
+When $p$ is not $(1/2)^k$ for a whole number $k$,
+the number of halvings is not a whole number. <!-- check-term-links: allow -->
+
+:::
