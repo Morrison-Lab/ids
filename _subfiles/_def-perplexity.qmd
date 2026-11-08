@@ -5,7 +5,7 @@ The **perplexity** of a
 [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
 is the [exponential](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function)
 of its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
-with the same <!-- check-term-links: allow --> base as the
+with the same base as the
 [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) in the entropy:
 
 $$\perplexityf{X} \eqdef b^{\entropyf{X}}.$$
