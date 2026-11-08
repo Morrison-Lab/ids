@@ -23,7 +23,7 @@ $$
 $$
 
 The copies $X$ and $X'$ take the same value exactly when both equal some value $x$.
-By independence, and because $X'$ has the distribution of $X$,
+By independence, and because $X'$ is a copy of $X$,
 the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that both equal $x$ is $\P(X=x) \, \P(X'=x) = \P(X=x)^2$.
 Adding over the values $x$ gives
 
