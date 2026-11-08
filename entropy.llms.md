@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 16:34:55 (PST)
+Last modified: 2026-11-07 16:38:05 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -1092,6 +1092,136 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >     - split B: $1 - 0.689 = 0.311$ bits
 >
 >     Split B has the larger gain. Both splits isolate a branch of one color, so the gain depends on the other, mixed branch. B’s mixed branch, $5$ red against $10$ green, is more lopsided than A’s $6$ against $10$, so it has less entropy, and it also holds fewer of the points, $15$ against $16$, so its entropy gets less weight.
+
+## 4 Chain rules
+
+> **NOTE:**
+>
+> **Theorem 17 (Chain rule for entropy, many variables)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$ with finite entropies,
+>
+> $${\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = \sum_{i=1}^{n} {\mathbb{H}\mathopen{}\left(X_i \mid X_1, \ldots, X_{i-1}\right)\mathclose{}},$$
+>
+> where the term for $i = 1$ is ${\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}}$.
+
+> **NOTE:**
+>
+> *Proof*. The proof is by [induction](https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction) on $n$. The claim for $n = 1$ is ${\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}}$.
+>
+> Let $n \ge 2$, and suppose the claim holds for $n - 1$ variables. Treat $(X_1, \ldots, X_{n-1})$ as a single variable. The chain rule for two variables ([Theorem 7](#thm-entropy-chain-rule)) gives
+>
+> $${\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{n-1}\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X_n \mid X_1, \ldots, X_{n-1}\right)\mathclose{}}.$$
+>
+> The induction hypothesis expands the first summand on the right:
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}}
+> &= \sum_{i=1}^{n-1} {\mathbb{H}\mathopen{}\left(X_i \mid X_1, \ldots, X_{i-1}\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X_n \mid X_1, \ldots, X_{n-1}\right)\mathclose{}} \\
+> &= \sum_{i=1}^{n} {\mathbb{H}\mathopen{}\left(X_i \mid X_1, \ldots, X_{i-1}\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Example 17 (Chain rule for entropy along a chain of noisy copies)**  
+>
+> Let $X_1$ be a fair coin toss, coded $0$ or $1$. Let $X_2$ be a noisy copy of $X_1$ that flips it with probability $0.2$, and let $X_3$ be a noisy copy of $X_2$ that flips it with probability $0.2$, independently of $X_1$ given $X_2$. The chunk builds the joint probabilities of $(X_1, X_2, X_3)$ and compares their [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), in [bits](#def-bit), with the sum in [Theorem 17](#thm-entropy-chain-rule-n).
+>
+> Show code
+>
+> ``` r
+> flip <- 0.2
+> channel <- matrix(
+>   data = c(1 - flip, flip, flip, 1 - flip),
+>   nrow = 2,
+>   byrow = TRUE
+> )
+> joint <- array(data = 0, dim = c(2, 2, 2))
+> for (x1 in 1:2) {
+>   for (x2 in 1:2) {
+>     for (x3 in 1:2) {
+>       joint[x1, x2, x3] <- 0.5 * channel[x1, x2] * channel[x2, x3]
+>     }
+>   }
+> }
+> h_joint <- -sum(joint * log2(joint))
+> h_coin <- -flip * log2(flip) - (1 - flip) * log2(1 - flip)
+> h_sum <- 1 + h_coin + h_coin
+> c(h_joint = h_joint, h_sum = h_sum)
+> #>  h_joint    h_sum 
+> #> 2.443856 2.443856
+> ```
+>
+> The first term of the sum is ${\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}} = 1$ bit. Given $X_1$, the variable $X_2$ is a coin with flip probability $0.2$, and given $(X_1, X_2)$ the variable $X_3$ is the same kind of coin, so each of the other two terms is $0.722$ bits. The sum is $2.444$ bits, which equals ${\mathbb{H}\mathopen{}\left(X_1, X_2, X_3\right)\mathclose{}} = 2.444$ bits.
+
+> **NOTE:**
+>
+> **Definition 15 (Conditional mutual information)** The **conditional mutual information** of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ given a third one, $Z$, with finite entropies, is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$ from also learning $X$:
+>
+> $$I(X; Y \mid Z) \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> **Example 18 (Conditional mutual information along a chain of noisy copies)**  
+>
+> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 17](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the prediction of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip probability $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
+>
+> Show code
+>
+> ``` r
+> flip <- 0.2
+> h_coin <- -flip * log2(flip) - (1 - flip) * log2(1 - flip)
+> h_x3_given_x2 <- h_coin
+> h_x3_given_x1_x2 <- h_coin
+> h_x3_given_x2 - h_x3_given_x1_x2
+> #> [1] 0
+> ```
+>
+> So $I(X_1; X_3 \mid X_2) = 0$ bits.
+
+> **NOTE:**
+>
+> **Theorem 18 (Chain rule for mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ whose entropies ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$, ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ and ${\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}$ are finite,
+>
+> $$I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).$$
+
+> **NOTE:**
+>
+> *Proof*. By [Definition 13](#def-mutual-information), applied to the pair $(X, Z)$ and to $Z$,
+>
+> $$\begin{aligned}
+> I(X, Z; Y) &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
+> I(Z; Y) &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}.
+> \end{aligned}$$
+>
+> Subtracting the second display from the first gives
+>
+> $$\begin{aligned}
+> I(X, Z; Y) - I(Z; Y)
+> &= {\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
+> &= I(X; Y \mid Z),
+> \end{aligned}$$
+>
+> where the last line is [Definition 15](#def-conditional-mutual-information).
+
+> **NOTE:**
+>
+> **Example 19 (Chain rule for mutual information along a chain of noisy copies)**  
+>
+> For the chain in [Example 17](#exm-entropy-chain-rule-n-copies), the marginal distribution of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
+>
+> Show code
+>
+> ``` r
+> flip <- 0.2
+> h_coin <- -flip * log2(flip) - (1 - flip) * log2(1 - flip)
+> h_x3_given_x1_x2 <- h_coin
+> i_x2_x3 <- 1 - h_coin
+> i_pair_x3 <- 1 - h_x3_given_x1_x2
+> c(i_x2_x3 = i_x2_x3, i_pair_x3 = i_pair_x3)
+> #>   i_x2_x3 i_pair_x3 
+> #> 0.2780719 0.2780719
+> ```
+>
+> Here $I(X_2; X_3) = 0.278$ bits and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 18](#thm-mutual-information-chain-rule)), as in [Example 18](#exm-conditional-mutual-information).
 
 ## References
 

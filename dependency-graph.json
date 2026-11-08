@@ -147,6 +147,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#def-conditional-mutual-information",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-conditional-mutual-information",
+   "kind": "def",
+   "title": "Conditional mutual information",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-conditional-surprisal",
    "site": "ids",
    "page": "entropy",
@@ -264,6 +273,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-entropy-chain-rule-n",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-entropy-chain-rule-n",
+   "kind": "thm",
+   "title": "Chain rule for entropy, many variables",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-entropy-sum-decomposition",
    "site": "ids",
    "page": "entropy",
@@ -279,6 +297,15 @@
    "div": "thm-expected-probability-collision",
    "kind": "thm",
    "title": "The expected probability is the collision probability",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-chain-rule",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-chain-rule",
+   "kind": "thm",
+   "title": "Chain rule for mutual information",
    "external": false
   },
   {
@@ -559,6 +586,16 @@
    "kind": "thm",
    "title": "The cost of coding with the wrong distribution",
    "external": false
+  },
+  {
+   "id": "mcs/induction#def-proof-by-induction",
+   "site": "mcs",
+   "page": "induction",
+   "div": "def-proof-by-induction",
+   "kind": "def",
+   "title": "proof by induction",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction"
   },
   {
    "id": "mds/algebra-exponentials#def-exponential-function",
@@ -915,6 +952,14 @@
    "ids/entropy#def-joint-entropy"
   ],
   [
+   "ids/entropy#def-conditional-mutual-information",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#def-conditional-mutual-information",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#def-conditional-surprisal",
    "ids/entropy#def-joint-surprisal"
   ],
@@ -1079,6 +1124,18 @@
    "ids/entropy#def-entropy-given-value"
   ],
   [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "mcs/induction#def-proof-by-induction"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#thm-entropy-sum-decomposition",
    "ids/entropy#thm-mutual-information-entropy-sum"
   ],
@@ -1112,6 +1169,18 @@
   ],
   [
    "ids/entropy#thm-expected-probability-collision",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-chain-rule",
+   "ids/entropy#def-conditional-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-chain-rule",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-chain-rule",
    "pds/random-variables#def-discrete-rv"
   ],
   [
