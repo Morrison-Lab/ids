@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 16:38:05 (PST)
+Last modified: 2026-11-07 17:11:18 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -1222,6 +1222,164 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > ```
 >
 > Here $I(X_2; X_3) = 0.278$ bits and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 18](#thm-mutual-information-chain-rule)), as in [Example 18](#exm-conditional-mutual-information).
+
+> **NOTE:**
+>
+> **Theorem 19 (Conditional mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ with finite entropies,
+>
+> $$I(X; Y \mid Z) \ge 0.$$
+
+> **NOTE:**
+>
+> *Proof*. For each value $z$ with $\mathbb{P}(Z=z) > 0$, let $I_z(X; Y)$ be the [mutual information](#def-mutual-information) of $X$ and $Y$ computed from their joint probabilities given $Z=z$, so that $I_z(X; Y) = {\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}$. Applying [Definition 10](#def-conditional-entropy) to ${\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}$ and to ${\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}$ expands each over the values $z$ of $Z$:
+>
+> $$\begin{aligned}
+> I(X; Y \mid Z)
+> &= {\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
+> &= \sum_z \mathbb{P}(Z=z) \mathopen{}\left[{\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}\right]\mathclose{} \\
+> &= \sum_z \mathbb{P}(Z=z) \, I_z(X; Y).
+> \end{aligned}$$
+>
+> Each $I_z(X; Y)$ is nonnegative by [Theorem 15](#thm-mutual-information-nonnegative). Since $\mathbb{P}(Z=z) \ge 0$ as well, every summand $\mathbb{P}(Z=z) \, I_z(X; Y)$ is nonnegative, so $I(X; Y \mid Z) \ge 0$.
+
+> **NOTE:**
+>
+> **Example 20 (Learning a third variable can create information)**  
+>
+> Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$, and let $Z = X + Y \bmod 2$ record whether they differ. The two coins are independent, so $I(X; Y) = 0$ ([Theorem 15](#thm-mutual-information-nonnegative)). Given $Z$, each of $X$ and $Y$ determines the other. The chunk computes the [conditional mutual information](#def-conditional-mutual-information) from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
+>
+> Show code
+>
+> ``` r
+> entropy <- function(p) -sum(p[p > 0] * log2(p[p > 0]))
+> joint <- array(data = 0, dim = c(2, 2, 2))
+> for (x in 0:1) {
+>   for (y in 0:1) {
+>     z <- (x + y) %% 2
+>     joint[x + 1, y + 1, z + 1] <- 0.25
+>   }
+> }
+> h_xyz <- entropy(joint)
+> h_xz <- entropy(apply(X = joint, MARGIN = c(1, 3), FUN = sum))
+> h_yz <- entropy(apply(X = joint, MARGIN = c(2, 3), FUN = sum))
+> h_z <- entropy(apply(X = joint, MARGIN = 3, FUN = sum))
+> h_y_given_z <- h_yz - h_z
+> h_y_given_xz <- h_xyz - h_xz
+> h_y_given_z - h_y_given_xz
+> #> [1] 1
+> ```
+>
+> So $I(X; Y \mid Z) = 1$ [bit](#def-bit), which is nonnegative ([Theorem 19](#thm-conditional-mutual-information-nonnegative)), although $I(X; Y) = 0$.
+
+> **NOTE:**
+>
+> **Definition 16 (Markov chain of three random variables)** [Discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ form a **Markov chain** $X \to Y \to Z$ ([Cover and Thomas 2006, sec. 2.8](#ref-cover2006elements)) if $X$ and $Z$ are [conditionally independent](https://morrison-lab.github.io/pds/independence.html#def-cind) given $Y$: for every value $y$ with $\mathbb{P}(Y=y) > 0$ and all values $x$ and $z$,
+>
+> $$\mathbb{P}(X=x, Z=z \mid Y=y) = \mathbb{P}(X=x \mid Y=y) \, \mathbb{P}(Z=z \mid Y=y).$$
+
+> **NOTE:**
+>
+> **Example 21 (A chain of noisy copies is a Markov chain)**  
+>
+> In [Example 17](#exm-entropy-chain-rule-n-copies), each of $X_2$ and $X_3$ is a noisy copy of the variable before it. So $X_3$ depends on $X_1$ only through $X_2$. The chunk builds the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) of $(X_1, X_2, X_3)$ and checks the defining equation of the chain $X_1 \to X_2 \to X_3$ for each value of $X_2$.
+>
+> Show code
+>
+> ``` r
+> flip <- 0.2
+> copy <- matrix(
+>   data = c(1 - flip, flip, flip, 1 - flip),
+>   nrow = 2
+> )
+> joint <- array(data = 0, dim = c(2, 2, 2))
+> for (x1 in 1:2) {
+>   for (x2 in 1:2) {
+>     for (x3 in 1:2) {
+>       joint[x1, x2, x3] <- 0.5 * copy[x1, x2] * copy[x2, x3]
+>     }
+>   }
+> }
+> gaps <- numeric(2)
+> for (x2 in 1:2) {
+>   slice <- joint[, x2, ]
+>   given_x2 <- slice / sum(slice)
+>   product <- outer(rowSums(given_x2), colSums(given_x2))
+>   gaps[x2] <- max(abs(given_x2 - product))
+> }
+> gaps
+> #> [1] 1.110223e-16 1.110223e-16
+> ```
+>
+> Both gaps are zero up to rounding, so $X_1$ and $X_3$ are [conditionally independent](https://morrison-lab.github.io/pds/independence.html#def-cind) given $X_2$.
+
+> **NOTE:**
+>
+> **Lemma 1 (Conditional mutual information along a Markov chain)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the entropies of $X$, $Y$ and $Z$ are finite, then
+>
+> $$I(Z; X \mid Y) = 0.$$
+
+> **NOTE:**
+>
+> *Proof*. Fix values $y$ and $z$ with $\mathbb{P}(Y=y, Z=z) > 0$. Dividing the defining equation of the chain by $\mathbb{P}(Z=z \mid Y=y)$ gives
+>
+> $$\mathbb{P}(X=x \mid Y=y, Z=z) = \mathbb{P}(X=x \mid Y=y)$$
+>
+> for every $x$. So the [entropy given](#def-entropy-given-value) $(Y, Z) = (y, z)$ is the entropy given $Y = y$. Averaging over $(Y, Z)$ and over $Y$ gives
+>
+> $${\mathbb{H}\mathopen{}\left(X \mid Y, Z\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.$$
+>
+> By [Definition 15](#def-conditional-mutual-information),
+>
+> $$\begin{aligned}
+> I(Z; X \mid Y)
+> &= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Z, Y\right)\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y, Z\right)\mathclose{}} \\
+> &= 0.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Theorem 20 (Data processing inequality)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the entropies of $X$, $Y$ and $Z$ are finite, then
+>
+> $$I(X; Z) \le I(X; Y).$$
+
+> **NOTE:**
+>
+> *Proof*. The [chain rule](#thm-mutual-information-chain-rule) for the pair $(Z, Y)$ and the pair $(Y, Z)$ gives
+>
+> $$\begin{aligned}
+> I(Z, Y; X) &= I(Y; X) + I(Z; X \mid Y) \\
+> I(Y, Z; X) &= I(Z; X) + I(Y; X \mid Z).
+> \end{aligned}$$
+>
+> The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables, so $I(Z, Y; X) = I(Y, Z; X)$. By [Lemma 1](#lem-markov-chain-conditional-mutual-information), $I(Z; X \mid Y) = 0$. By [Theorem 19](#thm-conditional-mutual-information-nonnegative), $I(Y; X \mid Z) \ge 0$. Therefore
+>
+> $$\begin{aligned}
+> I(Y; X)
+> &= I(Z; X) + I(Y; X \mid Z) \\
+> &\ge I(Z; X).
+> \end{aligned}$$
+>
+> By [Theorem 9](#thm-mutual-information-symmetric), $I(Y; X) = I(X; Y)$ and $I(Z; X) = I(X; Z)$, so $I(X; Z) \le I(X; Y)$.
+
+> **NOTE:**
+>
+> **Example 22 (Each extra noisy copy loses information)**  
+>
+> For the chain $X_1 \to X_2 \to X_3$ in [Example 21](#exm-markov-chain-noisy-copies), the chunk computes the [mutual information](#def-mutual-information) of $X_1$ with $X_2$ and with $X_3$, in [bits](#def-bit). Each variable is a fair coin. The variable $X_3$ differs from $X_1$ when exactly one of the two copies flips, which has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2 \times 0.2 \times 0.8 = 0.32$.
+>
+> Show code
+>
+> ``` r
+> h_coin <- function(flip) -flip * log2(flip) - (1 - flip) * log2(1 - flip)
+> i_x1_x2 <- 1 - h_coin(flip = 0.2)
+> i_x1_x3 <- 1 - h_coin(flip = 0.32)
+> c(i_x1_x2 = i_x1_x2, i_x1_x3 = i_x1_x3)
+> #>    i_x1_x2    i_x1_x3 
+> #> 0.27807191 0.09561854
+> ```
+>
+> Here $I(X_1; X_3) = 0.096$ bits is below $I(X_1; X_2) = 0.278$ bits ([Theorem 20](#thm-data-processing-inequality)).
 
 ## References
 

@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-07 16:38:05 (PST)</p>
+  <p class="date">Last modified: 2026-11-07 17:11:18 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -1628,6 +1628,165 @@ I(X, Z; Y) - I(Z; Y)
 </details>
 </div>
 <p>Here <span class="math inline">\(I(X_2; X_3) = 0.278\)</span> bits <!-- check-term-links: allow --> and <span class="math inline">\(I(X_1, X_2; X_3) = 0.278\)</span> bits. The difference is <span class="math inline">\(I(X_1; X_3 \mid X_2) = 0\)</span> (<a href="#/thm-mutual-information-chain-rule" class="quarto-xref">Theorem&nbsp;18</a>), <!-- check-term-links: allow --> as in <a href="#/exm-conditional-mutual-information" class="quarto-xref">Example&nbsp;18</a>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="thm-conditional-mutual-information-nonnegative" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 19 (Conditional mutual information is nonnegative)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> with finite entropies, <!-- check-term-links: allow --></p>
+<p><span class="math display">\[I(X; Y \mid Z) \ge 0.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>For each value <span class="math inline">\(z\)</span> with <span class="math inline">\(\mathbb{P}(Z=z) &gt; 0\)</span>, let <span class="math inline">\(I_z(X; Y)\)</span> be the <a href="#/def-mutual-information">mutual information</a> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> computed from their joint probabilities given <span class="math inline">\(Z=z\)</span>, so that <span class="math inline">\(I_z(X; Y) = {\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}\)</span>. Applying <a href="#/def-conditional-entropy" class="quarto-xref">Definition&nbsp;10</a> to <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}\)</span> and to <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}\)</span> expands each over the values <span class="math inline">\(z\)</span> of <span class="math inline">\(Z\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+I(X; Y \mid Z)
+&amp;= {\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
+&amp;= \sum_z \mathbb{P}(Z=z) \mathopen{}\left[{\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}\right]\mathclose{} \\
+&amp;= \sum_z \mathbb{P}(Z=z) \, I_z(X; Y).
+\end{aligned}
+\]</span></p>
+<p>Each <span class="math inline">\(I_z(X; Y)\)</span> is nonnegative by <a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;15</a>. Since <span class="math inline">\(\mathbb{P}(Z=z) \ge 0\)</span> as well, every summand <span class="math inline">\(\mathbb{P}(Z=z) \, I_z(X; Y)\)</span> is nonnegative, so <span class="math inline">\(I(X; Y \mid Z) \ge 0\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-conditional-mutual-information-nonnegative" class="theorem example">
+<p><span class="theorem-title"><strong>Example 20 (Learning a third variable can create information)</strong></span> &nbsp;</p>
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> fair coins, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, and let <span class="math inline">\(Z = X + Y \bmod 2\)</span> record whether they differ. The two coins are independent, so <span class="math inline">\(I(X; Y) = 0\)</span> (<a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;15</a>). Given <span class="math inline">\(Z\)</span>, each of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> determines the other. The chunk computes the <a href="#/def-conditional-mutual-information">conditional mutual information</a> from the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a>, in <a href="#/def-bit">bits</a>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a>entropy <span class="ot">&lt;-</span> <span class="cf">function</span>(p) <span class="sc">-</span><span class="fu">sum</span>(p[p <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="sc">*</span> <span class="fu">log2</span>(p[p <span class="sc">&gt;</span> <span class="dv">0</span>]))</span>
+<span id="cb17-2"><a aria-label="2"></a>joint <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="at">data =</span> <span class="dv">0</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb17-3"><a aria-label="3"></a><span class="cf">for</span> (x <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>) {</span>
+<span id="cb17-4"><a aria-label="4"></a>  <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>) {</span>
+<span id="cb17-5"><a aria-label="5"></a>    z <span class="ot">&lt;-</span> (x <span class="sc">+</span> y) <span class="sc">%%</span> <span class="dv">2</span></span>
+<span id="cb17-6"><a aria-label="6"></a>    joint[x <span class="sc">+</span> <span class="dv">1</span>, y <span class="sc">+</span> <span class="dv">1</span>, z <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
+<span id="cb17-7"><a aria-label="7"></a>  }</span>
+<span id="cb17-8"><a aria-label="8"></a>}</span>
+<span id="cb17-9"><a aria-label="9"></a>h_xyz <span class="ot">&lt;-</span> <span class="fu">entropy</span>(joint)</span>
+<span id="cb17-10"><a aria-label="10"></a>h_xz <span class="ot">&lt;-</span> <span class="fu">entropy</span>(<span class="fu">apply</span>(<span class="at">X =</span> joint, <span class="at">MARGIN =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">FUN =</span> sum))</span>
+<span id="cb17-11"><a aria-label="11"></a>h_yz <span class="ot">&lt;-</span> <span class="fu">entropy</span>(<span class="fu">apply</span>(<span class="at">X =</span> joint, <span class="at">MARGIN =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>), <span class="at">FUN =</span> sum))</span>
+<span id="cb17-12"><a aria-label="12"></a>h_z <span class="ot">&lt;-</span> <span class="fu">entropy</span>(<span class="fu">apply</span>(<span class="at">X =</span> joint, <span class="at">MARGIN =</span> <span class="dv">3</span>, <span class="at">FUN =</span> sum))</span>
+<span id="cb17-13"><a aria-label="13"></a>h_y_given_z <span class="ot">&lt;-</span> h_yz <span class="sc">-</span> h_z</span>
+<span id="cb17-14"><a aria-label="14"></a>h_y_given_xz <span class="ot">&lt;-</span> h_xyz <span class="sc">-</span> h_xz</span>
+<span id="cb17-15"><a aria-label="15"></a>h_y_given_z <span class="sc">-</span> h_y_given_xz</span>
+<span id="cb17-16"><a aria-label="16"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>So <span class="math inline">\(I(X; Y \mid Z) = 1\)</span> <a href="#/def-bit">bit</a>, which is nonnegative (<a href="#/thm-conditional-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;19</a>), although <span class="math inline">\(I(X; Y) = 0\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="def-markov-chain" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16 (Markov chain of three random variables)</strong></span> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">Discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> form a <strong>Markov chain</strong> <span class="math inline">\(X \to Y \to Z\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.8</a>)</span> if <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-cind">conditionally independent</a> given <span class="math inline">\(Y\)</span>: for every value <span class="math inline">\(y\)</span> with <span class="math inline">\(\mathbb{P}(Y=y) &gt; 0\)</span> and all values <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span>,</p>
+<p><span class="math display">\[\mathbb{P}(X=x, Z=z \mid Y=y) = \mathbb{P}(X=x \mid Y=y) \, \mathbb{P}(Z=z \mid Y=y).\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-markov-chain-noisy-copies" class="theorem example">
+<p><span class="theorem-title"><strong>Example 21 (A chain of noisy copies is a Markov chain)</strong></span> &nbsp;</p>
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+<p>In <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;17</a>, each of <span class="math inline">\(X_2\)</span> and <span class="math inline">\(X_3\)</span> is a noisy copy of the variable before it. So <span class="math inline">\(X_3\)</span> depends on <span class="math inline">\(X_1\)</span> only through <span class="math inline">\(X_2\)</span>. The chunk builds the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a> of <span class="math inline">\((X_1, X_2, X_3)\)</span> and checks the defining equation of the chain <span class="math inline">\(X_1 \to X_2 \to X_3\)</span> for each value of <span class="math inline">\(X_2\)</span>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>flip <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb18-2"><a aria-label="2"></a>copy <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb18-3"><a aria-label="3"></a>  <span class="at">data =</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">-</span> flip, flip, flip, <span class="dv">1</span> <span class="sc">-</span> flip),</span>
+<span id="cb18-4"><a aria-label="4"></a>  <span class="at">nrow =</span> <span class="dv">2</span></span>
+<span id="cb18-5"><a aria-label="5"></a>)</span>
+<span id="cb18-6"><a aria-label="6"></a>joint <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="at">data =</span> <span class="dv">0</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb18-7"><a aria-label="7"></a><span class="cf">for</span> (x1 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) {</span>
+<span id="cb18-8"><a aria-label="8"></a>  <span class="cf">for</span> (x2 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) {</span>
+<span id="cb18-9"><a aria-label="9"></a>    <span class="cf">for</span> (x3 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) {</span>
+<span id="cb18-10"><a aria-label="10"></a>      joint[x1, x2, x3] <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> copy[x1, x2] <span class="sc">*</span> copy[x2, x3]</span>
+<span id="cb18-11"><a aria-label="11"></a>    }</span>
+<span id="cb18-12"><a aria-label="12"></a>  }</span>
+<span id="cb18-13"><a aria-label="13"></a>}</span>
+<span id="cb18-14"><a aria-label="14"></a>gaps <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">2</span>)</span>
+<span id="cb18-15"><a aria-label="15"></a><span class="cf">for</span> (x2 <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) {</span>
+<span id="cb18-16"><a aria-label="16"></a>  slice <span class="ot">&lt;-</span> joint[, x2, ]</span>
+<span id="cb18-17"><a aria-label="17"></a>  given_x2 <span class="ot">&lt;-</span> slice <span class="sc">/</span> <span class="fu">sum</span>(slice)</span>
+<span id="cb18-18"><a aria-label="18"></a>  product <span class="ot">&lt;-</span> <span class="fu">outer</span>(<span class="fu">rowSums</span>(given_x2), <span class="fu">colSums</span>(given_x2))</span>
+<span id="cb18-19"><a aria-label="19"></a>  gaps[x2] <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">abs</span>(given_x2 <span class="sc">-</span> product))</span>
+<span id="cb18-20"><a aria-label="20"></a>}</span>
+<span id="cb18-21"><a aria-label="21"></a>gaps</span>
+<span id="cb18-22"><a aria-label="22"></a><span class="co">#&gt; [1] 1.110223e-16 1.110223e-16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Both gaps are zero up to rounding, so <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_3\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-cind">conditionally independent</a> given <span class="math inline">\(X_2\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="lem-markov-chain-conditional-mutual-information" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (Conditional mutual information along a Markov chain)</strong></span> If <span class="math inline">\(X \to Y \to Z\)</span> is a <a href="#/def-markov-chain">Markov chain</a> and the entropies of <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> are finite, <!-- check-term-links: allow --> then</p>
+<p><span class="math display">\[I(Z; X \mid Y) = 0.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Fix values <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> with <span class="math inline">\(\mathbb{P}(Y=y, Z=z) &gt; 0\)</span>. Dividing the defining equation of the chain by <span class="math inline">\(\mathbb{P}(Z=z \mid Y=y)\)</span> gives</p>
+<p><span class="math display">\[\mathbb{P}(X=x \mid Y=y, Z=z) = \mathbb{P}(X=x \mid Y=y)\]</span></p>
+<p>for every <span class="math inline">\(x\)</span>. So the <a href="#/def-entropy-given-value">entropy given</a> <span class="math inline">\((Y, Z) = (y, z)\)</span> is the entropy given <span class="math inline">\(Y = y\)</span>. Averaging over <span class="math inline">\((Y, Z)\)</span> and over <span class="math inline">\(Y\)</span> gives</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X \mid Y, Z\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.\]</span></p>
+<p>By <a href="#/def-conditional-mutual-information" class="quarto-xref">Definition&nbsp;15</a>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+I(Z; X \mid Y)
+&amp;= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Z, Y\right)\mathclose{}} \\
+&amp;= {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y, Z\right)\mathclose{}} \\
+&amp;= 0.
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="thm-data-processing-inequality" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 20 (Data processing inequality)</strong></span> If <span class="math inline">\(X \to Y \to Z\)</span> is a <a href="#/def-markov-chain">Markov chain</a> and the entropies of <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> are finite, <!-- check-term-links: allow --> then</p>
+<p><span class="math display">\[I(X; Z) \le I(X; Y).\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The <a href="#/thm-mutual-information-chain-rule">chain rule</a> for the pair <span class="math inline">\((Z, Y)\)</span> and the pair <span class="math inline">\((Y, Z)\)</span> gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+I(Z, Y; X) &amp;= I(Y; X) + I(Z; X \mid Y) \\
+I(Y, Z; X) &amp;= I(Z; X) + I(Y; X \mid Z).
+\end{aligned}
+\]</span></p>
+<p>The pairs <span class="math inline">\((Z, Y)\)</span> and <span class="math inline">\((Y, Z)\)</span> contain the same two variables, so <span class="math inline">\(I(Z, Y; X) = I(Y, Z; X)\)</span>. By <a href="#/lem-markov-chain-conditional-mutual-information" class="quarto-xref">Lemma&nbsp;1</a>, <span class="math inline">\(I(Z; X \mid Y) = 0\)</span>. By <a href="#/thm-conditional-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;19</a>, <span class="math inline">\(I(Y; X \mid Z) \ge 0\)</span>. Therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+I(Y; X)
+&amp;= I(Z; X) + I(Y; X \mid Z) \\
+&amp;\ge I(Z; X).
+\end{aligned}
+\]</span></p>
+<p>By <a href="#/thm-mutual-information-symmetric" class="quarto-xref">Theorem&nbsp;9</a>, <span class="math inline">\(I(Y; X) = I(X; Y)\)</span> and <span class="math inline">\(I(Z; X) = I(X; Z)\)</span>, so <span class="math inline">\(I(X; Z) \le I(X; Y)\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-data-processing-inequality-noisy-copies" class="theorem example">
+<p><span class="theorem-title"><strong>Example 22 (Each extra noisy copy loses information)</strong></span> &nbsp;</p>
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+<p>For the chain <span class="math inline">\(X_1 \to X_2 \to X_3\)</span> in <a href="#/exm-markov-chain-noisy-copies" class="quarto-xref">Example&nbsp;21</a>, the chunk computes the <a href="#/def-mutual-information">mutual information</a> of <span class="math inline">\(X_1\)</span> with <span class="math inline">\(X_2\)</span> and with <span class="math inline">\(X_3\)</span>, in <a href="#/def-bit">bits</a>. Each variable is a fair coin. The variable <span class="math inline">\(X_3\)</span> differs from <span class="math inline">\(X_1\)</span> when exactly one of the two copies flips, which has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(2 \times 0.2 \times 0.8 = 0.32\)</span>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>h_coin <span class="ot">&lt;-</span> <span class="cf">function</span>(flip) <span class="sc">-</span>flip <span class="sc">*</span> <span class="fu">log2</span>(flip) <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> flip) <span class="sc">*</span> <span class="fu">log2</span>(<span class="dv">1</span> <span class="sc">-</span> flip)</span>
+<span id="cb19-2"><a aria-label="2"></a>i_x1_x2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">h_coin</span>(<span class="at">flip =</span> <span class="fl">0.2</span>)</span>
+<span id="cb19-3"><a aria-label="3"></a>i_x1_x3 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">h_coin</span>(<span class="at">flip =</span> <span class="fl">0.32</span>)</span>
+<span id="cb19-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">i_x1_x2 =</span> i_x1_x2, <span class="at">i_x1_x3 =</span> i_x1_x3)</span>
+<span id="cb19-5"><a aria-label="5"></a><span class="co">#&gt;    i_x1_x2    i_x1_x3 </span></span>
+<span id="cb19-6"><a aria-label="6"></a><span class="co">#&gt; 0.27807191 0.09561854</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Here <span class="math inline">\(I(X_1; X_3) = 0.096\)</span> bits is below <span class="math inline">\(I(X_1; X_2) = 0.278\)</span> bits (<a href="#/thm-data-processing-inequality" class="quarto-xref">Theorem&nbsp;20</a>).</p>
 </div>
 </section>
 <section id="references" class="slide level2 unnumbered smaller scrollable">

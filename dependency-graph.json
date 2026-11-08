@@ -201,6 +201,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#def-markov-chain",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-markov-chain",
+   "kind": "def",
+   "title": "Markov chain of three random variables",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-mutual-information",
    "site": "ids",
    "page": "entropy",
@@ -255,12 +264,39 @@
    "external": false
   },
   {
+   "id": "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "site": "ids",
+   "page": "entropy",
+   "div": "lem-markov-chain-conditional-mutual-information",
+   "kind": "lem",
+   "title": "Conditional mutual information along a Markov chain",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-collision-entropy-at-most-entropy",
    "site": "ids",
    "page": "entropy",
    "div": "thm-collision-entropy-at-most-entropy",
    "kind": "thm",
    "title": "The collision entropy is at most the Shannon entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-conditional-mutual-information-nonnegative",
+   "kind": "thm",
+   "title": "Conditional mutual information is nonnegative",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-data-processing-inequality",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-data-processing-inequality",
+   "kind": "thm",
+   "title": "Data processing inequality",
    "external": false
   },
   {
@@ -698,6 +734,16 @@
    "url": "https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete"
   },
   {
+   "id": "pds/independence#def-cind",
+   "site": "pds",
+   "page": "independence",
+   "div": "def-cind",
+   "kind": "def",
+   "title": "cind",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/independence.html#def-cind"
+  },
+  {
    "id": "pds/independence#def-indpt",
    "site": "pds",
    "page": "independence",
@@ -988,6 +1034,14 @@
    "pds/random-variables#def-realization"
   ],
   [
+   "ids/entropy#def-markov-chain",
+   "pds/independence#def-cind"
+  ],
+  [
+   "ids/entropy#def-markov-chain",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#def-mutual-information",
    "ids/entropy#def-conditional-entropy"
   ],
@@ -1092,6 +1146,18 @@
    "pds/random-variables#def-realization"
   ],
   [
+   "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "ids/entropy#def-conditional-mutual-information"
+  ],
+  [
+   "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "ids/entropy#def-markov-chain"
+  ],
+  [
    "ids/entropy#thm-collision-entropy-at-most-entropy",
    "ids/entropy#def-renyi-entropy"
   ],
@@ -1114,6 +1180,42 @@
   [
    "ids/entropy#thm-collision-entropy-at-most-entropy",
    "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "ids/entropy#thm-mutual-information-nonnegative"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "ids/entropy#def-markov-chain"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "ids/entropy#lem-markov-chain-conditional-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "ids/entropy#thm-conditional-mutual-information-nonnegative"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "ids/entropy#thm-mutual-information-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "ids/entropy#thm-mutual-information-symmetric"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule",
