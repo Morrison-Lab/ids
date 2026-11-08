@@ -955,6 +955,10 @@
   ],
   [
    "ids/entropy#cor-conditional-entropy-difference",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#cor-conditional-entropy-difference",
    "pds/random-variables#def-discrete-rv"
   ],
   [
@@ -1052,6 +1056,10 @@
   [
    "ids/entropy#def-conditional-mutual-information",
    "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#def-conditional-mutual-information",
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#def-conditional-mutual-information",
@@ -1218,6 +1226,10 @@
    "ids/entropy#def-markov-chain"
   ],
   [
+   "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "pds/expectation#def-entropy"
+  ],
+  [
    "ids/entropy#lem-surprisal-chain-rule-reversed",
    "ids/entropy#thm-surprisal-chain-rule"
   ],
@@ -1291,6 +1303,10 @@
   ],
   [
    "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
    "pds/random-variables#def-discrete-rv"
   ],
   [
@@ -1312,6 +1328,10 @@
   [
    "ids/entropy#thm-data-processing-inequality",
    "ids/entropy#thm-mutual-information-symmetric"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule",
@@ -1491,11 +1511,23 @@
   ],
   [
    "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
    "pds/independence#def-indpt"
   ],
   [
    "ids/entropy#thm-mutual-information-nonnegative",
    "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/random-variables#def-joint-pmf"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/random-variables#def-marginal"
   ],
   [
    "ids/entropy#thm-mutual-information-reduction",
@@ -1624,6 +1656,10 @@
   [
    "ids/entropy#thm-twice-mutual-information",
    "ids/entropy#thm-mutual-information-reduction"
+  ],
+  [
+   "ids/entropy#thm-twice-mutual-information",
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#thm-twice-mutual-information",
