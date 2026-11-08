@@ -1,7 +1,7 @@
 :::{#thm-surprisal-log-half}
 #### Surprisal as a logarithm to base one half
 
-For an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
+For a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
 with $\P(X=x) > 0$,
 the [surprisal](#def-surprisal) in [bits](#def-bit) is
 
