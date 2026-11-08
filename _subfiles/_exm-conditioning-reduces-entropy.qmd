@@ -14,7 +14,7 @@ h_y_given_x <- -0.8 * log2(0.8) - 0.2 * log2(0.2)
 c(h_y = h_y, h_y_given_x = h_y_given_x)
 ```
 
-Here $\entropyf{Y \mid X} = `r round(h_y_given_x, 3)`$ bits, <!-- check-term-links: allow -->
-which is below $\entropyf{Y} = `r h_y`$ bit (@cor-conditioning-reduces-entropy). <!-- check-term-links: allow -->
+Here $\entropyf{Y \mid X} = `r round(h_y_given_x, 3)`$ [bits](#def-bit),
+which is below $\entropyf{Y} = `r h_y`$ bit (@cor-conditioning-reduces-entropy).
 
 :::
