@@ -10,7 +10,7 @@ with the same base as the
 
 $$\perplexityf{X} \eqdef b^{\entropyf{X}}.$$
 
-With base-2 logarithms, $\perplexityf{X} = 2^{\entropyf{X}}$ with $\entropyf{X}$ in [bits](#def-bit).
+With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), $\perplexityf{X} = 2^{\entropyf{X}}$ with $\entropyf{X}$ in [bits](#def-bit).
 With [natural logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log),
 $\perplexityf{X} = \euler^{\entropyf{X}}$ with $\entropyf{X}$ in [nats](#def-nat).
 The two give the same value.

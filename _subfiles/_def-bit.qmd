@@ -2,7 +2,7 @@
 #### Bit (shannon)
 
 A **bit**, also called a **shannon** (symbol Sh) [@iec80000132008], is the unit of information
-when the logarithm in [surprisal](#def-surprisal),
+when the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) in [surprisal](#def-surprisal),
 and in every quantity built from it, has base $2$.
 
 One bit is the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$:
@@ -16,8 +16,8 @@ s(x) = 1 \text{ bit}
 \end{aligned}
 $$
 
-In words, a bit is the surprisal of the outcome of one binary trial
-whose two outcomes are equally likely,
+In words, a bit is the surprisal of the [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) of one trial
+whose two [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) are equally likely,
 such as one toss of a fair coin.
 
 :::
