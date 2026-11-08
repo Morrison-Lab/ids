@@ -75,6 +75,24 @@
    "external": false
   },
   {
+   "id": "ids/entropy#cor-conditional-entropy-difference",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-conditional-entropy-difference",
+   "kind": "cor",
+   "title": "Conditional entropy as a difference",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#cor-conditional-surprisal-difference",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-conditional-surprisal-difference",
+   "kind": "cor",
+   "title": "Conditional surprisal as a difference",
+   "external": false
+  },
+  {
    "id": "ids/entropy#cor-conditioning-reduces-entropy",
    "site": "ids",
    "page": "entropy",
@@ -84,12 +102,21 @@
    "external": false
   },
   {
+   "id": "ids/entropy#cor-entropy-chain-rule-reversed",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-entropy-chain-rule-reversed",
+   "kind": "cor",
+   "title": "Chain rule for entropy, other order",
+   "external": false
+  },
+  {
    "id": "ids/entropy#cor-surprisal-discrete-nonnegative",
    "site": "ids",
    "page": "entropy",
    "div": "cor-surprisal-discrete-nonnegative",
    "kind": "cor",
-   "title": "Surprisal of a discrete outcome is nonnegative",
+   "title": "Surprisal of a discrete value is nonnegative",
    "external": false
   },
   {
@@ -120,6 +147,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#def-conditional-surprisal",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-conditional-surprisal",
+   "kind": "def",
+   "title": "Conditional surprisal",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-entropy-given-value",
    "site": "ids",
    "page": "entropy",
@@ -147,6 +183,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#def-joint-surprisal",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-joint-surprisal",
+   "kind": "def",
+   "title": "Joint surprisal",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-mutual-information",
    "site": "ids",
    "page": "entropy",
@@ -162,6 +207,15 @@
    "div": "def-nat",
    "kind": "def",
    "title": "Nat",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-perplexity",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-perplexity",
+   "kind": "def",
+   "title": "Perplexity",
    "external": false
   },
   {
@@ -210,12 +264,39 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-entropy-sum-decomposition",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-entropy-sum-decomposition",
+   "kind": "thm",
+   "title": "Decomposition of the sum of entropies",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-expected-probability-collision",
    "site": "ids",
    "page": "entropy",
    "div": "thm-expected-probability-collision",
    "kind": "thm",
    "title": "The expected probability is the collision probability",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-entropy-sum",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-entropy-sum",
+   "kind": "thm",
+   "title": "Mutual information from the joint entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-joint-minus-conditionals",
+   "kind": "thm",
+   "title": "Mutual information from the conditional entropies",
    "external": false
   },
   {
@@ -255,6 +336,33 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-perplexity-geometric-mean",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-perplexity-geometric-mean",
+   "kind": "thm",
+   "title": "Perplexity is the probability-weighted geometric mean of the rarities",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-surprisal-chain-rule",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-chain-rule",
+   "kind": "thm",
+   "title": "Chain rule for surprisal",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-surprisal-log-half",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-log-half",
+   "kind": "thm",
+   "title": "Surprisal as a logarithm to base one half",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-surprisal-log-rarity",
    "site": "ids",
    "page": "entropy",
@@ -270,6 +378,15 @@
    "div": "thm-surprisal-log-rarity-continuous",
    "kind": "thm",
    "title": "Surprisal of a continuous value is the logarithm of the rarity",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-twice-mutual-information",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-twice-mutual-information",
+   "kind": "thm",
+   "title": "Twice the mutual information",
    "external": false
   },
   {
@@ -408,6 +525,24 @@
    "external": false
   },
   {
+   "id": "ids/source-coding#thm-cross-entropy-decomposition",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-cross-entropy-decomposition",
+   "kind": "thm",
+   "title": "Cross-entropy is entropy plus divergence",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#thm-kl-divergence-nonnegative",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-kl-divergence-nonnegative",
+   "kind": "thm",
+   "title": "The divergence is nonnegative",
+   "external": false
+  },
+  {
    "id": "ids/source-coding#thm-source-coding",
    "site": "ids",
    "page": "source-coding",
@@ -426,6 +561,16 @@
    "external": false
   },
   {
+   "id": "mds/algebra-exponentials#def-exponential-function",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-exponential-function",
+   "kind": "def",
+   "title": "exponential function",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function"
+  },
+  {
    "id": "mds/algebra-exponentials#def-logarithm",
    "site": "mds",
    "page": "algebra-exponentials",
@@ -434,6 +579,16 @@
    "title": "logarithm",
    "external": true,
    "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm"
+  },
+  {
+   "id": "mds/algebra-exponentials#def-natural-log",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-natural-log",
+   "kind": "def",
+   "title": "natural log",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log"
   },
   {
    "id": "mds/algebra-sums#def-convex-function",
@@ -516,16 +671,6 @@
    "url": "https://morrison-lab.github.io/pds/independence.html#def-indpt"
   },
   {
-   "id": "pds/probability-basics#def-experiment-outcome",
-   "site": "pds",
-   "page": "probability-basics",
-   "div": "def-experiment-outcome",
-   "kind": "def",
-   "title": "experiment outcome",
-   "external": true,
-   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome"
-  },
-  {
    "id": "pds/probability-basics#def-probability",
    "site": "pds",
    "page": "probability-basics",
@@ -604,6 +749,16 @@
    "title": "random variable",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-random-variable"
+  },
+  {
+   "id": "pds/random-variables#def-realization",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-realization",
+   "kind": "def",
+   "title": "realization",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-realization"
   }
  ],
  "edges": [
@@ -664,6 +819,18 @@
    "ids/channel-capacity#def-channel-code"
   ],
   [
+   "ids/entropy#cor-conditional-entropy-difference",
+   "ids/entropy#cor-entropy-chain-rule-reversed"
+  ],
+  [
+   "ids/entropy#cor-conditional-entropy-difference",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#cor-conditional-surprisal-difference",
+   "ids/entropy#thm-surprisal-chain-rule"
+  ],
+  [
    "ids/entropy#cor-conditioning-reduces-entropy",
    "ids/entropy#def-mutual-information"
   ],
@@ -677,6 +844,18 @@
   ],
   [
    "ids/entropy#cor-conditioning-reduces-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
    "pds/random-variables#def-discrete-rv"
   ],
   [
@@ -697,15 +876,27 @@
   ],
   [
    "ids/entropy#cor-surprisal-discrete-nonnegative",
-   "pds/probability-basics#def-experiment-outcome"
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#cor-surprisal-discrete-nonnegative",
-   "pds/random-variables#def-discrete-rv"
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#def-bit",
    "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#def-collision-probability",
@@ -724,8 +915,32 @@
    "ids/entropy#def-joint-entropy"
   ],
   [
+   "ids/entropy#def-conditional-surprisal",
+   "ids/entropy#def-joint-surprisal"
+  ],
+  [
+   "ids/entropy#def-conditional-surprisal",
+   "pds/random-variables#def-realization"
+  ],
+  [
    "ids/entropy#def-entropy-given-value",
    "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#def-joint-surprisal",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#def-joint-surprisal",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-joint-surprisal",
+   "pds/random-variables#def-joint-pmf"
+  ],
+  [
+   "ids/entropy#def-joint-surprisal",
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#def-mutual-information",
@@ -740,8 +955,44 @@
    "ids/entropy#def-surprisal"
   ],
   [
-   "ids/entropy#def-rarity",
-   "pds/probability-basics#def-experiment-outcome"
+   "ids/entropy#def-nat",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "ids/entropy#def-nat"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "mds/algebra-exponentials#def-exponential-function"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "mds/algebra-exponentials#def-natural-log"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#def-rarity",
@@ -758,6 +1009,10 @@
   [
    "ids/entropy#def-rarity",
    "pds/random-variables#def-pdf"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#def-renyi-entropy",
@@ -782,6 +1037,14 @@
   [
    "ids/entropy#def-renyi-entropy",
    "pds/random-variables#def-random-variable"
+  ],
+  [
+   "ids/entropy#def-surprisal",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-surprisal",
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#thm-collision-entropy-at-most-entropy",
@@ -816,6 +1079,18 @@
    "ids/entropy#def-entropy-given-value"
   ],
   [
+   "ids/entropy#thm-entropy-sum-decomposition",
+   "ids/entropy#thm-mutual-information-entropy-sum"
+  ],
+  [
+   "ids/entropy#thm-entropy-sum-decomposition",
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals"
+  ],
+  [
+   "ids/entropy#thm-entropy-sum-decomposition",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#thm-expected-probability-collision",
    "ids/entropy#def-collision-probability"
   ],
@@ -837,6 +1112,46 @@
   ],
   [
    "ids/entropy#thm-expected-probability-collision",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-entropy-sum",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-entropy-sum",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-entropy-sum",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#cor-conditional-entropy-difference"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#thm-mutual-information-entropy-sum"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
    "pds/random-variables#def-discrete-rv"
   ],
   [
@@ -904,6 +1219,46 @@
    "ids/entropy#thm-entropy-chain-rule"
   ],
   [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "ids/entropy#def-perplexity"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-chain-rule",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-chain-rule",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "pds/random-variables#def-realization"
+  ],
+  [
    "ids/entropy#thm-surprisal-log-rarity",
    "ids/entropy#def-rarity"
   ],
@@ -917,11 +1272,11 @@
   ],
   [
    "ids/entropy#thm-surprisal-log-rarity",
-   "pds/probability-basics#def-experiment-outcome"
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#thm-surprisal-log-rarity",
-   "pds/random-variables#def-discrete-rv"
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#thm-surprisal-log-rarity-continuous",
@@ -942,6 +1297,14 @@
   [
    "ids/entropy#thm-surprisal-log-rarity-continuous",
    "pds/random-variables#def-pdf"
+  ],
+  [
+   "ids/entropy#thm-twice-mutual-information",
+   "ids/entropy#thm-mutual-information-symmetric"
+  ],
+  [
+   "ids/entropy#thm-twice-mutual-information",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/error-correcting-codes#def-hamming-distance",
@@ -1014,6 +1377,42 @@
   [
    "ids/source-coding#def-uniquely-decodable",
    "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/expectation#def-cross-entropy"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/source-coding#thm-kl-divergence-nonnegative",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "ids/source-coding#thm-kl-divergence-nonnegative",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/source-coding#thm-kl-divergence-nonnegative",
+   "pds/random-variables#def-pmf"
   ],
   [
    "ids/source-coding#thm-source-coding",
