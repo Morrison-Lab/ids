@@ -2,7 +2,7 @@
 #### The expected probability is the collision probability
 
 Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
-and let $X'$ be an [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copy of $X$.
+and let $X'$ be a variable such that $X$ and $X'$ are [IID](https://morrison-lab.github.io/pds/independence.html#def-iid).
 Then
 
 $$\E{\P(X)} = \sum_x \P(X=x)^2 = \P(X = X').$$
@@ -22,7 +22,20 @@ $$
 \end{aligned}
 $$
 
-By the definition of the [collision probability](#def-collision-probability),
-the last [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) is $\P(X = X')$.
+The variables $X$ and $X'$ take the same value exactly when both equal some value $x$.
+Because $X$ and $X'$ are [IID](https://morrison-lab.github.io/pds/independence.html#def-iid),
+the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that both equal $x$ is $\P(X=x) \, \P(X'=x) = \P(X=x)^2$.
+Adding over the values $x$ gives
+
+$$
+\begin{aligned}
+\P(X = X')
+&= \sum_x \P(X=x, X'=x) \\
+&= \sum_x \P(X=x)^2.
+\end{aligned}
+$$
+
+The expectation $\E{\P(X)}$ and the [collision probability](#def-collision-probability) $\P(X = X')$ both equal $\sum_x \P(X=x)^2$,
+so they are equal.
 
 :::

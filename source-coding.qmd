@@ -28,6 +28,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_thm-expected-length-sum.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-expected-length-sum.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-short-codes-for-common-symbols.qmd >}}
 
 ## The source coding theorem {#sec-source-coding-theorem}
