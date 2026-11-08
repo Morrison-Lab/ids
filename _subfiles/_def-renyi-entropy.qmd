@@ -6,4 +6,6 @@ where $\P(X)$ is the [probability mass function](https://morrison-lab.github.io/
 
 $$H_2(X) = -\log \E{\P(X)}.$$
 
+Rényi introduced this case of a family of entropies [@renyi1961measures].
+
 :::

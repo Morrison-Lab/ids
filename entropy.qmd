@@ -210,6 +210,14 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_lem-surprisal-chain-rule-reversed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-surprisal-chain-rule-reversed-noisy-copy.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-entropy-chain-rule-from-surprisal.qmd >}}
 
 ## Mutual information {#sec-mutual-information}
