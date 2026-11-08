@@ -1,0 +1,39 @@
+:::{#exm-markov-chain-noisy-copies}
+#### A chain of noisy copies is a Markov chain
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+In @exm-entropy-chain-rule-n-copies,
+each of $X_2$ and $X_3$ is a noisy copy of the variable before it.
+So $X_3$ depends on $X_1$ only through $X_2$.
+The chunk builds the joint mass function of $(X_1, X_2, X_3)$
+and checks the defining equation of the chain $X_1 \to X_2 \to X_3$ for each value of $X_2$.
+
+```{r}
+#| code-fold: show
+flip <- 0.2
+copy <- matrix(
+  data = c(1 - flip, flip, flip, 1 - flip),
+  nrow = 2
+)
+joint <- array(data = 0, dim = c(2, 2, 2))
+for (x1 in 1:2) {
+  for (x2 in 1:2) {
+    for (x3 in 1:2) {
+      joint[x1, x2, x3] <- 0.5 * copy[x1, x2] * copy[x2, x3]
+    }
+  }
+}
+gaps <- numeric(2)
+for (x2 in 1:2) {
+  slice <- joint[, x2, ]
+  given_x2 <- slice / sum(slice)
+  product <- outer(rowSums(given_x2), colSums(given_x2))
+  gaps[x2] <- max(abs(given_x2 - product))
+}
+gaps
+```
+
+Both gaps are zero up to rounding error,
+so $X_1$ and $X_3$ are conditionally independent given $X_2$.
+
+:::
