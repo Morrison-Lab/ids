@@ -2,11 +2,11 @@
 #### Chain rule for entropy, many variables
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$
-with finite entropies, <!-- check-term-links: allow -->
+with finite entropies,
 
 $$\entropyf{X_1, \ldots, X_n} = \sum_{i=1}^{n} \entropyf{X_i \mid X_1, \ldots, X_{i-1}},$$
 
-where the term for $i = 1$ is $\entropyf{X_1}$. <!-- check-term-links: allow -->
+where the term for $i = 1$ is $\entropyf{X_1}$.
 
 :::
 

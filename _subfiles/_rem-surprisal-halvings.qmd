@@ -9,6 +9,6 @@ This count is only motivation.
 @thm-surprisal-log-half proves that this $s$ is the [surprisal](#def-surprisal) in [bits](#def-bit).
 So the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) is the number of times certainty must be halved to reach the probability of that value.
 When $p$ is not $(1/2)^k$ for a whole number $k$,
-the number of halvings is not a whole number. <!-- check-term-links: allow -->
+the number of halvings is not a whole number.
 
 :::
