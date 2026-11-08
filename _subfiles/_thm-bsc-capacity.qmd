@@ -14,7 +14,7 @@ A uniformly distributed input achieves it.
 ::: {.proof}
 
 Fix any input distribution.
-By [the definition of mutual information](entropy.qmd#def-mutual-information),
+By [mutual information as a reduction in entropy](entropy.qmd#thm-mutual-information-reduction),
 
 $$I(X; Y) = H(Y) - H(Y \mid X).$$
 

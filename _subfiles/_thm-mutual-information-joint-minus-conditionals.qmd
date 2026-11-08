@@ -22,7 +22,7 @@ $$
 \end{aligned}
 $$
 
-Substituting both into @thm-mutual-information-entropy-sum gives
+Substituting both into @def-mutual-information gives
 
 $$
 \begin{aligned}

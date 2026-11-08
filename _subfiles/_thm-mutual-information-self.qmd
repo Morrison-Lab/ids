@@ -27,7 +27,7 @@ $$
 \end{aligned}
 $$
 
-By @def-mutual-information with $Y = X$,
+By @thm-mutual-information-reduction with $Y = X$,
 
 $$
 \begin{aligned}
