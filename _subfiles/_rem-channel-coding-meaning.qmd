@@ -1,17 +1,17 @@
 ::: {#rem-channel-coding-meaning}
 #### Reliable communication at a positive rate
 
-@exm-repetition-code buys a lower error rate with a lower rate,
-and repetition alone drives the error to $0$ only as the rate falls to $0$.
+@exm-repetition-code buys fewer decoding mistakes with a lower [rate](#def-code-rate),
+and repetition alone drives the chance of a mistake to $0$ only as the rate falls to $0$.
 @thm-channel-coding says that this trade-off is not forced:
 over the channel of @exm-bsc-capacity,
-long enough codes send about $0.53$ bits per channel use
-with an error probability as small as we like.
-Above capacity, no code can.
+long enough codes send about $0.53$ [bits](entropy.qmd#def-bit) per channel use
+with a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of decoding mistakes as small as we like.
+Above [capacity](channel-capacity.qmd#def-channel-capacity), no code can.
 
-@shannon1948mathematical stated the theorem and sketched its proof.
-@cover2006elements [section 7.7] prove part 1 by choosing codewords at random,
-and @cover2006elements [section 7.9] prove part 2 with Fano's inequality.
+@shannon1948mathematical stated this result and sketched its proof.
+@cover2006elements [section 7.7] prove part 1 by choosing codewords randomly,
+and @cover2006elements [section 7.9] prove part 2 with a method due to Fano.
 @mackay2003information [chapters 9 and 10] gives another account.
 
 :::
