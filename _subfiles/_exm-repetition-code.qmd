@@ -5,9 +5,9 @@ To send one bit over the
 [binary symmetric channel](#def-binary-symmetric-channel)
 with $\epsilon = 0.1$,
 send it three times and decode by majority vote.
-This is a $(2, 3)$ [channel code](#def-channel-code), with rate $R = 1/3$.
+This is a $(2, 3)$ [channel code](#def-channel-code), with [rate](#def-code-rate) $R = 1/3$.
 The decoder is wrong when two or three of the copies are flipped,
-which happens with probability
+so the [maximal probability of error](#def-maximal-probability-of-error) is
 
 $$
 \begin{aligned}
