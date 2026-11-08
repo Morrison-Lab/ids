@@ -24,7 +24,7 @@ H(Y \mid X)
 \end{aligned}
 $$
 
-The third line is the definition of expectation over the values $x$ of $X$,
+The third line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the values $x$ of $X$,
 and the last line is @def-entropy-given-value.
 
 :::

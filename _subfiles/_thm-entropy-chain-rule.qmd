@@ -10,13 +10,13 @@ $$H(X, Y) = H(X) + H(Y \mid X).$$
 ::: {.proof}
 
 Use the notation of @def-joint-entropy and @def-entropy-given-value.
-With probability $1$, $p(X, Y) = p(X) \, p(Y \mid X)$ and $p(X, Y) > 0$,
+With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, $p(X, Y) = p(X) \, p(Y \mid X)$ and $p(X, Y) > 0$,
 so
 
 $$-\log p(X, Y) = -\log p(X) - \log p(Y \mid X).$$
 
 Both terms on the right are nonnegative,
-so the expectation of the sum is the sum of the expectations:
+so the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the sum is the sum of the expectations: <!-- check-term-links: allow -->
 
 $$
 \begin{aligned}

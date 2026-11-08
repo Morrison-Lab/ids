@@ -3,7 +3,7 @@
 
 For $X$ and $Y$ as in @def-joint-entropy and $p(y \mid x)$ as in @def-entropy-given-value,
 the **conditional entropy** of $Y$ given $X$
-is the expectation of $-\log p(Y \mid X)$:
+is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $-\log p(Y \mid X)$:
 
 $$H(Y \mid X) \eqdef \E{-\log p(Y \mid X)}.$$
 

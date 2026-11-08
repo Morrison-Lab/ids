@@ -18,8 +18,8 @@ where the sum runs over the pairs with $p(x, y) > 0$. <!-- check-term-links: all
 ::: {.proof}
 
 The entropies are finite, <!-- check-term-links: allow -->
-so the expectations below are finite and can be split and regrouped.
-With probability $1$, $p(X, Y) > 0$, $p(X) > 0$ and $p(Y) > 0$.
+so the [expectations](https://morrison-lab.github.io/pds/expectation.html#def-expectation) below are finite and can be split and regrouped.
+With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, $p(X, Y) > 0$, $p(X) > 0$ and $p(Y) > 0$.
 By @def-mutual-information and the definitions of
 [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
 and [joint entropy](#def-joint-entropy),
