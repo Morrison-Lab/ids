@@ -17,7 +17,7 @@ Dividing the defining equation of the chain by $\P(Z=z \mid Y=y)$ gives
 $$\P(X=x \mid Y=y, Z=z) = \P(X=x \mid Y=y)$$
 
 for every $x$.
-So the [entropy given](#def-entropy-given-value) $(Y, Z) = (y, z)$ equals the entropy given $Y = y$.
+So the [entropy given](#def-entropy-given-value) $(Y, Z) = (y, z)$ is the entropy given $Y = y$.
 Averaging over $(Y, Z)$ and over $Y$ gives
 
 $$\entropyf{X \mid Y, Z} = \entropyf{X \mid Y}.$$

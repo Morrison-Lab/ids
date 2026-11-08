@@ -20,12 +20,11 @@ I(Y, Z; X) &= I(Z; X) + I(Y; X \mid Z).
 \end{aligned}
 $$
 
-The pairs $(Z, Y)$ and $(Y, Z)$ list the same two values in a different order,
-so they have the same joint distribution up to relabelling,
-and the left sides are equal.
+The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables,
+so $I(Z, Y; X) = I(Y, Z; X)$.
 By @lem-markov-chain-conditional-mutual-information, $I(Z; X \mid Y) = 0$.
 By @thm-conditional-mutual-information-nonnegative, $I(Y; X \mid Z) \ge 0$.
-Equating the left sides gives
+Therefore
 
 $$
 \begin{aligned}

@@ -5,7 +5,7 @@
 In @exm-entropy-chain-rule-n-copies,
 each of $X_2$ and $X_3$ is a noisy copy of the variable before it.
 So $X_3$ depends on $X_1$ only through $X_2$.
-The chunk builds the joint mass function of $(X_1, X_2, X_3)$
+The chunk builds the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) of $(X_1, X_2, X_3)$
 and checks the defining equation of the chain $X_1 \to X_2 \to X_3$ for each value of $X_2$.
 
 ```{r}
@@ -33,7 +33,7 @@ for (x2 in 1:2) {
 gaps
 ```
 
-Both gaps are zero up to rounding error,
-so $X_1$ and $X_3$ are conditionally independent given $X_2$.
+Both gaps are zero up to rounding,
+so $X_1$ and $X_3$ are [conditionally independent](https://morrison-lab.github.io/pds/independence.html#def-cind) given $X_2$.
 
 :::

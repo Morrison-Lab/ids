@@ -2,11 +2,12 @@
 #### Learning a third variable can create information
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 
-Let $X$ and $Y$ be independent fair coins, coded $0$ or $1$,
+Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$,
 and let $Z = X + Y \bmod 2$ record whether they differ.
-The variables $X$ and $Y$ are independent, so $I(X; Y) = 0$.
+The two coins are independent, so $I(X; Y) = 0$ (@thm-mutual-information-nonnegative).
 Given $Z$, each of $X$ and $Y$ determines the other.
-The chunk computes the conditional mutual information from the joint mass function, in [bits](#def-bit).
+The chunk computes the [conditional mutual information](#def-conditional-mutual-information)
+from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
 
 ```{r}
 #| code-fold: show
@@ -27,8 +28,8 @@ h_y_given_xz <- h_xyz - h_xz
 h_y_given_z - h_y_given_xz
 ```
 
-So $I(X; Y \mid Z) = `r h_y_given_z - h_y_given_xz`$ bit,
-which is nonnegative (@thm-conditional-mutual-information-nonnegative)
-even though $I(X; Y) = 0$.
+So $I(X; Y \mid Z) = `r h_y_given_z - h_y_given_xz`$ [bit](#def-bit),
+which is nonnegative (@thm-conditional-mutual-information-nonnegative),
+although $I(X; Y) = 0$.
 
 :::

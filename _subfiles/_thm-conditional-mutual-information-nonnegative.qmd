@@ -12,9 +12,9 @@ $$I(X; Y \mid Z) \ge 0.$$
 
 For each value $z$ with $\P(Z=z) > 0$,
 let $I_z(X; Y)$ be the [mutual information](#def-mutual-information) of $X$ and $Y$
-computed from their conditional distribution given $Z=z$.
+computed from their joint probabilities given $Z=z$.
 Applying @def-conditional-entropy to $\entropyf{Y \mid Z}$ and to $\entropyf{Y \mid X, Z}$
-averages the corresponding entropies given $Z=z$ over the distribution of $Z$:
+writes each as a combination of the entropies given $Z=z$, with coefficients $\P(Z=z)$:
 
 $$
 \begin{aligned}
@@ -26,7 +26,7 @@ I(X; Y \mid Z)
 $$
 
 Each $I_z(X; Y)$ is nonnegative by @thm-mutual-information-nonnegative.
-A sum of nonnegative terms with nonnegative weights is nonnegative,
+Each product $\P(Z=z) \, I_z(X; Y)$ is nonnegative too,
 so $I(X; Y \mid Z) \ge 0$.
 
 :::

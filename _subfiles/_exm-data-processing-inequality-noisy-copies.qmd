@@ -5,8 +5,8 @@
 For the chain $X_1 \to X_2 \to X_3$ in @exm-markov-chain-noisy-copies,
 the chunk computes the [mutual information](#def-mutual-information) of $X_1$ with $X_2$ and with $X_3$, in [bits](#def-bit).
 Each variable is a fair coin.
-The variable $X_3$ differs from $X_1$ when exactly one of the two copying steps flips,
-which has probability $2 \times 0.2 \times 0.8 = 0.32$.
+The variable $X_3$ differs from $X_1$ when exactly one of the two copies flips,
+which has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2 \times 0.2 \times 0.8 = 0.32$.
 
 ```{r}
 #| code-fold: show
