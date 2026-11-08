@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 20:59:37 (PST)
+Last modified: 2026-11-08 11:35:35 (PST)
 
 A channel carries symbols from a sender to a receiver, and noise corrupts some of them. This page measures how much information a channel can carry, using the [mutual information](entropy.llms.md#sec-mutual-information) between what goes in and what comes out.
 
@@ -48,15 +48,15 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 
 > **NOTE:**
 >
-> **Definition 4 (Channel capacity)** Send one input $X$ through a [discrete memoryless channel](#def-channel), and let $Y$ be the output. The joint distribution of $(X, Y)$ is $\mathbb{P}(X = x, Y = y) = \mathbb{P}(X = x) \, p(y \mid x)$, so the [mutual information](entropy.llms.md#def-mutual-information) $I(X; Y)$ depends on the channel and on the input distribution. The **capacity** of the channel is the largest mutual information any input distribution achieves:
+> **Definition 4 (Channel capacity)** Send one input $X$ through a [discrete memoryless channel](#def-channel), and let $Y$ be the output. The joint distribution of $(X, Y)$ is $\mathbb{P}(X = x, Y = y) = \mathbb{P}(X = x) \, p(y \mid x)$, so the [mutual information](entropy.llms.md#def-mutual-information) ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$ depends on the channel and on the input distribution. The **capacity** of the channel is the largest mutual information any input distribution achieves:
 >
-> $$C \stackrel{\text{def}}{=}\max_{\mathbb{P}(X = \cdot)} I(X; Y),$$
+> $$C \stackrel{\text{def}}{=}\max_{\mathbb{P}(X = \cdot)} {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}},$$
 >
 > where the maximum runs over all probability mass functions on $\mathcal{X}$ ([Cover and Thomas 2006, chap. 7](#ref-cover2006elements)). With base-2 logarithms, $C$ is measured in [bits](entropy.llms.md#def-bit) per channel use.
 
 > **NOTE:**
 >
-> *Remark 2* (What capacity measures). $I(X; Y) = H(X) - H(X \mid Y)$ ([mutual information as a reduction in entropy](entropy.llms.md#thm-mutual-information-reduction)) is the uncertainty about the input, minus the uncertainty about the input left after seeing the output. So $I(X; Y)$ is how much one output tells the receiver about the input, on average, and the capacity is that amount when the sender chooses how often to send each input as well as possible.
+> *Remark 2* (What capacity measures). ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = H(X) - H(X \mid Y)$ ([mutual information as a reduction in entropy](entropy.llms.md#thm-mutual-information-reduction)) is the uncertainty about the input, minus the uncertainty about the input left after seeing the output. So ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is how much one output tells the receiver about the input, on average, and the capacity is that amount when the sender chooses how often to send each input as well as possible.
 
 > **NOTE:**
 >
@@ -82,14 +82,14 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 >
 > *Proof*. Fix any input distribution. By [mutual information as a reduction in entropy](entropy.llms.md#thm-mutual-information-reduction),
 >
-> $$I(X; Y) = H(Y) - H(Y \mid X).$$
+> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = H(Y) - H(Y \mid X).$$
 >
 > Given $X = x$, the output equals $x$ with probability $1 - \epsilon$ and differs from it with probability $\epsilon$, so the [entropy of](entropy.llms.md#def-entropy-given-value) $Y$ given $X = x$ is $h(\epsilon)$ for both inputs. Averaging over $x$, the [conditional entropy](entropy.llms.md#def-conditional-entropy) is $H(Y \mid X) = h(\epsilon)$, whatever the input distribution.
 >
 > $Y$ takes two values, so $H(Y) \le \log_2 2 = 1$ bit ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Therefore
 >
 > $$\begin{aligned}
-> I(X; Y)
+> {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
 > &= H(Y) - h(\epsilon) \\
 > &\le 1 - h(\epsilon).
 > \end{aligned}$$
@@ -103,7 +103,7 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 > &= \tfrac{1}{2},
 > \end{aligned}$$
 >
-> so $H(Y) = 1$ bit and $I(X; Y) = 1 - h(\epsilon)$. The bound is attained, so it is the maximum $C$.
+> so $H(Y) = 1$ bit and ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 1 - h(\epsilon)$. The bound is attained, so it is the maximum $C$.
 
 > **NOTE:**
 >
@@ -158,7 +158,7 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 > 4.  Combining parts 1 and 3,
 >
 >     $$\begin{aligned}
->     I(X; Y)
+>     {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
 >     &= H(Y) - H(Y \mid X) \\
 >     &= h(\alpha) + (1 - \alpha) \, h(\pi) - h(\alpha) \\
 >     &= (1 - \alpha) \, h(\pi).
@@ -170,20 +170,28 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 
 > **NOTE:**
 >
-> **Definition 6 (Channel code and rate)** An $(M, n)$ **channel code** for a [discrete memoryless channel](#def-channel) sends one of $M$ messages, $w \in \{1, \dots, M\}$, in $n$ uses of the channel. It has
+> **Definition 6 (Channel code)** An $(M, n)$ **channel code** for a [discrete memoryless channel](#def-channel) sends one of $M$ messages, $w \in \{1, \dots, M\}$, in $n$ uses of the channel. It has
 >
 > - an *encoder*, which maps each message $w$ to a *codeword* $(x_1(w), \dots, x_n(w))$ of $n$ inputs, and
 > - a *decoder*, which maps each sequence of $n$ outputs to a guess at $w$.
 >
-> Its **rate** is
->
-> $$R \stackrel{\text{def}}{=}\frac{\log_2 M}{n} \text{ bits per channel use},$$
->
-> and its **maximal probability of error** $\lambda^{(n)}$ is the largest, over messages $w$, of the probability that the decoder’s guess is wrong when $w$ is sent. These are the definitions of Cover and Thomas ([2006, sec. 7.5](#ref-cover2006elements)).
+> This is the definition of Cover and Thomas ([2006, sec. 7.5](#ref-cover2006elements)).
 
 > **NOTE:**
 >
-> **Example 2 (Sending each bit three times)** To send one bit over the [binary symmetric channel](#def-binary-symmetric-channel) with $\epsilon = 0.1$, send it three times and decode by majority vote. This is a $(2, 3)$ [channel code](#def-channel-code), with rate $R = 1/3$. The decoder is wrong when two or three of the copies are flipped, which happens with probability
+> **Definition 7 (Rate of a channel code)** The **rate** of an $(M, n)$ [channel code](#def-channel-code) is
+>
+> $$R \stackrel{\text{def}}{=}\frac{\log_2 M}{n} \text{ bits per channel use}.$$
+>
+> This is the definition of Cover and Thomas ([2006, sec. 7.5](#ref-cover2006elements)).
+
+> **NOTE:**
+>
+> **Definition 8 (Maximal probability of error)** The **maximal probability of error** $\lambda^{(n)}$ of an $(M, n)$ [channel code](#def-channel-code) is the largest, over messages $w$, of the probability that the decoder’s guess is wrong when $w$ is sent. This is the definition of Cover and Thomas ([2006, sec. 7.5](#ref-cover2006elements)).
+
+> **NOTE:**
+>
+> **Example 2 (Sending each bit three times)** To send one bit over the [binary symmetric channel](#def-binary-symmetric-channel) with $\epsilon = 0.1$, send it three times and decode by majority vote. This is a $(2, 3)$ [channel code](#def-channel-code), with [rate](#def-code-rate) $R = 1/3$. The decoder is wrong when two or three of the copies are flipped, so the [maximal probability of error](#def-maximal-probability-of-error) is
 >
 > $$\begin{aligned}
 > \lambda^{(3)}
@@ -198,7 +206,7 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 >
 > **Theorem 2 (Noisy-channel coding theorem)** Let $C$ be the [capacity](#def-channel-capacity) of a [discrete memoryless channel](#def-channel).
 >
-> 1.  For every rate $R < C$ there is a sequence of $(\lceil 2^{nR} \rceil, n)$ [channel codes](#def-channel-code), for $n = 1, 2, \dots$, whose maximal probability of error $\lambda^{(n)}$ tends to $0$.
+> 1.  For every [rate](#def-code-rate) $R < C$ there is a [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) of $(\lceil 2^{nR} \rceil, n)$ [channel codes](#def-channel-code), for $n = 1, 2, \dots$, whose [maximal probability of error](#def-maximal-probability-of-error) $\lambda^{(n)}$ tends to $0$.
 >
 > 2.  Conversely, any sequence of $(\lceil 2^{nR} \rceil, n)$ codes with $\lambda^{(n)} \to 0$ has $R \le C$.
 

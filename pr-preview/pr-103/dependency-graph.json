@@ -53,7 +53,25 @@
    "page": "channel-capacity",
    "div": "def-channel-code",
    "kind": "def",
-   "title": "Channel code and rate",
+   "title": "Channel code",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-code-rate",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-code-rate",
+   "kind": "def",
+   "title": "Rate of a channel code",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-maximal-probability-of-error",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-maximal-probability-of-error",
+   "kind": "def",
+   "title": "Maximal probability of error",
    "external": false
   },
   {
@@ -624,6 +642,15 @@
    "external": false
   },
   {
+   "id": "ids/source-coding#thm-expected-length-sum",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-expected-length-sum",
+   "kind": "thm",
+   "title": "Expected length as a sum over values",
+   "external": false
+  },
+  {
    "id": "ids/source-coding#thm-source-coding",
    "site": "ids",
    "page": "source-coding",
@@ -642,6 +669,26 @@
    "external": false
   },
   {
+   "id": "mcs/functions#def-finite-set",
+   "site": "mcs",
+   "page": "functions",
+   "div": "def-finite-set",
+   "kind": "def",
+   "title": "finite set",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/functions.html#def-finite-set"
+  },
+  {
+   "id": "mcs/functions#def-sequence",
+   "site": "mcs",
+   "page": "functions",
+   "div": "def-sequence",
+   "kind": "def",
+   "title": "sequence",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/functions.html#def-sequence"
+  },
+  {
    "id": "mcs/induction#def-proof-by-induction",
    "site": "mcs",
    "page": "induction",
@@ -650,6 +697,16 @@
    "title": "proof by induction",
    "external": true,
    "url": "https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction"
+  },
+  {
+   "id": "mcs/sets#def-union",
+   "site": "mcs",
+   "page": "sets",
+   "div": "def-union",
+   "kind": "def",
+   "title": "union",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/sets.html#def-union"
   },
   {
    "id": "mds/algebra-exponentials#def-exponential-function",
@@ -712,6 +769,16 @@
    "url": "https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen"
   },
   {
+   "id": "mds/optimization-convexity#cor-log-below-tangent",
+   "site": "mds",
+   "page": "optimization-convexity",
+   "div": "cor-log-below-tangent",
+   "kind": "cor",
+   "title": "log below tangent",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/optimization-convexity.html#cor-log-below-tangent"
+  },
+  {
    "id": "pds/expectation#def-cross-entropy",
    "site": "pds",
    "page": "expectation",
@@ -762,6 +829,16 @@
    "url": "https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete"
   },
   {
+   "id": "pds/expectation#thm-kl-divergence-nonnegative",
+   "site": "pds",
+   "page": "expectation",
+   "div": "thm-kl-divergence-nonnegative",
+   "kind": "thm",
+   "title": "kl divergence nonnegative",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-nonnegative"
+  },
+  {
    "id": "pds/expectation#thm-lie",
    "site": "pds",
    "page": "expectation",
@@ -782,6 +859,16 @@
    "url": "https://morrison-lab.github.io/pds/independence.html#def-cind"
   },
   {
+   "id": "pds/independence#def-iid",
+   "site": "pds",
+   "page": "independence",
+   "div": "def-iid",
+   "kind": "def",
+   "title": "iid",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/independence.html#def-iid"
+  },
+  {
    "id": "pds/independence#def-indpt",
    "site": "pds",
    "page": "independence",
@@ -792,6 +879,16 @@
    "url": "https://morrison-lab.github.io/pds/independence.html#def-indpt"
   },
   {
+   "id": "pds/probability-basics#def-event",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-event",
+   "kind": "def",
+   "title": "event",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-event"
+  },
+  {
    "id": "pds/probability-basics#def-experiment-outcome",
    "site": "pds",
    "page": "probability-basics",
@@ -800,6 +897,16 @@
    "title": "experiment outcome",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome"
+  },
+  {
+   "id": "pds/probability-basics#def-mutually-exclusive",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-mutually-exclusive",
+   "kind": "def",
+   "title": "mutually exclusive",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive"
   },
   {
    "id": "pds/probability-basics#def-probability",
@@ -928,6 +1035,14 @@
    "ids/channel-capacity#def-channel"
   ],
   [
+   "ids/channel-capacity#def-code-rate",
+   "ids/channel-capacity#def-channel-code"
+  ],
+  [
+   "ids/channel-capacity#def-maximal-probability-of-error",
+   "ids/channel-capacity#def-channel-code"
+  ],
+  [
    "ids/channel-capacity#thm-bsc-capacity",
    "ids/channel-capacity#def-binary-entropy"
   ],
@@ -960,6 +1075,18 @@
    "ids/channel-capacity#def-channel-code"
   ],
   [
+   "ids/channel-capacity#thm-channel-coding",
+   "ids/channel-capacity#def-code-rate"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "ids/channel-capacity#def-maximal-probability-of-error"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "mcs/functions#def-sequence"
+  ],
+  [
    "ids/entropy#cor-conditional-entropy-difference",
    "ids/entropy#cor-entropy-chain-rule-reversed"
   ],
@@ -982,6 +1109,10 @@
   [
    "ids/entropy#cor-conditioning-reduces-entropy",
    "ids/entropy#thm-mutual-information-reduction"
+  ],
+  [
+   "ids/entropy#cor-conditioning-reduces-entropy",
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#cor-conditioning-reduces-entropy",
@@ -1045,7 +1176,7 @@
   ],
   [
    "ids/entropy#def-collision-probability",
-   "pds/independence#def-indpt"
+   "pds/independence#def-iid"
   ],
   [
    "ids/entropy#def-collision-probability",
@@ -1393,15 +1524,11 @@
   ],
   [
    "ids/entropy#thm-expected-probability-collision",
-   "mds/algebra-sums#def-summation"
-  ],
-  [
-   "ids/entropy#thm-expected-probability-collision",
    "pds/expectation#def-expectation"
   ],
   [
    "ids/entropy#thm-expected-probability-collision",
-   "pds/independence#def-indpt"
+   "pds/independence#def-iid"
   ],
   [
    "ids/entropy#thm-expected-probability-collision",
@@ -1413,11 +1540,23 @@
   ],
   [
    "ids/entropy#thm-kl-divergence-nonnegative",
+   "mcs/functions#def-finite-set"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
    "mds/algebra-sums#def-summation"
   ],
   [
    "ids/entropy#thm-kl-divergence-nonnegative",
+   "mds/optimization-convexity#cor-log-below-tangent"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
    "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "pds/expectation#thm-kl-divergence-nonnegative"
   ],
   [
    "ids/entropy#thm-kl-divergence-nonnegative",
@@ -1768,6 +1907,14 @@
    "ids/source-coding#def-code"
   ],
   [
+   "ids/source-coding#def-expected-length",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/source-coding#def-expected-length",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/source-coding#def-uniquely-decodable",
    "ids/source-coding#def-code"
   ],
@@ -1796,6 +1943,42 @@
    "pds/random-variables#def-pmf"
   ],
   [
+   "ids/source-coding#thm-expected-length-sum",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "mcs/sets#def-union"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/probability-basics#def-event"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/probability-basics#def-mutually-exclusive"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
    "ids/source-coding#thm-source-coding",
    "ids/source-coding#def-expected-length"
   ],
@@ -1810,6 +1993,10 @@
   [
    "ids/source-coding#thm-wrong-code",
    "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/source-coding#thm-wrong-code",
+   "ids/source-coding#thm-expected-length-sum"
   ],
   [
    "ids/source-coding#thm-wrong-code",
