@@ -32,6 +32,6 @@ $$
 < -\sum_{x} p(x) \log_2 q(x) + 1.
 $$
 
-The middle sum is $L$, and the outer sums are $\crossentropyf{p}{q}$.
+The middle sum is $L$ by @thm-expected-length-sum, and the outer sums are $\crossentropyf{p}{q}$.
 
 :::
