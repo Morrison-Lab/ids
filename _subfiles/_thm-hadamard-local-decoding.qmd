@@ -7,15 +7,16 @@ that differs from the [Hadamard codeword](#def-hadamard-code) of $x$
 in at most a fraction $\errfrac$ of its positions.
 Fix $i \in \set{1, \ldots, k}$,
 and let $e_i$ have a 1 in position $i$ only.
-Choose $a \in \ffield{2}^k$ uniformly at random and output $w(a) + w(a + e_i) \pmod 2$.
-The output equals $x_i$ with probability at least $1 - 2\errfrac$.
+Choose $a \in \ffield{2}^k$ [uniformly at random](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) and output $w(a) + w(a + e_i) \pmod 2$.
+The output equals $x_i$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) at least $1 - 2\errfrac$.
 
 :::
 
 ::: {.proof}
-Both $a$ and $a + e_i$ are uniformly distributed on $\ffield{2}^k$,
-so each of $w(a)$ and $w(a + e_i)$ is wrong with probability at most $\errfrac$,
-and by the union bound both are correct with probability at least $1 - 2\errfrac$.
+Both $a$ and $a + e_i$ are [uniformly distributed](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on $\ffield{2}^k$,
+so each of $w(a)$ and $w(a + e_i)$ is wrong with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) at most $\errfrac$,
+and the chance that either is wrong is at most $2\errfrac$,
+so both are correct with probability at least $1 - 2\errfrac$.
 When both are correct, the output is
 
 $$\dprod{x}{a} + \dprod{x}{\paren{a + e_i}} = \dprod{x}{e_i} = x_i,$$

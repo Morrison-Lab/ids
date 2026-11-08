@@ -1,7 +1,7 @@
 :::{#exm-repetition-code}
 #### Sending each bit three times
 
-To send one bit over the
+To send one [bit](entropy.qmd#def-bit) over the
 [binary symmetric channel](#def-binary-symmetric-channel)
 with $\epsilon = 0.1$,
 send it three times and decode by majority vote.

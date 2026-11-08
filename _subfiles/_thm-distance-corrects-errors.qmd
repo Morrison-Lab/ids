@@ -9,8 +9,8 @@ and let $y$ be a codeword $c$ with some of its symbols changed.
    then $y$ is not a codeword, so the receiver detects the error.
 
 2. If at most $t \eqdef \floor{(d - 1)/2}$ symbols changed,
-   then $c$ is the only codeword nearest to $y$ in Hamming distance,
-   so decoding $y$ to its nearest codeword corrects the errors.
+   then $c$ is the only codeword nearest to $y$ in [Hamming distance](#def-hamming-distance),
+   so decoding $y$ to its nearest codeword recovers $c$.
 
 :::
 
@@ -18,11 +18,11 @@ and let $y$ be a codeword $c$ with some of its symbols changed.
 For part 1, $0 < \hamdist{c}{y} \le d - 1 < d$,
 so $y \ne c$.
 If $y$ were another codeword $c'$, then $\hamdist{c}{c'} = \hamdist{c}{y} < d$,
-which the minimum distance rules out.
+which the [minimum distance](#def-hamming-distance) rules out.
 
-For part 2, Hamming distance satisfies the triangle inequality,
-since a position where $c$ and $c'$ differ is a position
-where $y$ differs from $c$ or from $c'$.
+For part 2, a position where $c$ and $c'$ differ is a position
+where $y$ differs from $c$ or from $c'$,
+so $\hamdist{c}{c'} \le \hamdist{c}{y} + \hamdist{c'}{y}$.
 So for any codeword $c' \ne c$,
 
 $$
