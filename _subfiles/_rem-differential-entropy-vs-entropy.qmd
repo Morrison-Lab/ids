@@ -21,7 +21,7 @@ behave differently from their counterparts for a [discrete random variable](http
   Adding a constant does not:
   $\entropyf{X + c} = \entropyf{X}$ [@cover2006elements, Theorem 8.6.3].
 - **Not what the entropy approaches.**
-  Round $X$ to intervals of width $\Delta$,
+  Round $X$ down to a multiple of $\Delta$,
   which gives a discrete random variable $X^\Delta$.
   Then $\entropyf{X^\Delta} + \log \Delta \to \entropyf{X}$ as $\Delta \to 0$ [@cover2006elements, Theorem 8.3.1].
   The entropy $\entropyf{X^\Delta}$ itself grows indefinitely as $\Delta \to 0$,
