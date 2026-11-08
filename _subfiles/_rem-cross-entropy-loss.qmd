@@ -12,7 +12,9 @@ For a single labeled example,
 let $e$ be the distribution that puts all its mass on the observed label.
 Then $\entropyf{e} = 0$
 ([as for a coin that always lands heads](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-coin)),
-so the example's cross-entropy [loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) $\crossentropyf{e}{q}$ equals $\kldivf{e}{q}$:
+so the example's cross-entropy
+[loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) $\crossentropyf{e}{q}$
+equals $\kldivf{e}{q}$:
 every bit the loss reports is a wasted one.
 
 :::
