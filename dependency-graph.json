@@ -693,6 +693,16 @@
    "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-summation"
   },
   {
+   "id": "mds/algebra-sums#thm-jensen",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "thm-jensen",
+   "kind": "thm",
+   "title": "jensen",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen"
+  },
+  {
    "id": "pds/expectation#def-cross-entropy",
    "site": "pds",
    "page": "expectation",
@@ -1203,6 +1213,10 @@
   [
    "ids/entropy#thm-collision-entropy-at-most-entropy",
    "mds/algebra-sums#def-convex-function"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "mds/algebra-sums#thm-jensen"
   ],
   [
    "ids/entropy#thm-collision-entropy-at-most-entropy",

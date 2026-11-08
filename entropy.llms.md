@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 18:02:04 (PST)
+Last modified: 2026-11-07 18:05:59 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -420,7 +420,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. Write $\mathbb{P}(X)$ for the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at $X$. The function $-\log$ is [strictly convex](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function), so Jensen’s inequality gives
+> *Proof*. Write $\mathbb{P}(X)$ for the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at $X$. The function $-\log$ is [strictly convex](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function), so [Jensen’s inequality](https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen) gives
 >
 > $${\mathbb{E}\mathopen{}\left[-\log \mathbb{P}(X)\right]\mathclose{}} \ge -\log {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}},$$
 >
