@@ -669,6 +669,16 @@
    "external": false
   },
   {
+   "id": "mcs/functions#def-finite-set",
+   "site": "mcs",
+   "page": "functions",
+   "div": "def-finite-set",
+   "kind": "def",
+   "title": "finite set",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/functions.html#def-finite-set"
+  },
+  {
    "id": "mcs/functions#def-sequence",
    "site": "mcs",
    "page": "functions",
@@ -759,6 +769,16 @@
    "url": "https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen"
   },
   {
+   "id": "mds/optimization-convexity#cor-log-below-tangent",
+   "site": "mds",
+   "page": "optimization-convexity",
+   "div": "cor-log-below-tangent",
+   "kind": "cor",
+   "title": "log below tangent",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/optimization-convexity.html#cor-log-below-tangent"
+  },
+  {
    "id": "pds/expectation#def-cross-entropy",
    "site": "pds",
    "page": "expectation",
@@ -807,6 +827,16 @@
    "title": "kl divergence discrete",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete"
+  },
+  {
+   "id": "pds/expectation#thm-kl-divergence-nonnegative",
+   "site": "pds",
+   "page": "expectation",
+   "div": "thm-kl-divergence-nonnegative",
+   "kind": "thm",
+   "title": "kl divergence nonnegative",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-nonnegative"
   },
   {
    "id": "pds/expectation#thm-lie",
@@ -1510,11 +1540,23 @@
   ],
   [
    "ids/entropy#thm-kl-divergence-nonnegative",
+   "mcs/functions#def-finite-set"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
    "mds/algebra-sums#def-summation"
   ],
   [
    "ids/entropy#thm-kl-divergence-nonnegative",
+   "mds/optimization-convexity#cor-log-below-tangent"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
    "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "pds/expectation#thm-kl-divergence-nonnegative"
   ],
   [
    "ids/entropy#thm-kl-divergence-nonnegative",
