@@ -18,9 +18,9 @@ i_pair_x3 <- 1 - h_x3_given_x1_x2
 c(i_x2_x3 = i_x2_x3, i_pair_x3 = i_pair_x3)
 ```
 
-Here $I(X_2; X_3) = `r round(i_x2_x3, 3)`$ [bits](#def-bit)
-and $I(X_1, X_2; X_3) = `r round(i_pair_x3, 3)`$ bits.
-The difference is $I(X_1; X_3 \mid X_2) = 0$ (@thm-mutual-information-chain-rule),
+Here $\mutinfof{X_2}{X_3} = `r round(i_x2_x3, 3)`$ [bits](#def-bit)
+and $\mutinfof{X_1, X_2}{X_3} = `r round(i_pair_x3, 3)`$ bits.
+The difference is $\cmutinfof{X_1}{X_3}{X_2} = 0$ (@thm-mutual-information-chain-rule),
 as in @exm-conditional-mutual-information.
 
 :::
