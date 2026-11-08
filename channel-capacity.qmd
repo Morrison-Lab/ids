@@ -77,6 +77,14 @@ between what goes in and what comes out.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_def-code-rate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-maximal-probability-of-error.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_exm-repetition-code.qmd >}}
 
 {{< slidebreak >}}
