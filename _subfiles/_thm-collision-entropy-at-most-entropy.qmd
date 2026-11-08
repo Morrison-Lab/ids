@@ -4,7 +4,7 @@
 Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with values $x_1, \ldots, x_n$.
 Then the [collision entropy](#def-renyi-entropy) is at most the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy):
 
-$$H_2(X) \le \entropyf{X}.$$
+$$\renyientropyf{2}{X} \le \entropyf{X}.$$
 
 The two coincide exactly when each value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has the same probability.
 
@@ -12,15 +12,15 @@ The two coincide exactly when each value that $X$ takes with positive [probabili
 
 ::: proof
 
-Write $\P(X)$ for the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at $X$.
+Write $\Pf{X}$ for the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at $X$.
 The function $-\log$ is [strictly convex](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function),
 so [Jensen's inequality](https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen) gives
 
-$$\E{-\log \P(X)} \ge -\log \E{\P(X)},$$
+$$\E{-\log \Pf{X}} \ge -\log \E{\Pf{X}},$$
 
-with equality exactly when $\P(X)$ is constant.
+with equality exactly when $\Pf{X}$ is constant.
 The left side is $\entropyf{X}$.
-The right side is $H_2(X)$ by its definition.
-The function $\P(X)$ is constant exactly when every value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has that same probability.
+The right side is $\renyientropyf{2}{X}$ by its definition.
+The function $\Pf{X}$ is constant exactly when every value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has that same probability.
 
 :::
