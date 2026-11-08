@@ -2,7 +2,7 @@
 #### Source coding theorem
 
 Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
-that takes a finite number of values, at least two of them with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
+that takes a finite number of values, at least two of them with nonzero [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
 and let $H_2(X)$ be its
 [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
 with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
