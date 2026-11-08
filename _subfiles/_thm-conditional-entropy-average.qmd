@@ -5,7 +5,8 @@ For $X$ and $Y$ as in @def-joint-entropy,
 
 $$H(Y \mid X) = \sum_{x} p(x) \, H(Y \mid X=x),$$
 
-where $p(x) \eqdef \P(X=x)$ and the sum runs over the values $x$ with $p(x) > 0$.
+where $p(x) \eqdef \P(X=x)$,
+and the sum runs over the values $x$ with $p(x) > 0$.
 
 :::
 

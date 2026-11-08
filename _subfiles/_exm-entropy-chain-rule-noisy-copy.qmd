@@ -28,6 +28,8 @@ h_y <- entropy(p_y)
 c(h_xy = h_xy, h_x_given_y = h_x_given_y, h_y = h_y)
 ```
 
+The chunk computes $\entropyf{X \mid Y}$ as the average of the entropies given each value of $Y$,
+as in @thm-conditional-entropy-average with $X$ and $Y$ exchanged.
 Here $\entropyf{X, Y} = `r round(h_xy, 3)`$ bits,
 $\entropyf{X \mid Y} = `r round(h_x_given_y, 3)`$ bits
 and $\entropyf{Y} = `r round(h_y, 3)`$ bits.
