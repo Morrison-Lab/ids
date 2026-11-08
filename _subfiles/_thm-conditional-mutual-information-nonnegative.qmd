@@ -2,7 +2,7 @@
 #### Conditional mutual information is nonnegative
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$
-with finite entropies,
+with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
 $$I(X; Y \mid Z) \ge 0.$$
 

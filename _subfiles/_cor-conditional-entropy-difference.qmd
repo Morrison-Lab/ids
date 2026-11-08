@@ -2,7 +2,7 @@
 #### Conditional entropy as a difference
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
-with finite entropies,
+with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
 $$\entropyf{X \mid Y} = \entropyf{X, Y} - \entropyf{Y}.$$
 

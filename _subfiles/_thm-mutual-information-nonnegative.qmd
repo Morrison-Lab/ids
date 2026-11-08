@@ -2,7 +2,7 @@
 #### Mutual information is nonnegative
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
-with finite entropies,
+with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
 $$I(X; Y) \ge 0.$$
 

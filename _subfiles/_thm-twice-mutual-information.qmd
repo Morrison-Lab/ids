@@ -2,7 +2,7 @@
 #### Twice the mutual information
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
-with finite entropies,
+with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
 $$2 \, I(X; Y) = \sb{\entropyf{X} - \entropyf{X \mid Y}} + \sb{\entropyf{Y} - \entropyf{Y \mid X}}.$$
 
