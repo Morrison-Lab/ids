@@ -4,6 +4,7 @@
 $h(\epsilon)$ is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 in [bits](entropy.qmd#def-bit), of a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) that takes one of two values,
 one of them with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\epsilon$.
-It is $0$ when the [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) is certain and largest, $1$ [bit](entropy.qmd#def-bit), at $\epsilon = 1/2$.
+It is $0$
+when the [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) is certain and largest, $1$ [bit](entropy.qmd#def-bit), at $\epsilon = 1/2$.
 
 :::
