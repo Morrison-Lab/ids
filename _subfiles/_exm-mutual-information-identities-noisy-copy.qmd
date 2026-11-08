@@ -4,7 +4,7 @@
 
 Take the fair coin $X$ and its noisy copy $Y$
 from @exm-entropy-chain-rule-noisy-copy.
-The chunk computes the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) from the joint probabilities in [bits](#def-bit),
+The chunk computes the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) from the joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) in [bits](#def-bit),
 then the [mutual information](#def-mutual-information) in four ways.
 
 ```{r}

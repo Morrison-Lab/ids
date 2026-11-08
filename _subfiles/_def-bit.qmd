@@ -16,7 +16,7 @@ s(x) = 1 \text{ bit}
 \end{aligned}
 $$
 
-In words, a bit is the surprisal of the [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) of one binary trial
+In words, a bit is the surprisal of the [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) of one trial
 whose two [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) are equally likely,
 such as one toss of a fair coin.
 
