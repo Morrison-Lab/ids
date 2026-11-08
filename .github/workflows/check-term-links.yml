@@ -23,6 +23,9 @@ jobs:
       paths-ignore: '_extensions/**,latex-macros/**'
       # Ordinary English words that the corpus also defines as terms.
       allow-file: .github/term-links-allow.txt
+      # The prerequisite sites define terms ids uses, such as "joint distribution" in pds,
+      # so a term defined there is linked at its first use in each div here too (gha#1462).
+      terms-from: 'Morrison-Lab/mds Morrison-Lab/pds Morrison-Lab/sds'
       # A manual run has no PR to diff against and would otherwise skip,
       # having examined nothing; make it report the whole tree instead.
       whole-tree: ${{ github.event_name == 'workflow_dispatch' }}
