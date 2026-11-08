@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-07 17:28:32 (PST)</p>
+  <p class="date">Last modified: 2026-11-07 18:02:04 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -327,7 +327,7 @@ p(y \mid x) =
 <section class="slide level2">
 
 <div id="rem-capacity-meaning" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (What capacity measures). </span><span class="math inline">\(I(X; Y) = H(X) - H(X \mid Y)\)</span> (<a href="./entropy.html#thm-mutual-information-symmetric">symmetry of mutual information</a>) is the uncertainty about the input, minus the uncertainty about the input left after seeing the output. So <span class="math inline">\(I(X; Y)\)</span> is how much one output tells the receiver about the input, on average, and the capacity is that amount when the sender chooses how often to send each input as well as possible.</p>
+<p><span class="proof-title"><em>Remark 2</em> (What capacity measures). </span><span class="math inline">\(I(X; Y) = H(X) - H(X \mid Y)\)</span> (<a href="./entropy.html#thm-mutual-information-reduction">mutual information as a reduction in entropy</a>) is the uncertainty about the input, minus the uncertainty about the input left after seeing the output. So <span class="math inline">\(I(X; Y)\)</span> is how much one output tells the receiver about the input, on average, and the capacity is that amount when the sender chooses how often to send each input as well as possible.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -352,7 +352,7 @@ p(y \mid x) =
 <p>where <span class="math inline">\(h\)</span> is the <a href="#/def-binary-entropy">binary entropy function</a>. A uniformly distributed input achieves it.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Fix any input distribution. By <a href="./entropy.html#def-mutual-information">the definition of mutual information</a>,</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Fix any input distribution. By <a href="./entropy.html#thm-mutual-information-reduction">mutual information as a reduction in entropy</a>,</p>
 <p><span class="math display">\[I(X; Y) = H(Y) - H(Y \mid X).\]</span></p>
 <p>Given <span class="math inline">\(X = x\)</span>, the output equals <span class="math inline">\(x\)</span> with probability <span class="math inline">\(1 - \epsilon\)</span> and differs from it with probability <span class="math inline">\(\epsilon\)</span>, so the <a href="./entropy.html#def-entropy-given-value">entropy of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X = x\)</span></a> is <span class="math inline">\(h(\epsilon)\)</span> for both inputs. Averaging over <span class="math inline">\(x\)</span>, the <a href="./entropy.html#def-conditional-entropy">conditional entropy</a> is <span class="math inline">\(H(Y \mid X) = h(\epsilon)\)</span>, whatever the input distribution.</p>
 <p><span class="math inline">\(Y\)</span> takes two values, so <span class="math inline">\(H(Y) \le \log_2 2 = 1\)</span> bit <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>. Therefore</p>

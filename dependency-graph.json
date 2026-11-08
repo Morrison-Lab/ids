@@ -363,15 +363,6 @@
    "external": false
   },
   {
-   "id": "ids/entropy#thm-mutual-information-entropy-sum",
-   "site": "ids",
-   "page": "entropy",
-   "div": "thm-mutual-information-entropy-sum",
-   "kind": "thm",
-   "title": "Mutual information from the joint entropy",
-   "external": false
-  },
-  {
    "id": "ids/entropy#thm-mutual-information-joint-minus-conditionals",
    "site": "ids",
    "page": "entropy",
@@ -396,6 +387,15 @@
    "div": "thm-mutual-information-nonnegative",
    "kind": "thm",
    "title": "Mutual information is nonnegative",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-reduction",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-reduction",
+   "kind": "thm",
+   "title": "Mutual information as a reduction in entropy",
    "external": false
   },
   {
@@ -906,7 +906,7 @@
   ],
   [
    "ids/channel-capacity#thm-bsc-capacity",
-   "ids/entropy#def-mutual-information"
+   "ids/entropy#thm-mutual-information-reduction"
   ],
   [
    "ids/channel-capacity#thm-channel-coding",
@@ -934,11 +934,11 @@
   ],
   [
    "ids/entropy#cor-conditioning-reduces-entropy",
-   "ids/entropy#def-mutual-information"
+   "ids/entropy#thm-mutual-information-nonnegative"
   ],
   [
    "ids/entropy#cor-conditioning-reduces-entropy",
-   "ids/entropy#thm-mutual-information-nonnegative"
+   "ids/entropy#thm-mutual-information-reduction"
   ],
   [
    "ids/entropy#cor-conditioning-reduces-entropy",
@@ -1062,11 +1062,15 @@
   ],
   [
    "ids/entropy#def-mutual-information",
-   "ids/entropy#def-conditional-entropy"
+   "ids/entropy#def-joint-entropy"
   ],
   [
    "ids/entropy#def-mutual-information",
    "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-mutual-information",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#def-nat",
@@ -1274,7 +1278,7 @@
   ],
   [
    "ids/entropy#thm-entropy-sum-decomposition",
-   "ids/entropy#thm-mutual-information-entropy-sum"
+   "ids/entropy#def-mutual-information"
   ],
   [
    "ids/entropy#thm-entropy-sum-decomposition",
@@ -1326,22 +1330,10 @@
   ],
   [
    "ids/entropy#thm-mutual-information-chain-rule",
-   "ids/entropy#def-mutual-information"
+   "ids/entropy#thm-mutual-information-reduction"
   ],
   [
    "ids/entropy#thm-mutual-information-chain-rule",
-   "pds/random-variables#def-discrete-rv"
-  ],
-  [
-   "ids/entropy#thm-mutual-information-entropy-sum",
-   "ids/entropy#def-mutual-information"
-  ],
-  [
-   "ids/entropy#thm-mutual-information-entropy-sum",
-   "ids/entropy#thm-entropy-chain-rule"
-  ],
-  [
-   "ids/entropy#thm-mutual-information-entropy-sum",
    "pds/random-variables#def-discrete-rv"
   ],
   [
@@ -1358,11 +1350,11 @@
   ],
   [
    "ids/entropy#thm-mutual-information-joint-minus-conditionals",
-   "ids/entropy#thm-entropy-chain-rule"
+   "ids/entropy#def-mutual-information"
   ],
   [
    "ids/entropy#thm-mutual-information-joint-minus-conditionals",
-   "ids/entropy#thm-mutual-information-entropy-sum"
+   "ids/entropy#thm-entropy-chain-rule"
   ],
   [
    "ids/entropy#thm-mutual-information-joint-minus-conditionals",
@@ -1379,6 +1371,10 @@
   [
    "ids/entropy#thm-mutual-information-kl",
    "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "ids/entropy#thm-mutual-information-reduction"
   ],
   [
    "ids/entropy#thm-mutual-information-kl",
@@ -1433,8 +1429,24 @@
    "pds/random-variables#def-discrete-rv"
   ],
   [
-   "ids/entropy#thm-mutual-information-self",
+   "ids/entropy#thm-mutual-information-reduction",
    "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-reduction",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-reduction",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-reduction",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-self",
+   "ids/entropy#thm-mutual-information-reduction"
   ],
   [
    "ids/entropy#thm-mutual-information-self",
@@ -1442,11 +1454,15 @@
   ],
   [
    "ids/entropy#thm-mutual-information-symmetric",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-symmetric",
    "ids/entropy#def-mutual-information"
   ],
   [
    "ids/entropy#thm-mutual-information-symmetric",
-   "ids/entropy#thm-entropy-chain-rule"
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#thm-perplexity-geometric-mean",
@@ -1530,7 +1546,7 @@
   ],
   [
    "ids/entropy#thm-twice-mutual-information",
-   "ids/entropy#thm-mutual-information-symmetric"
+   "ids/entropy#thm-mutual-information-reduction"
   ],
   [
    "ids/entropy#thm-twice-mutual-information",
