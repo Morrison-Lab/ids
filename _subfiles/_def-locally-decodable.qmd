@@ -8,6 +8,6 @@ For every message $x$,
 every word $w$ that differs from $E(x)$ in at most a fraction $\errfrac$ of its positions,
 and every index $i$,
 the decoder, given $i$ and access to $w$, reads at most $r$ symbols of $w$
-and outputs $x_i$ with probability at least $2/3$ over its random choices.
+and outputs $x_i$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) at least $2/3$ over the decoder's own coin flips.
 
 :::

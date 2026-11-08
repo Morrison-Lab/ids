@@ -2,10 +2,10 @@
 #### Block code
 
 Let $\codealph$ be a finite alphabet with $q \ge 2$ symbols,
-and let $k \le n$ be positive integers.
+and let $k \le n$ be [positive integers](https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer).
 A **block code** with message length $k$ and block length $n$
 is a one-to-one map $E : \codealph^k \to \codealph^n$.
-Its image $C = \set{E(m) : m \in \codealph^k}$ is the set of *codewords*,
+Its [image](https://morrison-lab.github.io/mcs/functions.html#def-image) $C = \set{E(m) : m \in \codealph^k}$ is the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of *codewords*,
 and its **rate** is $R \eqdef k/n$,
 the number of message symbols carried per symbol sent.
 

@@ -2,11 +2,11 @@
 #### Hadamard code
 
 The **Hadamard code** sends a message $x \in \ffield{2}^k$, for $k \ge 1$,
-to the $2^k$ dot products
+to the $2^k$ values
 
 $$\dprod{x}{a} = x_1 a_1 + \cdots + x_k a_k \pmod 2,$$
 
-one for each $a \in \ffield{2}^k$, so its block length is $n = 2^k$.
+one for each $a \in \ffield{2}^k$, so its [block length](#def-block-code) is $n = 2^k$.
 Also called the **Walsh--Hadamard code** [@arora2009computational, chapter 11].
 
 :::

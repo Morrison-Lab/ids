@@ -4,12 +4,13 @@
 Let the alphabet be a finite field $\ffield{q}$,
 such as $\ffield{2} = \set{0, 1}$ with addition and multiplication modulo 2.
 A **linear code** is a [block code](#def-block-code)
-whose set of codewords $C$ is a $k$-dimensional subspace of $\ffield{q}^n$.
+whose [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of codewords $C$ is a $k$-dimensional [subspace](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-subspace) of $\ffield{q}^n$.
 One way to describe it is by a **parity-check matrix**:
-an $(n - k) \times n$ matrix $H$ of rank $n - k$ with
+an $(n - k) \times n$ [matrix](https://morrison-lab.github.io/mds/linear-algebra-matrices.html#def-matrix) $H$ with
+[rank](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-rank) $n - k$ and
 $C = \set{y \in \ffield{q}^n : H y = 0}$,
-where $y$ is treated as a column vector.
-A linear code with block length $n$, dimension $k$
+where $y$ is treated as a [column vector](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-column-vector).
+A linear code with [block length](#def-block-code) $n$, [dimension](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-dimension) $k$
 and [minimum distance](#def-hamming-distance) $d$
 is called an $\codeparams{n}{k}{d}{q}$ code.
 
