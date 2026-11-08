@@ -107,7 +107,7 @@
    "page": "entropy",
    "div": "cor-surprisal-discrete-nonnegative",
    "kind": "cor",
-   "title": "Surprisal of a discrete outcome is nonnegative",
+   "title": "Surprisal of a discrete value is nonnegative",
    "external": false
   },
   {
@@ -703,6 +703,16 @@
    "title": "random variable",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-random-variable"
+  },
+  {
+   "id": "pds/random-variables#def-realization",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-realization",
+   "kind": "def",
+   "title": "realization",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-realization"
   }
  ],
  "edges": [
@@ -804,15 +814,27 @@
   ],
   [
    "ids/entropy#cor-surprisal-discrete-nonnegative",
-   "pds/probability-basics#def-experiment-outcome"
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#cor-surprisal-discrete-nonnegative",
-   "pds/random-variables#def-discrete-rv"
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#def-bit",
    "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#def-collision-probability",
@@ -871,6 +893,18 @@
    "ids/entropy#def-surprisal"
   ],
   [
+   "ids/entropy#def-nat",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "pds/random-variables#def-realization"
+  ],
+  [
    "ids/entropy#def-perplexity",
    "ids/entropy#def-bit"
   ],
@@ -900,10 +934,6 @@
   ],
   [
    "ids/entropy#def-rarity",
-   "pds/probability-basics#def-experiment-outcome"
-  ],
-  [
-   "ids/entropy#def-rarity",
    "pds/probability-basics#def-probability"
   ],
   [
@@ -917,6 +947,10 @@
   [
    "ids/entropy#def-rarity",
    "pds/random-variables#def-pdf"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#def-renyi-entropy",
@@ -941,6 +975,14 @@
   [
    "ids/entropy#def-renyi-entropy",
    "pds/random-variables#def-random-variable"
+  ],
+  [
+   "ids/entropy#def-surprisal",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-surprisal",
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#thm-collision-entropy-at-most-entropy",
@@ -1092,11 +1134,11 @@
   ],
   [
    "ids/entropy#thm-surprisal-log-half",
-   "pds/probability-basics#def-experiment-outcome"
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#thm-surprisal-log-half",
-   "pds/random-variables#def-discrete-rv"
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#thm-surprisal-log-rarity",
@@ -1112,11 +1154,11 @@
   ],
   [
    "ids/entropy#thm-surprisal-log-rarity",
-   "pds/probability-basics#def-experiment-outcome"
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#thm-surprisal-log-rarity",
-   "pds/random-variables#def-discrete-rv"
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#thm-surprisal-log-rarity-continuous",

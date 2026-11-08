@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 15:22:56 (PST)
+Last modified: 2026-11-07 16:27:03 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -22,17 +22,17 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 1 (Surprisal)** The **surprisal** of an outcome $x$ of a discrete random variable $X$ with $\mathbb{P}(X=x) > 0$ is
+> **Definition 1 (Surprisal)** The **surprisal** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with $\mathbb{P}(X=x) > 0$ is
 >
 > $$s(x) \stackrel{\text{def}}{=}-\log \mathbb{P}(X=x).$$
 >
-> With base-2 logarithms, surprisal is also called the **Shannon information content** of the outcome $x$ ([MacKay 2003, sec. 2.4](#ref-mackay2003information)).
+> With base-2 logarithms, surprisal is also called the **Shannon information content** of the value $x$ ([MacKay 2003, sec. 2.4](#ref-mackay2003information)).
 
 > **NOTE:**
 >
 > **Definition 2 (Bit (shannon))** A **bit**, also called a **shannon** (symbol Sh) ([International Electrotechnical Commission 2008](#ref-iec80000132008)), is the unit of information when the logarithm in [surprisal](#def-surprisal), and in every quantity built from it, has base $2$.
 >
-> One bit is the surprisal of an outcome with probability $1/2$: for an outcome $x$ of a discrete random variable $X$,
+> One bit is the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$: for a value $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
 >
 > $$\begin{aligned}
 > s(x) = 1 \text{ bit}
@@ -67,7 +67,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 1 (Surprisal as a logarithm to base one half)** For an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with $\mathbb{P}(X=x) > 0$, the [surprisal](#def-surprisal) in [bits](#def-bit) is
+> **Theorem 1 (Surprisal as a logarithm to base one half)** For a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with $\mathbb{P}(X=x) > 0$, the [surprisal](#def-surprisal) in [bits](#def-bit) is
 >
 > $$s(x) = \log_{1/2} \mathbb{P}(X=x).$$
 
@@ -110,13 +110,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 1* (Surprisal as halvings of certainty). Start from certainty, [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$. Each halving multiplies the probability by $1/2$. After $s$ halvings the probability is $(1/2)^s$, and solving $(1/2)^s = p$ for $s$ gives $s = \log_{1/2} p$. This count is only motivation. [Theorem 1](#thm-surprisal-log-half) proves that this $s$ is the [surprisal](#def-surprisal) in [bits](#def-bit). So the surprisal of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) is the number of times certainty must be halved to reach the probability of that outcome. When $p$ is not $(1/2)^k$ for a whole number $k$, the number of halvings is not a whole number.
+> *Remark 1* (Surprisal as halvings of certainty). Start from certainty, [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$. Each halving multiplies the probability by $1/2$. After $s$ halvings the probability is $(1/2)^s$, and solving $(1/2)^s = p$ for $s$ gives $s = \log_{1/2} p$. This count is only motivation. [Theorem 1](#thm-surprisal-log-half) proves that this $s$ is the [surprisal](#def-surprisal) in [bits](#def-bit). So the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) is the number of times certainty must be halved to reach the probability of that value. When $p$ is not $(1/2)^k$ for a whole number $k$, the number of halvings is not a whole number.
 
 > **NOTE:**
 >
 > **Definition 3 (Nat)** A **nat** is the unit of information when the logarithm in [surprisal](#def-surprisal), and in every quantity built from it, is the natural logarithm.
 >
-> One nat is the surprisal of an outcome with probability $1/\text{e}$: for an outcome $x$ of a discrete random variable $X$,
+> One nat is the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/\text{e}$: for a value $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
 >
 > $$\begin{aligned}
 > s(x) = 1 \text{ nat}
@@ -167,7 +167,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 4 (Rarity)** The **rarity** of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the reciprocal of its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) mass:
+> **Definition 4 (Rarity)** The **rarity** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the reciprocal of its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) mass:
 >
 > $${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{\mathbb{P}(X=x)}.$$
 >
@@ -213,7 +213,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 2 (Surprisal is the logarithm of the rarity)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), and let $x$ be an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with $\mathbb{P}(X=x) > 0$. Then the [surprisal](#def-surprisal) of $x$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [rarity](#def-rarity):
+> **Theorem 2 (Surprisal is the logarithm of the rarity)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), and let $x$ be a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) of $X$ with $\mathbb{P}(X=x) > 0$. Then the [surprisal](#def-surprisal) of $x$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [rarity](#def-rarity):
 >
 > $${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}.$$
 
@@ -243,7 +243,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Corollary 1 (Surprisal of a discrete outcome is nonnegative)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), and let $x$ be an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with $\mathbb{P}(X=x) > 0$. Then the [rarity](#def-rarity) of $x$ is at least $1$, with equality exactly when $\mathbb{P}(X=x) = 1$, and the [surprisal](#def-surprisal) satisfies
+> **Corollary 1 (Surprisal of a discrete value is nonnegative)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), and let $x$ be a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) of $X$ with $\mathbb{P}(X=x) > 0$. Then the [rarity](#def-rarity) of $x$ is at least $1$, with equality exactly when $\mathbb{P}(X=x) = 1$, and the [surprisal](#def-surprisal) satisfies
 >
 > $${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} \ge 0.$$
 
@@ -253,7 +253,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 5 (Surprisal and rarity of an outcome with probability one quarter)** Take an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$:
+> **Example 5 (Surprisal and rarity of a value with probability one quarter)** Take a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$:
 >
 > Show code
 >
@@ -269,7 +269,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 6* (Reading the rarity of an outcome). A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) can exceed $1$, so for a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) the [rarity](#def-rarity) can be below $1$, and then the [surprisal](#def-surprisal) is negative ([Theorem 3](#thm-surprisal-log-rarity-continuous)). For a mass, a rarity of $r$ reads “one in $r$”, and the surprisal is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of $r$ ([Theorem 2](#thm-surprisal-log-rarity)).
+> *Remark 6* (Reading the rarity of a value). A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) can exceed $1$, so for a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) the [rarity](#def-rarity) can be below $1$, and then the [surprisal](#def-surprisal) is negative ([Theorem 3](#thm-surprisal-log-rarity-continuous)). For a mass, a rarity of $r$ reads “one in $r$”, and the surprisal is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of $r$ ([Theorem 2](#thm-surprisal-log-rarity)).
 
 > **NOTE:**
 >
