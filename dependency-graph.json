@@ -93,6 +93,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#cor-conditioning-reduces-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-conditioning-reduces-entropy",
+   "kind": "cor",
+   "title": "Conditioning reduces entropy",
+   "external": false
+  },
+  {
    "id": "ids/entropy#cor-entropy-chain-rule-reversed",
    "site": "ids",
    "page": "entropy",
@@ -288,6 +297,33 @@
    "div": "thm-mutual-information-joint-minus-conditionals",
    "kind": "thm",
    "title": "Mutual information from the conditional entropies",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-kl",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-kl",
+   "kind": "thm",
+   "title": "Mutual information as a divergence",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-nonnegative",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-nonnegative",
+   "kind": "thm",
+   "title": "Mutual information is nonnegative",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-self",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-self",
+   "kind": "thm",
+   "title": "Mutual information of a variable with itself",
    "external": false
   },
   {
@@ -615,6 +651,16 @@
    "url": "https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence"
   },
   {
+   "id": "pds/expectation#thm-kl-divergence-discrete",
+   "site": "pds",
+   "page": "expectation",
+   "div": "thm-kl-divergence-discrete",
+   "kind": "thm",
+   "title": "kl divergence discrete",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete"
+  },
+  {
    "id": "pds/independence#def-indpt",
    "site": "pds",
    "page": "independence",
@@ -663,6 +709,16 @@
    "title": "joint pmf",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf"
+  },
+  {
+   "id": "pds/random-variables#def-marginal",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-marginal",
+   "kind": "def",
+   "title": "marginal",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-marginal"
   },
   {
    "id": "pds/random-variables#def-pdf",
@@ -773,6 +829,22 @@
   [
    "ids/entropy#cor-conditional-surprisal-difference",
    "ids/entropy#thm-surprisal-chain-rule"
+  ],
+  [
+   "ids/entropy#cor-conditioning-reduces-entropy",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#cor-conditioning-reduces-entropy",
+   "ids/entropy#thm-mutual-information-nonnegative"
+  ],
+  [
+   "ids/entropy#cor-conditioning-reduces-entropy",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/entropy#cor-conditioning-reduces-entropy",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#cor-entropy-chain-rule-reversed",
@@ -1080,6 +1152,62 @@
   ],
   [
    "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/expectation#thm-kl-divergence-discrete"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/random-variables#def-joint-pmf"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/random-variables#def-marginal"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "ids/entropy#thm-mutual-information-kl"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-self",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-self",
    "pds/random-variables#def-discrete-rv"
   ],
   [

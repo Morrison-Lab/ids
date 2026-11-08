@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 16:30:14 (PST)
+Last modified: 2026-11-07 16:34:55 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -839,7 +839,179 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 15* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the joint distribution of $(X, Y)$ from the product of its marginals, and show that this equals $H(Y) - H(Y \mid X)$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)). Since a Kullback–Leibler divergence is never negative, and is $0$ only when the two distributions are equal ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)), $I(X; Y) \ge 0$, with equality exactly when $X$ and $Y$ are independent. Learning $X$ never raises the entropy of $Y$ on average.
+> **Theorem 14 (Mutual information as a divergence)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y)$ and [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(x)$ and $p(y)$. If their entropies are finite, then their [mutual information](#def-mutual-information) is the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the marginals from the joint distribution:
+>
+> $$I(X; Y) = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$
+>
+> where the sum runs over the pairs with $p(x, y) > 0$.
+
+> **NOTE:**
+>
+> *Proof*. Every sum below runs over the pairs with $p(x, y) > 0$, and the entropies are finite. So the sums converge absolutely, and they can be split and regrouped. Write $p(y \mid x) = p(x, y) / p(x)$, which is defined for every such pair because $p(x) \ge p(x, y) > 0$. By [Definition 13](#def-mutual-information) and the definitions of [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and [conditional entropy](#def-conditional-entropy),
+>
+> $$\begin{aligned}
+> I(X; Y)
+> &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \\
+> &= -\sum_{y} p(y) \log p(y) + \sum_{x, y} p(x, y) \log p(y \mid x) \\
+> &= -\sum_{x, y} p(x, y) \log p(y) + \sum_{x, y} p(x, y) \log p(y \mid x) \\
+> &= \sum_{x, y} p(x, y) \mathopen{}\left[\log p(y \mid x) - \log p(y)\right]\mathclose{} \\
+> &= \sum_{x, y} p(x, y) \log \frac{p(y \mid x)}{p(y)} \\
+> &= \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)}.
+> \end{aligned}$$
+>
+> The third line uses $\sum_{x} p(x, y) = p(y)$, and the last line uses $p(y \mid x) = p(x, y) / p(x)$. The sum in the last line is the divergence of $p(x) \, p(y)$ from $p(x, y)$ by the [discrete formula](https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete).
+
+> **NOTE:**
+>
+> **Example 13 (Mutual information of a noisy copy)**  
+>
+> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ equal $X$ with probability $0.8$ and the other value with probability $0.2$. The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$ and $0.1$ for $(0, 1)$ and $(1, 0)$. The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit) from the divergence formula in [Theorem 14](#thm-mutual-information-kl).
+>
+> Show code
+>
+> ``` r
+> joint <- matrix(
+>   data = c(0.4, 0.1, 0.1, 0.4),
+>   nrow = 2,
+>   dimnames = list(x = 0:1, y = 0:1)
+> )
+> p_x <- rowSums(joint)
+> p_y <- colSums(joint)
+> product <- outer(X = p_x, Y = p_y)
+> terms <- joint * log2(joint / product)
+> mutual_information <- sum(terms)
+> mutual_information
+> #> [1] 0.2780719
+> ```
+>
+> So $I(X; Y) = 0.278$ bits. This matches ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$, which is $1$ bit minus the entropy of a coin with probabilities $0.8$ and $0.2$. That is $1 - 0.722$ bits.
+
+> **NOTE:**
+>
+> **Theorem 15 (Mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+>
+> $$I(X; Y) \ge 0.$$
+>
+> Equality holds exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
+
+> **NOTE:**
+>
+> *Proof*. Let $p(x, y)$ be the joint mass function, with marginals $p(x)$ and $p(y)$, and let $b$ be the base of the logarithm. Every $t > 0$ satisfies $\ln t \le t - 1$, with equality only at $t = 1$. Apply it to $t = p(x) \, p(y) / p(x, y)$ for each pair with $p(x, y) > 0$. By [Theorem 14](#thm-mutual-information-kl),
+>
+> $$\begin{aligned}
+> -I(X; Y) \, \ln b
+> &= \sum_{x, y} p(x, y) \ln \frac{p(x) \, p(y)}{p(x, y)} \\
+> &\le \sum_{x, y} p(x, y) \mathopen{}\left[\frac{p(x) \, p(y)}{p(x, y)} - 1\right]\mathclose{} \\
+> &= \sum_{x, y} p(x) \, p(y) - \sum_{x, y} p(x, y) \\
+> &\le 1 - 1 \\
+> &= 0.
+> \end{aligned}$$
+>
+> The first sum in the third line runs over the pairs with $p(x, y) > 0$, so it is at most $\sum_{x, y} p(x) \, p(y) = 1$ over all pairs, which gives the fourth line. Hence $I(X; Y) \ge 0$.
+>
+> Equality holds exactly when both inequalities are equalities. The first is an equality exactly when $p(x) \, p(y) = p(x, y)$ for every pair with $p(x, y) > 0$. The second is an equality exactly when no pair has $p(x, y) = 0$ and $p(x) \, p(y) > 0$. Together they say $p(x, y) = p(x) \, p(y)$ for every pair, which is independence. Each inequality is an equality exactly under its condition, so independence is both necessary and sufficient for $I(X; Y) = 0$.
+
+> **NOTE:**
+>
+> **Example 14 (Mutual information of dependent and independent coins)**  
+>
+> For the noisy copy in [Example 13](#exm-mutual-information-noisy-copy), the [mutual information](#def-mutual-information) is positive, because $Y$ depends on $X$. For two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, every joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $0.25$. The chunk computes the mutual information of both pairs.
+>
+> Show code
+>
+> ``` r
+> joint_dependent <- matrix(data = c(0.4, 0.1, 0.1, 0.4), nrow = 2)
+> ratio_dependent <- joint_dependent / outer(
+>   X = rowSums(joint_dependent),
+>   Y = colSums(joint_dependent)
+> )
+> mi_dependent <- sum(joint_dependent * log2(ratio_dependent))
+> joint_independent <- matrix(data = 0.25, nrow = 2, ncol = 2)
+> product_independent <- outer(
+>   X = rowSums(joint_independent),
+>   Y = colSums(joint_independent)
+> )
+> ratio_independent <- joint_independent / product_independent
+> terms_independent <- joint_independent * log2(ratio_independent)
+> mi_independent <- sum(terms_independent)
+> c(mi_dependent = mi_dependent, mi_independent = mi_independent)
+> #>   mi_dependent mi_independent 
+> #>      0.2780719      0.0000000
+> ```
+>
+> So the mutual information of the independent coins is $0$ bits, and that of the dependent pair is $0.278$ bits ([Theorem 15](#thm-mutual-information-nonnegative)).
+
+> **NOTE:**
+>
+> **Corollary 5 (Conditioning reduces entropy)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+>
+> $${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.$$
+>
+> Equality holds exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
+
+> **NOTE:**
+>
+> *Proof*. By [Definition 13](#def-mutual-information),
+>
+> $${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = I(X; Y).$$
+>
+> By [Theorem 15](#thm-mutual-information-nonnegative), the right side is nonnegative, and it is $0$ exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
+
+> **NOTE:**
+>
+> **Example 15 (Learning a noisy copy lowers the entropy)**  
+>
+> For the coin $X$ and noisy copy $Y$ in [Example 13](#exm-mutual-information-noisy-copy), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ is $1$ [bit](#def-bit). Given $X$, the variable $Y$ is a coin with probabilities $0.8$ and $0.2$. The chunk computes the [conditional entropy](#def-conditional-entropy) from that coin.
+>
+> Show code
+>
+> ``` r
+> h_y <- 1
+> h_y_given_x <- -0.8 * log2(0.8) - 0.2 * log2(0.2)
+> c(h_y = h_y, h_y_given_x = h_y_given_x)
+> #>         h_y h_y_given_x 
+> #>   1.0000000   0.7219281
+> ```
+>
+> Here ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 0.722$ bits, which is below ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bit ([Corollary 5](#cor-conditioning-reduces-entropy)).
+
+> **NOTE:**
+>
+> *Remark 15* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the marginals of $(X, Y)$ from their joint distribution. [Theorem 14](#thm-mutual-information-kl) proves that this divergence equals ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)), and [Theorem 15](#thm-mutual-information-nonnegative) proves that $I(X; Y) \ge 0$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Learning $X$ never raises the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ on average ([Corollary 5](#cor-conditioning-reduces-entropy)).
+
+> **NOTE:**
+>
+> **Theorem 16 (Mutual information of a variable with itself)** For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite entropy,
+>
+> $$I(X; X) = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Given $X=x$, the variable $X$ equals $x$ with probability $1$, so $p(x \mid x) = 1$ and $p(x' \mid x) = 0$ for every $x' \ne x$. Only the term with $x' = x$ contributes to the entropy of $X$ given $X=x$, and it is $-1 \cdot \log 1 = 0$:
+>
+> $${\mathbb{H}\mathopen{}\left(X \mid X=x\right)\mathclose{}} = 0.$$
+>
+> Averaging over the distribution of $X$ gives
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}}
+> &= \sum_{x} p(x) \, {\mathbb{H}\mathopen{}\left(X \mid X=x\right)\mathclose{}} \\
+> &= 0.
+> \end{aligned}$$
+>
+> By [Definition 13](#def-mutual-information) with $Y = X$,
+>
+> $$\begin{aligned}
+> I(X; X)
+> &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Example 16 (A fair coin is fully informative about itself)**  
+>
+> Let $X$ be a fair coin toss. Its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is $1$ [bit](#def-bit). Given $X$ itself, there is no uncertainty left, so ${\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} = 0$. Hence $I(X; X) = 1 - 0 = 1$ bit ([Theorem 16](#thm-mutual-information-self)), the same as ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
 
 > **NOTE:**
 >
