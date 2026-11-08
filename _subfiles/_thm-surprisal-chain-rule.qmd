@@ -2,7 +2,7 @@
 #### Chain rule for surprisal
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
-and [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ and $y$ with $\P(X=x, Y=y) > 0$,
+and [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ and $y$ with $\P(X=x, Y=y) > 0$,
 
 $$\surprisalf{x, y} = \surprisalf{x} + \surprisalf{y \mid x}.$$
 
