@@ -625,16 +625,6 @@
    "url": "https://morrison-lab.github.io/pds/independence.html#def-indpt"
   },
   {
-   "id": "pds/probability-basics#def-experiment-outcome",
-   "site": "pds",
-   "page": "probability-basics",
-   "div": "def-experiment-outcome",
-   "kind": "def",
-   "title": "experiment outcome",
-   "external": true,
-   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome"
-  },
-  {
    "id": "pds/probability-basics#def-probability",
    "site": "pds",
    "page": "probability-basics",
@@ -858,7 +848,7 @@
   ],
   [
    "ids/entropy#def-conditional-surprisal",
-   "pds/probability-basics#def-experiment-outcome"
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#def-entropy-given-value",
@@ -870,15 +860,15 @@
   ],
   [
    "ids/entropy#def-joint-surprisal",
-   "pds/probability-basics#def-experiment-outcome"
-  ],
-  [
-   "ids/entropy#def-joint-surprisal",
    "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#def-joint-surprisal",
    "pds/random-variables#def-joint-pmf"
+  ],
+  [
+   "ids/entropy#def-joint-surprisal",
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#def-mutual-information",
@@ -1118,11 +1108,11 @@
   ],
   [
    "ids/entropy#thm-surprisal-chain-rule",
-   "pds/probability-basics#def-experiment-outcome"
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#thm-surprisal-chain-rule",
-   "pds/random-variables#def-discrete-rv"
+   "pds/random-variables#def-realization"
   ],
   [
    "ids/entropy#thm-surprisal-log-half",

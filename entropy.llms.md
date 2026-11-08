@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 16:27:03 (PST)
+Last modified: 2026-11-07 16:30:14 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -163,7 +163,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= {\mathbb{E}\mathopen{}\left[s(X)\right]\mathclose{}}.
 > \end{aligned}$$
 >
-> So $H(X)$ is the average number of bits (with base-2 logarithms) needed to record an outcome of $X$ when each outcome $x$ costs $s(x)$ bits. The [source coding theorem](source-coding.llms.md#thm-source-coding), on a later page of these notes, makes that average precise: no uniquely decodable code does better.
+> So $H(X)$ is the average number of bits (with base-2 logarithms) needed to record a value of $X$ when each value $x$ costs $s(x)$ bits. The [source coding theorem](source-coding.llms.md#thm-source-coding), on a later page of these notes, makes that average precise: no uniquely decodable code does better.
 
 > **NOTE:**
 >
@@ -273,7 +273,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 7* (Values of the probability, the rarity and the surprisal). For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), the mass $\mathbb{P}(X=x)$ of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) with a mass above $0$, its [rarity](#def-rarity) ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}$ and its [surprisal](#def-surprisal) ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ take the values in the middle column. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}(x)$ takes the place of the mass. At a value $x$ with a density above $0$, the rarity ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}$ is the reciprocal of $\mathbb{p}(x)$, and the surprisal ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ is the [surprisal of a continuous value](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous). Their values are in the right column.
+> *Remark 7* (Values of the probability, the rarity and the surprisal). For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), the mass $\mathbb{P}(X=x)$ of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with a mass above $0$, its [rarity](#def-rarity) ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}$ and its [surprisal](#def-surprisal) ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ take the values in the middle column. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\mathbb{p}(x)$ takes the place of the mass. At a value $x$ with a density above $0$, the rarity ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}$ is the reciprocal of $\mathbb{p}(x)$, and the surprisal ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ is the [surprisal of a continuous value](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous). Their values are in the right column.
 >
 > |  | Mass $\mathbb{P}(X=x)$ | Density $\mathbb{p}(x)$ |
 > |----|----|----|
@@ -288,25 +288,25 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 8* (Rarity and odds). Let $x$ be an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, and let $A$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $X = x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p = \mathbb{P}(X=x)$. The [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) in favour of $A$ are $p / (1 - p)$, and the odds against $A$ are $(1 - p) / p$ ([Grinstead and Snell 1997](#ref-grinstead1997introduction), Definition 1.4). The [rarity](#def-rarity) of $x$ is ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 1/p$, so the odds against $A$ are ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} - 1$.
+> *Remark 8* (Rarity and odds). Let $x$ be a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, and let $A$ be the [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $X = x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p = \mathbb{P}(X=x)$. The [odds](https://morrison-lab.github.io/pds/probability-basics.html#def-odds) in favour of $A$ are $p / (1 - p)$, and the odds against $A$ are $(1 - p) / p$ ([Grinstead and Snell 1997](#ref-grinstead1997introduction), Definition 1.4). The [rarity](#def-rarity) of $x$ is ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} = 1/p$, so the odds against $A$ are ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} - 1$.
 >
 > Show code
 >
 > ``` r
-> p_outcome <- c(1 / 4, 1 / 100, 1)
-> rarity_outcome <- 1 / p_outcome
-> odds_against <- (1 - p_outcome) / p_outcome
-> rarity_outcome - odds_against
+> p_value <- c(1 / 4, 1 / 100, 1)
+> rarity_value <- 1 / p_value
+> odds_against <- (1 - p_value) / p_value
+> rarity_value - odds_against
 > #> [1] 1 1 1
-> rarity_outcome
+> rarity_value
 > #> [1]   4 100   1
 > odds_against
 > #> [1]  3 99  0
 > ```
 >
-> The first printed line shows that, for each $p$, the rarity of the outcome exceeds the odds against its event by exactly $1$. An outcome with probability $1/4$ has rarity $4$, and its event has odds of $3$ to $1$ against. The two differ by exactly $1$, so they are relatively close when the rarity is large. At $p = 1$ the rarity is $1$ and the odds against are $0$, but the odds in favour divide by zero.
+> The first printed line shows that, for each $p$, the rarity of the value exceeds the odds against its event by exactly $1$. A value with probability $1/4$ has rarity $4$, and its event has odds of $3$ to $1$ against. The two differ by exactly $1$, so they are relatively close when the rarity is large. At $p = 1$ the rarity is $1$ and the odds against are $0$, but the odds in favour divide by zero.
 >
-> The odds compare an event with its [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement), and the odds against take values in $[0, \infty)$ when $p$ is above $0$. At $p = 0$, the odds against and the rarity divide by zero, and both tend to $\infty$ as $p$ decreases to $0$. For an outcome of a discrete random variable with $p$ above $0$, the rarity takes values in $[1, \infty)$. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the event $X = x$ for a single value has probability $0$, so its odds against and $1/\mathbb{P}(X=x)$ are not defined, but the rarity of the value is defined from the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). An event such as $X \le c$ can have a probability above $0$, so it can have odds.
+> The odds compare an event with its [complement](https://morrison-lab.github.io/pds/probability-basics.html#def-complement), and the odds against take values in $[0, \infty)$ when $p$ is above $0$. At $p = 0$, the odds against and the rarity divide by zero, and both tend to $\infty$ as $p$ decreases to $0$. For a value of a discrete random variable with $p$ above $0$, the rarity takes values in $[1, \infty)$. For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv), the event $X = x$ for a single value has probability $0$, so its odds against and $1/\mathbb{P}(X=x)$ are not defined, but the rarity of the value is defined from the [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf). An event such as $X \le c$ can have a probability above $0$, so it can have odds.
 
 > **NOTE:**
 >
@@ -342,7 +342,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 6 (Perplexity of a uniform distribution)**  
 >
-> If $X$ is uniform on $k$ [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)s, then every outcome has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/k$ and [rarity](#def-rarity) $k$, so by [Theorem 4](#thm-perplexity-geometric-mean) the [perplexity](#def-perplexity) of $X$ is $k$. In general, the perplexity is the count of equally likely values that would give the same [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) as $X$.
+> If $X$ is uniform on $k$ [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization), then every value has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/k$ and [rarity](#def-rarity) $k$, so by [Theorem 4](#thm-perplexity-geometric-mean) the [perplexity](#def-perplexity) of $X$ is $k$. In general, the perplexity is the count of equally likely values that would give the same [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) as $X$.
 
 > **NOTE:**
 >
@@ -458,7 +458,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 12* (Surprisal and the Fisher information). When the probabilities depend on a parameter $\theta$, the [surprisal](#def-surprisal) of an outcome $x$ is $-\log \mathbb{p}(x \mid \theta)$, which is minus the log-likelihood:
+> *Remark 12* (Surprisal and the Fisher information). When the probabilities depend on a parameter $\theta$, the [surprisal](#def-surprisal) of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ is $-\log \mathbb{p}(x \mid \theta)$, which is minus the log-likelihood:
 >
 > $$\mathbb{s}_{\theta}(x) = -\log \mathbb{p}(x \mid \theta) = -\ell(\theta).$$
 >
@@ -591,13 +591,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 11 (Joint surprisal)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. The **joint surprisal** of a pair of [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $(x, y)$ with $p(x, y) > 0$ is the [surprisal](#def-surprisal) of that pair:
+> **Definition 11 (Joint surprisal)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. The **joint surprisal** of a pair of [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $(x, y)$ with $p(x, y) > 0$ is the [surprisal](#def-surprisal) of that pair:
 >
 > $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} \stackrel{\text{def}}{=}-\log p(x, y).$$
 
 > **NOTE:**
 >
-> **Definition 12 (Conditional surprisal)** For $X$ and $Y$ as in [Definition 11](#def-joint-surprisal), the **conditional surprisal** of an [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $y$ given an outcome $x$ with $\mathbb{P}(X=x) > 0$ and $\mathbb{P}(Y=y \mid X=x) > 0$ is
+> **Definition 12 (Conditional surprisal)** For $X$ and $Y$ as in [Definition 11](#def-joint-surprisal), the **conditional surprisal** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $y$ given a value $x$ with $\mathbb{P}(X=x) > 0$ and $\mathbb{P}(Y=y \mid X=x) > 0$ is
 >
 > $${\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} \stackrel{\text{def}}{=}-\log \mathbb{P}(Y=y \mid X=x).$$
 
@@ -622,7 +622,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 8 (Chain rule for surprisal)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ and [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ and $y$ with $\mathbb{P}(X=x, Y=y) > 0$,
+> **Theorem 8 (Chain rule for surprisal)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ and [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ and $y$ with $\mathbb{P}(X=x, Y=y) > 0$,
 >
 > $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.$$
 
