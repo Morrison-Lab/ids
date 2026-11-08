@@ -13,34 +13,21 @@ Equality holds exactly when $X$ and $Y$ are
 
 ::: {.proof}
 
-Let $p(x, y)$ be the joint mass function, with marginals $p(x)$ and $p(y)$, <!-- check-term-links: allow -->
-and let $b$ be the base of the logarithm. <!-- check-term-links: allow -->
-Every $t > 0$ satisfies $\ln t \le t - 1$, with equality only at $t = 1$.
-Apply it to $t = p(x) \, p(y) / p(x, y)$ for each pair with $p(x, y) > 0$.
+Let $p(x, y)$ be the joint mass function, with marginals $p(x)$ and $p(y)$. <!-- check-term-links: allow -->
 By @thm-mutual-information-kl,
-
-$$
-\begin{aligned}
--I(X; Y) \, \ln b
-&= \sum_{x, y} p(x, y) \ln \frac{p(x) \, p(y)}{p(x, y)} \\
-&\le \sum_{x, y} p(x, y) \sb{\frac{p(x) \, p(y)}{p(x, y)} - 1} \\
-&= \sum_{x, y} p(x) \, p(y) - \sum_{x, y} p(x, y) \\
-&\le 1 - 1 \\
-&= 0.
-\end{aligned}
-$$
-
-The first sum in the third line runs over the pairs with $p(x, y) > 0$, <!-- check-term-links: allow -->
-so it is at most $\sum_{x, y} p(x) \, p(y) = 1$ over all pairs,
-which gives the fourth line.
-Hence $I(X; Y) \ge 0$.
-
-Equality holds exactly when both inequalities are equalities. <!-- check-term-links: allow -->
-The first is an equality exactly when $p(x) \, p(y) = p(x, y)$ for every pair with $p(x, y) > 0$.
-The second is an equality exactly when no pair has $p(x, y) = 0$ and $p(x) \, p(y) > 0$.
-Together they say $p(x, y) = p(x) \, p(y)$ for every pair,
+$I(X; Y)$ is the divergence of $p(x) \, p(y)$ from $p(x, y)$,
+and the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) defining it is absolutely summable,
+as the proof of that result shows.
+The mass function $p(x) \, p(y)$ is positive wherever $p(x, y)$ is positive,
+because each marginal is at least $p(x, y)$ there.
+By @thm-kl-divergence-nonnegative, the divergence is nonnegative,
+with equality exactly when the two mass functions agree.
+The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) satisfies $\log_b t = \ln t / \ln b$,
+so the divergence with $\log_b$
+is the divergence with $\log_2$ times $\ln 2 / \ln b$,
+which has the same sign and the same zero.
+Hence $I(X; Y) \ge 0$,
+and $I(X; Y) = 0$ exactly when $p(x, y) = p(x) \, p(y)$ for every pair,
 which is independence.
-Each inequality is an equality exactly under its condition, <!-- check-term-links: allow -->
-so independence is both necessary and sufficient for $I(X; Y) = 0$. <!-- check-term-links: allow -->
 
 :::
