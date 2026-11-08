@@ -21,6 +21,6 @@ $$\E{-\log \Pf{X}} \ge -\log \E{\Pf{X}},$$
 with equality exactly when $\Pf{X}$ is constant.
 The left side is $\entropyf{X}$.
 The right side is $\renyientropyf{2}{X}$ by its definition.
-The function $\Pf{X}$ is constant exactly when every value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has that same probability.
+The function $\Pf{X}$ is constant exactly when every value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has that same probability. <!-- check-term-links: allow -->
 
 :::
