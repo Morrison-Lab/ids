@@ -2,7 +2,7 @@
 #### Cross-entropy is the cost of the wrong code
 
 @thm-cross-entropy-decomposition splits the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) into the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and the divergence.
-By @thm-source-coding, no uniquely decodable code averages fewer than $\entropyf{p}$ bits.
+By @thm-source-coding, no [uniquely decodable code](#def-uniquely-decodable) averages fewer than $\entropyf{p}$ [bits](entropy.qmd#def-bit).
 By @thm-wrong-code, a code built for $q$
 costs about $\kldivf{p}{q}$ bits per value more than that.
 By the [divergence theorem](entropy.qmd#thm-kl-divergence-nonnegative), the excess vanishes

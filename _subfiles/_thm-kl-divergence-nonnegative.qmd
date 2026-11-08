@@ -7,7 +7,7 @@ and suppose that
 
 $$\sum_x p(x) \, \bigl\lvert \log_2 \bigl( p(x) / q(x) \bigr) \bigr\rvert < \infty.$$
 
-Then the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence), with base-2 logarithms, satisfies
+Then the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence), with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), satisfies
 
 $$\kldivf{p}{q} \ge 0,$$
 
@@ -38,7 +38,7 @@ $$
 \le 0.
 $$
 
-The left side is $-\ln 2 \cdot \kldivf{p}{q}$, because the divergence uses base-2 logarithms, so $\kldivf{p}{q} \ge 0$.
+The left side is $-\ln 2 \cdot \kldivf{p}{q}$, because the divergence uses base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), so $\kldivf{p}{q} \ge 0$.
 
 If $\kldivf{p}{q} = 0$, both relations hold with equality.
 The first forces $q(x) = p(x)$ at every $x$ with $p(x) > 0$.

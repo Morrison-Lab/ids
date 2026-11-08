@@ -15,6 +15,6 @@ with base-2 logarithms.
 
 3. Coding blocks of $n$ independent copies of $X$ at a time,
    some uniquely decodable binary code spends, on average,
-   fewer than $\entropyf{X} + 1/n$ binary digits per copy.
+   fewer than $\entropyf{X} + 1/n$ [binary digits](entropy.qmd#def-bit) per copy.
 
 :::
