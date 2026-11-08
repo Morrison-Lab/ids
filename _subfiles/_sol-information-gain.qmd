@@ -10,7 +10,7 @@
    \end{aligned}
    $$
 
-2. A branch holding one color only has entropy $0$.
+2. A branch holding one color only has [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $0$.
    For split A, the "no" branch holds $6$ red and $10$ green points of $16$:
 
    $$
@@ -55,7 +55,7 @@
 
 3. By @thm-mutual-information-reduction, the gain is $H(Y) - H(Y \mid X)$:
 
-   - split A: $1 - 0.764 = 0.236$ bits
+   - split A: $1 - 0.764 = 0.236$ [bits](entropy.qmd#def-bit)
    - split B: $1 - 0.689 = 0.311$ bits
 
    Split B has the larger gain.
@@ -64,6 +64,6 @@
    B's mixed branch, $5$ red against $10$ green,
    is more lopsided than A's $6$ against $10$, so it has less entropy,
    and it also holds fewer of the points, $15$ against $16$,
-   so its entropy gets less weight.
+   so its entropy counts for less.
 
 :::

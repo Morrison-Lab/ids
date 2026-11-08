@@ -3,11 +3,11 @@
 
 $\mutinfof{X}{Y} = H(X) - H(X \mid Y)$
 ([mutual information as a reduction in entropy](entropy.qmd#thm-mutual-information-reduction))
-is the uncertainty about the input,
+is the uncertainty about the [input](#def-channel),
 minus the uncertainty about the input left after seeing the output.
 So $\mutinfof{X}{Y}$ is how much one output tells the receiver about the input,
 on average,
-and the capacity is that amount when the sender chooses
+and the [capacity](channel-capacity.qmd#def-channel-capacity) is that amount when the sender chooses
 how often to send each input as well as possible.
 
 :::

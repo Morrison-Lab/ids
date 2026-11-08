@@ -11,11 +11,11 @@ Two candidate splits each send the points into two branches:
 | B | yes | $5$ | $10$ |
 | | no | $5$ | $0$ |
 
-Draw one point uniformly at random from the node,
+Draw one point from the node, each equally likely,
 let $Y$ be its color, and let $X$ be the branch it falls into
 (@rem-information-gain).
 The [information gain](#def-information-gain) of each split is then $\mutinfof{X}{Y}$.
-Use base-2 logarithms throughout.
+Use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) throughout.
 
 1. Compute $H(Y)$.
 

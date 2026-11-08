@@ -12,8 +12,8 @@ format:
 
 {{< include latex-macros/macros.qmd >}}
 
-A channel carries symbols from a sender to a receiver, and noise corrupts some of them.
-This page measures how much information a channel can carry,
+A channel carries symbols from a sender to a receiver, and some of them are corrupted along the way.
+This page asks how much information a channel can carry,
 using the [mutual information](entropy.qmd#sec-mutual-information)
 between what goes in and what comes out.
 
