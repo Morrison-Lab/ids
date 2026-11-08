@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 11:47:01 (PST)
+Last modified: 2026-11-08 12:02:32 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -1321,16 +1321,16 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. For each value $z$ with $\mathbb{P}(Z=z) > 0$, let $I_z(X; Y)$ be the [mutual information](#def-mutual-information) of $X$ and $Y$ computed from their joint probabilities given $Z=z$, so that $I_z(X; Y) = {\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}$. Applying [Definition 10](#def-conditional-entropy) to ${\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}$ and to ${\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}$ expands each over the values $z$ of $Z$:
+> *Proof*. For each value $z$ with $\mathbb{P}(Z=z) > 0$, let ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ be the [mutual information](#def-mutual-information) of $X$ and $Y$ computed from their joint probabilities given $Z=z$, so that ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}$. Applying [Definition 10](#def-conditional-entropy) to ${\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}$ and to ${\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}$ expands each over the values $z$ of $Z$:
 >
 > $$\begin{aligned}
 > {\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}}
 > &= {\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
 > &= \sum_z \mathbb{P}(Z=z) \mathopen{}\left[{\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}\right]\mathclose{} \\
-> &= \sum_z \mathbb{P}(Z=z) \, I_z(X; Y).
+> &= \sum_z \mathbb{P}(Z=z) \, {\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}.
 > \end{aligned}$$
 >
-> Each $I_z(X; Y)$ is nonnegative by [Theorem 17](#thm-mutual-information-nonnegative). Since $\mathbb{P}(Z=z) \ge 0$ as well, every summand $\mathbb{P}(Z=z) \, I_z(X; Y)$ is nonnegative, so ${\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \ge 0$.
+> Each ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is nonnegative by [Theorem 17](#thm-mutual-information-nonnegative). Since $\mathbb{P}(Z=z) \ge 0$ as well, every summand $\mathbb{P}(Z=z) \, {\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is nonnegative, so ${\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \ge 0$.
 
 > **NOTE:**
 >
