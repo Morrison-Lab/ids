@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 17:45:30 (PST)
+Last modified: 2026-11-07 19:02:10 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -420,7 +420,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. Write $\mathbb{P}(X)$ for the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at $X$. The function $-\log$ is [strictly convex](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function), so Jensen’s inequality gives
+> *Proof*. Write $\mathbb{P}(X)$ for the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at $X$. The function $-\log$ is [strictly convex](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function), so [Jensen’s inequality](https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen) gives
 >
 > $${\mathbb{E}\mathopen{}\left[-\log \mathbb{P}(X)\right]\mathclose{}} \ge -\log {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}},$$
 >
@@ -549,7 +549,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Corollary 3 (Conditional entropy as a difference)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+> **Corollary 3 (Conditional entropy as a difference)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.$$
 
@@ -723,35 +723,32 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 13 (Mutual information)** The **mutual information** between discrete random variables $X$ and $Y$ with finite entropies is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ from learning $X$:
+> **Definition 13 (Mutual information)** The **mutual information** between [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies is the sum of their [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) minus their [joint entropy](#def-joint-entropy):
 >
-> $$I(X; Y) \stackrel{\text{def}}{=}H(Y) - H(Y \mid X),$$
->
-> where $H(Y \mid X)$ is the [conditional entropy](#def-conditional-entropy).
+> $$I(X; Y) \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
 > **Theorem 9 (Mutual information is symmetric)** For discrete random variables $X$ and $Y$ with finite entropies,
 >
-> $$I(X; Y) = H(X) - H(X \mid Y) = I(Y; X).$$
+> $$I(X; Y) = I(Y; X).$$
 
 > **NOTE:**
 >
-> *Proof*. The [chain rule](#thm-entropy-chain-rule) expands $H(X, Y)$ in either order:
+> *Proof*. The [joint entropy](#def-joint-entropy) of the pair $(X, Y)$ equals that of $(Y, X)$, because both are the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the same two values, listed in either order. So [Definition 13](#def-mutual-information) gives
 >
-> $$H(X) + H(Y \mid X) = H(X, Y) = H(Y) + H(X \mid Y).$$
->
-> Subtracting $H(X \mid Y) + H(Y \mid X)$ from the outer two expressions gives
->
-> $$H(X) - H(X \mid Y) = H(Y) - H(Y \mid X).$$
->
-> The right side is $I(X; Y)$ by [Definition 13](#def-mutual-information), and the left side is $I(Y; X)$ by the same definition.
+> $$\begin{aligned}
+> I(X; Y)
+> &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y, X\right)\mathclose{}} \\
+> &= I(Y; X).
+> \end{aligned}$$
 
 > **NOTE:**
 >
-> **Theorem 10 (Mutual information from the joint entropy)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+> **Theorem 10 (Mutual information as a reduction in entropy)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies, the [mutual information](#def-mutual-information) is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of either variable from learning the other:
 >
-> $$I(X; Y) = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.$$
+> $$I(X; Y) = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
@@ -762,11 +759,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > Substituting into [Definition 13](#def-mutual-information) gives
 >
 > $$\begin{aligned}
-> I(X; Y)
-> &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \\
+> {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}
 > &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{} \\
-> &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.
+> &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \\
+> &= I(X; Y).
 > \end{aligned}$$
+>
+> The [chain rule](#thm-entropy-chain-rule) also gives ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$, so the same steps with $X$ and $Y$ exchanged give ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = I(X; Y)$.
 
 > **NOTE:**
 >
@@ -783,7 +782,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} &= {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.
 > \end{aligned}$$
 >
-> Substituting both into [Theorem 10](#thm-mutual-information-entropy-sum) gives
+> Substituting both into [Definition 13](#def-mutual-information) gives
 >
 > $$\begin{aligned}
 > I(X; Y)
@@ -804,7 +803,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = I(X; Y) + {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.$$
 >
-> Rearranging [Theorem 10](#thm-mutual-information-entropy-sum) gives
+> Rearranging [Definition 13](#def-mutual-information) gives
 >
 > $${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = I(X; Y) + {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.$$
 >
@@ -818,13 +817,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 13 (Twice the mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+> **Theorem 13 (Twice the mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $$2 \, I(X; Y) = \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\right]\mathclose{} + \mathopen{}\left[{\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.$$
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 9](#thm-mutual-information-symmetric),
+> *Proof*. By [Theorem 10](#thm-mutual-information-reduction),
 >
 > $$\begin{aligned}
 > {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} &= I(X; Y) \\
@@ -858,19 +857,19 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > h_y <- entropy(colSums(joint))
 > h_x_given_y <- h_xy - h_y
 > h_y_given_x <- h_xy - h_x
-> mi_definition <- h_y - h_y_given_x
-> mi_joint <- h_x + h_y - h_xy
+> mi_definition <- h_x + h_y - h_xy
+> mi_reduction <- h_y - h_y_given_x
 > mi_conditionals <- h_xy - (h_x_given_y + h_y_given_x)
 > mi_twice <- ((h_x - h_x_given_y) + (h_y - h_y_given_x)) / 2
-> c(mi_definition, mi_joint, mi_conditionals, mi_twice)
+> c(mi_definition, mi_reduction, mi_conditionals, mi_twice)
 > #> [1] 0.2780719 0.2780719 0.2780719 0.2780719
 > ```
 >
-> All four agree: $I(X; Y) = 0.278$ bits ([Theorem 10](#thm-mutual-information-entropy-sum), [Theorem 11](#thm-mutual-information-joint-minus-conditionals) and [Theorem 13](#thm-twice-mutual-information)). Also ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 2$ bits matches ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 2$ bits ([Theorem 12](#thm-entropy-sum-decomposition)).
+> All four agree: $I(X; Y) = 0.278$ bits ([Definition 13](#def-mutual-information), [Theorem 10](#thm-mutual-information-reduction), [Theorem 11](#thm-mutual-information-joint-minus-conditionals) and [Theorem 13](#thm-twice-mutual-information)). Also ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 2$ bits matches ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 2$ bits ([Theorem 12](#thm-entropy-sum-decomposition)).
 
 > **NOTE:**
 >
-> *Remark 14* (Entropies as areas). The identities above match a picture of two overlapping regions, with the area of one region standing for ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ and the area of the other for ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$. The overlap has area $I(X; Y)$ ([Theorem 10](#thm-mutual-information-entropy-sum)). The part of the first region outside the overlap has area ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$, and the part of the second region outside the overlap has area ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$. The two regions together have area ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Theorem 11](#thm-mutual-information-joint-minus-conditionals)). The picture is a mnemonic for two variables only.
+> *Remark 14* (Entropies as areas). The identities above match a picture of two overlapping regions, with the area of one region standing for ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ and the area of the other for ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$. The overlap has area $I(X; Y)$ ([Definition 13](#def-mutual-information)). The part of the first region outside the overlap has area ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$, and the part of the second region outside the overlap has area ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$. The two regions together have area ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Theorem 11](#thm-mutual-information-joint-minus-conditionals)). The picture is a mnemonic for two variables only.
 
 > **NOTE:**
 >
@@ -882,7 +881,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. Every sum below runs over the pairs with $p(x, y) > 0$, and the entropies are finite. So the sums converge absolutely, and they can be split and regrouped. Write $p(y \mid x) = p(x, y) / p(x)$, which is defined for every such pair because $p(x) \ge p(x, y) > 0$. By [Definition 13](#def-mutual-information) and the definitions of [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and [conditional entropy](#def-conditional-entropy),
+> *Proof*. Every sum below runs over the pairs with $p(x, y) > 0$, and the entropies are finite. So the sums converge absolutely, and they can be split and regrouped. Write $p(y \mid x) = p(x, y) / p(x)$, which is defined for every such pair because $p(x) \ge p(x, y) > 0$. By [Theorem 10](#thm-mutual-information-reduction) and the definitions of [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and [conditional entropy](#def-conditional-entropy),
 >
 > $$\begin{aligned}
 > I(X; Y)
@@ -973,7 +972,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 16 (Mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+> **Theorem 16 (Mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $$I(X; Y) \ge 0.$$
 >
@@ -1023,7 +1022,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. By [Definition 13](#def-mutual-information),
+> *Proof*. By [Theorem 10](#thm-mutual-information-reduction),
 >
 > $${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = I(X; Y).$$
 >
@@ -1071,7 +1070,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= 0.
 > \end{aligned}$$
 >
-> By [Definition 13](#def-mutual-information) with $Y = X$,
+> By [Theorem 10](#thm-mutual-information-reduction) with $Y = X$,
 >
 > $$\begin{aligned}
 > I(X; X)
@@ -1158,7 +1157,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >     &\approx 0.689 \text{ bits}.
 >     \end{aligned}$$
 >
-> 3.  By [Definition 13](#def-mutual-information), the gain is $H(Y) - H(Y \mid X)$:
+> 3.  By [Theorem 10](#thm-mutual-information-reduction), the gain is $H(Y) - H(Y \mid X)$:
 >
 >     - split A: $1 - 0.764 = 0.236$ bits
 >     - split B: $1 - 0.689 = 0.311$ bits
@@ -1226,7 +1225,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 15 (Conditional mutual information)** The **conditional mutual information** of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ given a third one, $Z$, with finite entropies, is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$ from also learning $X$:
+> **Definition 15 (Conditional mutual information)** The **conditional mutual information** of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ given a third one, $Z$, with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy), is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$ from also learning $X$:
 >
 > $$I(X; Y \mid Z) \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}.$$
 
@@ -1257,7 +1256,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. By [Definition 13](#def-mutual-information), applied to the pair $(X, Z)$ and to $Z$,
+> *Proof*. By [Theorem 10](#thm-mutual-information-reduction), applied to the pair $(X, Z)$ and to $Z$,
 >
 > $$\begin{aligned}
 > I(X, Z; Y) &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
@@ -1297,7 +1296,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 20 (Conditional mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ with finite entropies,
+> **Theorem 20 (Conditional mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $$I(X; Y \mid Z) \ge 0.$$
 
@@ -1386,7 +1385,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Lemma 2 (Conditional mutual information along a Markov chain)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the entropies of $X$, $Y$ and $Z$ are finite, then
+> **Lemma 2 (Conditional mutual information along a Markov chain)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$, $Y$ and $Z$ are finite, then
 >
 > $$I(Z; X \mid Y) = 0.$$
 
@@ -1411,7 +1410,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 21 (Data processing inequality)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the entropies of $X$, $Y$ and $Z$ are finite, then
+> **Theorem 21 (Data processing inequality)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$, $Y$ and $Z$ are finite, then
 >
 > $$I(X; Z) \le I(X; Y).$$
 

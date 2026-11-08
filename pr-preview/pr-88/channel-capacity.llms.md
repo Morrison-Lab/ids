@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 17:45:30 (PST)
+Last modified: 2026-11-07 19:02:10 (PST)
 
 A channel carries symbols from a sender to a receiver, and noise corrupts some of them. This page measures how much information a channel can carry, using the [mutual information](entropy.llms.md#sec-mutual-information) between what goes in and what comes out.
 
@@ -56,7 +56,7 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 
 > **NOTE:**
 >
-> *Remark 2* (What capacity measures). $I(X; Y) = H(X) - H(X \mid Y)$ ([symmetry of mutual information](entropy.llms.md#thm-mutual-information-symmetric)) is the uncertainty about the input, minus the uncertainty about the input left after seeing the output. So $I(X; Y)$ is how much one output tells the receiver about the input, on average, and the capacity is that amount when the sender chooses how often to send each input as well as possible.
+> *Remark 2* (What capacity measures). $I(X; Y) = H(X) - H(X \mid Y)$ ([mutual information as a reduction in entropy](entropy.llms.md#thm-mutual-information-reduction)) is the uncertainty about the input, minus the uncertainty about the input left after seeing the output. So $I(X; Y)$ is how much one output tells the receiver about the input, on average, and the capacity is that amount when the sender chooses how often to send each input as well as possible.
 
 > **NOTE:**
 >
@@ -80,7 +80,7 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 
 > **NOTE:**
 >
-> *Proof*. Fix any input distribution. By [the definition of mutual information](entropy.llms.md#def-mutual-information),
+> *Proof*. Fix any input distribution. By [mutual information as a reduction in entropy](entropy.llms.md#thm-mutual-information-reduction),
 >
 > $$I(X; Y) = H(Y) - H(Y \mid X).$$
 >
