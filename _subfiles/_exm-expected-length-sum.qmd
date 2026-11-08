@@ -24,6 +24,7 @@ from_sum <- sum(p * len)
 c(from_definition = from_definition, from_sum = from_sum)
 ```
 
-Both give $L = `r from_sum`$ [bits](entropy.qmd#def-bit), as @thm-expected-length-sum states.
+Both give $L = `r from_sum`$ [bits](entropy.qmd#def-bit),
+as @thm-expected-length-sum states.
 
 :::
