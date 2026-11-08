@@ -4,22 +4,22 @@
 Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
 with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y)$
 and [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(x)$ and $p(y)$.
-If their entropies are finite, <!-- check-term-links: allow -->
+If their [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite,
 then their [mutual information](#def-mutual-information) is the
 [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
-of the product of the marginals from the joint distribution: <!-- check-term-links: allow -->
+of the product of the marginals from the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution):
 
 $$I(X; Y) = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$
 
-where the sum runs over the pairs with $p(x, y) > 0$. <!-- check-term-links: allow -->
+where the sum runs over the pairs with $p(x, y) > 0$.
 
 :::
 
 ::: {.proof}
 
-Every sum below runs over the pairs with $p(x, y) > 0$, <!-- check-term-links: allow -->
-and the entropies are finite. <!-- check-term-links: allow -->
-So the sums converge absolutely, <!-- check-term-links: allow -->
+Every sum below runs over the pairs with $p(x, y) > 0$,
+and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite.
+So the sums converge absolutely,
 and they can be split and regrouped.
 Write $p(y \mid x) = p(x, y) / p(x)$,
 which is defined for every such pair because $p(x) \ge p(x, y) > 0$.
@@ -41,7 +41,7 @@ $$
 
 The third line uses $\sum_{x} p(x, y) = p(y)$,
 and the last line uses $p(y \mid x) = p(x, y) / p(x)$.
-The sum in the last line is the divergence of $p(x) \, p(y)$ from $p(x, y)$ <!-- check-term-links: allow -->
+The sum in the last line is the divergence of $p(x) \, p(y)$ from $p(x, y)$
 by the [discrete formula](https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete).
 
 :::

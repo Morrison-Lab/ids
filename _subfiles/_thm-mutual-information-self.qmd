@@ -2,7 +2,7 @@
 #### Mutual information of a variable with itself
 
 For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
-with finite entropy, <!-- check-term-links: allow -->
+with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
 $$I(X; X) = \entropyf{X}.$$
 
@@ -10,14 +10,14 @@ $$I(X; X) = \entropyf{X}.$$
 
 ::: {.proof}
 
-Given $X=x$, the variable $X$ equals $x$ with probability $1$, <!-- check-term-links: allow -->
+Given $X=x$, the variable $X$ equals $x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$,
 so $p(x \mid x) = 1$ and $p(x' \mid x) = 0$ for every $x' \ne x$.
-Only the term with $x' = x$ contributes to the entropy of $X$ given $X=x$, <!-- check-term-links: allow -->
+Only the term with $x' = x$ contributes to the [entropy of $X$ given $X=x$](#def-entropy-given-value),
 and it is $-1 \cdot \log 1 = 0$:
 
 $$\entropyf{X \mid X=x} = 0.$$
 
-Averaging over the distribution of $X$ gives <!-- check-term-links: allow -->
+Averaging over the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of $X$ gives
 
 $$
 \begin{aligned}

@@ -2,7 +2,7 @@
 #### Chain rule for mutual information
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$
-whose entropies $\entropyf{X}$, $\entropyf{Y}$ and $\entropyf{Z}$ are finite, <!-- check-term-links: allow -->
+whose [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $\entropyf{X}$, $\entropyf{Y}$ and $\entropyf{Z}$ are finite,
 
 $$I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).$$
 
