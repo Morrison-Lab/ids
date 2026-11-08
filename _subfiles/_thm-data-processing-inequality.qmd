@@ -5,7 +5,7 @@ If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain)
 and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$, $Y$ and $Z$ are finite,
 then
 
-$$I(X; Z) \le I(X; Y).$$
+$$\mutinfof{X}{Z} \le \mutinfof{X}{Y}.$$
 
 :::
 
@@ -15,27 +15,27 @@ The [chain rule](#thm-mutual-information-chain-rule) for the pair $(Z, Y)$ and t
 
 $$
 \begin{aligned}
-I(Z, Y; X) &= I(Y; X) + I(Z; X \mid Y) \\
-I(Y, Z; X) &= I(Z; X) + I(Y; X \mid Z).
+\mutinfof{Z, Y}{X} &= \mutinfof{Y}{X} + \cmutinfof{Z}{X}{Y} \\
+\mutinfof{Y, Z}{X} &= \mutinfof{Z}{X} + \cmutinfof{Y}{X}{Z}.
 \end{aligned}
 $$
 
 The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables,
-so $I(Z, Y; X) = I(Y, Z; X)$.
-By @lem-markov-chain-conditional-mutual-information, $I(Z; X \mid Y) = 0$.
-By @thm-conditional-mutual-information-nonnegative, $I(Y; X \mid Z) \ge 0$.
+so $\mutinfof{Z, Y}{X} = \mutinfof{Y, Z}{X}$.
+By @lem-markov-chain-conditional-mutual-information, $\cmutinfof{Z}{X}{Y} = 0$.
+By @thm-conditional-mutual-information-nonnegative, $\cmutinfof{Y}{X}{Z} \ge 0$.
 Therefore
 
 $$
 \begin{aligned}
-I(Y; X)
-&= I(Z; X) + I(Y; X \mid Z) \\
-&\ge I(Z; X).
+\mutinfof{Y}{X}
+&= \mutinfof{Z}{X} + \cmutinfof{Y}{X}{Z} \\
+&\ge \mutinfof{Z}{X}.
 \end{aligned}
 $$
 
 By @thm-mutual-information-symmetric,
-$I(Y; X) = I(X; Y)$ and $I(Z; X) = I(X; Z)$,
-so $I(X; Z) \le I(X; Y)$.
+$\mutinfof{Y}{X} = \mutinfof{X}{Y}$ and $\mutinfof{Z}{X} = \mutinfof{X}{Z}$,
+so $\mutinfof{X}{Z} \le \mutinfof{X}{Y}$.
 
 :::

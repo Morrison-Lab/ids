@@ -34,7 +34,7 @@
 
    $$
    \begin{aligned}
-   I(X; Y)
+   \mutinfof{X}{Y}
    &= H(Y) - H(Y \mid X) \\
    &= h(\alpha) + (1 - \alpha) \, h(\pi) - h(\alpha) \\
    &= (1 - \alpha) \, h(\pi).

@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$
 with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$I(X; Y \mid Z) \ge 0.$$
+$$\cmutinfof{X}{Y}{Z} \ge 0.$$
 
 :::
 
@@ -19,7 +19,7 @@ expands each over the values $z$ of $Z$:
 
 $$
 \begin{aligned}
-I(X; Y \mid Z)
+\cmutinfof{X}{Y}{Z}
 &= \entropyf{Y \mid Z} - \entropyf{Y \mid X, Z} \\
 &= \sum_z \P(Z=z) \sb{\entropyf{Y \mid Z=z} - \entropyf{Y \mid X, Z=z}} \\
 &= \sum_z \P(Z=z) \, \mutinfoatf{z}{X}{Y}.
@@ -29,6 +29,6 @@ $$
 Each $\mutinfoatf{z}{X}{Y}$ is nonnegative by @thm-mutual-information-nonnegative.
 Since $\P(Z=z) \ge 0$ as well,
 every summand $\P(Z=z) \, \mutinfoatf{z}{X}{Y}$ is nonnegative,
-so $I(X; Y \mid Z) \ge 0$.
+so $\cmutinfof{X}{Y}{Z} \ge 0$.
 
 :::

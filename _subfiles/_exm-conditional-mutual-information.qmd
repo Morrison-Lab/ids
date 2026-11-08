@@ -18,6 +18,6 @@ h_x3_given_x1_x2 <- h_coin
 h_x3_given_x2 - h_x3_given_x1_x2
 ```
 
-So $I(X_1; X_3 \mid X_2) = `r round(h_x3_given_x2 - h_x3_given_x1_x2, 3)`$ [bits](#def-bit).
+So $\cmutinfof{X_1}{X_3}{X_2} = `r round(h_x3_given_x2 - h_x3_given_x1_x2, 3)`$ [bits](#def-bit).
 
 :::

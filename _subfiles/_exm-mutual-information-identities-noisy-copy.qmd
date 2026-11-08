@@ -27,10 +27,10 @@ c(mi_definition, mi_reduction, mi_conditionals, mi_twice)
 ```
 
 All four agree:
-$I(X; Y) = `r round(mi_definition, 3)`$ bits
+$\mutinfof{X}{Y} = `r round(mi_definition, 3)`$ bits
 (@def-mutual-information, @thm-mutual-information-reduction, @thm-mutual-information-joint-minus-conditionals and @thm-twice-mutual-information).
 Also $\entropyf{X} + \entropyf{Y} = `r round(h_x + h_y, 3)`$ bits
-matches $\entropyf{X \mid Y} + 2 \, I(X; Y) + \entropyf{Y \mid X} = `r round(h_x_given_y + 2 * mi_definition + h_y_given_x, 3)`$ bits
+matches $\entropyf{X \mid Y} + 2 \, \mutinfof{X}{Y} + \entropyf{Y \mid X} = `r round(h_x_given_y + 2 * mi_definition + h_y_given_x, 3)`$ bits
 (@thm-entropy-sum-decomposition).
 
 :::

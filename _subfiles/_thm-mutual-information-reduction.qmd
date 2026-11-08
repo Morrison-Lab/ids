@@ -28,7 +28,7 @@ $$
 $$
 
 The [chain rule](#thm-entropy-chain-rule) also gives $\entropyf{X \mid Y} = \entropyf{X, Y} - \entropyf{Y}$,
-so the same steps <!-- check-term-links: allow --> with $X$ and $Y$ exchanged
-give $\entropyf{X} - \entropyf{X \mid Y} = I(X; Y)$.
+so exchanging $X$ and $Y$ in the aligned display above
+gives $\entropyf{X} - \entropyf{X \mid Y} = I(X; Y)$.
 
 :::
