@@ -3,6 +3,6 @@
 
 A code with a small [expected length](#def-expected-length)
 gives frequent values short codewords and rare values long ones,
-since each value's length counts in $L$ in proportion to its probability.
+since each value's $\ell(x)$ counts in $L$ weighted by its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
 
 :::

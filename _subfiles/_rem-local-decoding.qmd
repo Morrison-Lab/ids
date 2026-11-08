@@ -1,17 +1,17 @@
 ::: {#rem-local-decoding}
 #### Reading two symbols instead of the whole word
 
-When $\errfrac \le 1/6$, the success probability $1 - 2\errfrac$
+When $\errfrac \le 1/6$, the success [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - 2\errfrac$
 in @thm-hadamard-local-decoding is at least $2/3$,
-so the Hadamard code is [locally decodable](#def-locally-decodable) with 2 queries,
+so the [Hadamard code](#def-hadamard-code) is [locally decodable](#def-locally-decodable) with 2 queries,
 however long the message is.
 When $\errfrac < 1/4$, the decoder is right with probability above $1/2$,
-and repeating it with fresh random choices and taking a majority vote
-drives its error probability as low as needed.
+and repeating it with fresh [random choices](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice) and taking a majority vote
+drives its chance of a wrong answer as low as needed.
 Decoding to the nearest codeword, as in @thm-distance-corrects-errors,
 instead reads the whole received word.
-The Hadamard code pays for local decoding with block length $2^k$;
-polynomial codes in several variables,
+The Hadamard code pays for local decoding with [block length](#def-block-code) $2^k$;
+[polynomial](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-polynomial) codes in several variables,
 which extend [Reed--Solomon codes](#def-reed-solomon-code),
 trade a few more queries for much shorter codewords
 [@arora2009computational, chapter 19].
