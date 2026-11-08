@@ -2,7 +2,7 @@
 #### The expected probability is the collision probability
 
 Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
-and let $X'$ be an [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copy of $X$.
+and let $X'$ be a variable such that $X$ and $X'$ are [IID](https://morrison-lab.github.io/pds/independence.html#def-iid).
 Then
 
 $$\E{\P(X)} = \sum_x \P(X=x)^2 = \P(X = X').$$
@@ -22,8 +22,8 @@ $$
 \end{aligned}
 $$
 
-The copies $X$ and $X'$ take the same value exactly when both equal some value $x$.
-By independence, and because $X'$ is a copy of $X$,
+The variables $X$ and $X'$ take the same value exactly when both equal some value $x$.
+Because $X$ and $X'$ are IID,
 the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that both equal $x$ is $\P(X=x) \, \P(X'=x) = \P(X=x)^2$.
 Adding over the values $x$ gives
 
