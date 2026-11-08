@@ -3,7 +3,10 @@
 
 Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, x_2, \ldots$,
 with $q(x) > 0$ wherever $p(x) > 0$,
-and suppose that the sum defining $D_2(p \,\|\, q)$ converges absolutely.
+and suppose that
+
+$$\sum_x p(x) \, \bigl\lvert \log_2 \bigl( p(x) / q(x) \bigr) \bigr\rvert < \infty.$$
+
 Then the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) satisfies
 
 $$D_2(p \,\|\, q) \ge 0,$$
@@ -24,10 +27,9 @@ $$
 
 with equality exactly when $q(x) = p(x)$.
 Both sides are summable over $x$.
-The left side is, because the sum defining $D_2(p \,\|\, q)$ converges absolutely.
-The right side is, because $\sum_x p(x) = 1$ and $\sum_x q(x) \le 1$.
-So the inequality can be added over $x$,
-and these two sums give
+The left side does by the assumption in the statement,
+and the right side does because $\sum_x p(x) = 1$ and $\sum_x q(x) \le 1$.
+So the relation holds for the totals over $x$:
 
 $$
 \sum_x p(x) \ln \frac{q(x)}{p(x)}
