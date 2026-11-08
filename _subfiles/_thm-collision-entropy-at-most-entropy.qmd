@@ -13,12 +13,12 @@ The two coincide exactly when each value that $X$ takes with positive [probabili
 ::: proof
 
 Write $\P(X)$ for the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at $X$.
-The function $-\log$ is [strictly convex](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function), <!-- check-term-links: allow -->
-so Jensen's inequality gives <!-- check-term-links: allow -->
+The function $-\log$ is [strictly convex](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function),
+so [Jensen's inequality](https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen) gives
 
 $$\E{-\log \P(X)} \ge -\log \E{\P(X)},$$
 
-with equality exactly when $\P(X)$ is constant. <!-- check-term-links: allow -->
+with equality exactly when $\P(X)$ is constant.
 The left side is $\entropyf{X}$.
 The right side is $H_2(X)$ by its definition.
 The function $\P(X)$ is constant exactly when every value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has that same probability.
