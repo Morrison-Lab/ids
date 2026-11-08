@@ -2,7 +2,7 @@
 #### Surprisal and the Fisher information
 
 When the probabilities depend on a parameter $\param$,
-the [surprisal](#def-surprisal) of an outcome $x$ is $-\log \p(x \mid \param)$,
+the [surprisal](#def-surprisal) of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ is $-\log \p(x \mid \param)$,
 which is minus the log-likelihood:
 
 $$\surprisal_{\param}(x) = -\log \p(x \mid \param) = -\llik(\param).$$

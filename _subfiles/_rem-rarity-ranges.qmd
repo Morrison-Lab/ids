@@ -3,8 +3,8 @@
 
 For a
 [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
-the mass $\P(X=x)$ of an
-[outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome)
+the mass $\P(X=x)$ of a
+[value](https://morrison-lab.github.io/pds/random-variables.html#def-realization)
 with a mass above $0$, its [rarity](#def-rarity) $\rarityf{x}$ and its [surprisal](#def-surprisal) $\surprisalf{x}$ take the values in the middle column.
 For a
 [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv),
