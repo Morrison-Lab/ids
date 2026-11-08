@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite entropies, <!-- check-term-links: allow -->
 
-$$\entropyf{X} + \entropyf{Y} = \entropyf{X \mid Y} + 2 \, I(X; Y) + \entropyf{Y \mid X}.$$
+$$\entropyf{X} + \entropyf{Y} = \entropyf{X \mid Y} + 2 \, \mutinfof{X}{Y} + \entropyf{Y \mid X}.$$
 
 :::
 
@@ -12,19 +12,19 @@ $$\entropyf{X} + \entropyf{Y} = \entropyf{X \mid Y} + 2 \, I(X; Y) + \entropyf{Y
 
 Rearranging @thm-mutual-information-joint-minus-conditionals gives
 
-$$\entropyf{X, Y} = I(X; Y) + \entropyf{X \mid Y} + \entropyf{Y \mid X}.$$
+$$\entropyf{X, Y} = \mutinfof{X}{Y} + \entropyf{X \mid Y} + \entropyf{Y \mid X}.$$
 
 Rearranging @def-mutual-information gives
 
-$$\entropyf{X} + \entropyf{Y} = I(X; Y) + \entropyf{X, Y}.$$
+$$\entropyf{X} + \entropyf{Y} = \mutinfof{X}{Y} + \entropyf{X, Y}.$$
 
 Substituting the first display into the second gives
 
 $$
 \begin{aligned}
 \entropyf{X} + \entropyf{Y}
-&= I(X; Y) + \sb{I(X; Y) + \entropyf{X \mid Y} + \entropyf{Y \mid X}} \\
-&= \entropyf{X \mid Y} + 2 \, I(X; Y) + \entropyf{Y \mid X}.
+&= \mutinfof{X}{Y} + \sb{\mutinfof{X}{Y} + \entropyf{X \mid Y} + \entropyf{Y \mid X}} \\
+&= \entropyf{X \mid Y} + 2 \, \mutinfof{X}{Y} + \entropyf{Y \mid X}.
 \end{aligned}
 $$
 
