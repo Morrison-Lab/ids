@@ -11,13 +11,17 @@ $$L = \sum_{x} p(x) \, \ell(x).$$
 
 ::: {.proof}
 
-The codeword length $\ell(X)$ is a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable)
-whose possible values are the lengths $\ell(x)$.
-By the definition of [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation),
+The [codeword length](#def-code) $\ell(X)$ is a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable)
+whose possible values are the [codeword lengths](#def-code) $\ell(x)$.
+By the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation),
 
 $$L = \sum_{k} k \, \P(\ell(X) = k).$$
 
-The event $\ell(X) = k$ is the union of the disjoint events $X = x$ over the values $x$ with $\ell(x) = k$.
+The [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $\ell(X) = k$
+is the [union](https://morrison-lab.github.io/mcs/sets.html#def-union)
+of the [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive)
+[events](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $X = x$
+over the values $x$ with $\ell(x) = k$.
 So $\P(\ell(X) = k) = \sum_{x : \ell(x) = k} p(x)$, and
 
 $$L = \sum_{k} \sum_{x : \ell(x) = k} k \, p(x).$$

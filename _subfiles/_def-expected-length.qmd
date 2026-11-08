@@ -2,7 +2,7 @@
 #### Expected length
 
 The **expected length** of a [binary code](#def-code) for a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
-is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its codeword length:
+is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [codeword length](#def-code):
 
 $$L \eqdef \E{\ell(X)}.$$
 
