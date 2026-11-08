@@ -3,7 +3,7 @@
 
 The identities above match a picture of two overlapping regions,
 with the area of one region standing for $\entropyf{X}$ and the area of the other for $\entropyf{Y}$.
-The overlap has area $I(X; Y)$ (@def-mutual-information).
+The overlap has area $\mutinfof{X}{Y}$ (@def-mutual-information).
 The part of the first region outside the overlap has area $\entropyf{X \mid Y}$,
 and the part of the second region outside the overlap has area $\entropyf{Y \mid X}$.
 The two regions together have area $\entropyf{X, Y}$
