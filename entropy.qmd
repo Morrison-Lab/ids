@@ -324,6 +324,34 @@ in *Probability for Data Science*.
 
 {{< include ids/_subfiles/_exm-mutual-information-chain-rule-copies.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-conditional-mutual-information-nonnegative.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-conditional-mutual-information-nonnegative.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-markov-chain.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-markov-chain-noisy-copies.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_lem-markov-chain-conditional-mutual-information.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-data-processing-inequality.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-data-processing-inequality-noisy-copies.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

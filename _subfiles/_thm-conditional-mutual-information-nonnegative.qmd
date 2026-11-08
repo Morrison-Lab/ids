@@ -1,0 +1,34 @@
+:::{#thm-conditional-mutual-information-nonnegative}
+#### Conditional mutual information is nonnegative
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$
+with finite entropies, <!-- check-term-links: allow -->
+
+$$I(X; Y \mid Z) \ge 0.$$
+
+:::
+
+::: {.proof}
+
+For each value $z$ with $\P(Z=z) > 0$,
+let $I_z(X; Y)$ be the [mutual information](#def-mutual-information) of $X$ and $Y$
+computed from their joint probabilities given $Z=z$,
+so that $I_z(X; Y) = \entropyf{Y \mid Z=z} - \entropyf{Y \mid X, Z=z}$.
+Applying @def-conditional-entropy to $\entropyf{Y \mid Z}$ and to $\entropyf{Y \mid X, Z}$
+expands each over the values $z$ of $Z$:
+
+$$
+\begin{aligned}
+I(X; Y \mid Z)
+&= \entropyf{Y \mid Z} - \entropyf{Y \mid X, Z} \\
+&= \sum_z \P(Z=z) \sb{\entropyf{Y \mid Z=z} - \entropyf{Y \mid X, Z=z}} \\
+&= \sum_z \P(Z=z) \, I_z(X; Y).
+\end{aligned}
+$$
+
+Each $I_z(X; Y)$ is nonnegative by @thm-mutual-information-nonnegative.
+Since $\P(Z=z) \ge 0$ as well,
+every summand $\P(Z=z) \, I_z(X; Y)$ is nonnegative,
+so $I(X; Y \mid Z) \ge 0$.
+
+:::

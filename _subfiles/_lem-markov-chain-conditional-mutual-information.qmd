@@ -1,0 +1,36 @@
+:::{#lem-markov-chain-conditional-mutual-information}
+#### Conditional mutual information along a Markov chain
+
+If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain)
+and the entropies of $X$, $Y$ and $Z$ are finite, <!-- check-term-links: allow -->
+then
+
+$$I(Z; X \mid Y) = 0.$$
+
+:::
+
+::: {.proof}
+
+Fix values $y$ and $z$ with $\P(Y=y, Z=z) > 0$.
+Dividing the defining equation of the chain by $\P(Z=z \mid Y=y)$ gives
+
+$$\P(X=x \mid Y=y, Z=z) = \P(X=x \mid Y=y)$$
+
+for every $x$.
+So the [entropy given](#def-entropy-given-value) $(Y, Z) = (y, z)$ is the entropy given $Y = y$.
+Averaging over $(Y, Z)$ and over $Y$ gives
+
+$$\entropyf{X \mid Y, Z} = \entropyf{X \mid Y}.$$
+
+By @def-conditional-mutual-information,
+
+$$
+\begin{aligned}
+I(Z; X \mid Y)
+&= \entropyf{X \mid Y} - \entropyf{X \mid Z, Y} \\
+&= \entropyf{X \mid Y} - \entropyf{X \mid Y, Z} \\
+&= 0.
+\end{aligned}
+$$
+
+:::

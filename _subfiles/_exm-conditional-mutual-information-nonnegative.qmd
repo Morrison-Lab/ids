@@ -1,0 +1,36 @@
+:::{#exm-conditional-mutual-information-nonnegative}
+#### Learning a third variable can create information
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$,
+and let $Z = X + Y \bmod 2$ record whether they differ.
+The two coins are independent,
+so $I(X; Y) = 0$ (@thm-mutual-information-nonnegative).
+Given $Z$, each of $X$ and $Y$ determines the other.
+The chunk computes the [conditional mutual information](#def-conditional-mutual-information)
+from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
+
+```{r}
+#| code-fold: show
+entropy <- function(p) -sum(p[p > 0] * log2(p[p > 0]))
+joint <- array(data = 0, dim = c(2, 2, 2))
+for (x in 0:1) {
+  for (y in 0:1) {
+    z <- (x + y) %% 2
+    joint[x + 1, y + 1, z + 1] <- 0.25
+  }
+}
+h_xyz <- entropy(joint)
+h_xz <- entropy(apply(X = joint, MARGIN = c(1, 3), FUN = sum))
+h_yz <- entropy(apply(X = joint, MARGIN = c(2, 3), FUN = sum))
+h_z <- entropy(apply(X = joint, MARGIN = 3, FUN = sum))
+h_y_given_z <- h_yz - h_z
+h_y_given_xz <- h_xyz - h_xz
+h_y_given_z - h_y_given_xz
+```
+
+So $I(X; Y \mid Z) = `r h_y_given_z - h_y_given_xz`$ [bit](#def-bit),
+which is nonnegative (@thm-conditional-mutual-information-nonnegative),
+although $I(X; Y) = 0$.
+
+:::

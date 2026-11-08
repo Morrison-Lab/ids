@@ -1,0 +1,41 @@
+:::{#thm-data-processing-inequality}
+#### Data processing inequality
+
+If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain)
+and the entropies of $X$, $Y$ and $Z$ are finite, <!-- check-term-links: allow -->
+then
+
+$$I(X; Z) \le I(X; Y).$$
+
+:::
+
+::: {.proof}
+
+The [chain rule](#thm-mutual-information-chain-rule) for the pair $(Z, Y)$ and the pair $(Y, Z)$ gives
+
+$$
+\begin{aligned}
+I(Z, Y; X) &= I(Y; X) + I(Z; X \mid Y) \\
+I(Y, Z; X) &= I(Z; X) + I(Y; X \mid Z).
+\end{aligned}
+$$
+
+The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables,
+so $I(Z, Y; X) = I(Y, Z; X)$.
+By @lem-markov-chain-conditional-mutual-information, $I(Z; X \mid Y) = 0$.
+By @thm-conditional-mutual-information-nonnegative, $I(Y; X \mid Z) \ge 0$.
+Therefore
+
+$$
+\begin{aligned}
+I(Y; X)
+&= I(Z; X) + I(Y; X \mid Z) \\
+&\ge I(Z; X).
+\end{aligned}
+$$
+
+By @thm-mutual-information-symmetric,
+$I(Y; X) = I(X; Y)$ and $I(Z; X) = I(X; Z)$,
+so $I(X; Z) \le I(X; Y)$.
+
+:::

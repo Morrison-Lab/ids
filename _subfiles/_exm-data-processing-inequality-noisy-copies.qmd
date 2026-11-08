@@ -1,0 +1,23 @@
+:::{#exm-data-processing-inequality-noisy-copies}
+#### Each extra noisy copy loses information
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+For the chain $X_1 \to X_2 \to X_3$ in @exm-markov-chain-noisy-copies,
+the chunk computes the [mutual information](#def-mutual-information) of $X_1$ with $X_2$ and with $X_3$, in [bits](#def-bit).
+Each variable is a fair coin.
+The variable $X_3$ differs from $X_1$
+when exactly one of the two copies flips,
+which has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2 \times 0.2 \times 0.8 = 0.32$.
+
+```{r}
+#| code-fold: show
+h_coin <- function(flip) -flip * log2(flip) - (1 - flip) * log2(1 - flip)
+i_x1_x2 <- 1 - h_coin(flip = 0.2)
+i_x1_x3 <- 1 - h_coin(flip = 0.32)
+c(i_x1_x2 = i_x1_x2, i_x1_x3 = i_x1_x3)
+```
+
+Here $I(X_1; X_3) = `r round(i_x1_x3, 3)`$ bits is below $I(X_1; X_2) = `r round(i_x1_x2, 3)`$ bits
+(@thm-data-processing-inequality).
+
+:::
