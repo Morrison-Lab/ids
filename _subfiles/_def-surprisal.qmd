@@ -6,7 +6,7 @@ with $\P(X=x) > 0$ is
 
 $$s(x) \eqdef -\log \P(X=x).$$
 
-With base-2 logarithms, surprisal is also called the
+With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), surprisal is also called the
 **Shannon information content** of the value $x$
 [@mackay2003information, section 2.4].
 

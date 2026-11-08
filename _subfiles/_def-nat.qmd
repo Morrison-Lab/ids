@@ -2,8 +2,8 @@
 #### Nat
 
 A **nat** is the unit of information
-when the logarithm in [surprisal](#def-surprisal),
-and in every quantity built from it, is the natural logarithm.
+when the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) in [surprisal](#def-surprisal),
+and in every quantity built from it, is the [natural logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log).
 
 One nat is the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/\euler$:
 for a value $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
