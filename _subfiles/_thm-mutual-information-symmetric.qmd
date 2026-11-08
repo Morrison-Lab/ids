@@ -1,7 +1,7 @@
 :::{#thm-mutual-information-symmetric}
 #### Mutual information is symmetric
 
-For discrete random variables $X$ and $Y$ with finite entropies,
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
 $$I(X; Y) = I(Y; X).$$
 
