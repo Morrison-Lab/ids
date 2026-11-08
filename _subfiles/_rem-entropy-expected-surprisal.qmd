@@ -19,6 +19,6 @@ needed to record a value of $X$
 when each value $x$ costs $s(x)$ bits.
 The [source coding theorem](source-coding.qmd#thm-source-coding),
 on a later page of these notes, makes that average precise:
-no [uniquely decodable code](#def-uniquely-decodable) does better.
+no [uniquely decodable code](source-coding.qmd#def-uniquely-decodable) does better.
 
 :::
