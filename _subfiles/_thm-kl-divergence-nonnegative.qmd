@@ -28,7 +28,8 @@ $$
 with equality exactly when $q(x) = p(x)$.
 Both sides are summable over $x$.
 The left side does by the assumption in the statement,
-and the right side does because $\sum_x p(x) = 1$ and $\sum_x q(x) \le 1$.
+and the right side does
+because $\sum_x p(x) = 1$ and $\sum_x q(x) \le 1$.
 So the relation holds for the totals over $x$:
 
 $$

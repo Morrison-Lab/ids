@@ -56,14 +56,6 @@ format:
 
 {{< slidebreak >}}
 
-{{< include ids/_subfiles/_thm-kl-divergence-nonnegative.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include ids/_subfiles/_exm-kl-divergence-nonnegative.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include ids/_subfiles/_rem-cross-entropy-wrong-code.qmd >}}
 
 {{< slidebreak >}}
