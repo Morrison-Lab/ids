@@ -20,6 +20,9 @@ on:
   # Allow claude.yml to dispatch a fresh review (e.g. after an @claude run
   # pushes commits, or on an `@claude review` comment). GITHUB_TOKEN pushes
   # don't fire `synchronize`, so an explicit dispatch path is needed.
+  # A `/review` comment on a PR re-enters through workflow_dispatch below.
+  issue_comment:
+    types: [created]
   workflow_dispatch:
     inputs:
       pr_number:
@@ -36,7 +39,71 @@ on:
 # used to provide is already handled inside the called workflow.
 
 jobs:
+  # `/review` at the start of a PR comment from a trusted author dispatches an
+  # on-demand review, re-entering via the workflow_dispatch path above, so a
+  # review lost to an infrastructure failure can be requested again without a
+  # push. `@claude review` keeps working through claude.yml.
+  dispatch-on-comment:
+    if: >-
+      github.event_name == 'issue_comment' &&
+      github.event.issue.pull_request &&
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association) &&
+      startsWith(github.event.comment.body, '/review')
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write        # dispatch this workflow via `gh workflow run`
+      issues: write         # acknowledge the /review comment
+    steps:
+      - name: Parse this workflow's ref
+        id: this-wf
+        uses: Morrison-Lab/gha/.github/actions/parse-workflow-ref@v2
+        with:
+          workflow-ref: ${{ github.workflow_ref }}
+
+      - name: Dispatch a review for the commented PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+          WF_PATH: ${{ steps.this-wf.outputs.path }}
+          # Passed via env, never inlined, so the comment body is a shell value
+          # rather than script text.
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          # The job-level `if:` can only pre-filter cheaply: Actions expressions
+          # cannot tell '/review' from '/reviewer', nor handle a newline after
+          # the command. Enforce the real match here.
+          if [[ ! "$COMMENT_BODY" =~ ^/review([[:space:]]|$) ]]; then
+            echo "Comment is not a standalone '/review' command; skipping dispatch."
+            exit 0
+          fi
+          WF_FILE=$(basename "$WF_PATH")
+          # This job never checks out the repo, so the PR's head branch has to
+          # be looked up. --ref pins the dispatched run's check-runs to that
+          # branch rather than the default branch workflow_dispatch would
+          # otherwise fall back to.
+          PR_JSON=$(gh api "repos/$REPO/pulls/$PR_NUMBER")
+          PR_BRANCH=$(jq -r '.head.ref' <<< "$PR_JSON")
+          PR_HEAD_REPO=$(jq -r '.head.repo.full_name' <<< "$PR_JSON")
+          echo "Dispatching $WF_FILE to review PR #$PR_NUMBER ($PR_BRANCH)."
+          # A fork PR's head branch exists only in the fork, so --ref cannot
+          # resolve there; drop it and accept the default-branch check-run
+          # attribution, which is the lesser problem.
+          REF_ARGS=(--ref "$PR_BRANCH")
+          if [ "$PR_HEAD_REPO" != "$REPO" ]; then
+            echo "::notice::PR #$PR_NUMBER is from a fork ($PR_HEAD_REPO); dispatching $WF_FILE without --ref."
+            REF_ARGS=()
+          fi
+          gh workflow run "$WF_FILE" --repo "$REPO" "${REF_ARGS[@]}" -f pr_number="$PR_NUMBER"
+          gh issue comment "$PR_NUMBER" --repo "$REPO" \
+            --body ":mag: \`/review\` received -- dispatched a Claude review of this PR (see the [dispatch run]($RUN_URL)). The review posts as its own comment when it finishes." \
+            || echo "::warning::Could not acknowledge the /review comment."
+
   review:
+    # The issue_comment path re-enters through dispatch-on-comment above.
+    if: github.event_name != 'issue_comment'
     permissions:
       contents: read
       pull-requests: write  # post review + inline comments
