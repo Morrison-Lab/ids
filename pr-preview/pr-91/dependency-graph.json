@@ -291,6 +291,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-conditional-entropy-average",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-conditional-entropy-average",
+   "kind": "thm",
+   "title": "Conditional entropy as an average of entropies given a value",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-conditional-mutual-information-nonnegative",
    "site": "ids",
    "page": "entropy",
@@ -753,6 +762,16 @@
    "url": "https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete"
   },
   {
+   "id": "pds/expectation#thm-lie",
+   "site": "pds",
+   "page": "expectation",
+   "div": "thm-lie",
+   "kind": "thm",
+   "title": "lie",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#thm-lie"
+  },
+  {
    "id": "pds/independence#def-cind",
    "site": "pds",
    "page": "independence",
@@ -946,6 +965,10 @@
   ],
   [
    "ids/entropy#cor-conditional-entropy-difference",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#cor-conditional-entropy-difference",
    "pds/random-variables#def-discrete-rv"
   ],
   [
@@ -1037,8 +1060,16 @@
    "ids/entropy#def-joint-entropy"
   ],
   [
+   "ids/entropy#def-conditional-entropy",
+   "pds/expectation#def-expectation"
+  ],
+  [
    "ids/entropy#def-conditional-mutual-information",
    "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#def-conditional-mutual-information",
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#def-conditional-mutual-information",
@@ -1055,6 +1086,10 @@
   [
    "ids/entropy#def-entropy-given-value",
    "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#def-entropy-given-value",
+   "pds/expectation#def-expectation"
   ],
   [
    "ids/entropy#def-joint-surprisal",
@@ -1201,6 +1236,10 @@
    "ids/entropy#def-markov-chain"
   ],
   [
+   "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "pds/expectation#def-entropy"
+  ],
+  [
    "ids/entropy#lem-surprisal-chain-rule-reversed",
    "ids/entropy#thm-surprisal-chain-rule"
   ],
@@ -1245,6 +1284,22 @@
    "pds/random-variables#def-pmf"
   ],
   [
+   "ids/entropy#thm-conditional-entropy-average",
+   "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-average",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-average",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-average",
+   "pds/expectation#thm-lie"
+  ],
+  [
    "ids/entropy#thm-conditional-mutual-information-nonnegative",
    "ids/entropy#def-conditional-entropy"
   ],
@@ -1255,6 +1310,10 @@
   [
    "ids/entropy#thm-conditional-mutual-information-nonnegative",
    "ids/entropy#thm-mutual-information-nonnegative"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#thm-conditional-mutual-information-nonnegative",
@@ -1281,12 +1340,24 @@
    "ids/entropy#thm-mutual-information-symmetric"
   ],
   [
-   "ids/entropy#thm-entropy-chain-rule",
-   "ids/entropy#def-conditional-entropy"
+   "ids/entropy#thm-data-processing-inequality",
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule",
    "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "pds/probability-basics#def-probability"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule-n",
@@ -1398,7 +1469,7 @@
   ],
   [
    "ids/entropy#thm-mutual-information-kl",
-   "ids/entropy#def-conditional-entropy"
+   "ids/entropy#def-joint-entropy"
   ],
   [
    "ids/entropy#thm-mutual-information-kl",
@@ -1406,11 +1477,11 @@
   ],
   [
    "ids/entropy#thm-mutual-information-kl",
-   "ids/entropy#thm-mutual-information-reduction"
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#thm-mutual-information-kl",
-   "pds/expectation#def-entropy"
+   "pds/expectation#def-expectation"
   ],
   [
    "ids/entropy#thm-mutual-information-kl",
@@ -1419,6 +1490,10 @@
   [
    "ids/entropy#thm-mutual-information-kl",
    "pds/expectation#thm-kl-divergence-discrete"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/probability-basics#def-probability"
   ],
   [
    "ids/entropy#thm-mutual-information-kl",
@@ -1458,11 +1533,23 @@
   ],
   [
    "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
    "pds/independence#def-indpt"
   ],
   [
    "ids/entropy#thm-mutual-information-nonnegative",
    "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/random-variables#def-joint-pmf"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/random-variables#def-marginal"
   ],
   [
    "ids/entropy#thm-mutual-information-reduction",
@@ -1482,7 +1569,7 @@
   ],
   [
    "ids/entropy#thm-mutual-information-self",
-   "ids/entropy#def-entropy-given-value"
+   "ids/entropy#thm-conditional-entropy-average"
   ],
   [
    "ids/entropy#thm-mutual-information-self",
@@ -1494,15 +1581,15 @@
   ],
   [
    "ids/entropy#thm-mutual-information-self",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-self",
    "pds/probability-basics#def-probability"
   ],
   [
    "ids/entropy#thm-mutual-information-self",
    "pds/random-variables#def-discrete-rv"
-  ],
-  [
-   "ids/entropy#thm-mutual-information-self",
-   "pds/random-variables#def-pmf"
   ],
   [
    "ids/entropy#thm-mutual-information-symmetric",
@@ -1603,6 +1690,10 @@
   [
    "ids/entropy#thm-twice-mutual-information",
    "ids/entropy#thm-mutual-information-reduction"
+  ],
+  [
+   "ids/entropy#thm-twice-mutual-information",
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#thm-twice-mutual-information",

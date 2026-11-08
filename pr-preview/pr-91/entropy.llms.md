@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 19:02:56 (PST)
+Last modified: 2026-11-07 19:53:52 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -484,50 +484,62 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Definition 8 (Joint entropy)** Let $X$ and $Y$ be discrete random variables with joint probability mass function $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. Their **joint entropy** is the entropy of the pair $(X, Y)$:
 >
-> $$H(X, Y) \stackrel{\text{def}}{=}-\sum_{x, y} p(x, y) \log p(x, y),$$
->
-> where the sum runs over the pairs with $p(x, y) > 0$.
+> $$H(X, Y) \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[-\log p(X, Y)\right]\mathclose{}}.$$
 
 > **NOTE:**
 >
-> **Definition 9 (Entropy given one value)** For $X$ and $Y$ as in [Definition 8](#def-joint-entropy), write $p(y \mid x) \stackrel{\text{def}}{=}\mathbb{P}(Y=y \mid X=x)$. The **entropy of** $Y$ given $X=x$, for a value $x$ with $\mathbb{P}(X=x) > 0$, is
+> **Definition 9 (Entropy given one value)** For $X$ and $Y$ as in [Definition 8](#def-joint-entropy), write $p(y \mid x) \stackrel{\text{def}}{=}\mathbb{P}(Y=y \mid X=x)$. The **entropy of** $Y$ given $X=x$, for a value $x$ with $\mathbb{P}(X=x) > 0$, is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $-\log p(Y \mid x)$ given $X=x$:
 >
-> $$H(Y \mid X=x) \stackrel{\text{def}}{=}-\sum_{y} p(y \mid x) \log p(y \mid x),$$
->
-> where the sum runs over the values $y$ with $p(y \mid x) > 0$.
+> $$H(Y \mid X=x) \stackrel{\text{def}}{=}{{\mathbb{E}\mathopen{}\left[-\log p(Y \mid x) \mid X=x\right]\mathclose{}}}.$$
 
 > **NOTE:**
 >
-> **Definition 10 (Conditional entropy)** For $X$ and $Y$ as in [Definition 8](#def-joint-entropy), write $p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)$. The **conditional entropy** of $Y$ given $X$ averages the [entropy of](#def-entropy-given-value) $Y$ given each value of $X$ over the distribution of $X$:
+> **Definition 10 (Conditional entropy)** For $X$ and $Y$ as in [Definition 8](#def-joint-entropy) and $p(y \mid x)$ as in [Definition 9](#def-entropy-given-value), the **conditional entropy** of $Y$ given $X$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $-\log p(Y \mid X)$:
 >
-> $$H(Y \mid X) \stackrel{\text{def}}{=}\sum_{x} p(x) \, H(Y \mid X=x),$$
->
-> where the sum runs over the values $x$ with $p(x) > 0$.
+> $$H(Y \mid X) \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[-\log p(Y \mid X)\right]\mathclose{}}.$$
 
 > **NOTE:**
 >
-> **Theorem 7 (Chain rule for entropy)** For discrete random variables $X$ and $Y$,
+> **Theorem 7 (Conditional entropy as an average of entropies given a value)** For $X$ and $Y$ as in [Definition 8](#def-joint-entropy),
+>
+> $$H(Y \mid X) = \sum_{x} p(x) \, H(Y \mid X=x),$$
+>
+> where $p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)$, and the sum runs over the values $x$ with $p(x) > 0$.
+
+> **NOTE:**
+>
+> *Proof*. The [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie) conditions on $X$:
+>
+> $$\begin{aligned}
+> H(Y \mid X)
+> &= {\mathbb{E}\mathopen{}\left[-\log p(Y \mid X)\right]\mathclose{}} \\
+> &= {\mathbb{E}\mathopen{}\left[{{\mathbb{E}\mathopen{}\left[-\log p(Y \mid X) \mid X\right]\mathclose{}}}\right]\mathclose{}} \\
+> &= \sum_{x} p(x) \, {{\mathbb{E}\mathopen{}\left[-\log p(Y \mid x) \mid X=x\right]\mathclose{}}} \\
+> &= \sum_{x} p(x) \, H(Y \mid X=x).
+> \end{aligned}$$
+>
+> The third line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the values $x$ of $X$, and the last line is [Definition 9](#def-entropy-given-value).
+
+> **NOTE:**
+>
+> **Theorem 8 (Chain rule for entropy)** For discrete random variables $X$ and $Y$,
 >
 > $$H(X, Y) = H(X) + H(Y \mid X).$$
 
 > **NOTE:**
 >
-> *Proof*. Use the notation of [Definition 9](#def-entropy-given-value) and [Definition 10](#def-conditional-entropy), with every sum over the pairs with $p(x, y) > 0$. Since $p(x, y) = p(x) \, p(y \mid x)$,
+> *Proof*. Use the notation of [Definition 8](#def-joint-entropy) and [Definition 9](#def-entropy-given-value). With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, $p(X, Y) = p(X) \, p(Y \mid X)$ and $p(X, Y) > 0$, so
+>
+> $$-\log p(X, Y) = -\log p(X) - \log p(Y \mid X).$$
+>
+> Both terms on the right are nonnegative, so the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the sum is the sum of the expectations:
 >
 > $$\begin{aligned}
 > H(X, Y)
-> &= -\sum_{x, y} p(x, y) \log p(x, y) \\
-> &= -\sum_{x, y} p(x, y) \log \mathopen{}\left[p(x) \, p(y \mid x)\right]\mathclose{} \\
-> &= -\sum_{x, y} p(x, y) \log p(x)
->    - \sum_{x, y} p(x, y) \log p(y \mid x) \\
-> &= -\sum_{x} \log p(x) \sum_{y} p(x, y)
->    - \sum_{x} p(x) \sum_{y} p(y \mid x) \log p(y \mid x) \\
-> &= -\sum_{x} p(x) \log p(x)
->    + \sum_{x} p(x) \, H(Y \mid X=x) \\
+> &= {\mathbb{E}\mathopen{}\left[-\log p(X, Y)\right]\mathclose{}} \\
+> &= {\mathbb{E}\mathopen{}\left[-\log p(X)\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[-\log p(Y \mid X)\right]\mathclose{}} \\
 > &= H(X) + H(Y \mid X).
 > \end{aligned}$$
->
-> The fourth line groups the terms by $x$ and uses $p(x, y) = p(x) \, p(y \mid x)$ in the second sum; the fifth uses $\sum_{y} p(x, y) = p(x)$ and the definition of $H(Y \mid X=x)$.
 
 > **NOTE:**
 >
@@ -549,7 +561,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Corollary 3 (Conditional entropy as a difference)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+> **Corollary 3 (Conditional entropy as a difference)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.$$
 
@@ -589,7 +601,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #>   1.7219281   0.7219281   1.0000000
 > ```
 >
-> Here ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = 1.722$ bits, ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = 0.722$ bits and ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bits. So ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Corollary 2](#cor-entropy-chain-rule-reversed)), and ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 0.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ ([Corollary 3](#cor-conditional-entropy-difference)).
+> The chunk computes ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ as the average of the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) given each value of $Y$, as in [Theorem 7](#thm-conditional-entropy-average) with $X$ and $Y$ exchanged. Here ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = 1.722$ bits, ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = 0.722$ bits and ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bits. So ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Corollary 2](#cor-entropy-chain-rule-reversed)), and ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 0.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ ([Corollary 3](#cor-conditional-entropy-difference)).
 
 > **NOTE:**
 >
@@ -607,7 +619,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 10 (Joint and conditional surprisal of a noisy copy)**  
 >
-> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with probability $0.8$ and the other value with probability $0.2$. Take the pair of values $x = 0$ and $y = 1$. The joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $\mathbb{P}(X=0, Y=1) = 0.1$, the probability of $X=0$ is $0.5$, and the conditional probability is $\mathbb{P}(Y=1 \mid X=0) = 0.2$. The chunk computes the three [surprisals](#def-surprisal), in [bits](#def-bit).
+> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. Take the pair of values $x = 0$ and $y = 1$. The joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $\mathbb{P}(X=0, Y=1) = 0.1$, the probability of $X=0$ is $0.5$, and the [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) is $\mathbb{P}(Y=1 \mid X=0) = 0.2$. The chunk computes the three [surprisals](#def-surprisal), in [bits](#def-bit).
 >
 > Show code
 >
@@ -620,11 +632,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #>    3.321928    1.000000    2.321928
 > ```
 >
-> The [joint surprisal](#def-joint-surprisal) is ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits, the surprisal of $x = 0$ alone is ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ bit, and the [conditional surprisal](#def-conditional-surprisal) is ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits.
+> The [joint surprisal](#def-joint-surprisal) is ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits, the [surprisal](#def-surprisal) of $x = 0$ alone is ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ [bit](#def-bit), and the [conditional surprisal](#def-conditional-surprisal) is ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits.
 
 > **NOTE:**
 >
-> **Theorem 8 (Chain rule for surprisal)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ and [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ and $y$ with $\mathbb{P}(X=x, Y=y) > 0$,
+> **Theorem 9 (Chain rule for surprisal)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ and [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ and $y$ with $\mathbb{P}(X=x, Y=y) > 0$,
 >
 > $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.$$
 
@@ -642,13 +654,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Corollary 4 (Conditional surprisal as a difference)** For $X$, $Y$, $x$ and $y$ as in [Theorem 8](#thm-surprisal-chain-rule),
+> **Corollary 4 (Conditional surprisal as a difference)** For $X$, $Y$, $x$ and $y$ as in [Theorem 9](#thm-surprisal-chain-rule),
 >
 > $${\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> *Proof*. Subtract ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ from both sides of [Theorem 8](#thm-surprisal-chain-rule):
+> *Proof*. Subtract ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ from both sides of [Theorem 9](#thm-surprisal-chain-rule):
 >
 > $$\begin{aligned}
 > {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}
@@ -673,7 +685,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 3.321928 3.321928
 > ```
 >
-> The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$ is $3.322$ [bits](#def-bit). This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Theorem 8](#thm-surprisal-chain-rule)). Subtracting ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ bit from the joint surprisal recovers ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits ([Corollary 4](#cor-conditional-surprisal-difference)).
+> The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$ is $3.322$ [bits](#def-bit). This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Theorem 9](#thm-surprisal-chain-rule)). Subtracting ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ [bit](#def-bit) from the joint surprisal recovers ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits ([Corollary 4](#cor-conditional-surprisal-difference)).
 
 > **NOTE:**
 >
@@ -683,7 +695,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. Applying [Theorem 8](#thm-surprisal-chain-rule) with the roles of $X$ and $Y$ swapped gives
+> *Proof*. Applying [Theorem 9](#thm-surprisal-chain-rule) with the roles of $X$ and $Y$ swapped gives
 >
 > $${\mathbb{s}\mathopen{}\left(y, x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(y\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(x \mid y\right)\mathclose{}}.$$
 >
@@ -717,7 +729,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}}.
 > \end{aligned}$$
 >
-> Taking the expectation of both sides of [Theorem 8](#thm-surprisal-chain-rule) therefore gives [Theorem 7](#thm-entropy-chain-rule).
+> Taking the expectation of both sides of [Theorem 9](#thm-surprisal-chain-rule) therefore gives [Theorem 8](#thm-entropy-chain-rule).
 
 ## 3 Mutual information
 
@@ -729,7 +741,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 9 (Mutual information is symmetric)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+> **Theorem 10 (Mutual information is symmetric)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $$I(X; Y) = I(Y; X).$$
 
@@ -746,7 +758,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 10 (Mutual information as a reduction in entropy)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy), the [mutual information](#def-mutual-information) is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of either variable from learning the other:
+> **Theorem 11 (Mutual information as a reduction in entropy)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy), the [mutual information](#def-mutual-information) is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of either variable from learning the other:
 >
 > $$I(X; Y) = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.$$
 
@@ -769,7 +781,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 11 (Mutual information from the conditional entropies)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+> **Theorem 12 (Mutual information from the conditional entropies)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $$I(X; Y) = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.$$
 
@@ -793,13 +805,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 12 (Decomposition of the sum of entropies)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+> **Theorem 13 (Decomposition of the sum of entropies)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> *Proof*. Rearranging [Theorem 11](#thm-mutual-information-joint-minus-conditionals) gives
+> *Proof*. Rearranging [Theorem 12](#thm-mutual-information-joint-minus-conditionals) gives
 >
 > $${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = I(X; Y) + {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.$$
 >
@@ -817,13 +829,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 13 (Twice the mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+> **Theorem 14 (Twice the mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $$2 \, I(X; Y) = \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\right]\mathclose{} + \mathopen{}\left[{\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.$$
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 10](#thm-mutual-information-reduction),
+> *Proof*. By [Theorem 11](#thm-mutual-information-reduction),
 >
 > $$\begin{aligned}
 > {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} &= I(X; Y) \\
@@ -865,15 +877,15 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 0.2780719 0.2780719 0.2780719 0.2780719
 > ```
 >
-> All four agree: $I(X; Y) = 0.278$ bits ([Definition 13](#def-mutual-information), [Theorem 10](#thm-mutual-information-reduction), [Theorem 11](#thm-mutual-information-joint-minus-conditionals) and [Theorem 13](#thm-twice-mutual-information)). Also ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 2$ bits matches ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 2$ bits ([Theorem 12](#thm-entropy-sum-decomposition)).
+> All four agree: $I(X; Y) = 0.278$ bits ([Definition 13](#def-mutual-information), [Theorem 11](#thm-mutual-information-reduction), [Theorem 12](#thm-mutual-information-joint-minus-conditionals) and [Theorem 14](#thm-twice-mutual-information)). Also ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 2$ bits matches ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 2$ bits ([Theorem 13](#thm-entropy-sum-decomposition)).
 
 > **NOTE:**
 >
-> *Remark 14* (Entropies as areas). The identities above match a picture of two overlapping regions, with the area of one region standing for ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ and the area of the other for ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$. The overlap has area $I(X; Y)$ ([Definition 13](#def-mutual-information)). The part of the first region outside the overlap has area ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$, and the part of the second region outside the overlap has area ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$. The two regions together have area ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Theorem 11](#thm-mutual-information-joint-minus-conditionals)). The picture is a mnemonic for two variables only.
+> *Remark 14* (Entropies as areas). The identities above match a picture of two overlapping regions, with the area of one region standing for ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ and the area of the other for ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$. The overlap has area $I(X; Y)$ ([Definition 13](#def-mutual-information)). The part of the first region outside the overlap has area ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$, and the part of the second region outside the overlap has area ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$. The two regions together have area ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Theorem 12](#thm-mutual-information-joint-minus-conditionals)). The picture is a mnemonic for two variables only.
 
 > **NOTE:**
 >
-> **Theorem 14 (Mutual information as a divergence)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y)$ and [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(x)$ and $p(y)$. If their [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite, then their [mutual information](#def-mutual-information) is the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the marginals from the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution):
+> **Theorem 15 (Mutual information as a divergence)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y)$ and [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(x)$ and $p(y)$. If their [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite, then their [mutual information](#def-mutual-information) is the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) from the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution):
 >
 > $$I(X; Y) = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$
 >
@@ -881,25 +893,24 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. Every sum below runs over the pairs with $p(x, y) > 0$, and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite. So the sums converge absolutely, and they can be split and regrouped. Write $p(y \mid x) = p(x, y) / p(x)$, which is defined for every such pair because $p(x) \ge p(x, y) > 0$. By [Theorem 10](#thm-mutual-information-reduction) and the definitions of [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and [conditional entropy](#def-conditional-entropy),
+> *Proof*. The [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite, so the [expectations](https://morrison-lab.github.io/pds/expectation.html#def-expectation) below are finite and can be split and regrouped. With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, $p(X, Y) > 0$, $p(X) > 0$ and $p(Y) > 0$. By [Definition 13](#def-mutual-information) and the definitions of [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and [joint entropy](#def-joint-entropy),
 >
 > $$\begin{aligned}
 > I(X; Y)
-> &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \\
-> &= -\sum_{y} p(y) \log p(y) + \sum_{x, y} p(x, y) \log p(y \mid x) \\
-> &= -\sum_{x, y} p(x, y) \log p(y) + \sum_{x, y} p(x, y) \log p(y \mid x) \\
-> &= \sum_{x, y} p(x, y) \mathopen{}\left[\log p(y \mid x) - \log p(y)\right]\mathclose{} \\
-> &= \sum_{x, y} p(x, y) \log \frac{p(y \mid x)}{p(y)} \\
+> &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \\
+> &= {\mathbb{E}\mathopen{}\left[-\log p(X)\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[-\log p(Y)\right]\mathclose{}} - {\mathbb{E}\mathopen{}\left[-\log p(X, Y)\right]\mathclose{}} \\
+> &= {\mathbb{E}\mathopen{}\left[\log p(X, Y) - \log p(X) - \log p(Y)\right]\mathclose{}} \\
+> &= {\mathbb{E}\mathopen{}\left[\log \frac{p(X, Y)}{p(X) \, p(Y)}\right]\mathclose{}} \\
 > &= \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)}.
 > \end{aligned}$$
 >
-> The third line uses $\sum_{x} p(x, y) = p(y)$, and the last line uses $p(y \mid x) = p(x, y) / p(x)$. The sum in the last line is the divergence of $p(x) \, p(y)$ from $p(x, y)$ by the [discrete formula](https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete).
+> The last line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the pairs with $p(x, y) > 0$. It is the divergence of $p(x) \, p(y)$ from $p(x, y)$ by the [discrete formula](https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete).
 
 > **NOTE:**
 >
 > **Example 14 (Mutual information of a noisy copy)**  
 >
-> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ equal $X$ with probability $0.8$ and the other value with probability $0.2$. The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$ and $0.1$ for $(0, 1)$ and $(1, 0)$. The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit) from the divergence formula in [Theorem 14](#thm-mutual-information-kl).
+> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ equal $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. The [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) gives probability $0.4$ to $(0, 0)$ and $(1, 1)$ and $0.1$ to $(0, 1)$ and $(1, 0)$. The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit) from the divergence formula in [Theorem 15](#thm-mutual-information-kl).
 >
 > Show code
 >
@@ -918,11 +929,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 0.2780719
 > ```
 >
-> So $I(X; Y) = 0.278$ bits. This matches ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$, which is $1$ bit minus the entropy of a coin with probabilities $0.8$ and $0.2$. That is $1 - 0.722$ bits.
+> So $I(X; Y) = 0.278$ bits. This matches ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$, which is $1$ [bit](#def-bit) minus the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a coin with probabilities $0.8$ and $0.2$. That is $1 - 0.722$ bits.
 
 > **NOTE:**
 >
-> **Theorem 15 (The divergence is nonnegative)** Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, x_2, \ldots$, with $q(x) > 0$ wherever $p(x) > 0$, and suppose that
+> **Theorem 16 (The divergence is nonnegative)** Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, x_2, \ldots$, with $q(x) > 0$ wherever $p(x) > 0$, and suppose that
 >
 > $$\sum_x p(x) \, \bigl\lvert \log_2 \bigl( p(x) / q(x) \bigr) \bigr\rvert < \infty.$$
 >
@@ -968,11 +979,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 0.5310044 0.7369656 0.0000000
 > ```
 >
-> Both divergences between the two coins are positive, as [Theorem 15](#thm-kl-divergence-nonnegative) requires, and they differ, so swapping $p$ and $q$ changes the divergence. The divergence of $p$ from itself is $0$.
+> Both divergences between the two coins are positive, as [Theorem 16](#thm-kl-divergence-nonnegative) requires, and they differ, so swapping $p$ and $q$ changes the divergence. The divergence of $p$ from itself is $0$.
 
 > **NOTE:**
 >
-> **Theorem 16 (Mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+> **Theorem 17 (Mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $$I(X; Y) \ge 0.$$
 >
@@ -980,7 +991,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. Let $p(x, y)$ be the joint mass function, with marginals $p(x)$ and $p(y)$. By [Theorem 14](#thm-mutual-information-kl), $I(X; Y)$ is the divergence of $p(x) \, p(y)$ from $p(x, y)$, and the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) defining it is absolutely summable, as the proof of that result shows. The mass function $p(x) \, p(y)$ is positive wherever $p(x, y)$ is positive, because each marginal is at least $p(x, y)$ there. By [Theorem 15](#thm-kl-divergence-nonnegative), the divergence is nonnegative, with equality exactly when the two mass functions agree. The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) satisfies $\log_b t = \ln t / \ln b$, so the divergence with $\log_b$ is the divergence with $\log_2$ times $\ln 2 / \ln b$, which has the same sign and the same zero. Hence $I(X; Y) \ge 0$, and $I(X; Y) = 0$ exactly when $p(x, y) = p(x) \, p(y)$ for every pair, which is independence.
+> *Proof*. Let $p(x, y)$ be the [joint mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), with [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x)$ and $p(y)$. By [Theorem 15](#thm-mutual-information-kl), $I(X; Y)$ is the divergence of $p(x) \, p(y)$ from $p(x, y)$, and the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) defining it is absolutely summable, as the proof of that result shows. The mass function $p(x) \, p(y)$ is positive wherever $p(x, y)$ is positive, because each marginal is at least $p(x, y)$ there. By [Theorem 16](#thm-kl-divergence-nonnegative), the divergence is nonnegative, with equality exactly when the two mass functions agree. The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) satisfies $\log_b t = \ln t / \ln b$, so the divergence with $\log_b$ is the divergence with $\log_2$ times $\ln 2 / \ln b$, which has the same sign and the same zero. Hence $I(X; Y) \ge 0$, and $I(X; Y) = 0$ exactly when $p(x, y) = p(x) \, p(y)$ for every pair, which is independence.
 
 > **NOTE:**
 >
@@ -1010,7 +1021,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #>      0.2780719      0.0000000
 > ```
 >
-> So the mutual information of the independent coins is $0$ bits, and that of the dependent pair is $0.278$ bits ([Theorem 16](#thm-mutual-information-nonnegative)).
+> So the mutual information of the independent coins is $0$ [bits](#def-bit), and that of the dependent pair is $0.278$ bits ([Theorem 17](#thm-mutual-information-nonnegative)).
 
 > **NOTE:**
 >
@@ -1022,11 +1033,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 10](#thm-mutual-information-reduction),
+> *Proof*. By [Theorem 11](#thm-mutual-information-reduction),
 >
 > $${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = I(X; Y).$$
 >
-> By [Theorem 16](#thm-mutual-information-nonnegative), the right side is nonnegative, and it is $0$ exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
+> By [Theorem 17](#thm-mutual-information-nonnegative), the right side is nonnegative, and it is $0$ exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
 
 > **NOTE:**
 >
@@ -1044,25 +1055,25 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #>   1.0000000   0.7219281
 > ```
 >
-> Here ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 0.722$ bits, which is below ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bit ([Corollary 5](#cor-conditioning-reduces-entropy)).
+> Here ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 0.722$ [bits](#def-bit), which is below ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bit ([Corollary 5](#cor-conditioning-reduces-entropy)).
 
 > **NOTE:**
 >
-> *Remark 15* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the marginals of $(X, Y)$ from their joint distribution. [Theorem 14](#thm-mutual-information-kl) proves that this divergence equals ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)), and [Theorem 16](#thm-mutual-information-nonnegative) proves that $I(X; Y) \ge 0$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Learning $X$ never raises the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ on average ([Corollary 5](#cor-conditioning-reduces-entropy)).
+> *Remark 15* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the marginals of $(X, Y)$ from their joint distribution. [Theorem 15](#thm-mutual-information-kl) proves that this divergence equals ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)), and [Theorem 17](#thm-mutual-information-nonnegative) proves that $I(X; Y) \ge 0$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Learning $X$ never raises the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ on average ([Corollary 5](#cor-conditioning-reduces-entropy)).
 
 > **NOTE:**
 >
-> **Theorem 17 (Mutual information of a variable with itself)** For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+> **Theorem 18 (Mutual information of a variable with itself)** For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $$I(X; X) = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> *Proof*. Given $X=x$, the variable $X$ equals $x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, so $p(x \mid x) = 1$ and $p(x' \mid x) = 0$ for every $x' \ne x$. Only the term with $x' = x$ contributes to the [entropy of](#def-entropy-given-value) $X$ given $X=x$, and it is $-1 \cdot \log 1 = 0$:
+> *Proof*. Given $X=x$, the variable $X$ equals $x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, so $p(x \mid x) = 1$. Hence $-\log p(X \mid x) = -\log 1 = 0$ given $X=x$, and the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of this constant is $0$:
 >
 > $${\mathbb{H}\mathopen{}\left(X \mid X=x\right)\mathclose{}} = 0.$$
 >
-> Averaging over the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of $X$ gives
+> By [Theorem 7](#thm-conditional-entropy-average),
 >
 > $$\begin{aligned}
 > {\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}}
@@ -1070,7 +1081,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= 0.
 > \end{aligned}$$
 >
-> By [Theorem 10](#thm-mutual-information-reduction) with $Y = X$,
+> By [Theorem 11](#thm-mutual-information-reduction) with $Y = X$,
 >
 > $$\begin{aligned}
 > I(X; X)
@@ -1082,7 +1093,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 18 (A fair coin is fully informative about itself)**  
 >
-> Let $X$ be a fair coin toss. Its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is $1$ [bit](#def-bit). Given $X$ itself, there is no uncertainty left, so ${\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} = 0$. Hence $I(X; X) = 1 - 0 = 1$ bit ([Theorem 17](#thm-mutual-information-self)), the same as ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
+> Let $X$ be a fair coin toss. Its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is $1$ [bit](#def-bit). Given $X$ itself, there is no uncertainty left, so ${\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} = 0$. Hence $I(X; X) = 1 - 0 = 1$ bit ([Theorem 18](#thm-mutual-information-self)), the same as ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
 
 > **NOTE:**
 >
@@ -1157,7 +1168,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >     &\approx 0.689 \text{ bits}.
 >     \end{aligned}$$
 >
-> 3.  By [Theorem 10](#thm-mutual-information-reduction), the gain is $H(Y) - H(Y \mid X)$:
+> 3.  By [Theorem 11](#thm-mutual-information-reduction), the gain is $H(Y) - H(Y \mid X)$:
 >
 >     - split A: $1 - 0.764 = 0.236$ bits
 >     - split B: $1 - 0.689 = 0.311$ bits
@@ -1168,7 +1179,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 18 (Chain rule for entropy, many variables)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$ with finite entropies,
+> **Theorem 19 (Chain rule for entropy, many variables)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$ with finite entropies,
 >
 > $${\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = \sum_{i=1}^{n} {\mathbb{H}\mathopen{}\left(X_i \mid X_1, \ldots, X_{i-1}\right)\mathclose{}},$$
 >
@@ -1178,7 +1189,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > *Proof*. The proof is by [induction](https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction) on $n$. The claim for $n = 1$ is ${\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}}$.
 >
-> Let $n \ge 2$, and suppose the claim holds for $n - 1$ variables. Treat $(X_1, \ldots, X_{n-1})$ as a single variable. The chain rule for two variables ([Theorem 7](#thm-entropy-chain-rule)) gives
+> Let $n \ge 2$, and suppose the claim holds for $n - 1$ variables. Treat $(X_1, \ldots, X_{n-1})$ as a single variable. The chain rule for two variables ([Theorem 8](#thm-entropy-chain-rule)) gives
 >
 > $${\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{n-1}\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X_n \mid X_1, \ldots, X_{n-1}\right)\mathclose{}}.$$
 >
@@ -1194,7 +1205,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 19 (Chain rule for entropy along a chain of noisy copies)**  
 >
-> Let $X_1$ be a fair coin toss, coded $0$ or $1$. Let $X_2$ be a noisy copy of $X_1$ that flips it with probability $0.2$, and let $X_3$ be a noisy copy of $X_2$ that flips it with probability $0.2$, independently of $X_1$ given $X_2$. The chunk builds the joint probabilities of $(X_1, X_2, X_3)$ and compares their [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), in [bits](#def-bit), with the sum in [Theorem 18](#thm-entropy-chain-rule-n).
+> Let $X_1$ be a fair coin toss, coded $0$ or $1$. Let $X_2$ be a noisy copy of $X_1$ that flips it with probability $0.2$, and let $X_3$ be a noisy copy of $X_2$ that flips it with probability $0.2$, independently of $X_1$ given $X_2$. The chunk builds the joint probabilities of $(X_1, X_2, X_3)$ and compares their [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), in [bits](#def-bit), with the sum in [Theorem 19](#thm-entropy-chain-rule-n).
 >
 > Show code
 >
@@ -1225,7 +1236,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 15 (Conditional mutual information)** The **conditional mutual information** of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ given a third one, $Z$, with finite entropies, is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$ from also learning $X$:
+> **Definition 15 (Conditional mutual information)** The **conditional mutual information** of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ given a third one, $Z$, with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy), is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$ from also learning $X$:
 >
 > $$I(X; Y \mid Z) \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}.$$
 
@@ -1233,7 +1244,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 20 (Conditional mutual information along a chain of noisy copies)**  
 >
-> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 19](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the prediction of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip probability $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
+> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 19](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the [prediction](https://morrison-lab.github.io/pds/expectation.html#def-prediction) of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
 >
 > Show code
 >
@@ -1246,17 +1257,17 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 0
 > ```
 >
-> So $I(X_1; X_3 \mid X_2) = 0$ bits.
+> So $I(X_1; X_3 \mid X_2) = 0$ [bits](#def-bit).
 
 > **NOTE:**
 >
-> **Theorem 19 (Chain rule for mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ whose [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$, ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ and ${\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}$ are finite,
+> **Theorem 20 (Chain rule for mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ whose [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$, ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ and ${\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}$ are finite,
 >
 > $$I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).$$
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 10](#thm-mutual-information-reduction), applied to the pair $(X, Z)$ and to $Z$,
+> *Proof*. By [Theorem 11](#thm-mutual-information-reduction), applied to the pair $(X, Z)$ and to $Z$,
 >
 > $$\begin{aligned}
 > I(X, Z; Y) &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}} \\
@@ -1277,7 +1288,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 21 (Chain rule for mutual information along a chain of noisy copies)**  
 >
-> For the chain in [Example 19](#exm-entropy-chain-rule-n-copies), the marginal distribution of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
+> For the chain in [Example 19](#exm-entropy-chain-rule-n-copies), the [marginal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
 >
 > Show code
 >
@@ -1292,11 +1303,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 0.2780719 0.2780719
 > ```
 >
-> Here $I(X_2; X_3) = 0.278$ bits and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 19](#thm-mutual-information-chain-rule)), as in [Example 20](#exm-conditional-mutual-information).
+> Here $I(X_2; X_3) = 0.278$ [bits](#def-bit) and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 20](#thm-mutual-information-chain-rule)), as in [Example 20](#exm-conditional-mutual-information).
 
 > **NOTE:**
 >
-> **Theorem 20 (Conditional mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ with finite entropies,
+> **Theorem 21 (Conditional mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $$I(X; Y \mid Z) \ge 0.$$
 
@@ -1311,13 +1322,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= \sum_z \mathbb{P}(Z=z) \, I_z(X; Y).
 > \end{aligned}$$
 >
-> Each $I_z(X; Y)$ is nonnegative by [Theorem 16](#thm-mutual-information-nonnegative). Since $\mathbb{P}(Z=z) \ge 0$ as well, every summand $\mathbb{P}(Z=z) \, I_z(X; Y)$ is nonnegative, so $I(X; Y \mid Z) \ge 0$.
+> Each $I_z(X; Y)$ is nonnegative by [Theorem 17](#thm-mutual-information-nonnegative). Since $\mathbb{P}(Z=z) \ge 0$ as well, every summand $\mathbb{P}(Z=z) \, I_z(X; Y)$ is nonnegative, so $I(X; Y \mid Z) \ge 0$.
 
 > **NOTE:**
 >
 > **Example 22 (Learning a third variable can create information)**  
 >
-> Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$, and let $Z = X + Y \bmod 2$ record whether they differ. The two coins are independent, so $I(X; Y) = 0$ ([Theorem 16](#thm-mutual-information-nonnegative)). Given $Z$, each of $X$ and $Y$ determines the other. The chunk computes the [conditional mutual information](#def-conditional-mutual-information) from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
+> Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$, and let $Z = X + Y \bmod 2$ record whether they differ. The two coins are independent, so $I(X; Y) = 0$ ([Theorem 17](#thm-mutual-information-nonnegative)). Given $Z$, each of $X$ and $Y$ determines the other. The chunk computes the [conditional mutual information](#def-conditional-mutual-information) from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
 >
 > Show code
 >
@@ -1340,7 +1351,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 1
 > ```
 >
-> So $I(X; Y \mid Z) = 1$ [bit](#def-bit), which is nonnegative ([Theorem 20](#thm-conditional-mutual-information-nonnegative)), although $I(X; Y) = 0$.
+> So $I(X; Y \mid Z) = 1$ [bit](#def-bit), which is nonnegative ([Theorem 21](#thm-conditional-mutual-information-nonnegative)), although $I(X; Y) = 0$.
 
 > **NOTE:**
 >
@@ -1385,7 +1396,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Lemma 2 (Conditional mutual information along a Markov chain)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the entropies of $X$, $Y$ and $Z$ are finite, then
+> **Lemma 2 (Conditional mutual information along a Markov chain)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$, $Y$ and $Z$ are finite, then
 >
 > $$I(Z; X \mid Y) = 0.$$
 
@@ -1410,7 +1421,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 21 (Data processing inequality)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the entropies of $X$, $Y$ and $Z$ are finite, then
+> **Theorem 22 (Data processing inequality)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$, $Y$ and $Z$ are finite, then
 >
 > $$I(X; Z) \le I(X; Y).$$
 
@@ -1423,7 +1434,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > I(Y, Z; X) &= I(Z; X) + I(Y; X \mid Z).
 > \end{aligned}$$
 >
-> The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables, so $I(Z, Y; X) = I(Y, Z; X)$. By [Lemma 2](#lem-markov-chain-conditional-mutual-information), $I(Z; X \mid Y) = 0$. By [Theorem 20](#thm-conditional-mutual-information-nonnegative), $I(Y; X \mid Z) \ge 0$. Therefore
+> The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables, so $I(Z, Y; X) = I(Y, Z; X)$. By [Lemma 2](#lem-markov-chain-conditional-mutual-information), $I(Z; X \mid Y) = 0$. By [Theorem 21](#thm-conditional-mutual-information-nonnegative), $I(Y; X \mid Z) \ge 0$. Therefore
 >
 > $$\begin{aligned}
 > I(Y; X)
@@ -1431,7 +1442,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &\ge I(Z; X).
 > \end{aligned}$$
 >
-> By [Theorem 9](#thm-mutual-information-symmetric), $I(Y; X) = I(X; Y)$ and $I(Z; X) = I(X; Z)$, so $I(X; Z) \le I(X; Y)$.
+> By [Theorem 10](#thm-mutual-information-symmetric), $I(Y; X) = I(X; Y)$ and $I(Z; X) = I(X; Z)$, so $I(X; Z) \le I(X; Y)$.
 
 > **NOTE:**
 >
@@ -1450,7 +1461,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 0.27807191 0.09561854
 > ```
 >
-> Here $I(X_1; X_3) = 0.096$ bits is below $I(X_1; X_2) = 0.278$ bits ([Theorem 21](#thm-data-processing-inequality)).
+> Here $I(X_1; X_3) = 0.096$ bits is below $I(X_1; X_2) = 0.278$ bits ([Theorem 22](#thm-data-processing-inequality)).
 
 ## References
 
