@@ -3,7 +3,7 @@
 
 The **conditional mutual information** of
 [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ given a third one, $Z$,
-with finite entropies, <!-- check-term-links: allow -->
+with finite entropies,
 is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$
 from also learning $X$:
 

@@ -2,7 +2,7 @@
 #### Data processing inequality
 
 If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain)
-and the entropies of $X$, $Y$ and $Z$ are finite, <!-- check-term-links: allow -->
+and the entropies of $X$, $Y$ and $Z$ are finite,
 then
 
 $$I(X; Z) \le I(X; Y).$$

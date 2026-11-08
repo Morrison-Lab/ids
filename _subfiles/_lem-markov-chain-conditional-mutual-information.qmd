@@ -2,7 +2,7 @@
 #### Conditional mutual information along a Markov chain
 
 If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain)
-and the entropies of $X$, $Y$ and $Z$ are finite, <!-- check-term-links: allow -->
+and the entropies of $X$, $Y$ and $Z$ are finite,
 then
 
 $$I(Z; X \mid Y) = 0.$$
