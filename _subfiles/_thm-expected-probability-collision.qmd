@@ -23,7 +23,7 @@ $$
 $$
 
 The variables $X$ and $X'$ take the same value exactly when both equal some value $x$.
-Because $X$ and $X'$ are IID,
+Because $X$ and $X'$ are [IID](https://morrison-lab.github.io/pds/independence.html#def-iid),
 the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that both equal $x$ is $\P(X=x) \, \P(X'=x) = \P(X=x)^2$.
 Adding over the values $x$ gives
 
