@@ -2,7 +2,7 @@
 #### Conditioning reduces entropy
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
-with finite entropies, <!-- check-term-links: allow -->
+with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
 $$\entropyf{Y \mid X} \le \entropyf{Y}.$$
 
@@ -15,7 +15,7 @@ Equality holds exactly when $X$ and $Y$ are
 
 By @thm-mutual-information-reduction,
 
-$$\entropyf{Y} - \entropyf{Y \mid X} = I(X; Y).$$
+$$\entropyf{Y} - \entropyf{Y \mid X} = \mutinfof{X}{Y}.$$
 
 By @thm-mutual-information-nonnegative,
 the right side is nonnegative,

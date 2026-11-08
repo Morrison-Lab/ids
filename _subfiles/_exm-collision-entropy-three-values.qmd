@@ -21,10 +21,10 @@ c(
 )
 ```
 
-By @thm-expected-probability-collision, the expected probability $\E{\P(X)} = `r expected_prob`$ is the [collision probability](#def-collision-probability).
-The collision entropy is $H_2(X) = `r round(collision_entropy, 3)`$ [bits](#def-bit).
+By @thm-expected-probability-collision, the expected probability $\E{\Pf{X}} = `r expected_prob`$ is the [collision probability](#def-collision-probability).
+The collision entropy is $\renyientropyf{2}{X} = `r round(collision_entropy, 3)`$ [bits](#def-bit).
 The entropy is $\entropyf{X} = `r shannon_entropy`$ bits.
-As @thm-collision-entropy-at-most-entropy states, $H_2(X) \le \entropyf{X}$,
+As @thm-collision-entropy-at-most-entropy states, $\renyientropyf{2}{X} \le \entropyf{X}$,
 and the two differ because the three values are not equally likely.
 
 :::

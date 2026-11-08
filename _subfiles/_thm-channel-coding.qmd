@@ -4,10 +4,11 @@
 Let $C$ be the [capacity](#def-channel-capacity)
 of a [discrete memoryless channel](#def-channel).
 
-1. For every rate $R < C$ there is a sequence of
+1. For every [rate](#def-code-rate) $R < C$ there is a [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) of
    $(\lceil 2^{nR} \rceil, n)$ [channel codes](#def-channel-code),
    for $n = 1, 2, \dots$,
-   whose maximal probability of error $\lambda^{(n)}$ tends to $0$.
+   whose [maximal probability of error](#def-maximal-probability-of-error)
+   $\lambda^{(n)}$ tends to $0$.
 
 2. Conversely, any sequence of $(\lceil 2^{nR} \rceil, n)$ codes
    with $\lambda^{(n)} \to 0$ has $R \le C$.
