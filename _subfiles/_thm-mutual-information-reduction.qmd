@@ -6,7 +6,7 @@ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-
 the [mutual information](#def-mutual-information) is the reduction in the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of either variable
 from learning the other:
 
-$$I(X; Y) = \entropyf{Y} - \entropyf{Y \mid X} = \entropyf{X} - \entropyf{X \mid Y}.$$
+$$\mutinfof{X}{Y} = \entropyf{Y} - \entropyf{Y \mid X} = \entropyf{X} - \entropyf{X \mid Y}.$$
 
 :::
 
@@ -23,12 +23,12 @@ $$
 \entropyf{Y} - \entropyf{Y \mid X}
 &= \entropyf{Y} - \sb{\entropyf{X, Y} - \entropyf{X}} \\
 &= \entropyf{X} + \entropyf{Y} - \entropyf{X, Y} \\
-&= I(X; Y).
+&= \mutinfof{X}{Y}.
 \end{aligned}
 $$
 
 The [chain rule](#thm-entropy-chain-rule) also gives $\entropyf{X \mid Y} = \entropyf{X, Y} - \entropyf{Y}$,
 so exchanging $X$ and $Y$ in the aligned display above
-gives $\entropyf{X} - \entropyf{X \mid Y} = I(X; Y)$.
+gives $\entropyf{X} - \entropyf{X \mid Y} = \mutinfof{X}{Y}$.
 
 :::

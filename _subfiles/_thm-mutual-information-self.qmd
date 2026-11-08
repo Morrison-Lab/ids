@@ -4,7 +4,7 @@
 For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
 with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$I(X; X) = \entropyf{X}.$$
+$$\mutinfof{X}{X} = \entropyf{X}.$$
 
 :::
 
@@ -31,7 +31,7 @@ By @thm-mutual-information-reduction with $Y = X$,
 
 $$
 \begin{aligned}
-I(X; X)
+\mutinfof{X}{X}
 &= \entropyf{X} - \entropyf{X \mid X} \\
 &= \entropyf{X}.
 \end{aligned}

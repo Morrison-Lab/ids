@@ -9,7 +9,7 @@ then their [mutual information](#def-mutual-information) is the
 [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
 of the product of the [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) from the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution):
 
-$$I(X; Y) = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$
+$$\mutinfof{X}{Y} = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$
 
 where the sum runs over the pairs with $p(x, y) > 0$.
 
@@ -26,7 +26,7 @@ and [joint entropy](#def-joint-entropy),
 
 $$
 \begin{aligned}
-I(X; Y)
+\mutinfof{X}{Y}
 &= \entropyf{X} + \entropyf{Y} - \entropyf{X, Y} \\
 &= \E{-\log p(X)} + \E{-\log p(Y)} - \E{-\log p(X, Y)} \\
 &= \E{\log p(X, Y) - \log p(X) - \log p(Y)} \\
