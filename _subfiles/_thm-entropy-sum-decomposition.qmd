@@ -2,7 +2,7 @@
 #### Decomposition of the sum of entropies
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
-with finite entropies, <!-- check-term-links: allow -->
+with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
 $$\entropyf{X} + \entropyf{Y} = \entropyf{X \mid Y} + 2 \, \mutinfof{X}{Y} + \entropyf{Y \mid X}.$$
 

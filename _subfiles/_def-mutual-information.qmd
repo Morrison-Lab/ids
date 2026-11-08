@@ -3,8 +3,8 @@
 
 The **mutual information** between
 [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
-with finite entropies
-is the sum <!-- check-term-links: allow --> of their [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
+with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
+is the sum of their entropies
 minus their [joint entropy](#def-joint-entropy):
 
 $$I(X; Y) \eqdef \entropyf{X} + \entropyf{Y} - \entropyf{X, Y}.$$
