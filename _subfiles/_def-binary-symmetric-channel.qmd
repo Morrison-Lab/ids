@@ -1,10 +1,10 @@
 :::{#def-binary-symmetric-channel}
 #### Binary symmetric channel
 
-The **binary symmetric channel** with *crossover probability* $\epsilon \in [0, 1]$
+The **binary symmetric channel** with *crossover [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)* $\epsilon \in [0, 1]$
 is the [discrete memoryless channel](#def-channel)
 with $\mathcal{X} = \mathcal{Y} = \{0, 1\}$ that
-flips its input with probability $\epsilon$:
+flips its [input](https://morrison-lab.github.io/pds/expectation.html#def-input) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\epsilon$:
 
 $$
 p(y \mid x) =

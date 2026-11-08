@@ -1,8 +1,9 @@
 ::: {#sol-bec-capacity}
 
-1. Given $X = x$, the output is $x$ with probability $1 - \alpha$
+1. Given $X = x$, the output is $x$ with
+   [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \alpha$
    and $\mathrm{e}$ with probability $\alpha$,
-   so $H(Y \mid X = x) = h(\alpha)$ for both inputs,
+   so $H(Y \mid X = x) = h(\alpha)$ for both values of $x$,
    and averaging over $x$ gives $H(Y \mid X) = h(\alpha)$.
 
 2. The chain rule gives
@@ -13,8 +14,8 @@
    so $H(E \mid Y = y) = 0$ for every $y$, and $H(E \mid Y) = 0$.
    Hence $H(Y) = H(E) + H(Y \mid E)$.
 
-3. The channel erases with probability $\alpha$ whatever the input,
-   so $E$ is independent of $X$ and $H(E) = h(\alpha)$.
+3. The channel erases with probability $\alpha$ whatever the [input](https://morrison-lab.github.io/pds/expectation.html#def-input),
+   so $E$ is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $X$ and $H(E) = h(\alpha)$.
    Given $E = 1$, $Y = \mathrm{e}$ for certain, so $H(Y \mid E = 1) = 0$.
    Given $E = 0$, $Y = X$, and since $E$ is independent of $X$,
    $\P(Y = 1 \mid E = 0) = \P(X = 1) = \pi$,
@@ -42,9 +43,9 @@
    $$
 
    Since $h(\pi) \le 1$, with equality at $\pi = 1/2$,
-   the maximum over input distributions is $C = 1 - \alpha$.
-   The receiver loses a fraction $\alpha$ of the bits
+   the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) over [input distributions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) is $C = 1 - \alpha$.
+   The receiver loses a share $\alpha$ of the [bits](entropy.qmd#def-bit)
    and learns the rest exactly;
-   @cover2006elements [section 7.1] reach the same capacity.
+   @cover2006elements [section 7.1] reach the same [capacity](channel-capacity.qmd#def-channel-capacity).
 
 :::

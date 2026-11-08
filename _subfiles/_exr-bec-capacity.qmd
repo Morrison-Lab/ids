@@ -2,10 +2,10 @@
 #### Capacity of the binary erasure channel
 
 Send $X$ through the [binary erasure channel](#def-binary-erasure-channel)
-with erasure probability $\alpha$, where $0 < \alpha < 1$,
+with erasure [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\alpha$, where $0 < \alpha < 1$,
 and write $\pi \eqdef \P(X = 1)$.
 Let $E$ be $1$ if the output $Y$ is the erasure symbol $\mathrm{e}$, and $0$ otherwise.
-Use base-2 logarithms and the
+Use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) and the
 [binary entropy function](#def-binary-entropy) $h$.
 
 1. Show that $H(Y \mid X) = h(\alpha)$.
@@ -16,6 +16,7 @@ Use base-2 logarithms and the
 
 3. Show that $H(Y) = h(\alpha) + (1 - \alpha) \, h(\pi)$.
 
-4. Conclude that the capacity is $C = 1 - \alpha$ bits per channel use.
+4. Conclude that the [capacity](channel-capacity.qmd#def-channel-capacity) is
+   $C = 1 - \alpha$ [bits](entropy.qmd#def-bit) per channel use.
 
 :::

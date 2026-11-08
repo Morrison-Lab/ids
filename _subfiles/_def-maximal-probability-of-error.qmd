@@ -4,7 +4,7 @@
 The **maximal probability of error** $\lambda^{(n)}$
 of an $(M, n)$ [channel code](#def-channel-code)
 is the largest, over messages $w$,
-of the probability that the decoder's guess is wrong when $w$ is sent.
+of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that the decoder's guess is wrong when $w$ is sent.
 This is the definition of @cover2006elements [section 7.5].
 
 :::
