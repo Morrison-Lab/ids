@@ -4,7 +4,7 @@
 The **binary erasure channel** with *erasure [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability)* $\alpha \in [0, 1]$
 is the [discrete memoryless channel](#def-channel)
 with $\mathcal{X} = \{0, 1\}$ and $\mathcal{Y} = \{0, \mathrm{e}, 1\}$
-that delivers its [input](https://morrison-lab.github.io/pds/expectation.html#def-input) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \alpha$
+that delivers its [input](#def-channel) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \alpha$
 and otherwise outputs the erasure symbol $\mathrm{e}$:
 
 $$

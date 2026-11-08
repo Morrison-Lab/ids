@@ -1,15 +1,15 @@
 :::{#def-channel-capacity}
 #### Channel capacity
 
-Send one [input](https://morrison-lab.github.io/pds/expectation.html#def-input) $X$ through a [discrete memoryless channel](#def-channel),
+Send one [input](#def-channel) $X$ through a [discrete memoryless channel](#def-channel),
 and let $Y$ be the output.
 The [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) of $(X, Y)$ is
 $\P(X = x, Y = y) = \P(X = x) \, p(y \mid x)$,
 so the
 [mutual information](entropy.qmd#def-mutual-information) $\mutinfof{X}{Y}$
-depends on the channel and on the [input distribution](https://morrison-lab.github.io/pds/random-variables.html#def-pmf).
+depends on the channel and on the input [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf).
 The **capacity** of the channel is the largest mutual information
-any input distribution achieves:
+any choice of $X$ achieves:
 
 $$C \eqdef \max_{\P(X = \cdot)} \mutinfof{X}{Y},$$
 

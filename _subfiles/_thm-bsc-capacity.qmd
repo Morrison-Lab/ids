@@ -8,13 +8,13 @@ has [capacity](channel-capacity.qmd#def-channel-capacity)
 $$C = 1 - h(\epsilon) \text{ bits per channel use},$$
 
 where $h$ is the [binary entropy function](#def-binary-entropy).
-A uniform [input](https://morrison-lab.github.io/pds/expectation.html#def-input) achieves it.
+A uniform [input](#def-channel) achieves it.
 
 :::
 
 ::: {.proof}
 
-Fix any [input distribution](https://morrison-lab.github.io/pds/random-variables.html#def-pmf).
+Fix any [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) for $X$.
 By [mutual information as a reduction in entropy](entropy.qmd#thm-mutual-information-reduction),
 
 $$\mutinfof{X}{Y} = H(Y) - H(Y \mid X).$$
@@ -24,7 +24,7 @@ and differs from it with probability $\epsilon$,
 so the [entropy of $Y$ given $X = x$](entropy.qmd#def-entropy-given-value)
 is $h(\epsilon)$ for both values of $x$.
 Averaging over $x$, the [conditional entropy](entropy.qmd#def-conditional-entropy)
-is $H(Y \mid X) = h(\epsilon)$, whatever the input distribution.
+is $H(Y \mid X) = h(\epsilon)$, whatever $X$ is.
 
 $Y$ takes two values, so $H(Y) \le \log_2 2 = 1$ [bit](entropy.qmd#def-bit)
 [@cover2006elements, section 2.6].

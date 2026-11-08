@@ -20,7 +20,7 @@ $$C \approx 1 - 0.469 = 0.531 \text{ bits per channel use}.$$
 Each use carries one [bit](entropy.qmd#def-bit),
 but on average only about half a bit of it gets through.
 At $\epsilon = 1/2$, $h(1/2) = 1$ and $C = 0$:
-the output is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of the [input](https://morrison-lab.github.io/pds/expectation.html#def-input).
+the output is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of the [input](#def-channel).
 At $\epsilon = 1$, $C = 1$ again,
 since the receiver can flip every bit back.
 

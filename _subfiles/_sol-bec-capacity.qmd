@@ -14,7 +14,7 @@
    so $H(E \mid Y = y) = 0$ for every $y$, and $H(E \mid Y) = 0$.
    Hence $H(Y) = H(E) + H(Y \mid E)$.
 
-3. The channel erases with probability $\alpha$ whatever the [input](https://morrison-lab.github.io/pds/expectation.html#def-input),
+3. The channel erases with probability $\alpha$ whatever the [input](#def-channel),
    so $E$ is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $X$ and $H(E) = h(\alpha)$.
    Given $E = 1$, $Y = \mathrm{e}$ for certain, so $H(Y \mid E = 1) = 0$.
    Given $E = 0$, $Y = X$, and since $E$ is independent of $X$,
@@ -43,7 +43,7 @@
    $$
 
    Since $h(\pi) \le 1$, with equality at $\pi = 1/2$,
-   the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) over [input distributions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) is $C = 1 - \alpha$.
+   the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) over input [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) is $C = 1 - \alpha$.
    The receiver loses a share $\alpha$ of the [bits](entropy.qmd#def-bit)
    and learns the rest exactly;
    @cover2006elements [section 7.1] reach the same [capacity](channel-capacity.qmd#def-channel-capacity).
