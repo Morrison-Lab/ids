@@ -18,8 +18,10 @@ with $D_2(p \,\|\, q) = 0$ exactly when $q = p$.
 ::: {.proof}
 
 Every [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) here runs over the values $x$ with $p(x) > 0$.
-For every $t > 0$, $\ln t \le t - 1$, with equality exactly when $t = 1$.
-Apply this with $t = q(x) / p(x)$, and multiply by $p(x) > 0$:
+For every $t > 0$, [the logarithm lies below its tangent line](https://morrison-lab.github.io/mds/optimization-convexity.html#cor-log-below-tangent):
+$\ln t \le t - 1$, with equality exactly when $t = 1$.
+Apply this with $t = q(x) / p(x)$, and multiply by $p(x) > 0$,
+as in the proof of [Gibbs' inequality](https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-nonnegative) for finitely many values:
 
 $$
 p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
