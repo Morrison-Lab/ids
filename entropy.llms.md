@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 11:34:34 (PST)
+Last modified: 2026-11-08 11:38:05 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -785,7 +785,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= I(X; Y).
 > \end{aligned}$$
 >
-> The [chain rule](#thm-entropy-chain-rule) also gives ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$, so the same steps with $X$ and $Y$ exchanged give ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = I(X; Y)$.
+> The [chain rule](#thm-entropy-chain-rule) also gives ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$, so exchanging $X$ and $Y$ in the aligned display above gives ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = I(X; Y)$.
 
 > **NOTE:**
 >
@@ -953,7 +953,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. Every [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) here runs over the values $x$ with $p(x) > 0$. For every $t > 0$, $\ln t \le t - 1$, with equality exactly when $t = 1$. Apply this with $t = q(x) / p(x)$, and multiply by $p(x) > 0$:
+> *Proof*. Every [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) here runs over the values $x$ with $p(x) > 0$. For every $t > 0$, [the logarithm lies below its tangent line](https://morrison-lab.github.io/mds/optimization-convexity.html#cor-log-below-tangent): $\ln t \le t - 1$, with equality exactly when $t = 1$. Apply this with $t = q(x) / p(x)$, and multiply by $p(x) > 0$, as in the proof of [Gibbs’ inequality](https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-nonnegative) for [finitely many](https://morrison-lab.github.io/mcs/functions.html#def-finite-set) values:
 >
 > $$p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),$$
 >
@@ -1109,7 +1109,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 16* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 14](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the entropy at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the information gain is the [mutual information](#def-mutual-information) $I(X; Y)$.
+> *Remark 16* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 14](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the entropy at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the [information gain](#def-information-gain) is the [mutual information](#def-mutual-information) ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$.
 
 > **NOTE:**
 >
@@ -1122,13 +1122,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > | B     | yes    | $5$ | $10$  |
 > |       | no     | $5$ | $0$   |
 >
-> Draw one point uniformly at random from the node, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 16](#rem-information-gain)). The information gain of each split ([Definition 14](#def-information-gain)) is then $I(X; Y)$. Use base-2 logarithms throughout.
+> Draw one point uniformly at random from the node, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 16](#rem-information-gain)). The [information gain](#def-information-gain) of each split is then ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$. Use base-2 logarithms throughout.
 >
 > 1.  Compute $H(Y)$.
 >
 > 2.  For each split, compute $H(Y \mid X = x)$ for both branches, and then $H(Y \mid X)$.
 >
-> 3.  Compute the information gain $I(X; Y)$ for each split. Which split has the larger gain?
+> 3.  Compute the information gain ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$ for each split. Which split has the larger gain?
 
 > **NOTE:**
 >
