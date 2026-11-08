@@ -12,7 +12,8 @@ $$I(X; Y \mid Z) \ge 0.$$
 
 For each value $z$ with $\P(Z=z) > 0$,
 let $I_z(X; Y)$ be the [mutual information](#def-mutual-information) of $X$ and $Y$
-computed from their joint probabilities given $Z=z$.
+computed from their joint probabilities given $Z=z$,
+so that $I_z(X; Y) = \entropyf{Y \mid Z=z} - \entropyf{Y \mid X, Z=z}$.
 Applying @def-conditional-entropy to $\entropyf{Y \mid Z}$ and to $\entropyf{Y \mid X, Z}$
 expands each over the values $z$ of $Z$:
 
@@ -26,7 +27,8 @@ I(X; Y \mid Z)
 $$
 
 Each $I_z(X; Y)$ is nonnegative by @thm-mutual-information-nonnegative.
-Since $\P(Z=z) \ge 0$ as well, every summand $\P(Z=z) \, I_z(X; Y)$ is nonnegative,
+Since $\P(Z=z) \ge 0$ as well,
+every summand $\P(Z=z) \, I_z(X; Y)$ is nonnegative,
 so $I(X; Y \mid Z) \ge 0$.
 
 :::

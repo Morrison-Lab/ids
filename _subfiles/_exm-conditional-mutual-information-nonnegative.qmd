@@ -4,7 +4,8 @@
 
 Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$,
 and let $Z = X + Y \bmod 2$ record whether they differ.
-The two coins are independent, so $I(X; Y) = 0$ (@thm-mutual-information-nonnegative).
+The two coins are independent,
+so $I(X; Y) = 0$ (@thm-mutual-information-nonnegative).
 Given $Z$, each of $X$ and $Y$ determines the other.
 The chunk computes the [conditional mutual information](#def-conditional-mutual-information)
 from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
