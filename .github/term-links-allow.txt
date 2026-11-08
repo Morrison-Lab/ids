@@ -1,0 +1,17 @@
+average
+base
+constant
+converge
+equal
+equals
+finite
+formula
+function
+index
+measure
+order
+product
+sum
+sums
+term
+terms
