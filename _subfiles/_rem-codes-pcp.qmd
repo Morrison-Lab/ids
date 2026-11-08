@@ -1,19 +1,19 @@
 ::: {#rem-codes-pcp}
 #### Codes in the PCP theorem
 
-The PCP theorem says that every statement in NP
+The PCP [theorem](https://morrison-lab.github.io/mcs/proof-writing.html#def-theorem) says that every statement in NP
 has a proof that a randomized verifier can check
-by reading a constant number of its bits
-and using only $\asymub{\log n}$ random bits,
-where $n$ is the length of the statement.
-If the statement is true, some proof makes the verifier accept with probability 1;
+by reading a constant number of its [bits](entropy.qmd#def-bit)
+and flipping only $\asymub{\log n}$ coins,
+where $n$ is the size of the statement.
+If the statement is true, some proof makes the verifier accept with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) 1;
 if it is false, every proof makes the verifier reject with probability at least $1/2$.
 @arora2009computational [chapter 11] prove a weaker version,
-in which the verifier uses polynomially many random bits,
+in which the verifier flips polynomially many coins,
 by writing the proof in the [Hadamard code](#def-hadamard-code).
-The verifier then tests a few random positions of the encoded proof,
+The verifier then tests a few positions, picked by coin flips, of the encoded proof,
 in the spirit of @thm-hadamard-local-decoding,
 instead of reading all of it.
-They prove the full theorem in chapter 22.
+They prove the full result in chapter 22.
 
 :::
