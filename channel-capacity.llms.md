@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 22:15:03 (PST)
+Last modified: 2026-11-08 03:07:47 (PST)
 
 A channel carries symbols from a sender to a receiver, and noise corrupts some of them. This page measures how much information a channel can carry, using the [mutual information](entropy.llms.md#sec-mutual-information) between what goes in and what comes out.
 
@@ -170,20 +170,28 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 
 > **NOTE:**
 >
-> **Definition 6 (Channel code and rate)** An $(M, n)$ **channel code** for a [discrete memoryless channel](#def-channel) sends one of $M$ messages, $w \in \{1, \dots, M\}$, in $n$ uses of the channel. It has
+> **Definition 6 (Channel code)** An $(M, n)$ **channel code** for a [discrete memoryless channel](#def-channel) sends one of $M$ messages, $w \in \{1, \dots, M\}$, in $n$ uses of the channel. It has
 >
 > - an *encoder*, which maps each message $w$ to a *codeword* $(x_1(w), \dots, x_n(w))$ of $n$ inputs, and
 > - a *decoder*, which maps each sequence of $n$ outputs to a guess at $w$.
 >
-> Its **rate** is
->
-> $$R \stackrel{\text{def}}{=}\frac{\log_2 M}{n} \text{ bits per channel use},$$
->
-> and its **maximal probability of error** $\lambda^{(n)}$ is the largest, over messages $w$, of the probability that the decoder’s guess is wrong when $w$ is sent. These are the definitions of Cover and Thomas ([2006, sec. 7.5](#ref-cover2006elements)).
+> This is the definition of Cover and Thomas ([2006, sec. 7.5](#ref-cover2006elements)).
 
 > **NOTE:**
 >
-> **Example 2 (Sending each bit three times)** To send one bit over the [binary symmetric channel](#def-binary-symmetric-channel) with $\epsilon = 0.1$, send it three times and decode by majority vote. This is a $(2, 3)$ [channel code](#def-channel-code), with rate $R = 1/3$. The decoder is wrong when two or three of the copies are flipped, which happens with probability
+> **Definition 7 (Rate of a channel code)** The **rate** of an $(M, n)$ [channel code](#def-channel-code) is
+>
+> $$R \stackrel{\text{def}}{=}\frac{\log_2 M}{n} \text{ bits per channel use}.$$
+>
+> This is the definition of Cover and Thomas ([2006, sec. 7.5](#ref-cover2006elements)).
+
+> **NOTE:**
+>
+> **Definition 8 (Maximal probability of error)** The **maximal probability of error** $\lambda^{(n)}$ of an $(M, n)$ [channel code](#def-channel-code) is the largest, over messages $w$, of the probability that the decoder’s guess is wrong when $w$ is sent. This is the definition of Cover and Thomas ([2006, sec. 7.5](#ref-cover2006elements)).
+
+> **NOTE:**
+>
+> **Example 2 (Sending each bit three times)** To send one bit over the [binary symmetric channel](#def-binary-symmetric-channel) with $\epsilon = 0.1$, send it three times and decode by majority vote. This is a $(2, 3)$ [channel code](#def-channel-code), with [rate](#def-code-rate) $R = 1/3$. The decoder is wrong when two or three of the copies are flipped, so the [maximal probability of error](#def-maximal-probability-of-error) is
 >
 > $$\begin{aligned}
 > \lambda^{(3)}
@@ -198,7 +206,7 @@ A channel carries symbols from a sender to a receiver, and noise corrupts some o
 >
 > **Theorem 2 (Noisy-channel coding theorem)** Let $C$ be the [capacity](#def-channel-capacity) of a [discrete memoryless channel](#def-channel).
 >
-> 1.  For every rate $R < C$ there is a sequence of $(\lceil 2^{nR} \rceil, n)$ [channel codes](#def-channel-code), for $n = 1, 2, \dots$, whose maximal probability of error $\lambda^{(n)}$ tends to $0$.
+> 1.  For every [rate](#def-code-rate) $R < C$ there is a [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) of $(\lceil 2^{nR} \rceil, n)$ [channel codes](#def-channel-code), for $n = 1, 2, \dots$, whose [maximal probability of error](#def-maximal-probability-of-error) $\lambda^{(n)}$ tends to $0$.
 >
 > 2.  Conversely, any sequence of $(\lceil 2^{nR} \rceil, n)$ codes with $\lambda^{(n)} \to 0$ has $R \le C$.
 

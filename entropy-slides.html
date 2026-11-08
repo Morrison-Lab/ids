@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-07 22:15:03 (PST)</p>
+  <p class="date">Last modified: 2026-11-08 03:07:47 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -414,7 +414,7 @@ s(\text{ten heads})
 <div id="exm-surprisal-log-half" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Halvings of certainty for a loaded coin)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>A coin lands heads with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> The chunk computes the <a href="#/def-surprisal">surprisal</a> of heads in two ways: as <span class="math inline">\(-\log_2 0.2\)</span>, and as <span class="math inline">\(\log_{1/2} 0.2\)</span>.</p>
+<p>A coin lands heads with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>. The chunk computes the <a href="#/def-surprisal">surprisal</a> of heads in two ways: as <span class="math inline">\(-\log_2 0.2\)</span>, and as <span class="math inline">\(\log_{1/2} 0.2\)</span>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -754,22 +754,22 @@ H(X)
 <section class="slide level2">
 
 <div id="def-collision-probability" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Collision probability)</strong></span> The <strong>collision probability</strong> of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> is the chance that two <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> copies <span class="math inline">\(X\)</span> and <span class="math inline">\(X'\)</span> of <span class="math inline">\(X\)</span> take the same value:</p>
-<p><span class="math display">\[\mathbb{P}(X = X') = \sum_x \mathbb{P}(X=x)^2.\]</span></p>
+<p><span class="theorem-title"><strong>Definition 6 (Collision probability)</strong></span> The <strong>collision probability</strong> of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> is the chance that <span class="math inline">\(X\)</span> and a second variable <span class="math inline">\(X'\)</span> take the same value, where <span class="math inline">\(X\)</span> and <span class="math inline">\(X'\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-iid">IID</a>:</p>
+<p><span class="math display">\[\mathbb{P}(X = X').\]</span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="def-renyi-entropy" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Rényi entropy of order 2 (collision entropy))</strong></span> The <strong>Rényi entropy of order 2</strong>, also called the <strong>collision entropy</strong> <span class="citation" data-cites="wikipedia_renyi_entropy">(<a href="#/references" role="doc-biblioref" onclick="">Wikipedia contributors 2026</a>)</span>, of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> is the negative <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of its <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>, <!-- check-term-links: allow --> where <span class="math inline">\(\mathbb{P}(X)\)</span> is the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> evaluated at the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">random variable</a> <span class="math inline">\(X\)</span> itself:</p>
-<p><span class="math display">\[H_2(X) = -\log {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}}.\]</span></p>
+<p><span class="theorem-title"><strong>Definition 7 (Rényi entropy of order 2 (collision entropy))</strong></span> The <strong>Rényi entropy of order 2</strong>, also called the <strong>collision entropy</strong> <span class="citation" data-cites="wikipedia_renyi_entropy">(<a href="#/references" role="doc-biblioref" onclick="">Wikipedia contributors 2026</a>)</span>, of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> is the negative <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of its <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>, <!-- check-term-links: allow --> where <span class="math inline">\({\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\)</span> is the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> evaluated at the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">random variable</a> <span class="math inline">\(X\)</span> itself:</p>
+<p><span class="math display">\[{\mathbb{H}_{2}\mathopen{}\left(X\right)\mathclose{}} = -\log {\mathbb{E}\mathopen{}\left[{\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}.\]</span></p>
 <p>Rényi introduced this case of a family of entropies <span class="citation" data-cites="renyi1961measures">(<a href="#/references" role="doc-biblioref" onclick="">Rényi 1961</a>)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="thm-expected-probability-collision" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5 (The expected probability is the collision probability)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, and let <span class="math inline">\(X'\)</span> be an <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> copy of <span class="math inline">\(X\)</span>. Then</p>
+<p><span class="theorem-title"><strong>Theorem 5 (The expected probability is the collision probability)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, and let <span class="math inline">\(X'\)</span> be a variable such that <span class="math inline">\(X\)</span> and <span class="math inline">\(X'\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-iid">IID</a>. Then</p>
 <p><span class="math display">\[{\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}} = \sum_x \mathbb{P}(X=x)^2 = \mathbb{P}(X = X').\]</span></p>
 </div>
 <div class="proof">
@@ -781,20 +781,28 @@ H(X)
 &amp;= \sum_x \mathbb{P}(X=x)^2.
 \end{aligned}
 \]</span></p>
-<p>By the definition of the <a href="#/def-collision-probability">collision probability</a>, the last <a href="https://morrison-lab.github.io/mds/algebra-sums.html#def-summation">sum</a> is <span class="math inline">\(\mathbb{P}(X = X')\)</span>.</p>
+<p>The variables <span class="math inline">\(X\)</span> and <span class="math inline">\(X'\)</span> take the same value exactly when both equal some value <span class="math inline">\(x\)</span>. Because <span class="math inline">\(X\)</span> and <span class="math inline">\(X'\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-iid">IID</a>, the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> that both equal <span class="math inline">\(x\)</span> is <span class="math inline">\(\mathbb{P}(X=x) \, \mathbb{P}(X'=x) = \mathbb{P}(X=x)^2\)</span>. Adding over the values <span class="math inline">\(x\)</span> gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{P}(X = X')
+&amp;= \sum_x \mathbb{P}(X=x, X'=x) \\
+&amp;= \sum_x \mathbb{P}(X=x)^2.
+\end{aligned}
+\]</span></p>
+<p>The expectation <span class="math inline">\({\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}}\)</span> and the <a href="#/def-collision-probability">collision probability</a> <span class="math inline">\(\mathbb{P}(X = X')\)</span> both equal <span class="math inline">\(\sum_x \mathbb{P}(X=x)^2\)</span>, so they are equal.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="thm-collision-entropy-at-most-entropy" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 6 (The collision entropy is at most the Shannon entropy)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> with values <span class="math inline">\(x_1, \ldots, x_n\)</span>. Then the <a href="#/def-renyi-entropy">collision entropy</a> is at most the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>:</p>
-<p><span class="math display">\[H_2(X) \le {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.\]</span></p>
+<p><span class="math display">\[{\mathbb{H}_{2}\mathopen{}\left(X\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.\]</span></p>
 <p>The two coincide exactly when each value that <span class="math inline">\(X\)</span> takes with positive <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> has the same probability.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Write <span class="math inline">\(\mathbb{P}(X)\)</span> for the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> evaluated at <span class="math inline">\(X\)</span>. The function <span class="math inline">\(-\log\)</span> is <a href="https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function">strictly convex</a>, so <a href="https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen">Jensen’s inequality</a> gives</p>
-<p><span class="math display">\[{\mathbb{E}\mathopen{}\left[-\log \mathbb{P}(X)\right]\mathclose{}} \ge -\log {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}},\]</span></p>
-<p>with equality exactly when <span class="math inline">\(\mathbb{P}(X)\)</span> is constant. The left side is <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>. The right side is <span class="math inline">\(H_2(X)\)</span> by its definition. The function <span class="math inline">\(\mathbb{P}(X)\)</span> is constant exactly when every value that <span class="math inline">\(X\)</span> takes with positive <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> has that same probability.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Write <span class="math inline">\({\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\)</span> for the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> evaluated at <span class="math inline">\(X\)</span>. The function <span class="math inline">\(-\log\)</span> is <a href="https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function">strictly convex</a>, so <a href="https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen">Jensen’s inequality</a> gives</p>
+<p><span class="math display">\[{\mathbb{E}\mathopen{}\left[-\log {\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}} \ge -\log {\mathbb{E}\mathopen{}\left[{\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}},\]</span></p>
+<p>with equality exactly when <span class="math inline">\({\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\)</span> is constant. The left side is <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>. The right side is <span class="math inline">\({\mathbb{H}_{2}\mathopen{}\left(X\right)\mathclose{}}\)</span> by its definition. The function <span class="math inline">\({\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\)</span> is constant exactly when every value that <span class="math inline">\(X\)</span> takes with positive <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> has that same probability. <!-- check-term-links: allow --></p>
 </div>
 </section>
 <section class="slide level2">
@@ -819,13 +827,13 @@ H(X)
 <span id="cb6-11"><a aria-label="11"></a><span class="co">#&gt;          0.375000          1.415037          1.500000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>By <a href="#/thm-expected-probability-collision" class="quarto-xref">Theorem&nbsp;5</a>, the expected probability <span class="math inline">\({\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}} = 0.375\)</span> is the <a href="#/def-collision-probability">collision probability</a>. The collision entropy is <span class="math inline">\(H_2(X) = 1.415\)</span> <a href="#/def-bit">bits</a>. The entropy is <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = 1.5\)</span> bits. As <a href="#/thm-collision-entropy-at-most-entropy" class="quarto-xref">Theorem&nbsp;6</a> states, <span class="math inline">\(H_2(X) \le {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>, and the two differ because the three values are not equally likely.</p>
+<p>By <a href="#/thm-expected-probability-collision" class="quarto-xref">Theorem&nbsp;5</a>, the expected probability <span class="math inline">\({\mathbb{E}\mathopen{}\left[{\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}} = 0.375\)</span> is the <a href="#/def-collision-probability">collision probability</a>. The collision entropy is <span class="math inline">\({\mathbb{H}_{2}\mathopen{}\left(X\right)\mathclose{}} = 1.415\)</span> <a href="#/def-bit">bits</a>. The entropy is <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = 1.5\)</span> bits. As <a href="#/thm-collision-entropy-at-most-entropy" class="quarto-xref">Theorem&nbsp;6</a> states, <span class="math inline">\({\mathbb{H}_{2}\mathopen{}\left(X\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>, and the two differ because the three values are not equally likely.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="rem-collision-entropy" class="proof remark">
-<p><span class="proof-title"><em>Remark 11</em> (Two ways to summarize a random variable by its probabilities). </span><a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Entropy</a> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of the <a href="#/def-surprisal">surprisal</a> <span class="math inline">\(-\log \mathbb{P}(X)\)</span>. Taking the expectation of the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\mathbb{P}(X)\)</span> itself summarizes <span class="math inline">\(X\)</span> differently. For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, <a href="#/thm-expected-probability-collision" class="quarto-xref">Theorem&nbsp;5</a> identifies that expectation with the <a href="#/def-collision-probability">collision probability</a>, so the <a href="#/def-renyi-entropy">collision entropy</a> is <span class="math inline">\(H_2(X) = -\log \mathbb{P}(X = X')\)</span>.</p>
+<p><span class="proof-title"><em>Remark 11</em> (Two ways to summarize a random variable by its probabilities). </span><a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Entropy</a> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of the <a href="#/def-surprisal">surprisal</a> <span class="math inline">\(-\log {\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\)</span>. Taking the expectation of the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\({\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\)</span> itself summarizes <span class="math inline">\(X\)</span> differently. For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, <a href="#/thm-expected-probability-collision" class="quarto-xref">Theorem&nbsp;5</a> identifies that expectation with the <a href="#/def-collision-probability">collision probability</a>, so the <a href="#/def-renyi-entropy">collision entropy</a> is <span class="math inline">\({\mathbb{H}_{2}\mathopen{}\left(X\right)\mathclose{}} = -\log {\mathbb{P}\mathopen{}\left(X = X'\right)\mathclose{}}\)</span>.</p>
 <p>For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv">continuous random variable</a> with <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pdf">density</a> <span class="math inline">\(\mathbb{p}\)</span>, the analogue is <span class="math inline">\({\mathbb{E}\mathopen{}\left[\mathbb{p}(X)\right]\mathclose{}} = \int \mathbb{p}(x)^2\,dx\)</span>. The <a href="https://morrison-lab.github.io/pds/expectation.html#exr-expected-density">expected-density exercises</a> derive this quantity, then compute it in the <a href="https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-uniform">uniform case</a> and the <a href="https://morrison-lab.github.io/pds/expectation.html#exr-expected-density-normal">normal case</a>.</p>
 <p><a href="#/thm-collision-entropy-at-most-entropy" class="quarto-xref">Theorem&nbsp;6</a> compares the collision entropy with the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Shannon entropy</a>.</p>
 </div>
@@ -899,7 +907,7 @@ H(Y \mid X)
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Use the notation of <a href="#/def-joint-entropy" class="quarto-xref">Definition&nbsp;8</a> and <a href="#/def-entropy-given-value" class="quarto-xref">Definition&nbsp;9</a>. With <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1\)</span>, <span class="math inline">\(p(X, Y) = p(X) \, p(Y \mid X)\)</span> and <span class="math inline">\(p(X, Y) &gt; 0\)</span>, so</p>
 <p><span class="math display">\[-\log p(X, Y) = -\log p(X) - \log p(Y \mid X).\]</span></p>
-<p>Both terms on the right are nonnegative, so the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of the sum is the sum of the expectations: <!-- check-term-links: allow --></p>
+<p>Both terms on the right are nonnegative, so the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of the sum is the sum of the expectation of each term:</p>
 <p><span class="math display">\[
 \begin{aligned}
 H(X, Y)
@@ -946,7 +954,7 @@ H(X, Y)
 <div id="exm-entropy-chain-rule-noisy-copy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Chain rule for entropy with a noisy copy)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> be a noisy copy of <span class="math inline">\(X\)</span>: it equals <span class="math inline">\(X\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.8\)</span> <!-- check-term-links: allow --> and the other value with probability <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> The joint probabilities are <span class="math inline">\(0.4\)</span> for <span class="math inline">\((0, 0)\)</span> and <span class="math inline">\((1, 1)\)</span>, and <span class="math inline">\(0.1\)</span> for <span class="math inline">\((0, 1)\)</span> and <span class="math inline">\((1, 0)\)</span>. The chunk computes each <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> from its definition, in <a href="#/def-bit">bits</a>.</p>
+<p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> be a noisy copy of <span class="math inline">\(X\)</span>: it equals <span class="math inline">\(X\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.8\)</span> and the other value with probability <span class="math inline">\(0.2\)</span>. The <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution">joint distribution</a> gives probability <span class="math inline">\(0.4\)</span> to <span class="math inline">\((0, 0)\)</span> and <span class="math inline">\((1, 1)\)</span>, and <span class="math inline">\(0.1\)</span> to <span class="math inline">\((0, 1)\)</span> and <span class="math inline">\((1, 0)\)</span>. The chunk computes each <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> from its definition, in <a href="#/def-bit">bits</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1109,18 +1117,18 @@ H(X, Y)
 <h2><span class="header-section-number">3</span> Mutual information</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-mutual-information div. -->
 <div id="def-mutual-information" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13 (Mutual information)</strong></span> The <strong>mutual information</strong> between <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies is the sum <!-- check-term-links: allow --> of their <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a> minus their <a href="#/def-joint-entropy">joint entropy</a>:</p>
+<p><span class="theorem-title"><strong>Definition 13 (Mutual information)</strong></span> The <strong>mutual information</strong> between <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a> is the sum of their entropies minus their <a href="#/def-joint-entropy">joint entropy</a>:</p>
 <p><span class="math display">\[I(X; Y) \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.\]</span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="thm-mutual-information-symmetric" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 10 (Mutual information is symmetric)</strong></span> For discrete random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies,</p>
+<p><span class="theorem-title"><strong>Theorem 10 (Mutual information is symmetric)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>,</p>
 <p><span class="math display">\[I(X; Y) = I(Y; X).\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The <a href="#/def-joint-entropy">joint entropy</a> of the pair <span class="math inline">\((X, Y)\)</span> equals <!-- check-term-links: allow --> that of <span class="math inline">\((Y, X)\)</span>, because both are the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of the same two values, <!-- check-term-links: allow --> listed in either order. <!-- check-term-links: allow --> So <a href="#/def-mutual-information" class="quarto-xref">Definition&nbsp;13</a> gives</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The <a href="#/def-joint-entropy">joint entropy</a> of the pair <span class="math inline">\((X, Y)\)</span> equals that of <span class="math inline">\((Y, X)\)</span>, because both are the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of the same two values, listed in either order. So <a href="#/def-mutual-information" class="quarto-xref">Definition&nbsp;13</a> gives</p>
 <p><span class="math display">\[
 \begin{aligned}
 I(X; Y)
@@ -1134,7 +1142,7 @@ I(X; Y)
 <section class="slide level2">
 
 <div id="thm-mutual-information-reduction" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11 (Mutual information as a reduction in entropy)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --> the <a href="#/def-mutual-information">mutual information</a> is the reduction in the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of either variable from learning the other:</p>
+<p><span class="theorem-title"><strong>Theorem 11 (Mutual information as a reduction in entropy)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>, the <a href="#/def-mutual-information">mutual information</a> is the reduction in the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of either variable from learning the other:</p>
 <p><span class="math display">\[I(X; Y) = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
@@ -1155,7 +1163,7 @@ I(X; Y)
 <section class="slide level2">
 
 <div id="thm-mutual-information-joint-minus-conditionals" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 12 (Mutual information from the conditional entropies)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Theorem 12 (Mutual information from the conditional entropies)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>,</p>
 <p><span class="math display">\[I(X; Y) = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - \mathopen{}\left[{\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}.\]</span></p>
 </div>
 <div class="proof">
@@ -1180,7 +1188,7 @@ I(X; Y)
 <section class="slide level2">
 
 <div id="thm-entropy-sum-decomposition" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 13 (Decomposition of the sum of entropies)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Theorem 13 (Decomposition of the sum of entropies)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>,</p>
 <p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + 2 \, I(X; Y) + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
@@ -1261,12 +1269,12 @@ I(X; Y)
 <section class="slide level2">
 
 <div id="thm-mutual-information-kl" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 15 (Mutual information as a divergence)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> with <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a> <span class="math inline">\(p(x, y)\)</span> and <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginal</a> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass functions</a> <span class="math inline">\(p(x)\)</span> and <span class="math inline">\(p(y)\)</span>. If their entropies are finite, <!-- check-term-links: allow --> then their <a href="#/def-mutual-information">mutual information</a> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the product of the marginals from the joint distribution: <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Theorem 15 (Mutual information as a divergence)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> with <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a> <span class="math inline">\(p(x, y)\)</span> and <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginal</a> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass functions</a> <span class="math inline">\(p(x)\)</span> and <span class="math inline">\(p(y)\)</span>. If their <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a> are finite, then their <a href="#/def-mutual-information">mutual information</a> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the product of the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginals</a> from the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution">joint distribution</a>:</p>
 <p><span class="math display">\[I(X; Y) = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},\]</span></p>
-<p>where the sum runs over the pairs with <span class="math inline">\(p(x, y) &gt; 0\)</span>. <!-- check-term-links: allow --></p>
+<p>where the sum runs over the pairs with <span class="math inline">\(p(x, y) &gt; 0\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The entropies are finite, <!-- check-term-links: allow --> so the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectations</a> below are finite and can be split and regrouped. With <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1\)</span>, <span class="math inline">\(p(X, Y) &gt; 0\)</span>, <span class="math inline">\(p(X) &gt; 0\)</span> and <span class="math inline">\(p(Y) &gt; 0\)</span>. By <a href="#/def-mutual-information" class="quarto-xref">Definition&nbsp;13</a> and the definitions of <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> and <a href="#/def-joint-entropy">joint entropy</a>,</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a> are finite, so the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectations</a> below are finite and can be split and regrouped. With <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1\)</span>, <span class="math inline">\(p(X, Y) &gt; 0\)</span>, <span class="math inline">\(p(X) &gt; 0\)</span> and <span class="math inline">\(p(Y) &gt; 0\)</span>. By <a href="#/def-mutual-information" class="quarto-xref">Definition&nbsp;13</a> and the definitions of <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> and <a href="#/def-joint-entropy">joint entropy</a>,</p>
 <p><span class="math display">\[
 \begin{aligned}
 I(X; Y)
@@ -1277,7 +1285,7 @@ I(X; Y)
 &amp;= \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)}.
 \end{aligned}
 \]</span></p>
-<p>The last line is the definition of expectation over the pairs with <span class="math inline">\(p(x, y) &gt; 0\)</span>. <!-- check-term-links: allow --> It is the divergence of <span class="math inline">\(p(x) \, p(y)\)</span> from <span class="math inline">\(p(x, y)\)</span> <!-- check-term-links: allow --> by the <a href="https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete">discrete formula</a>.</p>
+<p>The last line is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">definition of expectation</a> over the pairs with <span class="math inline">\(p(x, y) &gt; 0\)</span>. It is the divergence of <span class="math inline">\(p(x) \, p(y)\)</span> from <span class="math inline">\(p(x, y)\)</span> by the <a href="https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete">discrete formula</a>.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1398,7 +1406,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="cor-conditioning-reduces-entropy" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 5 (Conditioning reduces entropy)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite entropies, <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Corollary 5 (Conditioning reduces entropy)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>,</p>
 <p><span class="math display">\[{\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.\]</span></p>
 <p>Equality holds exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a>.</p>
 </div>
@@ -1430,17 +1438,17 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="rem-mutual-information-kl" class="proof remark">
-<p><span class="proof-title"><em>Remark 15</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 2.3</a>)</span> define mutual information as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the product of the marginals of <span class="math inline">\((X, Y)\)</span> from their joint distribution. <!-- check-term-links: allow --> <a href="#/thm-mutual-information-kl" class="quarto-xref">Theorem&nbsp;15</a> proves that this divergence equals <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.4</a>)</span>, <!-- check-term-links: allow --> and <a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;17</a> proves that <span class="math inline">\(I(X; Y) \ge 0\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>. Learning <span class="math inline">\(X\)</span> never raises the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(Y\)</span> on average (<a href="#/cor-conditioning-reduces-entropy" class="quarto-xref">Corollary&nbsp;5</a>). <!-- check-term-links: allow --></p>
+<p><span class="proof-title"><em>Remark 15</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 2.3</a>)</span> define mutual information as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the product of the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginals</a> of <span class="math inline">\((X, Y)\)</span> from their <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution">joint distribution</a>. <a href="#/thm-mutual-information-kl" class="quarto-xref">Theorem&nbsp;15</a> proves that this divergence equals <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.4</a>)</span>, and <a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;17</a> proves that <span class="math inline">\(I(X; Y) \ge 0\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>. Learning <span class="math inline">\(X\)</span> never raises the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(Y\)</span> on average (<a href="#/cor-conditioning-reduces-entropy" class="quarto-xref">Corollary&nbsp;5</a>).</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="thm-mutual-information-self" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 18 (Mutual information of a variable with itself)</strong></span> For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> with finite entropy, <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Theorem 18 (Mutual information of a variable with itself)</strong></span> For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>,</p>
 <p><span class="math display">\[I(X; X) = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Given <span class="math inline">\(X=x\)</span>, the variable <span class="math inline">\(X\)</span> equals <span class="math inline">\(x\)</span> with probability <span class="math inline">\(1\)</span>, <!-- check-term-links: allow --> so <span class="math inline">\(p(x \mid x) = 1\)</span>. Hence <span class="math inline">\(-\log p(X \mid x) = -\log 1 = 0\)</span> given <span class="math inline">\(X=x\)</span>, and the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of this constant is <span class="math inline">\(0\)</span>:</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Given <span class="math inline">\(X=x\)</span>, the variable <span class="math inline">\(X\)</span> equals <span class="math inline">\(x\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1\)</span>, so <span class="math inline">\(p(x \mid x) = 1\)</span>. Hence <span class="math inline">\(-\log p(X \mid x) = -\log 1 = 0\)</span> given <span class="math inline">\(X=x\)</span>, and the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of this constant is <span class="math inline">\(0\)</span>:</p>
 <p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X \mid X=x\right)\mathclose{}} = 0.\]</span></p>
 <p>By <a href="#/thm-conditional-entropy-average" class="quarto-xref">Theorem&nbsp;7</a>,</p>
 <p><span class="math display">\[
@@ -1611,7 +1619,7 @@ H(Y \mid X)
 <div id="exm-entropy-chain-rule-n-copies" class="theorem example">
 <p><span class="theorem-title"><strong>Example 19 (Chain rule for entropy along a chain of noisy copies)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>Let <span class="math inline">\(X_1\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(X_2\)</span> be a noisy copy of <span class="math inline">\(X_1\)</span> that flips it with probability <span class="math inline">\(0.2\)</span>, <!-- check-term-links: allow --> and let <span class="math inline">\(X_3\)</span> be a noisy copy of <span class="math inline">\(X_2\)</span> that flips it with probability <span class="math inline">\(0.2\)</span>, independently of <span class="math inline">\(X_1\)</span> given <span class="math inline">\(X_2\)</span>. <!-- check-term-links: allow --> The chunk builds the joint probabilities of <span class="math inline">\((X_1, X_2, X_3)\)</span> and compares their <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>, in <a href="#/def-bit">bits</a>, with the sum in <a href="#/thm-entropy-chain-rule-n" class="quarto-xref">Theorem&nbsp;19</a>. <!-- check-term-links: allow --></p>
+<p>Let <span class="math inline">\(X_1\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(X_2\)</span> be a noisy copy of <span class="math inline">\(X_1\)</span> that flips it with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>, and let <span class="math inline">\(X_3\)</span> be a noisy copy of <span class="math inline">\(X_2\)</span> that flips it with probability <span class="math inline">\(0.2\)</span>, independently of <span class="math inline">\(X_1\)</span> given <span class="math inline">\(X_2\)</span>. The chunk builds the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a> of <span class="math inline">\((X_1, X_2, X_3)\)</span> and compares their <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>, in <a href="#/def-bit">bits</a>, with the sum in <a href="#/thm-entropy-chain-rule-n" class="quarto-xref">Theorem&nbsp;19</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1637,7 +1645,7 @@ H(Y \mid X)
 <span id="cb16-20"><a aria-label="20"></a><span class="co">#&gt; 2.443856 2.443856</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The first term of the sum is <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}} = 1\)</span> bit. <!-- check-term-links: allow --> Given <span class="math inline">\(X_1\)</span>, the variable <span class="math inline">\(X_2\)</span> is a coin with flip probability <span class="math inline">\(0.2\)</span>, and given <span class="math inline">\((X_1, X_2)\)</span> the variable <span class="math inline">\(X_3\)</span> is the same kind of coin, so each of the other two terms is <span class="math inline">\(0.722\)</span> bits. <!-- check-term-links: allow --> The sum is <span class="math inline">\(2.444\)</span> bits, which equals <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_1, X_2, X_3\right)\mathclose{}} = 2.444\)</span> bits. <!-- check-term-links: allow --></p>
+<p>The first term of the sum is <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}} = 1\)</span> <a href="#/def-bit">bit</a>. Given <span class="math inline">\(X_1\)</span>, the variable <span class="math inline">\(X_2\)</span> is a coin with flip probability <span class="math inline">\(0.2\)</span>, and given <span class="math inline">\((X_1, X_2)\)</span> the variable <span class="math inline">\(X_3\)</span> is the same kind of coin, so each of the other two terms is <span class="math inline">\(0.722\)</span> bits. The sum is <span class="math inline">\(2.444\)</span> bits, which equals <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_1, X_2, X_3\right)\mathclose{}} = 2.444\)</span> bits.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1670,7 +1678,7 @@ H(Y \mid X)
 <section class="slide level2">
 
 <div id="thm-mutual-information-chain-rule" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 20 (Chain rule for mutual information)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> whose entropies <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>, <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}\)</span> and <span class="math inline">\({\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}\)</span> are finite, <!-- check-term-links: allow --></p>
+<p><span class="theorem-title"><strong>Theorem 20 (Chain rule for mutual information)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> whose <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a> <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>, <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}\)</span> and <span class="math inline">\({\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}\)</span> are finite,</p>
 <p><span class="math display">\[I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).\]</span></p>
 </div>
 <div class="proof">
