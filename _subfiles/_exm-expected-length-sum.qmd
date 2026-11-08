@@ -1,0 +1,30 @@
+:::{#exm-expected-length-sum}
+#### Expected length of a code for a three-valued variable
+
+<!-- no-figure: the example is three numbers -->
+
+Let $X$ have [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p = (1/2, 1/4, 1/4)$,
+and let a [binary code](#def-code) for $X$ have [codeword lengths](#def-code) $\ell = (1, 2, 2)$.
+The code below computes the [expected length](#def-expected-length) from its definition,
+as the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $\ell(X)$,
+and as the sum in @thm-expected-length-sum.
+
+```{r}
+#| label: expected-length-sum
+p <- c(1 / 2, 1 / 4, 1 / 4)
+len <- c(1, 2, 2)
+lengths_seen <- sort(unique(len))
+prob_of_length <- vapply(
+  lengths_seen,
+  function(k) sum(p[len == k]),
+  numeric(1)
+)
+from_definition <- sum(lengths_seen * prob_of_length)
+from_sum <- sum(p * len)
+c(from_definition = from_definition, from_sum = from_sum)
+```
+
+Both give $L = `r from_sum`$ [bits](entropy.qmd#def-bit),
+as @thm-expected-length-sum states.
+
+:::

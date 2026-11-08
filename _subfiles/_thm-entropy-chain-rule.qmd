@@ -16,7 +16,7 @@ so
 $$-\log p(X, Y) = -\log p(X) - \log p(Y \mid X).$$
 
 Both terms on the right are nonnegative,
-so the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the sum is the sum of the expectations: <!-- check-term-links: allow -->
+so the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the sum is the sum of the expectation of each term:
 
 $$
 \begin{aligned}
