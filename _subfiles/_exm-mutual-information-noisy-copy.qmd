@@ -4,7 +4,7 @@
 
 Let $X$ be a fair coin toss, coded $0$ or $1$.
 Let $Y$ equal $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$.
-The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$ and $0.1$ for $(0, 1)$ and $(1, 0)$.
+The [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) gives probability $0.4$ to $(0, 0)$ and $(1, 1)$ and $0.1$ to $(0, 1)$ and $(1, 0)$.
 The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit)
 from the divergence formula in @thm-mutual-information-kl.
 
