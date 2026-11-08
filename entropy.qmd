@@ -224,7 +224,7 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
-{{< include ids/_subfiles/_thm-mutual-information-entropy-sum.qmd >}}
+{{< include ids/_subfiles/_thm-mutual-information-reduction.qmd >}}
 
 {{< slidebreak >}}
 

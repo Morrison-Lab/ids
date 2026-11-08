@@ -3,21 +3,23 @@
 
 For discrete random variables $X$ and $Y$ with finite entropies,
 
-$$I(X; Y) = H(X) - H(X \mid Y) = I(Y; X).$$
+$$I(X; Y) = I(Y; X).$$
 
 :::
 
 ::: {.proof}
 
-The [chain rule](#thm-entropy-chain-rule) expands $H(X, Y)$ in either order:
+The joint entropy of the pair $(X, Y)$ equals that of $(Y, X)$,
+because both are the entropy of the same two values, listed in either order.
+So @def-mutual-information gives
 
-$$H(X) + H(Y \mid X) = H(X, Y) = H(Y) + H(X \mid Y).$$
-
-Subtracting $H(X \mid Y) + H(Y \mid X)$ from the outer two expressions gives
-
-$$H(X) - H(X \mid Y) = H(Y) - H(Y \mid X).$$
-
-The right side is $I(X; Y)$ by @def-mutual-information,
-and the left side is $I(Y; X)$ by the same definition.
+$$
+\begin{aligned}
+I(X; Y)
+&= \entropyf{X} + \entropyf{Y} - \entropyf{X, Y} \\
+&= \entropyf{Y} + \entropyf{X} - \entropyf{Y, X} \\
+&= I(Y; X).
+\end{aligned}
+$$
 
 :::

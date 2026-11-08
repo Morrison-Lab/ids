@@ -13,7 +13,7 @@ Equality holds exactly when $X$ and $Y$ are
 
 ::: {.proof}
 
-By @def-mutual-information,
+By @thm-mutual-information-reduction,
 
 $$\entropyf{Y} - \entropyf{Y \mid X} = I(X; Y).$$
 

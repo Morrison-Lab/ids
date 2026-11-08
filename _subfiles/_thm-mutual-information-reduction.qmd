@@ -1,0 +1,34 @@
+:::{#thm-mutual-information-reduction}
+#### Mutual information as a reduction in entropy
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
+with finite entropies, <!-- check-term-links: allow -->
+the [mutual information](#def-mutual-information) is the reduction in the entropy of either variable
+from learning the other:
+
+$$I(X; Y) = \entropyf{Y} - \entropyf{Y \mid X} = \entropyf{X} - \entropyf{X \mid Y}.$$
+
+:::
+
+::: {.proof}
+
+Subtract $\entropyf{X}$ from both sides of the [chain rule](#thm-entropy-chain-rule):
+
+$$\entropyf{Y \mid X} = \entropyf{X, Y} - \entropyf{X}.$$
+
+Substituting into @def-mutual-information gives
+
+$$
+\begin{aligned}
+\entropyf{Y} - \entropyf{Y \mid X}
+&= \entropyf{Y} - \sb{\entropyf{X, Y} - \entropyf{X}} \\
+&= \entropyf{X} + \entropyf{Y} - \entropyf{X, Y} \\
+&= I(X; Y).
+\end{aligned}
+$$
+
+The [chain rule](#thm-entropy-chain-rule) also gives $\entropyf{X \mid Y} = \entropyf{X, Y} - \entropyf{Y}$,
+so the same steps with $X$ and $Y$ exchanged
+give $\entropyf{X} - \entropyf{X \mid Y} = I(X; Y)$.
+
+:::

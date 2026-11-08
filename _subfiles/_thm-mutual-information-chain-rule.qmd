@@ -10,7 +10,7 @@ $$I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).$$
 
 ::: {.proof}
 
-By @def-mutual-information, applied to the pair $(X, Z)$ and to $Z$,
+By @thm-mutual-information-reduction, applied to the pair $(X, Z)$ and to $Z$,
 
 $$
 \begin{aligned}

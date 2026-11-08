@@ -23,7 +23,7 @@ So the sums converge absolutely, <!-- check-term-links: allow -->
 and they can be split and regrouped.
 Write $p(y \mid x) = p(x, y) / p(x)$,
 which is defined for every such pair because $p(x) \ge p(x, y) > 0$.
-By @def-mutual-information and the definitions of
+By @thm-mutual-information-reduction and the definitions of
 [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
 and [conditional entropy](#def-conditional-entropy),
 

@@ -14,7 +14,7 @@ Rearranging @thm-mutual-information-joint-minus-conditionals gives
 
 $$\entropyf{X, Y} = I(X; Y) + \entropyf{X \mid Y} + \entropyf{Y \mid X}.$$
 
-Rearranging @thm-mutual-information-entropy-sum gives
+Rearranging @def-mutual-information gives
 
 $$\entropyf{X} + \entropyf{Y} = I(X; Y) + \entropyf{X, Y}.$$
 
