@@ -1517,6 +1517,10 @@
    "pds/expectation#def-entropy"
   ],
   [
+   "ids/entropy#thm-mutual-information-symmetric",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#thm-perplexity-geometric-mean",
    "ids/entropy#def-perplexity"
   ],

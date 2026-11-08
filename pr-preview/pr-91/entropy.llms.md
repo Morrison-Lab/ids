@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 18:05:14 (PST)
+Last modified: 2026-11-07 19:02:56 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -723,13 +723,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 13 (Mutual information)** The **mutual information** between [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies is the sum of their [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) minus their [joint entropy](#def-joint-entropy):
+> **Definition 13 (Mutual information)** The **mutual information** between [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is the sum of their entropies minus their [joint entropy](#def-joint-entropy):
 >
 > $$I(X; Y) \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> **Theorem 9 (Mutual information is symmetric)** For discrete random variables $X$ and $Y$ with finite entropies,
+> **Theorem 9 (Mutual information is symmetric)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $$I(X; Y) = I(Y; X).$$
 
