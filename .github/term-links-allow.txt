@@ -4,10 +4,13 @@ constant
 converge
 equal
 equals
+error
 finite
 formula
+fraction
 function
 index
+length
 measure
 order
 product
