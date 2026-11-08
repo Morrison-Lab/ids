@@ -35,7 +35,7 @@ $$
 \end{aligned}
 $$
 
-By the definition of the [collision probability](#def-collision-probability),
-this is the collision probability.
+The expectation $\E{\P(X)}$ and the [collision probability](#def-collision-probability) $\P(X = X')$ both equal $\sum_x \P(X=x)^2$,
+so they are equal.
 
 :::
