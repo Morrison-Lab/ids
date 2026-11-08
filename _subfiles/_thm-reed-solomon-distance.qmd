@@ -7,13 +7,13 @@ is an $\codeparams{n}{k}{n - k + 1}{q}$ [linear code](#def-linear-code).
 :::
 
 ::: {.proof}
-The map $m \mapsto E(m)$ is linear, because $f_{m + m'} = f_m + f_{m'}$
-and $f_{b m} = b f_m$ for every scalar $b \in \ffield{q}$.
-If $m \ne 0$, then $f_m$ is a nonzero polynomial of degree at most $k - 1$,
+The map $m \mapsto E(m)$ is [linear](https://morrison-lab.github.io/mds/linear-algebra-matrices.html#def-linear-map), because $f_{m + m'} = f_m + f_{m'}$
+and $f_{b m} = b f_m$ for every [scalar](https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-scalar) $b \in \ffield{q}$.
+If $m \ne 0$, then $f_m$ is a nonzero [polynomial](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-polynomial) of [degree](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-polynomial-degree) at most $k - 1$,
 so it has at most $k - 1$ roots,
 and $E(m)$ has at least $n - k + 1 \ge 1$ nonzero entries.
-So $E$ is one-to-one, the codewords form a $k$-dimensional subspace,
-and by @rem-linear-code-weight the minimum distance is at least $n - k + 1$.
+So $E$ is one-to-one, the codewords form a $k$-dimensional [subspace](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-subspace),
+and by @rem-linear-code-weight the [minimum distance](#def-hamming-distance) is at least $n - k + 1$.
 The [Singleton bound](#thm-singleton-bound) says it is at most $n - k + 1$.
 
 :::

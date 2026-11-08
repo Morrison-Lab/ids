@@ -9,7 +9,7 @@ The [Hadamard code](#def-hadamard-code) sends the four messages to
 - $x = 10 \mapsto 0011$, since $\dprod{x}{a} = a_1$,
 - $x = 11 \mapsto 0110$, since $\dprod{x}{a} = a_1 + a_2 \pmod 2$.
 
-Every nonzero codeword has weight 2, which is $2^{k-1}$,
+Every nonzero codeword has [weight](#def-weight) 2, which is $2^{k-1}$,
 as @thm-hadamard-distance says.
 
 :::

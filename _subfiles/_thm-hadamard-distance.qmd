@@ -13,10 +13,10 @@ Then $\dprod{x}{\paren{a + e_i}} = \dprod{x}{a} + 1$,
 so pairing each $a$ with $a + e_i$ pairs a 0 with a 1,
 and exactly half of the $2^k$ entries of the codeword of $x$ are 1.
 So every nonzero message has a codeword of [weight](#def-weight) $2^{k-1} \ge 1$.
-Each dot product $\dprod{x}{a}$ is linear in $x$,
+Each entry $\dprod{x}{a}$ is [linear](https://morrison-lab.github.io/mds/linear-algebra-matrices.html#def-linear-map) in $x$,
 so the encoding map is linear,
 and only the zero message has the zero codeword,
 so the map is one-to-one and the code is linear.
-Then @rem-linear-code-weight gives the minimum distance.
+Then @rem-linear-code-weight gives the [minimum distance](#def-hamming-distance).
 
 :::
