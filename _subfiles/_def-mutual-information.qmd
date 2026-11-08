@@ -7,6 +7,6 @@ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-
 is the sum of their entropies
 minus their [joint entropy](#def-joint-entropy):
 
-$$I(X; Y) \eqdef \entropyf{X} + \entropyf{Y} - \entropyf{X, Y}.$$
+$$\mutinfof{X}{Y} \eqdef \entropyf{X} + \entropyf{Y} - \entropyf{X, Y}.$$
 
 :::

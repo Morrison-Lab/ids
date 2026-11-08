@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$I(X; Y) = \entropyf{X, Y} - \sb{\entropyf{X \mid Y} + \entropyf{Y \mid X}}.$$
+$$\mutinfof{X}{Y} = \entropyf{X, Y} - \sb{\entropyf{X \mid Y} + \entropyf{Y \mid X}}.$$
 
 :::
 
@@ -26,7 +26,7 @@ Substituting both into @def-mutual-information gives
 
 $$
 \begin{aligned}
-I(X; Y)
+\mutinfof{X}{Y}
 &= \entropyf{X} + \entropyf{Y} - \entropyf{X, Y} \\
 &= \sb{\entropyf{X, Y} - \entropyf{Y \mid X}} + \sb{\entropyf{X, Y} - \entropyf{X \mid Y}} - \entropyf{X, Y} \\
 &= \entropyf{X, Y} - \sb{\entropyf{X \mid Y} + \entropyf{Y \mid X}}.

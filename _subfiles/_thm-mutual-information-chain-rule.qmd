@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$
 whose [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $\entropyf{X}$, $\entropyf{Y}$ and $\entropyf{Z}$ are finite,
 
-$$I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).$$
+$$\mutinfof{X, Z}{Y} = \mutinfof{Z}{Y} + \cmutinfof{X}{Y}{Z}.$$
 
 :::
 
@@ -14,8 +14,8 @@ By @thm-mutual-information-reduction, applied to the pair $(X, Z)$ and to $Z$,
 
 $$
 \begin{aligned}
-I(X, Z; Y) &= \entropyf{Y} - \entropyf{Y \mid X, Z} \\
-I(Z; Y) &= \entropyf{Y} - \entropyf{Y \mid Z}.
+\mutinfof{X, Z}{Y} &= \entropyf{Y} - \entropyf{Y \mid X, Z} \\
+\mutinfof{Z}{Y} &= \entropyf{Y} - \entropyf{Y \mid Z}.
 \end{aligned}
 $$
 
@@ -23,9 +23,9 @@ Subtracting the second display from the first gives
 
 $$
 \begin{aligned}
-I(X, Z; Y) - I(Z; Y)
+\mutinfof{X, Z}{Y} - \mutinfof{Z}{Y}
 &= \entropyf{Y \mid Z} - \entropyf{Y \mid X, Z} \\
-&= I(X; Y \mid Z),
+&= \cmutinfof{X}{Y}{Z},
 \end{aligned}
 $$
 
