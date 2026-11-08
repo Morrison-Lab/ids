@@ -27,7 +27,7 @@ mi_independent <- sum(terms_independent)
 c(mi_dependent = mi_dependent, mi_independent = mi_independent)
 ```
 
-So the mutual information of the independent coins is $0$ bits, <!-- check-term-links: allow -->
+So the mutual information of the independent coins is $0$ [bits](#def-bit),
 and that of the dependent pair is $`r round(mi_dependent, 3)`$ bits
 (@thm-mutual-information-nonnegative).
 

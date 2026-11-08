@@ -2,7 +2,7 @@
 #### Mutual information is nonnegative
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
-with finite entropies, <!-- check-term-links: allow -->
+with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
 $$I(X; Y) \ge 0.$$
 
@@ -13,7 +13,7 @@ Equality holds exactly when $X$ and $Y$ are
 
 ::: {.proof}
 
-Let $p(x, y)$ be the joint mass function, with marginals $p(x)$ and $p(y)$. <!-- check-term-links: allow -->
+Let $p(x, y)$ be the [joint mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), with [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x)$ and $p(y)$.
 By @thm-mutual-information-kl,
 $I(X; Y)$ is the divergence of $p(x) \, p(y)$ from $p(x, y)$,
 and the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) defining it is absolutely summable,

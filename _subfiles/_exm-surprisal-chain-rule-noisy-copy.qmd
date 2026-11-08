@@ -15,9 +15,9 @@ c(sum = s_x + s_y_given_x, joint = s_xy)
 
 The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$
 is $`r round(s_x + s_y_given_x, 3)`$ [bits](#def-bit).
-This sum is the [joint surprisal](#def-joint-surprisal) $\surprisalf{0, 1} = `r round(s_xy, 3)`$ bits <!-- check-term-links: allow -->
+This sum is the [joint surprisal](#def-joint-surprisal) $\surprisalf{0, 1} = `r round(s_xy, 3)`$ bits
 (@thm-surprisal-chain-rule).
-Subtracting $\surprisalf{0} = `r round(s_x, 3)`$ bit from the joint surprisal <!-- check-term-links: allow -->
+Subtracting $\surprisalf{0} = `r round(s_x, 3)`$ [bit](#def-bit) from the joint surprisal
 recovers $\surprisalf{1 \mid 0} = `r round(s_xy - s_x, 3)`$ bits
 (@cor-conditional-surprisal-difference).
 

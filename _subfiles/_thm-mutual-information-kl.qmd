@@ -7,7 +7,7 @@ and [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marg
 If their [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite,
 then their [mutual information](#def-mutual-information) is the
 [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
-of the product of the marginals from the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution):
+of the product of the [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) from the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution):
 
 $$I(X; Y) = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$
 
@@ -17,31 +17,26 @@ where the sum runs over the pairs with $p(x, y) > 0$.
 
 ::: {.proof}
 
-Every sum below runs over the pairs with $p(x, y) > 0$,
-and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite.
-So the sums converge absolutely,
-and they can be split and regrouped.
-Write $p(y \mid x) = p(x, y) / p(x)$,
-which is defined for every such pair because $p(x) \ge p(x, y) > 0$.
-By @thm-mutual-information-reduction and the definitions of
+The [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) are finite,
+so the [expectations](https://morrison-lab.github.io/pds/expectation.html#def-expectation) below are finite and can be split and regrouped.
+With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, $p(X, Y) > 0$, $p(X) > 0$ and $p(Y) > 0$.
+By @def-mutual-information and the definitions of
 [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
-and [conditional entropy](#def-conditional-entropy),
+and [joint entropy](#def-joint-entropy),
 
 $$
 \begin{aligned}
 I(X; Y)
-&= \entropyf{Y} - \entropyf{Y \mid X} \\
-&= -\sum_{y} p(y) \log p(y) + \sum_{x, y} p(x, y) \log p(y \mid x) \\
-&= -\sum_{x, y} p(x, y) \log p(y) + \sum_{x, y} p(x, y) \log p(y \mid x) \\
-&= \sum_{x, y} p(x, y) \sb{\log p(y \mid x) - \log p(y)} \\
-&= \sum_{x, y} p(x, y) \log \frac{p(y \mid x)}{p(y)} \\
+&= \entropyf{X} + \entropyf{Y} - \entropyf{X, Y} \\
+&= \E{-\log p(X)} + \E{-\log p(Y)} - \E{-\log p(X, Y)} \\
+&= \E{\log p(X, Y) - \log p(X) - \log p(Y)} \\
+&= \E{\log \frac{p(X, Y)}{p(X) \, p(Y)}} \\
 &= \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)}.
 \end{aligned}
 $$
 
-The third line uses $\sum_{x} p(x, y) = p(y)$,
-and the last line uses $p(y \mid x) = p(x, y) / p(x)$.
-The sum in the last line is the divergence of $p(x) \, p(y)$ from $p(x, y)$
+The last line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the pairs with $p(x, y) > 0$.
+It is the divergence of $p(x) \, p(y)$ from $p(x, y)$
 by the [discrete formula](https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete).
 
 :::
