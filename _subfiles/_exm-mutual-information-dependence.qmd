@@ -1,0 +1,34 @@
+:::{#exm-mutual-information-dependence}
+#### Mutual information of dependent and independent coins
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+For the noisy copy in @exm-mutual-information-noisy-copy,
+the [mutual information](#def-mutual-information) is positive,
+because $Y$ depends on $X$.
+For two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, every joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $0.25$.
+The chunk computes the mutual information of both pairs.
+
+```{r}
+#| code-fold: show
+joint_dependent <- matrix(data = c(0.4, 0.1, 0.1, 0.4), nrow = 2)
+ratio_dependent <- joint_dependent / outer(
+  X = rowSums(joint_dependent),
+  Y = colSums(joint_dependent)
+)
+mi_dependent <- sum(joint_dependent * log2(ratio_dependent))
+joint_independent <- matrix(data = 0.25, nrow = 2, ncol = 2)
+product_independent <- outer(
+  X = rowSums(joint_independent),
+  Y = colSums(joint_independent)
+)
+ratio_independent <- joint_independent / product_independent
+terms_independent <- joint_independent * log2(ratio_independent)
+mi_independent <- sum(terms_independent)
+c(mi_dependent = mi_dependent, mi_independent = mi_independent)
+```
+
+So the mutual information of the independent coins is $0$ bits, <!-- check-term-links: allow -->
+and that of the dependent pair is $`r round(mi_dependent, 3)`$ bits
+(@thm-mutual-information-nonnegative).
+
+:::

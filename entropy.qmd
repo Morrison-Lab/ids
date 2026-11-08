@@ -248,7 +248,39 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_thm-mutual-information-kl.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-mutual-information-noisy-copy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-mutual-information-nonnegative.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-mutual-information-dependence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-conditioning-reduces-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-conditioning-reduces-entropy.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-mutual-information-kl.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-mutual-information-self.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-mutual-information-self.qmd >}}
 
 {{< slidebreak >}}
 
