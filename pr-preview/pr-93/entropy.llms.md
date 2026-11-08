@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 18:08:43 (PST)
+Last modified: 2026-11-07 19:12:36 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -899,7 +899,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 14 (Mutual information of a noisy copy)**  
 >
-> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ equal $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$ and $0.1$ for $(0, 1)$ and $(1, 0)$. The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit) from the divergence formula in [Theorem 14](#thm-mutual-information-kl).
+> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ equal $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. The [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) gives probability $0.4$ to $(0, 0)$ and $(1, 1)$ and $0.1$ to $(0, 1)$ and $(1, 0)$. The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit) from the divergence formula in [Theorem 14](#thm-mutual-information-kl).
 >
 > Show code
 >
