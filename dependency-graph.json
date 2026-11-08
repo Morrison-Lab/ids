@@ -336,6 +336,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-kl-divergence-nonnegative",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-kl-divergence-nonnegative",
+   "kind": "thm",
+   "title": "The divergence is nonnegative",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-mutual-information-chain-rule",
    "site": "ids",
    "page": "entropy",
@@ -594,15 +603,6 @@
    "div": "thm-cross-entropy-decomposition",
    "kind": "thm",
    "title": "Cross-entropy is entropy plus divergence",
-   "external": false
-  },
-  {
-   "id": "ids/source-coding#thm-kl-divergence-nonnegative",
-   "site": "ids",
-   "page": "source-coding",
-   "div": "thm-kl-divergence-nonnegative",
-   "kind": "thm",
-   "title": "The divergence is nonnegative",
    "external": false
   },
   {
@@ -1274,6 +1274,18 @@
    "pds/random-variables#def-discrete-rv"
   ],
   [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "pds/random-variables#def-pmf"
+  ],
+  [
    "ids/entropy#thm-mutual-information-chain-rule",
    "ids/entropy#def-conditional-mutual-information"
   ],
@@ -1363,7 +1375,19 @@
   ],
   [
    "ids/entropy#thm-mutual-information-nonnegative",
+   "ids/entropy#thm-kl-divergence-nonnegative"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
    "ids/entropy#thm-mutual-information-kl"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "mds/algebra-sums#def-summation"
   ],
   [
    "ids/entropy#thm-mutual-information-nonnegative",
@@ -1571,18 +1595,6 @@
   ],
   [
    "ids/source-coding#thm-cross-entropy-decomposition",
-   "pds/random-variables#def-pmf"
-  ],
-  [
-   "ids/source-coding#thm-kl-divergence-nonnegative",
-   "mds/algebra-sums#def-summation"
-  ],
-  [
-   "ids/source-coding#thm-kl-divergence-nonnegative",
-   "pds/expectation#def-kl-divergence"
-  ],
-  [
-   "ids/source-coding#thm-kl-divergence-nonnegative",
    "pds/random-variables#def-pmf"
   ],
   [

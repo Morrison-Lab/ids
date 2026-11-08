@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 17:11:18 (PST)
+Last modified: 2026-11-07 17:14:54 (PST)
 
 ## 1 Codes
 
@@ -123,53 +123,7 @@ Last modified: 2026-11-07 17:11:18 (PST)
 
 > **NOTE:**
 >
-> **Theorem 4 (The divergence is nonnegative)** Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, \ldots, x_n$, with $q(x) > 0$ wherever $p(x) > 0$. Then the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) satisfies
->
-> $$D_2(p \,\|\, q) \ge 0,$$
->
-> with $D_2(p \,\|\, q) = 0$ exactly when $q = p$.
-
-> **NOTE:**
->
-> *Proof*. Every [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) here runs over the values $x$ with $p(x) > 0$. For every $t > 0$, $\ln t \le t - 1$, with equality exactly when $t = 1$. Apply this with $t = q(x) / p(x)$, and multiply by $p(x) > 0$:
->
-> $$p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),$$
->
-> with equality exactly when $q(x) = p(x)$. Add over $x$. Since $\sum_x p(x) = 1$ and $\sum_x q(x) \le 1$,
->
-> $$\sum_x p(x) \ln \frac{q(x)}{p(x)}
-> \le \sum_x q(x) - 1
-> \le 0.$$
->
-> The left side is $-\ln 2 \cdot D_2(p \,\|\, q)$, so $D_2(p \,\|\, q) \ge 0$.
->
-> If $D_2(p \,\|\, q) = 0$, both relations hold with equality. The first forces $q(x) = p(x)$ at every $x$ with $p(x) > 0$. The second then gives $\sum_x q(x) = 1$, so $q$ has no mass where $p$ has none, and $q = p$. Conversely, $q = p$ gives $\log_2 (p(x)/q(x)) = 0$ for every $x$.
-
-> **NOTE:**
->
-> **Example 2 (Divergence of a biased coin from a fair coin)**  
->
-> Let $p = (0.9, 0.1)$ be the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of a biased coin, and let $q = (0.5, 0.5)$ be a fair coin. The code below computes the divergence both ways, in [bits](entropy.llms.md#def-bit).
->
-> Show code
->
-> ``` r
-> p <- c(0.9, 0.1)
-> q <- c(0.5, 0.5)
-> c(
->   p_from_q = sum(p * log2(p / q)),
->   q_from_p = sum(q * log2(q / p)),
->   p_from_p = sum(p * log2(p / p))
-> )
-> #>  p_from_q  q_from_p  p_from_p 
-> #> 0.5310044 0.7369656 0.0000000
-> ```
->
-> Both divergences between the two coins are positive, as [Theorem 4](#thm-kl-divergence-nonnegative) requires, and they differ, so swapping $p$ and $q$ changes the divergence. The divergence of $p$ from itself is $0$.
-
-> **NOTE:**
->
-> *Remark 3* (Cross-entropy is the cost of the wrong code). [Theorem 3](#thm-cross-entropy-decomposition) splits the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) into the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and the divergence. By [Theorem 1](#thm-source-coding), no uniquely decodable code averages fewer than $H_2(p)$ bits. By [Theorem 2](#thm-wrong-code), a code built for $q$ costs about $D_2(p \,\|\, q)$ bits per value more than that. By [Theorem 4](#thm-kl-divergence-nonnegative), the excess vanishes only when the code was built for $p$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements); [Yeung 2008, sec. 2.5](#ref-yeung2008information)). Cover and Thomas ([2006, sec. 5.4](#ref-cover2006elements)) state [Theorem 2](#thm-wrong-code) in this form, with $H_2(p) + D_2(p \,\|\, q)$ in place of $H_2(p, q)$.
+> *Remark 3* (Cross-entropy is the cost of the wrong code). [Theorem 3](#thm-cross-entropy-decomposition) splits the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) into the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and the divergence. By [Theorem 1](#thm-source-coding), no uniquely decodable code averages fewer than $H_2(p)$ bits. By [Theorem 2](#thm-wrong-code), a code built for $q$ costs about $D_2(p \,\|\, q)$ bits per value more than that. By the [divergence theorem](entropy.llms.md#thm-kl-divergence-nonnegative), the excess vanishes only when the code was built for $p$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements); [Yeung 2008, sec. 2.5](#ref-yeung2008information)). Cover and Thomas ([2006, sec. 5.4](#ref-cover2006elements)) state [Theorem 2](#thm-wrong-code) in this form, with $H_2(p) + D_2(p \,\|\, q)$ in place of $H_2(p, q)$.
 
 > **NOTE:**
 >

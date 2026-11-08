@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 17:11:18 (PST)
+Last modified: 2026-11-07 17:14:54 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -888,7 +888,57 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 15 (Mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
+> **Theorem 15 (The divergence is nonnegative)** Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, x_2, \ldots$, with $q(x) > 0$ wherever $p(x) > 0$, and suppose that
+>
+> $$\sum_x p(x) \, \bigl\lvert \log_2 \bigl( p(x) / q(x) \bigr) \bigr\rvert < \infty.$$
+>
+> Then the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) satisfies
+>
+> $$D_2(p \,\|\, q) \ge 0,$$
+>
+> with $D_2(p \,\|\, q) = 0$ exactly when $q = p$.
+
+> **NOTE:**
+>
+> *Proof*. Every [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) here runs over the values $x$ with $p(x) > 0$. For every $t > 0$, $\ln t \le t - 1$, with equality exactly when $t = 1$. Apply this with $t = q(x) / p(x)$, and multiply by $p(x) > 0$:
+>
+> $$p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),$$
+>
+> with equality exactly when $q(x) = p(x)$. Both sides are summable over $x$. The left side does by the assumption in the statement, and the right side does because $\sum_x p(x) = 1$ and $\sum_x q(x) \le 1$. So the relation holds for the totals over $x$:
+>
+> $$\sum_x p(x) \ln \frac{q(x)}{p(x)}
+> \le \sum_x q(x) - 1
+> \le 0.$$
+>
+> The left side is $-\ln 2 \cdot D_2(p \,\|\, q)$, so $D_2(p \,\|\, q) \ge 0$.
+>
+> If $D_2(p \,\|\, q) = 0$, both relations hold with equality. The first forces $q(x) = p(x)$ at every $x$ with $p(x) > 0$. The second then gives $\sum_x q(x) = 1$, so $q$ has no mass where $p$ has none, and $q = p$. Conversely, $q = p$ gives $\log_2 (p(x)/q(x)) = 0$ for every $x$.
+
+> **NOTE:**
+>
+> **Example 14 (Divergence of a biased coin from a fair coin)**  
+>
+> Let $p = (0.9, 0.1)$ be the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of a biased coin, and let $q = (0.5, 0.5)$ be a fair coin. The code below computes the divergence both ways, in [bits](entropy.llms.md#def-bit).
+>
+> Show code
+>
+> ``` r
+> p <- c(0.9, 0.1)
+> q <- c(0.5, 0.5)
+> c(
+>   p_from_q = sum(p * log2(p / q)),
+>   q_from_p = sum(q * log2(q / p)),
+>   p_from_p = sum(p * log2(p / p))
+> )
+> #>  p_from_q  q_from_p  p_from_p 
+> #> 0.5310044 0.7369656 0.0000000
+> ```
+>
+> Both divergences between the two coins are positive, as [Theorem 15](#thm-kl-divergence-nonnegative) requires, and they differ, so swapping $p$ and $q$ changes the divergence. The divergence of $p$ from itself is $0$.
+
+> **NOTE:**
+>
+> **Theorem 16 (Mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite entropies,
 >
 > $$I(X; Y) \ge 0.$$
 >
@@ -896,24 +946,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. Let $p(x, y)$ be the joint mass function, with marginals $p(x)$ and $p(y)$, and let $b$ be the base of the logarithm. Every $t > 0$ satisfies $\ln t \le t - 1$, with equality only at $t = 1$. Apply it to $t = p(x) \, p(y) / p(x, y)$ for each pair with $p(x, y) > 0$. By [Theorem 14](#thm-mutual-information-kl),
->
-> $$\begin{aligned}
-> -I(X; Y) \, \ln b
-> &= \sum_{x, y} p(x, y) \ln \frac{p(x) \, p(y)}{p(x, y)} \\
-> &\le \sum_{x, y} p(x, y) \mathopen{}\left[\frac{p(x) \, p(y)}{p(x, y)} - 1\right]\mathclose{} \\
-> &= \sum_{x, y} p(x) \, p(y) - \sum_{x, y} p(x, y) \\
-> &\le 1 - 1 \\
-> &= 0.
-> \end{aligned}$$
->
-> The first sum in the third line runs over the pairs with $p(x, y) > 0$, so it is at most $\sum_{x, y} p(x) \, p(y) = 1$ over all pairs, which gives the fourth line. Hence $I(X; Y) \ge 0$.
->
-> Equality holds exactly when both inequalities are equalities. The first is an equality exactly when $p(x) \, p(y) = p(x, y)$ for every pair with $p(x, y) > 0$. The second is an equality exactly when no pair has $p(x, y) = 0$ and $p(x) \, p(y) > 0$. Together they say $p(x, y) = p(x) \, p(y)$ for every pair, which is independence. Each inequality is an equality exactly under its condition, so independence is both necessary and sufficient for $I(X; Y) = 0$.
+> *Proof*. Let $p(x, y)$ be the joint mass function, with marginals $p(x)$ and $p(y)$. By [Theorem 14](#thm-mutual-information-kl), $I(X; Y)$ is the divergence of $p(x) \, p(y)$ from $p(x, y)$, and the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) defining it is absolutely summable, as the proof of that result shows. The mass function $p(x) \, p(y)$ is positive wherever $p(x, y)$ is positive, because each marginal is at least $p(x, y)$ there. By [Theorem 15](#thm-kl-divergence-nonnegative), the divergence is nonnegative, with equality exactly when the two mass functions agree. The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) satisfies $\log_b t = \ln t / \ln b$, so the divergence with $\log_b$ is the divergence with $\log_2$ times $\ln 2 / \ln b$, which has the same sign and the same zero. Hence $I(X; Y) \ge 0$, and $I(X; Y) = 0$ exactly when $p(x, y) = p(x) \, p(y)$ for every pair, which is independence.
 
 > **NOTE:**
 >
-> **Example 14 (Mutual information of dependent and independent coins)**  
+> **Example 15 (Mutual information of dependent and independent coins)**  
 >
 > For the noisy copy in [Example 13](#exm-mutual-information-noisy-copy), the [mutual information](#def-mutual-information) is positive, because $Y$ depends on $X$. For two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, every joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $0.25$. The chunk computes the mutual information of both pairs.
 >
@@ -939,7 +976,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #>      0.2780719      0.0000000
 > ```
 >
-> So the mutual information of the independent coins is $0$ bits, and that of the dependent pair is $0.278$ bits ([Theorem 15](#thm-mutual-information-nonnegative)).
+> So the mutual information of the independent coins is $0$ bits, and that of the dependent pair is $0.278$ bits ([Theorem 16](#thm-mutual-information-nonnegative)).
 
 > **NOTE:**
 >
@@ -955,11 +992,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = I(X; Y).$$
 >
-> By [Theorem 15](#thm-mutual-information-nonnegative), the right side is nonnegative, and it is $0$ exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
+> By [Theorem 16](#thm-mutual-information-nonnegative), the right side is nonnegative, and it is $0$ exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
 
 > **NOTE:**
 >
-> **Example 15 (Learning a noisy copy lowers the entropy)**  
+> **Example 16 (Learning a noisy copy lowers the entropy)**  
 >
 > For the coin $X$ and noisy copy $Y$ in [Example 13](#exm-mutual-information-noisy-copy), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ is $1$ [bit](#def-bit). Given $X$, the variable $Y$ is a coin with probabilities $0.8$ and $0.2$. The chunk computes the [conditional entropy](#def-conditional-entropy) from that coin.
 >
@@ -977,11 +1014,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 15* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the marginals of $(X, Y)$ from their joint distribution. [Theorem 14](#thm-mutual-information-kl) proves that this divergence equals ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)), and [Theorem 15](#thm-mutual-information-nonnegative) proves that $I(X; Y) \ge 0$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Learning $X$ never raises the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ on average ([Corollary 5](#cor-conditioning-reduces-entropy)).
+> *Remark 15* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the marginals of $(X, Y)$ from their joint distribution. [Theorem 14](#thm-mutual-information-kl) proves that this divergence equals ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)), and [Theorem 16](#thm-mutual-information-nonnegative) proves that $I(X; Y) \ge 0$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Learning $X$ never raises the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ on average ([Corollary 5](#cor-conditioning-reduces-entropy)).
 
 > **NOTE:**
 >
-> **Theorem 16 (Mutual information of a variable with itself)** For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite entropy,
+> **Theorem 17 (Mutual information of a variable with itself)** For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite entropy,
 >
 > $$I(X; X) = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.$$
 
@@ -1009,9 +1046,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 16 (A fair coin is fully informative about itself)**  
+> **Example 17 (A fair coin is fully informative about itself)**  
 >
-> Let $X$ be a fair coin toss. Its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is $1$ [bit](#def-bit). Given $X$ itself, there is no uncertainty left, so ${\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} = 0$. Hence $I(X; X) = 1 - 0 = 1$ bit ([Theorem 16](#thm-mutual-information-self)), the same as ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
+> Let $X$ be a fair coin toss. Its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is $1$ [bit](#def-bit). Given $X$ itself, there is no uncertainty left, so ${\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} = 0$. Hence $I(X; X) = 1 - 0 = 1$ bit ([Theorem 17](#thm-mutual-information-self)), the same as ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
 
 > **NOTE:**
 >
@@ -1097,7 +1134,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 17 (Chain rule for entropy, many variables)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$ with finite entropies,
+> **Theorem 18 (Chain rule for entropy, many variables)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$ with finite entropies,
 >
 > $${\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = \sum_{i=1}^{n} {\mathbb{H}\mathopen{}\left(X_i \mid X_1, \ldots, X_{i-1}\right)\mathclose{}},$$
 >
@@ -1121,9 +1158,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 17 (Chain rule for entropy along a chain of noisy copies)**  
+> **Example 18 (Chain rule for entropy along a chain of noisy copies)**  
 >
-> Let $X_1$ be a fair coin toss, coded $0$ or $1$. Let $X_2$ be a noisy copy of $X_1$ that flips it with probability $0.2$, and let $X_3$ be a noisy copy of $X_2$ that flips it with probability $0.2$, independently of $X_1$ given $X_2$. The chunk builds the joint probabilities of $(X_1, X_2, X_3)$ and compares their [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), in [bits](#def-bit), with the sum in [Theorem 17](#thm-entropy-chain-rule-n).
+> Let $X_1$ be a fair coin toss, coded $0$ or $1$. Let $X_2$ be a noisy copy of $X_1$ that flips it with probability $0.2$, and let $X_3$ be a noisy copy of $X_2$ that flips it with probability $0.2$, independently of $X_1$ given $X_2$. The chunk builds the joint probabilities of $(X_1, X_2, X_3)$ and compares their [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), in [bits](#def-bit), with the sum in [Theorem 18](#thm-entropy-chain-rule-n).
 >
 > Show code
 >
@@ -1160,9 +1197,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 18 (Conditional mutual information along a chain of noisy copies)**  
+> **Example 19 (Conditional mutual information along a chain of noisy copies)**  
 >
-> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 17](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the prediction of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip probability $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
+> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 18](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the prediction of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip probability $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
 >
 > Show code
 >
@@ -1179,7 +1216,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 18 (Chain rule for mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ whose entropies ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$, ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ and ${\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}$ are finite,
+> **Theorem 19 (Chain rule for mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ whose entropies ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$, ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ and ${\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}$ are finite,
 >
 > $$I(X, Z; Y) = I(Z; Y) + I(X; Y \mid Z).$$
 
@@ -1204,9 +1241,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 19 (Chain rule for mutual information along a chain of noisy copies)**  
+> **Example 20 (Chain rule for mutual information along a chain of noisy copies)**  
 >
-> For the chain in [Example 17](#exm-entropy-chain-rule-n-copies), the marginal distribution of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
+> For the chain in [Example 18](#exm-entropy-chain-rule-n-copies), the marginal distribution of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
 >
 > Show code
 >
@@ -1221,11 +1258,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 0.2780719 0.2780719
 > ```
 >
-> Here $I(X_2; X_3) = 0.278$ bits and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 18](#thm-mutual-information-chain-rule)), as in [Example 18](#exm-conditional-mutual-information).
+> Here $I(X_2; X_3) = 0.278$ bits and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 19](#thm-mutual-information-chain-rule)), as in [Example 19](#exm-conditional-mutual-information).
 
 > **NOTE:**
 >
-> **Theorem 19 (Conditional mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ with finite entropies,
+> **Theorem 20 (Conditional mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ with finite entropies,
 >
 > $$I(X; Y \mid Z) \ge 0.$$
 
@@ -1240,13 +1277,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= \sum_z \mathbb{P}(Z=z) \, I_z(X; Y).
 > \end{aligned}$$
 >
-> Each $I_z(X; Y)$ is nonnegative by [Theorem 15](#thm-mutual-information-nonnegative). Since $\mathbb{P}(Z=z) \ge 0$ as well, every summand $\mathbb{P}(Z=z) \, I_z(X; Y)$ is nonnegative, so $I(X; Y \mid Z) \ge 0$.
+> Each $I_z(X; Y)$ is nonnegative by [Theorem 16](#thm-mutual-information-nonnegative). Since $\mathbb{P}(Z=z) \ge 0$ as well, every summand $\mathbb{P}(Z=z) \, I_z(X; Y)$ is nonnegative, so $I(X; Y \mid Z) \ge 0$.
 
 > **NOTE:**
 >
-> **Example 20 (Learning a third variable can create information)**  
+> **Example 21 (Learning a third variable can create information)**  
 >
-> Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$, and let $Z = X + Y \bmod 2$ record whether they differ. The two coins are independent, so $I(X; Y) = 0$ ([Theorem 15](#thm-mutual-information-nonnegative)). Given $Z$, each of $X$ and $Y$ determines the other. The chunk computes the [conditional mutual information](#def-conditional-mutual-information) from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
+> Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$, and let $Z = X + Y \bmod 2$ record whether they differ. The two coins are independent, so $I(X; Y) = 0$ ([Theorem 16](#thm-mutual-information-nonnegative)). Given $Z$, each of $X$ and $Y$ determines the other. The chunk computes the [conditional mutual information](#def-conditional-mutual-information) from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
 >
 > Show code
 >
@@ -1269,7 +1306,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 1
 > ```
 >
-> So $I(X; Y \mid Z) = 1$ [bit](#def-bit), which is nonnegative ([Theorem 19](#thm-conditional-mutual-information-nonnegative)), although $I(X; Y) = 0$.
+> So $I(X; Y \mid Z) = 1$ [bit](#def-bit), which is nonnegative ([Theorem 20](#thm-conditional-mutual-information-nonnegative)), although $I(X; Y) = 0$.
 
 > **NOTE:**
 >
@@ -1279,9 +1316,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 21 (A chain of noisy copies is a Markov chain)**  
+> **Example 22 (A chain of noisy copies is a Markov chain)**  
 >
-> In [Example 17](#exm-entropy-chain-rule-n-copies), each of $X_2$ and $X_3$ is a noisy copy of the variable before it. So $X_3$ depends on $X_1$ only through $X_2$. The chunk builds the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) of $(X_1, X_2, X_3)$ and checks the defining equation of the chain $X_1 \to X_2 \to X_3$ for each value of $X_2$.
+> In [Example 18](#exm-entropy-chain-rule-n-copies), each of $X_2$ and $X_3$ is a noisy copy of the variable before it. So $X_3$ depends on $X_1$ only through $X_2$. The chunk builds the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) of $(X_1, X_2, X_3)$ and checks the defining equation of the chain $X_1 \to X_2 \to X_3$ for each value of $X_2$.
 >
 > Show code
 >
@@ -1339,7 +1376,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 20 (Data processing inequality)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the entropies of $X$, $Y$ and $Z$ are finite, then
+> **Theorem 21 (Data processing inequality)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the entropies of $X$, $Y$ and $Z$ are finite, then
 >
 > $$I(X; Z) \le I(X; Y).$$
 
@@ -1352,7 +1389,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > I(Y, Z; X) &= I(Z; X) + I(Y; X \mid Z).
 > \end{aligned}$$
 >
-> The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables, so $I(Z, Y; X) = I(Y, Z; X)$. By [Lemma 1](#lem-markov-chain-conditional-mutual-information), $I(Z; X \mid Y) = 0$. By [Theorem 19](#thm-conditional-mutual-information-nonnegative), $I(Y; X \mid Z) \ge 0$. Therefore
+> The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables, so $I(Z, Y; X) = I(Y, Z; X)$. By [Lemma 1](#lem-markov-chain-conditional-mutual-information), $I(Z; X \mid Y) = 0$. By [Theorem 20](#thm-conditional-mutual-information-nonnegative), $I(Y; X \mid Z) \ge 0$. Therefore
 >
 > $$\begin{aligned}
 > I(Y; X)
@@ -1364,9 +1401,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 22 (Each extra noisy copy loses information)**  
+> **Example 23 (Each extra noisy copy loses information)**  
 >
-> For the chain $X_1 \to X_2 \to X_3$ in [Example 21](#exm-markov-chain-noisy-copies), the chunk computes the [mutual information](#def-mutual-information) of $X_1$ with $X_2$ and with $X_3$, in [bits](#def-bit). Each variable is a fair coin. The variable $X_3$ differs from $X_1$ when exactly one of the two copies flips, which has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2 \times 0.2 \times 0.8 = 0.32$.
+> For the chain $X_1 \to X_2 \to X_3$ in [Example 22](#exm-markov-chain-noisy-copies), the chunk computes the [mutual information](#def-mutual-information) of $X_1$ with $X_2$ and with $X_3$, in [bits](#def-bit). Each variable is a fair coin. The variable $X_3$ differs from $X_1$ when exactly one of the two copies flips, which has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2 \times 0.2 \times 0.8 = 0.32$.
 >
 > Show code
 >
@@ -1379,7 +1416,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 0.27807191 0.09561854
 > ```
 >
-> Here $I(X_1; X_3) = 0.096$ bits is below $I(X_1; X_2) = 0.278$ bits ([Theorem 20](#thm-data-processing-inequality)).
+> Here $I(X_1; X_3) = 0.096$ bits is below $I(X_1; X_2) = 0.278$ bits ([Theorem 21](#thm-data-processing-inequality)).
 
 ## References
 
