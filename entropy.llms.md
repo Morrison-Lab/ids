@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 17:21:21 (PST)
+Last modified: 2026-11-07 17:24:48 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -389,6 +389,8 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > **Definition 7 (Rényi entropy of order 2 (collision entropy))** The **Rényi entropy of order 2**, also called the **collision entropy** ([Wikipedia contributors 2026](#ref-wikipedia_renyi_entropy)), of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the negative [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), where $\mathbb{P}(X)$ is the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) evaluated at the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) $X$ itself:
 >
 > $$H_2(X) = -\log {\mathbb{E}\mathopen{}\left[\mathbb{P}(X)\right]\mathclose{}}.$$
+>
+> Rényi introduced this case of a family of entropies ([Rényi 1961](#ref-renyi1961measures)).
 
 > **NOTE:**
 >
@@ -1466,6 +1468,8 @@ Leinster, Tom. 2021. *Entropy and Diversity: The Axiomatic Approach*. Cambridge 
 MacKay, David J. C. 2003. *Information Theory, Inference, and Learning Algorithms*. Cambridge University Press.
 
 Quinlan, J. R. 1986. “Induction of Decision Trees.” *Machine Learning* 1 (1): 81–106. <https://doi.org/10.1007/BF00116251>.
+
+Rényi, Alfréd. 1961. “On Measures of Entropy and Information.” In *Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability, Volume 1: Contributions to the Theory of Statistics*, edited by Jerzy Neyman. University of California Press. <https://projecteuclid.org/euclid.bsmsp/1200512181>.
 
 Wikipedia contributors. 2026. *Rényi Entropy — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy>.
 
