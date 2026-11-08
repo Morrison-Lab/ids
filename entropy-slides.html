@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-07 19:19:07 (PST)</p>
+  <p class="date">Last modified: 2026-11-07 19:31:53 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -989,7 +989,7 @@ H(X, Y)
 <div id="exm-joint-conditional-surprisal" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Joint and conditional surprisal of a noisy copy)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> be a noisy copy of <span class="math inline">\(X\)</span>: it equals <span class="math inline">\(X\)</span> with probability <span class="math inline">\(0.8\)</span> and the other value with probability <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> Take the pair of values <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(y = 1\)</span>. The joint <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> is <span class="math inline">\(\mathbb{P}(X=0, Y=1) = 0.1\)</span>, the probability of <span class="math inline">\(X=0\)</span> is <span class="math inline">\(0.5\)</span>, and the conditional probability is <span class="math inline">\(\mathbb{P}(Y=1 \mid X=0) = 0.2\)</span>. <!-- check-term-links: allow --> The chunk computes the three <a href="#/def-surprisal">surprisals</a>, in <a href="#/def-bit">bits</a>.</p>
+<p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> be a noisy copy of <span class="math inline">\(X\)</span>: it equals <span class="math inline">\(X\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.8\)</span> and the other value with probability <span class="math inline">\(0.2\)</span>. Take the pair of values <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(y = 1\)</span>. The joint <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> is <span class="math inline">\(\mathbb{P}(X=0, Y=1) = 0.1\)</span>, the probability of <span class="math inline">\(X=0\)</span> is <span class="math inline">\(0.5\)</span>, and the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob">conditional probability</a> is <span class="math inline">\(\mathbb{P}(Y=1 \mid X=0) = 0.2\)</span>. The chunk computes the three <a href="#/def-surprisal">surprisals</a>, in <a href="#/def-bit">bits</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1001,7 +1001,7 @@ H(X, Y)
 <span id="cb8-6"><a aria-label="6"></a><span class="co">#&gt;    3.321928    1.000000    2.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The <a href="#/def-joint-surprisal">joint surprisal</a> is <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits, the surprisal of <span class="math inline">\(x = 0\)</span> alone is <span class="math inline">\({\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1\)</span> bit, <!-- check-term-links: allow --> and the <a href="#/def-conditional-surprisal">conditional surprisal</a> is <span class="math inline">\({\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322\)</span> bits.</p>
+<p>The <a href="#/def-joint-surprisal">joint surprisal</a> is <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits, the <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x = 0\)</span> alone is <span class="math inline">\({\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1\)</span> <a href="#/def-bit">bit</a>, and the <a href="#/def-conditional-surprisal">conditional surprisal</a> is <span class="math inline">\({\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322\)</span> bits.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1057,7 +1057,7 @@ H(X, Y)
 <span id="cb9-6"><a aria-label="6"></a><span class="co">#&gt; 3.321928 3.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x = 0\)</span> plus the <a href="#/def-conditional-surprisal">conditional surprisal</a> of <span class="math inline">\(y = 1\)</span> given <span class="math inline">\(x = 0\)</span> is <span class="math inline">\(3.322\)</span> <a href="#/def-bit">bits</a>. This sum is the <a href="#/def-joint-surprisal">joint surprisal</a> <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits <!-- check-term-links: allow --> (<a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;9</a>). Subtracting <span class="math inline">\({\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1\)</span> bit from the joint surprisal <!-- check-term-links: allow --> recovers <span class="math inline">\({\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322\)</span> bits (<a href="#/cor-conditional-surprisal-difference" class="quarto-xref">Corollary&nbsp;4</a>).</p>
+<p>The <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(x = 0\)</span> plus the <a href="#/def-conditional-surprisal">conditional surprisal</a> of <span class="math inline">\(y = 1\)</span> given <span class="math inline">\(x = 0\)</span> is <span class="math inline">\(3.322\)</span> <a href="#/def-bit">bits</a>. This sum is the <a href="#/def-joint-surprisal">joint surprisal</a> <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits (<a href="#/thm-surprisal-chain-rule" class="quarto-xref">Theorem&nbsp;9</a>). Subtracting <span class="math inline">\({\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1\)</span> <a href="#/def-bit">bit</a> from the joint surprisal recovers <span class="math inline">\({\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322\)</span> bits (<a href="#/cor-conditional-surprisal-difference" class="quarto-xref">Corollary&nbsp;4</a>).</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1089,7 +1089,7 @@ H(X, Y)
 <span id="cb10-6"><a aria-label="6"></a><span class="co">#&gt; 3.321928 3.321928</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The <a href="#/def-conditional-surprisal">conditional surprisal</a> of <span class="math inline">\(x = 0\)</span> given <span class="math inline">\(y = 1\)</span> plus the <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(y = 1\)</span> is <span class="math inline">\(3.322\)</span> bits. This sum is the <a href="#/def-joint-surprisal">joint surprisal</a> <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits <!-- check-term-links: allow --> (<a href="#/lem-surprisal-chain-rule-reversed" class="quarto-xref">Lemma&nbsp;1</a>).</p>
+<p>The <a href="#/def-conditional-surprisal">conditional surprisal</a> of <span class="math inline">\(x = 0\)</span> given <span class="math inline">\(y = 1\)</span> plus the <a href="#/def-surprisal">surprisal</a> of <span class="math inline">\(y = 1\)</span> is <span class="math inline">\(3.322\)</span> bits. This sum is the <a href="#/def-joint-surprisal">joint surprisal</a> <span class="math inline">\({\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322\)</span> bits (<a href="#/lem-surprisal-chain-rule-reversed" class="quarto-xref">Lemma&nbsp;1</a>).</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1285,7 +1285,7 @@ I(X; Y)
 <div id="exm-mutual-information-noisy-copy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14 (Mutual information of a noisy copy)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> equal <span class="math inline">\(X\)</span> with probability <span class="math inline">\(0.8\)</span> and the other value with probability <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> The joint probabilities are <span class="math inline">\(0.4\)</span> for <span class="math inline">\((0, 0)\)</span> and <span class="math inline">\((1, 1)\)</span> and <span class="math inline">\(0.1\)</span> for <span class="math inline">\((0, 1)\)</span> and <span class="math inline">\((1, 0)\)</span>. <!-- check-term-links: allow --> The chunk computes the <a href="#/def-mutual-information">mutual information</a> in <a href="#/def-bit">bits</a> from the divergence formula in <a href="#/thm-mutual-information-kl" class="quarto-xref">Theorem&nbsp;15</a>. <!-- check-term-links: allow --></p>
+<p>Let <span class="math inline">\(X\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(Y\)</span> equal <span class="math inline">\(X\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.8\)</span> and the other value with probability <span class="math inline">\(0.2\)</span>. The <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution">joint distribution</a> gives probability <span class="math inline">\(0.4\)</span> to <span class="math inline">\((0, 0)\)</span> and <span class="math inline">\((1, 1)\)</span> and <span class="math inline">\(0.1\)</span> to <span class="math inline">\((0, 1)\)</span> and <span class="math inline">\((1, 0)\)</span>. The chunk computes the <a href="#/def-mutual-information">mutual information</a> in <a href="#/def-bit">bits</a> from the divergence formula in <a href="#/thm-mutual-information-kl" class="quarto-xref">Theorem&nbsp;15</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1303,7 +1303,7 @@ I(X; Y)
 <span id="cb12-12"><a aria-label="12"></a><span class="co">#&gt; [1] 0.2780719</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>So <span class="math inline">\(I(X; Y) = 0.278\)</span> bits. <!-- check-term-links: allow --> This matches <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\)</span>, which is <span class="math inline">\(1\)</span> bit minus the entropy of a coin with probabilities <span class="math inline">\(0.8\)</span> and <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> That is <span class="math inline">\(1 - 0.722\)</span> bits.</p>
+<p>So <span class="math inline">\(I(X; Y) = 0.278\)</span> bits. This matches <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\)</span>, which is <span class="math inline">\(1\)</span> <a href="#/def-bit">bit</a> minus the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of a coin with probabilities <span class="math inline">\(0.8\)</span> and <span class="math inline">\(0.2\)</span>. That is <span class="math inline">\(1 - 0.722\)</span> bits.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1392,7 +1392,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <span id="cb14-17"><a aria-label="17"></a><span class="co">#&gt;      0.2780719      0.0000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>So the mutual information of the independent coins is <span class="math inline">\(0\)</span> bits, <!-- check-term-links: allow --> and that of the dependent pair is <span class="math inline">\(0.278\)</span> bits (<a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;17</a>).</p>
+<p>So the mutual information of the independent coins is <span class="math inline">\(0\)</span> <a href="#/def-bit">bits</a>, and that of the dependent pair is <span class="math inline">\(0.278\)</span> bits (<a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;17</a>).</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1424,7 +1424,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <span id="cb15-5"><a aria-label="5"></a><span class="co">#&gt;   1.0000000   0.7219281</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Here <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 0.722\)</span> bits, <!-- check-term-links: allow --> which is below <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1\)</span> bit (<a href="#/cor-conditioning-reduces-entropy" class="quarto-xref">Corollary&nbsp;5</a>). <!-- check-term-links: allow --></p>
+<p>Here <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 0.722\)</span> <a href="#/def-bit">bits</a>, which is below <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1\)</span> bit (<a href="#/cor-conditioning-reduces-entropy" class="quarto-xref">Corollary&nbsp;5</a>).</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1652,7 +1652,7 @@ H(Y \mid X)
 <div id="exm-conditional-mutual-information" class="theorem example">
 <p><span class="theorem-title"><strong>Example 20 (Conditional mutual information along a chain of noisy copies)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>Take the chain of noisy copies <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span> from <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;19</a>. Once <span class="math inline">\(X_2\)</span> is known, <span class="math inline">\(X_1\)</span> adds nothing to the prediction of <span class="math inline">\(X_3\)</span>, <!-- check-term-links: allow --> so <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}\)</span>, and both equal the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> <span class="math inline">\(h\)</span> of a coin with flip probability <span class="math inline">\(0.2\)</span>. <!-- check-term-links: allow --> The chunk computes the <a href="#/def-conditional-mutual-information">conditional mutual information</a>.</p>
+<p>Take the chain of noisy copies <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span> from <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;19</a>. Once <span class="math inline">\(X_2\)</span> is known, <span class="math inline">\(X_1\)</span> adds nothing to the <a href="https://morrison-lab.github.io/pds/expectation.html#def-prediction">prediction</a> of <span class="math inline">\(X_3\)</span>, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}\)</span>, and both equal the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> <span class="math inline">\(h\)</span> of a coin with flip <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>. The chunk computes the <a href="#/def-conditional-mutual-information">conditional mutual information</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1664,7 +1664,7 @@ H(Y \mid X)
 <span id="cb17-6"><a aria-label="6"></a><span class="co">#&gt; [1] 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>So <span class="math inline">\(I(X_1; X_3 \mid X_2) = 0\)</span> bits. <!-- check-term-links: allow --></p>
+<p>So <span class="math inline">\(I(X_1; X_3 \mid X_2) = 0\)</span> <a href="#/def-bit">bits</a>.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1697,7 +1697,7 @@ I(X, Z; Y) - I(Z; Y)
 <div id="exm-mutual-information-chain-rule-copies" class="theorem example">
 <p><span class="theorem-title"><strong>Example 21 (Chain rule for mutual information along a chain of noisy copies)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>For the chain in <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;19</a>, the marginal distribution of <span class="math inline">\(X_3\)</span> is a fair coin, <!-- check-term-links: allow --> so <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1\)</span> <a href="#/def-bit">bit</a>. The chunk computes the <a href="#/def-mutual-information">mutual information</a> of <span class="math inline">\(X_3\)</span> with <span class="math inline">\(X_2\)</span>, and with the pair <span class="math inline">\((X_1, X_2)\)</span>.</p>
+<p>For the chain in <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;19</a>, the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginal distribution</a> of <span class="math inline">\(X_3\)</span> is a fair coin, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1\)</span> <a href="#/def-bit">bit</a>. The chunk computes the <a href="#/def-mutual-information">mutual information</a> of <span class="math inline">\(X_3\)</span> with <span class="math inline">\(X_2\)</span>, and with the pair <span class="math inline">\((X_1, X_2)\)</span>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1711,7 +1711,7 @@ I(X, Z; Y) - I(Z; Y)
 <span id="cb18-8"><a aria-label="8"></a><span class="co">#&gt; 0.2780719 0.2780719</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Here <span class="math inline">\(I(X_2; X_3) = 0.278\)</span> bits <!-- check-term-links: allow --> and <span class="math inline">\(I(X_1, X_2; X_3) = 0.278\)</span> bits. The difference is <span class="math inline">\(I(X_1; X_3 \mid X_2) = 0\)</span> (<a href="#/thm-mutual-information-chain-rule" class="quarto-xref">Theorem&nbsp;20</a>), <!-- check-term-links: allow --> as in <a href="#/exm-conditional-mutual-information" class="quarto-xref">Example&nbsp;20</a>.</p>
+<p>Here <span class="math inline">\(I(X_2; X_3) = 0.278\)</span> <a href="#/def-bit">bits</a> and <span class="math inline">\(I(X_1, X_2; X_3) = 0.278\)</span> bits. The difference is <span class="math inline">\(I(X_1; X_3 \mid X_2) = 0\)</span> (<a href="#/thm-mutual-information-chain-rule" class="quarto-xref">Theorem&nbsp;20</a>), as in <a href="#/exm-conditional-mutual-information" class="quarto-xref">Example&nbsp;20</a>.</p>
 </div>
 </section>
 <section class="slide level2">

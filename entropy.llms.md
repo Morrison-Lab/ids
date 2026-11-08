@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 19:19:07 (PST)
+Last modified: 2026-11-07 19:31:53 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -619,7 +619,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 10 (Joint and conditional surprisal of a noisy copy)**  
 >
-> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with probability $0.8$ and the other value with probability $0.2$. Take the pair of values $x = 0$ and $y = 1$. The joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $\mathbb{P}(X=0, Y=1) = 0.1$, the probability of $X=0$ is $0.5$, and the conditional probability is $\mathbb{P}(Y=1 \mid X=0) = 0.2$. The chunk computes the three [surprisals](#def-surprisal), in [bits](#def-bit).
+> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. Take the pair of values $x = 0$ and $y = 1$. The joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $\mathbb{P}(X=0, Y=1) = 0.1$, the probability of $X=0$ is $0.5$, and the [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) is $\mathbb{P}(Y=1 \mid X=0) = 0.2$. The chunk computes the three [surprisals](#def-surprisal), in [bits](#def-bit).
 >
 > Show code
 >
@@ -632,7 +632,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #>    3.321928    1.000000    2.321928
 > ```
 >
-> The [joint surprisal](#def-joint-surprisal) is ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits, the surprisal of $x = 0$ alone is ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ bit, and the [conditional surprisal](#def-conditional-surprisal) is ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits.
+> The [joint surprisal](#def-joint-surprisal) is ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits, the [surprisal](#def-surprisal) of $x = 0$ alone is ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ [bit](#def-bit), and the [conditional surprisal](#def-conditional-surprisal) is ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits.
 
 > **NOTE:**
 >
@@ -685,7 +685,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 3.321928 3.321928
 > ```
 >
-> The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$ is $3.322$ [bits](#def-bit). This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Theorem 9](#thm-surprisal-chain-rule)). Subtracting ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ bit from the joint surprisal recovers ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits ([Corollary 4](#cor-conditional-surprisal-difference)).
+> The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$ is $3.322$ [bits](#def-bit). This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Theorem 9](#thm-surprisal-chain-rule)). Subtracting ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ [bit](#def-bit) from the joint surprisal recovers ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits ([Corollary 4](#cor-conditional-surprisal-difference)).
 
 > **NOTE:**
 >
@@ -910,7 +910,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 14 (Mutual information of a noisy copy)**  
 >
-> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ equal $X$ with probability $0.8$ and the other value with probability $0.2$. The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$ and $0.1$ for $(0, 1)$ and $(1, 0)$. The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit) from the divergence formula in [Theorem 15](#thm-mutual-information-kl).
+> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ equal $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. The [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) gives probability $0.4$ to $(0, 0)$ and $(1, 1)$ and $0.1$ to $(0, 1)$ and $(1, 0)$. The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit) from the divergence formula in [Theorem 15](#thm-mutual-information-kl).
 >
 > Show code
 >
@@ -929,7 +929,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 0.2780719
 > ```
 >
-> So $I(X; Y) = 0.278$ bits. This matches ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$, which is $1$ bit minus the entropy of a coin with probabilities $0.8$ and $0.2$. That is $1 - 0.722$ bits.
+> So $I(X; Y) = 0.278$ bits. This matches ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$, which is $1$ [bit](#def-bit) minus the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a coin with probabilities $0.8$ and $0.2$. That is $1 - 0.722$ bits.
 
 > **NOTE:**
 >
@@ -1021,7 +1021,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #>      0.2780719      0.0000000
 > ```
 >
-> So the mutual information of the independent coins is $0$ bits, and that of the dependent pair is $0.278$ bits ([Theorem 17](#thm-mutual-information-nonnegative)).
+> So the mutual information of the independent coins is $0$ [bits](#def-bit), and that of the dependent pair is $0.278$ bits ([Theorem 17](#thm-mutual-information-nonnegative)).
 
 > **NOTE:**
 >
@@ -1055,7 +1055,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #>   1.0000000   0.7219281
 > ```
 >
-> Here ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 0.722$ bits, which is below ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bit ([Corollary 5](#cor-conditioning-reduces-entropy)).
+> Here ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = 0.722$ [bits](#def-bit), which is below ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bit ([Corollary 5](#cor-conditioning-reduces-entropy)).
 
 > **NOTE:**
 >
@@ -1244,7 +1244,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 20 (Conditional mutual information along a chain of noisy copies)**  
 >
-> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 19](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the prediction of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip probability $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
+> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 19](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the [prediction](https://morrison-lab.github.io/pds/expectation.html#def-prediction) of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
 >
 > Show code
 >
@@ -1257,7 +1257,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 0
 > ```
 >
-> So $I(X_1; X_3 \mid X_2) = 0$ bits.
+> So $I(X_1; X_3 \mid X_2) = 0$ [bits](#def-bit).
 
 > **NOTE:**
 >
@@ -1288,7 +1288,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 21 (Chain rule for mutual information along a chain of noisy copies)**  
 >
-> For the chain in [Example 19](#exm-entropy-chain-rule-n-copies), the marginal distribution of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
+> For the chain in [Example 19](#exm-entropy-chain-rule-n-copies), the [marginal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
 >
 > Show code
 >
@@ -1303,7 +1303,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 0.2780719 0.2780719
 > ```
 >
-> Here $I(X_2; X_3) = 0.278$ bits and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 20](#thm-mutual-information-chain-rule)), as in [Example 20](#exm-conditional-mutual-information).
+> Here $I(X_2; X_3) = 0.278$ [bits](#def-bit) and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 20](#thm-mutual-information-chain-rule)), as in [Example 20](#exm-conditional-mutual-information).
 
 > **NOTE:**
 >
