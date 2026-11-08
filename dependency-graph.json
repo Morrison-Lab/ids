@@ -679,6 +679,16 @@
    "url": "https://morrison-lab.github.io/mcs/functions.html#def-finite-set"
   },
   {
+   "id": "mcs/functions#def-image",
+   "site": "mcs",
+   "page": "functions",
+   "div": "def-image",
+   "kind": "def",
+   "title": "image",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/functions.html#def-image"
+  },
+  {
    "id": "mcs/functions#def-sequence",
    "site": "mcs",
    "page": "functions",
@@ -699,6 +709,26 @@
    "url": "https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction"
   },
   {
+   "id": "mcs/number-systems#def-positive-integer",
+   "site": "mcs",
+   "page": "number-systems",
+   "div": "def-positive-integer",
+   "kind": "def",
+   "title": "positive integer",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer"
+  },
+  {
+   "id": "mcs/sets#def-set",
+   "site": "mcs",
+   "page": "sets",
+   "div": "def-set",
+   "kind": "def",
+   "title": "set",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/sets.html#def-set"
+  },
+  {
    "id": "mcs/sets#def-union",
    "site": "mcs",
    "page": "sets",
@@ -707,6 +737,16 @@
    "title": "union",
    "external": true,
    "url": "https://morrison-lab.github.io/mcs/sets.html#def-union"
+  },
+  {
+   "id": "mds/algebra-basics#def-maximum",
+   "site": "mds",
+   "page": "algebra-basics",
+   "div": "def-maximum",
+   "kind": "def",
+   "title": "maximum",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum"
   },
   {
    "id": "mds/algebra-exponentials#def-exponential-function",
@@ -739,6 +779,26 @@
    "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log"
   },
   {
+   "id": "mds/algebra-exponentials#def-polynomial",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-polynomial",
+   "kind": "def",
+   "title": "polynomial",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-polynomial"
+  },
+  {
+   "id": "mds/algebra-exponentials#def-polynomial-degree",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-polynomial-degree",
+   "kind": "def",
+   "title": "polynomial degree",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-polynomial-degree"
+  },
+  {
    "id": "mds/algebra-sums#def-convex-function",
    "site": "mds",
    "page": "algebra-sums",
@@ -767,6 +827,76 @@
    "title": "jensen",
    "external": true,
    "url": "https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen"
+  },
+  {
+   "id": "mds/linear-algebra-matrices#def-linear-map",
+   "site": "mds",
+   "page": "linear-algebra-matrices",
+   "div": "def-linear-map",
+   "kind": "def",
+   "title": "linear map",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-matrices.html#def-linear-map"
+  },
+  {
+   "id": "mds/linear-algebra-matrices#def-matrix",
+   "site": "mds",
+   "page": "linear-algebra-matrices",
+   "div": "def-matrix",
+   "kind": "def",
+   "title": "matrix",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-matrices.html#def-matrix"
+  },
+  {
+   "id": "mds/linear-algebra-subspaces#def-dimension",
+   "site": "mds",
+   "page": "linear-algebra-subspaces",
+   "div": "def-dimension",
+   "kind": "def",
+   "title": "dimension",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-dimension"
+  },
+  {
+   "id": "mds/linear-algebra-subspaces#def-rank",
+   "site": "mds",
+   "page": "linear-algebra-subspaces",
+   "div": "def-rank",
+   "kind": "def",
+   "title": "rank",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-rank"
+  },
+  {
+   "id": "mds/linear-algebra-subspaces#def-subspace",
+   "site": "mds",
+   "page": "linear-algebra-subspaces",
+   "div": "def-subspace",
+   "kind": "def",
+   "title": "subspace",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-subspace"
+  },
+  {
+   "id": "mds/linear-algebra-vectors#def-column-vector",
+   "site": "mds",
+   "page": "linear-algebra-vectors",
+   "div": "def-column-vector",
+   "kind": "def",
+   "title": "column vector",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-column-vector"
+  },
+  {
+   "id": "mds/linear-algebra-vectors#def-scalar",
+   "site": "mds",
+   "page": "linear-algebra-vectors",
+   "div": "def-scalar",
+   "kind": "def",
+   "title": "scalar",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-scalar"
   },
   {
    "id": "mds/optimization-convexity#cor-log-below-tangent",
@@ -1007,6 +1137,16 @@
    "title": "realization",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-realization"
+  },
+  {
+   "id": "pds/random-variables#def-uniform",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-uniform",
+   "kind": "def",
+   "title": "uniform",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-uniform"
   }
  ],
  "edges": [
@@ -1015,8 +1155,24 @@
    "ids/channel-capacity#def-channel"
   ],
   [
+   "ids/channel-capacity#def-binary-erasure-channel",
+   "pds/probability-basics#def-probability"
+  ],
+  [
    "ids/channel-capacity#def-binary-symmetric-channel",
    "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#def-binary-symmetric-channel",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/channel-capacity#def-channel",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/channel-capacity#def-channel",
+   "pds/random-variables#def-pmf"
   ],
   [
    "ids/channel-capacity#def-channel-capacity",
@@ -1031,6 +1187,22 @@
    "ids/entropy#def-mutual-information"
   ],
   [
+   "ids/channel-capacity#def-channel-capacity",
+   "mds/algebra-basics#def-maximum"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "pds/random-variables#def-joint-distribution"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "pds/random-variables#def-pmf"
+  ],
+  [
    "ids/channel-capacity#def-channel-code",
    "ids/channel-capacity#def-channel"
   ],
@@ -1043,12 +1215,28 @@
    "ids/channel-capacity#def-channel-code"
   ],
   [
+   "ids/channel-capacity#def-maximal-probability-of-error",
+   "pds/probability-basics#def-probability"
+  ],
+  [
    "ids/channel-capacity#thm-bsc-capacity",
    "ids/channel-capacity#def-binary-entropy"
   ],
   [
    "ids/channel-capacity#thm-bsc-capacity",
    "ids/channel-capacity#def-binary-symmetric-channel"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/channel-capacity#def-channel-capacity"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/entropy#def-bit"
   ],
   [
    "ids/channel-capacity#thm-bsc-capacity",
@@ -1061,6 +1249,18 @@
   [
    "ids/channel-capacity#thm-bsc-capacity",
    "ids/entropy#thm-mutual-information-reduction"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "mds/algebra-basics#def-maximum"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "pds/random-variables#def-pmf"
   ],
   [
    "ids/channel-capacity#thm-channel-coding",
@@ -1164,6 +1364,14 @@
   ],
   [
    "ids/entropy#def-bit",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#def-bit",
    "pds/probability-basics#def-probability"
   ],
   [
@@ -1223,6 +1431,22 @@
    "pds/expectation#def-expectation"
   ],
   [
+   "ids/entropy#def-information-gain",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-joint-entropy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-joint-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-joint-entropy",
+   "pds/random-variables#def-joint-pmf"
+  ],
+  [
    "ids/entropy#def-joint-surprisal",
    "ids/entropy#def-surprisal"
   ],
@@ -1261,6 +1485,14 @@
   [
    "ids/entropy#def-nat",
    "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "mds/algebra-exponentials#def-natural-log"
   ],
   [
    "ids/entropy#def-nat",
@@ -1345,6 +1577,10 @@
   [
    "ids/entropy#def-renyi-entropy",
    "pds/random-variables#def-random-variable"
+  ],
+  [
+   "ids/entropy#def-surprisal",
+   "mds/algebra-exponentials#def-logarithm"
   ],
   [
    "ids/entropy#def-surprisal",
@@ -1839,6 +2075,22 @@
    "pds/random-variables#def-discrete-rv"
   ],
   [
+   "ids/error-correcting-codes#def-block-code",
+   "mcs/functions#def-image"
+  ],
+  [
+   "ids/error-correcting-codes#def-block-code",
+   "mcs/number-systems#def-positive-integer"
+  ],
+  [
+   "ids/error-correcting-codes#def-block-code",
+   "mcs/sets#def-set"
+  ],
+  [
+   "ids/error-correcting-codes#def-hadamard-code",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
    "ids/error-correcting-codes#def-hamming-distance",
    "ids/error-correcting-codes#def-block-code"
   ],
@@ -1851,8 +2103,40 @@
    "ids/error-correcting-codes#def-hamming-distance"
   ],
   [
+   "ids/error-correcting-codes#def-linear-code",
+   "mcs/sets#def-set"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mds/linear-algebra-matrices#def-matrix"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mds/linear-algebra-subspaces#def-dimension"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mds/linear-algebra-subspaces#def-rank"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mds/linear-algebra-subspaces#def-subspace"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mds/linear-algebra-vectors#def-column-vector"
+  ],
+  [
    "ids/error-correcting-codes#def-locally-decodable",
    "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#def-locally-decodable",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/error-correcting-codes#def-reed-solomon-code",
+   "mds/algebra-exponentials#def-polynomial"
   ],
   [
    "ids/error-correcting-codes#thm-distance-corrects-errors",
@@ -1879,8 +2163,24 @@
    "ids/error-correcting-codes#def-weight"
   ],
   [
+   "ids/error-correcting-codes#thm-hadamard-distance",
+   "mds/linear-algebra-matrices#def-linear-map"
+  ],
+  [
    "ids/error-correcting-codes#thm-hadamard-local-decoding",
    "ids/error-correcting-codes#def-hadamard-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-local-decoding",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-local-decoding",
+   "pds/random-variables#def-uniform"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "ids/error-correcting-codes#def-hamming-distance"
   ],
   [
    "ids/error-correcting-codes#thm-reed-solomon-distance",
@@ -1895,12 +2195,40 @@
    "ids/error-correcting-codes#thm-singleton-bound"
   ],
   [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "mds/algebra-exponentials#def-polynomial"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "mds/algebra-exponentials#def-polynomial-degree"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "mds/linear-algebra-matrices#def-linear-map"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "mds/linear-algebra-subspaces#def-subspace"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "mds/linear-algebra-vectors#def-scalar"
+  ],
+  [
    "ids/error-correcting-codes#thm-singleton-bound",
    "ids/error-correcting-codes#def-block-code"
   ],
   [
    "ids/error-correcting-codes#thm-singleton-bound",
    "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/source-coding#def-code",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/source-coding#def-code",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/source-coding#def-expected-length",
@@ -1917,6 +2245,10 @@
   [
    "ids/source-coding#def-uniquely-decodable",
    "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#def-uniquely-decodable",
+   "mcs/functions#def-sequence"
   ],
   [
    "ids/source-coding#thm-cross-entropy-decomposition",

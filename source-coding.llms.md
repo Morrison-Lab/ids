@@ -14,17 +14,17 @@ Code
 
 Published
 
-Last modified: 2026-11-08 15:26:25 (PST)
+Last modified: 2026-11-08 15:30:43 (PST)
 
 ## 1 Codes
 
 > **NOTE:**
 >
-> **Definition 1 (Binary code)** Let $X$ be a discrete random variable. A **binary code** for $X$ assigns each value $x$ a *codeword*, a finite string of binary digits, of length $\ell(x)$.
+> **Definition 1 (Binary code)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv). A **binary code** for $X$ assigns each value $x$ a *codeword*, a string of $\ell(x)$ [bits](entropy.llms.md#def-bit).
 
 > **NOTE:**
 >
-> **Definition 2 (Uniquely decodable code)** A [binary code](#def-code) is **uniquely decodable** if every finite sequence of codewords, written one after another, can be split back into codewords in only one way.
+> **Definition 2 (Uniquely decodable code)** A [binary code](#def-code) is **uniquely decodable** if every finite [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) of codewords, written one after another, can be split back into codewords in only one way.
 
 > **NOTE:**
 >
@@ -80,7 +80,7 @@ Last modified: 2026-11-08 15:26:25 (PST)
 
 > **NOTE:**
 >
-> *Remark 1* (Short codewords for common values). A code with a small [expected length](#def-expected-length) gives frequent values short codewords and rare values long ones, since each value’s length counts in $L$ in proportion to its probability.
+> *Remark 1* (Short codewords for common values). A code with a small [expected length](#def-expected-length) gives frequent values short codewords and rare values long ones, since each value’s $\ell(x)$ counts in $L$ weighted by its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
 
 ## 2 The source coding theorem
 

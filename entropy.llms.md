@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 15:26:25 (PST)
+Last modified: 2026-11-08 15:30:43 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -26,11 +26,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $$s(x) \stackrel{\text{def}}{=}-\log \mathbb{P}(X=x).$$
 >
-> With base-2 logarithms, surprisal is also called the **Shannon information content** of the value $x$ ([MacKay 2003, sec. 2.4](#ref-mackay2003information)).
+> With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), surprisal is also called the **Shannon information content** of the value $x$ ([MacKay 2003, sec. 2.4](#ref-mackay2003information)).
 
 > **NOTE:**
 >
-> **Definition 2 (Bit (shannon))** A **bit**, also called a **shannon** (symbol Sh) ([International Electrotechnical Commission 2008](#ref-iec80000132008)), is the unit of information when the logarithm in [surprisal](#def-surprisal), and in every quantity built from it, has base $2$.
+> **Definition 2 (Bit (shannon))** A **bit**, also called a **shannon** (symbol Sh) ([International Electrotechnical Commission 2008](#ref-iec80000132008)), is the unit of information when the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) in [surprisal](#def-surprisal), and in every quantity built from it, has base $2$.
 >
 > One bit is the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$: for a value $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
 >
@@ -40,13 +40,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &\iff \mathbb{P}(X=x) = 2^{-1} = \tfrac{1}{2}.
 > \end{aligned}$$
 >
-> In words, a bit is the surprisal of the outcome of one binary trial whose two outcomes are equally likely, such as one toss of a fair coin.
+> In words, a bit is the surprisal of the [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) of one trial whose two [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) are equally likely, such as one toss of a fair coin.
 
 > **NOTE:**
 >
-> **Example 1 (Counting bits with fair coins)** One toss of a fair coin has $2$ equally likely outcomes, and one binary digit is enough to record which one happened. Two tosses have $4$ outcomes, and two binary digits record them. In general, $k$ tosses have $n = 2^k$ equally likely outcomes, and $k = \log_2 n$ binary digits record them.
+> **Example 1 (Counting bits with fair coins)** One toss of a fair coin has $2$ equally likely [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome), and one binary digit is enough to record which one happened. Two tosses have $4$ outcomes, and two binary digits record them. In general, $k$ tosses have $n = 2^k$ equally likely outcomes, and $k = \log_2 n$ binary digits record them.
 >
-> Each of those $n$ outcomes has probability $p = 1/n$, so
+> Each of those $n$ outcomes has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p = 1/n$, so
 >
 > $$\begin{aligned}
 > k
@@ -55,7 +55,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= -\log_2 p,
 > \end{aligned}$$
 >
-> which is the [surprisal](#def-surprisal) of the outcome, in [bits](#def-bit).
+> which is the [surprisal](#def-surprisal) of any one of them, in [bits](#def-bit).
 >
 > Ten tosses that all land heads have probability $2^{-10}$, so
 >
@@ -114,7 +114,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 3 (Nat)** A **nat** is the unit of information when the logarithm in [surprisal](#def-surprisal), and in every quantity built from it, is the natural logarithm.
+> **Definition 3 (Nat)** A **nat** is the unit of information when the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) in [surprisal](#def-surprisal), and in every quantity built from it, is the [natural logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log).
 >
 > One nat is the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/\text{e}$: for a value $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
 >
@@ -126,7 +126,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 3 (One fair coin toss in nats)** By [Example 1](#exm-surprisal-coins) with $k = 1$, one toss of a fair coin landing heads has a [surprisal](#def-surprisal) of $1$ [bit](#def-bit). In [nats](#def-nat), the same outcome has a surprisal of
+> **Example 3 (One fair coin toss in nats)** By [Example 1](#exm-surprisal-coins) with $k = 1$, one toss of a fair coin landing heads has a [surprisal](#def-surprisal) of $1$ [bit](#def-bit). In [nats](#def-nat), the same [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) has a surprisal of
 >
 > $$\begin{aligned}
 > s(\text{heads})
@@ -314,7 +314,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $${\mathrm{PP}\mathopen{}\left(X\right)\mathclose{}} \stackrel{\text{def}}{=}b^{{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}}.$$
 >
-> With base-2 logarithms, ${\mathrm{PP}\mathopen{}\left(X\right)\mathclose{}} = 2^{{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}}$ with ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ in [bits](#def-bit). With [natural logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log), ${\mathrm{PP}\mathopen{}\left(X\right)\mathclose{}} = \text{e}^{{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}}$ with ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ in [nats](#def-nat). The two give the same value.
+> With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), ${\mathrm{PP}\mathopen{}\left(X\right)\mathclose{}} = 2^{{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}}$ with ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ in [bits](#def-bit). With [natural logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log), ${\mathrm{PP}\mathopen{}\left(X\right)\mathclose{}} = \text{e}^{{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}}$ with ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ in [nats](#def-nat). The two give the same value.
 
 > **NOTE:**
 >
@@ -490,7 +490,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 8 (Joint entropy)** Let $X$ and $Y$ be discrete random variables with joint probability mass function $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. Their **joint entropy** is the entropy of the pair $(X, Y)$:
+> **Definition 8 (Joint entropy)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. Their **joint entropy** is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the pair $(X, Y)$:
 >
 > $$H(X, Y) \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[-\log p(X, Y)\right]\mathclose{}}.$$
 
@@ -862,7 +862,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 13 (Mutual information identities with a noisy copy)**  
 >
-> Take the fair coin $X$ and its noisy copy $Y$ from [Example 9](#exm-entropy-chain-rule-noisy-copy). The chunk computes the entropies from the joint probabilities in [bits](#def-bit), then the [mutual information](#def-mutual-information) in four ways.
+> Take the fair coin $X$ and its noisy copy $Y$ from [Example 9](#exm-entropy-chain-rule-noisy-copy). The chunk computes the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) from the joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) in [bits](#def-bit), then the [mutual information](#def-mutual-information) in four ways.
 >
 > Show code
 >
@@ -1105,11 +1105,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 14 (Information gain)** A decision tree splits the points at a node into branches. The **information gain** of the split is the entropy of the class labels at the node, minus the entropy of the labels in each branch, weighted by the share of the node’s points that branch holds ([Quinlan 1986](#ref-quinlan1986induction)).
+> **Definition 14 (Information gain)** A decision tree splits the points at a node into branches. The **information gain** of the split is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the labels at the node, minus the entropy of the labels in each branch, weighted by the share of the node’s points that branch holds ([Quinlan 1986](#ref-quinlan1986induction)).
 
 > **NOTE:**
 >
-> *Remark 16* (Information gain is mutual information). Draw one point uniformly at random from the node of [Definition 14](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the entropy at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the [information gain](#def-information-gain) is the [mutual information](#def-mutual-information) ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$.
+> *Remark 16* (Information gain is mutual information). Draw one point from the node of [Definition 14](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the [information gain](#def-information-gain) is the [mutual information](#def-mutual-information) ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$.
 
 > **NOTE:**
 >
@@ -1122,7 +1122,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > | B     | yes    | $5$ | $10$  |
 > |       | no     | $5$ | $0$   |
 >
-> Draw one point uniformly at random from the node, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 16](#rem-information-gain)). The [information gain](#def-information-gain) of each split is then ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$. Use base-2 logarithms throughout.
+> Draw one point from the node, each equally likely, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 16](#rem-information-gain)). The [information gain](#def-information-gain) of each split is then ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$. Use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) throughout.
 >
 > 1.  Compute $H(Y)$.
 >
@@ -1142,7 +1142,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >     &= 1 \text{ bit}.
 >     \end{aligned}$$
 >
-> 2.  A branch holding one color only has entropy $0$. For split A, the “no” branch holds $6$ red and $10$ green points of $16$:
+> 2.  A branch holding one color only has [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $0$. For split A, the “no” branch holds $6$ red and $10$ green points of $16$:
 >
 >     $$\begin{aligned}
 >     H(Y \mid X = \text{no})
@@ -1178,10 +1178,10 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > 3.  By [Theorem 11](#thm-mutual-information-reduction), the gain is $H(Y) - H(Y \mid X)$:
 >
->     - split A: $1 - 0.764 = 0.236$ bits
+>     - split A: $1 - 0.764 = 0.236$ [bits](entropy.llms.md#def-bit)
 >     - split B: $1 - 0.689 = 0.311$ bits
 >
->     Split B has the larger gain. Both splits isolate a branch of one color, so the gain depends on the other, mixed branch. B’s mixed branch, $5$ red against $10$ green, is more lopsided than A’s $6$ against $10$, so it has less entropy, and it also holds fewer of the points, $15$ against $16$, so its entropy gets less weight.
+>     Split B has the larger gain. Both splits isolate a branch of one color, so the gain depends on the other, mixed branch. B’s mixed branch, $5$ red against $10$ green, is more lopsided than A’s $6$ against $10$, so it has less entropy, and it also holds fewer of the points, $15$ against $16$, so its entropy counts for less.
 
 ## 4 Chain rules
 
