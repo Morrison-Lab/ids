@@ -1,11 +1,11 @@
 ::: {#rem-collision-entropy}
 #### Two ways to summarize a random variable by its probabilities
 
-[Entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [surprisal](#def-surprisal) $-\log \P(X)$.
-Taking the expectation of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\P(X)$ itself summarizes $X$ differently.
+[Entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [surprisal](#def-surprisal) $-\log \Pf{X}$.
+Taking the expectation of the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\Pf{X}$ itself summarizes $X$ differently.
 For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
 @thm-expected-probability-collision identifies that expectation with the [collision probability](#def-collision-probability),
-so the [collision entropy](#def-renyi-entropy) is $H_2(X) = -\log \P(X = X')$.
+so the [collision entropy](#def-renyi-entropy) is $\renyientropyf{2}{X} = -\log \Pf{X = X'}$.
 
 For a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) with [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) $\p$,
 the analogue is $\E{\p(X)} = \int \p(x)^2\,dx$.
