@@ -5,7 +5,7 @@ Let $\ffield{q}$ be a finite field, let $k \le n \le q$,
 and fix $n$ distinct points $a_1, \ldots, a_n \in \ffield{q}$.
 The **Reed--Solomon code** sends a message
 $m = (m_0, \ldots, m_{k-1}) \in \ffield{q}^k$
-to the values of the polynomial
+to the values of the [polynomial](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-polynomial)
 $f_m(t) \eqdef m_0 + m_1 t + \cdots + m_{k-1} t^{k-1}$
 at the $n$ points:
 

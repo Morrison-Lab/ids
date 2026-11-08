@@ -2,7 +2,7 @@
 #### Uniquely decodable code
 
 A [binary code](#def-code) is **uniquely decodable**
-if every finite sequence of codewords, written one after another,
+if every finite [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) of codewords, written one after another,
 can be split back into codewords in only one way.
 
 :::
