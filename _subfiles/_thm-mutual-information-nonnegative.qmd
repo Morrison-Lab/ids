@@ -21,7 +21,7 @@ The mass function $p(x) \, p(y)$ is positive wherever $p(x, y)$ is positive,
 because each marginal is at least $p(x, y)$ there.
 The [divergence](source-coding.qmd#thm-kl-divergence-nonnegative) is nonnegative,
 with equality exactly when the two mass functions agree.
-The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) $\log_b t$ equals $\ln t / \ln b$,
+The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) satisfies $\log_b t = \ln t / \ln b$,
 so the divergence with $\log_b$ is the divergence with $\log_2$ times $\ln 2 / \ln b$,
 which has the same sign and the same zero.
 Hence $I(X; Y) \ge 0$,
