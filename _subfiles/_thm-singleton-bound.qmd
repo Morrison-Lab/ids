@@ -2,7 +2,7 @@
 #### Singleton bound
 
 Every [block code](#def-block-code) over an alphabet of $q$ symbols,
-with message length $k$, block length $n$ and
+with message length $k$, [block length](#def-block-code) $n$ and
 [minimum distance](#def-hamming-distance) $d$,
 satisfies $d \le n - k + 1$.
 
