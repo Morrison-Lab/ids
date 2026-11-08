@@ -4,9 +4,8 @@
 For $X$ and $Y$ as in @def-joint-entropy,
 write $p(y \mid x) \eqdef \P(Y=y \mid X=x)$.
 The **entropy of $Y$ given $X=x$**, for a value $x$ with $\P(X=x) > 0$, is
+the expectation of $-\log p(Y \mid x)$ given $X=x$:
 
-$$H(Y \mid X=x) \eqdef -\sum_{y} p(y \mid x) \log p(y \mid x),$$
-
-where the sum runs over the values $y$ with $p(y \mid x) > 0$.
+$$H(Y \mid X=x) \eqdef \condE{-\log p(Y \mid x)}{X=x}.$$
 
 :::

@@ -170,6 +170,10 @@ in *Probability for Data Science*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_thm-conditional-entropy-average.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_thm-entropy-chain-rule.qmd >}}
 
 {{< slidebreak >}}

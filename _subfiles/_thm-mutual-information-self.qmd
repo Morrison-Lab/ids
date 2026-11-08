@@ -11,13 +11,13 @@ $$I(X; X) = \entropyf{X}.$$
 ::: {.proof}
 
 Given $X=x$, the variable $X$ equals $x$ with probability $1$, <!-- check-term-links: allow -->
-so $p(x \mid x) = 1$ and $p(x' \mid x) = 0$ for every $x' \ne x$.
-Only the term with $x' = x$ contributes to the entropy of $X$ given $X=x$, <!-- check-term-links: allow -->
-and it is $-1 \cdot \log 1 = 0$:
+so $p(x \mid x) = 1$.
+Hence $-\log p(X \mid x) = -\log 1 = 0$ given $X=x$,
+and the expectation of this constant is $0$:
 
 $$\entropyf{X \mid X=x} = 0.$$
 
-Averaging over the distribution of $X$ gives <!-- check-term-links: allow -->
+By @thm-conditional-entropy-average,
 
 $$
 \begin{aligned}

@@ -5,8 +5,6 @@ Let $X$ and $Y$ be discrete random variables with joint
 probability mass function $p(x, y) \eqdef \P(X=x, Y=y)$.
 Their **joint entropy** is the entropy of the pair $(X, Y)$:
 
-$$H(X, Y) \eqdef -\sum_{x, y} p(x, y) \log p(x, y),$$
-
-where the sum runs over the pairs with $p(x, y) > 0$.
+$$H(X, Y) \eqdef \E{-\log p(X, Y)}.$$
 
 :::
