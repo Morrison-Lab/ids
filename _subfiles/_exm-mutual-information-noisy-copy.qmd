@@ -23,7 +23,7 @@ mutual_information <- sum(terms)
 mutual_information
 ```
 
-So $I(X; Y) = `r round(mutual_information, 3)`$ bits.
+So $\mutinfof{X}{Y} = `r round(mutual_information, 3)`$ bits.
 This matches $\entropyf{Y} - \entropyf{Y \mid X}$,
 which is $1$ [bit](#def-bit) minus the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a coin with probabilities $0.8$ and $0.2$.
 That is $1 - `r round(-0.8 * log2(0.8) - 0.2 * log2(0.2), 3)`$ bits.

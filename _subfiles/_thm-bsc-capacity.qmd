@@ -16,7 +16,7 @@ A uniformly distributed input achieves it.
 Fix any input distribution.
 By [mutual information as a reduction in entropy](entropy.qmd#thm-mutual-information-reduction),
 
-$$I(X; Y) = H(Y) - H(Y \mid X).$$
+$$\mutinfof{X}{Y} = H(Y) - H(Y \mid X).$$
 
 Given $X = x$, the output equals $x$ with probability $1 - \epsilon$
 and differs from it with probability $\epsilon$,
@@ -31,7 +31,7 @@ Therefore
 
 $$
 \begin{aligned}
-I(X; Y)
+\mutinfof{X}{Y}
 &= H(Y) - h(\epsilon) \\
 &\le 1 - h(\epsilon).
 \end{aligned}
@@ -48,7 +48,7 @@ $$
 \end{aligned}
 $$
 
-so $H(Y) = 1$ bit and $I(X; Y) = 1 - h(\epsilon)$.
+so $H(Y) = 1$ bit and $\mutinfof{X}{Y} = 1 - h(\epsilon)$.
 The bound is attained, so it is the maximum $C$.
 
 :::

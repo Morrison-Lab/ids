@@ -5,7 +5,7 @@ If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain)
 and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$, $Y$ and $Z$ are finite,
 then
 
-$$I(Z; X \mid Y) = 0.$$
+$$\cmutinfof{Z}{X}{Y} = 0.$$
 
 :::
 
@@ -26,7 +26,7 @@ By @def-conditional-mutual-information,
 
 $$
 \begin{aligned}
-I(Z; X \mid Y)
+\cmutinfof{Z}{X}{Y}
 &= \entropyf{X \mid Y} - \entropyf{X \mid Z, Y} \\
 &= \entropyf{X \mid Y} - \entropyf{X \mid Y, Z} \\
 &= 0.

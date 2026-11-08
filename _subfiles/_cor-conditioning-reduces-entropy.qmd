@@ -15,7 +15,7 @@ Equality holds exactly when $X$ and $Y$ are
 
 By @thm-mutual-information-reduction,
 
-$$\entropyf{Y} - \entropyf{Y \mid X} = I(X; Y).$$
+$$\entropyf{Y} - \entropyf{Y \mid X} = \mutinfof{X}{Y}.$$
 
 By @thm-mutual-information-nonnegative,
 the right side is nonnegative,
