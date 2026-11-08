@@ -9,7 +9,7 @@ behave differently from their counterparts for a [discrete random variable](http
 
 - **Sign.**
   A density can exceed $1$,
-  so the [surprisal](#def-surprisal) $\surprisalf{x}$ and the differential entropy can be negative,
+  so the [surprisal](#def-surprisal) $\surprisalf{x}$ and the differential entropy can fall below $0$,
   as in the
   [uniform example](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform)
   [@cover2006elements, section 8.1].
@@ -21,7 +21,7 @@ behave differently from their counterparts for a [discrete random variable](http
   Adding a constant does not:
   $\entropyf{X + c} = \entropyf{X}$ [@cover2006elements, Theorem 8.6.3].
 - **Not what the entropy approaches.**
-  Round $X$ to bins of width $\Delta$,
+  Round $X$ to intervals of width $\Delta$,
   which gives a discrete random variable $X^\Delta$.
   Then $\entropyf{X^\Delta} + \log \Delta \to \entropyf{X}$ as $\Delta \to 0$ [@cover2006elements, Theorem 8.3.1].
   The entropy $\entropyf{X^\Delta}$ itself grows indefinitely as $\Delta \to 0$,
