@@ -3,13 +3,13 @@
 
 Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, \ldots, x_n$,
 with $q(x) > 0$ wherever $p(x) > 0$.
-Write $H_2(p)$ for the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $p$,
-$H_2(p, q)$ for the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$,
-and $D_2(p \,\|\, q)$ for the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from $p$,
+Write $\entropyf{p}$ for the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $p$,
+$\crossentropyf{p}{q}$ for the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$,
+and $\kldivf{p}{q}$ for the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from $p$,
 all with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 Then
 
-$$H_2(p, q) = H_2(p) + D_2(p \,\|\, q).$$
+$$\crossentropyf{p}{q} = \entropyf{p} + \kldivf{p}{q}.$$
 
 :::
 
@@ -30,6 +30,6 @@ $$
 = -\sum_x p(x) \log_2 p(x) + \sum_x p(x) \log_2 \frac{p(x)}{q(x)}.
 $$
 
-Reading left to right, these are $H_2(p, q)$, $H_2(p)$ and $D_2(p \,\|\, q)$.
+Reading left to right, these are $\crossentropyf{p}{q}$, $\entropyf{p}$ and $\kldivf{p}{q}$.
 
 :::

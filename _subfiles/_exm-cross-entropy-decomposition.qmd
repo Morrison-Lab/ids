@@ -21,9 +21,9 @@ c(
 )
 ```
 
-The cross-entropy is $H_2(p, q) = `r round(cross_entropy, 3)`$ bits.
-The entropy is $H_2(p) = `r shannon_entropy`$ bits,
-and the divergence is $D_2(p \,\|\, q) = `r round(divergence, 3)`$ bits.
+The cross-entropy is $\crossentropyf{p}{q} = `r round(cross_entropy, 3)`$ bits.
+The entropy is $\entropyf{p} = `r shannon_entropy`$ bits,
+and the divergence is $\kldivf{p}{q} = `r round(divergence, 3)`$ bits.
 They satisfy @thm-cross-entropy-decomposition:
 `r shannon_entropy` + `r round(divergence, 3)` = `r round(cross_entropy, 3)`.
 

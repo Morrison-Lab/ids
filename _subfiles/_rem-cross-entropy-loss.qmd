@@ -10,9 +10,9 @@ toward the distribution the labels came from.
 
 For a single labeled example,
 let $e$ be the distribution that puts all its mass on the observed label.
-Then $H_2(e) = 0$
+Then $\entropyf{e} = 0$
 ([as for a coin that always lands heads](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-coin)),
-so the example's cross-entropy loss $H_2(e, q)$ equals $D_2(e \,\|\, q)$:
+so the example's cross-entropy loss $\crossentropyf{e}{q}$ equals $\kldivf{e}{q}$:
 every bit the loss reports is a wasted one.
 
 :::
