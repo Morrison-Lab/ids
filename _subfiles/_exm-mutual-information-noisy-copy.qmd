@@ -3,10 +3,10 @@
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 
 Let $X$ be a fair coin toss, coded $0$ or $1$.
-Let $Y$ equal $X$ with probability $0.8$ and the other value with probability $0.2$. <!-- check-term-links: allow -->
-The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$ and $0.1$ for $(0, 1)$ and $(1, 0)$. <!-- check-term-links: allow -->
+Let $Y$ equal $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$.
+The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$ and $0.1$ for $(0, 1)$ and $(1, 0)$.
 The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit)
-from the divergence formula in @thm-mutual-information-kl. <!-- check-term-links: allow -->
+from the divergence formula in @thm-mutual-information-kl.
 
 ```{r}
 #| code-fold: show
@@ -23,9 +23,9 @@ mutual_information <- sum(terms)
 mutual_information
 ```
 
-So $I(X; Y) = `r round(mutual_information, 3)`$ bits. <!-- check-term-links: allow -->
+So $I(X; Y) = `r round(mutual_information, 3)`$ bits.
 This matches $\entropyf{Y} - \entropyf{Y \mid X}$,
-which is $1$ bit minus the entropy of a coin with probabilities $0.8$ and $0.2$. <!-- check-term-links: allow -->
+which is $1$ [bit](#def-bit) minus the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a coin with probabilities $0.8$ and $0.2$.
 That is $1 - `r round(-0.8 * log2(0.8) - 0.2 * log2(0.2), 3)`$ bits.
 
 :::
