@@ -11,9 +11,9 @@ $$\cmutinfof{X}{Y}{Z} \ge 0.$$
 ::: {.proof}
 
 For each value $z$ with $\P(Z=z) > 0$,
-let $I_z(X; Y)$ be the [mutual information](#def-mutual-information) of $X$ and $Y$
+let $\mutinfoatf{z}{X}{Y}$ be the [mutual information](#def-mutual-information) of $X$ and $Y$
 computed from their joint probabilities given $Z=z$,
-so that $I_z(X; Y) = \entropyf{Y \mid Z=z} - \entropyf{Y \mid X, Z=z}$.
+so that $\mutinfoatf{z}{X}{Y} = \entropyf{Y \mid Z=z} - \entropyf{Y \mid X, Z=z}$.
 Applying @def-conditional-entropy to $\entropyf{Y \mid Z}$ and to $\entropyf{Y \mid X, Z}$
 expands each over the values $z$ of $Z$:
 
@@ -22,13 +22,13 @@ $$
 \cmutinfof{X}{Y}{Z}
 &= \entropyf{Y \mid Z} - \entropyf{Y \mid X, Z} \\
 &= \sum_z \P(Z=z) \sb{\entropyf{Y \mid Z=z} - \entropyf{Y \mid X, Z=z}} \\
-&= \sum_z \P(Z=z) \, I_z(X; Y).
+&= \sum_z \P(Z=z) \, \mutinfoatf{z}{X}{Y}.
 \end{aligned}
 $$
 
-Each $I_z(X; Y)$ is nonnegative by @thm-mutual-information-nonnegative.
+Each $\mutinfoatf{z}{X}{Y}$ is nonnegative by @thm-mutual-information-nonnegative.
 Since $\P(Z=z) \ge 0$ as well,
-every summand $\P(Z=z) \, I_z(X; Y)$ is nonnegative,
+every summand $\P(Z=z) \, \mutinfoatf{z}{X}{Y}$ is nonnegative,
 so $\cmutinfof{X}{Y}{Z} \ge 0$.
 
 :::
