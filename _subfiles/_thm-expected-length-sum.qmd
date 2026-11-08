@@ -1,0 +1,30 @@
+:::{#thm-expected-length-sum}
+#### Expected length as a sum over values
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(x) \eqdef \P(X=x)$.
+The [expected length](#def-expected-length) of a [binary code](#def-code) for $X$ is
+
+$$L = \sum_{x} p(x) \, \ell(x).$$
+
+:::
+
+::: {.proof}
+
+The codeword length $\ell(X)$ is a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable)
+whose possible values are the lengths $\ell(x)$.
+By the definition of [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation),
+
+$$L = \sum_{k} k \, \P(\ell(X) = k).$$
+
+The event $\ell(X) = k$ is the union of the disjoint events $X = x$ over the values $x$ with $\ell(x) = k$.
+So $\P(\ell(X) = k) = \sum_{x : \ell(x) = k} p(x)$, and
+
+$$L = \sum_{k} \sum_{x : \ell(x) = k} k \, p(x).$$
+
+On the inner sum $k = \ell(x)$.
+Every value $x$ lies in exactly one inner sum, so the double sum runs once over each value:
+
+$$L = \sum_{x} \ell(x) \, p(x).$$
+
+:::

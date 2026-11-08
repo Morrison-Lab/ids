@@ -1,9 +1,9 @@
 :::{#def-expected-length}
 #### Expected length
 
-The **expected length** of a [binary code](#def-code) for $X$,
-where $X$ has probability mass function $p(x) \eqdef \P(X=x)$, is
+The **expected length** of a [binary code](#def-code) for a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
+is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its codeword length:
 
-$$L \eqdef \E{\ell(X)} = \sum_{x} p(x) \, \ell(x).$$
+$$L \eqdef \E{\ell(X)}.$$
 
 :::
