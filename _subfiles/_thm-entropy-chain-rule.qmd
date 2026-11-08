@@ -1,7 +1,7 @@
 :::{#thm-entropy-chain-rule}
 #### Chain rule for entropy
 
-For discrete random variables $X$ and $Y$,
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
 
 $$H(X, Y) = H(X) + H(Y \mid X).$$
 
