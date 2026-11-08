@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-07 17:14:54 (PST)
+Last modified: 2026-11-07 17:21:21 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
 
@@ -675,6 +675,39 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
+> **Lemma 1 (Chain rule for surprisal with the conditioning reversed)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ and [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ and $y$ with $\mathbb{P}(X=x, Y=y) > 0$,
+>
+> $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x \mid y\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Applying [Theorem 8](#thm-surprisal-chain-rule) with the roles of $X$ and $Y$ swapped gives
+>
+> $${\mathbb{s}\mathopen{}\left(y, x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(y\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(x \mid y\right)\mathclose{}}.$$
+>
+> Both $\mathbb{P}(Y=y, X=x)$ and $\mathbb{P}(X=x, Y=y)$ are the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the same pair of values, so ${\mathbb{s}\mathopen{}\left(y, x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}}$. Substituting this into the display above, and swapping the two summands, gives the claim.
+
+> **NOTE:**
+>
+> **Example 12 (Chain rule for surprisal with the conditioning reversed, for a noisy copy)**  
+>
+> For the pair of values in [Example 10](#exm-joint-conditional-surprisal), $\mathbb{P}(X=0, Y=1) = 0.1$, $\mathbb{P}(Y=1) = 0.5$ and $\mathbb{P}(X=0 \mid Y=1) = 0.2$. The chunk computes the three [surprisals](#def-surprisal) in [bits](#def-bit).
+>
+> Show code
+>
+> ``` r
+> s_xy <- -log2(0.1)
+> s_y <- -log2(0.5)
+> s_x_given_y <- -log2(0.2)
+> c(sum = s_x_given_y + s_y, joint = s_xy)
+> #>      sum    joint 
+> #> 3.321928 3.321928
+> ```
+>
+> The [conditional surprisal](#def-conditional-surprisal) of $x = 0$ given $y = 1$ plus the [surprisal](#def-surprisal) of $y = 1$ is $3.322$ bits. This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Lemma 1](#lem-surprisal-chain-rule-reversed)).
+
+> **NOTE:**
+>
 > *Remark 13* (The chain rule for entropy is the chain rule for surprisal on average). The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a pair is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [joint surprisal](#def-joint-surprisal), and the [conditional entropy](#def-conditional-entropy) is the expectation of the [conditional surprisal](#def-conditional-surprisal):
 >
 > $$\begin{aligned}
@@ -806,7 +839,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 12 (Mutual information identities with a noisy copy)**  
+> **Example 13 (Mutual information identities with a noisy copy)**  
 >
 > Take the fair coin $X$ and its noisy copy $Y$ from [Example 9](#exm-entropy-chain-rule-noisy-copy). The chunk computes the entropies from the joint probabilities in [bits](#def-bit), then the [mutual information](#def-mutual-information) in four ways.
 >
@@ -863,7 +896,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 13 (Mutual information of a noisy copy)**  
+> **Example 14 (Mutual information of a noisy copy)**  
 >
 > Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ equal $X$ with probability $0.8$ and the other value with probability $0.2$. The joint probabilities are $0.4$ for $(0, 0)$ and $(1, 1)$ and $0.1$ for $(0, 1)$ and $(1, 0)$. The chunk computes the [mutual information](#def-mutual-information) in [bits](#def-bit) from the divergence formula in [Theorem 14](#thm-mutual-information-kl).
 >
@@ -916,7 +949,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 14 (Divergence of a biased coin from a fair coin)**  
+> **Example 15 (Divergence of a biased coin from a fair coin)**  
 >
 > Let $p = (0.9, 0.1)$ be the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of a biased coin, and let $q = (0.5, 0.5)$ be a fair coin. The code below computes the divergence both ways, in [bits](entropy.llms.md#def-bit).
 >
@@ -950,9 +983,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 15 (Mutual information of dependent and independent coins)**  
+> **Example 16 (Mutual information of dependent and independent coins)**  
 >
-> For the noisy copy in [Example 13](#exm-mutual-information-noisy-copy), the [mutual information](#def-mutual-information) is positive, because $Y$ depends on $X$. For two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, every joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $0.25$. The chunk computes the mutual information of both pairs.
+> For the noisy copy in [Example 14](#exm-mutual-information-noisy-copy), the [mutual information](#def-mutual-information) is positive, because $Y$ depends on $X$. For two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, every joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $0.25$. The chunk computes the mutual information of both pairs.
 >
 > Show code
 >
@@ -996,9 +1029,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 16 (Learning a noisy copy lowers the entropy)**  
+> **Example 17 (Learning a noisy copy lowers the entropy)**  
 >
-> For the coin $X$ and noisy copy $Y$ in [Example 13](#exm-mutual-information-noisy-copy), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ is $1$ [bit](#def-bit). Given $X$, the variable $Y$ is a coin with probabilities $0.8$ and $0.2$. The chunk computes the [conditional entropy](#def-conditional-entropy) from that coin.
+> For the coin $X$ and noisy copy $Y$ in [Example 14](#exm-mutual-information-noisy-copy), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ is $1$ [bit](#def-bit). Given $X$, the variable $Y$ is a coin with probabilities $0.8$ and $0.2$. The chunk computes the [conditional entropy](#def-conditional-entropy) from that coin.
 >
 > Show code
 >
@@ -1046,7 +1079,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 17 (A fair coin is fully informative about itself)**  
+> **Example 18 (A fair coin is fully informative about itself)**  
 >
 > Let $X$ be a fair coin toss. Its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is $1$ [bit](#def-bit). Given $X$ itself, there is no uncertainty left, so ${\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} = 0$. Hence $I(X; X) = 1 - 0 = 1$ bit ([Theorem 17](#thm-mutual-information-self)), the same as ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
 
@@ -1158,7 +1191,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 18 (Chain rule for entropy along a chain of noisy copies)**  
+> **Example 19 (Chain rule for entropy along a chain of noisy copies)**  
 >
 > Let $X_1$ be a fair coin toss, coded $0$ or $1$. Let $X_2$ be a noisy copy of $X_1$ that flips it with probability $0.2$, and let $X_3$ be a noisy copy of $X_2$ that flips it with probability $0.2$, independently of $X_1$ given $X_2$. The chunk builds the joint probabilities of $(X_1, X_2, X_3)$ and compares their [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), in [bits](#def-bit), with the sum in [Theorem 18](#thm-entropy-chain-rule-n).
 >
@@ -1197,9 +1230,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 19 (Conditional mutual information along a chain of noisy copies)**  
+> **Example 20 (Conditional mutual information along a chain of noisy copies)**  
 >
-> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 18](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the prediction of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip probability $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
+> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 19](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the prediction of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip probability $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
 >
 > Show code
 >
@@ -1241,9 +1274,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 20 (Chain rule for mutual information along a chain of noisy copies)**  
+> **Example 21 (Chain rule for mutual information along a chain of noisy copies)**  
 >
-> For the chain in [Example 18](#exm-entropy-chain-rule-n-copies), the marginal distribution of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
+> For the chain in [Example 19](#exm-entropy-chain-rule-n-copies), the marginal distribution of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
 >
 > Show code
 >
@@ -1258,7 +1291,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 0.2780719 0.2780719
 > ```
 >
-> Here $I(X_2; X_3) = 0.278$ bits and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 19](#thm-mutual-information-chain-rule)), as in [Example 19](#exm-conditional-mutual-information).
+> Here $I(X_2; X_3) = 0.278$ bits and $I(X_1, X_2; X_3) = 0.278$ bits. The difference is $I(X_1; X_3 \mid X_2) = 0$ ([Theorem 19](#thm-mutual-information-chain-rule)), as in [Example 20](#exm-conditional-mutual-information).
 
 > **NOTE:**
 >
@@ -1281,7 +1314,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 21 (Learning a third variable can create information)**  
+> **Example 22 (Learning a third variable can create information)**  
 >
 > Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$, and let $Z = X + Y \bmod 2$ record whether they differ. The two coins are independent, so $I(X; Y) = 0$ ([Theorem 16](#thm-mutual-information-nonnegative)). Given $Z$, each of $X$ and $Y$ determines the other. The chunk computes the [conditional mutual information](#def-conditional-mutual-information) from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
 >
@@ -1316,9 +1349,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 22 (A chain of noisy copies is a Markov chain)**  
+> **Example 23 (A chain of noisy copies is a Markov chain)**  
 >
-> In [Example 18](#exm-entropy-chain-rule-n-copies), each of $X_2$ and $X_3$ is a noisy copy of the variable before it. So $X_3$ depends on $X_1$ only through $X_2$. The chunk builds the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) of $(X_1, X_2, X_3)$ and checks the defining equation of the chain $X_1 \to X_2 \to X_3$ for each value of $X_2$.
+> In [Example 19](#exm-entropy-chain-rule-n-copies), each of $X_2$ and $X_3$ is a noisy copy of the variable before it. So $X_3$ depends on $X_1$ only through $X_2$. The chunk builds the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) of $(X_1, X_2, X_3)$ and checks the defining equation of the chain $X_1 \to X_2 \to X_3$ for each value of $X_2$.
 >
 > Show code
 >
@@ -1351,7 +1384,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Lemma 1 (Conditional mutual information along a Markov chain)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the entropies of $X$, $Y$ and $Z$ are finite, then
+> **Lemma 2 (Conditional mutual information along a Markov chain)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the entropies of $X$, $Y$ and $Z$ are finite, then
 >
 > $$I(Z; X \mid Y) = 0.$$
 
@@ -1389,7 +1422,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > I(Y, Z; X) &= I(Z; X) + I(Y; X \mid Z).
 > \end{aligned}$$
 >
-> The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables, so $I(Z, Y; X) = I(Y, Z; X)$. By [Lemma 1](#lem-markov-chain-conditional-mutual-information), $I(Z; X \mid Y) = 0$. By [Theorem 20](#thm-conditional-mutual-information-nonnegative), $I(Y; X \mid Z) \ge 0$. Therefore
+> The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables, so $I(Z, Y; X) = I(Y, Z; X)$. By [Lemma 2](#lem-markov-chain-conditional-mutual-information), $I(Z; X \mid Y) = 0$. By [Theorem 20](#thm-conditional-mutual-information-nonnegative), $I(Y; X \mid Z) \ge 0$. Therefore
 >
 > $$\begin{aligned}
 > I(Y; X)
@@ -1401,9 +1434,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 23 (Each extra noisy copy loses information)**  
+> **Example 24 (Each extra noisy copy loses information)**  
 >
-> For the chain $X_1 \to X_2 \to X_3$ in [Example 22](#exm-markov-chain-noisy-copies), the chunk computes the [mutual information](#def-mutual-information) of $X_1$ with $X_2$ and with $X_3$, in [bits](#def-bit). Each variable is a fair coin. The variable $X_3$ differs from $X_1$ when exactly one of the two copies flips, which has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2 \times 0.2 \times 0.8 = 0.32$.
+> For the chain $X_1 \to X_2 \to X_3$ in [Example 23](#exm-markov-chain-noisy-copies), the chunk computes the [mutual information](#def-mutual-information) of $X_1$ with $X_2$ and with $X_3$, in [bits](#def-bit). Each variable is a fair coin. The variable $X_3$ differs from $X_1$ when exactly one of the two copies flips, which has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2 \times 0.2 \times 0.8 = 0.32$.
 >
 > Show code
 >

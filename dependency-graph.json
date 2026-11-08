@@ -273,6 +273,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#lem-surprisal-chain-rule-reversed",
+   "site": "ids",
+   "page": "entropy",
+   "div": "lem-surprisal-chain-rule-reversed",
+   "kind": "lem",
+   "title": "Chain rule for surprisal with the conditioning reversed",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-collision-entropy-at-most-entropy",
    "site": "ids",
    "page": "entropy",
@@ -754,6 +763,16 @@
    "url": "https://morrison-lab.github.io/pds/independence.html#def-indpt"
   },
   {
+   "id": "pds/probability-basics#def-experiment-outcome",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-experiment-outcome",
+   "kind": "def",
+   "title": "experiment outcome",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome"
+  },
+  {
    "id": "pds/probability-basics#def-probability",
    "site": "pds",
    "page": "probability-basics",
@@ -1156,6 +1175,22 @@
   [
    "ids/entropy#lem-markov-chain-conditional-mutual-information",
    "ids/entropy#def-markov-chain"
+  ],
+  [
+   "ids/entropy#lem-surprisal-chain-rule-reversed",
+   "ids/entropy#thm-surprisal-chain-rule"
+  ],
+  [
+   "ids/entropy#lem-surprisal-chain-rule-reversed",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#lem-surprisal-chain-rule-reversed",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#lem-surprisal-chain-rule-reversed",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#thm-collision-entropy-at-most-entropy",
