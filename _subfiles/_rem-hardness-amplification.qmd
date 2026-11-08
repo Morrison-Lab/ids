@@ -7,12 +7,12 @@ so it can be encoded like any message.
 Encode the truth table with a [locally decodable code](#def-locally-decodable)
 whose decoder is itself a small circuit,
 and read the codeword as the truth table of a new function $g$.
-If a small circuit computed $g$ correctly on most inputs,
+If a small circuit computed $g$ correctly on most strings,
 then running a local decoder on that circuit's outputs
-would compute $f$ correctly on every input, with high probability,
+would compute $f$ correctly on every string, with high [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
 using a circuit not much larger.
-So if no small circuit computes $f$ on every input,
-then no small circuit computes $g$ on most inputs.
+So if no small circuit computes $f$ on every string,
+then no small circuit computes $g$ on most strings.
 @arora2009computational [chapter 19] develop this worst-case to average-case
 hardness amplification,
 and their chapter 20 uses it to build pseudorandom generators.
