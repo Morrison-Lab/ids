@@ -5,7 +5,7 @@ Let $\ell_1 \le \ell_2 \le \cdots \le \ell_n$ be [positive integer](https://morr
 
 $$\sum_{i=1}^n 2^{-\ell_i} \le 1.$$
 
-Then some [prefix code](#def-prefix-code) on $n$ values has [codeword lengths](source-coding.qmd#def-code) $\ell_1, \ldots, \ell_n$.
+Then some [prefix code](#def-prefix-code) on $n$ values has [codeword length](source-coding.qmd#def-code)s $\ell_1, \ldots, \ell_n$.
 
 :::
 
@@ -21,7 +21,7 @@ By the assumption, $a_i + 2^{-\ell_i} \le \sum_{j \le i} 2^{-\ell_j} \le 1$,
 so $N_i \le 2^{\ell_i} - 1 < 2^{\ell_i}$.
 
 Suppose that $c_i$ were the beginning of $c_k$ for some $i < k$.
-The first $\ell_i$ digits of $c_k$ are the binary digits of
+The first $\ell_i$ digits of $c_k$ are the base-2 digits of
 the integer part of $N_k / 2^{\ell_k - \ell_i} = 2^{\ell_i} a_k$.
 Because $c_i$ is these digits, this integer part is $N_i$.
 
@@ -29,7 +29,7 @@ But $a_k = a_i + \sum_{i \le j < k} 2^{-\ell_j} \ge a_i + 2^{-\ell_i}$,
 so $2^{\ell_i} a_k \ge N_i + 1$,
 and the integer part of $2^{\ell_i} a_k$ is at least $N_i + 1$, not $N_i$.
 This [contradiction](https://morrison-lab.github.io/mcs/proof-writing.html#def-contradiction) shows that no $c_i$ with $i < k$ begins $c_k$.
-A codeword $c_k$ cannot begin $c_i$ with $i < k$ either,
-because $\ell_k \ge \ell_i$ would then force $c_k = c_i$, which the first case excludes.
+Nor can $c_k$ be the beginning of $c_i$ with $i < k$:
+that would give $\ell_k \le \ell_i$, so $\ell_k = \ell_i$ and $c_k = c_i$, which the first case excludes.
 
 :::

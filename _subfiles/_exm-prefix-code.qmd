@@ -6,7 +6,7 @@
 Take four values with the [codeword length](source-coding.qmd#def-code)s $(1, 2, 3, 3)$.
 The code $0, 10, 110, 111$ is a [prefix code](#def-prefix-code).
 The code $0, 01, 011, 111$ has the same lengths,
-but the codeword $0$ begins $01$, so it is not a prefix code.
+but the codeword $01$ starts with the codeword $0$, so it is not a prefix code.
 The code below tests the definition on every pair of codewords,
 and adds up $2^{-\ell(x)}$ for each code, as in @thm-kraft-inequality.
 
