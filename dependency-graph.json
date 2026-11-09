@@ -741,6 +741,24 @@
    "external": false
   },
   {
+   "id": "ids/reed-solomon-codes#def-list-decodable-code",
+   "site": "ids",
+   "page": "reed-solomon-codes",
+   "div": "def-list-decodable-code",
+   "kind": "def",
+   "title": "List-decodable code",
+   "external": false
+  },
+  {
+   "id": "ids/reed-solomon-codes#thm-reed-solomon-list-size",
+   "site": "ids",
+   "page": "reed-solomon-codes",
+   "div": "thm-reed-solomon-list-size",
+   "kind": "thm",
+   "title": "A bound on the list size of a Reed--Solomon code",
+   "external": false
+  },
+  {
    "id": "ids/source-coding#def-code",
    "site": "ids",
    "page": "source-coding",
@@ -2789,6 +2807,26 @@
   [
    "ids/minimum-description-length#thm-minimum-description-length-maximum-likelihood",
    "sds/intro-MLEs#def-mle"
+  ],
+  [
+   "ids/reed-solomon-codes#def-list-decodable-code",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/reed-solomon-codes#def-list-decodable-code",
+   "mcs/number-systems#def-integers"
+  ],
+  [
+   "ids/reed-solomon-codes#thm-reed-solomon-list-size",
+   "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/reed-solomon-codes#thm-reed-solomon-list-size",
+   "ids/error-correcting-codes#def-reed-solomon-code"
+  ],
+  [
+   "ids/reed-solomon-codes#thm-reed-solomon-list-size",
+   "ids/error-correcting-codes#thm-reed-solomon-distance"
   ],
   [
    "ids/source-coding#def-code",
