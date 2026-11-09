@@ -1,0 +1,113 @@
+# Huffman codes
+
+Code
+
+- [Show All Code](javascript:void(0))
+
+- [Hide All Code](javascript:void(0))
+
+- 
+
+  ------------------------------------------------------------------------
+
+- [View Source](javascript:void(0))
+
+Published
+
+Last modified: 2026-11-08 17:38:40 (PST)
+
+[Source coding](source-coding.llms.md) shows that the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a source is the least average length of a code for it, up to one [bit](entropy.llms.md#def-bit). This page asks which codes a decoder can read one codeword at a time, and how long such a code must be.
+
+## 1 Prefix codes
+
+> **NOTE:**
+>
+> **Definition 1 (Prefix code)** A [binary code](source-coding.llms.md#def-code) for a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is a **prefix code**, also called a **prefix-free code** or an **instantaneous code**, if no codeword is the beginning of another codeword. Writing $c(x)$ for the codeword of the value $x$, the condition is that, for every two different values $x$ and $x'$, the string $c(x')$ does not start with the string $c(x)$.
+
+> **NOTE:**
+>
+> **Theorem 1 (Kraft’s inequality)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes a finite number of values, and let a [prefix code](#def-prefix-code) for $X$ have [codeword length](source-coding.llms.md#def-code)s $\ell(x)$. Then
+>
+> $${s_{x}} 2^{-\ell(x)} \le 1.$$
+
+> **NOTE:**
+>
+> *Proof*. Let $m$ be the largest [codeword length](source-coding.llms.md#def-code). It is finite because $X$ takes a finite number of values.
+>
+> For each value $x$, the strings of $m$ [bits](entropy.llms.md#def-bit) that start with the codeword $c(x)$ are those that choose the remaining $m - \ell(x)$ bits freely. So there are $2^{m - \ell(x)}$ of them.
+>
+> No string of $m$ bits starts with two different codewords. If it started with $c(x)$ and with $c(x')$, where $\ell(x) \le \ell(x')$, then $c(x)$ would be the first $\ell(x)$ bits of $c(x')$, which the [prefix code](#def-prefix-code) forbids. So the strings that start with different codewords form groups with no string in two groups.
+>
+> There are $2^m$ strings of $m$ bits in all, so the groups together hold at most that many:
+>
+> $${s_{x}} 2^{m - \ell(x)} \le 2^m.$$
+>
+> Dividing both sides by $2^m$ gives the claim.
+
+> **NOTE:**
+>
+> **Theorem 2 (Prefix codes exist for lengths that satisfy Kraft’s inequality)** Let $\ell_1 \le \ell_2 \le \cdots \le \ell_n$ be [positive integer](https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer)s with
+>
+> $$\sum_{i=1}^{n} 2^{-\ell_i} \le 1.$$
+>
+> Then some [prefix code](#def-prefix-code) on $n$ values has [codeword length](source-coding.llms.md#def-code)s $\ell_1, \ldots, \ell_n$.
+
+> **NOTE:**
+>
+> *Proof*. For each $i$, let
+>
+> $$a_i = {s_{j < i}} 2^{-\ell_j},$$
+>
+> so that $a_1 = 0$. Let the codeword $c_i$ be the $\ell_i$ [bits](entropy.llms.md#def-bit) that spell $N_i = 2^{\ell_i} a_i$ as a base-2 number, with zeros added at the front to reach $\ell_i$ digits.
+>
+> This is possible if $N_i$ is an [integer](https://morrison-lab.github.io/mcs/number-systems.html#def-integers) with $0 \le N_i < 2^{\ell_i}$. Each term of $N_i = {s_{j < i}} 2^{\ell_i - \ell_j}$ is an integer, because $\ell_j \le \ell_i$. By the assumption, $a_i + 2^{-\ell_i} \le {s_{j \le i}} 2^{-\ell_j} \le 1$, so $N_i \le 2^{\ell_i} - 1 < 2^{\ell_i}$.
+>
+> Suppose that $c_i$ were the beginning of $c_k$ for some $i < k$. The first $\ell_i$ digits of $c_k$ are the base-2 digits of the integer part of $N_k / 2^{\ell_k - \ell_i} = 2^{\ell_i} a_k$. Because $c_i$ is these digits, this integer part is $N_i$.
+>
+> But $a_k = a_i + {s_{i \le j < k}} 2^{-\ell_j} \ge a_i + 2^{-\ell_i}$, so $2^{\ell_i} a_k \ge N_i + 1$, and the integer part of $2^{\ell_i} a_k$ is at least $N_i + 1$, not $N_i$. This [contradiction](https://morrison-lab.github.io/mcs/proof-writing.html#def-contradiction) shows that no $c_i$ with $i < k$ begins $c_k$. Nor can $c_k$ be the beginning of $c_i$ with $i < k$: that would give $\ell_k \le \ell_i$, so $\ell_k = \ell_i$ and $c_k = c_i$, which the first case excludes.
+
+> **NOTE:**
+>
+> **Example 1 (A prefix code and a code that is not)**  
+>
+> Take four values with the [codeword length](source-coding.llms.md#def-code)s $(1, 2, 3, 3)$. The code $0, 10, 110, 111$ is a [prefix code](#def-prefix-code). The code $0, 01, 011, 111$ has the same lengths, but the codeword $01$ starts with the codeword $0$, so it is not a prefix code. The code below tests the definition on every pair of codewords, and adds up $2^{-\ell(x)}$ for each code, as in [Theorem 1](#thm-kraft-inequality).
+>
+> Show code
+>
+> ``` r
+> is_prefix_code <- function(codewords) {
+>   index <- seq_along(codewords)
+>   pairs <- expand.grid(shorter = index, longer = index)
+>   distinct_pairs <- pairs[pairs$shorter != pairs$longer, ]
+>   shorter_words <- codewords[distinct_pairs$shorter]
+>   longer_words <- codewords[distinct_pairs$longer]
+>   begins <- startsWith(longer_words, shorter_words)
+>   !any(begins)
+> }
+> kraft_sum <- function(codewords) {
+>   lengths <- nchar(codewords)
+>   sum(2^(-lengths))
+> }
+> prefix_code <- c("0", "10", "110", "111")
+> other_code <- c("0", "01", "011", "111")
+> codes <- list(prefix_code, other_code)
+> data.frame(
+>   code = c("0, 10, 110, 111", "0, 01, 011, 111"),
+>   is_prefix_code = vapply(codes, is_prefix_code, logical(1)),
+>   kraft_sum = vapply(codes, kraft_sum, numeric(1))
+> )
+> ```
+>
+> Both codes have ${s_{x}} 2^{-\ell(x)} = 1$, the largest value [Theorem 1](#thm-kraft-inequality) allows. The sum depends on the lengths alone, so it is the same for the second code, which is not a prefix code. [Theorem 2](#thm-kraft-converse) gives a prefix code with these lengths, and the first code is one.
+
+> **NOTE:**
+>
+> *Remark 1* (Where Kraft’s inequality comes from). Cover and Thomas ([2006, sec. 5.2](#ref-cover2006elements)) prove [Theorem 1](#thm-kraft-inequality) and [Theorem 2](#thm-kraft-converse). They show in section 5.5 that the lengths of every [uniquely decodable code](source-coding.llms.md#def-uniquely-decodable) have the same sum at most $1$, so restricting to [prefix codes](#def-prefix-code) costs nothing in [expected length](source-coding.llms.md#def-expected-length). MacKay ([2003, sec. 5.2](#ref-mackay2003information)) states the result for prefix codes as well.
+
+## References
+
+Cover, Thomas M., and Joy A. Thomas. 2006. *Elements of Information Theory*. 2nd ed. Wiley-Interscience. <https://doi.org/10.1002/047174882X>.
+
+MacKay, David J. C. 2003. *Information Theory, Inference, and Learning Algorithms*. Cambridge University Press.
+
+Back to top
