@@ -4,7 +4,7 @@
 The best single guess at the value of $X$ is its most probable value,
 and that guess is right with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2^{-\renyientropyf{\infty}{X}}$.
 So a [min-entropy](#def-min-entropy) of $k$ [bits](entropy.qmd#def-bit) says that no guess succeeds with probability above $2^{-k}$.
-The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) gives no such bound,
+The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) gives no such guarantee,
 because it can be large while one value is very likely.
 
 :::

@@ -6,6 +6,6 @@ The **min-entropy** of a [discrete random variable](https://morrison-lab.github.
 $$\renyientropyf{\infty}{X} = -\log \max_x \Pf{X = x}.$$
 
 It is the limiting case of the Rényi family of [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) [@renyi1961measures],
-in which the order grows without bound.
+in which the order increases without limit.
 
 :::
