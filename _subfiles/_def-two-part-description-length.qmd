@@ -12,6 +12,6 @@ $$L(p_j) + \log_2 \frac{1}{p_j(x)}.$$
 
 The first part is the length of the codeword that names the model.
 The second part is the [surprisal](entropy.qmd#def-surprisal) of $x$ under the model,
-which is the length in bits of a code for $x$ built from the model.
+which is the length in bits of a [code](source-coding.qmd#def-code) for $x$ built from the model.
 
 :::
