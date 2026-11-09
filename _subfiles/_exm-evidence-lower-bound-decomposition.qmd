@@ -1,0 +1,45 @@
+:::{#exm-evidence-lower-bound-decomposition}
+#### The ELBO and the divergence for a three-valued latent variable
+
+<!-- no-figure: the example is a table of three rows -->
+
+Let $z$ take the values $1, 2, 3$ with [prior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-prior) [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.5, 0.3, 0.2$.
+A data value $x$ is observed,
+and its probabilities given $z$ are $0.1, 0.4, 0.8$.
+The R chunk below finds the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior),
+then computes the [ELBO](#def-evidence-lower-bound) and the divergence for three choices of $q$,
+with [natural logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log).
+
+```{r}
+#| label: evidence-lower-bound
+prior <- c(0.5, 0.3, 0.2)
+likelihood <- c(0.1, 0.4, 0.8)
+joint <- prior * likelihood
+evidence <- sum(joint)
+posterior <- joint / evidence
+log_evidence <- log(evidence)
+
+elbo_and_divergence <- function(q) {
+  log_ratio <- log(joint) - log(q)
+  elbo <- sum(q * log_ratio)
+  log_gap <- log(q) - log(posterior)
+  divergence <- sum(q * log_gap)
+  c(elbo = elbo, divergence = divergence, total = elbo + divergence)
+}
+
+uniform <- rep(1 / 3, 3)
+shifted <- c(0.2, 0.3, 0.5)
+rows <- rbind(
+  uniform = elbo_and_divergence(uniform),
+  shifted = elbo_and_divergence(shifted),
+  posterior = elbo_and_divergence(posterior)
+)
+round(rows, 4)
+```
+
+The [evidence](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood) is $`r evidence`$,
+so its [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) is $`r round(log_evidence, 4)`$.
+In every row the ELBO plus the divergence equals this value, as @thm-evidence-lower-bound-decomposition says.
+The ELBO is largest, and the divergence is $0$, for $q$ equal to the posterior.
+
+:::

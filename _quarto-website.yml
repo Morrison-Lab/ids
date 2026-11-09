@@ -54,6 +54,7 @@ website:
           - minimum-description-length.qmd
           - channel-capacity.qmd
           - kl-divergence.qmd
+          - variational-inference.qmd
           - error-correcting-codes.qmd
           - reed-solomon-codes.qmd
           - ldpc-codes.qmd
@@ -80,6 +81,7 @@ website:
           - minimum-description-length.qmd
           - channel-capacity.qmd
           - kl-divergence.qmd
+          - variational-inference.qmd
           - error-correcting-codes.qmd
           - reed-solomon-codes.qmd
           - ldpc-codes.qmd
