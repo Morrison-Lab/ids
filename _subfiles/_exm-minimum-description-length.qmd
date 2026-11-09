@@ -6,7 +6,7 @@
 The chunk below applies @def-minimum-description-length
 to the [two-part description lengths](#def-two-part-description-length) of @exm-two-part-description-length.
 It prints the model with the smallest two-part description length,
-and it prints the length of writing the $100$ flips out as plain heads and tails.
+and it prints the length of writing the $100$ flips, with $70$ heads, out as plain heads and tails.
 
 ```{r}
 #| label: minimum-description-length

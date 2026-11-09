@@ -41,6 +41,10 @@ and chooses the model that makes the sum shortest.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_exm-minimum-description-length-maximum-likelihood.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-minimum-description-length-source.qmd >}}
 
 ## References {.unnumbered}

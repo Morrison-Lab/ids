@@ -1,17 +1,17 @@
 :::{#def-two-part-description-length}
 #### Two-part description length
 
-Let $x$ be data,
+Let $\vx$ be data,
 and let $p_1, \ldots, p_m$ be models,
-each of which gives $x$ a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p_j(x)$.
-Let a [prefix code](huffman-codes.qmd#def-prefix-code) on the models give each model $p_j$ a codeword of $L(p_j)$ [bits](entropy.qmd#def-bit).
+each of which gives $\vx$ a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p_j(\vx)$.
+Let a [prefix code](huffman-codes.qmd#def-prefix-code) on the models give each model $p_j$ a codeword of $\codelenf{p_j}$ [bits](entropy.qmd#def-bit).
 
-The **two-part description length** of $x$ under a model $p_j$ is
+The **two-part description length** of $\vx$ under a model $p_j$ is
 
-$$L(p_j) + \log_2 \frac{1}{p_j(x)}.$$
+$$\codelenf{p_j} + \surprisalunderf{p_j}{\vx}.$$
 
 The first part is the length of the codeword that names the model.
-The second part is the [surprisal](entropy.qmd#def-surprisal) of $x$ under the model,
-which is the length in bits of a [code](source-coding.qmd#def-code) for $x$ built from the model.
+The second part is the [surprisal](entropy.qmd#def-surprisal) $\log_2 \frac{1}{p_j(\vx)}$ of $\vx$ under the model,
+which is the length in bits of a [code](source-coding.qmd#def-code) for $\vx$ built from the model.
 
 :::

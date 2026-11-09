@@ -3,7 +3,8 @@
 
 <!-- no-figure: the example is a table of description lengths -->
 
-A coin is flipped $100$ times and lands heads $70$ times.
+A coin is flipped $100$ times,
+and it lands heads $70$ times.
 The chunk below follows @def-two-part-description-length
 with nine models,
 the [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) models with the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of heads $0.1, 0.2, \ldots, 0.9$.
