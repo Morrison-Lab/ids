@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-08 16:02:04 (PST)</p>
+  <p class="date">Last modified: 2026-11-08 16:06:31 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -455,7 +455,7 @@ H = \begin{pmatrix}
 <section class="slide level2">
 
 <div id="rem-hardness-amplification" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Hardness amplification). </span>A Boolean function <span class="math inline">\(f : {\mathopen{}\left\{0, 1\right\}\mathclose{}}^s \to {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span> is determined by its <em>truth table</em>, a binary string of length <span class="math inline">\(2^s\)</span>, so it can be encoded like any message. Encode the truth table with a <a href="#/def-locally-decodable">locally decodable code</a> whose decoder is itself a small circuit, and read the codeword as the truth table of a new function <span class="math inline">\(g\)</span>. If a small circuit computed <span class="math inline">\(g\)</span> correctly on most inputs, then running a local decoder on that circuit’s outputs would compute <span class="math inline">\(f\)</span> correctly on every input, with high probability, using a circuit not much larger. So if no small circuit computes <span class="math inline">\(f\)</span> on every input, then no small circuit computes <span class="math inline">\(g\)</span> on most inputs. <span class="citation" data-cites="arora2009computational">Arora and Barak (<a href="#/references" role="doc-biblioref" onclick="">2009, chap. 19</a>)</span> develop this worst-case to average-case hardness amplification, and their chapter 20 uses it to build pseudorandom generators.</p>
+<p><span class="proof-title"><em>Remark 4</em> (Hardness amplification). </span>A Boolean function <span class="math inline">\(f : {\mathopen{}\left\{0, 1\right\}\mathclose{}}^s \to {\mathopen{}\left\{0, 1\right\}\mathclose{}}\)</span> is determined by its <em>truth table</em>, a binary string of length <span class="math inline">\(2^s\)</span>, so it can be encoded like any message. Encode the truth table with a <a href="#/def-locally-decodable">locally decodable code</a> whose decoder is itself a small circuit, and read the codeword as the truth table of a new function <span class="math inline">\(g\)</span>. If a small circuit computed <span class="math inline">\(g\)</span> correctly on most strings, then running a local decoder on that circuit’s outputs would compute <span class="math inline">\(f\)</span> correctly on every string, with high <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>, using a circuit not much larger. So if no small circuit computes <span class="math inline">\(f\)</span> on every string, then no small circuit computes <span class="math inline">\(g\)</span> on most strings. <span class="citation" data-cites="arora2009computational">Arora and Barak (<a href="#/references" role="doc-biblioref" onclick="">2009, chap. 19</a>)</span> develop this worst-case to average-case hardness amplification, and their chapter 20 uses it to build pseudorandom generators.</p>
 </div>
 </section>
 <section class="slide level2">

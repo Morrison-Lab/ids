@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 16:02:04 (PST)
+Last modified: 2026-11-08 16:06:31 (PST)
 
 ## 1 Codes
 
@@ -86,27 +86,27 @@ Last modified: 2026-11-08 16:02:04 (PST)
 
 > **NOTE:**
 >
-> **Theorem 2 (Source coding theorem)** Let $X$ be a discrete random variable that takes finitely many values, at least two of them with positive probability, and let $H_2(X)$ be its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) with base-2 logarithms.
+> **Theorem 2 (Source coding theorem)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes a finite number of values, at least two of them with nonzero [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), and let $H_2(X)$ be its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 >
-> 1.  Every [uniquely decodable](#def-uniquely-decodable) binary code for $X$ has [expected length](#def-expected-length) $L \ge H_2(X)$.
+> 1.  Every [uniquely decodable](#def-uniquely-decodable) [binary code](#def-code) for $X$ has [expected length](#def-expected-length) $L \ge H_2(X)$.
 >
 > 2.  Some uniquely decodable binary code for $X$ has expected length $L < H_2(X) + 1$.
 >
-> 3.  Coding blocks of $n$ independent copies of $X$ at a time, some uniquely decodable binary code spends, on average, fewer than $H_2(X) + 1/n$ binary digits per copy.
+> 3.  Coding $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies of $X$ at a time, some uniquely decodable binary code spends, on average, fewer than $H_2(X) + 1/n$ binary digits per copy.
 
 > **NOTE:**
 >
-> *Remark 2* (Where the theorem comes from). Shannon ([1948](#ref-shannon1948mathematical)) proved that entropy is the limit on how far the output of a source can be compressed. Cover and Thomas ([2006, sec. 5.3](#ref-cover2006elements) to 5.5) prove each part of [Theorem 2](#thm-source-coding). For part 2, they give each value $x$ with $p(x) > 0$ the length $\ell(x) = \lceil -\log_2 p(x) \rceil$, its [surprisal](entropy.llms.md#def-surprisal) in [bits](entropy.llms.md#def-bit) rounded up; the Kraft inequality ([Cover and Thomas 2006, sec. 5.2](#ref-cover2006elements)) guarantees that a code with these lengths exists.
+> *Remark 2* (Where the theorem comes from). Shannon ([1948](#ref-shannon1948mathematical)) proved that no compression of the output of a source can beat its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy). Cover and Thomas ([2006, sec. 5.3](#ref-cover2006elements) to 5.5) prove each part of [Theorem 2](#thm-source-coding). For part 2, they give each value $x$ with $p(x) > 0$ the length $\ell(x) = \lceil -\log_2 p(x) \rceil$, its [surprisal](entropy.llms.md#def-surprisal) in [bits](entropy.llms.md#def-bit) rounded up; Kraft’s condition ([Cover and Thomas 2006, sec. 5.2](#ref-cover2006elements)) guarantees that there is a code with these lengths.
 
 ## 3 Coding with the wrong distribution
 
 > **NOTE:**
 >
-> **Theorem 3 (The cost of coding with the wrong distribution)** Let $X$ take finitely many values, with probability mass function $p$, and let $q$ be a probability mass function, possibly different from $p$, with $q(x) > 0$ wherever $p(x) > 0$. Suppose a code gives each value $x$ with $p(x) > 0$ the length $\ell(x) = \lceil -\log_2 q(x) \rceil$. Then its [expected length](#def-expected-length) $L$ under $p$ satisfies
+> **Theorem 3 (The cost of coding with the wrong distribution)** Let $X$ take a finite number of values, with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p$, and let $q$ be such a function, possibly different from $p$, with $q(x) > 0$ wherever $p(x) > 0$. Suppose a code gives each value $x$ with $p(x) > 0$ the length $\ell(x) = \lceil -\log_2 q(x) \rceil$. Then its [expected length](#def-expected-length) $L$ under $p$ satisfies
 >
 > $$H_2(p, q) \le L < H_2(p, q) + 1,$$
 >
-> where $H_2(p, q)$ is the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$, with base-2 logarithms.
+> where $H_2(p, q)$ is the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$, with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 
 > **NOTE:**
 >
@@ -169,13 +169,13 @@ Last modified: 2026-11-08 16:02:04 (PST)
 
 > **NOTE:**
 >
-> *Remark 3* (Cross-entropy is the cost of the wrong code). [Theorem 4](#thm-cross-entropy-decomposition) splits the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) into the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and the divergence. By [Theorem 2](#thm-source-coding), no uniquely decodable code averages fewer than $H_2(p)$ bits. By [Theorem 3](#thm-wrong-code), a code built for $q$ costs about $D_2(p \,\|\, q)$ bits per value more than that. By the [divergence theorem](entropy.llms.md#thm-kl-divergence-nonnegative), the excess vanishes only when the code was built for $p$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements); [Yeung 2008, sec. 2.5](#ref-yeung2008information)). Cover and Thomas ([2006, sec. 5.4](#ref-cover2006elements)) state [Theorem 3](#thm-wrong-code) in this form, with $H_2(p) + D_2(p \,\|\, q)$ in place of $H_2(p, q)$.
+> *Remark 3* (Cross-entropy is the cost of the wrong code). [Theorem 4](#thm-cross-entropy-decomposition) splits the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) into the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and the divergence. By [Theorem 2](#thm-source-coding), no [uniquely decodable code](#def-uniquely-decodable) averages fewer than $H_2(p)$ [bits](entropy.llms.md#def-bit). By [Theorem 3](#thm-wrong-code), a code built for $q$ costs about $D_2(p \,\|\, q)$ bits per value more than that. By the [divergence theorem](entropy.llms.md#thm-kl-divergence-nonnegative), the excess vanishes only when the code was built for $p$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements); [Yeung 2008, sec. 2.5](#ref-yeung2008information)). Cover and Thomas ([2006, sec. 5.4](#ref-cover2006elements)) state [Theorem 3](#thm-wrong-code) in this form, with $H_2(p) + D_2(p \,\|\, q)$ in place of $H_2(p, q)$.
 
 > **NOTE:**
 >
-> *Remark 4* (Why models are fit by minimizing cross-entropy). Fitting a classifier by minimizing cross-entropy chooses the model’s distribution $q$ so that a code built for $q$ would spend as few bits as possible on the observed labels. By [Remark 3](#rem-cross-entropy-wrong-code), that pushes $q$ toward the distribution the labels came from.
+> *Remark 4* (Why models are fit by minimizing cross-entropy). Fitting a classifier by minimizing [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) chooses the [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $q$ the model assigns so that a code built for $q$ would spend as few [bits](entropy.llms.md#def-bit) as possible on the observed labels. By [Remark 3](#rem-cross-entropy-wrong-code), that pushes $q$ toward the probabilities the labels came from.
 >
-> For a single labeled example, let $e$ be the distribution that puts all its mass on the observed label. Then $H_2(e) = 0$ ([as for a coin that always lands heads](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-coin)), so the example’s cross-entropy loss $H_2(e, q)$ equals $D_2(e \,\|\, q)$: every bit the loss reports is a wasted one.
+> For a single labeled example, let $e$ put all its mass on the observed label. Then $H_2(e) = 0$ ([as for a coin that always lands heads](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-coin)), so the example’s cross-entropy $H_2(e, q)$ equals $D_2(e \,\|\, q)$: every [bit](entropy.llms.md#def-bit) it reports is a wasted one.
 
 ## References
 

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 16:02:04 (PST)
+Last modified: 2026-11-08 16:06:31 (PST)
 
 An error-correcting code adds redundancy to a message so that the receiver can still recover it after some symbols are changed. This page covers the basic definitions, the Hamming and [Reed–Solomon codes](#def-reed-solomon-code), and then how codes that can be decoded by reading only a few symbols lead to central results of computational complexity.
 
@@ -175,7 +175,7 @@ Complexity theory uses codes that can be decoded by reading only a few symbols o
 
 > **NOTE:**
 >
-> *Remark 4* (Hardness amplification). A Boolean function $f : {\mathopen{}\left\{0, 1\right\}\mathclose{}}^s \to {\mathopen{}\left\{0, 1\right\}\mathclose{}}$ is determined by its *truth table*, a binary string of length $2^s$, so it can be encoded like any message. Encode the truth table with a [locally decodable code](#def-locally-decodable) whose decoder is itself a small circuit, and read the codeword as the truth table of a new function $g$. If a small circuit computed $g$ correctly on most inputs, then running a local decoder on that circuit’s outputs would compute $f$ correctly on every input, with high probability, using a circuit not much larger. So if no small circuit computes $f$ on every input, then no small circuit computes $g$ on most inputs. Arora and Barak ([2009, chap. 19](#ref-arora2009computational)) develop this worst-case to average-case hardness amplification, and their chapter 20 uses it to build pseudorandom generators.
+> *Remark 4* (Hardness amplification). A Boolean function $f : {\mathopen{}\left\{0, 1\right\}\mathclose{}}^s \to {\mathopen{}\left\{0, 1\right\}\mathclose{}}$ is determined by its *truth table*, a binary string of length $2^s$, so it can be encoded like any message. Encode the truth table with a [locally decodable code](#def-locally-decodable) whose decoder is itself a small circuit, and read the codeword as the truth table of a new function $g$. If a small circuit computed $g$ correctly on most strings, then running a local decoder on that circuit’s outputs would compute $f$ correctly on every string, with high [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), using a circuit not much larger. So if no small circuit computes $f$ on every string, then no small circuit computes $g$ on most strings. Arora and Barak ([2009, chap. 19](#ref-arora2009computational)) develop this worst-case to average-case hardness amplification, and their chapter 20 uses it to build pseudorandom generators.
 
 > **NOTE:**
 >

@@ -245,32 +245,32 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-08 16:02:04 (PST)</p>
+  <p class="date">Last modified: 2026-11-08 16:06:31 (PST)</p>
 </section>
 <section id="welcome" class="slide level2 unnumbered">
 <h2>Welcome</h2>
-<p>Information theory measures uncertainty and information: how many bits a message needs, how much one random variable tells us about another, and how fast data can cross a noisy channel. Data science uses its quantities directly: cross-entropy is the loss in logistic regression and neural networks, Kullback–Leibler divergence links maximum likelihood to model fit, and mutual information drives the information gain of decision trees.</p>
-<p>These notes collect the information theory that data science courses use. They are new. The pages written so far are:</p>
+<p>Information theory quantifies uncertainty and information: how many <a href="./entropy.html#def-bit">bits</a> a message needs, how much one <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">random variable</a> tells us about another, and how fast data can cross a noisy channel. Data science uses its quantities directly: <a href="https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy">cross-entropy</a> is the quantity that <a href="https://morrison-lab.github.io/sds/logistic-inference.html#def-logistic-regression">logistic regression</a> and neural networks minimize, <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> links the fit of a model to the data it describes, and <a href="./entropy.html#def-mutual-information">mutual information</a> drives the <a href="./entropy.html#def-information-gain">information gain</a> of decision trees.</p>
+<p>These notes gather the information theory that data science courses use. They are new. The pages written so far are:</p>
 <ul>
-<li><a href="./entropy.html">Entropy and mutual information</a>: surprisal, joint and conditional entropy, mutual information, and the information gain of decision trees</li>
-<li><a href="./source-coding.html">Source coding</a>: the source coding theorem, and cross-entropy as the cost of coding with the wrong distribution</li>
-<li><a href="./channel-capacity.html">Channel capacity</a>: discrete memoryless channels, the capacity of the binary symmetric and erasure channels, and the noisy-channel coding theorem</li>
-<li><a href="./error-correcting-codes.html">Error-correcting codes</a>: Hamming distance, the Hamming and Reed–Solomon codes, and how locally decodable codes lead to hardness amplification and the PCP theorem</li>
+<li><a href="./entropy.html">Entropy and mutual information</a>: <a href="./entropy.html#def-surprisal">surprisal</a>, joint and <a href="./entropy.html#def-conditional-entropy">conditional entropy</a>, mutual information, and the <a href="./entropy.html#def-information-gain">information gain</a> of decision trees</li>
+<li><a href="./source-coding.html">Source coding</a>: the source coding <a href="https://morrison-lab.github.io/mcs/proof-writing.html#def-theorem">theorem</a>, and <a href="https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy">cross-entropy</a> as the cost of coding with a code built for the wrong source</li>
+<li><a href="./channel-capacity.html">Channel capacity</a>: <a href="./channel-capacity.html#def-channel">discrete memoryless channels</a>, the <a href="./channel-capacity.html#def-channel-capacity">capacity</a> of the <a href="./channel-capacity.html#def-binary-symmetric-channel">binary symmetric channel</a> and the <a href="./channel-capacity.html#def-binary-erasure-channel">binary erasure channel</a>, and the noisy-channel coding theorem</li>
+<li><a href="./error-correcting-codes.html">Error-correcting codes</a>: <a href="./error-correcting-codes.html#def-hamming-distance">Hamming distance</a>, the Hamming and <a href="./error-correcting-codes.html#def-reed-solomon-code">Reed–Solomon codes</a>, and how <a href="./error-correcting-codes.html#def-locally-decodable">locally decodable codes</a> lead to hardness amplification and the PCP theorem</li>
 </ul>
 <p>The planned topics still to come are:</p>
 <ul>
-<li>Kullback–Leibler divergence and its link to maximum likelihood</li>
+<li><a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">KL divergence</a> and its link to fitting models to data</li>
 <li>Huffman and arithmetic codes</li>
-<li>proofs of the noisy-channel coding theorem, and codes that approach capacity</li>
+<li>proofs of the <a href="./channel-capacity.html#thm-channel-coding">noisy-channel coding theorem</a>, and codes that approach <a href="./channel-capacity.html#def-channel-capacity">capacity</a></li>
 </ul>
-<p>Entropy, cross-entropy and KL divergence are defined in <a href="https://morrison-lab.github.io/pds/expectation.html#sec-entropy"><em>Probability for Data Science</em></a>; pages here link to those definitions rather than repeating them. Computational complexity has its own library, <a href="https://morrison-lab.github.io/ccds/"><em>Computational Complexity for Data Science</em></a>. <a href="https://morrison-lab.github.io/ccds/kolmogorov-complexity.html">Kolmogorov complexity</a>, which relates the shortest description of a single string to Shannon entropy, is covered there.</p>
+<p><a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Entropy</a>, <a href="https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy">cross-entropy</a> and <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">KL divergence</a> are defined in <a href="https://morrison-lab.github.io/pds/expectation.html#sec-entropy"><em>Probability for Data Science</em></a>; pages here link to those definitions rather than repeating them. Computational complexity has its own library, <a href="https://morrison-lab.github.io/ccds/"><em>Computational Complexity for Data Science</em></a>. <a href="https://morrison-lab.github.io/ccds/kolmogorov-complexity.html">Kolmogorov complexity</a>, which relates the shortest description of a single string to <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">Shannon entropy</a>, is covered there.</p>
 </section>
 <section id="where-to-read-about-the-planned-topics" class="slide level2 unnumbered">
 <h2>Where to read about the planned topics</h2>
 <p>Stanford’s information theory courses cover many of the planned topics above, and they publish their course pages:</p>
 <ul>
-<li><a href="https://web.stanford.edu/class/ee276/">EE 276, <em>Information Theory</em></a> (Tsachy Weissman) covers entropy and mutual information, the asymptotic equipartition property, prefix codes and Huffman codes, channel capacity and the channel coding theorem, and rate distortion. Its <a href="https://web.stanford.edu/class/ee276/reading.html">reading page</a> lists books and Shannon’s papers.</li>
-<li><a href="https://stanforddatacompressionclass.github.io/Fall22/">EE 274, <em>Data Compression, Theory and Applications</em></a> covers entropy coding and how tools such as gzip and bzip2 work, then lossy image and video coding.</li>
+<li><a href="https://web.stanford.edu/class/ee276/">EE 276, <em>Information Theory</em></a> (Tsachy Weissman) covers <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> and <a href="./entropy.html#def-mutual-information">mutual information</a>, the asymptotic equipartition property, prefix codes and Huffman codes, <a href="./channel-capacity.html#def-channel-capacity">channel capacity</a> and the <a href="./channel-capacity.html#thm-channel-coding">channel coding theorem</a>, and lossy compression. Its <a href="https://web.stanford.edu/class/ee276/reading.html">reading page</a> lists books and the founding papers of the field.</li>
+<li><a href="https://stanforddatacompressionclass.github.io/Fall22/">EE 274, <em>Data Compression, Theory and Applications</em></a> covers entropy coding and how tools such as gzip and bzip2 work, then lossy coding of pictures and video.</li>
 </ul>
 <p>The courses’ own notes and slides carry no license, so these notes link to them and do not reuse their text.</p>
 </section>

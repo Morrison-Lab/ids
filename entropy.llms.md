@@ -14,9 +14,9 @@ Code
 
 Published
 
-Last modified: 2026-11-08 16:02:04 (PST)
+Last modified: 2026-11-08 16:06:31 (PST)
 
-This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *Probability for Data Science*.
+This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 ## 1 Surprisal
 
@@ -137,7 +137,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 2* (Converting between bits and nats). For any probability $p \in (0, 1]$, the change-of-base rule for logarithms gives
+> *Remark 2* (Converting between bits and nats). For any [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p \in (0, 1]$, the change-of-base rule for [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) gives
 >
 > $$\begin{aligned}
 > -\log_2 p
@@ -145,17 +145,17 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &\approx 1.443 \times (-\ln p).
 > \end{aligned}$$
 >
-> So an outcome with a [surprisal](#def-surprisal) of $1$ [nat](#def-nat) has a surprisal of $1 / \ln 2 \approx 1.443$ [bits](#def-bit), and the $\ln 2 \approx 0.693$ [nats](#def-nat) of [Example 3](#exm-coin-nats) are exactly $\ln 2 / \ln 2 = 1$ [bit](#def-bit).
+> So a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with a [surprisal](#def-surprisal) of $1$ [nat](#def-nat) has a surprisal of $1 / \ln 2 \approx 1.443$ [bits](#def-bit), and the $\ln 2 \approx 0.693$ [nats](#def-nat) of [Example 3](#exm-coin-nats) are exactly $\ln 2 / \ln 2 = 1$ [bit](#def-bit).
 >
 > A bit as a unit of information is not the same thing as a bit as a binary digit. The name [shannon](#def-bit) refers only to the unit of information, so it avoids this ambiguity. A binary digit whose two values are equally likely has a surprisal of exactly $1$ bit, whichever value it takes. A binary digit that is $0$ nine times in ten does not: the value $0$ has a surprisal of $-\log_2 0.9 \approx 0.152$ bits, and the value $1$ has a surprisal of $-\log_2 0.1 \approx 3.322$ bits.
 
 > **NOTE:**
 >
-> *Remark 3* (Unlikely outcomes carry more information). Surprisal is large when an outcome was unlikely, and it falls to $0$ as the outcome becomes certain. Correctly predicting heads on one toss of a fair coin is worth $1$ bit; correctly predicting ten heads in a row is worth $10$ bits.
+> *Remark 3* (Unlikely outcomes carry more information). The [surprisal](#def-surprisal) of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) is large when the value was unlikely, and it falls to $0$ as the value becomes certain. Correctly guessing heads on one toss of a fair coin is worth $1$ [bit](#def-bit); correctly guessing ten heads in a row is worth $10$ [bits](#def-bit).
 
 > **NOTE:**
 >
-> *Remark 4* (Entropy is expected surprisal). The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a discrete random variable $X$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [surprisal](#def-surprisal):
+> *Remark 4* (Entropy is expected surprisal). The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [surprisal](#def-surprisal):
 >
 > $$\begin{aligned}
 > H(X)
@@ -163,7 +163,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= {\mathbb{E}\mathopen{}\left[s(X)\right]\mathclose{}}.
 > \end{aligned}$$
 >
-> So $H(X)$ is the average number of bits (with base-2 logarithms) needed to record a value of $X$ when each value $x$ costs $s(x)$ bits. The [source coding theorem](source-coding.llms.md#thm-source-coding), on a later page of these notes, makes that average precise: no uniquely decodable code does better.
+> So $H(X)$ is the average number of [bits](entropy.llms.md#def-bit) (with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm)) needed to record a value of $X$ when each value $x$ costs $s(x)$ bits. The [source coding theorem](source-coding.llms.md#thm-source-coding), on a later page of these notes, makes that average precise: no [uniquely decodable code](source-coding.llms.md#def-uniquely-decodable) does better.
 
 > **NOTE:**
 >
@@ -281,7 +281,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > | Rarity ${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}}$ | $[1, \infty)$ | $(0, \infty)$ |
 > | Surprisal ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ | $[0, \infty)$ | $(-\infty, \infty)$ |
 >
-> - **Mass.** A mass of $1$ gives the smallest rarity, $1$, and the smallest surprisal, $0$. No mass exceeds $1$, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a certain outcome. So no mass gives a rarity below $1$ or a surprisal below $0$.
+> - **Mass.** A mass of $1$ gives the smallest rarity, $1$, and the smallest surprisal, $0$. No mass exceeds $1$, the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of a value that is certain. So no mass gives a rarity below $1$ or a surprisal below $0$.
 > - **Density.** A density can be arbitrarily large, as in the [uniform example](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform), so the rarity can fall below $1$ and the surprisal can fall below $0$.
 > - **Zero.** A mass or density of $0$ gives a rarity and a surprisal of $\infty$.
 > - **Units.** A mass has no units. A density has the units of $1/x$, so its rarity has the units of $x$. Rescaling $x$ by a nonzero $c$ shifts its surprisal by ${\operatorname{log}\mathopen{}\left\{\mathopen{}\left|c\right|\mathclose{}\right\}\mathclose{}}$.
@@ -372,11 +372,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 10* (Differential entropy differs from entropy). A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) value is not a probability, so the [surprisal](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous) of a continuous value and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a continuous random variable (the differential entropy) behave differently from their discrete counterparts:
+> *Remark 10* (Differential entropy differs from entropy). A [density](https://morrison-lab.github.io/pds/random-variables.html#def-pdf) value is not a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), so the [surprisal of a continuous value](https://morrison-lab.github.io/pds/expectation.html#def-surprisal-continuous) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a [continuous random variable](https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv) (the [differential entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)) behave differently from their counterparts for a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv):
 >
-> - **Sign.** A density can exceed $1$, so the surprisal ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ and the differential entropy can be negative, as in the [uniform example](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform) ([Cover and Thomas 2006, sec. 8.1](#ref-cover2006elements)). The entropy of a discrete random variable is never negative.
+> - **Sign.** A density can exceed $1$, so the [surprisal](#def-surprisal) ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ and the differential entropy can fall below $0$, as in the [uniform example](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-uniform) ([Cover and Thomas 2006, sec. 8.1](#ref-cover2006elements)). The entropy of a discrete random variable is never negative.
 > - **Units.** Rescaling changes the differential entropy: ${\mathbb{H}\mathopen{}\left(aX\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + \log |a|$ for a constant $a \ne 0$ ([Cover and Thomas 2006](#ref-cover2006elements), Theorem 8.6.4). Measuring the same quantity in metres rather than centimetres therefore changes it. Adding a constant does not: ${\mathbb{H}\mathopen{}\left(X + c\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ ([Cover and Thomas 2006](#ref-cover2006elements), Theorem 8.6.3).
-> - **Not a limit of entropy.** Round a continuous $X$ to bins of width $\Delta$, which gives a discrete random variable $X^\Delta$. Then ${\mathbb{H}\mathopen{}\left(X^\Delta\right)\mathclose{}} + \log \Delta \to {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ as $\Delta \to 0$ ([Cover and Thomas 2006](#ref-cover2006elements), Theorem 8.3.1). The entropy ${\mathbb{H}\mathopen{}\left(X^\Delta\right)\mathclose{}}$ itself grows without bound as $\Delta \to 0$, so the differential entropy is not its limit.
+> - **Not what the entropy approaches.** Round $X$ down to a multiple of $\Delta$, which gives a discrete random variable $X^\Delta$. Then ${\mathbb{H}\mathopen{}\left(X^\Delta\right)\mathclose{}} + \log \Delta \to {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ as $\Delta \to 0$ ([Cover and Thomas 2006](#ref-cover2006elements), Theorem 8.3.1). The entropy ${\mathbb{H}\mathopen{}\left(X^\Delta\right)\mathclose{}}$ itself grows indefinitely as $\Delta \to 0$, so the differential entropy is not what it approaches.
 
 > **NOTE:**
 >
@@ -438,7 +438,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 8 (Collision entropy and entropy of a three-valued random variable)**  
 >
-> Let $X$ take three values with probabilities $1/2$, $1/4$ and $1/4$. The code below computes the expected [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), the [collision entropy](#def-renyi-entropy) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+> Let $X$ take three values with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$, $1/4$ and $1/4$. The code below computes the expected [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), the [collision entropy](#def-renyi-entropy) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 >
 > Show code
 >
@@ -468,15 +468,15 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 12* (Surprisal and the Fisher information). When the probabilities depend on a parameter $\theta$, the [surprisal](#def-surprisal) of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ is $-\log \mathbb{p}(x \mid \theta)$, which is minus the log-likelihood:
+> *Remark 12* (Surprisal and the Fisher information). When the [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) depend on a parameter $\theta$, the [surprisal](#def-surprisal) of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ is $-\log \mathbb{p}(x \mid \theta)$, which is minus the log-likelihood:
 >
 > $$\mathbb{s}_{\theta}(x) = -\log \mathbb{p}(x \mid \theta) = -\ell(\theta).$$
 >
-> Its derivative with respect to $\theta$ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score):
+> Its [derivative with respect to](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) $\theta$ is minus the [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score):
 >
 > $$\frac{\partial}{\partial \theta} \mathbb{s}_{\theta}(x) = -{\ell'\mathopen{}\left(\theta\right)\mathclose{}}.$$
 >
-> The expected squared score is the [expected information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), also called the Fisher information. It is also the expected [second derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-second-derivative) of the surprisal, when the outcome $X$ is drawn from the model at the true parameter value $\theta_0$, and the score is evaluated at that same outcome $X$:
+> The expected squared score is the [expected information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf), also called the Fisher information. It is also the expected [second derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-second-derivative) of the surprisal, when $X$ is drawn from the model at the true parameter value $\theta_0$, and the score is evaluated at that same $X$:
 >
 > $$\mathcal{I}(\theta_0)
 > = \mathbb{E}_{\theta_0}\mathopen{}\left[{\ell'\mathopen{}\left(\theta_0\right)\mathclose{}}^2\right]\mathclose{}
@@ -530,7 +530,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 8 (Chain rule for entropy)** For discrete random variables $X$ and $Y$,
+> **Theorem 8 (Chain rule for entropy)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
 >
 > $$H(X, Y) = H(X) + H(Y \mid X).$$
 
@@ -937,7 +937,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 0.2780719
 > ```
 >
-> So ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0.278$ bits. This matches ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$, which is $1$ [bit](#def-bit) minus the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a coin with probabilities $0.8$ and $0.2$. That is $1 - 0.722$ bits.
+> So ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0.278$ bits. This matches ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$, which is $1$ [bit](#def-bit) minus the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a coin with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and $0.2$. That is $1 - 0.722$ bits.
 
 > **NOTE:**
 >
@@ -999,7 +999,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. Let $p(x, y)$ be the [joint mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), with [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x)$ and $p(y)$. By [Theorem 15](#thm-mutual-information-kl), ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is the divergence of $p(x) \, p(y)$ from $p(x, y)$, and the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) defining it is absolutely summable, as the proof of that result shows. The mass function $p(x) \, p(y)$ is positive wherever $p(x, y)$ is positive, because each marginal is at least $p(x, y)$ there. By [Theorem 16](#thm-kl-divergence-nonnegative), the divergence is nonnegative, with equality exactly when the two mass functions agree. The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) satisfies $\log_b t = \ln t / \ln b$, so the divergence with $\log_b$ is the divergence with $\log_2$ times $\ln 2 / \ln b$, which has the same sign and the same zero. Hence ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0$, and ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0$ exactly when $p(x, y) = p(x) \, p(y)$ for every pair, which is independence.
+> *Proof*. Let $p(x, y)$ be the [joint mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), with [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x)$ and $p(y)$. By [Theorem 15](#thm-mutual-information-kl), ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is the divergence of $p(x) \, p(y)$ from $p(x, y)$, and the [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) defining it is absolutely summable, as the proof of that result shows. The product $p(x) \, p(y)$ is nonzero wherever $p(x, y)$ is nonzero, because each of $p(x)$ and $p(y)$ is at least $p(x, y)$ there. By [Theorem 16](#thm-kl-divergence-nonnegative), the divergence is nonnegative, with equality exactly when $p(x) \, p(y)$ and $p(x, y)$ agree. The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) satisfies $\log_b t = \ln t / \ln b$, so the divergence with $\log_b$ is the divergence with $\log_2$ times $\ln 2 / \ln b$, which has the same sign and the same zero. Hence ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0$, and ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0$ exactly when $p(x, y) = p(x) \, p(y)$ for every pair, which is independence.
 
 > **NOTE:**
 >
@@ -1051,7 +1051,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 17 (Learning a noisy copy lowers the entropy)**  
 >
-> For the coin $X$ and noisy copy $Y$ in [Example 14](#exm-mutual-information-noisy-copy), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ is $1$ [bit](#def-bit). Given $X$, the variable $Y$ is a coin with probabilities $0.8$ and $0.2$. The chunk computes the [conditional entropy](#def-conditional-entropy) from that coin.
+> For the coin $X$ and noisy copy $Y$ in [Example 14](#exm-mutual-information-noisy-copy), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ is $1$ [bit](#def-bit). Given $X$, the variable $Y$ is a coin with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and $0.2$. The chunk computes the [conditional entropy](#def-conditional-entropy) from that coin.
 >
 > Show code
 >
@@ -1067,7 +1067,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 15* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define mutual information as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) of $(X, Y)$ from their [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution). [Theorem 15](#thm-mutual-information-kl) proves that this divergence equals ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)), and [Theorem 17](#thm-mutual-information-nonnegative) proves that ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Learning $X$ never raises the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ on average ([Corollary 5](#cor-conditioning-reduces-entropy)).
+> *Remark 15* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define [mutual information](#def-mutual-information) as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) of $(X, Y)$ from their [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution). [Theorem 15](#thm-mutual-information-kl) proves that this divergence equals ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)), and [Theorem 17](#thm-mutual-information-nonnegative) proves that ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Learning $X$ never raises the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ on average ([Corollary 5](#cor-conditioning-reduces-entropy)).
 
 > **NOTE:**
 >
@@ -1187,7 +1187,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 19 (Chain rule for entropy, many variables)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$ with finite entropies,
+> **Theorem 19 (Chain rule for entropy, many variables)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $${\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = \sum_{i=1}^{n} {\mathbb{H}\mathopen{}\left(X_i \mid X_1, \ldots, X_{i-1}\right)\mathclose{}},$$
 >
@@ -1321,7 +1321,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. For each value $z$ with $\mathbb{P}(Z=z) > 0$, let ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ be the [mutual information](#def-mutual-information) of $X$ and $Y$ computed from their joint probabilities given $Z=z$, so that ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}$. Applying [Definition 10](#def-conditional-entropy) to ${\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}$ and to ${\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}$ expands each over the values $z$ of $Z$:
+> *Proof*. For each value $z$ with $\mathbb{P}(Z=z) > 0$, let ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ be the [mutual information](#def-mutual-information) of $X$ and $Y$ computed from their joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) given $Z=z$, so that ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}$. Applying [Definition 10](#def-conditional-entropy) to ${\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}$ and to ${\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}$ expands each over the values $z$ of $Z$:
 >
 > $$\begin{aligned}
 > {\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}}

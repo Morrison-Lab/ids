@@ -1684,6 +1684,10 @@
   ],
   [
    "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
    "pds/random-variables#def-discrete-rv"
   ],
   [
@@ -1727,12 +1731,20 @@
    "pds/probability-basics#def-probability"
   ],
   [
+   "ids/entropy#thm-entropy-chain-rule",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#thm-entropy-chain-rule-n",
    "ids/entropy#thm-entropy-chain-rule"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule-n",
    "mcs/induction#def-proof-by-induction"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "pds/expectation#def-entropy"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule-n",
@@ -2312,6 +2324,10 @@
   ],
   [
    "ids/source-coding#thm-source-coding",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
    "ids/source-coding#def-expected-length"
   ],
   [
@@ -2320,7 +2336,23 @@
   ],
   [
    "ids/source-coding#thm-source-coding",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
    "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/source-coding#thm-wrong-code",
@@ -2332,7 +2364,15 @@
   ],
   [
    "ids/source-coding#thm-wrong-code",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/source-coding#thm-wrong-code",
    "pds/expectation#def-cross-entropy"
+  ],
+  [
+   "ids/source-coding#thm-wrong-code",
+   "pds/random-variables#def-pmf"
   ]
  ],
  "cycles": [],
