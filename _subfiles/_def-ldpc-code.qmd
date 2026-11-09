@@ -1,8 +1,8 @@
 :::{#def-ldpc-code}
 #### Regular low-density parity-check code
 
-Let $j$ and $k$ be positive integers.
-A **$(j, k)$-regular low-density parity-check code**, or **LDPC code**,
+Let $j, k \ge 1$ be [integers](https://morrison-lab.github.io/mcs/number-systems.html#def-integers).
+A **$(j, k)$-regular LDPC code** (low-density parity-check code) <!-- check-term-links: allow -->
 is a [linear code](error-correcting-codes.qmd#def-linear-code) over $\ffield{2}$
 that has a [parity-check matrix](error-correcting-codes.qmd#def-linear-code) with $j$ ones in every column
 and $k$ ones in every row, and zeros elsewhere.

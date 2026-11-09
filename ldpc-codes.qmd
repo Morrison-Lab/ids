@@ -12,8 +12,8 @@ format:
 
 {{< include latex-macros/macros.qmd >}}
 
-A [linear code](error-correcting-codes.qmd#def-linear-code) is described by a parity-check matrix.
-When that matrix has few ones,
+A [linear code](error-correcting-codes.qmd#def-linear-code) is described by a [parity-check matrix](error-correcting-codes.qmd#def-linear-code).
+When it has few ones,
 each check involves only a few positions of the word.
 
 ## Sparse parity checks {#sec-sparse-parity-checks}
