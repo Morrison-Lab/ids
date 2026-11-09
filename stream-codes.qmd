@@ -25,6 +25,10 @@ so that the waste is shared among all of its values.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_exm-arithmetic-code.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_lem-arithmetic-interval.qmd >}}
 
 {{< slidebreak >}}
@@ -34,10 +38,6 @@ so that the waste is shared among all of its values.
 {{< slidebreak >}}
 
 {{< include ids/_subfiles/_thm-arithmetic-code-length.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include ids/_subfiles/_exm-arithmetic-code.qmd >}}
 
 {{< slidebreak >}}
 

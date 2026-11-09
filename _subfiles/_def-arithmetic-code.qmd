@@ -16,6 +16,7 @@ the **arithmetic code** is built as follows:
 3. Let $[a, a + w)$ be the final slice,
    and let $m = a + w/2$ be its midpoint.
    The codeword $c(x)$ is the first $\codelenf{x}$ [bits](entropy.qmd#def-bit) of $m$ after the point,
-   where $\codelenf{x} = \ceil{-\log_2 w} + 1$.
+   where the length $\codelenf{x} = \ceil{-\log_2 w} + 1$
+   is part of this definition.
 
 :::
