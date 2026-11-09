@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 16:06:31 (PST)
+Last modified: 2026-11-08 17:29:18 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
@@ -390,7 +390,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $${\mathbb{H}_{2}\mathopen{}\left(X\right)\mathclose{}} = -\log {\mathbb{E}\mathopen{}\left[{\mathbb{P}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}.$$
 >
-> Rényi introduced this case of a family of entropies ([Rényi 1961](#ref-renyi1961measures)).
+> Rényi introduced this case of a family of [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) ([Rényi 1961](#ref-renyi1961measures)).
 
 > **NOTE:**
 >
