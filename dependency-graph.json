@@ -2788,6 +2788,10 @@
   ],
   [
    "ids/source-coding#thm-source-coding",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
    "ids/source-coding#def-code"
   ],
   [

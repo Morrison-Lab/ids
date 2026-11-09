@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 03:04:19 (PST)
+Last modified: 2026-11-09 10:30:23 (PST)
 
 ## 1 Codes
 
@@ -86,13 +86,13 @@ Last modified: 2026-11-09 03:04:19 (PST)
 
 > **NOTE:**
 >
-> **Theorem 2 (Source coding theorem)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes a finite number of values, at least two of them with nonzero [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), and let $H_2(X)$ be its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+> **Theorem 2 (Source coding theorem)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes a finite number of values, at least two of them with nonzero [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), and let ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ be its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 >
-> 1.  Every [uniquely decodable](#def-uniquely-decodable) [binary code](#def-code) for $X$ has [expected length](#def-expected-length) $L \ge H_2(X)$.
+> 1.  Every [uniquely decodable](#def-uniquely-decodable) [binary code](#def-code) for $X$ has [expected length](#def-expected-length) $L \ge {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
 >
-> 2.  Some uniquely decodable binary code for $X$ has expected length $L < H_2(X) + 1$.
+> 2.  Some uniquely decodable binary code for $X$ has expected length $L < {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1$.
 >
-> 3.  Coding $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies of $X$ at a time, some uniquely decodable binary code spends, on average, fewer than $H_2(X) + 1/n$ binary digits per copy.
+> 3.  Coding $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies of $X$ at a time, some uniquely decodable binary code spends, on average, fewer than ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1/n$ [bits](entropy.llms.md#def-bit) per copy.
 
 > **NOTE:**
 >
@@ -104,9 +104,9 @@ Last modified: 2026-11-09 03:04:19 (PST)
 >
 > **Theorem 3 (The cost of coding with the wrong distribution)** Let $X$ take a finite number of values, with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p$, and let $q$ be such a function, possibly different from $p$, with $q(x) > 0$ wherever $p(x) > 0$. Suppose a code gives each value $x$ with $p(x) > 0$ the length $\ell(x) = \lceil -\log_2 q(x) \rceil$. Then its [expected length](#def-expected-length) $L$ under $p$ satisfies
 >
-> $$H_2(p, q) \le L < H_2(p, q) + 1,$$
+> $${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}} \le L < {\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}} + 1,$$
 >
-> where $H_2(p, q)$ is the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$, with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+> where ${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}}$ is the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$, with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 
 > **NOTE:**
 >
@@ -120,13 +120,13 @@ Last modified: 2026-11-09 03:04:19 (PST)
 > \le \sum_{x} p(x) \, \ell(x)
 > < -\sum_{x} p(x) \log_2 q(x) + 1.$$
 >
-> The middle sum is $L$ by [Theorem 1](#thm-expected-length-sum), and the outer sums are $H_2(p, q)$.
+> The middle sum is $L$ by [Theorem 1](#thm-expected-length-sum), and the outer sums are ${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}}$.
 
 > **NOTE:**
 >
-> **Theorem 4 (Cross-entropy is entropy plus divergence)** Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, \ldots, x_n$, with $q(x) > 0$ wherever $p(x) > 0$. Write $H_2(p)$ for the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $p$, $H_2(p, q)$ for the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$, and $D_2(p \,\|\, q)$ for the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from $p$, all with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm). Then
+> **Theorem 4 (Cross-entropy is entropy plus divergence)** Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, \ldots, x_n$, with $q(x) > 0$ wherever $p(x) > 0$. Write ${\mathbb{H}\mathopen{}\left(p\right)\mathclose{}}$ for the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $p$, ${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}}$ for the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$, and ${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}$ for the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from $p$, all with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm). Then
 >
-> $$H_2(p, q) = H_2(p) + D_2(p \,\|\, q).$$
+> $${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(p\right)\mathclose{}} + {{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
@@ -140,7 +140,7 @@ Last modified: 2026-11-09 03:04:19 (PST)
 > $$-\sum_x p(x) \log_2 q(x)
 > = -\sum_x p(x) \log_2 p(x) + \sum_x p(x) \log_2 \frac{p(x)}{q(x)}.$$
 >
-> Reading left to right, these are $H_2(p, q)$, $H_2(p)$ and $D_2(p \,\|\, q)$.
+> Reading left to right, these are ${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}}$, ${\mathbb{H}\mathopen{}\left(p\right)\mathclose{}}$ and ${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}$.
 
 > **NOTE:**
 >
@@ -165,17 +165,17 @@ Last modified: 2026-11-09 03:04:19 (PST)
 > #>       1.5849625       1.5000000       0.0849625
 > ```
 >
-> The cross-entropy is $H_2(p, q) = 1.585$ bits. The entropy is $H_2(p) = 1.5$ bits, and the divergence is $D_2(p \,\|\, q) = 0.085$ bits. They satisfy [Theorem 4](#thm-cross-entropy-decomposition): 1.5 + 0.085 = 1.585.
+> The cross-entropy is ${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}} = 1.585$ bits. The entropy is ${\mathbb{H}\mathopen{}\left(p\right)\mathclose{}} = 1.5$ bits, and the divergence is ${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}} = 0.085$ bits. They satisfy [Theorem 4](#thm-cross-entropy-decomposition): 1.5 + 0.085 = 1.585.
 
 > **NOTE:**
 >
-> *Remark 3* (Cross-entropy is the cost of the wrong code). [Theorem 4](#thm-cross-entropy-decomposition) splits the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) into the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and the divergence. By [Theorem 2](#thm-source-coding), no [uniquely decodable code](#def-uniquely-decodable) averages fewer than $H_2(p)$ [bits](entropy.llms.md#def-bit). By [Theorem 3](#thm-wrong-code), a code built for $q$ costs about $D_2(p \,\|\, q)$ bits per value more than that. By the [divergence theorem](entropy.llms.md#thm-kl-divergence-nonnegative), the excess vanishes only when the code was built for $p$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements); [Yeung 2008, sec. 2.5](#ref-yeung2008information)). Cover and Thomas ([2006, sec. 5.4](#ref-cover2006elements)) state [Theorem 3](#thm-wrong-code) in this form, with $H_2(p) + D_2(p \,\|\, q)$ in place of $H_2(p, q)$.
+> *Remark 3* (Cross-entropy is the cost of the wrong code). [Theorem 4](#thm-cross-entropy-decomposition) splits the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) into the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and the divergence. By [Theorem 2](#thm-source-coding), no [uniquely decodable code](#def-uniquely-decodable) averages fewer than ${\mathbb{H}\mathopen{}\left(p\right)\mathclose{}}$ [bits](entropy.llms.md#def-bit). By [Theorem 3](#thm-wrong-code), a code built for $q$ costs about ${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}$ bits per value more than that. By the [divergence theorem](entropy.llms.md#thm-kl-divergence-nonnegative), the excess vanishes only when the code was built for $p$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements); [Yeung 2008, sec. 2.5](#ref-yeung2008information)). Cover and Thomas ([2006, sec. 5.4](#ref-cover2006elements)) state [Theorem 3](#thm-wrong-code) in this form, with ${\mathbb{H}\mathopen{}\left(p\right)\mathclose{}} + {{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}$ in place of ${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}}$.
 
 > **NOTE:**
 >
 > *Remark 4* (Why models are fit by minimizing cross-entropy). Fitting a classifier by minimizing [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) chooses the [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $q$ the model assigns so that a code built for $q$ would spend as few [bits](entropy.llms.md#def-bit) as possible on the observed labels. By [Remark 3](#rem-cross-entropy-wrong-code), that pushes $q$ toward the probabilities the labels came from.
 >
-> For a single labeled example, let $e$ put all its mass on the observed label. Then $H_2(e) = 0$ ([as for a coin that always lands heads](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-coin)), so the example’s cross-entropy $H_2(e, q)$ equals $D_2(e \,\|\, q)$: every [bit](entropy.llms.md#def-bit) it reports is a wasted one.
+> For a single labeled example, let $e$ put all its mass on the observed label. Then ${\mathbb{H}\mathopen{}\left(e\right)\mathclose{}} = 0$ ([as for a coin that always lands heads](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-coin)), so the example’s cross-entropy ${\mathbb{H}\mathopen{}\left(e, q\right)\mathclose{}}$ equals ${{D_{\mathrm{KL}}}\mathopen{}\left(e \,\Vert\, q\right)\mathclose{}}$: every [bit](entropy.llms.md#def-bit) it reports is a wasted one.
 
 ## References
 
