@@ -1,0 +1,31 @@
+:::{#exm-ldpc-code}
+#### A $(2, 3)$-regular code of length 6
+
+<!-- no-figure: the example is a small matrix and a count -->
+
+Take four items, labeled $1, 2, 3, 4$, and the six pairs of them.
+Let $H$ have a row for each item and a column for each pair,
+with a 1 where the item lies in the pair.
+Every pair holds two items and every item lies in three pairs,
+so $H$ has two ones in each column and three in each row,
+and it gives a $(2, 3)$-regular [LDPC code](#def-ldpc-code) of length 6.
+The R chunk below builds $H$, checks the counts,
+and counts the words $y$ with $H y = 0$ modulo 2.
+
+```{r}
+#| label: ldpc-code
+pairs <- t(combn(4, 2))
+H <- sapply(seq_len(nrow(pairs)), function(e) as.integer(1:4 %in% pairs[e, ]))
+H
+colSums(H)
+rowSums(H)
+words <- as.matrix(expand.grid(rep(list(0:1), 6)))
+is_codeword <- apply(words, 1, function(y) all((H %*% y) %% 2 == 0))
+sum(is_codeword)
+```
+
+There are `r sum(is_codeword)` codewords,
+so the [dimension](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-dimension) is $\log_2$ of that number,
+which is 3.
+
+:::
