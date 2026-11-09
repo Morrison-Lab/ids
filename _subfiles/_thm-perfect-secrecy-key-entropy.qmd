@@ -27,7 +27,8 @@ $$\entropyf{M, C, K} = \entropyf{C, K} + \entropyf{M \mid C, K}, \qquad \entropy
 
 The key and the ciphertext determine the message,
 so $\entropyf{M \mid C, K} = 0$.
-A conditional entropy is nonnegative, so $\entropyf{K \mid M, C} \ge 0$.
+A conditional entropy is nonnegative,
+so $\entropyf{K \mid M, C} \ge 0$.
 Equating the two expansions then gives $\entropyf{M, C} \le \entropyf{C, K}$.
 Subtract $\entropyf{C}$ from both sides:
 

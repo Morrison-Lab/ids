@@ -2,6 +2,7 @@
 #### Source of the definition and the theorem
 
 [Perfect secrecy](#def-perfect-secrecy) and the [theorem on the key](#thm-perfect-secrecy-key-entropy) are from [@shannon1949communication].
-The proof above uses only the [chain rule](entropy.qmd#thm-entropy-chain-rule) and [conditioning reduces entropy](entropy.qmd#cor-conditioning-reduces-entropy), both of which are results about [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
+The proof above uses only the [chain rule](entropy.qmd#thm-entropy-chain-rule) and [conditioning reduces entropy](entropy.qmd#cor-conditioning-reduces-entropy),
+both of which are results about [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
 
 :::

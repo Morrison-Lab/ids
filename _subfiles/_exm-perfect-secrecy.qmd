@@ -4,7 +4,8 @@
 <!-- no-figure: the example is two numbers -->
 
 Let the message take the four values $0, 1, 2, 3$ (two [bits](entropy.qmd#def-bit)) with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.4, 0.3, 0.2, 0.1$.
-The key is uniform on the same four values, and the ciphertext is the bitwise exclusive or of message and key.
+The key is uniform on the same four values,
+and the ciphertext is the bitwise exclusive or of message and key.
 The code below builds the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) of message and ciphertext,
 and computes the [mutual information](entropy.qmd#def-mutual-information) between them.
 
@@ -28,6 +29,6 @@ c(max_gap = max_gap, mutual_info = mutual_info)
 The ciphertext is uniform, with probability $`r cipher_prob[1]`$ on each value,
 and the largest gap between the joint distribution and the product of the two [marginal distributions](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) is $`r max_gap`$.
 So the mutual information is $`r round(mutual_info, 10)`$ bits:
-the pad has [perfect secrecy](#def-perfect-secrecy) whatever the probabilities of the message.
+the pad has [perfect secrecy](#def-perfect-secrecy) for these message probabilities.
 
 :::
