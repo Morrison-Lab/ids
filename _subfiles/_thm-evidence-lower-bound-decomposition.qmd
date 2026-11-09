@@ -1,0 +1,34 @@
+:::{#thm-evidence-lower-bound-decomposition}
+#### The log evidence is the ELBO plus a divergence
+
+Let $p(x, z)$ and $q$ be as in @def-evidence-lower-bound,
+and let $p(x) = \sum_z p(x, z)$ be the [marginal likelihood](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood), also called the evidence, of the data,
+which is positive because the data was observed.
+Then the logarithm of the evidence is the [ELBO](#def-evidence-lower-bound) of $q$
+plus the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from the posterior:
+
+$$\log p(x) = \mathrm{ELBO}(q) + \kldivf{q}{p(\cdot \mid x)}.$$
+
+:::
+
+::: proof
+
+Let $z$ be a value with $q(z) > 0$.
+Then $p(z \mid x) > 0$ and $p(x, z) = p(z \mid x) \, p(x)$.
+Take logarithms:
+
+$$\log p(x) = \log p(x, z) - \log p(z \mid x).$$
+
+Add and subtract $\log q(z)$ on the right:
+
+$$\log p(x) = \paren{\log p(x, z) - \log q(z)} + \paren{\log q(z) - \log p(z \mid x)}.$$
+
+Multiply both sides by $q(z)$, then sum over the values $z$ with $q(z) > 0$.
+The left side sums to $\log p(x)$, because $q$ sums to $1$:
+
+$$\log p(x) = \sum_z q(z) \paren{\log p(x, z) - \log q(z)} + \sum_z q(z) \paren{\log q(z) - \log p(z \mid x)}.$$
+
+The first sum is $\mathrm{ELBO}(q)$ by its definition.
+The second sum is $\kldivf{q}{p(\cdot \mid x)}$ by the definition of the divergence.
+
+:::

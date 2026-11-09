@@ -1,0 +1,10 @@
+::: {#rem-variational-inference-source}
+#### Variational inference maximizes the ELBO
+
+The log evidence $\log p(x)$ does not depend on $q$.
+By @thm-evidence-lower-bound-decomposition, choosing $q$ to maximize the [ELBO](#def-evidence-lower-bound)
+is therefore the same as choosing $q$ to minimize its [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) from the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior),
+and the ELBO never exceeds the log evidence.
+Variational inference searches a restricted family of choices for $q$ this way [@blei2017variational].
+
+:::

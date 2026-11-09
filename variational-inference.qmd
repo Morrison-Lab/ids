@@ -1,0 +1,40 @@
+---
+title: "Variational inference"
+format:
+  html: default
+  revealjs:
+    output-file: variational-inference-slides.html
+  pdf:
+    output-file: variational-inference-handout.pdf
+  docx:
+    output-file: variational-inference.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+The [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior) of an unobserved quantity is often too hard to compute.
+Variational inference replaces it with a simpler distribution that is close to it,
+where closeness is measured by the [KL divergence](kl-divergence.qmd).
+
+## The evidence lower bound {#sec-evidence-lower-bound}
+
+<!-- No slidebreak here: the heading shares its slide with the def-evidence-lower-bound div. -->
+
+{{< include ids/_subfiles/_def-evidence-lower-bound.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-evidence-lower-bound-decomposition.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-evidence-lower-bound-decomposition.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-variational-inference-source.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

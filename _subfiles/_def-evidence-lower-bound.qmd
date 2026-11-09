@@ -1,0 +1,13 @@
+::: {#def-evidence-lower-bound}
+#### Evidence lower bound (ELBO)
+
+Let $x$ be observed data and let $z$ be an unobserved quantity that takes finitely many values,
+with joint [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(x, z)$.
+Let $q$ be a probability mass function on the values of $z$ that is positive only where the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior) $p(z \mid x)$ is positive.
+The **evidence lower bound** (**ELBO**) of $q$ is the average, over $z$ drawn from $q$, of the difference between the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of $p(x, z)$ and the logarithm of $q(z)$:
+
+$$\mathrm{ELBO}(q) = \sum_z q(z) \paren{\log p(x, z) - \log q(z)}.$$
+
+The sum runs over the values $z$ with $q(z) > 0$.
+
+:::
