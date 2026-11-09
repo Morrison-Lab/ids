@@ -1,0 +1,20 @@
+:::{#thm-minimum-description-length-maximum-likelihood}
+#### Minimum description length and maximum likelihood
+
+Let $x$ be data,
+and let $\modelfam$ be a finite set of models that each give $x$ a positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p(x)$,
+with the same codeword length $L$ for every model.
+Then a model has the smallest [two-part description length](#def-two-part-description-length) of $x$
+if and only if it is a [maximum likelihood estimate](https://morrison-lab.github.io/sds/intro-MLEs.html#def-mle) of the model given $x$.
+
+:::
+
+::: {.proof}
+
+Every model has the first part $L$,
+so the models differ only in the second part $\log_2 \frac{1}{p(x)}$.
+The function $\log_2 \frac{1}{u}$ decreases as $u$ increases.
+So the second part is smallest for the model with the largest $p(x)$,
+which is the maximum likelihood estimate.
+
+:::

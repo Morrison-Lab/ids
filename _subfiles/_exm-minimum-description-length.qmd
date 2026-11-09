@@ -1,0 +1,24 @@
+:::{#exm-minimum-description-length}
+#### The minimum description length model for coin flips
+
+<!-- no-figure: the example is one chosen model -->
+
+The code below applies @def-minimum-description-length
+to the lengths of @exm-two-part-description-length.
+It prints the model with the smallest two-part description length,
+and it prints the length of writing the $100$ flips out as plain heads and tails.
+
+```{r}
+#| label: minimum-description-length
+chosen <- which.min(total_bits)
+success_prob[chosen]
+total_bits[chosen]
+n_flips
+```
+
+The principle chooses the model with the probability of heads $`r success_prob[chosen]`$,
+with a description of $`r round(total_bits[chosen], 1)`$ bits.
+That is shorter than the $`r n_flips`$ bits of the flips themselves,
+because the flips are far from fair.
+
+:::

@@ -1,0 +1,31 @@
+:::{#exm-two-part-description-length}
+#### The two-part description lengths of coin flips
+
+<!-- no-figure: the example is a table of description lengths -->
+
+A coin is flipped $100$ times and lands heads $70$ times.
+The code below follows @def-two-part-description-length
+with nine models,
+the Bernoulli models with the probability of heads $0.1, 0.2, \ldots, 0.9$.
+It gives each model a codeword of the same length,
+and it prints the two parts and their sum for each model.
+
+```{r}
+#| label: two-part-description-length
+n_flips <- 100
+n_heads <- 70
+success_prob <- seq(0.1, 0.9, by = 0.1)
+model_bits <- log2(length(success_prob))
+heads_bits <- n_heads * log2(success_prob)
+tails_bits <- (n_flips - n_heads) * log2(1 - success_prob)
+data_bits <- -(heads_bits + tails_bits)
+total_bits <- model_bits + data_bits
+data.frame(success_prob, model_bits, data_bits, total_bits)
+```
+
+Each model takes $`r round(model_bits, 2)`$ bits to name,
+because nine equally long codewords need $\log_2 9$ bits.
+The data part is smallest, at $`r round(min(data_bits), 1)`$ bits,
+for the model with probability of heads $`r success_prob[which.min(data_bits)]`$.
+
+:::

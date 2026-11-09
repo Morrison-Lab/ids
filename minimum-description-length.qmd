@@ -1,0 +1,49 @@
+---
+title: "Minimum description length"
+format:
+  html: default
+  revealjs:
+    output-file: minimum-description-length-slides.html
+  pdf:
+    output-file: minimum-description-length-handout.pdf
+  docx:
+    output-file: minimum-description-length.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+A model that fits the data well gives the data a short [description](source-coding.qmd#def-code),
+but a model that is itself long to describe costs bits of its own.
+This page measures both costs in [bits](entropy.qmd#def-bit),
+and chooses the model that makes the total shortest.
+
+## Description length {#sec-description-length}
+
+<!-- No slidebreak here: the heading shares its slide with the def-two-part-description-length div. -->
+
+{{< include ids/_subfiles/_def-two-part-description-length.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-two-part-description-length.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-minimum-description-length.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-minimum-description-length.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-minimum-description-length-maximum-likelihood.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-minimum-description-length-source.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
