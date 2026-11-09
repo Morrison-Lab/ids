@@ -38,6 +38,7 @@ gzip
 lossy
 Fano's
 Elias
+Kolmogorov
 Lempel
 Ziv
 memoryless

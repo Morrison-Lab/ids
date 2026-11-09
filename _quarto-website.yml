@@ -50,6 +50,7 @@ website:
           - source-coding.qmd
           - huffman-codes.qmd
           - stream-codes.qmd
+          - minimum-description-length.qmd
           - channel-capacity.qmd
           - kl-divergence.qmd
           - error-correcting-codes.qmd
@@ -72,6 +73,7 @@ website:
           - source-coding.qmd
           - huffman-codes.qmd
           - stream-codes.qmd
+          - minimum-description-length.qmd
           - channel-capacity.qmd
           - kl-divergence.qmd
           - error-correcting-codes.qmd

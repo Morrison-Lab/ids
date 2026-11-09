@@ -1,0 +1,10 @@
+::: {#rem-minimum-description-length-source}
+#### Where the minimum description length principle comes from
+
+@cover2006elements [section 14.13] state the principle
+as the choice of the model such that the model's length
+plus the length of the data given the model is as short as possible.
+They give the model's length as its Kolmogorov complexity,
+not as the length of a codeword from a [prefix code](huffman-codes.qmd#def-prefix-code).
+
+:::
