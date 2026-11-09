@@ -1,0 +1,46 @@
+---
+title: "Reed--Solomon codes and list decoding"
+format:
+  html: default
+  revealjs:
+    output-file: reed-solomon-codes-slides.html
+  pdf:
+    output-file: reed-solomon-codes-handout.pdf
+  docx:
+    output-file: reed-solomon-codes.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+A [Reed--Solomon code](error-correcting-codes.qmd#def-reed-solomon-code) recovers the message
+when fewer than $d / 2$ symbols are corrupted,
+where $d$ is its [minimum distance](error-correcting-codes.qmd#def-hamming-distance).
+Past that point a received word can be near several codewords,
+and a decoder can return all of them as a list.
+
+## List decoding {#sec-list-decoding}
+
+<!-- No slidebreak here: the heading shares its slide with the def-list-decodable-code div. -->
+
+{{< include ids/_subfiles/_def-list-decodable-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-list-decoding-reed-solomon.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-reed-solomon-list-size.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-reed-solomon-list-size.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-reed-solomon-list-decoding-source.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
