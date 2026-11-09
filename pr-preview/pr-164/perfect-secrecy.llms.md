@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 03:23:01 (PST)
+Last modified: 2026-11-09 10:44:35 (PST)
 
 A cipher hides a message from an eavesdropper who sees only the ciphertext. [Mutual information](entropy.llms.md#def-mutual-information) says exactly how much the ciphertext can reveal, and so how much key a cipher needs.
 
@@ -32,7 +32,7 @@ A cipher hides a message from an eavesdropper who sees only the ciphertext. [Mut
 >
 > **Example 1 (The one-time pad with a two-bit message)**  
 >
-> Let the message take the four values $0, 1, 2, 3$ (two [bits](entropy.llms.md#def-bit)) with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.4, 0.3, 0.2, 0.1$. The key is uniform on the same four values, and the ciphertext is the bitwise exclusive or of message and key. The R chunk below builds the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) of message and ciphertext, and computes the [mutual information](entropy.llms.md#def-mutual-information) between them.
+> Let the message take the four values $0, 1, 2, 3$ (two [bits](entropy.llms.md#def-bit)) with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.4, 0.3, 0.2, 0.1$. The key is [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on the same four values, and the ciphertext is the bitwise exclusive or of message and key. The R chunk below builds the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) of message and ciphertext, and computes the [mutual information](entropy.llms.md#def-mutual-information) between them.
 >
 > Show code
 >
