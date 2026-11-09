@@ -606,12 +606,30 @@
    "external": false
   },
   {
+   "id": "ids/huffman-codes#def-huffman-code",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "def-huffman-code",
+   "kind": "def",
+   "title": "Huffman code",
+   "external": false
+  },
+  {
    "id": "ids/huffman-codes#def-prefix-code",
    "site": "ids",
    "page": "huffman-codes",
    "div": "def-prefix-code",
    "kind": "def",
    "title": "Prefix code",
+   "external": false
+  },
+  {
+   "id": "ids/huffman-codes#thm-huffman-prefix-code",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "thm-huffman-prefix-code",
+   "kind": "thm",
+   "title": "Huffman codes are prefix codes",
    "external": false
   },
   {
@@ -2286,12 +2304,32 @@
    "ids/error-correcting-codes#def-hamming-distance"
   ],
   [
+   "ids/huffman-codes#def-huffman-code",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/huffman-codes#def-huffman-code",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/huffman-codes#def-huffman-code",
+   "pds/random-variables#def-pmf"
+  ],
+  [
    "ids/huffman-codes#def-prefix-code",
    "ids/source-coding#def-code"
   ],
   [
    "ids/huffman-codes#def-prefix-code",
    "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-prefix-code",
+   "ids/huffman-codes#def-huffman-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-prefix-code",
+   "ids/huffman-codes#def-prefix-code"
   ],
   [
    "ids/huffman-codes#thm-kraft-converse",

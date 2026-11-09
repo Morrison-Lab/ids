@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 19:00:22 (PST)
+Last modified: 2026-11-08 19:54:01 (PST)
 
 [Source coding](source-coding.llms.md) shows that the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a source is the least average length of a code for it, up to one [bit](entropy.llms.md#def-bit). This page asks which codes a decoder can read one codeword at a time, and how long such a code must be.
 
@@ -103,6 +103,78 @@ Last modified: 2026-11-08 19:00:22 (PST)
 > **NOTE:**
 >
 > *Remark 1* (Where Kraft’s inequality comes from). Cover and Thomas ([2006, sec. 5.2](#ref-cover2006elements)) prove [Theorem 1](#thm-kraft-inequality) and [Theorem 2](#thm-kraft-converse). They show in section 5.5 that the lengths of every [uniquely decodable code](source-coding.llms.md#def-uniquely-decodable) have the same sum at most $1$, so restricting to [prefix codes](#def-prefix-code) costs nothing in [expected length](source-coding.llms.md#def-expected-length). MacKay ([2003, sec. 5.2](#ref-mackay2003information)) states the result for prefix codes as well.
+
+## 2 The Huffman algorithm
+
+> **NOTE:**
+>
+> **Definition 2 (Huffman code)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes $n \ge 2$ values, with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p$. A **Huffman code** for $X$ is a [binary code](source-coding.llms.md#def-code) built as follows:
+>
+> 1.  Start with $n$ nodes, one for each value $x$, each carrying the number $p(x)$.
+> 2.  Repeat $n - 1$ times: take two nodes that carry the smallest numbers, make them the two children of a new node that carries the sum of theirs, and label the edge to one child $0$ and the edge to the other child $1$.
+> 3.  Give each value $x$ the codeword made of the labels on the path from the last node down to the node for $x$.
+>
+> Ties between nodes that carry equal numbers may be broken in any way, so $X$ can have several Huffman codes.
+
+> **NOTE:**
+>
+> **Theorem 3 (Huffman codes are prefix codes)** Every [Huffman code](#def-huffman-code) is a [prefix code](#def-prefix-code).
+
+> **NOTE:**
+>
+> *Proof*. The construction in [Definition 2](#def-huffman-code) builds a tree whose nodes for the values $x$ are leaves: each of them is made first, and only the new nodes get children. The codeword $c(x)$ is the list of edge labels on the path from the last node to the leaf for $x$.
+>
+> Suppose that $c(x)$ were the beginning of $c(x')$ for two different values $x$ and $x'$. Both paths start at the last node, and the same labels lead to the same child at every step, so the path to $x$ would be the first part of the path to $x'$. Then the leaf for $x$ would lie on the way to the leaf for $x'$, and the leaf for $x$ would have a child. No leaf has a child, so no codeword is the beginning of another.
+
+> **NOTE:**
+>
+> **Example 2 (A Huffman code for a five-valued variable)**  
+>
+> Let $X$ have five values with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p = (0.4, 0.2, 0.2, 0.1, 0.1)$. The code below carries out the construction of [Definition 2](#def-huffman-code), breaking ties in favor of the node listed first. It then computes the [expected length](source-coding.llms.md#def-expected-length) $L$ of the code, the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), and the sum ${s_{x}} 2^{-\ell(x)}$ of [Theorem 1](#thm-kraft-inequality).
+>
+> Show code
+>
+> ``` r
+> huffman_code <- function(p) {
+>   codewords <- rep("", length(p))
+>   weights <- p
+>   members <- as.list(seq_along(p))
+>   while (length(weights) > 1) {
+>     ord <- order(weights)
+>     first <- ord[1]
+>     second <- ord[2]
+>     low <- members[[first]]
+>     high <- members[[second]]
+>     codewords[low] <- paste0("0", codewords[low])
+>     codewords[high] <- paste0("1", codewords[high])
+>     merged_weight <- weights[first] + weights[second]
+>     merged_members <- c(low, high)
+>     two_smallest <- 1:2
+>     rest <- ord[-two_smallest]
+>     weights <- c(weights[rest], merged_weight)
+>     members <- c(members[rest], list(merged_members))
+>   }
+>   codewords
+> }
+> p <- c(0.4, 0.2, 0.2, 0.1, 0.1)
+> codewords <- huffman_code(p)
+> len <- nchar(codewords)
+> surprisal <- -log2(p)
+> expected_length <- sum(p * len)
+> entropy <- sum(p * surprisal)
+> kraft_sum <- sum(2^(-len))
+> data.frame(p = p, codeword = codewords, length = len)
+> ```
+>
+> Show code
+>
+> ``` r
+> c(expected_length = expected_length, entropy = entropy, kraft_sum = kraft_sum)
+> #> expected_length         entropy       kraft_sum 
+> #>        2.200000        2.121928        1.000000
+> ```
+>
+> The code has expected length $L = 2.2$ [bits](entropy.llms.md#def-bit) and the source has entropy ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = 2.122$ bits, so $L - {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = 0.078$ bits. The sum ${s_{x}} 2^{-\ell(x)} = 1$ is the largest value [Theorem 1](#thm-kraft-inequality) allows, and no codeword is the beginning of another, as [Theorem 3](#thm-huffman-prefix-code) says.
 
 ## References
 
