@@ -8,7 +8,7 @@ Then the [rate](channel-capacity.qmd#def-code-rate) of $C$ is at least $1 - j / 
 
 ::: proof
 
-Let $H$ be a matrix as in the definition of $C$, with $m$ rows and $n$ columns.
+Let $H$ be as in the definition of $C$, with $m$ rows and $n$ columns.
 Count the ones of $H$ in two ways.
 Each of the $n$ columns holds $j$ ones,
 so $H$ has $n j$ ones.

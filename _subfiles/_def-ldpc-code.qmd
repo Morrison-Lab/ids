@@ -3,9 +3,10 @@
 
 Let $j, k \ge 1$ be [integers](https://morrison-lab.github.io/mcs/number-systems.html#def-integers).
 A **$(j, k)$-regular LDPC code** (low-density parity-check code) <!-- check-term-links: allow -->
-is the set of words $y \in \ffield{2}^n$ with $H y = 0$,
+consists of the words $y \in \ffield{2}^n$ with $H y = 0$,
 where $H$ has $j$ ones in every column and $k$ ones in every row, and zeros elsewhere.
-The rows of $H$ need not be independent.
-When they are, $H$ is a [parity-check matrix](error-correcting-codes.qmd#def-linear-code) of this [linear code](error-correcting-codes.qmd#def-linear-code).
+The rows of $H$ need not be independent. <!-- check-term-links: allow -->
+When no row is a sum of other rows,
+$H$ is a [parity-check matrix](error-correcting-codes.qmd#def-linear-code) of this [linear code](error-correcting-codes.qmd#def-linear-code).
 
 :::
