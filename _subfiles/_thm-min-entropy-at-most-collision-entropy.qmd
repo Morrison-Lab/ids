@@ -23,7 +23,7 @@ so the [collision probability](entropy.qmd#def-collision-probability) is at most
 $$\P(X = X') = \sum_x \Pf{X = x}^2 \le p_{\max}.$$
 
 The function $-\log$ is decreasing,
-so taking it of both sides reverses the direction of the comparison:
+so taking it of both sides flips the comparison:
 
 $$-\log \P(X = X') \ge -\log p_{\max}.$$
 
