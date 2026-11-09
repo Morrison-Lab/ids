@@ -732,6 +732,42 @@
    "external": false
   },
   {
+   "id": "ids/stream-codes#def-arithmetic-code",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "def-arithmetic-code",
+   "kind": "def",
+   "title": "Arithmetic code",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#lem-arithmetic-interval",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "lem-arithmetic-interval",
+   "kind": "lem",
+   "title": "The intervals of an arithmetic code",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#thm-arithmetic-code-length",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "thm-arithmetic-code-length",
+   "kind": "thm",
+   "title": "The expected length of an arithmetic code",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#thm-arithmetic-prefix-code",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "thm-arithmetic-prefix-code",
+   "kind": "thm",
+   "title": "Arithmetic codes are prefix codes",
+   "external": false
+  },
+  {
    "id": "mcs/functions#def-finite-set",
    "site": "mcs",
    "page": "functions",
@@ -2618,6 +2654,102 @@
   [
    "ids/source-coding#thm-wrong-code",
    "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/stream-codes#def-arithmetic-code",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#def-arithmetic-code",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#def-arithmetic-code",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/stream-codes#def-arithmetic-code",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/stream-codes#lem-arithmetic-interval",
+   "ids/stream-codes#def-arithmetic-code"
+  ],
+  [
+   "ids/stream-codes#lem-arithmetic-interval",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "ids/stream-codes#def-arithmetic-code"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "ids/stream-codes#lem-arithmetic-interval"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "ids/huffman-codes#def-prefix-code"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "ids/stream-codes#def-arithmetic-code"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "ids/stream-codes#lem-arithmetic-interval"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "pds/random-variables#def-discrete-rv"
   ]
  ],
  "cycles": [],
