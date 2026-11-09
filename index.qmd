@@ -60,7 +60,7 @@ and they publish their course pages:
 
 - [EE 276, *Information Theory*](https://web.stanford.edu/class/ee276/)
   (Tsachy Weissman) covers [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and [mutual information](entropy.qmd#def-mutual-information),
-  the asymptotic equipartition property, prefix codes and Huffman codes,
+  the asymptotic equipartition property, [prefix codes](huffman-codes.qmd#def-prefix-code) and Huffman codes,
   [channel capacity](channel-capacity.qmd#def-channel-capacity) and the [channel coding theorem](channel-capacity.qmd#thm-channel-coding), and lossy compression.
   Its [reading page](https://web.stanford.edu/class/ee276/reading.html)
   lists books and the founding papers of the field.
