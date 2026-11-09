@@ -4,7 +4,8 @@
 Let $\pf{x, z}$ and $q$ be as in @def-evidence-lower-bound.
 Let $\pf{x} = \sum_z \pf{x, z}$ be the [evidence](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood) of the data,
 also called its [marginal likelihood](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood).
-The evidence is nonzero because the data was observed.
+The evidence is nonzero,
+because the data was observed.
 Then the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the evidence is the [ELBO](#def-evidence-lower-bound) of $q$
 plus the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior):
 

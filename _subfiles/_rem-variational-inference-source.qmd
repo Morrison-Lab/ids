@@ -1,7 +1,7 @@
 ::: {#rem-variational-inference-source}
 #### Variational inference maximizes the ELBO
 
-The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the [evidence](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood) $\log p(x)$ does not depend on $q$.
+The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the [evidence](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood) $\logf{\pf{x}}$ does not depend on $q$.
 By @thm-evidence-lower-bound-decomposition, choosing $q$ to maximize the [ELBO](#def-evidence-lower-bound)
 is therefore the same as choosing $q$ to minimize its [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) from the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior).
 The ELBO never exceeds the logarithm of the evidence,
