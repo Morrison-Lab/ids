@@ -1,16 +1,14 @@
 :::{#exm-lempel-ziv-parsing}
-#### The Lempel--Ziv code of a short message
+#### The incremental parsing of a short message
 
-<!-- no-figure: the example is a table of phrases and their pairs -->
+<!-- no-figure: the example is a list of phrases -->
 
-The code below follows @def-lempel-ziv-parsing and @def-lempel-ziv-code
-for the message $\text{aabababbabbbab}$.
-It prints each phrase with its pair,
-then the number of phrases
-and the length in [bits](entropy.qmd#def-bit) of the code.
+The code below follows @def-lempel-ziv-parsing for the message $\text{aabababbabbbab}$.
+It prints the phrases in order,
+then the number of symbols left over at the end.
 
 ```{r}
-#| label: lempel-ziv-code
+#| label: lempel-ziv-parsing
 message_text <- "aabababbabbbab"
 symbols <- strsplit(message_text, "")[[1]]
 phrases <- character(0)
@@ -24,23 +22,12 @@ for (symbol in symbols) {
     current <- ""
   }
 }
-phrase_length <- nchar(phrases)
-prefixes <- substr(phrases, 1, phrase_length - 1)
-positions <- match(prefixes, c("", phrases)) - 1
-new_symbols <- substr(phrases, phrase_length, phrase_length)
-data.frame(phrase = phrases, position = positions, symbol = new_symbols)
-n_phrases <- length(phrases)
-position_bits <- ceiling(log2(n_phrases))
-code_bits <- n_phrases * (position_bits + 1)
-c(phrases = n_phrases, code_bits = code_bits, leftover = nchar(current))
+phrases
+nchar(current)
 ```
 
-The message has $`r nchar(message_text)`$ symbols
-and the parsing has $`r n_phrases`$ phrases,
-so each position takes $`r position_bits`$ bits.
-With one more bit for each new symbol,
-the code has $`r code_bits`$ bits,
-which is more than the $`r nchar(message_text)`$ bits of the message written as plain 0 and 1 symbols.
-A message this short is too short for the code to save anything.
+The message has $`r nchar(message_text)`$ symbols,
+and the parsing cuts it into $`r length(phrases)`$ phrases
+with none left over.
 
 :::

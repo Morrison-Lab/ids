@@ -51,11 +51,15 @@ so that the waste is shared among all of its values.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_exm-lempel-ziv-parsing.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_def-lempel-ziv-code.qmd >}}
 
 {{< slidebreak >}}
 
-{{< include ids/_subfiles/_exm-lempel-ziv-parsing.qmd >}}
+{{< include ids/_subfiles/_exm-lempel-ziv-code.qmd >}}
 
 {{< slidebreak >}}
 

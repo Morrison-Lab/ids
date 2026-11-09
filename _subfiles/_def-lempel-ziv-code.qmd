@@ -11,5 +11,7 @@ and the one new symbol.
 The code writes each position in $\ceil{\log_2 c(n)}$ [bits](entropy.qmd#def-bit) of its own.
 The code needs no table of phrases to decode:
 a decoder that reads the pairs in order rebuilds each phrase from the earlier ones.
+The decoder does need $c(n)$ to know the width of each position,
+so the encoder sends $c(n)$ first.
 
 :::
