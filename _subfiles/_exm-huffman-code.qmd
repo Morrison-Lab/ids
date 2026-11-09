@@ -4,7 +4,7 @@
 <!-- no-figure: the example is one table of codewords and three numbers -->
 
 Let $X$ have five values with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p = (0.4, 0.2, 0.2, 0.1, 0.1)$.
-The code below carries out the three steps of @def-huffman-code,
+The code below carries out the construction of @def-huffman-code,
 breaking ties in favor of the node listed first.
 It then computes the [expected length](source-coding.qmd#def-expected-length) $L$ of the code,
 the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $\entropyf{X}$ with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm),
