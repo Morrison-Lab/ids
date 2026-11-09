@@ -678,6 +678,33 @@
    "external": false
   },
   {
+   "id": "ids/minimum-description-length#def-minimum-description-length",
+   "site": "ids",
+   "page": "minimum-description-length",
+   "div": "def-minimum-description-length",
+   "kind": "def",
+   "title": "Minimum description length principle",
+   "external": false
+  },
+  {
+   "id": "ids/minimum-description-length#def-two-part-description-length",
+   "site": "ids",
+   "page": "minimum-description-length",
+   "div": "def-two-part-description-length",
+   "kind": "def",
+   "title": "Two-part description length",
+   "external": false
+  },
+  {
+   "id": "ids/minimum-description-length#thm-minimum-description-length-maximum-likelihood",
+   "site": "ids",
+   "page": "minimum-description-length",
+   "div": "thm-minimum-description-length-maximum-likelihood",
+   "kind": "thm",
+   "title": "Minimum description length and maximum likelihood",
+   "external": false
+  },
+  {
    "id": "ids/source-coding#def-code",
    "site": "ids",
    "page": "source-coding",
@@ -1332,6 +1359,16 @@
    "title": "loglik",
    "external": true,
    "url": "https://morrison-lab.github.io/sds/intro-MLEs.html#def-loglik"
+  },
+  {
+   "id": "sds/intro-MLEs#def-mle",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "def-mle",
+   "kind": "def",
+   "title": "mle",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/intro-MLEs.html#def-mle"
   },
   {
    "id": "sds/nonparametric-models#def-empirical-distribution",
@@ -2616,6 +2653,50 @@
   [
    "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
    "sds/nonparametric-models#def-empirical-distribution"
+  ],
+  [
+   "ids/minimum-description-length#def-minimum-description-length",
+   "ids/minimum-description-length#def-two-part-description-length"
+  ],
+  [
+   "ids/minimum-description-length#def-two-part-description-length",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/minimum-description-length#def-two-part-description-length",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/minimum-description-length#def-two-part-description-length",
+   "ids/huffman-codes#def-prefix-code"
+  ],
+  [
+   "ids/minimum-description-length#def-two-part-description-length",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/minimum-description-length#def-two-part-description-length",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/minimum-description-length#thm-minimum-description-length-maximum-likelihood",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/minimum-description-length#thm-minimum-description-length-maximum-likelihood",
+   "ids/minimum-description-length#def-two-part-description-length"
+  ],
+  [
+   "ids/minimum-description-length#thm-minimum-description-length-maximum-likelihood",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/minimum-description-length#thm-minimum-description-length-maximum-likelihood",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/minimum-description-length#thm-minimum-description-length-maximum-likelihood",
+   "sds/intro-MLEs#def-mle"
   ],
   [
    "ids/source-coding#def-code",
