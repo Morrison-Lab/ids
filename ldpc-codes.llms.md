@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 13:19:20 (PST)
+Last modified: 2026-11-09 13:33:15 (PST)
 
 A [linear code](error-correcting-codes.llms.md#def-linear-code) is described by a [parity-check matrix](error-correcting-codes.llms.md#def-linear-code). When it has few ones, each check involves only a few positions of the word.
 
@@ -82,7 +82,62 @@ A [linear code](error-correcting-codes.llms.md#def-linear-code) is described by 
 
 > **NOTE:**
 >
-> *Remark 1* (Where LDPC codes come from). Gallager ([1962](#ref-gallager1962low)) introduced [low-density parity-check codes](#def-ldpc-code), and MacKay ([2003](#ref-mackay2003information)) covers them in his book.
+> *Remark 1* (Where LDPC codes come from). Gallager ([1962](#ref-gallager1962low)) introduced [low-density parity-check codes](#def-ldpc-code), and MacKay ([2003, chap. 47](#ref-mackay2003information)) covers them under the name [Gallager codes](#def-ldpc-code), including decoding by message-passing algorithms \[Section 47.2\].
+
+## 2 Decoding
+
+> **NOTE:**
+>
+> **Definition 2 (Tanner graph)** Let $H$ be a [parity-check matrix](error-correcting-codes.llms.md#def-linear-code) with $m$ rows and $n$ columns. The **Tanner graph** of $H$ has a *variable node* for each column of $H$ and a *check node* for each row of $H$, with an edge between variable node $i$ and check node $a$ exactly when $H_{a i} = 1$. Every edge joins a variable node to a check node.
+
+> **NOTE:**
+>
+> **Example 3 (The Tanner graph of the length-6 code)**  
+>
+> For the $H$ of [Example 1](#exm-ldpc-code), the variable nodes are the six pairs of items, and the check nodes are the four items. Each pair is joined to the two items it contains, so every variable node has two edges. Each item is joined to the three pairs that contain it, so every check node has three edges. The R chunk below lists the check nodes joined to each variable node.
+>
+> Show code
+>
+> ``` r
+> apply(H, 2, function(column) which(column == 1))
+> #>      [,1] [,2] [,3] [,4] [,5] [,6]
+> #> [1,]    1    1    1    2    2    3
+> #> [2,]    2    3    4    3    4    4
+> ```
+
+> **NOTE:**
+>
+> **Definition 3 (Bit-flipping decoder)** Let $H$ be a [parity-check matrix](error-correcting-codes.llms.md#def-linear-code), and let $y \in \mathbb{F}_{2}^n$ be a received word. A check node $a$ is *unsatisfied* when the $a$th entry of $H y$ is 1. The **bit-flipping decoder** repeats the following step:
+>
+> - Send each check node’s status to the variable nodes joined to it in the [Tanner graph](#def-tanner-graph).
+> - Count, for each variable node, the unsatisfied check nodes joined to it.
+> - Flip the entry of $y$ at a variable node with the largest count, taking the smallest index if several tie.
+>
+> It stops after a fixed number of iterations, or when no check node is unsatisfied.
+
+> **NOTE:**
+>
+> **Example 4 (Correcting one flipped entry of the length-6 code)**  
+>
+> Send the all-zero word, which is a codeword of the [LDPC code](#def-ldpc-code) of [Example 1](#exm-ldpc-code), and suppose the channel flips the first entry. The R chunk below runs the [bit-flipping decoder](#def-bit-flipping-decoder) and prints the received word and the number of unsatisfied checks before each iteration.
+>
+> Show code
+>
+> ``` r
+> y <- c(1, 0, 0, 0, 0, 0)
+> for (step in 1:3) {
+>   syndrome <- as.vector(H %*% y) %% 2
+>   counts <- as.vector(t(H) %*% syndrome)
+>   cat("y =", y, "| unsatisfied checks =", sum(syndrome), "\n")
+>   if (all(syndrome == 0)) break
+>   flip <- which.max(counts)
+>   y[flip] <- 1 - y[flip]
+> }
+> #> y = 1 0 0 0 0 0 | unsatisfied checks = 2 
+> #> y = 0 0 0 0 0 0 | unsatisfied checks = 0
+> ```
+>
+> The flipped entry lies in two checks, and both are unsatisfied, so its count is 2, while every other entry has a count of at most 1. The decoder flips the first entry, which restores the sent word.
 
 ## References
 

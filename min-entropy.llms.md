@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 13:19:20 (PST)
+Last modified: 2026-11-09 13:33:15 (PST)
 
 The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) averages its [surprisal](entropy.llms.md#def-surprisal). Other summaries of its [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) answer other questions. This page adds the smallest of them, the [min-entropy](#def-min-entropy), to the [collision entropy](entropy.llms.md#def-renyi-entropy).
 

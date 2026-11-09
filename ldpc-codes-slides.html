@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-09 13:19:20 (PST)</p>
+  <p class="date">Last modified: 2026-11-09 13:33:15 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -406,7 +406,67 @@
 <section class="slide level2">
 
 <div id="rem-ldpc-source" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Where LDPC codes come from). </span><span class="citation" data-cites="gallager1962low">Gallager (<a href="#/references" role="doc-biblioref" onclick="">1962</a>)</span> introduced <a href="#/def-ldpc-code">low-density parity-check codes</a>, and <span class="citation" data-cites="mackay2003information">MacKay (<a href="#/references" role="doc-biblioref" onclick="">2003</a>)</span> covers them in his book.</p>
+<p><span class="proof-title"><em>Remark 1</em> (Where LDPC codes come from). </span><span class="citation" data-cites="gallager1962low">Gallager (<a href="#/references" role="doc-biblioref" onclick="">1962</a>)</span> introduced <a href="#/def-ldpc-code">low-density parity-check codes</a>, and <span class="citation" data-cites="mackay2003information">MacKay (<a href="#/references" role="doc-biblioref" onclick="">2003, chap. 47</a>)</span> covers them under the name <a href="#/def-ldpc-code">Gallager codes</a>, including decoding by message-passing algorithms [Section 47.2].</p>
+</div>
+</section>
+<section id="sec-ldpc-decoding" class="slide level2" data-number="2">
+<h2><span class="header-section-number">2</span> Decoding</h2>
+<div id="def-tanner-graph" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Tanner graph)</strong></span> Let <span class="math inline">\(H\)</span> be a <a href="./error-correcting-codes.html#def-linear-code">parity-check matrix</a> with <span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns. The <strong>Tanner graph</strong> of <span class="math inline">\(H\)</span> has a <em>variable node</em> for each column of <span class="math inline">\(H\)</span> and a <em>check node</em> for each row of <span class="math inline">\(H\)</span>, with an edge between variable node <span class="math inline">\(i\)</span> and check node <span class="math inline">\(a\)</span> exactly when <span class="math inline">\(H_{a i} = 1\)</span>. Every edge joins a variable node to a check node.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-tanner-graph" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (The Tanner graph of the length-6 code)</strong></span> &nbsp;</p>
+<!-- no-figure: the example lists the edges of a small graph -->
+<p>For the <span class="math inline">\(H\)</span> of <a href="#/exm-ldpc-code" class="quarto-xref">Example&nbsp;1</a>, the variable nodes are the six pairs of items, and the check nodes are the four items. Each pair is joined to the two items it contains, so every variable node has two edges. Each item is joined to the three pairs that contain it, so every check node has three edges. The R chunk below lists the check nodes joined to each variable node.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">apply</span>(H, <span class="dv">2</span>, <span class="cf">function</span>(column) <span class="fu">which</span>(column <span class="sc">==</span> <span class="dv">1</span>))</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5] [,6]</span></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="co">#&gt; [1,]    1    1    1    2    2    3</span></span>
+<span id="cb3-4"><a aria-label="4"></a><span class="co">#&gt; [2,]    2    3    4    3    4    4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="def-bit-flipping-decoder" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Bit-flipping decoder)</strong></span> Let <span class="math inline">\(H\)</span> be a <a href="./error-correcting-codes.html#def-linear-code">parity-check matrix</a>, and let <span class="math inline">\(y \in \mathbb{F}_{2}^n\)</span> be a received word. A check node <span class="math inline">\(a\)</span> is <em>unsatisfied</em> when the <span class="math inline">\(a\)</span>th entry of <span class="math inline">\(H y\)</span> is 1. The <strong>bit-flipping decoder</strong> repeats the following step:</p>
+<ul>
+<li>Send each check node’s status to the variable nodes joined to it in the <a href="#/def-tanner-graph">Tanner graph</a>.</li>
+<li>Count, for each variable node, the unsatisfied check nodes joined to it.</li>
+<li>Flip the entry of <span class="math inline">\(y\)</span> at a variable node with the largest count, taking the smallest index if several tie.</li>
+</ul>
+<p>It stops after a fixed number of iterations, or when no check node is unsatisfied.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-bit-flipping-decoder" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (Correcting one flipped entry of the length-6 code)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is a short decoding run -->
+<p>Send the all-zero word, which is a codeword of the <a href="#/def-ldpc-code">LDPC code</a> of <a href="#/exm-ldpc-code" class="quarto-xref">Example&nbsp;1</a>, and suppose the channel flips the first entry. The R chunk below runs the <a href="#/def-bit-flipping-decoder">bit-flipping decoder</a> and prints the received word and the number of unsatisfied checks before each iteration.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="cf">for</span> (step <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb4-3"><a aria-label="3"></a>  syndrome <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(H <span class="sc">%*%</span> y) <span class="sc">%%</span> <span class="dv">2</span></span>
+<span id="cb4-4"><a aria-label="4"></a>  counts <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">t</span>(H) <span class="sc">%*%</span> syndrome)</span>
+<span id="cb4-5"><a aria-label="5"></a>  <span class="fu">cat</span>(<span class="st">"y ="</span>, y, <span class="st">"| unsatisfied checks ="</span>, <span class="fu">sum</span>(syndrome), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-6"><a aria-label="6"></a>  <span class="cf">if</span> (<span class="fu">all</span>(syndrome <span class="sc">==</span> <span class="dv">0</span>)) <span class="cf">break</span></span>
+<span id="cb4-7"><a aria-label="7"></a>  flip <span class="ot">&lt;-</span> <span class="fu">which.max</span>(counts)</span>
+<span id="cb4-8"><a aria-label="8"></a>  y[flip] <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> y[flip]</span>
+<span id="cb4-9"><a aria-label="9"></a>}</span>
+<span id="cb4-10"><a aria-label="10"></a><span class="co">#&gt; y = 1 0 0 0 0 0 | unsatisfied checks = 2 </span></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="co">#&gt; y = 0 0 0 0 0 0 | unsatisfied checks = 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>The flipped entry lies in two checks, and both are unsatisfied, so its count is 2, while every other entry has a count of at most 1. The decoder flips the first entry, which restores the sent word.</p>
 </div>
 </section>
 <section id="references" class="slide level2 unnumbered smaller scrollable">

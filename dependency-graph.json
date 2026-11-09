@@ -678,12 +678,30 @@
    "external": false
   },
   {
+   "id": "ids/ldpc-codes#def-bit-flipping-decoder",
+   "site": "ids",
+   "page": "ldpc-codes",
+   "div": "def-bit-flipping-decoder",
+   "kind": "def",
+   "title": "Bit-flipping decoder",
+   "external": false
+  },
+  {
    "id": "ids/ldpc-codes#def-ldpc-code",
    "site": "ids",
    "page": "ldpc-codes",
    "div": "def-ldpc-code",
    "kind": "def",
    "title": "Regular low-density parity-check code",
+   "external": false
+  },
+  {
+   "id": "ids/ldpc-codes#def-tanner-graph",
+   "site": "ids",
+   "page": "ldpc-codes",
+   "div": "def-tanner-graph",
+   "kind": "def",
+   "title": "Tanner graph",
    "external": false
   },
   {
@@ -2751,12 +2769,24 @@
    "sds/nonparametric-models#def-empirical-distribution"
   ],
   [
+   "ids/ldpc-codes#def-bit-flipping-decoder",
+   "ids/error-correcting-codes#def-linear-code"
+  ],
+  [
+   "ids/ldpc-codes#def-bit-flipping-decoder",
+   "ids/ldpc-codes#def-tanner-graph"
+  ],
+  [
    "ids/ldpc-codes#def-ldpc-code",
    "ids/error-correcting-codes#def-linear-code"
   ],
   [
    "ids/ldpc-codes#def-ldpc-code",
    "mcs/number-systems#def-integers"
+  ],
+  [
+   "ids/ldpc-codes#def-tanner-graph",
+   "ids/error-correcting-codes#def-linear-code"
   ],
   [
    "ids/ldpc-codes#thm-ldpc-rate",
