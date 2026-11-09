@@ -1,0 +1,15 @@
+:::{#def-lempel-ziv-code}
+#### Lempel--Ziv code
+
+Let $x$ be a message,
+and let $c(n)$ be the number of phrases in its [incremental parsing](#def-lempel-ziv-parsing).
+The **Lempel--Ziv code** of $x$ writes each phrase as a pair:
+the position of the earlier phrase that it extends,
+with position $0$ for the empty string,
+and the one new symbol.
+
+The code writes each position in $\ceil{\log_2 c(n)}$ [bits](entropy.qmd#def-bit) of its own.
+The code needs no table of phrases to decode:
+a decoder that reads the pairs in order rebuilds each phrase from the earlier ones.
+
+:::

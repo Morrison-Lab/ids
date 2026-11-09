@@ -43,6 +43,28 @@ so that the waste is shared among all of its values.
 
 {{< include ids/_subfiles/_rem-arithmetic-code-source.qmd >}}
 
+## Lempel--Ziv coding {#sec-lempel-ziv-coding}
+
+<!-- No slidebreak here: the heading shares its slide with the def-lempel-ziv-parsing div. -->
+
+{{< include ids/_subfiles/_def-lempel-ziv-parsing.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-lempel-ziv-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-lempel-ziv-parsing.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-lempel-ziv-optimality.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-lempel-ziv-source.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}
