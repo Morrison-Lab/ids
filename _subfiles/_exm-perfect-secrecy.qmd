@@ -6,7 +6,7 @@
 Let the message take the four values $0, 1, 2, 3$ (two [bits](entropy.qmd#def-bit)) with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.4, 0.3, 0.2, 0.1$.
 The key is uniform on the same four values,
 and the ciphertext is the bitwise exclusive or of message and key.
-The code below builds the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) of message and ciphertext,
+The R chunk below builds the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) of message and ciphertext,
 and computes the [mutual information](entropy.qmd#def-mutual-information) between them.
 
 ```{r}

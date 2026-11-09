@@ -3,7 +3,7 @@
 
 <!-- no-figure: the example is two numbers -->
 
-The code below computes the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the message and of the key of @exm-perfect-secrecy.
+The R chunk below computes the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the message and of the key of @exm-perfect-secrecy.
 
 ```{r}
 #| label: perfect-secrecy-key-entropy
