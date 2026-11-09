@@ -1,0 +1,18 @@
+:::{#def-huffman-code}
+#### Huffman code
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes $n \ge 2$ values,
+with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p$.
+A **Huffman code** for $X$ is a [binary code](source-coding.qmd#def-code) built in three steps:
+
+1. Start with $n$ nodes, one for each value $x$, with weight $p(x)$.
+2. Repeat $n - 1$ times:
+   take two nodes of the smallest weights,
+   make them the two children of a new node whose weight is the sum of theirs,
+   and label the edge to one child $0$ and the edge to the other child $1$.
+3. Give each value $x$ the codeword made of the labels on the path from the last node down to the node for $x$.
+
+Ties between nodes of equal weight may be broken in any way,
+so a random variable can have several Huffman codes.
+
+:::
