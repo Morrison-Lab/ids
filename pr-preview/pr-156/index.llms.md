@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 23:05:30 (PST)
+Last modified: 2026-11-08 23:46:21 (PST)
 
 ## Welcome
 
@@ -14,13 +14,14 @@ These notes gather the information theory that data science courses use. They ar
 
 - [Entropy and mutual information](entropy.llms.md): [surprisal](entropy.llms.md#def-surprisal), joint and [conditional entropy](entropy.llms.md#def-conditional-entropy), mutual information, and the [information gain](entropy.llms.md#def-information-gain) of decision trees
 - [Source coding](source-coding.llms.md): the source coding [theorem](https://morrison-lab.github.io/mcs/proof-writing.html#def-theorem), and [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) as the cost of coding with a code built for the wrong source
+- [Huffman codes](huffman-codes.llms.md): [prefix codes](huffman-codes.llms.md#def-prefix-code), the [Huffman code](huffman-codes.llms.md#def-huffman-code) and its optimality, and its length within one [bit](entropy.llms.md#def-bit) of the entropy
+- [Stream codes](stream-codes.llms.md): the [arithmetic code](stream-codes.llms.md#def-arithmetic-code) and the [Lempel–Ziv code](stream-codes.llms.md#def-lempel-ziv-code)
 - [Channel capacity](channel-capacity.llms.md): [discrete memoryless channels](channel-capacity.llms.md#def-channel), the [capacity](channel-capacity.llms.md#def-channel-capacity) of the [binary symmetric channel](channel-capacity.llms.md#def-binary-symmetric-channel) and the [binary erasure channel](channel-capacity.llms.md#def-binary-erasure-channel), and the noisy-channel coding theorem
 - [Error-correcting codes](error-correcting-codes.llms.md): [Hamming distance](error-correcting-codes.llms.md#def-hamming-distance), the Hamming and [Reed–Solomon codes](error-correcting-codes.llms.md#def-reed-solomon-code), and how [locally decodable codes](error-correcting-codes.llms.md#def-locally-decodable) lead to hardness amplification and the PCP theorem
 
 The planned topics still to come are:
 
 - [KL divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) and its link to fitting models to data
-- Huffman and arithmetic codes
 - proofs of the [noisy-channel coding theorem](channel-capacity.llms.md#thm-channel-coding), and codes that approach [capacity](channel-capacity.llms.md#def-channel-capacity)
 
 [Entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) and [KL divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) are defined in [*Probability for Data Science*](https://morrison-lab.github.io/pds/expectation.html#sec-entropy); pages here link to those definitions rather than repeating them. Computational complexity has its own library, [*Computational Complexity for Data Science*](https://morrison-lab.github.io/ccds/). [Kolmogorov complexity](https://morrison-lab.github.io/ccds/kolmogorov-complexity.html), which relates the shortest description of a single string to [Shannon entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), is covered there.

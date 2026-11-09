@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-08 23:05:30 (PST)</p>
+  <p class="date">Last modified: 2026-11-08 23:46:21 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -447,6 +447,103 @@
 
 <div id="rem-arithmetic-code-source" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Where arithmetic codes come from). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 5.9</a>)</span> give Shannon–Fano–Elias coding, which assigns each value a codeword from the midpoint of its slice of <span class="math inline">\([0, 1)\)</span>, in the way that <a href="#/def-arithmetic-code" class="quarto-xref">Definition&nbsp;1</a> does for a whole message. Cover and Thomas describe arithmetic coding, which finds the slice of a long message one value at a time, in section 13.3.</p>
+</div>
+</section>
+<section id="sec-lempel-ziv-coding" class="slide level2" data-number="2">
+<h2><span class="header-section-number">2</span> Lempel–Ziv coding</h2>
+<!-- No slidebreak here: the heading shares its slide with the def-lempel-ziv-parsing div. -->
+<div id="def-lempel-ziv-parsing" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Incremental parsing)</strong></span> Let <span class="math inline">\(x = (x_1, \ldots, x_n)\)</span> be a message of symbols. The <strong>incremental parsing</strong> of <span class="math inline">\(x\)</span> cuts it into consecutive <em>phrases</em>, reading from the left: each phrase is the shortest string that is not an earlier phrase.</p>
+<p>Every phrase is therefore an earlier phrase, or the empty string, followed by one new symbol. The last phrase may be cut short by the end of the message, in which case it repeats an earlier phrase.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-lempel-ziv-parsing" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (The incremental parsing of a short message)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is a list of phrases -->
+<p>The code below follows <a href="#/def-lempel-ziv-parsing" class="quarto-xref">Definition&nbsp;2</a> for the message <span class="math inline">\(\text{aabababbabbbab}\)</span>. It prints the phrases in order, then the number of symbols left over at the end.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>message_text <span class="ot">&lt;-</span> <span class="st">"aabababbabbbab"</span></span>
+<span id="cb3-2"><a aria-label="2"></a>symbols <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(message_text, <span class="st">""</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb3-3"><a aria-label="3"></a>phrases <span class="ot">&lt;-</span> <span class="fu">character</span>(<span class="dv">0</span>)</span>
+<span id="cb3-4"><a aria-label="4"></a>current <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb3-5"><a aria-label="5"></a><span class="cf">for</span> (symbol <span class="cf">in</span> symbols) {</span>
+<span id="cb3-6"><a aria-label="6"></a>  candidate <span class="ot">&lt;-</span> <span class="fu">paste0</span>(current, symbol)</span>
+<span id="cb3-7"><a aria-label="7"></a>  <span class="cf">if</span> (candidate <span class="sc">%in%</span> phrases) {</span>
+<span id="cb3-8"><a aria-label="8"></a>    current <span class="ot">&lt;-</span> candidate</span>
+<span id="cb3-9"><a aria-label="9"></a>  } <span class="cf">else</span> {</span>
+<span id="cb3-10"><a aria-label="10"></a>    phrases <span class="ot">&lt;-</span> <span class="fu">c</span>(phrases, candidate)</span>
+<span id="cb3-11"><a aria-label="11"></a>    current <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb3-12"><a aria-label="12"></a>  }</span>
+<span id="cb3-13"><a aria-label="13"></a>}</span>
+<span id="cb3-14"><a aria-label="14"></a>phrases</span>
+<span id="cb3-15"><a aria-label="15"></a><span class="co">#&gt; [1] "a"   "ab"  "aba" "b"   "ba"  "bb"  "bab"</span></span>
+<span id="cb3-16"><a aria-label="16"></a><span class="fu">nchar</span>(current)</span>
+<span id="cb3-17"><a aria-label="17"></a><span class="co">#&gt; [1] 0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>The message has <span class="math inline">\(14\)</span> symbols, and the parsing cuts it into <span class="math inline">\(7\)</span> phrases with none left over.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="def-lempel-ziv-code" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Lempel–Ziv code)</strong></span> Let <span class="math inline">\(x\)</span> be a message, and let <span class="math inline">\(c(n)\)</span> be the number of phrases in its <a href="#/def-lempel-ziv-parsing">incremental parsing</a>. The <strong>Lempel–Ziv code</strong> of <span class="math inline">\(x\)</span> writes each phrase as a pair: the position of the earlier phrase that it extends, with position <span class="math inline">\(0\)</span> for the empty string, and the one new symbol.</p>
+<p>The code writes each position in <span class="math inline">\({\mathopen{}\left\lceil\log_2 c(n)\right\rceil\mathclose{}}\)</span> <a href="./entropy.html#def-bit">bits</a> of its own. The code needs no table of phrases to decode: a decoder that reads the pairs in order rebuilds each phrase from the earlier ones. The decoder does need <span class="math inline">\(c(n)\)</span> to know the width of each position, so the encoder sends <span class="math inline">\(c(n)\)</span> first.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-lempel-ziv-code" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (The Lempel–Ziv code of a short message)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is a table of pairs -->
+<p>The code below follows <a href="#/def-lempel-ziv-code" class="quarto-xref">Definition&nbsp;3</a> for the phrases of <a href="#/exm-lempel-ziv-parsing" class="quarto-xref">Example&nbsp;2</a>. It prints each phrase with its pair, then the number of phrases and the length in <a href="./entropy.html#def-bit">bits</a> of the code.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>phrase_length <span class="ot">&lt;-</span> <span class="fu">nchar</span>(phrases)</span>
+<span id="cb4-2"><a aria-label="2"></a>prefixes <span class="ot">&lt;-</span> <span class="fu">substr</span>(phrases, <span class="dv">1</span>, phrase_length <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb4-3"><a aria-label="3"></a>positions <span class="ot">&lt;-</span> <span class="fu">match</span>(prefixes, <span class="fu">c</span>(<span class="st">""</span>, phrases)) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb4-4"><a aria-label="4"></a>new_symbols <span class="ot">&lt;-</span> <span class="fu">substr</span>(phrases, phrase_length, phrase_length)</span>
+<span id="cb4-5"><a aria-label="5"></a><span class="fu">data.frame</span>(<span class="at">phrase =</span> phrases, <span class="at">position =</span> positions, <span class="at">symbol =</span> new_symbols)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["phrase"],"name":[1],"type":["chr"],"align":["left"]},{"label":["position"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["symbol"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"a","2":"0","3":"a"},{"1":"ab","2":"1","3":"b"},{"1":"aba","2":"2","3":"a"},{"1":"b","2":"0","3":"b"},{"1":"ba","2":"4","3":"a"},{"1":"bb","2":"4","3":"b"},{"1":"bab","2":"5","3":"b"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>n_phrases <span class="ot">&lt;-</span> <span class="fu">length</span>(phrases)</span>
+<span id="cb5-2"><a aria-label="2"></a>position_bits <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="fu">log2</span>(n_phrases))</span>
+<span id="cb5-3"><a aria-label="3"></a>code_bits <span class="ot">&lt;-</span> n_phrases <span class="sc">*</span> (position_bits <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb5-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">phrases =</span> n_phrases, <span class="at">code_bits =</span> code_bits)</span>
+<span id="cb5-5"><a aria-label="5"></a><span class="co">#&gt;   phrases code_bits </span></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="co">#&gt;         7        28</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Each position takes <span class="math inline">\(3\)</span> bits, and the code adds one more bit for each new symbol, so the code has <span class="math inline">\(28\)</span> bits. That is more than the <span class="math inline">\(14\)</span> bits of the message itself, so a message this short is too short for the code to save anything.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="thm-lempel-ziv-optimality" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (The Lempel–Ziv code reaches the entropy)</strong></span> Let <span class="math inline">\(X_1, X_2, \ldots\)</span> be <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> copies of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> that takes a finite number of values, and let <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span> be its <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> with base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithms</a>. Let <span class="math inline">\({\ell\mathopen{}\left(x\right)\mathclose{}}\)</span> be the number of <a href="./entropy.html#def-bit">bits</a> that the <a href="#/def-lempel-ziv-code">Lempel–Ziv code</a> uses for the message <span class="math inline">\(x = (X_1, \ldots, X_n)\)</span>. Then with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> one,</p>
+<p><span class="math display">\[\lim_{n \to \infty} \frac{{\ell\mathopen{}\left(x\right)\mathclose{}}}{n} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 13.5</a>)</span> prove this for more general sources than this one. The proof is not reproduced here.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="rem-lempel-ziv-source" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Where the Lempel–Ziv code comes from). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 13.4</a>)</span> describe the <a href="#/def-lempel-ziv-parsing">incremental parsing</a> of this code, and a second form of the code that points back into the message instead. The code needs no knowledge of the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probabilities</a>, yet <a href="#/thm-lempel-ziv-optimality" class="quarto-xref">Theorem&nbsp;3</a> shows that it still reaches the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>.</p>
 </div>
 </section>
 <section id="references" class="slide level2 unnumbered smaller scrollable">

@@ -669,6 +669,15 @@
    "external": false
   },
   {
+   "id": "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "site": "ids",
+   "page": "kl-divergence",
+   "div": "thm-maximum-likelihood-kl-divergence",
+   "kind": "thm",
+   "title": "Maximum likelihood minimizes the divergence from the data",
+   "external": false
+  },
+  {
    "id": "ids/minimum-description-length#def-minimum-description-length",
    "site": "ids",
    "page": "minimum-description-length",
@@ -768,6 +777,24 @@
    "external": false
   },
   {
+   "id": "ids/stream-codes#def-lempel-ziv-code",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "def-lempel-ziv-code",
+   "kind": "def",
+   "title": "Lempel--Ziv code",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#def-lempel-ziv-parsing",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "def-lempel-ziv-parsing",
+   "kind": "def",
+   "title": "Incremental parsing",
+   "external": false
+  },
+  {
    "id": "ids/stream-codes#lem-arithmetic-interval",
    "site": "ids",
    "page": "stream-codes",
@@ -792,6 +819,15 @@
    "div": "thm-arithmetic-prefix-code",
    "kind": "thm",
    "title": "Arithmetic codes are prefix codes",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#thm-lempel-ziv-optimality",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "thm-lempel-ziv-optimality",
+   "kind": "thm",
+   "title": "The Lempel--Ziv code reaches the entropy",
    "external": false
   },
   {
@@ -1305,6 +1341,26 @@
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-uniform"
   },
   {
+   "id": "sds/intro-MLEs#def-lik",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "def-lik",
+   "kind": "def",
+   "title": "lik",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/intro-MLEs.html#def-lik"
+  },
+  {
+   "id": "sds/intro-MLEs#def-loglik",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "def-loglik",
+   "kind": "def",
+   "title": "loglik",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/intro-MLEs.html#def-loglik"
+  },
+  {
    "id": "sds/intro-MLEs#def-mle",
    "site": "sds",
    "page": "intro-MLEs",
@@ -1313,6 +1369,16 @@
    "title": "mle",
    "external": true,
    "url": "https://morrison-lab.github.io/sds/intro-MLEs.html#def-mle"
+  },
+  {
+   "id": "sds/nonparametric-models#def-empirical-distribution",
+   "site": "sds",
+   "page": "nonparametric-models",
+   "div": "def-empirical-distribution",
+   "kind": "def",
+   "title": "empirical distribution",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/nonparametric-models.html#def-empirical-distribution"
   }
  ],
  "edges": [
@@ -2553,6 +2619,42 @@
    "pds/random-variables#def-discrete-rv"
   ],
   [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "ids/source-coding#thm-cross-entropy-decomposition"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/expectation#def-cross-entropy"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "sds/intro-MLEs#def-lik"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "sds/nonparametric-models#def-empirical-distribution"
+  ],
+  [
    "ids/minimum-description-length#def-minimum-description-length",
    "ids/minimum-description-length#def-two-part-description-length"
   ],
@@ -2753,6 +2855,14 @@
    "pds/random-variables#def-pmf"
   ],
   [
+   "ids/stream-codes#def-lempel-ziv-code",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#def-lempel-ziv-code",
+   "ids/stream-codes#def-lempel-ziv-parsing"
+  ],
+  [
    "ids/stream-codes#lem-arithmetic-interval",
    "ids/stream-codes#def-arithmetic-code"
   ],
@@ -2830,6 +2940,34 @@
   ],
   [
    "ids/stream-codes#thm-arithmetic-prefix-code",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "ids/stream-codes#def-lempel-ziv-code"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
    "pds/random-variables#def-discrete-rv"
   ]
  ],

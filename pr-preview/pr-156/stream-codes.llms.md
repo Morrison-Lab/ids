@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 23:05:30 (PST)
+Last modified: 2026-11-08 23:46:21 (PST)
 
 A [Huffman code](huffman-codes.llms.md#def-huffman-code) gives each value a whole number of [bits](entropy.llms.md#def-bit), so its [expected length](source-coding.llms.md#def-expected-length) can exceed the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) by nearly one bit per value. This page shows how to code a whole message at once, so that the waste is shared among all of its values.
 
@@ -124,6 +124,93 @@ A [Huffman code](huffman-codes.llms.md#def-huffman-code) gives each value a whol
 > **NOTE:**
 >
 > *Remark 1* (Where arithmetic codes come from). Cover and Thomas ([2006, sec. 5.9](#ref-cover2006elements)) give Shannon–Fano–Elias coding, which assigns each value a codeword from the midpoint of its slice of $[0, 1)$, in the way that [Definition 1](#def-arithmetic-code) does for a whole message. Cover and Thomas describe arithmetic coding, which finds the slice of a long message one value at a time, in section 13.3.
+
+## 2 Lempel–Ziv coding
+
+> **NOTE:**
+>
+> **Definition 2 (Incremental parsing)** Let $x = (x_1, \ldots, x_n)$ be a message of symbols. The **incremental parsing** of $x$ cuts it into consecutive *phrases*, reading from the left: each phrase is the shortest string that is not an earlier phrase.
+>
+> Every phrase is therefore an earlier phrase, or the empty string, followed by one new symbol. The last phrase may be cut short by the end of the message, in which case it repeats an earlier phrase.
+
+> **NOTE:**
+>
+> **Example 2 (The incremental parsing of a short message)**  
+>
+> The code below follows [Definition 2](#def-lempel-ziv-parsing) for the message $\text{aabababbabbbab}$. It prints the phrases in order, then the number of symbols left over at the end.
+>
+> Show code
+>
+> ``` r
+> message_text <- "aabababbabbbab"
+> symbols <- strsplit(message_text, "")[[1]]
+> phrases <- character(0)
+> current <- ""
+> for (symbol in symbols) {
+>   candidate <- paste0(current, symbol)
+>   if (candidate %in% phrases) {
+>     current <- candidate
+>   } else {
+>     phrases <- c(phrases, candidate)
+>     current <- ""
+>   }
+> }
+> phrases
+> #> [1] "a"   "ab"  "aba" "b"   "ba"  "bb"  "bab"
+> nchar(current)
+> #> [1] 0
+> ```
+>
+> The message has $14$ symbols, and the parsing cuts it into $7$ phrases with none left over.
+
+> **NOTE:**
+>
+> **Definition 3 (Lempel–Ziv code)** Let $x$ be a message, and let $c(n)$ be the number of phrases in its [incremental parsing](#def-lempel-ziv-parsing). The **Lempel–Ziv code** of $x$ writes each phrase as a pair: the position of the earlier phrase that it extends, with position $0$ for the empty string, and the one new symbol.
+>
+> The code writes each position in ${\mathopen{}\left\lceil\log_2 c(n)\right\rceil\mathclose{}}$ [bits](entropy.llms.md#def-bit) of its own. The code needs no table of phrases to decode: a decoder that reads the pairs in order rebuilds each phrase from the earlier ones. The decoder does need $c(n)$ to know the width of each position, so the encoder sends $c(n)$ first.
+
+> **NOTE:**
+>
+> **Example 3 (The Lempel–Ziv code of a short message)**  
+>
+> The code below follows [Definition 3](#def-lempel-ziv-code) for the phrases of [Example 2](#exm-lempel-ziv-parsing). It prints each phrase with its pair, then the number of phrases and the length in [bits](entropy.llms.md#def-bit) of the code.
+>
+> Show code
+>
+> ``` r
+> phrase_length <- nchar(phrases)
+> prefixes <- substr(phrases, 1, phrase_length - 1)
+> positions <- match(prefixes, c("", phrases)) - 1
+> new_symbols <- substr(phrases, phrase_length, phrase_length)
+> data.frame(phrase = phrases, position = positions, symbol = new_symbols)
+> ```
+>
+> Show code
+>
+> ``` r
+> n_phrases <- length(phrases)
+> position_bits <- ceiling(log2(n_phrases))
+> code_bits <- n_phrases * (position_bits + 1)
+> c(phrases = n_phrases, code_bits = code_bits)
+> #>   phrases code_bits 
+> #>         7        28
+> ```
+>
+> Each position takes $3$ bits, and the code adds one more bit for each new symbol, so the code has $28$ bits. That is more than the $14$ bits of the message itself, so a message this short is too short for the code to save anything.
+
+> **NOTE:**
+>
+> **Theorem 3 (The Lempel–Ziv code reaches the entropy)** Let $X_1, X_2, \ldots$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ that takes a finite number of values, and let ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ be its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm). Let ${\ell\mathopen{}\left(x\right)\mathclose{}}$ be the number of [bits](entropy.llms.md#def-bit) that the [Lempel–Ziv code](#def-lempel-ziv-code) uses for the message $x = (X_1, \ldots, X_n)$. Then with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) one,
+>
+> $$\lim_{n \to \infty} \frac{{\ell\mathopen{}\left(x\right)\mathclose{}}}{n} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Cover and Thomas ([2006, sec. 13.5](#ref-cover2006elements)) prove this for more general sources than this one. The proof is not reproduced here.
+
+> **NOTE:**
+>
+> *Remark 2* (Where the Lempel–Ziv code comes from). Cover and Thomas ([2006, sec. 13.4](#ref-cover2006elements)) describe the [incremental parsing](#def-lempel-ziv-parsing) of this code, and a second form of the code that points back into the message instead. The code needs no knowledge of the [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), yet [Theorem 3](#thm-lempel-ziv-optimality) shows that it still reaches the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
 
 ## References
 
