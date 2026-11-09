@@ -4,7 +4,8 @@
 <!-- no-figure: the example lists the edges of a small graph -->
 
 For the $H$ of @exm-ldpc-code,
-the variable nodes are the six pairs of items and the check nodes are the four items.
+the variable nodes are the six pairs of items,
+and the check nodes are the four items.
 Each pair is joined to the two items it contains,
 so every variable node has two edges.
 Each item is joined to the three pairs that contain it,
