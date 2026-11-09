@@ -5,6 +5,7 @@ The **min-entropy** of a [discrete random variable](https://morrison-lab.github.
 
 $$\renyientropyf{\infty}{X} = -\log \max_x \Pf{X = x}.$$
 
-It is the value that the Rényi [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of order $\alpha$ approaches as $\alpha \to \infty$ [@renyi1961measures].
+It is the limiting case of the [Rényi entropy](entropy.qmd#def-renyi-entropy) of order $\alpha$ [@renyi1961measures],
+which approaches it as $\alpha \to \infty$.
 
 :::
