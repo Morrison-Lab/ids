@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-08 19:54:01 (PST)</p>
+  <p class="date">Last modified: 2026-11-08 21:10:12 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -501,6 +501,96 @@
 </details>
 </div>
 <p>The code has expected length <span class="math inline">\(L = 2.2\)</span> <a href="./entropy.html#def-bit">bits</a> and the source has entropy <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = 2.122\)</span> bits, so <span class="math inline">\(L - {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = 0.078\)</span> bits. The sum <span class="math inline">\({s_{x}} 2^{-\ell(x)} = 1\)</span> is the largest value <a href="#/thm-kraft-inequality" class="quarto-xref">Theorem&nbsp;1</a> allows, and no codeword is the beginning of another, as <a href="#/thm-huffman-prefix-code" class="quarto-xref">Theorem&nbsp;3</a> says.</p>
+</div>
+</section>
+<section id="sec-huffman-optimality" class="slide level2" data-number="3">
+<h2><span class="header-section-number">3</span> Optimality</h2>
+<!-- No slidebreak here: the heading shares its slide with the thm-huffman-optimal div. -->
+<div id="thm-huffman-optimal" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Huffman codes are optimal)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> that takes <span class="math inline">\(n \ge 2\)</span> values, each with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\({\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} &gt; 0\)</span>. Then a <a href="#/def-huffman-code">Huffman code</a> for <span class="math inline">\(X\)</span> has the least <a href="./source-coding.html#def-expected-length">expected length</a> <span class="math inline">\(L\)</span> among all <a href="#/def-prefix-code">prefix codes</a> for <span class="math inline">\(X\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We use <a href="https://morrison-lab.github.io/mcs/proof-writing.html#def-proof-by-induction">induction</a> on <span class="math inline">\(n\)</span>. For <span class="math inline">\(n = 2\)</span>, every <a href="#/def-prefix-code">prefix code</a> gives each value a codeword of at least one <a href="./entropy.html#def-bit">bit</a>, and the <a href="#/def-huffman-code">Huffman code</a> gives them the codewords <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, so no prefix code is shorter.</p>
+<p>Let <span class="math inline">\(n &gt; 2\)</span>, and suppose the claim holds for <span class="math inline">\(n - 1\)</span> values. Let <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> be two values with the smallest <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probabilities</a>, the pair that the first step of the construction merges.</p>
+<p>First, some prefix code with the least <a href="./source-coding.html#def-expected-length">expected length</a> has <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> as siblings, meaning that their codewords have the same length <span class="math inline">\(m\)</span> and differ only in the last bit. To see this, take a prefix code with the least expected length.</p>
+<ul>
+<li>If <span class="math inline">\({\mathbb{p}\mathopen{}\left(u\right)\mathclose{}} &gt; {\mathbb{p}\mathopen{}\left(v\right)\mathclose{}}\)</span>, then <span class="math inline">\({\ell\mathopen{}\left(u\right)\mathclose{}} \le {\ell\mathopen{}\left(v\right)\mathclose{}}\)</span>. Otherwise, exchanging the codewords of <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> changes <span class="math inline">\(L\)</span> by <span class="math inline">\(({\mathbb{p}\mathopen{}\left(u\right)\mathclose{}} - {\mathbb{p}\mathopen{}\left(v\right)\mathclose{}})({\ell\mathopen{}\left(v\right)\mathclose{}} - {\ell\mathopen{}\left(u\right)\mathclose{}}) &lt; 0\)</span>.</li>
+<li>A longest codeword <span class="math inline">\(c\)</span> has a sibling. Otherwise, deleting the last bit of <span class="math inline">\(c\)</span> leaves a string that neither begins another codeword nor is begun by one, which gives a prefix code with a smaller <span class="math inline">\(L\)</span>.</li>
+</ul>
+<p>Let <span class="math inline">\(u\)</span> be a value with a longest codeword, and let <span class="math inline">\(v\)</span> be the value of its sibling. Both codewords have length <span class="math inline">\(m\)</span>, the largest <a href="./source-coding.html#def-code">codeword length</a>. By the first bullet, exchanging the codeword of <span class="math inline">\(x\)</span> with that of <span class="math inline">\(u\)</span> does not increase <span class="math inline">\(L\)</span>, because <span class="math inline">\({\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} \le {\mathbb{p}\mathopen{}\left(u\right)\mathclose{}}\)</span> and <span class="math inline">\({\ell\mathopen{}\left(u\right)\mathclose{}} = m\)</span> is the largest length. The same holds for exchanging <span class="math inline">\(y\)</span> with <span class="math inline">\(v\)</span>. If <span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span> is already one of <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span>, leave it where it is, and exchange the other with the remaining one of the pair. If <span class="math inline">\(x = v\)</span> and <span class="math inline">\(y \ne u\)</span>, for example, exchange <span class="math inline">\(y\)</span> with <span class="math inline">\(u\)</span>. Ties among the smallest probabilities do not matter, because every value other than <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> has probability at least <span class="math inline">\({\mathbb{p}\mathopen{}\left(y\right)\mathclose{}}\)</span>, and the exchanges use only that. These exchanges give a prefix code with the least expected length in which <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are siblings.</p>
+<p>Next, let <span class="math inline">\(X'\)</span> be the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">random variable</a> that merges <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> into one value <span class="math inline">\(z\)</span> with <span class="math inline">\(\mathbb{p}'\mathopen{}\left(z\right)\mathclose{} = {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{p}\mathopen{}\left(y\right)\mathclose{}}\)</span> and keeps every other value and probability. Any prefix code for <span class="math inline">\(X\)</span> in which <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are siblings turns into a prefix code for <span class="math inline">\(X'\)</span> by deleting the last bit of their common codeword to make the codeword of <span class="math inline">\(z\)</span>. The two codes differ only in the lengths of <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span>, so their expected lengths satisfy</p>
+<p><span class="math display">\[L= L' + {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{p}\mathopen{}\left(y\right)\mathclose{}}.\]</span></p>
+<p>The Huffman code for <span class="math inline">\(X\)</span> is built from a Huffman code for <span class="math inline">\(X'\)</span> by replacing the codeword of <span class="math inline">\(z\)</span> with two codewords, one that ends in <span class="math inline">\(0\)</span> and one that ends in <span class="math inline">\(1\)</span>. By the induction hypothesis, a Huffman code for <span class="math inline">\(X'\)</span> has the least expected length <span class="math inline">\(L'\)</span> among prefix codes for <span class="math inline">\(X'\)</span>. So no prefix code for <span class="math inline">\(X\)</span> in which <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are siblings has an expected length below that of the Huffman code for <span class="math inline">\(X\)</span>. By the first part, a prefix code with the least expected length is among these, so the Huffman code has the least expected length among all prefix codes.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-huffman-optimal" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Three prefix codes for one source)</strong></span> &nbsp;</p>
+<!-- no-figure: the example compares three expected lengths in a table -->
+<p>Take the source of <a href="#/exm-huffman-code" class="quarto-xref">Example&nbsp;2</a>, with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probabilities</a> <span class="math inline">\((0.4, 0.2, 0.2, 0.1, 0.1)\)</span>. Its <a href="#/def-huffman-code">Huffman code</a> has the <a href="./source-coding.html#def-code">codeword length</a>s <span class="math inline">\((2, 2, 2, 3, 3)\)</span>. A fixed-length code gives every value three <a href="./entropy.html#def-bit">bit</a>s. Giving each value <span class="math inline">\(x\)</span> the length <span class="math inline">\({\mathopen{}\left\lceil-\log_2 {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\rceil\mathclose{}}\)</span> is a third choice of lengths. All three choices satisfy the sum in <a href="#/thm-kraft-inequality" class="quarto-xref">Theorem&nbsp;1</a>, so <a href="#/thm-kraft-converse" class="quarto-xref">Theorem&nbsp;2</a> gives a <a href="#/def-prefix-code">prefix code</a> for each. The code below computes their <a href="./source-coding.html#def-expected-length">expected length</a>s.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>)</span>
+<span id="cb4-2"><a aria-label="2"></a>huffman_lengths <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb4-3"><a aria-label="3"></a>fixed_lengths <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">3</span>, <span class="fu">length</span>(p))</span>
+<span id="cb4-4"><a aria-label="4"></a>shannon_lengths <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="sc">-</span><span class="fu">log2</span>(p))</span>
+<span id="cb4-5"><a aria-label="5"></a>length_sets <span class="ot">&lt;-</span> <span class="fu">list</span>(huffman_lengths, fixed_lengths, shannon_lengths)</span>
+<span id="cb4-6"><a aria-label="6"></a><span class="fu">data.frame</span>(</span>
+<span id="cb4-7"><a aria-label="7"></a>  <span class="at">code =</span> <span class="fu">c</span>(<span class="st">"Huffman"</span>, <span class="st">"fixed length"</span>, <span class="st">"Shannon lengths"</span>),</span>
+<span id="cb4-8"><a aria-label="8"></a>  <span class="at">kraft_sum =</span> <span class="fu">vapply</span>(length_sets, <span class="cf">function</span>(l) <span class="fu">sum</span>(<span class="dv">2</span><span class="sc">^</span>(<span class="sc">-</span>l)), <span class="fu">numeric</span>(<span class="dv">1</span>)),</span>
+<span id="cb4-9"><a aria-label="9"></a>  <span class="at">expected_length =</span> <span class="fu">vapply</span>(length_sets, <span class="cf">function</span>(l) <span class="fu">sum</span>(p <span class="sc">*</span> l), <span class="fu">numeric</span>(<span class="dv">1</span>))</span>
+<span id="cb4-10"><a aria-label="10"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["code"],"name":[1],"type":["chr"],"align":["left"]},{"label":["kraft_sum"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["expected_length"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"Huffman","2":"1.000","3":"2.2"},{"1":"fixed length","2":"0.625","3":"3.0"},{"1":"Shannon lengths","2":"0.625","3":"2.8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The Huffman code has the least expected length of the three, as <a href="#/thm-huffman-optimal" class="quarto-xref">Theorem&nbsp;4</a> says it must have among all prefix codes.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="thm-huffman-entropy-bound" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5 (A Huffman code is within one bit of the entropy)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> that takes <span class="math inline">\(n \ge 2\)</span> values, each with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\({\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} &gt; 0\)</span>. Then a <a href="#/def-huffman-code">Huffman code</a> for <span class="math inline">\(X\)</span> has <a href="./source-coding.html#def-expected-length">expected length</a> <span class="math inline">\(L\)</span> with</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \le L&lt; {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1,\]</span></p>
+<p>where <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(X\)</span> with base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithms</a>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Every <a href="#/def-prefix-code">prefix code</a> is <a href="./source-coding.html#def-uniquely-decodable">uniquely decodable</a>, so the <a href="./source-coding.html#thm-source-coding">source coding theorem</a> gives <span class="math inline">\(L\ge {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>.</p>
+<p>For the other half of the claim, give each value <span class="math inline">\(x\)</span> the length <span class="math inline">\({\ell\mathopen{}\left(x\right)\mathclose{}} = {\mathopen{}\left\lceil-\log_2 {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\rceil\mathclose{}}\)</span>. Then <span class="math inline">\(2^{-{\ell\mathopen{}\left(x\right)\mathclose{}}} \le {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\)</span>, so adding <span class="math inline">\(2^{-{\ell\mathopen{}\left(x\right)\mathclose{}}}\)</span> for every value gives at most the sum of their <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probabilities</a>, which is <span class="math inline">\(1\)</span>. By <a href="#/thm-kraft-converse" class="quarto-xref">Theorem&nbsp;2</a>, some prefix code has these lengths. Its <a href="./source-coding.html#def-expected-length">expected length</a> is below <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1\)</span>, because <span class="math inline">\({\ell\mathopen{}\left(x\right)\mathclose{}} &lt; -\log_2 {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} + 1\)</span> for each value.</p>
+<p>By <a href="#/thm-huffman-optimal" class="quarto-xref">Theorem&nbsp;4</a>, a <a href="#/def-huffman-code">Huffman code</a> has an expected length no larger than this prefix code, so <span class="math inline">\(L&lt; {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-huffman-entropy-bound" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (The bound for the Huffman code of the earlier example)</strong></span> &nbsp;</p>
+<!-- no-figure: the example is three numbers compared in a sentence -->
+<p>The <a href="#/def-huffman-code">Huffman code</a> of <a href="#/exm-huffman-code" class="quarto-xref">Example&nbsp;2</a> has the <a href="./source-coding.html#def-code">codeword length</a>s <span class="math inline">\((2, 2, 2, 3, 3)\)</span> for the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probabilities</a> <span class="math inline">\((0.4, 0.2, 0.2, 0.1, 0.1)\)</span>. The code below computes its <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> and <a href="./source-coding.html#def-expected-length">expected length</a>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>[Code]</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>)</span>
+<span id="cb5-2"><a aria-label="2"></a>huffman_lengths <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb5-3"><a aria-label="3"></a>entropy <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(p <span class="sc">*</span> <span class="fu">log2</span>(p))</span>
+<span id="cb5-4"><a aria-label="4"></a>expected_length <span class="ot">&lt;-</span> <span class="fu">sum</span>(p <span class="sc">*</span> huffman_lengths)</span>
+<span id="cb5-5"><a aria-label="5"></a><span class="fu">data.frame</span>(entropy, expected_length, <span class="at">upper_bound =</span> entropy <span class="sc">+</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["entropy"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["expected_length"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["upper_bound"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"2.121928","2":"2.2","3":"3.121928"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>The expected length is <span class="math inline">\(2.2\)</span> <a href="./entropy.html#def-bit">bit</a>s. It lies between the entropy, <span class="math inline">\(2.122\)</span> bits, and the entropy plus one bit, <span class="math inline">\(3.122\)</span> bits, as <a href="#/thm-huffman-entropy-bound" class="quarto-xref">Theorem&nbsp;5</a> says.</p>
 </div>
 </section>
 <section id="references" class="slide level2 unnumbered smaller scrollable">

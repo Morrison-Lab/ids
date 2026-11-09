@@ -624,6 +624,24 @@
    "external": false
   },
   {
+   "id": "ids/huffman-codes#thm-huffman-entropy-bound",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "thm-huffman-entropy-bound",
+   "kind": "thm",
+   "title": "A Huffman code is within one bit of the entropy",
+   "external": false
+  },
+  {
+   "id": "ids/huffman-codes#thm-huffman-optimal",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "thm-huffman-optimal",
+   "kind": "thm",
+   "title": "Huffman codes are optimal",
+   "external": false
+  },
+  {
    "id": "ids/huffman-codes#thm-huffman-prefix-code",
    "site": "ids",
    "page": "huffman-codes",
@@ -782,6 +800,16 @@
    "title": "contradiction",
    "external": true,
    "url": "https://morrison-lab.github.io/mcs/proof-writing.html#def-contradiction"
+  },
+  {
+   "id": "mcs/proof-writing#def-proof-by-induction",
+   "site": "mcs",
+   "page": "proof-writing",
+   "div": "def-proof-by-induction",
+   "kind": "def",
+   "title": "proof by induction",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/proof-writing.html#def-proof-by-induction"
   },
   {
    "id": "mcs/sets#def-set",
@@ -2322,6 +2350,86 @@
   [
    "ids/huffman-codes#def-prefix-code",
    "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/huffman-codes#def-huffman-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/huffman-codes#def-prefix-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/huffman-codes#thm-huffman-optimal"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/huffman-codes#thm-kraft-converse"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/source-coding#def-uniquely-decodable"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/source-coding#thm-source-coding"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "ids/huffman-codes#def-huffman-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "ids/huffman-codes#def-prefix-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "mcs/proof-writing#def-proof-by-induction"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "pds/random-variables#def-random-variable"
   ],
   [
    "ids/huffman-codes#thm-huffman-prefix-code",
