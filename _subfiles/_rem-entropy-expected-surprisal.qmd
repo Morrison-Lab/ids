@@ -2,7 +2,7 @@
 #### Entropy is expected surprisal
 
 The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
-of a discrete random variable $X$ is the
+of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the
 [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation)
 of its [surprisal](#def-surprisal):
 
@@ -14,11 +14,11 @@ H(X)
 \end{aligned}
 $$
 
-So $H(X)$ is the average number of bits (with base-2 logarithms)
+So $H(X)$ is the average number of [bits](entropy.qmd#def-bit) (with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm))
 needed to record a value of $X$
 when each value $x$ costs $s(x)$ bits.
 The [source coding theorem](source-coding.qmd#thm-source-coding),
 on a later page of these notes, makes that average precise:
-no uniquely decodable code does better.
+no [uniquely decodable code](source-coding.qmd#def-uniquely-decodable) does better.
 
 :::

@@ -1,13 +1,13 @@
 ::: {#rem-surprisal-fisher-information}
 #### Surprisal and the Fisher information
 
-When the probabilities depend on a parameter $\param$,
+When the [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) depend on a parameter $\param$,
 the [surprisal](#def-surprisal) of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ is $-\log \p(x \mid \param)$,
 which is minus the log-likelihood:
 
 $$\surprisal_{\param}(x) = -\log \p(x \mid \param) = -\llik(\param).$$
 
-Its derivative with respect to $\param$ is minus the
+Its [derivative with respect to](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) $\param$ is minus the
 [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score):
 
 $$\deriv{\param} \surprisal_{\param}(x) = -\scoref{\param}.$$
@@ -18,8 +18,8 @@ also called the Fisher information.
 It is also the expected
 [second derivative](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-second-derivative)
 of the surprisal,
-when the outcome $X$ is drawn from the model at the true parameter value $\param_0$,
-and the score is evaluated at that same outcome $X$:
+when $X$ is drawn from the model at the true parameter value $\param_0$,
+and the score is evaluated at that same $X$:
 
 $$
 \einf(\param_0)
