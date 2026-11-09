@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 13:33:15 (PST)
+Last modified: 2026-11-09 13:39:42 (PST)
 
 The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) averages its [surprisal](entropy.llms.md#def-surprisal). Other summaries of its [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) answer other questions. This page adds the smallest of them, the [min-entropy](#def-min-entropy), to the [collision entropy](entropy.llms.md#def-renyi-entropy).
 
@@ -26,7 +26,7 @@ The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) o
 >
 > $${\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}} = -\log \max_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}.$$
 >
-> It is the value that the Rényi [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of order $\alpha$ approaches as $\alpha \to \infty$ ([Rényi 1961](#ref-renyi1961measures)).
+> It is the limiting case of the [Rényi entropy](entropy.llms.md#def-renyi-entropy) of order $\alpha$ ([Rényi 1961](#ref-renyi1961measures)), which approaches it as $\alpha \to \infty$.
 
 > **NOTE:**
 >
@@ -95,7 +95,7 @@ The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) o
 
 > **NOTE:**
 >
-> *Remark 1* (Min-entropy measures the chance of a single guess). The best single guess at the value of $X$ is its most probable value, and that guess is right with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2^{-{\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}}}$. So a [min-entropy](#def-min-entropy) of $k$ [bits](entropy.llms.md#def-bit) says that no guess succeeds with probability above $2^{-k}$. That is why min-entropy, and not the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), is the measure of the unpredictability of a secret.
+> *Remark 1* (Min-entropy measures the chance of a single guess). The best single guess at the value of $X$ is its most probable value, and that guess is right with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2^{-{\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}}}$. So a [min-entropy](#def-min-entropy) of $k$ [bits](entropy.llms.md#def-bit) says that no guess succeeds with probability above $2^{-k}$. The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) gives no such guarantee, because it can be large while one value is very likely. That is why min-entropy is the measure of a secret’s unpredictability.
 
 ## References
 

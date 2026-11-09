@@ -759,6 +759,24 @@
    "external": false
   },
   {
+   "id": "ids/perfect-secrecy#def-perfect-secrecy",
+   "site": "ids",
+   "page": "perfect-secrecy",
+   "div": "def-perfect-secrecy",
+   "kind": "def",
+   "title": "Perfect secrecy",
+   "external": false
+  },
+  {
+   "id": "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "site": "ids",
+   "page": "perfect-secrecy",
+   "div": "thm-perfect-secrecy-key-entropy",
+   "kind": "thm",
+   "title": "Perfect secrecy needs a key with at least the entropy of the message",
+   "external": false
+  },
+  {
    "id": "ids/reed-solomon-codes#def-list-decodable-code",
    "site": "ids",
    "page": "reed-solomon-codes",
@@ -2802,11 +2820,11 @@
   ],
   [
    "ids/min-entropy#def-min-entropy",
-   "mds/algebra-exponentials#def-logarithm"
+   "ids/entropy#def-renyi-entropy"
   ],
   [
    "ids/min-entropy#def-min-entropy",
-   "pds/expectation#def-entropy"
+   "mds/algebra-exponentials#def-logarithm"
   ],
   [
    "ids/min-entropy#def-min-entropy",
@@ -2879,6 +2897,46 @@
   [
    "ids/minimum-description-length#thm-minimum-description-length-maximum-likelihood",
    "sds/intro-MLEs#def-mle"
+  ],
+  [
+   "ids/perfect-secrecy#def-perfect-secrecy",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/perfect-secrecy#def-perfect-secrecy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/perfect-secrecy#def-perfect-secrecy",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/perfect-secrecy#def-perfect-secrecy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "ids/entropy#cor-conditioning-reduces-entropy"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "ids/perfect-secrecy#def-perfect-secrecy"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "pds/independence#def-indpt"
   ],
   [
    "ids/reed-solomon-codes#def-list-decodable-code",

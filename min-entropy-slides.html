@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-09 13:33:15 (PST)</p>
+  <p class="date">Last modified: 2026-11-09 13:39:42 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -344,7 +344,7 @@
 <div id="def-min-entropy" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Min-entropy)</strong></span> The <strong>min-entropy</strong> of a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> is the <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> of the reciprocal of the largest <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> that <span class="math inline">\(X\)</span> takes any one value:</p>
 <p><span class="math display">\[{\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}} = -\log \max_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}.\]</span></p>
-<p>It is the value that the Rényi <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of order <span class="math inline">\(\alpha\)</span> approaches as <span class="math inline">\(\alpha \to \infty\)</span> <span class="citation" data-cites="renyi1961measures">(<a href="#/references" role="doc-biblioref" onclick="">Rényi 1961</a>)</span>.</p>
+<p>It is the limiting case of the <a href="./entropy.html#def-renyi-entropy">Rényi entropy</a> of order <span class="math inline">\(\alpha\)</span> <span class="citation" data-cites="renyi1961measures">(<a href="#/references" role="doc-biblioref" onclick="">Rényi 1961</a>)</span>, which approaches it as <span class="math inline">\(\alpha \to \infty\)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -411,7 +411,7 @@
 <section class="slide level2">
 
 <div id="rem-min-entropy-guessing" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Min-entropy measures the chance of a single guess). </span>The best single guess at the value of <span class="math inline">\(X\)</span> is its most probable value, and that guess is right with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(2^{-{\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}}}\)</span>. So a <a href="#/def-min-entropy">min-entropy</a> of <span class="math inline">\(k\)</span> <a href="./entropy.html#def-bit">bits</a> says that no guess succeeds with probability above <span class="math inline">\(2^{-k}\)</span>. That is why min-entropy, and not the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>, is the measure of the unpredictability of a secret.</p>
+<p><span class="proof-title"><em>Remark 1</em> (Min-entropy measures the chance of a single guess). </span>The best single guess at the value of <span class="math inline">\(X\)</span> is its most probable value, and that guess is right with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(2^{-{\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}}}\)</span>. So a <a href="#/def-min-entropy">min-entropy</a> of <span class="math inline">\(k\)</span> <a href="./entropy.html#def-bit">bits</a> says that no guess succeeds with probability above <span class="math inline">\(2^{-k}\)</span>. The <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> gives no such guarantee, because it can be large while one value is very likely. That is why min-entropy is the measure of a secret’s unpredictability.</p>
 </div>
 </section>
 <section id="references" class="slide level2 unnumbered smaller scrollable">

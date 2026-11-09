@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 13:33:15 (PST)
+Last modified: 2026-11-09 13:39:42 (PST)
 
 The [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior) of an unobserved quantity is often too hard to compute. Variational inference replaces it with a simpler stand-in that is close to it, where closeness is measured by the [KL divergence](kl-divergence.llms.md).
 

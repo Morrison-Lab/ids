@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 13:33:15 (PST)
+Last modified: 2026-11-09 13:39:42 (PST)
 
 The [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of one model from another is the number of [bits](entropy.llms.md#def-bit) per value that a code built for the model wastes, by the [cross-entropy decomposition](source-coding.llms.md#thm-cross-entropy-decomposition). This page applies that to data, and shows that the model a [maximum likelihood estimate](https://morrison-lab.github.io/sds/intro-MLEs.html#def-mle) picks is the model with the least waste.
 
