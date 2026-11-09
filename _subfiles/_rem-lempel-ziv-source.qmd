@@ -1,9 +1,9 @@
 ::: {#rem-lempel-ziv-source}
 #### Where the Lempel--Ziv code comes from
 
-@cover2006elements [section 13.4] describe the incremental parsing of @def-lempel-ziv-parsing,
+@cover2006elements [section 13.4] describe the [incremental parsing](#def-lempel-ziv-parsing) of this code,
 and a second form of the code that points back into the message instead.
-The code needs no knowledge of the probabilities,
-yet @thm-lempel-ziv-optimality shows that it still reaches the entropy.
+The code needs no knowledge of the [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
+yet @thm-lempel-ziv-optimality shows that it still reaches the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
 
 :::

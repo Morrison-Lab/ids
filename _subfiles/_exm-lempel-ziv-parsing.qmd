@@ -7,7 +7,7 @@ The code below follows @def-lempel-ziv-parsing and @def-lempel-ziv-code
 for the message $\text{aabababbabbbab}$.
 It prints each phrase with its pair,
 then the number of phrases
-and the length in bits of the code.
+and the length in [bits](entropy.qmd#def-bit) of the code.
 
 ```{r}
 #| label: lempel-ziv-code

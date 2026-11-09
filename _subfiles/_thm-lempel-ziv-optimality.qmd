@@ -6,7 +6,7 @@ that takes a finite number of values,
 and let $\entropyf{X}$ be its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
 with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 Let $\codelenf{x}$ be the number of [bits](entropy.qmd#def-bit) that the [Lempel--Ziv code](#def-lempel-ziv-code) uses for the message $x = (X_1, \ldots, X_n)$.
-Then with probability one,
+Then with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) one,
 
 $$\lim_{n \to \infty} \frac{\codelenf{x}}{n} = \entropyf{X}.$$
 
@@ -14,7 +14,7 @@ $$\lim_{n \to \infty} \frac{\codelenf{x}}{n} = \entropyf{X}.$$
 
 ::: {.proof}
 
-@cover2006elements [section 13.5] prove this for a wider class of sources than independent copies.
+@cover2006elements [section 13.5] prove this for more general sources than this one.
 The proof is not reproduced here.
 
 :::
