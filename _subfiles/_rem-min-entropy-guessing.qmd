@@ -3,7 +3,7 @@
 
 The best single guess at the value of $X$ is its most probable value,
 and that guess is right with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2^{-\renyientropyf{\infty}{X}}$.
-So a [min-entropy](#def-min-entropy) of $k$ [bits](entropy.qmd#def-bit) means that no guess succeeds with probability above $2^{-k}$.
+So a [min-entropy](#def-min-entropy) of $k$ [bits](entropy.qmd#def-bit) says that no guess succeeds with probability above $2^{-k}$.
 That is why min-entropy, and not the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), is the measure of the unpredictability of a secret.
 
 :::
