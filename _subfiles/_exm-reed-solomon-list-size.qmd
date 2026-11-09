@@ -11,7 +11,8 @@ Take $n = 5$, $k = 2$ and $e = 2$, as in @exm-list-decoding-reed-solomon.
 choose(5, 2) / choose(3, 2)
 ```
 
-The list size is a whole number, so it is at most 3.
+The list size is a whole number,
+so it is at most 3.
 The received word of @exm-list-decoding-reed-solomon has 2.
 
 :::

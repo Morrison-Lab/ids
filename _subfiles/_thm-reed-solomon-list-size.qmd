@@ -20,15 +20,18 @@ where $c \in S$ and $T$ is a choice of $k$ positions at which $c$ and $r$ agree.
 
 Each $c \in S$ differs from $r$ in at most $e$ positions,
 so it agrees with $r$ in at least $n - e$ positions.
-Since $n - e \ge k$, it has at least $\binom{n - e}{k}$ choices of $T$.
+Since $n - e \ge k$,
+it has at least $\binom{n - e}{k}$ choices of $T$.
 So there are at least $|S| \binom{n - e}{k}$ pairs.
 
 Now fix a choice $T$ of $k$ positions.
 Two distinct codewords that both agree with $r$ on $T$ agree with each other on $T$.
 By [the distance theorem](error-correcting-codes.qmd#thm-reed-solomon-distance), distinct codewords differ in at least $n - k + 1$ positions,
-so they agree in at most $k - 1$ positions, which is fewer than $k$.
+so they agree in at most $k - 1$ positions,
+which is fewer than $k$.
 So at most one codeword $c$ agrees with $r$ on $T$.
-There are $\binom{n}{k}$ choices of $T$, so there are at most $\binom{n}{k}$ pairs.
+There are $\binom{n}{k}$ choices of $T$,
+so there are at most $\binom{n}{k}$ pairs.
 
 Combine the two counts:
 

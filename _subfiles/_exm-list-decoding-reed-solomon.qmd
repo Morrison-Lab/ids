@@ -3,7 +3,8 @@
 
 <!-- no-figure: the example is a short table of codewords -->
 
-Take the [Reed--Solomon code](error-correcting-codes.qmd#def-reed-solomon-code) with $q = n = 5$ and $k = 2$ from [the small example](error-correcting-codes.qmd#exm-reed-solomon),
+Take the [Reed--Solomon code](error-correcting-codes.qmd#def-reed-solomon-code) with $q = n = 5$ and $k = 2$
+from [the small example](error-correcting-codes.qmd#exm-reed-solomon),
 whose codewords are the values of the 25 lines $m_0 + m_1 t$ at the points $0, 1, 2, 3, 4$.
 Its [minimum distance](error-correcting-codes.qmd#def-hamming-distance) is $4$,
 so every received word has at most one codeword within distance $1$.
