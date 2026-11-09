@@ -1,0 +1,42 @@
+:::{#thm-reed-solomon-list-size}
+#### A bound on the list size of a Reed--Solomon code
+
+Let $C$ be the [Reed--Solomon code](error-correcting-codes.qmd#def-reed-solomon-code) with length $n$ and $k$ message symbols,
+and let $e \in \{0, 1, \ldots, n - k\}$.
+Then every received word has at most
+
+$$\frac{\binom{n}{k}}{\binom{n - e}{k}}$$
+
+codewords within [Hamming distance](error-correcting-codes.qmd#def-hamming-distance) $e$.
+So $C$ is $(e, L)$-list-decodable for every $L$ at least the value above.
+
+:::
+
+::: proof
+
+Fix a received word $r$ and let $S$ be the codewords $c$ with $\hamdist{c}{r} \le e$.
+Count the pairs $(c, T)$,
+where $c \in S$ and $T$ is a choice of $k$ positions at which $c$ and $r$ agree.
+
+Each $c \in S$ differs from $r$ in at most $e$ positions,
+so it agrees with $r$ in at least $n - e$ positions.
+Since $n - e \ge k$,
+it has at least $\binom{n - e}{k}$ choices of $T$.
+So there are at least $|S| \binom{n - e}{k}$ pairs.
+
+Now fix a choice $T$ of $k$ positions.
+Two distinct codewords that both agree with $r$ on $T$ agree with each other on $T$.
+By [the distance theorem](error-correcting-codes.qmd#thm-reed-solomon-distance), distinct codewords differ in at least $n - k + 1$ positions,
+so they agree in at most $k - 1$ positions,
+which is fewer than $k$.
+So at most one codeword $c$ agrees with $r$ on $T$.
+There are $\binom{n}{k}$ choices of $T$,
+so there are at most $\binom{n}{k}$ pairs.
+
+Combine the two counts:
+
+$$|S| \binom{n - e}{k} \le \binom{n}{k}.$$
+
+Divide both sides by $\binom{n - e}{k}$, which is nonzero because $n - e \ge k$.
+
+:::

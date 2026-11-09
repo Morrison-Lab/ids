@@ -1,0 +1,18 @@
+:::{#exm-reed-solomon-list-size}
+#### The list size for the length-5 Reed--Solomon code
+
+<!-- no-figure: the example is one computed number -->
+
+Take $n = 5$, $k = 2$ and $e = 2$, as in @exm-list-decoding-reed-solomon.
+@thm-reed-solomon-list-size gives $\binom{5}{2} / \binom{3}{2}$ as the largest list size.
+
+```{r}
+#| label: reed-solomon-list-size
+choose(5, 2) / choose(3, 2)
+```
+
+The list size is a whole number,
+so it is at most 3.
+The received word of @exm-list-decoding-reed-solomon has 2.
+
+:::
