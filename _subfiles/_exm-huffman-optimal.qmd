@@ -7,7 +7,7 @@ Take the source of @exm-huffman-code,
 with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $(0.4, 0.2, 0.2, 0.1, 0.1)$.
 Its [Huffman code](#def-huffman-code) has the [codeword length](source-coding.qmd#def-code)s $(2, 2, 2, 3, 3)$.
 A fixed-length code gives every value three [bit](entropy.qmd#def-bit)s.
-Giving each value $x$ the length $\ceil{-\log_2 p(x)}$ is a third choice of lengths.
+Giving each value $x$ the length $\ceil{-\log_2 \pf{x}}$ is a third choice of lengths.
 All three choices satisfy the sum in @thm-kraft-inequality,
 so @thm-kraft-converse gives a [prefix code](#def-prefix-code) for each.
 The code below computes their [expected length](source-coding.qmd#def-expected-length)s.
