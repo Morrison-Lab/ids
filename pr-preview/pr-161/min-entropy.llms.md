@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 23:27:29 (PST)
+Last modified: 2026-11-09 03:18:31 (PST)
 
 The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) averages its [surprisal](entropy.llms.md#def-surprisal). Other summaries of its [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) answer other questions. This page adds the smallest of them, the [min-entropy](#def-min-entropy), to the [collision entropy](entropy.llms.md#def-renyi-entropy).
 
@@ -32,7 +32,7 @@ The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) o
 >
 > **Example 1 (Min-entropy of a three-valued random variable)**  
 >
-> Let $X$ take three values with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$, $1/4$ and $1/4$. The code below finds the largest probability and the [min-entropy](#def-min-entropy), with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+> Let $X$ take three values with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$, $1/4$ and $1/4$. The R chunk below finds the largest probability and the [min-entropy](#def-min-entropy), with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 >
 > Show code
 >
@@ -73,7 +73,7 @@ The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) o
 >
 > **Example 2 (Three entropies of one random variable)**  
 >
-> The code below computes the [min-entropy](#def-min-entropy), the [collision entropy](entropy.llms.md#def-renyi-entropy) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) of [Example 1](#exm-min-entropy).
+> The R chunk below computes the [min-entropy](#def-min-entropy), the [collision entropy](entropy.llms.md#def-renyi-entropy) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) of [Example 1](#exm-min-entropy).
 >
 > Show code
 >
