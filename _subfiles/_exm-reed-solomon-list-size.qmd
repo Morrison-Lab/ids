@@ -4,7 +4,7 @@
 <!-- no-figure: the example is one computed number -->
 
 Take $n = 5$, $k = 2$ and $e = 2$, as in @exm-list-decoding-reed-solomon.
-The theorem gives $\binom{5}{2} / \binom{3}{2}$ as the largest list size.
+@thm-reed-solomon-list-size gives $\binom{5}{2} / \binom{3}{2}$ as the largest list size.
 
 ```{r}
 #| label: reed-solomon-list-size

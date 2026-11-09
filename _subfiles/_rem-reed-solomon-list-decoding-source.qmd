@@ -3,6 +3,6 @@
 
 @thm-reed-solomon-list-size says how long the list can be,
 but it does not say how to find the list quickly.
-@guruswami1999improved gave a polynomial-time algorithm that finds the list for a Reed--Solomon code.
+@guruswami1999improved gave a polynomial-time algorithm that finds the list for a [Reed--Solomon code](error-correcting-codes.qmd#def-reed-solomon-code).
 
 :::
