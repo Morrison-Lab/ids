@@ -1,0 +1,23 @@
+:::{#thm-ldpc-rate}
+#### The rate of a regular LDPC code
+
+Let $C$ be a $(j, k)$-regular [LDPC code](#def-ldpc-code) of length $n$.
+Then the [rate](channel-capacity.qmd#def-code-rate) of $C$ is at least $1 - j / k$.
+
+:::
+
+::: proof
+
+Let $H$ be a parity-check matrix of $C$ with $m$ rows and $n$ columns.
+Count the ones of $H$ in two ways.
+Each of the $n$ columns holds $j$ ones, so $H$ has $n j$ ones.
+Each of the $m$ rows holds $k$ ones, so $H$ has $m k$ ones.
+So $n j = m k$, and $m = n j / k$.
+
+The codewords are the solutions of $H y = 0$,
+so their number is $2^{n - r}$, where $r$ is the rank of $H$.
+The rank of $H$ is at most its number of rows, so $r \le m$,
+and the code has at least $2^{n - m}$ codewords.
+Its rate is $(n - r) / n$, which is at least $(n - m) / n = 1 - j / k$.
+
+:::

@@ -1,0 +1,11 @@
+:::{#def-ldpc-code}
+#### Regular low-density parity-check code
+
+Let $j$ and $k$ be positive integers.
+A **$(j, k)$-regular low-density parity-check code**, or **LDPC code**,
+is a [linear code](error-correcting-codes.qmd#def-linear-code) over $\ffield{2}$
+that has a [parity-check matrix](error-correcting-codes.qmd#def-linear-code) with $j$ ones in every column
+and $k$ ones in every row, and zeros elsewhere.
+Gallager introduced these codes [@gallager1962low].
+
+:::

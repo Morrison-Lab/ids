@@ -1,0 +1,31 @@
+:::{#exm-ldpc-code}
+#### A $(2, 3)$-regular code of length 6
+
+<!-- no-figure: the example is a small matrix and a count -->
+
+Label the four vertices of a complete graph $1, 2, 3, 4$.
+It has six edges, one for each pair of vertices.
+Let $H$ have a row for each vertex and a column for each edge,
+with a 1 where the vertex lies on the edge.
+Every edge has two vertices and every vertex lies on three edges,
+so $H$ has two ones in each column and three in each row,
+and it gives a $(2, 3)$-regular code of length 6.
+The R chunk below builds $H$, checks the counts,
+and counts the words $y$ with $H y = 0$ modulo 2.
+
+```{r}
+#| label: ldpc-code
+edges <- t(combn(4, 2))
+H <- sapply(seq_len(nrow(edges)), function(e) as.integer(1:4 %in% edges[e, ]))
+H
+colSums(H)
+rowSums(H)
+words <- as.matrix(expand.grid(rep(list(0:1), 6)))
+is_codeword <- apply(words, 1, function(y) all((H %*% y) %% 2 == 0))
+sum(is_codeword)
+```
+
+The code has `r sum(is_codeword)` codewords,
+so its [dimension](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-dimension) is $\log_2$ of that number, which is 3.
+
+:::
