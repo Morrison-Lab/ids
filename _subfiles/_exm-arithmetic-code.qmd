@@ -1,0 +1,53 @@
+:::{#exm-arithmetic-code}
+#### An arithmetic code for a short message
+
+<!-- no-figure: the example is a table of intervals and one codeword -->
+
+Take a source with the values $a$, $b$ and $c$, in that order,
+and the [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $(0.5, 0.3, 0.2)$.
+The code below follows @def-arithmetic-code for the message $a, c, b, a$.
+It prints the slice after each round,
+then the codeword and its [codeword length](source-coding.qmd#def-code).
+
+```{r}
+#| label: arithmetic-code
+p <- c(a = 0.5, b = 0.3, c = 0.2)
+cdf_before <- cumsum(p) - p
+message_values <- c("a", "c", "b", "a")
+n <- length(message_values)
+lower <- 0
+width <- 1
+lowers <- numeric(n)
+widths <- numeric(n)
+for (i in seq_len(n)) {
+  symbol <- message_values[i]
+  lower <- lower + width * cdf_before[[symbol]]
+  width <- width * p[[symbol]]
+  lowers[i] <- lower
+  widths[i] <- width
+}
+uppers <- lowers + widths
+data.frame(
+  symbol = message_values,
+  lower = lowers,
+  upper = uppers,
+  width = widths
+)
+midpoint <- lower + width / 2
+surprisal <- -log2(width)
+n_digits <- ceiling(surprisal) + 1
+positions <- seq_len(n_digits)
+digits <- floor(midpoint * 2^positions) %% 2
+codeword <- paste0(digits, collapse = "")
+c(midpoint = midpoint, codeword_length = n_digits, surprisal = surprisal)
+codeword
+```
+
+The final slice has width $`r width`$,
+which is the product $0.5 \times 0.2 \times 0.3 \times 0.5$ of the probabilities of the four values.
+The codeword is $`r codeword`$,
+with $`r n_digits`$ digits,
+which is the message's [surprisal](entropy.qmd#def-surprisal) of $`r round(surprisal, 3)`$ [bits](entropy.qmd#def-bit) rounded up to a whole number,
+plus one.
+
+:::

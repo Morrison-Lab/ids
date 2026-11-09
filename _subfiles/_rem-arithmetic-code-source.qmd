@@ -1,0 +1,12 @@
+::: {#rem-arithmetic-code-source}
+#### Where arithmetic codes come from
+
+@cover2006elements [section 5.9] give Shannon--Fano--Elias coding,
+which assigns each value a codeword
+from the midpoint of its slice of $[0, 1)$,
+in the way that @def-arithmetic-code does for a whole message.
+Cover and Thomas describe arithmetic coding,
+which finds the slice of a long message one value at a time,
+in section 13.3.
+
+:::

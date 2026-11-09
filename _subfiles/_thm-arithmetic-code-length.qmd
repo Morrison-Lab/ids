@@ -1,0 +1,30 @@
+:::{#thm-arithmetic-code-length}
+#### The expected length of an arithmetic code
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+that takes a finite number of values, each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
+and let $\entropyf{X}$ be its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
+with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+Then the [arithmetic code](#def-arithmetic-code) for $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies of $X$
+has [expected length](source-coding.qmd#def-expected-length)
+
+$$\expcodelen < n \entropyf{X} + 2,$$
+
+which is fewer than $\entropyf{X} + 2/n$ [bits](entropy.qmd#def-bit) per copy.
+
+:::
+
+::: {.proof}
+
+By @lem-arithmetic-interval,
+the final slice of a message $x = (x_1, \ldots, x_n)$ has width $w = \pf{x_1} \cdots \pf{x_n}$.
+So the [codeword length](source-coding.qmd#def-code) satisfies
+
+$$\codelenf{x} = \ceil{-\log_2 w} + 1 < -\log_2 w + 2 = \sumto{i}{n} \paren{-\log_2 \pf{x_i}} + 2.$$
+
+Taking the average over messages,
+and using that each copy $X_i$ has the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $\E{-\log_2 \pf{X_i}} = \entropyf{X}$,
+gives $\expcodelen < n \entropyf{X} + 2$.
+Dividing by $n$ gives the length per copy.
+
+:::

@@ -1,0 +1,39 @@
+:::{#thm-arithmetic-prefix-code}
+#### Arithmetic codes are prefix codes
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+whose values each have [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
+Then the codewords of the [arithmetic code](#def-arithmetic-code) for $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies of $X$
+form a [prefix code](huffman-codes.qmd#def-prefix-code) on the messages of length $n$.
+
+:::
+
+::: {.proof}
+
+Let $x$ be a message,
+let $[a, a + w)$ be its final slice,
+and let $m = a + w/2$.
+Write $k = \codelenf{x}$,
+and let $t$ be the number whose [bits](entropy.qmd#def-bit) after the point are $c(x)$.
+Truncating $m$ to $k$ digits gives
+
+$$t \le m < t + 2^{-k}.$$
+
+Because $k \ge -\log_2 w + 1$,
+we have $2^{-k} \le w/2$.
+So $t > m - 2^{-k} \ge m - w/2 = a$,
+and $t + 2^{-k} \le m + w/2 = a + w$.
+This shows that the slice $[t, t + 2^{-k})$,
+which holds the numbers whose [bits](entropy.qmd#def-bit) begin with $c(x)$,
+lies inside the final slice of $x$.
+
+Suppose that $c(x)$ were the beginning of $c(x')$ for two different messages $x$ and $x'$.
+Every number whose digits begin with $c(x')$ also begins with $c(x)$,
+so the slice of $c(x')$ lies inside the slice of $c(x)$.
+The first lies inside the final slice of $x'$,
+and the second inside the final slice of $x$,
+so these two final slices would share a point.
+@lem-arithmetic-interval rules that out,
+so no codeword is the beginning of another.
+
+:::
