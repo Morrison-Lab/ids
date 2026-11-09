@@ -2,10 +2,12 @@
 #### Prefix code
 
 A [binary code](source-coding.qmd#def-code) for a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
-is a **prefix code**, also called a **prefix-free code** or an **instantaneous code**,
+is a **prefix code**,
+also called a **prefix-free code** or an **instantaneous code**,
 if no codeword is the beginning of another codeword.
 Writing $c(x)$ for the codeword of the value $x$,
-that is, for every two different values $x$ and $x'$,
+the condition is that,
+for every two different values $x$ and $x'$,
 the string $c(x')$ does not start with the string $c(x)$.
 
 :::

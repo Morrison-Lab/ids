@@ -1,30 +1,38 @@
 :::{#thm-kraft-inequality}
 #### Kraft's inequality
 
-Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes a finite number of values,
-and let a [prefix code](#def-prefix-code) for $X$ have [codeword length](source-coding.qmd#def-code)s $\ell(x)$.
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+that takes a finite number of values,
+and let a [prefix code](#def-prefix-code) for $X$
+have [codeword length](source-coding.qmd#def-code)s $\ell(x)$.
 Then
 
-$$\sum_x 2^{-\ell(x)} \le 1.$$
+$$\sumof{x} 2^{-\ell(x)} \le 1.$$
 
 :::
 
 ::: {.proof}
 
-Let $m$ be the largest [codeword length](source-coding.qmd#def-code), which is finite because $X$ takes a finite number of values.
-For each value $x$, the strings of $m$ [bits](entropy.qmd#def-bit) that start with the codeword $c(x)$
-are those that choose the remaining $m - \ell(x)$ bits freely,
-so there are $2^{m - \ell(x)}$ of them.
+Let $m$ be the largest [codeword length](source-coding.qmd#def-code).
+It is finite because $X$ takes a finite number of values.
+
+For each value $x$,
+the strings of $m$ [bits](entropy.qmd#def-bit) that start with the codeword $c(x)$
+are those that choose the remaining $m - \ell(x)$ bits freely.
+So there are $2^{m - \ell(x)}$ of them.
 
 No string of $m$ bits starts with two different codewords.
-If it started with $c(x)$ and with $c(x')$, where $\ell(x) \le \ell(x')$,
+If it started with $c(x)$ and with $c(x')$,
+where $\ell(x) \le \ell(x')$,
 then $c(x)$ would be the first $\ell(x)$ bits of $c(x')$,
 which the [prefix code](#def-prefix-code) forbids.
-So the strings that start with different codewords form groups with no string in two groups.
+So the strings that start with different codewords form groups
+with no string in two groups.
 
-There are $2^m$ strings of $m$ bits in all, so the groups together hold at most that many:
+There are $2^m$ strings of $m$ bits in all,
+so the groups together hold at most that many:
 
-$$\sum_x 2^{m - \ell(x)} \le 2^m.$$
+$$\sumof{x} 2^{m - \ell(x)} \le 2^m.$$
 
 Dividing both sides by $2^m$ gives the claim.
 
