@@ -3,7 +3,7 @@
 
 <!-- no-figure: the example is three numbers -->
 
-Let $X$ take three values with probabilities $1/2$, $1/4$ and $1/4$.
+Let $X$ take three values with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$, $1/4$ and $1/4$.
 The code below computes the expected [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
 the [collision entropy](#def-renyi-entropy) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
