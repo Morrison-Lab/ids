@@ -1,0 +1,29 @@
+:::{#lem-arithmetic-interval}
+#### The intervals of an arithmetic code
+
+In the [arithmetic code](#def-arithmetic-code) for $n$ independent copies of $X$,
+the final interval of a message $x = (x_1, \ldots, x_n)$ has width $\pf{x_1} \cdots \pf{x_n}$,
+and the final intervals of two different messages do not overlap.
+
+:::
+
+::: {.proof}
+
+Each step replaces an interval of width $b - a$ by a slice of width $(b - a) \pf{x_i}$.
+After $n$ steps the width is $\pf{x_1} \cdots \pf{x_n}$.
+
+The slices that the values of $X$ own are the intervals $[F(x), F(x) + \pf{x})$,
+which do not overlap,
+because each starts where the one before it ends.
+So the slices of one interval do not overlap either.
+
+Let $x$ and $x'$ be two different messages,
+and let $j$ be the first position where they differ.
+Before step $j$,
+both messages have the same interval.
+At step $j$ they take different slices of it,
+which do not overlap.
+Later steps keep each interval inside its own slice,
+so the final intervals do not overlap.
+
+:::

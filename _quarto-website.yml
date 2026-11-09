@@ -49,6 +49,7 @@ website:
         menu:
           - source-coding.qmd
           - huffman-codes.qmd
+          - stream-codes.qmd
           - channel-capacity.qmd
           - error-correcting-codes.qmd
     right:
@@ -69,6 +70,7 @@ website:
         contents:
           - source-coding.qmd
           - huffman-codes.qmd
+          - stream-codes.qmd
           - channel-capacity.qmd
           - error-correcting-codes.qmd
 
