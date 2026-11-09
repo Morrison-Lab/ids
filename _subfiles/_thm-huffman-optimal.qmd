@@ -2,8 +2,10 @@
 #### Huffman codes are optimal
 
 Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
-that takes $n \ge 2$ values, each with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p(x)$.
-Then a [Huffman code](#def-huffman-code) for $X$ has the least [expected length](source-coding.qmd#def-expected-length) $L$
+that takes $n \ge 2$ values,
+each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p(x) > 0$.
+Then a [Huffman code](#def-huffman-code) for $X$
+has the least [expected length](source-coding.qmd#def-expected-length) $L$
 among all [prefix codes](#def-prefix-code) for $X$.
 
 :::
