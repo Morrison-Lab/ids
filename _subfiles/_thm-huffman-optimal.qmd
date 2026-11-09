@@ -1,0 +1,70 @@
+:::{#thm-huffman-optimal}
+#### Huffman codes are optimal
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+that takes $n \ge 2$ values, each with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p(x)$.
+Then a [Huffman code](#def-huffman-code) for $X$ has the least [expected length](source-coding.qmd#def-expected-length) $L$
+among all [prefix codes](#def-prefix-code) for $X$.
+
+:::
+
+::: {.proof}
+
+We use induction on $n$.
+For $n = 2$,
+every prefix code gives each value a codeword of at least one [bit](entropy.qmd#def-bit),
+and the Huffman code gives them the codewords $0$ and $1$,
+so no prefix code is shorter.
+
+Let $n > 2$, and suppose the claim holds for $n - 1$ values.
+Let $x$ and $y$ be two values with the smallest probabilities,
+the pair that the first step of the construction merges.
+
+First, some prefix code with the least expected length has $x$ and $y$ as siblings,
+meaning that their codewords have the same length $m$
+and differ only in the last bit.
+To see this, take a prefix code with the least expected length.
+
+- If $p(u) > p(v)$, then $\ell(u) \le \ell(v)$.
+  Otherwise, exchanging the codewords of $u$ and $v$
+  changes $L$ by $(p(u) - p(v))(\ell(v) - \ell(u)) < 0$.
+- A longest codeword $c$ has a sibling.
+  Otherwise,
+  deleting the last bit of $c$ leaves a string
+  that neither begins another codeword nor is begun by one,
+  which gives a prefix code with a smaller $L$.
+
+Let $u$ be a value with a longest codeword,
+and let $v$ be the value of its sibling.
+Both codewords have length $m$,
+the largest codeword length.
+By the first bullet,
+$x$ and $y$ may be exchanged with $u$ and $v$ without increasing $L$,
+because $p(x)$ and $p(y)$ are the smallest probabilities
+and $\ell(u) = \ell(v) = m$ is the largest length.
+This gives a prefix code with the least expected length
+in which $x$ and $y$ are siblings.
+
+Next, let $X'$ be the random variable
+that merges $x$ and $y$ into one value $z$ with $p'(z) = p(x) + p(y)$
+and keeps every other value and probability.
+Any prefix code for $X$ in which $x$ and $y$ are siblings
+turns into a prefix code for $X'$
+by deleting the last bit of their common codeword to make the codeword of $z$.
+The two codes differ only in the lengths of $x$, $y$ and $z$,
+so their expected lengths satisfy
+
+$$L = L' + p(x) + p(y).$$
+
+The Huffman code for $X$ is built from a Huffman code for $X'$
+by replacing the codeword of $z$ with two codewords,
+one that ends in $0$ and one that ends in $1$.
+By the induction hypothesis,
+a Huffman code for $X'$ has the least expected length $L'$ among prefix codes for $X'$.
+So no prefix code for $X$ in which $x$ and $y$ are siblings
+has an expected length below that of the Huffman code for $X$.
+By the first part,
+a prefix code with the least expected length exists among these,
+so the Huffman code has the least expected length among all prefix codes.
+
+:::
