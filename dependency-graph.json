@@ -741,6 +741,24 @@
    "external": false
   },
   {
+   "id": "ids/stream-codes#def-lempel-ziv-code",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "def-lempel-ziv-code",
+   "kind": "def",
+   "title": "Lempel--Ziv code",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#def-lempel-ziv-parsing",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "def-lempel-ziv-parsing",
+   "kind": "def",
+   "title": "Incremental parsing",
+   "external": false
+  },
+  {
    "id": "ids/stream-codes#lem-arithmetic-interval",
    "site": "ids",
    "page": "stream-codes",
@@ -765,6 +783,15 @@
    "div": "thm-arithmetic-prefix-code",
    "kind": "thm",
    "title": "Arithmetic codes are prefix codes",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#thm-lempel-ziv-optimality",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "thm-lempel-ziv-optimality",
+   "kind": "thm",
+   "title": "The Lempel--Ziv code reaches the entropy",
    "external": false
   },
   {
@@ -2672,6 +2699,14 @@
    "pds/random-variables#def-pmf"
   ],
   [
+   "ids/stream-codes#def-lempel-ziv-code",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#def-lempel-ziv-code",
+   "ids/stream-codes#def-lempel-ziv-parsing"
+  ],
+  [
    "ids/stream-codes#lem-arithmetic-interval",
    "ids/stream-codes#def-arithmetic-code"
   ],
@@ -2749,6 +2784,34 @@
   ],
   [
    "ids/stream-codes#thm-arithmetic-prefix-code",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "ids/stream-codes#def-lempel-ziv-code"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
    "pds/random-variables#def-discrete-rv"
   ]
  ],
