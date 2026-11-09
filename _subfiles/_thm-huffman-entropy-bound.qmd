@@ -1,0 +1,37 @@
+:::{#thm-huffman-entropy-bound}
+#### A Huffman code is within one bit of the entropy
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+that takes $n \ge 2$ values,
+each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\pf{x} > 0$.
+Then a [Huffman code](#def-huffman-code) for $X$ has
+[expected length](source-coding.qmd#def-expected-length) $\expcodelen$ with
+
+$$\entropyf{X} \le \expcodelen < \entropyf{X} + 1,$$
+
+where $\entropyf{X}$ is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
+of $X$ with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+
+:::
+
+::: {.proof}
+
+Every [prefix code](#def-prefix-code) is [uniquely decodable](source-coding.qmd#def-uniquely-decodable),
+so the [source coding theorem](source-coding.qmd#thm-source-coding) gives $\expcodelen \ge \entropyf{X}$.
+
+For the other half of the claim,
+give each value $x$ the length $\codelenf{x} = \ceil{-\log_2 \pf{x}}$.
+Then $2^{-\codelenf{x}} \le \pf{x}$,
+so adding $2^{-\codelenf{x}}$ for every value
+gives at most the sum of their [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
+which is $1$.
+By @thm-kraft-converse,
+some prefix code has these lengths.
+Its [expected length](source-coding.qmd#def-expected-length) is below $\entropyf{X} + 1$,
+because $\codelenf{x} < -\log_2 \pf{x} + 1$ for each value.
+
+By @thm-huffman-optimal,
+a [Huffman code](#def-huffman-code) has an expected length no larger than this prefix code,
+so $\expcodelen < \entropyf{X} + 1$.
+
+:::

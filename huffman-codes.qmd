@@ -53,6 +53,24 @@ and how long such a code must be.
 
 {{< include ids/_subfiles/_exm-huffman-code.qmd >}}
 
+## Optimality {#sec-huffman-optimality}
+
+<!-- No slidebreak here: the heading shares its slide with the thm-huffman-optimal div. -->
+
+{{< include ids/_subfiles/_thm-huffman-optimal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-huffman-optimal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-huffman-entropy-bound.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-huffman-entropy-bound.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

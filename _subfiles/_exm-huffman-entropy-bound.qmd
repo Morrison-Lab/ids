@@ -1,0 +1,26 @@
+:::{#exm-huffman-entropy-bound}
+#### The bound for the Huffman code of the earlier example
+
+<!-- no-figure: the example is three numbers compared in a sentence -->
+
+The [Huffman code](#def-huffman-code) of @exm-huffman-code
+has the [codeword length](source-coding.qmd#def-code)s $(2, 2, 2, 3, 3)$
+for the [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $(0.4, 0.2, 0.2, 0.1, 0.1)$.
+The code below computes its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
+and [expected length](source-coding.qmd#def-expected-length).
+
+```{r}
+#| label: huffman-entropy-bound
+p <- c(0.4, 0.2, 0.2, 0.1, 0.1)
+huffman_lengths <- c(2, 2, 2, 3, 3)
+entropy <- -sum(p * log2(p))
+expected_length <- sum(p * huffman_lengths)
+data.frame(entropy, expected_length, upper_bound = entropy + 1)
+```
+
+The expected length is $`r round(expected_length, 3)`$ [bit](entropy.qmd#def-bit)s.
+It lies between the entropy, $`r round(entropy, 3)`$ bits,
+and the entropy plus one bit, $`r round(entropy + 1, 3)`$ bits,
+as @thm-huffman-entropy-bound says.
+
+:::
