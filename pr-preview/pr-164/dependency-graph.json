@@ -1,0 +1,2953 @@
+{
+ "site": "ids",
+ "meaning": "edge [A, B] means A uses B: B is a prerequisite of A, A a postrequisite of B",
+ "nodes": [
+  {
+   "id": "ids/channel-capacity#def-binary-entropy",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-binary-entropy",
+   "kind": "def",
+   "title": "Binary entropy function",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-binary-erasure-channel",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-binary-erasure-channel",
+   "kind": "def",
+   "title": "Binary erasure channel",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-binary-symmetric-channel",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-binary-symmetric-channel",
+   "kind": "def",
+   "title": "Binary symmetric channel",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-channel",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-channel",
+   "kind": "def",
+   "title": "Discrete memoryless channel",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-channel-capacity",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-channel-capacity",
+   "kind": "def",
+   "title": "Channel capacity",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-channel-code",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-channel-code",
+   "kind": "def",
+   "title": "Channel code",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-code-rate",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-code-rate",
+   "kind": "def",
+   "title": "Rate of a channel code",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#def-maximal-probability-of-error",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "def-maximal-probability-of-error",
+   "kind": "def",
+   "title": "Maximal probability of error",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#thm-bsc-capacity",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "thm-bsc-capacity",
+   "kind": "thm",
+   "title": "Capacity of the binary symmetric channel",
+   "external": false
+  },
+  {
+   "id": "ids/channel-capacity#thm-channel-coding",
+   "site": "ids",
+   "page": "channel-capacity",
+   "div": "thm-channel-coding",
+   "kind": "thm",
+   "title": "Noisy-channel coding theorem",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#cor-conditional-entropy-difference",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-conditional-entropy-difference",
+   "kind": "cor",
+   "title": "Conditional entropy as a difference",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#cor-conditional-surprisal-difference",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-conditional-surprisal-difference",
+   "kind": "cor",
+   "title": "Conditional surprisal as a difference",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#cor-conditioning-reduces-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-conditioning-reduces-entropy",
+   "kind": "cor",
+   "title": "Conditioning reduces entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#cor-entropy-chain-rule-reversed",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-entropy-chain-rule-reversed",
+   "kind": "cor",
+   "title": "Chain rule for entropy, other order",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-surprisal-discrete-nonnegative",
+   "kind": "cor",
+   "title": "Surprisal of a discrete value is nonnegative",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-bit",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-bit",
+   "kind": "def",
+   "title": "Bit (shannon)",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-collision-probability",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-collision-probability",
+   "kind": "def",
+   "title": "Collision probability",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-conditional-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-conditional-entropy",
+   "kind": "def",
+   "title": "Conditional entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-conditional-mutual-information",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-conditional-mutual-information",
+   "kind": "def",
+   "title": "Conditional mutual information",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-conditional-surprisal",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-conditional-surprisal",
+   "kind": "def",
+   "title": "Conditional surprisal",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-entropy-given-value",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-entropy-given-value",
+   "kind": "def",
+   "title": "Entropy given one value",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-information-gain",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-information-gain",
+   "kind": "def",
+   "title": "Information gain",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-joint-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-joint-entropy",
+   "kind": "def",
+   "title": "Joint entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-joint-surprisal",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-joint-surprisal",
+   "kind": "def",
+   "title": "Joint surprisal",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-markov-chain",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-markov-chain",
+   "kind": "def",
+   "title": "Markov chain of three random variables",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-mutual-information",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-mutual-information",
+   "kind": "def",
+   "title": "Mutual information",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-nat",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-nat",
+   "kind": "def",
+   "title": "Nat",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-perplexity",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-perplexity",
+   "kind": "def",
+   "title": "Perplexity",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-rarity",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-rarity",
+   "kind": "def",
+   "title": "Rarity",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-renyi-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-renyi-entropy",
+   "kind": "def",
+   "title": "R\u00e9nyi entropy of order 2 (collision entropy)",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-surprisal",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-surprisal",
+   "kind": "def",
+   "title": "Surprisal",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "site": "ids",
+   "page": "entropy",
+   "div": "lem-markov-chain-conditional-mutual-information",
+   "kind": "lem",
+   "title": "Conditional mutual information along a Markov chain",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#lem-surprisal-chain-rule-reversed",
+   "site": "ids",
+   "page": "entropy",
+   "div": "lem-surprisal-chain-rule-reversed",
+   "kind": "lem",
+   "title": "Chain rule for surprisal with the conditioning reversed",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-collision-entropy-at-most-entropy",
+   "kind": "thm",
+   "title": "The collision entropy is at most the Shannon entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-conditional-entropy-average",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-conditional-entropy-average",
+   "kind": "thm",
+   "title": "Conditional entropy as an average of entropies given a value",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-conditional-mutual-information-nonnegative",
+   "kind": "thm",
+   "title": "Conditional mutual information is nonnegative",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-data-processing-inequality",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-data-processing-inequality",
+   "kind": "thm",
+   "title": "Data processing inequality",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-entropy-chain-rule",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-entropy-chain-rule",
+   "kind": "thm",
+   "title": "Chain rule for entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-entropy-chain-rule-n",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-entropy-chain-rule-n",
+   "kind": "thm",
+   "title": "Chain rule for entropy, many variables",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-entropy-sum-decomposition",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-entropy-sum-decomposition",
+   "kind": "thm",
+   "title": "Decomposition of the sum of entropies",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-expected-probability-collision",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-expected-probability-collision",
+   "kind": "thm",
+   "title": "The expected probability is the collision probability",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-kl-divergence-nonnegative",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-kl-divergence-nonnegative",
+   "kind": "thm",
+   "title": "The divergence is nonnegative",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-chain-rule",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-chain-rule",
+   "kind": "thm",
+   "title": "Chain rule for mutual information",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-joint-minus-conditionals",
+   "kind": "thm",
+   "title": "Mutual information from the conditional entropies",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-kl",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-kl",
+   "kind": "thm",
+   "title": "Mutual information as a divergence",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-nonnegative",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-nonnegative",
+   "kind": "thm",
+   "title": "Mutual information is nonnegative",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-reduction",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-reduction",
+   "kind": "thm",
+   "title": "Mutual information as a reduction in entropy",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-self",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-self",
+   "kind": "thm",
+   "title": "Mutual information of a variable with itself",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-mutual-information-symmetric",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-mutual-information-symmetric",
+   "kind": "thm",
+   "title": "Mutual information is symmetric",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-perplexity-geometric-mean",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-perplexity-geometric-mean",
+   "kind": "thm",
+   "title": "Perplexity is the probability-weighted geometric mean of the rarities",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-surprisal-chain-rule",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-chain-rule",
+   "kind": "thm",
+   "title": "Chain rule for surprisal",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-surprisal-log-half",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-log-half",
+   "kind": "thm",
+   "title": "Surprisal as a logarithm to base one half",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-surprisal-log-rarity",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-log-rarity",
+   "kind": "thm",
+   "title": "Surprisal is the logarithm of the rarity",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-log-rarity-continuous",
+   "kind": "thm",
+   "title": "Surprisal of a continuous value is the logarithm of the rarity",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-twice-mutual-information",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-twice-mutual-information",
+   "kind": "thm",
+   "title": "Twice the mutual information",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-block-code",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-block-code",
+   "kind": "def",
+   "title": "Block code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-hadamard-code",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-hadamard-code",
+   "kind": "def",
+   "title": "Hadamard code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-hamming-distance",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-hamming-distance",
+   "kind": "def",
+   "title": "Hamming distance and minimum distance",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-linear-code",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-linear-code",
+   "kind": "def",
+   "title": "Linear code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-locally-decodable",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-locally-decodable",
+   "kind": "def",
+   "title": "Locally decodable code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-reed-solomon-code",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-reed-solomon-code",
+   "kind": "def",
+   "title": "Reed--Solomon code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#def-weight",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "def-weight",
+   "kind": "def",
+   "title": "Weight",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#thm-distance-corrects-errors",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "thm-distance-corrects-errors",
+   "kind": "thm",
+   "title": "Minimum distance sets how many errors a code handles",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#thm-hadamard-distance",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "thm-hadamard-distance",
+   "kind": "thm",
+   "title": "Minimum distance of the Hadamard code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#thm-hadamard-local-decoding",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "thm-hadamard-local-decoding",
+   "kind": "thm",
+   "title": "Two-query decoding of the Hadamard code",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "thm-reed-solomon-distance",
+   "kind": "thm",
+   "title": "Reed--Solomon codes meet the Singleton bound",
+   "external": false
+  },
+  {
+   "id": "ids/error-correcting-codes#thm-singleton-bound",
+   "site": "ids",
+   "page": "error-correcting-codes",
+   "div": "thm-singleton-bound",
+   "kind": "thm",
+   "title": "Singleton bound",
+   "external": false
+  },
+  {
+   "id": "ids/huffman-codes#def-huffman-code",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "def-huffman-code",
+   "kind": "def",
+   "title": "Huffman code",
+   "external": false
+  },
+  {
+   "id": "ids/huffman-codes#def-prefix-code",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "def-prefix-code",
+   "kind": "def",
+   "title": "Prefix code",
+   "external": false
+  },
+  {
+   "id": "ids/huffman-codes#thm-huffman-entropy-bound",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "thm-huffman-entropy-bound",
+   "kind": "thm",
+   "title": "A Huffman code is within one bit of the entropy",
+   "external": false
+  },
+  {
+   "id": "ids/huffman-codes#thm-huffman-optimal",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "thm-huffman-optimal",
+   "kind": "thm",
+   "title": "Huffman codes are optimal",
+   "external": false
+  },
+  {
+   "id": "ids/huffman-codes#thm-huffman-prefix-code",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "thm-huffman-prefix-code",
+   "kind": "thm",
+   "title": "Huffman codes are prefix codes",
+   "external": false
+  },
+  {
+   "id": "ids/huffman-codes#thm-kraft-converse",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "thm-kraft-converse",
+   "kind": "thm",
+   "title": "Prefix codes exist for lengths that satisfy Kraft's inequality",
+   "external": false
+  },
+  {
+   "id": "ids/huffman-codes#thm-kraft-inequality",
+   "site": "ids",
+   "page": "huffman-codes",
+   "div": "thm-kraft-inequality",
+   "kind": "thm",
+   "title": "Kraft's inequality",
+   "external": false
+  },
+  {
+   "id": "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "site": "ids",
+   "page": "kl-divergence",
+   "div": "thm-maximum-likelihood-kl-divergence",
+   "kind": "thm",
+   "title": "Maximum likelihood minimizes the divergence from the data",
+   "external": false
+  },
+  {
+   "id": "ids/perfect-secrecy#def-perfect-secrecy",
+   "site": "ids",
+   "page": "perfect-secrecy",
+   "div": "def-perfect-secrecy",
+   "kind": "def",
+   "title": "Perfect secrecy",
+   "external": false
+  },
+  {
+   "id": "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "site": "ids",
+   "page": "perfect-secrecy",
+   "div": "thm-perfect-secrecy-key-entropy",
+   "kind": "thm",
+   "title": "Perfect secrecy needs a key with at least the entropy of the message",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#def-code",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "def-code",
+   "kind": "def",
+   "title": "Binary code",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#def-expected-length",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "def-expected-length",
+   "kind": "def",
+   "title": "Expected length",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#def-uniquely-decodable",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "def-uniquely-decodable",
+   "kind": "def",
+   "title": "Uniquely decodable code",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#thm-cross-entropy-decomposition",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-cross-entropy-decomposition",
+   "kind": "thm",
+   "title": "Cross-entropy is entropy plus divergence",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#thm-expected-length-sum",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-expected-length-sum",
+   "kind": "thm",
+   "title": "Expected length as a sum over values",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#thm-source-coding",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-source-coding",
+   "kind": "thm",
+   "title": "Source coding theorem",
+   "external": false
+  },
+  {
+   "id": "ids/source-coding#thm-wrong-code",
+   "site": "ids",
+   "page": "source-coding",
+   "div": "thm-wrong-code",
+   "kind": "thm",
+   "title": "The cost of coding with the wrong distribution",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#def-arithmetic-code",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "def-arithmetic-code",
+   "kind": "def",
+   "title": "Arithmetic code",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#def-lempel-ziv-code",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "def-lempel-ziv-code",
+   "kind": "def",
+   "title": "Lempel--Ziv code",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#def-lempel-ziv-parsing",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "def-lempel-ziv-parsing",
+   "kind": "def",
+   "title": "Incremental parsing",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#lem-arithmetic-interval",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "lem-arithmetic-interval",
+   "kind": "lem",
+   "title": "The intervals of an arithmetic code",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#thm-arithmetic-code-length",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "thm-arithmetic-code-length",
+   "kind": "thm",
+   "title": "The expected length of an arithmetic code",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#thm-arithmetic-prefix-code",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "thm-arithmetic-prefix-code",
+   "kind": "thm",
+   "title": "Arithmetic codes are prefix codes",
+   "external": false
+  },
+  {
+   "id": "ids/stream-codes#thm-lempel-ziv-optimality",
+   "site": "ids",
+   "page": "stream-codes",
+   "div": "thm-lempel-ziv-optimality",
+   "kind": "thm",
+   "title": "The Lempel--Ziv code reaches the entropy",
+   "external": false
+  },
+  {
+   "id": "mcs/functions#def-finite-set",
+   "site": "mcs",
+   "page": "functions",
+   "div": "def-finite-set",
+   "kind": "def",
+   "title": "finite set",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/functions.html#def-finite-set"
+  },
+  {
+   "id": "mcs/functions#def-image",
+   "site": "mcs",
+   "page": "functions",
+   "div": "def-image",
+   "kind": "def",
+   "title": "image",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/functions.html#def-image"
+  },
+  {
+   "id": "mcs/functions#def-sequence",
+   "site": "mcs",
+   "page": "functions",
+   "div": "def-sequence",
+   "kind": "def",
+   "title": "sequence",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/functions.html#def-sequence"
+  },
+  {
+   "id": "mcs/induction#def-proof-by-induction",
+   "site": "mcs",
+   "page": "induction",
+   "div": "def-proof-by-induction",
+   "kind": "def",
+   "title": "proof by induction",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction"
+  },
+  {
+   "id": "mcs/number-systems#def-integers",
+   "site": "mcs",
+   "page": "number-systems",
+   "div": "def-integers",
+   "kind": "def",
+   "title": "integers",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/number-systems.html#def-integers"
+  },
+  {
+   "id": "mcs/number-systems#def-positive-integer",
+   "site": "mcs",
+   "page": "number-systems",
+   "div": "def-positive-integer",
+   "kind": "def",
+   "title": "positive integer",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer"
+  },
+  {
+   "id": "mcs/proof-writing#def-contradiction",
+   "site": "mcs",
+   "page": "proof-writing",
+   "div": "def-contradiction",
+   "kind": "def",
+   "title": "contradiction",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/proof-writing.html#def-contradiction"
+  },
+  {
+   "id": "mcs/proof-writing#def-proof-by-induction",
+   "site": "mcs",
+   "page": "proof-writing",
+   "div": "def-proof-by-induction",
+   "kind": "def",
+   "title": "proof by induction",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/proof-writing.html#def-proof-by-induction"
+  },
+  {
+   "id": "mcs/sets#def-set",
+   "site": "mcs",
+   "page": "sets",
+   "div": "def-set",
+   "kind": "def",
+   "title": "set",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/sets.html#def-set"
+  },
+  {
+   "id": "mcs/sets#def-union",
+   "site": "mcs",
+   "page": "sets",
+   "div": "def-union",
+   "kind": "def",
+   "title": "union",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/sets.html#def-union"
+  },
+  {
+   "id": "mds/algebra-basics#def-maximum",
+   "site": "mds",
+   "page": "algebra-basics",
+   "div": "def-maximum",
+   "kind": "def",
+   "title": "maximum",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum"
+  },
+  {
+   "id": "mds/algebra-exponentials#def-exponential-function",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-exponential-function",
+   "kind": "def",
+   "title": "exponential function",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-exponential-function"
+  },
+  {
+   "id": "mds/algebra-exponentials#def-logarithm",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-logarithm",
+   "kind": "def",
+   "title": "logarithm",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm"
+  },
+  {
+   "id": "mds/algebra-exponentials#def-natural-log",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-natural-log",
+   "kind": "def",
+   "title": "natural log",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log"
+  },
+  {
+   "id": "mds/algebra-exponentials#def-polynomial",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-polynomial",
+   "kind": "def",
+   "title": "polynomial",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-polynomial"
+  },
+  {
+   "id": "mds/algebra-exponentials#def-polynomial-degree",
+   "site": "mds",
+   "page": "algebra-exponentials",
+   "div": "def-polynomial-degree",
+   "kind": "def",
+   "title": "polynomial degree",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-exponentials.html#def-polynomial-degree"
+  },
+  {
+   "id": "mds/algebra-sums#def-convex-function",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "def-convex-function",
+   "kind": "def",
+   "title": "convex function",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function"
+  },
+  {
+   "id": "mds/algebra-sums#def-summation",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "def-summation",
+   "kind": "def",
+   "title": "summation",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#def-summation"
+  },
+  {
+   "id": "mds/algebra-sums#thm-jensen",
+   "site": "mds",
+   "page": "algebra-sums",
+   "div": "thm-jensen",
+   "kind": "thm",
+   "title": "jensen",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen"
+  },
+  {
+   "id": "mds/linear-algebra-matrices#def-linear-map",
+   "site": "mds",
+   "page": "linear-algebra-matrices",
+   "div": "def-linear-map",
+   "kind": "def",
+   "title": "linear map",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-matrices.html#def-linear-map"
+  },
+  {
+   "id": "mds/linear-algebra-matrices#def-matrix",
+   "site": "mds",
+   "page": "linear-algebra-matrices",
+   "div": "def-matrix",
+   "kind": "def",
+   "title": "matrix",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-matrices.html#def-matrix"
+  },
+  {
+   "id": "mds/linear-algebra-subspaces#def-dimension",
+   "site": "mds",
+   "page": "linear-algebra-subspaces",
+   "div": "def-dimension",
+   "kind": "def",
+   "title": "dimension",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-dimension"
+  },
+  {
+   "id": "mds/linear-algebra-subspaces#def-rank",
+   "site": "mds",
+   "page": "linear-algebra-subspaces",
+   "div": "def-rank",
+   "kind": "def",
+   "title": "rank",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-rank"
+  },
+  {
+   "id": "mds/linear-algebra-subspaces#def-subspace",
+   "site": "mds",
+   "page": "linear-algebra-subspaces",
+   "div": "def-subspace",
+   "kind": "def",
+   "title": "subspace",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-subspace"
+  },
+  {
+   "id": "mds/linear-algebra-vectors#def-column-vector",
+   "site": "mds",
+   "page": "linear-algebra-vectors",
+   "div": "def-column-vector",
+   "kind": "def",
+   "title": "column vector",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-column-vector"
+  },
+  {
+   "id": "mds/linear-algebra-vectors#def-scalar",
+   "site": "mds",
+   "page": "linear-algebra-vectors",
+   "div": "def-scalar",
+   "kind": "def",
+   "title": "scalar",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-scalar"
+  },
+  {
+   "id": "mds/optimization-convexity#cor-log-below-tangent",
+   "site": "mds",
+   "page": "optimization-convexity",
+   "div": "cor-log-below-tangent",
+   "kind": "cor",
+   "title": "log below tangent",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/optimization-convexity.html#cor-log-below-tangent"
+  },
+  {
+   "id": "pds/expectation#def-cross-entropy",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-cross-entropy",
+   "kind": "def",
+   "title": "cross entropy",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy"
+  },
+  {
+   "id": "pds/expectation#def-entropy",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-entropy",
+   "kind": "def",
+   "title": "entropy",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-entropy"
+  },
+  {
+   "id": "pds/expectation#def-expectation",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-expectation",
+   "kind": "def",
+   "title": "expectation",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-expectation"
+  },
+  {
+   "id": "pds/expectation#def-kl-divergence",
+   "site": "pds",
+   "page": "expectation",
+   "div": "def-kl-divergence",
+   "kind": "def",
+   "title": "kl divergence",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence"
+  },
+  {
+   "id": "pds/expectation#thm-kl-divergence-discrete",
+   "site": "pds",
+   "page": "expectation",
+   "div": "thm-kl-divergence-discrete",
+   "kind": "thm",
+   "title": "kl divergence discrete",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-discrete"
+  },
+  {
+   "id": "pds/expectation#thm-kl-divergence-nonnegative",
+   "site": "pds",
+   "page": "expectation",
+   "div": "thm-kl-divergence-nonnegative",
+   "kind": "thm",
+   "title": "kl divergence nonnegative",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#thm-kl-divergence-nonnegative"
+  },
+  {
+   "id": "pds/expectation#thm-lie",
+   "site": "pds",
+   "page": "expectation",
+   "div": "thm-lie",
+   "kind": "thm",
+   "title": "lie",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#thm-lie"
+  },
+  {
+   "id": "pds/independence#def-cind",
+   "site": "pds",
+   "page": "independence",
+   "div": "def-cind",
+   "kind": "def",
+   "title": "cind",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/independence.html#def-cind"
+  },
+  {
+   "id": "pds/independence#def-iid",
+   "site": "pds",
+   "page": "independence",
+   "div": "def-iid",
+   "kind": "def",
+   "title": "iid",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/independence.html#def-iid"
+  },
+  {
+   "id": "pds/independence#def-indpt",
+   "site": "pds",
+   "page": "independence",
+   "div": "def-indpt",
+   "kind": "def",
+   "title": "indpt",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/independence.html#def-indpt"
+  },
+  {
+   "id": "pds/probability-basics#def-event",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-event",
+   "kind": "def",
+   "title": "event",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-event"
+  },
+  {
+   "id": "pds/probability-basics#def-experiment-outcome",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-experiment-outcome",
+   "kind": "def",
+   "title": "experiment outcome",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome"
+  },
+  {
+   "id": "pds/probability-basics#def-mutually-exclusive",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-mutually-exclusive",
+   "kind": "def",
+   "title": "mutually exclusive",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive"
+  },
+  {
+   "id": "pds/probability-basics#def-probability",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-probability",
+   "kind": "def",
+   "title": "probability",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-probability"
+  },
+  {
+   "id": "pds/random-variables#def-continuous-rv",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-continuous-rv",
+   "kind": "def",
+   "title": "continuous rv",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-continuous-rv"
+  },
+  {
+   "id": "pds/random-variables#def-discrete-rv",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-discrete-rv",
+   "kind": "def",
+   "title": "discrete rv",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv"
+  },
+  {
+   "id": "pds/random-variables#def-joint-distribution",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-joint-distribution",
+   "kind": "def",
+   "title": "joint distribution",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution"
+  },
+  {
+   "id": "pds/random-variables#def-joint-pmf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-joint-pmf",
+   "kind": "def",
+   "title": "joint pmf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf"
+  },
+  {
+   "id": "pds/random-variables#def-marginal",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-marginal",
+   "kind": "def",
+   "title": "marginal",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-marginal"
+  },
+  {
+   "id": "pds/random-variables#def-pdf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pdf",
+   "kind": "def",
+   "title": "pdf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pdf"
+  },
+  {
+   "id": "pds/random-variables#def-pmf",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-pmf",
+   "kind": "def",
+   "title": "pmf",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-pmf"
+  },
+  {
+   "id": "pds/random-variables#def-random-variable",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-random-variable",
+   "kind": "def",
+   "title": "random variable",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-random-variable"
+  },
+  {
+   "id": "pds/random-variables#def-realization",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-realization",
+   "kind": "def",
+   "title": "realization",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-realization"
+  },
+  {
+   "id": "pds/random-variables#def-uniform",
+   "site": "pds",
+   "page": "random-variables",
+   "div": "def-uniform",
+   "kind": "def",
+   "title": "uniform",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/random-variables.html#def-uniform"
+  },
+  {
+   "id": "sds/intro-MLEs#def-lik",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "def-lik",
+   "kind": "def",
+   "title": "lik",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/intro-MLEs.html#def-lik"
+  },
+  {
+   "id": "sds/intro-MLEs#def-loglik",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "def-loglik",
+   "kind": "def",
+   "title": "loglik",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/intro-MLEs.html#def-loglik"
+  },
+  {
+   "id": "sds/nonparametric-models#def-empirical-distribution",
+   "site": "sds",
+   "page": "nonparametric-models",
+   "div": "def-empirical-distribution",
+   "kind": "def",
+   "title": "empirical distribution",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/nonparametric-models.html#def-empirical-distribution"
+  }
+ ],
+ "edges": [
+  [
+   "ids/channel-capacity#def-binary-erasure-channel",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#def-binary-erasure-channel",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/channel-capacity#def-binary-symmetric-channel",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#def-binary-symmetric-channel",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/channel-capacity#def-channel",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/channel-capacity#def-channel",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "mds/algebra-basics#def-maximum"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "pds/random-variables#def-joint-distribution"
+  ],
+  [
+   "ids/channel-capacity#def-channel-capacity",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/channel-capacity#def-channel-code",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#def-code-rate",
+   "ids/channel-capacity#def-channel-code"
+  ],
+  [
+   "ids/channel-capacity#def-maximal-probability-of-error",
+   "ids/channel-capacity#def-channel-code"
+  ],
+  [
+   "ids/channel-capacity#def-maximal-probability-of-error",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/channel-capacity#def-binary-entropy"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/channel-capacity#def-binary-symmetric-channel"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/channel-capacity#def-channel-capacity"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "ids/entropy#thm-mutual-information-reduction"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "mds/algebra-basics#def-maximum"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/channel-capacity#thm-bsc-capacity",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "ids/channel-capacity#def-channel"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "ids/channel-capacity#def-channel-capacity"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "ids/channel-capacity#def-channel-code"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "ids/channel-capacity#def-code-rate"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "ids/channel-capacity#def-maximal-probability-of-error"
+  ],
+  [
+   "ids/channel-capacity#thm-channel-coding",
+   "mcs/functions#def-sequence"
+  ],
+  [
+   "ids/entropy#cor-conditional-entropy-difference",
+   "ids/entropy#cor-entropy-chain-rule-reversed"
+  ],
+  [
+   "ids/entropy#cor-conditional-entropy-difference",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#cor-conditional-entropy-difference",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#cor-conditional-surprisal-difference",
+   "ids/entropy#thm-surprisal-chain-rule"
+  ],
+  [
+   "ids/entropy#cor-conditioning-reduces-entropy",
+   "ids/entropy#thm-mutual-information-nonnegative"
+  ],
+  [
+   "ids/entropy#cor-conditioning-reduces-entropy",
+   "ids/entropy#thm-mutual-information-reduction"
+  ],
+  [
+   "ids/entropy#cor-conditioning-reduces-entropy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#cor-conditioning-reduces-entropy",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/entropy#cor-conditioning-reduces-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#cor-entropy-chain-rule-reversed",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "ids/entropy#thm-surprisal-log-rarity"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#cor-surprisal-discrete-nonnegative",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-bit",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#def-collision-probability",
+   "pds/independence#def-iid"
+  ],
+  [
+   "ids/entropy#def-collision-probability",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-conditional-entropy",
+   "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#def-conditional-entropy",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#def-conditional-entropy",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#def-conditional-mutual-information",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#def-conditional-mutual-information",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-conditional-mutual-information",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-conditional-surprisal",
+   "ids/entropy#def-joint-surprisal"
+  ],
+  [
+   "ids/entropy#def-conditional-surprisal",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#def-entropy-given-value",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#def-entropy-given-value",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#def-information-gain",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-joint-entropy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-joint-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-joint-entropy",
+   "pds/random-variables#def-joint-pmf"
+  ],
+  [
+   "ids/entropy#def-joint-surprisal",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#def-joint-surprisal",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-joint-surprisal",
+   "pds/random-variables#def-joint-pmf"
+  ],
+  [
+   "ids/entropy#def-joint-surprisal",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#def-markov-chain",
+   "pds/independence#def-cind"
+  ],
+  [
+   "ids/entropy#def-markov-chain",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-mutual-information",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#def-mutual-information",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-mutual-information",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "mds/algebra-exponentials#def-natural-log"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-nat",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "ids/entropy#def-nat"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "mds/algebra-exponentials#def-exponential-function"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "mds/algebra-exponentials#def-natural-log"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-perplexity",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-continuous-rv"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-pdf"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/entropy#def-renyi-entropy",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
+   "ids/entropy#def-surprisal",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#def-surprisal",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-surprisal",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "ids/entropy#def-conditional-mutual-information"
+  ],
+  [
+   "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "ids/entropy#def-markov-chain"
+  ],
+  [
+   "ids/entropy#lem-markov-chain-conditional-mutual-information",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#lem-surprisal-chain-rule-reversed",
+   "ids/entropy#thm-surprisal-chain-rule"
+  ],
+  [
+   "ids/entropy#lem-surprisal-chain-rule-reversed",
+   "pds/probability-basics#def-experiment-outcome"
+  ],
+  [
+   "ids/entropy#lem-surprisal-chain-rule-reversed",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#lem-surprisal-chain-rule-reversed",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "ids/entropy#def-renyi-entropy"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "mds/algebra-sums#def-convex-function"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "mds/algebra-sums#thm-jensen"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-collision-entropy-at-most-entropy",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-average",
+   "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-average",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-average",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-average",
+   "pds/expectation#thm-lie"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "ids/entropy#thm-mutual-information-nonnegative"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-conditional-mutual-information-nonnegative",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "ids/entropy#def-markov-chain"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "ids/entropy#lem-markov-chain-conditional-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "ids/entropy#thm-conditional-mutual-information-nonnegative"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "ids/entropy#thm-mutual-information-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "ids/entropy#thm-mutual-information-symmetric"
+  ],
+  [
+   "ids/entropy#thm-data-processing-inequality",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "ids/entropy#def-entropy-given-value"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "mcs/induction#def-proof-by-induction"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-entropy-sum-decomposition",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-entropy-sum-decomposition",
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals"
+  ],
+  [
+   "ids/entropy#thm-entropy-sum-decomposition",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-sum-decomposition",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "ids/entropy#def-collision-probability"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/independence#def-iid"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-expected-probability-collision",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "mcs/functions#def-finite-set"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "mds/optimization-convexity#cor-log-below-tangent"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "pds/expectation#thm-kl-divergence-nonnegative"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-chain-rule",
+   "ids/entropy#def-conditional-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-chain-rule",
+   "ids/entropy#thm-mutual-information-reduction"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-chain-rule",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-chain-rule",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#cor-conditional-entropy-difference"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-joint-minus-conditionals",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/expectation#thm-kl-divergence-discrete"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/random-variables#def-joint-distribution"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/random-variables#def-joint-pmf"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/random-variables#def-marginal"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-kl",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "ids/entropy#thm-kl-divergence-nonnegative"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "ids/entropy#thm-mutual-information-kl"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/random-variables#def-joint-pmf"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-nonnegative",
+   "pds/random-variables#def-marginal"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-reduction",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-reduction",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-reduction",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-reduction",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-self",
+   "ids/entropy#thm-conditional-entropy-average"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-self",
+   "ids/entropy#thm-mutual-information-reduction"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-self",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-self",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-self",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-self",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-symmetric",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-symmetric",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-symmetric",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-mutual-information-symmetric",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "ids/entropy#def-perplexity"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-perplexity-geometric-mean",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-chain-rule",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-chain-rule",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-half",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "ids/entropy#def-rarity"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "pds/random-variables#def-continuous-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-log-rarity-continuous",
+   "pds/random-variables#def-pdf"
+  ],
+  [
+   "ids/entropy#thm-twice-mutual-information",
+   "ids/entropy#thm-mutual-information-reduction"
+  ],
+  [
+   "ids/entropy#thm-twice-mutual-information",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-twice-mutual-information",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/error-correcting-codes#def-block-code",
+   "mcs/functions#def-image"
+  ],
+  [
+   "ids/error-correcting-codes#def-block-code",
+   "mcs/number-systems#def-positive-integer"
+  ],
+  [
+   "ids/error-correcting-codes#def-block-code",
+   "mcs/sets#def-set"
+  ],
+  [
+   "ids/error-correcting-codes#def-hadamard-code",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#def-hamming-distance",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mcs/sets#def-set"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mds/linear-algebra-matrices#def-matrix"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mds/linear-algebra-subspaces#def-dimension"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mds/linear-algebra-subspaces#def-rank"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mds/linear-algebra-subspaces#def-subspace"
+  ],
+  [
+   "ids/error-correcting-codes#def-linear-code",
+   "mds/linear-algebra-vectors#def-column-vector"
+  ],
+  [
+   "ids/error-correcting-codes#def-locally-decodable",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#def-locally-decodable",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/error-correcting-codes#def-reed-solomon-code",
+   "mds/algebra-exponentials#def-polynomial"
+  ],
+  [
+   "ids/error-correcting-codes#thm-distance-corrects-errors",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-distance-corrects-errors",
+   "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-distance",
+   "ids/error-correcting-codes#def-hadamard-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-distance",
+   "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-distance",
+   "ids/error-correcting-codes#def-linear-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-distance",
+   "ids/error-correcting-codes#def-weight"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-distance",
+   "mds/linear-algebra-matrices#def-linear-map"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-local-decoding",
+   "ids/error-correcting-codes#def-hadamard-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-local-decoding",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/error-correcting-codes#thm-hadamard-local-decoding",
+   "pds/random-variables#def-uniform"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "ids/error-correcting-codes#def-linear-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "ids/error-correcting-codes#def-reed-solomon-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "ids/error-correcting-codes#thm-singleton-bound"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "mds/algebra-exponentials#def-polynomial"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "mds/algebra-exponentials#def-polynomial-degree"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "mds/linear-algebra-matrices#def-linear-map"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "mds/linear-algebra-subspaces#def-subspace"
+  ],
+  [
+   "ids/error-correcting-codes#thm-reed-solomon-distance",
+   "mds/linear-algebra-vectors#def-scalar"
+  ],
+  [
+   "ids/error-correcting-codes#thm-singleton-bound",
+   "ids/error-correcting-codes#def-block-code"
+  ],
+  [
+   "ids/error-correcting-codes#thm-singleton-bound",
+   "ids/error-correcting-codes#def-hamming-distance"
+  ],
+  [
+   "ids/huffman-codes#def-huffman-code",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/huffman-codes#def-huffman-code",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/huffman-codes#def-huffman-code",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/huffman-codes#def-prefix-code",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/huffman-codes#def-prefix-code",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/huffman-codes#def-huffman-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/huffman-codes#def-prefix-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/huffman-codes#thm-huffman-optimal"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/huffman-codes#thm-kraft-converse"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/source-coding#def-uniquely-decodable"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "ids/source-coding#thm-source-coding"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-entropy-bound",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "ids/huffman-codes#def-huffman-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "ids/huffman-codes#def-prefix-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "mcs/proof-writing#def-proof-by-induction"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-optimal",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-prefix-code",
+   "ids/huffman-codes#def-huffman-code"
+  ],
+  [
+   "ids/huffman-codes#thm-huffman-prefix-code",
+   "ids/huffman-codes#def-prefix-code"
+  ],
+  [
+   "ids/huffman-codes#thm-kraft-converse",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/huffman-codes#thm-kraft-converse",
+   "ids/huffman-codes#def-prefix-code"
+  ],
+  [
+   "ids/huffman-codes#thm-kraft-converse",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/huffman-codes#thm-kraft-converse",
+   "mcs/number-systems#def-integers"
+  ],
+  [
+   "ids/huffman-codes#thm-kraft-converse",
+   "mcs/number-systems#def-positive-integer"
+  ],
+  [
+   "ids/huffman-codes#thm-kraft-converse",
+   "mcs/proof-writing#def-contradiction"
+  ],
+  [
+   "ids/huffman-codes#thm-kraft-inequality",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/huffman-codes#thm-kraft-inequality",
+   "ids/huffman-codes#def-prefix-code"
+  ],
+  [
+   "ids/huffman-codes#thm-kraft-inequality",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/huffman-codes#thm-kraft-inequality",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "ids/source-coding#thm-cross-entropy-decomposition"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/expectation#def-cross-entropy"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "sds/intro-MLEs#def-lik"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "sds/nonparametric-models#def-empirical-distribution"
+  ],
+  [
+   "ids/perfect-secrecy#def-perfect-secrecy",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/perfect-secrecy#def-perfect-secrecy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/perfect-secrecy#def-perfect-secrecy",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/perfect-secrecy#def-perfect-secrecy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "ids/entropy#cor-conditioning-reduces-entropy"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "ids/entropy#thm-entropy-chain-rule"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "ids/perfect-secrecy#def-perfect-secrecy"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/perfect-secrecy#thm-perfect-secrecy-key-entropy",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/source-coding#def-code",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/source-coding#def-code",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/source-coding#def-expected-length",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#def-expected-length",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/source-coding#def-expected-length",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/source-coding#def-uniquely-decodable",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#def-uniquely-decodable",
+   "mcs/functions#def-sequence"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "mds/algebra-sums#def-summation"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/expectation#def-cross-entropy"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/source-coding#thm-cross-entropy-decomposition",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "mcs/sets#def-union"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/probability-basics#def-event"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/probability-basics#def-mutually-exclusive"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/source-coding#thm-expected-length-sum",
+   "pds/random-variables#def-random-variable"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "ids/source-coding#def-uniquely-decodable"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/source-coding#thm-wrong-code",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/source-coding#thm-wrong-code",
+   "ids/source-coding#thm-expected-length-sum"
+  ],
+  [
+   "ids/source-coding#thm-wrong-code",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/source-coding#thm-wrong-code",
+   "pds/expectation#def-cross-entropy"
+  ],
+  [
+   "ids/source-coding#thm-wrong-code",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/stream-codes#def-arithmetic-code",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#def-arithmetic-code",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#def-arithmetic-code",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/stream-codes#def-arithmetic-code",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/stream-codes#def-lempel-ziv-code",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#def-lempel-ziv-code",
+   "ids/stream-codes#def-lempel-ziv-parsing"
+  ],
+  [
+   "ids/stream-codes#lem-arithmetic-interval",
+   "ids/stream-codes#def-arithmetic-code"
+  ],
+  [
+   "ids/stream-codes#lem-arithmetic-interval",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "ids/source-coding#def-code"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "ids/source-coding#def-expected-length"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "ids/stream-codes#def-arithmetic-code"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "ids/stream-codes#lem-arithmetic-interval"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-code-length",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "ids/huffman-codes#def-prefix-code"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "ids/stream-codes#def-arithmetic-code"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "ids/stream-codes#lem-arithmetic-interval"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/stream-codes#thm-arithmetic-prefix-code",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "ids/stream-codes#def-lempel-ziv-code"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "pds/independence#def-indpt"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/stream-codes#thm-lempel-ziv-optimality",
+   "pds/random-variables#def-discrete-rv"
+  ]
+ ],
+ "cycles": [],
+ "forwardReferences": []
+}
