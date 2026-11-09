@@ -903,6 +903,24 @@
    "external": false
   },
   {
+   "id": "ids/variational-inference#def-evidence-lower-bound",
+   "site": "ids",
+   "page": "variational-inference",
+   "div": "def-evidence-lower-bound",
+   "kind": "def",
+   "title": "Evidence lower bound (ELBO)",
+   "external": false
+  },
+  {
+   "id": "ids/variational-inference#thm-evidence-lower-bound-decomposition",
+   "site": "ids",
+   "page": "variational-inference",
+   "div": "thm-evidence-lower-bound-decomposition",
+   "kind": "thm",
+   "title": "The log evidence is the ELBO plus a divergence",
+   "external": false
+  },
+  {
    "id": "mcs/functions#def-finite-set",
    "site": "mcs",
    "page": "functions",
@@ -1411,6 +1429,26 @@
    "title": "uniform",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-uniform"
+  },
+  {
+   "id": "sds/bayesian-inference#def-marginal-likelihood",
+   "site": "sds",
+   "page": "bayesian-inference",
+   "div": "def-marginal-likelihood",
+   "kind": "def",
+   "title": "marginal likelihood",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood"
+  },
+  {
+   "id": "sds/bayesian-inference#def-posterior",
+   "site": "sds",
+   "page": "bayesian-inference",
+   "div": "def-posterior",
+   "kind": "def",
+   "title": "posterior",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior"
   },
   {
    "id": "sds/intro-MLEs#def-lik",
@@ -3161,6 +3199,50 @@
   [
    "ids/stream-codes#thm-lempel-ziv-optimality",
    "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/variational-inference#def-evidence-lower-bound",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/variational-inference#def-evidence-lower-bound",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/variational-inference#def-evidence-lower-bound",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/variational-inference#def-evidence-lower-bound",
+   "pds/random-variables#def-joint-pmf"
+  ],
+  [
+   "ids/variational-inference#def-evidence-lower-bound",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/variational-inference#def-evidence-lower-bound",
+   "sds/bayesian-inference#def-posterior"
+  ],
+  [
+   "ids/variational-inference#thm-evidence-lower-bound-decomposition",
+   "ids/variational-inference#def-evidence-lower-bound"
+  ],
+  [
+   "ids/variational-inference#thm-evidence-lower-bound-decomposition",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/variational-inference#thm-evidence-lower-bound-decomposition",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/variational-inference#thm-evidence-lower-bound-decomposition",
+   "sds/bayesian-inference#def-marginal-likelihood"
+  ],
+  [
+   "ids/variational-inference#thm-evidence-lower-bound-decomposition",
+   "sds/bayesian-inference#def-posterior"
   ]
  ],
  "cycles": [],

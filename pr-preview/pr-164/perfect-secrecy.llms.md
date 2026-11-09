@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 11:20:26 (PST)
+Last modified: 2026-11-09 11:50:51 (PST)
 
 A cipher hides a message from an eavesdropper who sees only the ciphertext. [Mutual information](entropy.llms.md#def-mutual-information) says exactly how much the ciphertext can reveal, and so how much key a cipher needs.
 
