@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 00:11:33 (PST)
+Last modified: 2026-11-09 03:20:01 (PST)
 
 The [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior) of an unobserved quantity is often too hard to compute. Variational inference replaces it with a simpler stand-in that is close to it, where closeness is measured by the [KL divergence](kl-divergence.llms.md).
 
@@ -32,7 +32,7 @@ The [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-p
 
 > **NOTE:**
 >
-> **Theorem 1 (The log evidence is the ELBO plus a divergence)** Let ${\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}$ and $q$ be as in [Definition 1](#def-evidence-lower-bound). Let ${\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} = \sum_z {\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}$ be the [evidence](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood) of the data, also called its [marginal likelihood](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood). The evidence is nonzero, because the data was observed. Then the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the evidence is the [ELBO](#def-evidence-lower-bound) of $q$ plus the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior):
+> **Theorem 1 (The log evidence is the ELBO plus a divergence)** Let ${\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}$ and $q$ be as in [Definition 1](#def-evidence-lower-bound). Let ${\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} = \sum_z {\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}$ be the [evidence](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood) of the data, also called its [marginal likelihood](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood). The evidence is nonzero, because a data value $x$ was observed. Then the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the evidence is the [ELBO](#def-evidence-lower-bound) of $q$ plus the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior):
 >
 > $${\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} = \mathrm{ELBO}(q) + {{D_{\mathrm{KL}}}\mathopen{}\left(q \,\Vert\, {\mathbb{p}\mathopen{}\left(\cdot \mid x\right)\mathclose{}}\right)\mathclose{}}.$$
 
