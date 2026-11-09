@@ -340,7 +340,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-08 23:42:56 (PST)</p>
+  <p class="date">Last modified: 2026-11-09 03:23:01 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -360,7 +360,7 @@
 <div id="exm-perfect-secrecy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (The one-time pad with a two-bit message)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is two numbers -->
-<p>Let the message take the four values <span class="math inline">\(0, 1, 2, 3\)</span> (two <a href="./entropy.html#def-bit">bits</a>) with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probabilities</a> <span class="math inline">\(0.4, 0.3, 0.2, 0.1\)</span>. The key is uniform on the same four values, and the ciphertext is the bitwise exclusive or of message and key. The code below builds the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution">joint distribution</a> of message and ciphertext, and computes the <a href="./entropy.html#def-mutual-information">mutual information</a> between them.</p>
+<p>Let the message take the four values <span class="math inline">\(0, 1, 2, 3\)</span> (two <a href="./entropy.html#def-bit">bits</a>) with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probabilities</a> <span class="math inline">\(0.4, 0.3, 0.2, 0.1\)</span>. The key is uniform on the same four values, and the ciphertext is the bitwise exclusive or of message and key. The R chunk below builds the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution">joint distribution</a> of message and ciphertext, and computes the <a href="./entropy.html#def-mutual-information">mutual information</a> between them.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>[Code]</summary>
@@ -408,7 +408,7 @@
 <div id="exm-perfect-secrecy-key-entropy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (The key of a one-time pad is as long as the message)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is two numbers -->
-<p>The code below computes the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of the message and of the key of <a href="#/exm-perfect-secrecy" class="quarto-xref">Example&nbsp;1</a>.</p>
+<p>The R chunk below computes the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of the message and of the key of <a href="#/exm-perfect-secrecy" class="quarto-xref">Example&nbsp;1</a>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>[Code]</summary>
@@ -421,7 +421,7 @@
 <span id="cb2-7"><a aria-label="7"></a><span class="co">#&gt;        1.846439        2.000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The message has <span class="math inline">\(1.846\)</span> <a href="./entropy.html#def-bit">bits</a> of entropy and the key has <span class="math inline">\(2\)</span> bits, so the key’s entropy is at least the message’s, as <a href="#/thm-perfect-secrecy-key-entropy" class="quarto-xref">Theorem&nbsp;1</a> requires. A key with fewer than <span class="math inline">\(1.846\)</span> bits of entropy could not give this message <a href="#/def-perfect-secrecy">perfect secrecy</a>.</p>
+<p>The message has <span class="math inline">\(1.846\)</span> <a href="./entropy.html#def-bit">bits</a> of entropy, and the key has <span class="math inline">\(2\)</span> bits, so the key’s entropy is at least the message’s, as <a href="#/thm-perfect-secrecy-key-entropy" class="quarto-xref">Theorem&nbsp;1</a> requires. A key with fewer than <span class="math inline">\(1.846\)</span> bits of entropy could not give this message <a href="#/def-perfect-secrecy">perfect secrecy</a>.</p>
 </div>
 </section>
 <section class="slide level2">
