@@ -1,8 +1,8 @@
 :::{#thm-wrong-code}
 #### The cost of coding with the wrong distribution
 
-Let $X$ take finitely many values, with probability mass function $p$,
-and let $q$ be a probability mass function,
+Let $X$ take a finite number of values, with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p$,
+and let $q$ be such a function,
 possibly different from $p$, with $q(x) > 0$ wherever $p(x) > 0$.
 Suppose a code gives each value $x$ with $p(x) > 0$
 the length $\ell(x) = \lceil -\log_2 q(x) \rceil$.
@@ -12,7 +12,7 @@ $$H_2(p, q) \le L < H_2(p, q) + 1,$$
 
 where $H_2(p, q)$ is the
 [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy)
-of $q$ relative to $p$, with base-2 logarithms.
+of $q$ relative to $p$, with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 
 :::
 

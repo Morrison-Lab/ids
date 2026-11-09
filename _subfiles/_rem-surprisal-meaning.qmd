@@ -1,9 +1,10 @@
 ::: {#rem-surprisal-meaning}
 #### Unlikely outcomes carry more information
 
-Surprisal is large when an outcome was unlikely,
-and it falls to $0$ as the outcome becomes certain.
-Correctly predicting heads on one toss of a fair coin is worth $1$ bit;
-correctly predicting ten heads in a row is worth $10$ bits.
+The [surprisal](#def-surprisal) of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) is large
+when the value was unlikely,
+and it falls to $0$ as the value becomes certain.
+Correctly guessing heads on one toss of a fair coin is worth $1$ [bit](#def-bit);
+correctly guessing ten heads in a row is worth $10$ [bits](#def-bit).
 
 :::
