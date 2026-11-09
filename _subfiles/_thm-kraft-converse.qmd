@@ -1,0 +1,34 @@
+:::{#thm-kraft-converse}
+#### Prefix codes exist for lengths that satisfy Kraft's inequality
+
+Let $\ell_1 \le \ell_2 \le \cdots \le \ell_n$ be positive integers with
+
+$$\sum_{i=1}^n 2^{-\ell_i} \le 1.$$
+
+Then some [prefix code](#def-prefix-code) on $n$ values has [codeword lengths](source-coding.qmd#def-code) $\ell_1, \ldots, \ell_n$.
+
+:::
+
+::: {.proof}
+
+For each $i$, let $a_i = \sum_{j < i} 2^{-\ell_j}$, so that $a_1 = 0$.
+Let the codeword $c_i$ be the integer $N_i = 2^{\ell_i} a_i$ written in binary with $\ell_i$ digits, padded with leading zeros.
+
+This is possible if $N_i$ is an integer with $0 \le N_i < 2^{\ell_i}$.
+Each term of $N_i = \sum_{j < i} 2^{\ell_i - \ell_j}$ is an integer, because $\ell_j \le \ell_i$.
+By the assumption, $a_i + 2^{-\ell_i} \le \sum_{j \le i} 2^{-\ell_j} \le 1$,
+so $N_i \le 2^{\ell_i} - 1 < 2^{\ell_i}$.
+
+Suppose that $c_i$ were the beginning of $c_k$ for some $i < k$.
+The first $\ell_i$ digits of $c_k$ are the binary digits of
+the integer part of $N_k / 2^{\ell_k - \ell_i} = 2^{\ell_i} a_k$.
+Because $c_i$ is these digits, this integer part is $N_i$.
+
+But $a_k = a_i + \sum_{i \le j < k} 2^{-\ell_j} \ge a_i + 2^{-\ell_i}$,
+so $2^{\ell_i} a_k \ge N_i + 1$,
+and the integer part of $2^{\ell_i} a_k$ is at least $N_i + 1$, not $N_i$.
+This contradiction shows that no $c_i$ with $i < k$ begins $c_k$.
+A codeword $c_k$ cannot begin $c_i$ with $i < k$ either,
+because $\ell_k \ge \ell_i$ would then force $c_k = c_i$, which the first case excludes.
+
+:::

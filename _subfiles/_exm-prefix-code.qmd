@@ -1,0 +1,45 @@
+:::{#exm-prefix-code}
+#### A prefix code and a code that is not
+
+<!-- no-figure: the example is two small codes and their Kraft sums -->
+
+Take four values with the codeword lengths $(1, 2, 3, 3)$.
+The code $0, 10, 110, 111$ is a [prefix code](#def-prefix-code).
+The code $0, 01, 011, 111$ has the same lengths,
+but the codeword $0$ begins $01$, so it is not a prefix code.
+The code below tests the definition on every pair of codewords,
+and adds up $2^{-\ell(x)}$ for each code, as in @thm-kraft-inequality.
+
+```{r}
+#| label: prefix-code-check
+is_prefix_code <- function(codewords) {
+  index <- seq_along(codewords)
+  pairs <- expand.grid(shorter = index, longer = index)
+  distinct_pairs <- pairs[pairs$shorter != pairs$longer, ]
+  shorter_words <- codewords[distinct_pairs$shorter]
+  longer_words <- codewords[distinct_pairs$longer]
+  begins <- startsWith(longer_words, shorter_words)
+  !any(begins)
+}
+kraft_sum <- function(codewords) {
+  lengths <- nchar(codewords)
+  sum(2^(-lengths))
+}
+prefix_code <- c("0", "10", "110", "111")
+other_code <- c("0", "01", "011", "111")
+codes <- list(prefix_code, other_code)
+data.frame(
+  code = c("0, 10, 110, 111", "0, 01, 011, 111"),
+  is_prefix_code = vapply(codes, is_prefix_code, logical(1)),
+  kraft_sum = vapply(codes, kraft_sum, numeric(1))
+)
+```
+
+Both codes have $\sum_x 2^{-\ell(x)} = `r kraft_sum(prefix_code)`$,
+so Kraft's inequality holds with equality for the lengths $(1, 2, 3, 3)$.
+The inequality is a condition on the lengths alone,
+so it holds for the second code even though the second code is not a prefix code;
+@thm-kraft-converse says that a prefix code with these lengths exists,
+and the first code is one.
+
+:::
