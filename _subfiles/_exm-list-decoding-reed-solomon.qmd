@@ -8,7 +8,7 @@ whose codewords are the values of the 25 lines $m_0 + m_1 t$ at the points $0, 1
 Its [minimum distance](error-correcting-codes.qmd#def-hamming-distance) is $4$,
 so every received word has at most one codeword within distance $1$.
 Within distance $2$ it can have more.
-The code below lists the lines within distance $2$ of the received word $r = (1, 3, 1, 0, 4)$.
+The R chunk below lists the lines within distance $2$ of the received word $r = (1, 3, 1, 0, 4)$.
 
 ```{r}
 #| label: list-decoding-reed-solomon
@@ -22,7 +22,7 @@ lines[lines$distance <= 2, ]
 ```
 
 Two lines are within distance $2$ of $r$,
-so this received word has a list of size `r sum(lines$distance <= 2)` at radius $2$.
+so this received word has a list of size `r sum(lines$distance <= 2)` at distance $2$.
 A decoder that outputs one codeword must choose between them.
 
 :::

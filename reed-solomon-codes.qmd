@@ -12,8 +12,9 @@ format:
 
 {{< include latex-macros/macros.qmd >}}
 
-A [Reed--Solomon code](error-correcting-codes.qmd#def-reed-solomon-code) corrects errors up to half its [minimum distance](error-correcting-codes.qmd#def-hamming-distance).
-Past that radius a received word can be near several codewords,
+A [Reed--Solomon code](error-correcting-codes.qmd#def-reed-solomon-code) recovers the message
+when fewer than half its [minimum distance](error-correcting-codes.qmd#def-hamming-distance) of the symbols are corrupted.
+Past that distance a received word can be near several codewords,
 and a decoder can return all of them as a list.
 
 ## List decoding {#sec-list-decoding}
