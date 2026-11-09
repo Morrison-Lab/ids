@@ -2,6 +2,6 @@
 #### Where LDPC codes come from
 
 @gallager1962low introduced [low-density parity-check codes](#def-ldpc-code),
-and @mackay2003information covers them in his book.
+and @mackay2003information covers them, and their decoding on the [Tanner graph](#def-tanner-graph), in his book.
 
 :::

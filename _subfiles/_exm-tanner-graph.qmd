@@ -1,0 +1,19 @@
+:::{#exm-tanner-graph}
+#### The Tanner graph of the length-6 code
+
+<!-- no-figure: the example lists the edges of a small graph -->
+
+For the $H$ of @exm-ldpc-code,
+the variable nodes are the six pairs of items and the check nodes are the four items.
+Each pair is joined to the two items it contains,
+so every variable node has degree 2.
+Each item is joined to the three pairs that contain it,
+so every check node has degree 3.
+The R chunk below lists the check nodes joined to each variable node.
+
+```{r}
+#| label: tanner-graph
+apply(H, 2, function(column) which(column == 1))
+```
+
+:::

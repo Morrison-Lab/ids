@@ -1,0 +1,10 @@
+:::{#def-tanner-graph}
+#### Tanner graph
+
+Let $H$ be a parity-check matrix with $m$ rows and $n$ columns.
+The **Tanner graph** of $H$ has a *variable node* for each column of $H$
+and a *check node* for each row of $H$,
+with an edge between variable node $i$ and check node $a$ exactly when $H_{a i} = 1$.
+Every edge joins a variable node to a check node.
+
+:::

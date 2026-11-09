@@ -1,0 +1,28 @@
+:::{#exm-bit-flipping-decoder}
+#### Correcting one flipped bit of the length-6 code
+
+<!-- no-figure: the example is a short decoding run -->
+
+Send the all-zero word, which is a codeword of the code of @exm-ldpc-code,
+and suppose the channel flips the first bit.
+The R chunk below runs the [bit-flipping decoder](#def-bit-flipping-decoder)
+and prints the received word and the number of unsatisfied checks before each step.
+
+```{r}
+#| label: bit-flipping-decoder
+y <- c(1, 0, 0, 0, 0, 0)
+for (step in 1:3) {
+  syndrome <- as.vector(H %*% y) %% 2
+  counts <- as.vector(t(H) %*% syndrome)
+  cat("y =", y, "| unsatisfied checks =", sum(syndrome), "\n")
+  if (all(syndrome == 0)) break
+  flip <- which.max(counts)
+  y[flip] <- 1 - y[flip]
+}
+```
+
+The flipped bit lies in two checks, and both are unsatisfied,
+so its count is 2, while every other bit has a count of at most 1.
+The decoder flips the first bit, which restores the sent word.
+
+:::

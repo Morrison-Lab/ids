@@ -36,6 +36,24 @@ each check involves only a few positions of the word.
 
 {{< slidebreak >}}
 
+## Decoding {#sec-ldpc-decoding}
+
+{{< include ids/_subfiles/_def-tanner-graph.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-tanner-graph.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-bit-flipping-decoder.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-bit-flipping-decoder.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_rem-ldpc-source.qmd >}}
 
 ## References {.unnumbered}
