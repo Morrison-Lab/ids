@@ -10,9 +10,9 @@ toward the probabilities the labels came from.
 
 For a single labeled example,
 let $e$ put all its mass on the observed label.
-Then $H_2(e) = 0$
+Then $\entropyf{e} = 0$
 ([as for a coin that always lands heads](https://morrison-lab.github.io/pds/expectation.html#exm-entropy-coin)),
-so the example's cross-entropy $H_2(e, q)$ equals $D_2(e \,\|\, q)$:
+so the example's cross-entropy $\crossentropyf{e}{q}$ equals $\kldivf{e}{q}$:
 every [bit](entropy.qmd#def-bit) it reports is a wasted one.
 
 :::

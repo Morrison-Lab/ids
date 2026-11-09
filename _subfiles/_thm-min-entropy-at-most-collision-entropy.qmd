@@ -1,0 +1,32 @@
+:::{#thm-min-entropy-at-most-collision-entropy}
+#### The min-entropy is at most the collision entropy
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv).
+Then the [min-entropy](#def-min-entropy) is at most the [collision entropy](entropy.qmd#def-renyi-entropy):
+
+$$\renyientropyf{\infty}{X} \le \renyientropyf{2}{X}.$$
+
+:::
+
+::: proof
+
+Let $p_{\max} = \max_x \Pf{X = x}$.
+Each [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\Pf{X = x}$ is at most $p_{\max}$,
+so $\Pf{X = x}^2 \le p_{\max} \, \Pf{X = x}$.
+Sum over the values $x$:
+
+$$\sum_x \Pf{X = x}^2 \le p_{\max} \sum_x \Pf{X = x}.$$
+
+The probabilities sum to $1$,
+so the [collision probability](entropy.qmd#def-collision-probability) is at most $p_{\max}$:
+
+$$\P(X = X') = \sum_x \Pf{X = x}^2 \le p_{\max}.$$
+
+The function $-\log$ is decreasing,
+so taking it of both sides flips the comparison:
+
+$$-\log \P(X = X') \ge -\log p_{\max}.$$
+
+The left side is $\renyientropyf{2}{X}$ and the right side is $\renyientropyf{\infty}{X}$.
+
+:::

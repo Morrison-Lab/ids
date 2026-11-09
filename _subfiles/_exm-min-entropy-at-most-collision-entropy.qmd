@@ -1,0 +1,24 @@
+:::{#exm-min-entropy-at-most-collision-entropy}
+#### Three entropies of one random variable
+
+<!-- no-figure: the example is three numbers -->
+
+The R chunk below computes the [min-entropy](#def-min-entropy), the [collision entropy](entropy.qmd#def-renyi-entropy) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) of @exm-min-entropy.
+
+```{r}
+#| label: min-entropy-comparison
+p <- c(1 / 2, 1 / 4, 1 / 4)
+min_entropy <- -log2(max(p))
+collision_entropy <- -log2(sum(p^2))
+shannon_entropy <- -sum(p * log2(p))
+c(
+  min_entropy = min_entropy,
+  collision_entropy = collision_entropy,
+  shannon_entropy = shannon_entropy
+)
+```
+
+The values rise from $`r min_entropy`$ to $`r round(collision_entropy, 3)`$ to $`r shannon_entropy`$ [bits](entropy.qmd#def-bit),
+as @thm-min-entropy-at-most-collision-entropy and the [collision entropy bound](entropy.qmd#thm-collision-entropy-at-most-entropy) say.
+
+:::

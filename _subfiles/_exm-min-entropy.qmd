@@ -1,0 +1,21 @@
+:::{#exm-min-entropy}
+#### Min-entropy of a three-valued random variable
+
+<!-- no-figure: the example is one number -->
+
+Let $X$ take three values with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$, $1/4$ and $1/4$.
+The R chunk below finds the largest probability and the [min-entropy](#def-min-entropy),
+with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+
+```{r}
+#| label: min-entropy
+p <- c(1 / 2, 1 / 4, 1 / 4)
+max_prob <- max(p)
+min_entropy <- -log2(max_prob)
+c(max_prob = max_prob, min_entropy = min_entropy)
+```
+
+The largest probability is $`r max_prob`$,
+so the min-entropy is $\renyientropyf{\infty}{X} = `r min_entropy`$ [bit](entropy.qmd#def-bit).
+
+:::
