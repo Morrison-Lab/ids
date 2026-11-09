@@ -10,6 +10,6 @@ that is, when $M$ and $C$ have zero [mutual information](entropy.qmd#def-mutual-
 
 $$\mutinfof{M}{C} = 0.$$
 
-The idea is due to Shannon [@shannon1949communication].
+The definition is from [@shannon1949communication].
 
 :::

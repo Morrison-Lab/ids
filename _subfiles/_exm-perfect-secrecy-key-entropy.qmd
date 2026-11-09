@@ -16,6 +16,6 @@ c(message_entropy = message_entropy, key_entropy = key_entropy)
 
 The message has $`r round(message_entropy, 3)`$ [bits](entropy.qmd#def-bit) of entropy and the key has $`r key_entropy`$ bits,
 so the key's entropy is at least the message's, as @thm-perfect-secrecy-key-entropy requires.
-A key with fewer than $`r round(message_entropy, 3)`$ bits of entropy could not give this message perfect secrecy.
+A key with fewer than $`r round(message_entropy, 3)`$ bits of entropy could not give this message [perfect secrecy](#def-perfect-secrecy).
 
 :::

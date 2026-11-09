@@ -17,7 +17,7 @@ and the equality case of [conditioning reduces entropy](entropy.qmd#cor-conditio
 
 $$\entropyf{M} = \entropyf{M \mid C}.$$
 
-The [chain rule](entropy.qmd#thm-entropy-chain-rule) expands both conditional entropies below:
+The [chain rule](entropy.qmd#thm-entropy-chain-rule) expands both [conditional entropies](entropy.qmd#def-conditional-entropy) below:
 
 $$\entropyf{M \mid C} = \entropyf{M, C} - \entropyf{C}, \qquad \entropyf{K \mid C} = \entropyf{K, C} - \entropyf{C}.$$
 
@@ -34,7 +34,7 @@ Subtract $\entropyf{C}$ from both sides:
 $$\entropyf{M \mid C} \le \entropyf{K \mid C}.$$
 
 By [conditioning reduces entropy](entropy.qmd#cor-conditioning-reduces-entropy) again, $\entropyf{K \mid C} \le \entropyf{K}$.
-Chain the inequalities:
+Chain the three comparisons:
 
 $$\entropyf{M} = \entropyf{M \mid C} \le \entropyf{K \mid C} \le \entropyf{K}.$$
 
