@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 19:59:54 (PST)
+Last modified: 2026-11-08 20:22:30 (PST)
 
 [Source coding](source-coding.llms.md) shows that the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a source is the least average length of a code for it, up to one [bit](entropy.llms.md#def-bit). This page asks which codes a decoder can read one codeword at a time, and how long such a code must be.
 
@@ -180,7 +180,7 @@ Last modified: 2026-11-08 19:59:54 (PST)
 
 > **NOTE:**
 >
-> **Theorem 4 (Huffman codes are optimal)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes $n \ge 2$ values, each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p(x) > 0$. Then a [Huffman code](#def-huffman-code) for $X$ has the least [expected length](source-coding.llms.md#def-expected-length) $L$ among all [prefix codes](#def-prefix-code) for $X$.
+> **Theorem 4 (Huffman codes are optimal)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes $n \ge 2$ values, each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} > 0$. Then a [Huffman code](#def-huffman-code) for $X$ has the least [expected length](source-coding.llms.md#def-expected-length) $L$ among all [prefix codes](#def-prefix-code) for $X$.
 
 > **NOTE:**
 >
@@ -190,14 +190,14 @@ Last modified: 2026-11-08 19:59:54 (PST)
 >
 > First, some prefix code with the least [expected length](source-coding.llms.md#def-expected-length) has $x$ and $y$ as siblings, meaning that their codewords have the same length $m$ and differ only in the last bit. To see this, take a prefix code with the least expected length.
 >
-> - If $p(u) > p(v)$, then $\ell(u) \le \ell(v)$. Otherwise, exchanging the codewords of $u$ and $v$ changes $L$ by $(p(u) - p(v))(\ell(v) - \ell(u)) < 0$.
+> - If ${\mathbb{p}\mathopen{}\left(u\right)\mathclose{}} > {\mathbb{p}\mathopen{}\left(v\right)\mathclose{}}$, then ${\ell\mathopen{}\left(u\right)\mathclose{}} \le {\ell\mathopen{}\left(v\right)\mathclose{}}$. Otherwise, exchanging the codewords of $u$ and $v$ changes $L$ by $({\mathbb{p}\mathopen{}\left(u\right)\mathclose{}} - {\mathbb{p}\mathopen{}\left(v\right)\mathclose{}})({\ell\mathopen{}\left(v\right)\mathclose{}} - {\ell\mathopen{}\left(u\right)\mathclose{}}) < 0$.
 > - A longest codeword $c$ has a sibling. Otherwise, deleting the last bit of $c$ leaves a string that neither begins another codeword nor is begun by one, which gives a prefix code with a smaller $L$.
 >
-> Let $u$ be a value with a longest codeword, and let $v$ be the value of its sibling. Both codewords have length $m$, the largest [codeword length](source-coding.llms.md#def-code). By the first bullet, exchanging the codeword of $x$ with that of $u$ does not increase $L$, because $p(x) \le p(u)$ and $\ell(u) = m$ is the largest length. The same holds for exchanging $y$ with $v$. If $x$ or $y$ is already one of $u$ and $v$, leave it where it is, and exchange the other with the remaining one of the pair. If $x = v$ and $y \ne u$, for example, exchange $y$ with $u$. Ties among the smallest probabilities do not matter, because every value other than $x$ and $y$ has probability at least $p(y)$, and the exchanges use only that. These exchanges give a prefix code with the least expected length in which $x$ and $y$ are siblings.
+> Let $u$ be a value with a longest codeword, and let $v$ be the value of its sibling. Both codewords have length $m$, the largest [codeword length](source-coding.llms.md#def-code). By the first bullet, exchanging the codeword of $x$ with that of $u$ does not increase $L$, because ${\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} \le {\mathbb{p}\mathopen{}\left(u\right)\mathclose{}}$ and ${\ell\mathopen{}\left(u\right)\mathclose{}} = m$ is the largest length. The same holds for exchanging $y$ with $v$. If $x$ or $y$ is already one of $u$ and $v$, leave it where it is, and exchange the other with the remaining one of the pair. If $x = v$ and $y \ne u$, for example, exchange $y$ with $u$. Ties among the smallest probabilities do not matter, because every value other than $x$ and $y$ has probability at least ${\mathbb{p}\mathopen{}\left(y\right)\mathclose{}}$, and the exchanges use only that. These exchanges give a prefix code with the least expected length in which $x$ and $y$ are siblings.
 >
-> Next, let $X'$ be the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) that merges $x$ and $y$ into one value $z$ with $p'(z) = p(x) + p(y)$ and keeps every other value and probability. Any prefix code for $X$ in which $x$ and $y$ are siblings turns into a prefix code for $X'$ by deleting the last bit of their common codeword to make the codeword of $z$. The two codes differ only in the lengths of $x$, $y$ and $z$, so their expected lengths satisfy
+> Next, let $X'$ be the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) that merges $x$ and $y$ into one value $z$ with $\mathbb{p}'\mathopen{}\left(z\right)\mathclose{} = {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{p}\mathopen{}\left(y\right)\mathclose{}}$ and keeps every other value and probability. Any prefix code for $X$ in which $x$ and $y$ are siblings turns into a prefix code for $X'$ by deleting the last bit of their common codeword to make the codeword of $z$. The two codes differ only in the lengths of $x$, $y$ and $z$, so their expected lengths satisfy
 >
-> $$L = L' + p(x) + p(y).$$
+> $$L= L' + {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{p}\mathopen{}\left(y\right)\mathclose{}}.$$
 >
 > The Huffman code for $X$ is built from a Huffman code for $X'$ by replacing the codeword of $z$ with two codewords, one that ends in $0$ and one that ends in $1$. By the induction hypothesis, a Huffman code for $X'$ has the least expected length $L'$ among prefix codes for $X'$. So no prefix code for $X$ in which $x$ and $y$ are siblings has an expected length below that of the Huffman code for $X$. By the first part, a prefix code with the least expected length is among these, so the Huffman code has the least expected length among all prefix codes.
 
@@ -205,7 +205,7 @@ Last modified: 2026-11-08 19:59:54 (PST)
 >
 > **Example 3 (Three prefix codes for one source)**  
 >
-> Take the source of [Example 2](#exm-huffman-code), with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $(0.4, 0.2, 0.2, 0.1, 0.1)$. Its [Huffman code](#def-huffman-code) has the [codeword length](source-coding.llms.md#def-code)s $(2, 2, 2, 3, 3)$. A fixed-length code gives every value three [bit](entropy.llms.md#def-bit)s. Giving each value $x$ the length ${\mathopen{}\left\lceil-\log_2 p(x)\right\rceil\mathclose{}}$ is a third choice of lengths. All three choices satisfy the sum in [Theorem 1](#thm-kraft-inequality), so [Theorem 2](#thm-kraft-converse) gives a [prefix code](#def-prefix-code) for each. The code below computes their [expected length](source-coding.llms.md#def-expected-length)s.
+> Take the source of [Example 2](#exm-huffman-code), with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $(0.4, 0.2, 0.2, 0.1, 0.1)$. Its [Huffman code](#def-huffman-code) has the [codeword length](source-coding.llms.md#def-code)s $(2, 2, 2, 3, 3)$. A fixed-length code gives every value three [bit](entropy.llms.md#def-bit)s. Giving each value $x$ the length ${\mathopen{}\left\lceil-\log_2 {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\rceil\mathclose{}}$ is a third choice of lengths. All three choices satisfy the sum in [Theorem 1](#thm-kraft-inequality), so [Theorem 2](#thm-kraft-converse) gives a [prefix code](#def-prefix-code) for each. The code below computes their [expected length](source-coding.llms.md#def-expected-length)s.
 >
 > Show code
 >
@@ -226,19 +226,19 @@ Last modified: 2026-11-08 19:59:54 (PST)
 
 > **NOTE:**
 >
-> **Theorem 5 (A Huffman code is within one bit of the entropy)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes $n \ge 2$ values, each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p(x) > 0$. Then a [Huffman code](#def-huffman-code) for $X$ has [expected length](source-coding.llms.md#def-expected-length) $L$ with
+> **Theorem 5 (A Huffman code is within one bit of the entropy)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes $n \ge 2$ values, each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} > 0$. Then a [Huffman code](#def-huffman-code) for $X$ has [expected length](source-coding.llms.md#def-expected-length) $L$ with
 >
-> $${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \le L < {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1,$$
+> $${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \le L< {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1,$$
 >
 > where ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$ with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 
 > **NOTE:**
 >
-> *Proof*. Every [prefix code](#def-prefix-code) is [uniquely decodable](source-coding.llms.md#def-uniquely-decodable), so the [source coding theorem](source-coding.llms.md#thm-source-coding) gives $L \ge {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
+> *Proof*. Every [prefix code](#def-prefix-code) is [uniquely decodable](source-coding.llms.md#def-uniquely-decodable), so the [source coding theorem](source-coding.llms.md#thm-source-coding) gives $L\ge {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
 >
-> For the other half of the claim, give each value $x$ the length $\ell(x) = {\mathopen{}\left\lceil-\log_2 p(x)\right\rceil\mathclose{}}$. Then $2^{-\ell(x)} \le p(x)$, so adding $2^{-\ell(x)}$ for every value gives at most the sum of their [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), which is $1$. By [Theorem 2](#thm-kraft-converse), some prefix code has these lengths. Its [expected length](source-coding.llms.md#def-expected-length) is below ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1$, because $\ell(x) < -\log_2 p(x) + 1$ for each value.
+> For the other half of the claim, give each value $x$ the length ${\ell\mathopen{}\left(x\right)\mathclose{}} = {\mathopen{}\left\lceil-\log_2 {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\rceil\mathclose{}}$. Then $2^{-{\ell\mathopen{}\left(x\right)\mathclose{}}} \le {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}$, so adding $2^{-{\ell\mathopen{}\left(x\right)\mathclose{}}}$ for every value gives at most the sum of their [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), which is $1$. By [Theorem 2](#thm-kraft-converse), some prefix code has these lengths. Its [expected length](source-coding.llms.md#def-expected-length) is below ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1$, because ${\ell\mathopen{}\left(x\right)\mathclose{}} < -\log_2 {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} + 1$ for each value.
 >
-> By [Theorem 4](#thm-huffman-optimal), a [Huffman code](#def-huffman-code) has an expected length no larger than this prefix code, so $L < {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1$.
+> By [Theorem 4](#thm-huffman-optimal), a [Huffman code](#def-huffman-code) has an expected length no larger than this prefix code, so $L< {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1$.
 
 > **NOTE:**
 >
