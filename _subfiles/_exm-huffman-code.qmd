@@ -1,0 +1,53 @@
+:::{#exm-huffman-code}
+#### A Huffman code for a five-valued variable
+
+<!-- no-figure: the example is one table of codewords and three numbers -->
+
+Let $X$ have five values with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p = (0.4, 0.2, 0.2, 0.1, 0.1)$.
+The code below carries out the construction of @def-huffman-code,
+breaking ties in favor of the node listed first.
+It then computes the [expected length](source-coding.qmd#def-expected-length) $L$ of the code,
+the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $\entropyf{X}$ with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm),
+and the sum $\sumof{x} 2^{-\ell(x)}$ of @thm-kraft-inequality.
+
+```{r}
+#| label: huffman-code
+huffman_code <- function(p) {
+  codewords <- rep("", length(p))
+  weights <- p
+  members <- as.list(seq_along(p))
+  while (length(weights) > 1) {
+    ord <- order(weights)
+    first <- ord[1]
+    second <- ord[2]
+    low <- members[[first]]
+    high <- members[[second]]
+    codewords[low] <- paste0("0", codewords[low])
+    codewords[high] <- paste0("1", codewords[high])
+    merged_weight <- weights[first] + weights[second]
+    merged_members <- c(low, high)
+    two_smallest <- 1:2
+    rest <- ord[-two_smallest]
+    weights <- c(weights[rest], merged_weight)
+    members <- c(members[rest], list(merged_members))
+  }
+  codewords
+}
+p <- c(0.4, 0.2, 0.2, 0.1, 0.1)
+codewords <- huffman_code(p)
+len <- nchar(codewords)
+surprisal <- -log2(p)
+expected_length <- sum(p * len)
+entropy <- sum(p * surprisal)
+kraft_sum <- sum(2^(-len))
+data.frame(p = p, codeword = codewords, length = len)
+c(expected_length = expected_length, entropy = entropy, kraft_sum = kraft_sum)
+```
+
+The code has expected length $L = `r expected_length`$ [bits](entropy.qmd#def-bit)
+and the source has entropy $\entropyf{X} = `r round(entropy, 3)`$ bits,
+so $L - \entropyf{X} = `r round(expected_length - entropy, 3)`$ bits.
+The sum $\sumof{x} 2^{-\ell(x)} = `r kraft_sum`$ is the largest value @thm-kraft-inequality allows,
+and no codeword is the beginning of another, as @thm-huffman-prefix-code says.
+
+:::

@@ -1,0 +1,26 @@
+:::{#thm-huffman-prefix-code}
+#### Huffman codes are prefix codes
+
+Every [Huffman code](#def-huffman-code) is a [prefix code](#def-prefix-code).
+
+:::
+
+::: {.proof}
+
+The construction in @def-huffman-code builds a tree
+whose nodes for the values $x$ are leaves:
+each of them is made first,
+and only the new nodes get children.
+The codeword $c(x)$ is the list of edge labels
+on the path from the last node to the leaf for $x$.
+
+Suppose that $c(x)$ were the beginning of $c(x')$ for two different values $x$ and $x'$.
+Both paths start at the last node,
+and the same labels lead to the same child at every step,
+so the path to $x$ would be the first part of the path to $x'$.
+Then the leaf for $x$ would lie on the way to the leaf for $x'$,
+and the leaf for $x$ would have a child.
+No leaf has a child,
+so no codeword is the beginning of another.
+
+:::
