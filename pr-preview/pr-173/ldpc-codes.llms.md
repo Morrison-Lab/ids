@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 03:14:57 (PST)
+Last modified: 2026-11-09 05:19:30 (PST)
 
 A [linear code](error-correcting-codes.llms.md#def-linear-code) is described by a [parity-check matrix](error-correcting-codes.llms.md#def-linear-code). When it has few ones, each check involves only a few positions of the word.
 
@@ -82,7 +82,7 @@ A [linear code](error-correcting-codes.llms.md#def-linear-code) is described by 
 
 > **NOTE:**
 >
-> *Remark 1* (Where LDPC codes come from). Gallager ([1962](#ref-gallager1962low)) introduced [low-density parity-check codes](#def-ldpc-code), and MacKay ([2003](#ref-mackay2003information)) covers them in his book.
+> *Remark 1* (Where LDPC codes come from). Gallager ([1962](#ref-gallager1962low)) introduced [low-density parity-check codes](#def-ldpc-code), and MacKay ([2003, chap. 47](#ref-mackay2003information)) covers them under the name [Gallager codes](#def-ldpc-code), including decoding by message-passing algorithms \[Section 47.2\].
 
 ## 2 Decoding
 
