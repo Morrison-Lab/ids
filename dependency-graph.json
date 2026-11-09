@@ -2120,6 +2120,10 @@
   ],
   [
    "ids/entropy#thm-kl-divergence-nonnegative",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#thm-kl-divergence-nonnegative",
    "mds/algebra-sums#def-summation"
   ],
   [
