@@ -43,10 +43,18 @@ and let $v$ be the value of its sibling.
 Both codewords have length $m$,
 the largest [codeword length](source-coding.qmd#def-code).
 By the first bullet,
-$x$ and $y$ may be exchanged with $u$ and $v$ without increasing $L$,
-because $p(x)$ and $p(y)$ are the smallest probabilities
-and $\ell(u) = \ell(v) = m$ is the largest length.
-This gives a prefix code with the least expected length
+exchanging the codeword of $x$ with that of $u$ does not increase $L$,
+because $p(x) \le p(u)$ and $\ell(u) = m$ is the largest length.
+The same holds for exchanging $y$ with $v$.
+If $x$ or $y$ is already one of $u$ and $v$,
+leave it where it is,
+and exchange the other with the remaining one of the pair.
+If $x = v$ and $y \ne u$, for example,
+exchange $y$ with $u$.
+Ties among the smallest probabilities do not matter,
+because every value other than $x$ and $y$ has probability at least $p(y)$,
+and the exchanges use only that.
+These exchanges give a prefix code with the least expected length
 in which $x$ and $y$ are siblings.
 
 Next, let $X'$ be the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable)

@@ -1,0 +1,32 @@
+:::{#exm-huffman-optimal}
+#### Three prefix codes for one source
+
+<!-- no-figure: the example compares three expected lengths in a table -->
+
+Take the source of @exm-huffman-code,
+with probabilities $(0.4, 0.2, 0.2, 0.1, 0.1)$.
+Its Huffman code has the [codeword length](source-coding.qmd#def-code)s $(2, 2, 2, 3, 3)$.
+A fixed-length code gives every value three bits.
+Giving each value $x$ the length $\ceil{-\log_2 p(x)}$ is a third way to choose lengths.
+All three sets of lengths satisfy the sum in @thm-kraft-inequality,
+so @thm-kraft-converse gives a prefix code for each.
+The code below computes their [expected length](source-coding.qmd#def-expected-length)s.
+
+```{r}
+#| label: huffman-optimal-comparison
+p <- c(0.4, 0.2, 0.2, 0.1, 0.1)
+huffman_lengths <- c(2, 2, 2, 3, 3)
+fixed_lengths <- rep(3, length(p))
+shannon_lengths <- ceiling(-log2(p))
+length_sets <- list(huffman_lengths, fixed_lengths, shannon_lengths)
+data.frame(
+  code = c("Huffman", "fixed length", "Shannon lengths"),
+  kraft_sum = vapply(length_sets, function(l) sum(2^(-l)), numeric(1)),
+  expected_length = vapply(length_sets, function(l) sum(p * l), numeric(1))
+)
+```
+
+The Huffman code has the least expected length of the three,
+as @thm-huffman-optimal says it must have among all prefix codes.
+
+:::

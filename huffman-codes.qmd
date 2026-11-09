@@ -59,17 +59,17 @@ and how long such a code must be.
 
 {{< include ids/_subfiles/_thm-huffman-optimal.qmd >}}
 
-A [Huffman code](#def-huffman-code) also stays within one [bit](entropy.qmd#def-bit) of the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
-By the [source coding theorem](source-coding.qmd#thm-source-coding),
-every [prefix code](#def-prefix-code) has $L \ge \entropyf{X}$.
-Giving each value $x$ the length $\lceil -\log_2 p(x) \rceil$
-satisfies the sum in @thm-kraft-inequality,
-because $2^{-\lceil -\log_2 p(x) \rceil} \le p(x)$ adds up to at most $1$,
-so @thm-kraft-converse gives a prefix code with these lengths,
-whose [expected length](source-coding.qmd#def-expected-length) is below $\entropyf{X} + 1$.
-By @thm-huffman-optimal,
-a Huffman code is at least as short, so
-$\entropyf{X} \le L < \entropyf{X} + 1$.
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-huffman-optimal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-huffman-entropy-bound.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-huffman-entropy-bound.qmd >}}
 
 ## References {.unnumbered}
 
