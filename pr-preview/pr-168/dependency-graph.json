@@ -678,6 +678,42 @@
    "external": false
   },
   {
+   "id": "ids/ldpc-codes#def-ldpc-code",
+   "site": "ids",
+   "page": "ldpc-codes",
+   "div": "def-ldpc-code",
+   "kind": "def",
+   "title": "Regular low-density parity-check code",
+   "external": false
+  },
+  {
+   "id": "ids/ldpc-codes#thm-ldpc-rate",
+   "site": "ids",
+   "page": "ldpc-codes",
+   "div": "thm-ldpc-rate",
+   "kind": "thm",
+   "title": "The rate of a regular LDPC code",
+   "external": false
+  },
+  {
+   "id": "ids/min-entropy#def-min-entropy",
+   "site": "ids",
+   "page": "min-entropy",
+   "div": "def-min-entropy",
+   "kind": "def",
+   "title": "Min-entropy",
+   "external": false
+  },
+  {
+   "id": "ids/min-entropy#thm-min-entropy-at-most-collision-entropy",
+   "site": "ids",
+   "page": "min-entropy",
+   "div": "thm-min-entropy-at-most-collision-entropy",
+   "kind": "thm",
+   "title": "The min-entropy is at most the collision entropy",
+   "external": false
+  },
+  {
    "id": "ids/minimum-description-length#def-minimum-description-length",
    "site": "ids",
    "page": "minimum-description-length",
@@ -2673,6 +2709,62 @@
    "sds/nonparametric-models#def-empirical-distribution"
   ],
   [
+   "ids/ldpc-codes#def-ldpc-code",
+   "ids/error-correcting-codes#def-linear-code"
+  ],
+  [
+   "ids/ldpc-codes#def-ldpc-code",
+   "mcs/number-systems#def-integers"
+  ],
+  [
+   "ids/ldpc-codes#thm-ldpc-rate",
+   "ids/channel-capacity#def-code-rate"
+  ],
+  [
+   "ids/ldpc-codes#thm-ldpc-rate",
+   "ids/ldpc-codes#def-ldpc-code"
+  ],
+  [
+   "ids/ldpc-codes#thm-ldpc-rate",
+   "mds/linear-algebra-subspaces#def-rank"
+  ],
+  [
+   "ids/min-entropy#def-min-entropy",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/min-entropy#def-min-entropy",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/min-entropy#def-min-entropy",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/min-entropy#def-min-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/min-entropy#thm-min-entropy-at-most-collision-entropy",
+   "ids/entropy#def-collision-probability"
+  ],
+  [
+   "ids/min-entropy#thm-min-entropy-at-most-collision-entropy",
+   "ids/entropy#def-renyi-entropy"
+  ],
+  [
+   "ids/min-entropy#thm-min-entropy-at-most-collision-entropy",
+   "ids/min-entropy#def-min-entropy"
+  ],
+  [
+   "ids/min-entropy#thm-min-entropy-at-most-collision-entropy",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/min-entropy#thm-min-entropy-at-most-collision-entropy",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/minimum-description-length#def-minimum-description-length",
    "ids/minimum-description-length#def-two-part-description-length"
   ],
@@ -2823,6 +2915,10 @@
   [
    "ids/source-coding#thm-expected-length-sum",
    "pds/random-variables#def-random-variable"
+  ],
+  [
+   "ids/source-coding#thm-source-coding",
+   "ids/entropy#def-bit"
   ],
   [
    "ids/source-coding#thm-source-coding",

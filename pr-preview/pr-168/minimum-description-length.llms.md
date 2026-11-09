@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 03:17:28 (PST)
+Last modified: 2026-11-09 10:43:25 (PST)
 
 A model that fits the data well gives the data a short [code](source-coding.llms.md#def-code), but a model that is itself long to describe costs [bits](entropy.llms.md#def-bit) of its own. This page counts both costs in bits, and chooses the model that makes the sum shortest.
 
