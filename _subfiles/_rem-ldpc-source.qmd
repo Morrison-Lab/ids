@@ -2,6 +2,7 @@
 #### Where LDPC codes come from
 
 @gallager1962low introduced [low-density parity-check codes](#def-ldpc-code),
-and @mackay2003information covers them in his book.
+and @mackay2003information [Chapter 47] covers them under the name [Gallager codes](#def-ldpc-code),
+including decoding by message-passing algorithms [Section 47.2].
 
 :::

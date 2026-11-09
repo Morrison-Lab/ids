@@ -1,0 +1,17 @@
+:::{#def-bit-flipping-decoder}
+#### Bit-flipping decoder
+
+Let $H$ be a [parity-check matrix](error-correcting-codes.qmd#def-linear-code),
+and let $y \in \ffield{2}^n$ be a received word.
+A check node $a$ is *unsatisfied* when the $a$th entry of $H y$ is 1.
+The **bit-flipping decoder** repeats the following step:
+
+- Send each check node's status to the variable nodes joined to it in the [Tanner graph](#def-tanner-graph).
+- Count, for each variable node, the unsatisfied check nodes joined to it.
+- Flip the entry of $y$ at a variable node with the largest count,
+  taking the smallest index if several tie.
+
+It stops after a fixed number of iterations,
+or when no check node is unsatisfied.
+
+:::
