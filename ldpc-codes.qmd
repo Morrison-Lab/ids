@@ -1,0 +1,44 @@
+---
+title: "Low-density parity-check codes"
+format:
+  html: default
+  revealjs:
+    output-file: ldpc-codes-slides.html
+  pdf:
+    output-file: ldpc-codes-handout.pdf
+  docx:
+    output-file: ldpc-codes.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+A [linear code](error-correcting-codes.qmd#def-linear-code) is described by a [parity-check matrix](error-correcting-codes.qmd#def-linear-code).
+When it has few ones,
+each check involves only a few positions of the word.
+
+## Sparse parity checks {#sec-sparse-parity-checks}
+
+<!-- No slidebreak here: the heading shares its slide with the def-ldpc-code div. -->
+
+{{< include ids/_subfiles/_def-ldpc-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-ldpc-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-ldpc-rate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-ldpc-rate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-ldpc-source.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
