@@ -1,0 +1,21 @@
+:::{#exm-minimum-description-length-maximum-likelihood}
+#### Equal codeword lengths for the coin flips
+
+<!-- no-figure: the example is two chosen models -->
+
+The $9$ models of @exm-two-part-description-length have codewords of equal length,
+so @thm-minimum-description-length-maximum-likelihood applies to the data of $70$ heads in $100$ flips.
+The chunk below compares the model with the shortest [two-part description length](#def-two-part-description-length)
+to the model that gives the flips the highest [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
+
+```{r}
+#| label: minimum-description-length-maximum-likelihood
+likelihood <- success_prob^n_heads * (1 - success_prob)^(n_flips - n_heads)
+success_prob[which.max(likelihood)]
+success_prob[which.min(total_bits)]
+```
+
+Both models have the probability of heads $`r success_prob[which.max(likelihood)]`$,
+as the [theorem](https://morrison-lab.github.io/mcs/proof-writing.html#def-theorem) says.
+
+:::

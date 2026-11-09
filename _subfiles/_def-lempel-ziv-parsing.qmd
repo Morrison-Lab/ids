@@ -1,0 +1,14 @@
+:::{#def-lempel-ziv-parsing}
+#### Incremental parsing
+
+Let $x = (x_1, \ldots, x_n)$ be a message of symbols.
+The **incremental parsing** of $x$ cuts it into consecutive *phrases*,
+reading from the left:
+each phrase is the shortest string that is not an earlier phrase.
+
+Every phrase is therefore an earlier phrase, or the empty string,
+followed by one new symbol.
+The last phrase may be cut short by the end of the message,
+in which case it repeats an earlier phrase.
+
+:::

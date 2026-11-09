@@ -1,0 +1,38 @@
+---
+title: "KL divergence and maximum likelihood"
+format:
+  html: default
+  revealjs:
+    output-file: kl-divergence-slides.html
+  pdf:
+    output-file: kl-divergence-handout.pdf
+  docx:
+    output-file: kl-divergence.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+The [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of one model from another
+is the number of [bits](entropy.qmd#def-bit) per value that a code built for the model wastes,
+by the [cross-entropy decomposition](source-coding.qmd#thm-cross-entropy-decomposition).
+This page applies that to data,
+and shows that the model a [maximum likelihood estimate](https://morrison-lab.github.io/sds/intro-MLEs.html#def-mle) picks is the model with the least waste.
+
+## Maximum likelihood {#sec-maximum-likelihood-kl}
+
+<!-- No slidebreak here: the heading shares its slide with the thm-maximum-likelihood-kl-divergence div. -->
+
+{{< include ids/_subfiles/_thm-maximum-likelihood-kl-divergence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-maximum-likelihood-kl-divergence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-maximum-likelihood-kl-divergence-loss.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
