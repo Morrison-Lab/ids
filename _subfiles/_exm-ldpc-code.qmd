@@ -24,7 +24,7 @@ is_codeword <- apply(words, 1, function(y) all((H %*% y) %% 2 == 0))
 sum(is_codeword)
 ```
 
-The code has `r sum(is_codeword)` codewords,
-so its [dimension](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-dimension) is $\log_2$ of that number, which is 3.
+There are `r sum(is_codeword)` codewords,
+so the [dimension](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-dimension) is $\log_2$ of that number, which is 3.
 
 :::
