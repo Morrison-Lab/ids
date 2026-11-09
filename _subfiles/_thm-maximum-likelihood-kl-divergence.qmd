@@ -1,0 +1,38 @@
+:::{#thm-maximum-likelihood-kl-divergence}
+#### Maximum likelihood minimizes the divergence from the data
+
+Let $x_1, \ldots, x_n$ be data,
+and let $\ep$ be their [empirical distribution](https://morrison-lab.github.io/sds/nonparametric-models.html#def-empirical-distribution).
+Let $q_\theta$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) with $q_\theta(v) > 0$ wherever $\ep(v) > 0$,
+for parameter values $\theta$.
+Then $\theta$ maximizes the [likelihood](https://morrison-lab.github.io/sds/intro-MLEs.html#def-lik) $\prod_{i=1}^n q_\theta(x_i)$
+exactly when it minimizes the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) $\kldivf{\ep}{q_\theta}$.
+
+:::
+
+::: {.proof}
+
+Let $n_v$ be the number of data equal to $v$.
+Then $n_v = n \, \ep(v)$.
+
+Group the terms of the [log-likelihood](https://morrison-lab.github.io/sds/intro-MLEs.html#def-loglik) by value:
+
+$$\sum_{i=1}^n \log_2 q_\theta(x_i) = \sum_v n \, \ep(v) \log_2 q_\theta(v).$$
+
+Divide by $n$.
+The right side is minus the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) $\crossentropyf{\ep}{q_\theta}$:
+
+$$\frac{1}{n} \sum_{i=1}^n \log_2 q_\theta(x_i) = -\crossentropyf{\ep}{q_\theta}.$$
+
+By the [cross-entropy decomposition](source-coding.qmd#thm-cross-entropy-decomposition),
+the cross-entropy is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $\ep$ plus the divergence:
+
+$$-\crossentropyf{\ep}{q_\theta} = -\entropyf{\ep} - \kldivf{\ep}{q_\theta}.$$
+
+The entropy $\entropyf{\ep}$ does not depend on $\theta$.
+So $\theta$ maximizes the average log-likelihood exactly when it minimizes $\kldivf{\ep}{q_\theta}$.
+The [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) increases,
+and dividing by $n$ keeps the order,
+so $\theta$ maximizes the average log-likelihood exactly when it maximizes the [likelihood](https://morrison-lab.github.io/sds/intro-MLEs.html#def-lik).
+
+:::
