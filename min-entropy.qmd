@@ -1,0 +1,45 @@
+---
+title: "Min-entropy"
+format:
+  html: default
+  revealjs:
+    output-file: min-entropy-slides.html
+  pdf:
+    output-file: min-entropy-handout.pdf
+  docx:
+    output-file: min-entropy.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a random variable averages its [surprisal](entropy.qmd#def-surprisal).
+Other summaries of its [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) answer other questions.
+This page adds the smallest of them, the min-entropy,
+to the [collision entropy](entropy.qmd#def-renyi-entropy).
+
+## Min-entropy {#sec-min-entropy}
+
+<!-- No slidebreak here: the heading shares its slide with the def-min-entropy div. -->
+
+{{< include ids/_subfiles/_def-min-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-min-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-min-entropy-at-most-collision-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-min-entropy-at-most-collision-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-min-entropy-guessing.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
