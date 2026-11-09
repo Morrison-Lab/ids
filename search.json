@@ -77,6 +77,39 @@
     ]
   },
   {
+    "objectID": "ldpc-codes.html",
+    "href": "ldpc-codes.html",
+    "title": "Low-density parity-check codes",
+    "section": "",
+    "text": "A linear code is described by a parity-check matrix. When it has few ones, each check involves only a few positions of the word.",
+    "crumbs": [
+      "Coding",
+      "Low-density parity-check codes"
+    ]
+  },
+  {
+    "objectID": "ldpc-codes.html#sec-sparse-parity-checks",
+    "href": "ldpc-codes.html#sec-sparse-parity-checks",
+    "title": "Low-density parity-check codes",
+    "section": "1 Sparse parity checks",
+    "text": "1 Sparse parity checks\n\n\n\n\n\n\n\n\nDefinition 1 (Regular low-density parity-check code) Let \\(j, k \\ge 1\\) be integers. A \\((j, k)\\)-regular LDPC code (low-density parity-check code)  consists of the words \\(y \\in \\mathbb{F}_{2}^n\\) with \\(H y = 0\\), where \\(H\\) has \\(j\\) ones in every column and \\(k\\) ones in every row, and zeros elsewhere. The rows of \\(H\\) need not be independent.  When no row is a sum of other rows, \\(H\\) is a parity-check matrix of this linear code.\n\n\n\n\n\n\n\n\n\n\n\nExample 1 (A \\((2, 3)\\)-regular code of length 6)  \n\nTake four items, labeled \\(1, 2, 3, 4\\), and the six pairs of them. Let \\(H\\) have a row for each item and a column for each pair, with a 1 where the item lies in the pair. Every pair holds two items and every item lies in three pairs, so \\(H\\) has two ones in each column and three in each row, and it gives a \\((2, 3)\\)-regular LDPC code of length 6. The R chunk below builds \\(H\\), checks the counts, and counts the words \\(y\\) with \\(H y = 0\\) modulo 2.\n\n\nShow code\npairs &lt;- t(combn(4, 2))\nH &lt;- sapply(seq_len(nrow(pairs)), function(e) as.integer(1:4 %in% pairs[e, ]))\nH\n#&gt;      [,1] [,2] [,3] [,4] [,5] [,6]\n#&gt; [1,]    1    1    1    0    0    0\n#&gt; [2,]    1    0    0    1    1    0\n#&gt; [3,]    0    1    0    1    0    1\n#&gt; [4,]    0    0    1    0    1    1\ncolSums(H)\n#&gt; [1] 2 2 2 2 2 2\nrowSums(H)\n#&gt; [1] 3 3 3 3\nwords &lt;- as.matrix(expand.grid(rep(list(0:1), 6)))\nis_codeword &lt;- apply(words, 1, function(y) all((H %*% y) %% 2 == 0))\nsum(is_codeword)\n#&gt; [1] 8\n\n\nThere are 8 codewords, so the dimension is \\(\\log_2\\) of that number, which is 3.\n\n\n\n\n\n\n\n\n\n\n\nTheorem 1 (The rate of a regular LDPC code) Let \\(C\\) be a \\((j, k)\\)-regular LDPC code of length \\(n\\). Then the rate of \\(C\\) is at least \\(1 - j / k\\).\n\n\n\n\n\n\n\n\n\n\nProofProof\n\n\n\n\n\n\nProof. Let \\(H\\) be as in the definition of \\(C\\), with \\(m\\) rows and \\(n\\) columns. Count the ones of \\(H\\) in two ways. Each of the \\(n\\) columns holds \\(j\\) ones, so \\(H\\) has \\(n j\\) ones. Each of the \\(m\\) rows holds \\(k\\) ones, so \\(H\\) has \\(m k\\) ones. So \\(n j = m k\\), and \\(m = n j / k\\).\nThe codewords are the words \\(y\\) with \\(H y = 0\\), so their number is \\(2^{n - r}\\), where \\(r\\) is the rank of \\(H\\). The rank of \\(H\\) is at most its number of rows, so \\(r \\le m\\), and \\(C\\) has at least \\(2^{n - m}\\) codewords. Its rate is \\((n - r) / n\\), which is at least \\((n - m) / n = 1 - j / k\\).\n\n\n\n\n\n\n\n\n\n\n\nExample 2 (The rate of the length-6 code)  \n\nFor the \\((2, 3)\\)-regular LDPC code of Example 1, Theorem 1 gives a rate of at least \\(1 - 2 / 3\\). It has 8 codewords, so its rate is \\(\\log_2(8) / 6\\).\n\n\nShow code\n1 - 2 / 3\n#&gt; [1] 0.3333333\nlog2(8) / 6\n#&gt; [1] 0.5\n\n\nThe rate is \\(1/2\\), which is larger than \\(1/3\\). The four rows of \\(H\\) add to zero modulo 2, because every column has two ones, so \\(H\\) has rank 3, not 4.\n\n\n\n\n\n\n\n\n\n\n\nRemark 1 (Where LDPC codes come from). Gallager (1962) introduced low-density parity-check codes, and MacKay (2003) covers them in his book.",
+    "crumbs": [
+      "Coding",
+      "Low-density parity-check codes"
+    ]
+  },
+  {
+    "objectID": "ldpc-codes.html#references",
+    "href": "ldpc-codes.html#references",
+    "title": "Low-density parity-check codes",
+    "section": "References",
+    "text": "References\n\n\nGallager, Robert G. 1962. “Low-Density Parity-Check Codes.” IEEE Transactions on Information Theory 8 (1): 21–28. https://doi.org/10.1109/TIT.1962.1057683.\n\n\nMacKay, David J. C. 2003. Information Theory, Inference, and Learning Algorithms. Cambridge University Press.",
+    "crumbs": [
+      "Coding",
+      "Low-density parity-check codes"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Information Theory for Data Science",
@@ -377,6 +410,39 @@
     "crumbs": [
       "Coding",
       "KL divergence and maximum likelihood"
+    ]
+  },
+  {
+    "objectID": "min-entropy.html",
+    "href": "min-entropy.html",
+    "title": "Min-entropy",
+    "section": "",
+    "text": "The entropy of a random variable averages its surprisal. Other summaries of its probabilities answer other questions. This page adds the smallest of them, the min-entropy, to the collision entropy.",
+    "crumbs": [
+      "Measuring information",
+      "Min-entropy"
+    ]
+  },
+  {
+    "objectID": "min-entropy.html#sec-min-entropy",
+    "href": "min-entropy.html#sec-min-entropy",
+    "title": "Min-entropy",
+    "section": "1 Min-entropy",
+    "text": "1 Min-entropy\n\n\n\n\n\n\n\n\nDefinition 1 (Min-entropy) The min-entropy of a discrete random variable \\(X\\) is the logarithm of the reciprocal of the largest probability that \\(X\\) takes any one value:\n\\[{\\mathbb{H}_{\\infty}\\mathopen{}\\left(X\\right)\\mathclose{}} = -\\log \\max_x {\\mathbb{P}\\mathopen{}\\left(X = x\\right)\\mathclose{}}.\\]\nIt is the value that the Rényi entropy of order \\(\\alpha\\) approaches as \\(\\alpha \\to \\infty\\) (Rényi 1961).\n\n\n\n\n\n\n\n\n\n\n\nExample 1 (Min-entropy of a three-valued random variable)  \n\nLet \\(X\\) take three values with probabilities \\(1/2\\), \\(1/4\\) and \\(1/4\\). The R chunk below finds the largest probability and the min-entropy, with base-2 logarithms.\n\n\nShow code\np &lt;- c(1 / 2, 1 / 4, 1 / 4)\nmax_prob &lt;- max(p)\nmin_entropy &lt;- -log2(max_prob)\nc(max_prob = max_prob, min_entropy = min_entropy)\n#&gt;    max_prob min_entropy \n#&gt;         0.5         1.0\n\n\nThe largest probability is \\(0.5\\), so the min-entropy is \\({\\mathbb{H}_{\\infty}\\mathopen{}\\left(X\\right)\\mathclose{}} = 1\\) bit.\n\n\n\n\n\n\n\n\n\n\n\nTheorem 1 (The min-entropy is at most the collision entropy) Let \\(X\\) be a discrete random variable. Then the min-entropy is at most the collision entropy:\n\\[{\\mathbb{H}_{\\infty}\\mathopen{}\\left(X\\right)\\mathclose{}} \\le {\\mathbb{H}_{2}\\mathopen{}\\left(X\\right)\\mathclose{}}.\\]\n\n\n\n\n\n\n\n\n\n\nProofProof\n\n\n\n\n\n\nProof. Let \\(p_{\\max} = \\max_x {\\mathbb{P}\\mathopen{}\\left(X = x\\right)\\mathclose{}}\\). Each probability \\({\\mathbb{P}\\mathopen{}\\left(X = x\\right)\\mathclose{}}\\) is at most \\(p_{\\max}\\), so \\({\\mathbb{P}\\mathopen{}\\left(X = x\\right)\\mathclose{}}^2 \\le p_{\\max} \\, {\\mathbb{P}\\mathopen{}\\left(X = x\\right)\\mathclose{}}\\). Sum over the values \\(x\\):\n\\[\\sum_x {\\mathbb{P}\\mathopen{}\\left(X = x\\right)\\mathclose{}}^2 \\le p_{\\max} \\sum_x {\\mathbb{P}\\mathopen{}\\left(X = x\\right)\\mathclose{}}.\\]\nThe probabilities sum to \\(1\\), so the collision probability is at most \\(p_{\\max}\\):\n\\[\\mathbb{P}(X = X') = \\sum_x {\\mathbb{P}\\mathopen{}\\left(X = x\\right)\\mathclose{}}^2 \\le p_{\\max}.\\]\nThe function \\(-\\log\\) is decreasing, so taking it of both sides flips the comparison:\n\\[-\\log \\mathbb{P}(X = X') \\ge -\\log p_{\\max}.\\]\nThe left side is \\({\\mathbb{H}_{2}\\mathopen{}\\left(X\\right)\\mathclose{}}\\) and the right side is \\({\\mathbb{H}_{\\infty}\\mathopen{}\\left(X\\right)\\mathclose{}}\\).\n\n\n\n\n\n\n\n\n\n\n\nExample 2 (Three entropies of one random variable)  \n\nThe R chunk below computes the min-entropy, the collision entropy and the entropy of the random variable of Example 1.\n\n\nShow code\np &lt;- c(1 / 2, 1 / 4, 1 / 4)\nmin_entropy &lt;- -log2(max(p))\ncollision_entropy &lt;- -log2(sum(p^2))\nshannon_entropy &lt;- -sum(p * log2(p))\nc(\n  min_entropy = min_entropy,\n  collision_entropy = collision_entropy,\n  shannon_entropy = shannon_entropy\n)\n#&gt;       min_entropy collision_entropy   shannon_entropy \n#&gt;          1.000000          1.415037          1.500000\n\n\nThe values rise from \\(1\\) to \\(1.415\\) to \\(1.5\\) bits, as Theorem 1 and the collision entropy bound say.\n\n\n\n\n\n\n\n\n\n\n\nRemark 1 (Min-entropy measures the chance of a single guess). The best single guess at the value of \\(X\\) is its most probable value, and that guess is right with probability \\(2^{-{\\mathbb{H}_{\\infty}\\mathopen{}\\left(X\\right)\\mathclose{}}}\\). So a min-entropy of \\(k\\) bits says that no guess succeeds with probability above \\(2^{-k}\\). That is why min-entropy, and not the entropy, is the measure of the unpredictability of a secret.",
+    "crumbs": [
+      "Measuring information",
+      "Min-entropy"
+    ]
+  },
+  {
+    "objectID": "min-entropy.html#references",
+    "href": "min-entropy.html#references",
+    "title": "Min-entropy",
+    "section": "References",
+    "text": "References\n\n\nRényi, Alfréd. 1961. “On Measures of Entropy and Information.” In Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability, Volume 1: Contributions to the Theory of Statistics, edited by Jerzy Neyman. University of California Press. https://projecteuclid.org/euclid.bsmsp/1200512181.",
+    "crumbs": [
+      "Measuring information",
+      "Min-entropy"
     ]
   },
   {
