@@ -3,7 +3,7 @@
 
 <!-- no-figure: the example is three numbers -->
 
-The code below computes the [min-entropy](#def-min-entropy), the [collision entropy](entropy.qmd#def-renyi-entropy) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) of @exm-min-entropy.
+The R chunk below computes the [min-entropy](#def-min-entropy), the [collision entropy](entropy.qmd#def-renyi-entropy) and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) of @exm-min-entropy.
 
 ```{r}
 #| label: min-entropy-comparison
