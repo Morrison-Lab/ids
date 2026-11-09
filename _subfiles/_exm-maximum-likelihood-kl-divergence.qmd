@@ -1,0 +1,46 @@
+:::{#exm-maximum-likelihood-kl-divergence}
+#### The divergence from the data for coin flips
+
+<!-- no-figure: the example is a table of divergences -->
+
+A coin is flipped $100$ times,
+and it lands heads $70$ times.
+The chunk below follows @thm-maximum-likelihood-kl-divergence
+for the [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) models
+with the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of heads $0.1, 0.2, \ldots, 0.9$.
+It prints the divergence of each model from the [empirical distribution](https://morrison-lab.github.io/sds/nonparametric-models.html#def-empirical-distribution),
+the average [log-likelihood](https://morrison-lab.github.io/sds/intro-MLEs.html#def-loglik),
+and minus the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the empirical distribution minus the divergence.
+
+```{r}
+#| label: maximum-likelihood-kl-divergence
+n_flips <- 100
+n_heads <- 70
+empirical <- c(tails = n_flips - n_heads, heads = n_heads) / n_flips
+success_prob <- seq(0.1, 0.9, by = 0.1)
+empirical_entropy <- -sum(empirical * log2(empirical))
+divergence <- numeric(length(success_prob))
+avg_loglik <- numeric(length(success_prob))
+for (j in seq_along(success_prob)) {
+  model <- c(1 - success_prob[j], success_prob[j])
+  divergence[j] <- sum(empirical * log2(empirical / model))
+  avg_loglik[j] <- sum(empirical * log2(model))
+}
+decomposition <- -empirical_entropy - divergence
+data.frame(
+  success_prob,
+  divergence = round(divergence, 4),
+  avg_loglik = round(avg_loglik, 4),
+  decomposition = round(decomposition, 4)
+)
+```
+
+The last two columns agree,
+as the proof says.
+The divergence is smallest, at $`r round(min(divergence), 3)`$ [bits](entropy.qmd#def-bit),
+and the average log-likelihood is largest
+for the model with probability of heads $`r success_prob[which.min(divergence)]`$,
+which is the fraction of heads in the data,
+so that model is the empirical distribution.
+
+:::

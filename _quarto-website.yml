@@ -51,6 +51,7 @@ website:
           - huffman-codes.qmd
           - stream-codes.qmd
           - channel-capacity.qmd
+          - kl-divergence.qmd
           - error-correcting-codes.qmd
     right:
       - icon: github
@@ -72,6 +73,7 @@ website:
           - huffman-codes.qmd
           - stream-codes.qmd
           - channel-capacity.qmd
+          - kl-divergence.qmd
           - error-correcting-codes.qmd
 
 callouty-theorem:

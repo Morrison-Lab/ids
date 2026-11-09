@@ -1,0 +1,10 @@
+::: {#rem-maximum-likelihood-kl-divergence-loss}
+#### One labeled example
+
+For a single labeled example, $n = 1$,
+and the [empirical distribution](https://morrison-lab.github.io/sds/nonparametric-models.html#def-empirical-distribution) puts all its mass on the observed label.
+Then @thm-maximum-likelihood-kl-divergence says that the model with the largest [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) for that label
+is the model with the smallest divergence from it.
+That is the case that [the cross-entropy loss remark](source-coding.qmd#rem-cross-entropy-loss) describes.
+
+:::
