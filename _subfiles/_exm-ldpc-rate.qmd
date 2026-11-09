@@ -5,7 +5,8 @@
 
 For the $(2, 3)$-regular [LDPC code](#def-ldpc-code) of @exm-ldpc-code,
 @thm-ldpc-rate gives a [rate](channel-capacity.qmd#def-code-rate) of at least $1 - 2 / 3$.
-It has 8 codewords, so its rate is $\log_2(8) / 6$.
+It has 8 codewords,
+so its rate is $\log_2(8) / 6$.
 
 ```{r}
 #| label: ldpc-rate
@@ -13,8 +14,10 @@ It has 8 codewords, so its rate is $\log_2(8) / 6$.
 log2(8) / 6
 ```
 
-The rate is $1/2$, which is larger than $1/3$.
-The four rows of $H$ add to zero modulo 2, because every column has two ones,
+The rate is $1/2$,
+which is larger than $1/3$.
+The four rows of $H$ add to zero modulo 2,
+because every column has two ones,
 so $H$ has [rank](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-rank) 3, not 4.
 
 :::

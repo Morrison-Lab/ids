@@ -25,6 +25,7 @@ sum(is_codeword)
 ```
 
 There are `r sum(is_codeword)` codewords,
-so the [dimension](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-dimension) is $\log_2$ of that number, which is 3.
+so the [dimension](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-dimension) is $\log_2$ of that number,
+which is 3.
 
 :::
