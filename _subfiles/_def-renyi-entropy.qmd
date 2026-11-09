@@ -6,6 +6,6 @@ where $\Pf{X}$ is the [probability mass function](https://morrison-lab.github.io
 
 $$\renyientropyf{2}{X} = -\log \E{\Pf{X}}.$$
 
-Rényi introduced this case of a family of entropies [@renyi1961measures].
+Rényi introduced this case of a family of [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) [@renyi1961measures].
 
 :::
