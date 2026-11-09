@@ -16,7 +16,8 @@ every prefix code gives each value a codeword of at least one [bit](entropy.qmd#
 and the Huffman code gives them the codewords $0$ and $1$,
 so no prefix code is shorter.
 
-Let $n > 2$, and suppose the claim holds for $n - 1$ values.
+Let $n > 2$,
+and suppose the claim holds for $n - 1$ values.
 Let $x$ and $y$ be two values with the smallest probabilities,
 the pair that the first step of the construction merges.
 
@@ -25,7 +26,8 @@ meaning that their codewords have the same length $m$
 and differ only in the last bit.
 To see this, take a prefix code with the least expected length.
 
-- If $p(u) > p(v)$, then $\ell(u) \le \ell(v)$.
+- If $p(u) > p(v)$,
+  then $\ell(u) \le \ell(v)$.
   Otherwise, exchanging the codewords of $u$ and $v$
   changes $L$ by $(p(u) - p(v))(\ell(v) - \ell(u)) < 0$.
 - A longest codeword $c$ has a sibling.
