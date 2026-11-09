@@ -1,0 +1,15 @@
+::: {#def-perfect-secrecy}
+#### Perfect secrecy
+
+Let $M$ be a message, let $K$ be a key [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $M$,
+and let $C$ be the ciphertext made from $M$ and $K$,
+all [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
+The key and the ciphertext together determine the message.
+The cipher has **perfect secrecy** when the ciphertext tells an eavesdropper nothing about the message,
+that is, when $M$ and $C$ have zero [mutual information](entropy.qmd#def-mutual-information):
+
+$$\mutinfof{M}{C} = 0.$$
+
+The idea is due to Shannon [@shannon1949communication].
+
+:::

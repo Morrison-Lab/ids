@@ -1,0 +1,41 @@
+:::{#thm-perfect-secrecy-key-entropy}
+#### Perfect secrecy needs a key with at least the entropy of the message
+
+Let $M$, $K$ and $C$ be as in @def-perfect-secrecy,
+and suppose the cipher has [perfect secrecy](#def-perfect-secrecy).
+Then the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the key is at least the entropy of the message:
+
+$$\entropyf{K} \ge \entropyf{M}.$$
+
+:::
+
+::: proof
+
+By @def-perfect-secrecy, $\mutinfof{M}{C} = 0$,
+so $M$ and $C$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt),
+and the equality case of [conditioning reduces entropy](entropy.qmd#cor-conditioning-reduces-entropy) gives the first step:
+
+$$\entropyf{M} = \entropyf{M \mid C}.$$
+
+The [chain rule](entropy.qmd#thm-entropy-chain-rule) expands both conditional entropies below:
+
+$$\entropyf{M \mid C} = \entropyf{M, C} - \entropyf{C}, \qquad \entropyf{K \mid C} = \entropyf{K, C} - \entropyf{C}.$$
+
+Apply the chain rule to $(M, C)$ and $K$ jointly in two orders:
+
+$$\entropyf{M, C, K} = \entropyf{C, K} + \entropyf{M \mid C, K}, \qquad \entropyf{M, C, K} = \entropyf{M, C} + \entropyf{K \mid M, C}.$$
+
+The key and the ciphertext determine the message,
+so $\entropyf{M \mid C, K} = 0$.
+A conditional entropy is nonnegative, so $\entropyf{K \mid M, C} \ge 0$.
+Equating the two expansions then gives $\entropyf{M, C} \le \entropyf{C, K}$.
+Subtract $\entropyf{C}$ from both sides:
+
+$$\entropyf{M \mid C} \le \entropyf{K \mid C}.$$
+
+By [conditioning reduces entropy](entropy.qmd#cor-conditioning-reduces-entropy) again, $\entropyf{K \mid C} \le \entropyf{K}$.
+Chain the inequalities:
+
+$$\entropyf{M} = \entropyf{M \mid C} \le \entropyf{K \mid C} \le \entropyf{K}.$$
+
+:::

@@ -52,6 +52,7 @@ website:
           - stream-codes.qmd
           - channel-capacity.qmd
           - error-correcting-codes.qmd
+          - perfect-secrecy.qmd
     right:
       - icon: github
         href: https://github.com/Morrison-Lab/ids
@@ -73,6 +74,7 @@ website:
           - stream-codes.qmd
           - channel-capacity.qmd
           - error-correcting-codes.qmd
+          - perfect-secrecy.qmd
 
 callouty-theorem:
   thm:

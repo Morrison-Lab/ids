@@ -1,0 +1,7 @@
+::: {#rem-perfect-secrecy-source}
+#### Source: Shannon
+
+Shannon defined perfect secrecy and proved that it needs a key with at least the entropy of the message [@shannon1949communication].
+The proof above uses only the [chain rule](entropy.qmd#thm-entropy-chain-rule) and [conditioning reduces entropy](entropy.qmd#cor-conditioning-reduces-entropy).
+
+:::
