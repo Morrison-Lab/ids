@@ -13,7 +13,7 @@ format:
 {{< include latex-macros/macros.qmd >}}
 
 The [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior) of an unobserved quantity is often too hard to compute.
-Variational inference replaces it with a simpler distribution that is close to it,
+Variational inference replaces it with a simpler stand-in that is close to it,
 where closeness is measured by the [KL divergence](kl-divergence.qmd).
 
 ## The evidence lower bound {#sec-evidence-lower-bound}

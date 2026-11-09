@@ -2,10 +2,11 @@
 #### The log evidence is the ELBO plus a divergence
 
 Let $p(x, z)$ and $q$ be as in @def-evidence-lower-bound,
-and let $p(x) = \sum_z p(x, z)$ be the [marginal likelihood](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood), also called the evidence, of the data,
-which is positive because the data was observed.
-Then the logarithm of the evidence is the [ELBO](#def-evidence-lower-bound) of $q$
-plus the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from the posterior:
+and let $p(x) = \sum_z p(x, z)$ be the [evidence](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood) of the data,
+also called its [marginal likelihood](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood).
+The evidence is nonzero because the data was observed.
+Then the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the evidence is the [ELBO](#def-evidence-lower-bound) of $q$
+plus the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior):
 
 $$\log p(x) = \mathrm{ELBO}(q) + \kldivf{q}{p(\cdot \mid x)}.$$
 
@@ -14,8 +15,8 @@ $$\log p(x) = \mathrm{ELBO}(q) + \kldivf{q}{p(\cdot \mid x)}.$$
 ::: proof
 
 Let $z$ be a value with $q(z) > 0$.
-Then $p(z \mid x) > 0$ and $p(x, z) = p(z \mid x) \, p(x)$.
-Take logarithms:
+Then $p(z \mid x) \ne 0$ and $p(x, z) = p(z \mid x) \, p(x)$.
+Apply $\log$ to both sides and rearrange:
 
 $$\log p(x) = \log p(x, z) - \log p(z \mid x).$$
 
