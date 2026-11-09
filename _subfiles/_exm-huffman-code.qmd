@@ -8,7 +8,7 @@ The code below carries out the construction of @def-huffman-code,
 breaking ties in favor of the node listed first.
 It then computes the [expected length](source-coding.qmd#def-expected-length) $L$ of the code,
 the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $\entropyf{X}$ with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm),
-and the sum $\sum_x 2^{-\ell(x)}$ of @thm-kraft-inequality.
+and the sum $\sumof{x} 2^{-\ell(x)}$ of @thm-kraft-inequality.
 
 ```{r}
 #| label: huffman-code
@@ -47,7 +47,7 @@ c(expected_length = expected_length, entropy = entropy, kraft_sum = kraft_sum)
 The code has expected length $L = `r expected_length`$ [bits](entropy.qmd#def-bit)
 and the source has entropy $\entropyf{X} = `r round(entropy, 3)`$ bits,
 so $L - \entropyf{X} = `r round(expected_length - entropy, 3)`$ bits.
-The sum $\sum_x 2^{-\ell(x)} = `r kraft_sum`$ is the largest value @thm-kraft-inequality allows,
+The sum $\sumof{x} 2^{-\ell(x)} = `r kraft_sum`$ is the largest value @thm-kraft-inequality allows,
 and no codeword is the beginning of another, as @thm-huffman-prefix-code says.
 
 :::
