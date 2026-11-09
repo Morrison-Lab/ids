@@ -1,0 +1,33 @@
+:::{#exm-lempel-ziv-parsing}
+#### The incremental parsing of a short message
+
+<!-- no-figure: the example is a list of phrases -->
+
+The code below follows @def-lempel-ziv-parsing for the message $\text{aabababbabbbab}$.
+It prints the phrases in order,
+then the number of symbols left over at the end.
+
+```{r}
+#| label: lempel-ziv-parsing
+message_text <- "aabababbabbbab"
+symbols <- strsplit(message_text, "")[[1]]
+phrases <- character(0)
+current <- ""
+for (symbol in symbols) {
+  candidate <- paste0(current, symbol)
+  if (candidate %in% phrases) {
+    current <- candidate
+  } else {
+    phrases <- c(phrases, candidate)
+    current <- ""
+  }
+}
+phrases
+nchar(current)
+```
+
+The message has $`r nchar(message_text)`$ symbols,
+and the parsing cuts it into $`r length(phrases)`$ phrases
+with none left over.
+
+:::
