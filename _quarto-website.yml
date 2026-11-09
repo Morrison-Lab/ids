@@ -51,7 +51,9 @@ website:
           - source-coding.qmd
           - huffman-codes.qmd
           - stream-codes.qmd
+          - minimum-description-length.qmd
           - channel-capacity.qmd
+          - kl-divergence.qmd
           - error-correcting-codes.qmd
     right:
       - icon: github
@@ -73,7 +75,9 @@ website:
           - source-coding.qmd
           - huffman-codes.qmd
           - stream-codes.qmd
+          - minimum-description-length.qmd
           - channel-capacity.qmd
+          - kl-divergence.qmd
           - error-correcting-codes.qmd
 
 callouty-theorem:
