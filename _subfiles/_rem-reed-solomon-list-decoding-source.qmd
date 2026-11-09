@@ -1,0 +1,8 @@
+::: {#rem-reed-solomon-list-decoding-source}
+#### Efficient list decoding of Reed--Solomon codes
+
+The bound in @thm-reed-solomon-list-size limits how long the list can be,
+but it does not say how to find the list quickly.
+@guruswami1999improved gave a polynomial-time algorithm for list decoding Reed--Solomon codes.
+
+:::

@@ -1,0 +1,18 @@
+:::{#exm-reed-solomon-list-size}
+#### The list-size bound for the length-5 code
+
+<!-- no-figure: the example is one computed number -->
+
+For the code with $n = 5$ and $k = 2$ of @exm-list-decoding-reed-solomon, take $e = 2$.
+The bound of @thm-reed-solomon-list-size is $\binom{5}{2} / \binom{3}{2}$.
+
+```{r}
+#| label: reed-solomon-list-size
+choose(5, 2) / choose(3, 2)
+```
+
+So every received word has at most 3 codewords within distance $2$,
+since the number of codewords is a whole number.
+The received word of @exm-list-decoding-reed-solomon has 2.
+
+:::

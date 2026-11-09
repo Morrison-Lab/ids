@@ -1,0 +1,28 @@
+:::{#exm-list-decoding-reed-solomon}
+#### A received word with two codewords nearby
+
+<!-- no-figure: the example is a short table of codewords -->
+
+Take the [Reed--Solomon code](error-correcting-codes.qmd#def-reed-solomon-code) with $q = n = 5$ and $k = 2$ from [the small example](error-correcting-codes.qmd#exm-reed-solomon),
+whose codewords are the values of the 25 lines $m_0 + m_1 t$ at the points $0, 1, 2, 3, 4$.
+Its [minimum distance](error-correcting-codes.qmd#def-hamming-distance) is $4$,
+so every received word has at most one codeword within distance $1$.
+Within distance $2$ it can have more.
+The code below lists the lines within distance $2$ of the received word $r = (1, 3, 1, 0, 4)$.
+
+```{r}
+#| label: list-decoding-reed-solomon
+points <- 0:4
+lines <- expand.grid(m0 = 0:4, m1 = 0:4)
+codeword <- function(m0, m1) (m0 + m1 * points) %% 5
+received <- c(1, 3, 1, 0, 4)
+distance <- function(m0, m1) sum(codeword(m0, m1) != received)
+lines$distance <- mapply(distance, lines$m0, lines$m1)
+lines[lines$distance <= 2, ]
+```
+
+Two lines are within distance $2$ of $r$,
+so this received word has a list of size `r sum(lines$distance <= 2)` at radius $2$.
+A decoder that outputs one codeword must choose between them.
+
+:::

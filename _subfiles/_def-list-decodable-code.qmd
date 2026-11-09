@@ -1,0 +1,10 @@
+:::{#def-list-decodable-code}
+#### List-decodable code
+
+Let $C$ be a [block code](error-correcting-codes.qmd#def-block-code) of length $n$ over the alphabet $\codealph$,
+and let $e \ge 0$ and $L \ge 1$ be integers.
+The code $C$ is **$(e, L)$-list-decodable** if every received word $r \in \codealph^n$
+has at most $L$ codewords $c$ with $\hamdist{c}{r} \le e$.
+**List decoding** a received word $r$ means finding all of those codewords.
+
+:::

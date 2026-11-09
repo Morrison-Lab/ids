@@ -54,6 +54,7 @@ website:
           - channel-capacity.qmd
           - kl-divergence.qmd
           - error-correcting-codes.qmd
+          - reed-solomon-codes.qmd
     right:
       - icon: github
         href: https://github.com/Morrison-Lab/ids
@@ -77,6 +78,7 @@ website:
           - channel-capacity.qmd
           - kl-divergence.qmd
           - error-correcting-codes.qmd
+          - reed-solomon-codes.qmd
 
 callouty-theorem:
   thm:
