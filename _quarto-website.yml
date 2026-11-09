@@ -45,6 +45,7 @@ website:
       - text: "Measuring information"
         menu:
           - entropy.qmd
+          - min-entropy.qmd
       - text: "Coding"
         menu:
           - source-coding.qmd
@@ -69,6 +70,7 @@ website:
       - section: "Measuring information"
         contents:
           - entropy.qmd
+          - min-entropy.qmd
       - section: "Coding"
         contents:
           - source-coding.qmd
