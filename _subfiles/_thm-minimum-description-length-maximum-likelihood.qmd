@@ -1,0 +1,21 @@
+:::{#thm-minimum-description-length-maximum-likelihood}
+#### Minimum description length and maximum likelihood
+
+Let $\vx$ be data,
+and let $p_1, \ldots, p_m$ be models that give $\vx$ the [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p_j(\vx) > 0$,
+with the same [codeword length](source-coding.qmd#def-code) $\codelenf{p_j} = \codelen_0$ for every model.
+Then a model has the smallest [two-part description length](#def-two-part-description-length) of $\vx$
+exactly when it is a [maximum likelihood estimate](https://morrison-lab.github.io/sds/intro-MLEs.html#def-mle) of the model given $\vx$.
+
+:::
+
+::: {.proof}
+
+Every model has the first part $\codelen_0$,
+so the models differ only in the second part $\surprisalunderf{p_j}{\vx}$.
+The [surprisal](entropy.qmd#def-surprisal) $\log_2 \frac{1}{u}$ decreases
+as the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $u$ increases.
+So the second part is smallest for the model with the largest $p_j(\vx)$,
+which is a [maximum likelihood estimate](https://morrison-lab.github.io/sds/intro-MLEs.html#def-mle).
+
+:::
