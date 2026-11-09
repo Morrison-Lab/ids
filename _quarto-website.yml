@@ -54,6 +54,7 @@ website:
           - minimum-description-length.qmd
           - channel-capacity.qmd
           - kl-divergence.qmd
+          - variational-inference.qmd
           - error-correcting-codes.qmd
           - perfect-secrecy.qmd
           - reed-solomon-codes.qmd
@@ -81,6 +82,7 @@ website:
           - minimum-description-length.qmd
           - channel-capacity.qmd
           - kl-divergence.qmd
+          - variational-inference.qmd
           - error-correcting-codes.qmd
           - perfect-secrecy.qmd
           - reed-solomon-codes.qmd
