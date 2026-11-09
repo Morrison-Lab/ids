@@ -1,0 +1,34 @@
+:::{#exm-perfect-secrecy}
+#### The one-time pad with a two-bit message
+
+<!-- no-figure: the example is two numbers -->
+
+Let the message take the four values $0, 1, 2, 3$ (two [bits](entropy.qmd#def-bit)) with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.4, 0.3, 0.2, 0.1$.
+The key is [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on the same four values,
+and the ciphertext is the bitwise exclusive or of message and key.
+The R chunk below builds the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) of message and ciphertext,
+and computes the [mutual information](entropy.qmd#def-mutual-information) between them.
+
+```{r}
+#| label: perfect-secrecy
+prior <- c(0.4, 0.3, 0.2, 0.1)
+joint <- matrix(0, nrow = 4, ncol = 4)
+for (m in 0:3) {
+  for (k in 0:3) {
+    c_value <- bitwXor(m, k)
+    joint[m + 1, c_value + 1] <- joint[m + 1, c_value + 1] + prior[m + 1] / 4
+  }
+}
+cipher_prob <- colSums(joint)
+product <- outer(prior, cipher_prob)
+max_gap <- max(abs(joint - product))
+mutual_info <- sum(joint * log2(joint / product))
+c(max_gap = max_gap, mutual_info = mutual_info)
+```
+
+The ciphertext is uniform, with probability $`r cipher_prob[1]`$ on each value,
+and the largest gap between the joint distribution and the product of the two [marginal distributions](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) is $`r max_gap`$.
+So the mutual information is $`r round(mutual_info, 10)`$ bits:
+the pad has [perfect secrecy](#def-perfect-secrecy) for these message probabilities.
+
+:::

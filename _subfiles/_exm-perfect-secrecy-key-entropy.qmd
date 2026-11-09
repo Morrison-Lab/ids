@@ -1,0 +1,22 @@
+:::{#exm-perfect-secrecy-key-entropy}
+#### The key of a one-time pad is as long as the message
+
+<!-- no-figure: the example is two numbers -->
+
+The R chunk below computes the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the message and of the key of @exm-perfect-secrecy.
+
+```{r}
+#| label: perfect-secrecy-key-entropy
+prior <- c(0.4, 0.3, 0.2, 0.1)
+key_prob <- rep(1 / 4, 4)
+message_entropy <- -sum(prior * log2(prior))
+key_entropy <- -sum(key_prob * log2(key_prob))
+c(message_entropy = message_entropy, key_entropy = key_entropy)
+```
+
+The message has $`r round(message_entropy, 3)`$ [bits](entropy.qmd#def-bit) of entropy,
+and the key has $`r key_entropy`$ bits,
+so the key's entropy is at least the message's, as @thm-perfect-secrecy-key-entropy requires.
+A key with fewer than $`r round(message_entropy, 3)`$ bits of entropy could not give this message [perfect secrecy](#def-perfect-secrecy).
+
+:::
