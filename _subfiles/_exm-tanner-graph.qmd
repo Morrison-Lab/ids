@@ -6,9 +6,9 @@
 For the $H$ of @exm-ldpc-code,
 the variable nodes are the six pairs of items and the check nodes are the four items.
 Each pair is joined to the two items it contains,
-so every variable node has degree 2.
+so every variable node has two edges.
 Each item is joined to the three pairs that contain it,
-so every check node has degree 3.
+so every check node has three edges.
 The R chunk below lists the check nodes joined to each variable node.
 
 ```{r}
