@@ -3,7 +3,7 @@
 
 <!-- no-figure: the example is two small codes and their Kraft sums -->
 
-Take four values with the codeword lengths $(1, 2, 3, 3)$.
+Take four values with the [codeword length](source-coding.qmd#def-code)s $(1, 2, 3, 3)$.
 The code $0, 10, 110, 111$ is a [prefix code](#def-prefix-code).
 The code $0, 01, 011, 111$ has the same lengths,
 but the codeword $0$ begins $01$, so it is not a prefix code.
@@ -36,10 +36,10 @@ data.frame(
 ```
 
 Both codes have $\sum_x 2^{-\ell(x)} = `r kraft_sum(prefix_code)`$,
-so Kraft's inequality holds with equality for the lengths $(1, 2, 3, 3)$.
-The inequality is a condition on the lengths alone,
-so it holds for the second code even though the second code is not a prefix code;
-@thm-kraft-converse says that a prefix code with these lengths exists,
+the largest value @thm-kraft-inequality allows.
+The sum depends on the lengths alone,
+so it is the same for the second code, which is not a prefix code.
+@thm-kraft-converse gives a prefix code with these lengths,
 and the first code is one.
 
 :::

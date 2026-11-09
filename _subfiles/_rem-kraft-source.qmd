@@ -2,8 +2,8 @@
 #### Where Kraft's inequality comes from
 
 @cover2006elements [section 5.2] prove @thm-kraft-inequality and @thm-kraft-converse.
-They show in section 5.5 that every [uniquely decodable code](source-coding.qmd#def-uniquely-decodable) satisfies the same inequality,
-so restricting to prefix codes costs nothing in expected length.
-@mackay2003information [section 5.2] states the inequality for prefix codes as well.
+They show in section 5.5 that the lengths of every [uniquely decodable code](source-coding.qmd#def-uniquely-decodable) have the same sum at most $1$,
+so restricting to [prefix codes](#def-prefix-code) costs nothing in [expected length](source-coding.qmd#def-expected-length).
+@mackay2003information [section 5.2] states the result for prefix codes as well.
 
 :::

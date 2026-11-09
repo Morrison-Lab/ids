@@ -5,7 +5,7 @@ A [binary code](source-coding.qmd#def-code) for a [discrete random variable](htt
 is a **prefix code**, also called a **prefix-free code** or an **instantaneous code**,
 if no codeword is the beginning of another codeword.
 Writing $c(x)$ for the codeword of the value $x$,
-this means that for every two different values $x$ and $x'$,
+that is, for every two different values $x$ and $x'$,
 the string $c(x')$ does not start with the string $c(x)$.
 
 :::
