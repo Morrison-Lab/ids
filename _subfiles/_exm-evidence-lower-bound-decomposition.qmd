@@ -4,7 +4,7 @@
 <!-- no-figure: the example is a table of three rows -->
 
 Let $z$ take the values $1, 2, 3$ with [prior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-prior) [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.5, 0.3, 0.2$.
-After the data $x$ is observed, its probabilities given $z$ are $0.1, 0.4, 0.8$.
+A data value $x$ is observed, and its probabilities given $z$ are $0.1, 0.4, 0.8$.
 The R chunk below finds the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior),
 then computes the [ELBO](#def-evidence-lower-bound) and the divergence for three choices of $q$,
 with [natural logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log).
