@@ -26,7 +26,13 @@ for (i in seq_len(n)) {
   lowers[i] <- lower
   widths[i] <- width
 }
-data.frame(symbol = message_values, lower = lowers, upper = lowers + widths, width = widths)
+uppers <- lowers + widths
+data.frame(
+  symbol = message_values,
+  lower = lowers,
+  upper = uppers,
+  width = widths
+)
 midpoint <- lower + width / 2
 surprisal <- -log2(width)
 n_digits <- ceiling(surprisal) + 1
