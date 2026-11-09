@@ -30,6 +30,10 @@ The pages written so far are:
 - [Source coding](source-coding.qmd):
   the source coding [theorem](https://morrison-lab.github.io/mcs/proof-writing.html#def-theorem), and [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) as the cost of coding
   with a code built for the wrong source
+- [Huffman codes](huffman-codes.qmd):
+  [prefix codes](huffman-codes.qmd#def-prefix-code), the [Huffman code](huffman-codes.qmd#def-huffman-code) and its optimality, and its length within one [bit](entropy.qmd#def-bit) of the entropy
+- [Stream codes](stream-codes.qmd):
+  the [arithmetic code](stream-codes.qmd#def-arithmetic-code) and the [Lempel--Ziv code](stream-codes.qmd#def-lempel-ziv-code)
 - [Channel capacity](channel-capacity.qmd):
   [discrete memoryless channels](channel-capacity.qmd#def-channel), the [capacity](channel-capacity.qmd#def-channel-capacity) of the [binary symmetric channel](channel-capacity.qmd#def-binary-symmetric-channel)
   and the [binary erasure channel](channel-capacity.qmd#def-binary-erasure-channel), and the noisy-channel coding theorem
@@ -41,7 +45,6 @@ The pages written so far are:
 The planned topics still to come are:
 
 - [KL divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) and its link to fitting models to data
-- Huffman and arithmetic codes
 - proofs of the [noisy-channel coding theorem](channel-capacity.qmd#thm-channel-coding), and codes that approach [capacity](channel-capacity.qmd#def-channel-capacity)
 
 [Entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) and [KL divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) are defined in

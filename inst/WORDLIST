@@ -38,6 +38,8 @@ gzip
 lossy
 Fano's
 Elias
+Lempel
+Ziv
 memoryless
 Hadamard
 Hamming
