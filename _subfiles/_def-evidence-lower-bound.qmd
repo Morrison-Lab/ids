@@ -14,6 +14,5 @@ and the logarithm of $q(z)$:
 $$\mathrm{ELBO}(q) = \sum_z q(z) \paren{\logf{\pf{x, z}} - \logf{q(z)}}.$$
 
 The sum runs over the values $z$ with $q(z) > 0$.
-By @thm-evidence-lower-bound-decomposition, the ELBO never exceeds the logarithm of the [evidence](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood).
 
 :::
