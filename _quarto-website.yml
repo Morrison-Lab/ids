@@ -48,6 +48,7 @@ website:
       - text: "Coding"
         menu:
           - source-coding.qmd
+          - huffman-codes.qmd
           - channel-capacity.qmd
           - error-correcting-codes.qmd
     right:
@@ -67,6 +68,7 @@ website:
       - section: "Coding"
         contents:
           - source-coding.qmd
+          - huffman-codes.qmd
           - channel-capacity.qmd
           - error-correcting-codes.qmd
 

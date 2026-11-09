@@ -1,0 +1,45 @@
+---
+title: "Huffman codes"
+format:
+  html: default
+  revealjs:
+    output-file: huffman-codes-slides.html
+  pdf:
+    output-file: huffman-codes-handout.pdf
+  docx:
+    output-file: huffman-codes.docx
+---
+
+{{< include latex-macros/macros.qmd >}}
+
+[Source coding](source-coding.qmd) shows that the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a source is the least average length of a code for it,
+up to one [bit](entropy.qmd#def-bit).
+This page asks which codes a decoder can read one codeword at a time,
+and how long such a code must be.
+
+## Prefix codes {#sec-prefix-codes}
+
+<!-- No slidebreak here: the heading shares its slide with the def-prefix-code div. -->
+
+{{< include ids/_subfiles/_def-prefix-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-kraft-inequality.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-kraft-converse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-prefix-code.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-kraft-source.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
