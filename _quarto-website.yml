@@ -55,6 +55,7 @@ website:
           - channel-capacity.qmd
           - kl-divergence.qmd
           - error-correcting-codes.qmd
+          - reed-solomon-codes.qmd
           - ldpc-codes.qmd
     right:
       - icon: github
@@ -80,6 +81,7 @@ website:
           - channel-capacity.qmd
           - kl-divergence.qmd
           - error-correcting-codes.qmd
+          - reed-solomon-codes.qmd
           - ldpc-codes.qmd
 
 callouty-theorem:
