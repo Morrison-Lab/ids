@@ -2,13 +2,13 @@
 #### Two-part description length
 
 Let $x$ be data,
-and let $\modelfam$ be a finite set of models,
-each of which gives $x$ a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p(x)$.
-Let a [prefix code](huffman-codes.qmd#def-prefix-code) on $\modelfam$ give each model $p$ a codeword of $L(p)$ [bits](entropy.qmd#def-bit).
+and let $p_1, \ldots, p_m$ be models,
+each of which gives $x$ a [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $p_j(x)$.
+Let a [prefix code](huffman-codes.qmd#def-prefix-code) on the models give each model $p_j$ a codeword of $L(p_j)$ [bits](entropy.qmd#def-bit).
 
-The **two-part description length** of $x$ under a model $p$ is
+The **two-part description length** of $x$ under a model $p_j$ is
 
-$$L(p) + \log_2 \frac{1}{p(x)}.$$
+$$L(p_j) + \log_2 \frac{1}{p_j(x)}.$$
 
 The first part is the length of the codeword that names the model.
 The second part is the [surprisal](entropy.qmd#def-surprisal) of $x$ under the model,

@@ -6,7 +6,7 @@
 A coin is flipped $100$ times and lands heads $70$ times.
 The code below follows @def-two-part-description-length
 with nine models,
-the Bernoulli models with the probability of heads $0.1, 0.2, \ldots, 0.9$.
+the [Bernoulli](https://morrison-lab.github.io/pds/random-variables.html#def-bernoulli) models with the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of heads $0.1, 0.2, \ldots, 0.9$.
 It gives each model a codeword of the same length,
 and it prints the two parts and their sum for each model.
 
@@ -23,7 +23,7 @@ total_bits <- model_bits + data_bits
 data.frame(success_prob, model_bits, data_bits, total_bits)
 ```
 
-Each model takes $`r round(model_bits, 2)`$ bits to name,
+Each model takes $`r round(model_bits, 2)`$ [bits](entropy.qmd#def-bit) to name,
 because nine equally long codewords need $\log_2 9$ bits.
 The data part is smallest, at $`r round(min(data_bits), 1)`$ bits,
 for the model with probability of heads $`r success_prob[which.min(data_bits)]`$.

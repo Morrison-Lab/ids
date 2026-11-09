@@ -1,7 +1,7 @@
 :::{#def-minimum-description-length}
 #### Minimum description length principle
 
-Given data $x$ and a finite set of models,
+Given data $x$ and models $p_1, \ldots, p_m$,
 the **minimum description length principle** chooses the model with the smallest [two-part description length](#def-two-part-description-length) of $x$.
 
 :::
