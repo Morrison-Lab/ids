@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-08 15:30:43 (PST)
+Last modified: 2026-11-08 16:02:04 (PST)
 
 An error-correcting code adds redundancy to a message so that the receiver can still recover it after some symbols are changed. This page covers the basic definitions, the Hamming and [Reed–Solomon codes](#def-reed-solomon-code), and then how codes that can be decoded by reading only a few symbols lead to central results of computational complexity.
 
@@ -92,7 +92,7 @@ An error-correcting code adds redundancy to a message so that the receiver can s
 
 > **NOTE:**
 >
-> **Theorem 2 (Singleton bound)** Every [block code](#def-block-code) over an alphabet of $q$ symbols, with message length $k$, block length $n$ and [minimum distance](#def-hamming-distance) $d$, satisfies $d \le n - k + 1$.
+> **Theorem 2 (Singleton bound)** Every [block code](#def-block-code) over an alphabet of $q$ symbols, with message length $k$, [block length](#def-block-code) $n$ and [minimum distance](#def-hamming-distance) $d$, satisfies $d \le n - k + 1$.
 
 > **NOTE:**
 >
