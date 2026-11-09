@@ -4,18 +4,18 @@
 Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
 whose values come in a fixed order,
 with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $\p$,
-and let $F(x)$ be the sum of $\pf{x'}$ over the values $x'$ before $x$.
+and let $F(x) = \sumof{x' < x} \pf{x'}$ for the values $x'$ before $x$.
 For a message $x = (x_1, \ldots, x_n)$ of $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies of $X$,
 the **arithmetic code** is built as follows:
 
-1. Start with the interval $[0, 1)$.
+1. Start with the slice $[0, 1)$.
 2. For $i = 1, \ldots, n$:
-   if the current interval is $[a, b)$,
-   replace it with the slice of $[a, b)$ that $x_i$ owns,
+   if the current slice is $[a, b)$,
+   replace it with the part of $[a, b)$ that $x_i$ owns,
    which is $[a + (b - a) F(x_i),\; a + (b - a)(F(x_i) + \pf{x_i}))$.
-3. Let $[a, a + w)$ be the final interval,
+3. Let $[a, a + w)$ be the final slice,
    and let $m = a + w/2$ be its midpoint.
-   The codeword $c(x)$ is the first $\codelenf{x}$ binary digits of $m$,
+   The codeword $c(x)$ is the first $\codelenf{x}$ [bits](entropy.qmd#def-bit) of $m$ after the point,
    where $\codelenf{x} = \ceil{-\log_2 w} + 1$.
 
 :::
