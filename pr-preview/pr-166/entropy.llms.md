@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-09 03:20:01 (PST)
+Last modified: 2026-11-09 10:43:28 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
@@ -947,9 +947,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > Then the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) satisfies
 >
-> $$D_2(p \,\|\, q) \ge 0,$$
+> $${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}} \ge 0,$$
 >
-> with $D_2(p \,\|\, q) = 0$ exactly when $q = p$.
+> with ${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}} = 0$ exactly when $q = p$.
 
 > **NOTE:**
 >
@@ -963,9 +963,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > \le \sum_x q(x) - 1
 > \le 0.$$
 >
-> The left side is $-\ln 2 \cdot D_2(p \,\|\, q)$, so $D_2(p \,\|\, q) \ge 0$.
+> The left side is $-\ln 2 \cdot {{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}$, so ${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}} \ge 0$.
 >
-> If $D_2(p \,\|\, q) = 0$, both relations hold with equality. The first forces $q(x) = p(x)$ at every $x$ with $p(x) > 0$. The second then gives $\sum_x q(x) = 1$, so $q$ has no mass where $p$ has none, and $q = p$. Conversely, $q = p$ gives $\log_2 (p(x)/q(x)) = 0$ for every $x$.
+> If ${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}} = 0$, both relations hold with equality. The first forces $q(x) = p(x)$ at every $x$ with $p(x) > 0$. The second then gives $\sum_x q(x) = 1$, so $q$ has no mass where $p$ has none, and $q = p$. Conversely, $q = p$ gives $\log_2 (p(x)/q(x)) = 0$ for every $x$.
 
 > **NOTE:**
 >
