@@ -20,6 +20,7 @@ and the same labels lead to the same child at every step,
 so the path to $x$ would be the first part of the path to $x'$.
 Then the leaf for $x$ would lie on the way to the leaf for $x'$,
 and the leaf for $x$ would have a child.
-No leaf has a child, so no codeword is the beginning of another.
+No leaf has a child,
+so no codeword is the beginning of another.
 
 :::
