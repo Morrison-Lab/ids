@@ -669,6 +669,15 @@
    "external": false
   },
   {
+   "id": "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "site": "ids",
+   "page": "kl-divergence",
+   "div": "thm-maximum-likelihood-kl-divergence",
+   "kind": "thm",
+   "title": "Maximum likelihood minimizes the divergence from the data",
+   "external": false
+  },
+  {
    "id": "ids/source-coding#def-code",
    "site": "ids",
    "page": "source-coding",
@@ -1303,6 +1312,36 @@
    "title": "uniform",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/random-variables.html#def-uniform"
+  },
+  {
+   "id": "sds/intro-MLEs#def-lik",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "def-lik",
+   "kind": "def",
+   "title": "lik",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/intro-MLEs.html#def-lik"
+  },
+  {
+   "id": "sds/intro-MLEs#def-loglik",
+   "site": "sds",
+   "page": "intro-MLEs",
+   "div": "def-loglik",
+   "kind": "def",
+   "title": "loglik",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/intro-MLEs.html#def-loglik"
+  },
+  {
+   "id": "sds/nonparametric-models#def-empirical-distribution",
+   "site": "sds",
+   "page": "nonparametric-models",
+   "div": "def-empirical-distribution",
+   "kind": "def",
+   "title": "empirical distribution",
+   "external": true,
+   "url": "https://morrison-lab.github.io/sds/nonparametric-models.html#def-empirical-distribution"
   }
  ],
  "edges": [
@@ -2541,6 +2580,42 @@
   [
    "ids/huffman-codes#thm-kraft-inequality",
    "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "ids/source-coding#thm-cross-entropy-decomposition"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/expectation#def-cross-entropy"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "sds/intro-MLEs#def-lik"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "sds/intro-MLEs#def-loglik"
+  ],
+  [
+   "ids/kl-divergence#thm-maximum-likelihood-kl-divergence",
+   "sds/nonparametric-models#def-empirical-distribution"
   ],
   [
    "ids/source-coding#def-code",
