@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 01:39:35 (PST)
+Last modified: 2026-11-12 15:52:42 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
@@ -1473,6 +1473,63 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > ```
 >
 > Here ${\mathbb{I}\mathopen{}\left(X_1 ; X_3\right)\mathclose{}} = 0.096$ bits is below ${\mathbb{I}\mathopen{}\left(X_1 ; X_2\right)\mathclose{}} = 0.278$ bits ([Theorem 22](#thm-data-processing-inequality)).
+
+## 5 Stationary sequences
+
+> **NOTE:**
+>
+> **Definition 17 (Stationary sequence)** A **stationary sequence** is a [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) $X_1, X_2, \ldots$ of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) whose [joint probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) do not change when the sequence is shifted in time: for every length $k \ge 1$, every shift $s \ge 0$ and all values $x_1, \ldots, x_k$,
+>
+> $$\mathbb{P}(X_{1+s} = x_1, \ldots, X_{k+s} = x_k) = \mathbb{P}(X_1 = x_1, \ldots, X_k = x_k).$$
+
+> **NOTE:**
+>
+> **Example 25 (A sticky coin)**  
+>
+> Let $X_1$ be a fair coin toss, coded $0$ or $1$. For each $t \ge 2$, let $X_t$ equal $X_{t-1}$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.9$ and $1 - X_{t-1}$ with probability $0.1$, independently of $X_1, \ldots, X_{t-2}$ given $X_{t-1}$. If $X_{t-1}$ is fair, then so is $X_t$, because
+>
+> $$\mathbb{P}(X_t = 1) = 0.9 \cdot \tfrac{1}{2} + 0.1 \cdot \tfrac{1}{2},$$
+>
+> which is $1/2$. So, by [induction](https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction) on $t$, every $X_t$ is $0$ or $1$ with probability $1/2$. The probability that $k$ consecutive tosses take given values is then $1/2$ times $0.9$ for each repeat and $0.1$ for each switch. That product does not depend on which toss the run starts at, so the sticky coin is a [stationary sequence](#def-stationary-sequence).
+
+> **NOTE:**
+>
+> **Example 26 (An alternating sequence that starts at zero)**  
+>
+> Let $X_1 = 0$, and let $X_t = 1 - X_{t-1}$ for each $t \ge 2$, so the [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) is $0, 1, 0, 1, \ldots$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$. The sequence is not a [stationary sequence](#def-stationary-sequence): with length $k = 1$ and shift $s = 1$,
+>
+> $$\mathbb{P}(X_2 = 0) = 0,$$
+>
+> but
+>
+> $$\mathbb{P}(X_1 = 0) = 1.$$
+
+> **NOTE:**
+>
+> **Definition 18 (**$N$-gram model) An $N$-gram model, for an [integer](https://morrison-lab.github.io/mcs/number-systems.html#def-integers) $N \ge 1$, is a [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) $X_1, X_2, \ldots$ of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) in which each variable depends on the earlier ones only through the $N - 1$ variables just before it: for every $t > N$ and all values $x_1, \ldots, x_t$ with $\mathbb{P}(X_1 = x_1, \ldots, X_{t-1} = x_{t-1}) > 0$,
+>
+> $$\mathbb{P}(X_t = x_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1})
+> = \mathbb{P}(X_t = x_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}).$$
+
+> **NOTE:**
+>
+> **Example 27 (The sticky coin is a 2-gram model)**  
+>
+> In the [sticky coin](#exm-stationary-sequence), given all the earlier tosses, $X_t$ repeats $X_{t-1}$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.9$. That [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) involves only the one toss just before $X_t$, so the sticky coin is a 2-gram model ([Definition 18](#def-n-gram-model)).
+
+> **NOTE:**
+>
+> **Example 28 (A sequence that repeats every second value)**  
+>
+> Let $X_1$ and $X_2$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coin tosses, coded $0$ or $1$, and let $X_t = X_{t-2}$ for each $t \ge 3$. The [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) is not a 2-gram model ([Definition 18](#def-n-gram-model)). Given both earlier tosses, $X_3$ is fixed:
+>
+> $$\mathbb{P}(X_3 = 0 \mid X_1 = 0, X_2 = 0) = 1.$$
+>
+> Given $X_2$ alone, $X_3 = X_1$ is still a fair coin, because $X_1$ is independent of $X_2$:
+>
+> $$\mathbb{P}(X_3 = 0 \mid X_2 = 0) = \frac{1}{2}.$$
+>
+> The sequence is a 3-gram model, because $X_t$ is fixed by $X_{t-2}$, one of the two variables just before it.
 
 ## References
 

@@ -237,6 +237,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#def-n-gram-model",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-n-gram-model",
+   "kind": "def",
+   "title": "$N$-gram model",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-nat",
    "site": "ids",
    "page": "entropy",
@@ -270,6 +279,15 @@
    "div": "def-renyi-entropy",
    "kind": "def",
    "title": "R\u00e9nyi entropy of order 2 (collision entropy)",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-stationary-sequence",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-stationary-sequence",
+   "kind": "def",
+   "title": "Stationary sequence",
    "external": false
   },
   {
@@ -1843,6 +1861,18 @@
    "pds/random-variables#def-discrete-rv"
   ],
   [
+   "ids/entropy#def-n-gram-model",
+   "mcs/functions#def-sequence"
+  ],
+  [
+   "ids/entropy#def-n-gram-model",
+   "mcs/number-systems#def-integers"
+  ],
+  [
+   "ids/entropy#def-n-gram-model",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#def-nat",
    "ids/entropy#def-surprisal"
   ],
@@ -1941,6 +1971,18 @@
   [
    "ids/entropy#def-renyi-entropy",
    "pds/random-variables#def-random-variable"
+  ],
+  [
+   "ids/entropy#def-stationary-sequence",
+   "mcs/functions#def-sequence"
+  ],
+  [
+   "ids/entropy#def-stationary-sequence",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-stationary-sequence",
+   "pds/random-variables#def-joint-pmf"
   ],
   [
    "ids/entropy#def-surprisal",
