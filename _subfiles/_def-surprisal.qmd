@@ -4,7 +4,7 @@
 The **surprisal** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
 with $\P(X=x) > 0$ is
 
-$$s(x) \eqdef -\log \P(X=x).$$
+$$\surprisalf{x} \eqdef -\log \P(X=x).$$
 
 With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), surprisal is also called the
 **Shannon information content** of the value $x$

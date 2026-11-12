@@ -7,7 +7,7 @@ In [nats](#def-nat), the same [outcome](https://morrison-lab.github.io/pds/proba
 
 $$
 \begin{aligned}
-s(\text{heads})
+\surprisalf{\text{heads}}
 &= -\ln \tfrac{1}{2} \\
 &= \ln 2 \\
 &\approx 0.693 \text{ nats}.

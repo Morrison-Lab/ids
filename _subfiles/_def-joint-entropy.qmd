@@ -1,10 +1,9 @@
 :::{#def-joint-entropy}
 #### Joint entropy
 
-Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf)
-$p(x, y) \eqdef \P(X=x, Y=y)$.
-Their **joint entropy** is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the pair $(X, Y)$:
+For $X$ and $Y$ as in @def-joint-surprisal,
+their **joint entropy** is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of their [joint surprisal](#def-joint-surprisal):
 
-$$H(X, Y) \eqdef \E{-\log p(X, Y)}.$$
+$$\entropyf{X, Y} \eqdef \E{\surprisalf{X, Y}}.$$
 
 :::

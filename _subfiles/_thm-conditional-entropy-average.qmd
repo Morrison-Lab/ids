@@ -1,9 +1,9 @@
 :::{#thm-conditional-entropy-average}
 #### Conditional entropy as an average of entropies given a value
 
-For $X$ and $Y$ as in @def-joint-entropy,
+For $X$ and $Y$ as in @def-joint-surprisal,
 
-$$H(Y \mid X) = \sum_{x} p(x) \, H(Y \mid X=x),$$
+$$\entropyf{Y \mid X} = \sum_{x} p(x) \, \entropyf{Y \mid X=x},$$
 
 where $p(x) \eqdef \P(X=x)$,
 and the sum runs over the values $x$ with $p(x) > 0$.
@@ -17,15 +17,16 @@ conditions on $X$:
 
 $$
 \begin{aligned}
-H(Y \mid X)
-&= \E{-\log p(Y \mid X)} \\
-&= \E{\condE{-\log p(Y \mid X)}{X}} \\
-&= \sum_{x} p(x) \, \condE{-\log p(Y \mid x)}{X=x} \\
-&= \sum_{x} p(x) \, H(Y \mid X=x).
+\entropyf{Y \mid X}
+&= \E{\surprisalf{Y \mid X}} \\
+&= \E{\condE{\surprisalf{Y \mid X}}{X}} \\
+&= \sum_{x} p(x) \, \condE{\surprisalf{Y \mid x}}{X=x} \\
+&= \sum_{x} p(x) \, \entropyf{Y \mid X=x}.
 \end{aligned}
 $$
 
-The third line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the values $x$ of $X$,
+The first line is @def-conditional-entropy,
+the third line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the values $x$ of $X$,
 and the last line is @def-entropy-given-value.
 
 :::

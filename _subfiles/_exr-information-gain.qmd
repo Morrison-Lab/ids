@@ -17,10 +17,10 @@ let $Y$ be its color, and let $X$ be the branch it falls into
 The [information gain](#def-information-gain) of each split is then $\mutinfof{X}{Y}$.
 Use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) throughout.
 
-1. Compute $H(Y)$.
+1. Compute $\entropyf{Y}$.
 
-2. For each split, compute $H(Y \mid X = x)$ for both branches,
-   and then $H(Y \mid X)$.
+2. For each split, compute $\entropyf{Y \mid X = x}$ for both branches,
+   and then $\entropyf{Y \mid X}$.
 
 3. Compute the information gain $\mutinfof{X}{Y}$ for each split.
    Which split has the larger gain?

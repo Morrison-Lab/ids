@@ -1,7 +1,7 @@
 ::: {#rem-capacity-meaning}
 #### What capacity measures
 
-$\mutinfof{X}{Y} = H(X) - H(X \mid Y)$
+$\mutinfof{X}{Y} = \entropyf{X} - \entropyf{X \mid Y}$
 ([mutual information as a reduction in entropy](entropy.qmd#thm-mutual-information-reduction))
 is the uncertainty about the [input](#def-channel),
 minus the uncertainty about the input left after seeing the output.

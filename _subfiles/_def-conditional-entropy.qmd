@@ -1,10 +1,10 @@
 :::{#def-conditional-entropy}
 #### Conditional entropy
 
-For $X$ and $Y$ as in @def-joint-entropy and $p(y \mid x)$ as in @def-entropy-given-value,
+For $X$ and $Y$ as in @def-joint-surprisal,
 the **conditional entropy** of $Y$ given $X$
-is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $-\log p(Y \mid X)$:
+is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [conditional surprisal](#def-conditional-surprisal) of $Y$ given $X$:
 
-$$H(Y \mid X) \eqdef \E{-\log p(Y \mid X)}.$$
+$$\entropyf{Y \mid X} \eqdef \E{\surprisalf{Y \mid X}}.$$
 
 :::

@@ -3,28 +3,30 @@
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
 
-$$H(X, Y) = H(X) + H(Y \mid X).$$
+$$\entropyf{X, Y} = \entropyf{X} + \entropyf{Y \mid X}.$$
 
 :::
 
 ::: {.proof}
 
-Use the notation of @def-joint-entropy and @def-entropy-given-value.
-With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, $p(X, Y) = p(X) \, p(Y \mid X)$ and $p(X, Y) > 0$,
-so
+With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, the pair $(X, Y)$ takes a value $(x, y)$ with $\P(X=x, Y=y) > 0$,
+so @thm-surprisal-chain-rule applies at $(x, y) = (X, Y)$:
 
-$$-\log p(X, Y) = -\log p(X) - \log p(Y \mid X).$$
+$$\surprisalf{X, Y} = \surprisalf{X} + \surprisalf{Y \mid X}.$$
 
-Both terms on the right are nonnegative,
+Both terms on the right are nonnegative (@cor-surprisal-discrete-nonnegative),
 so the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the sum is the sum of the expectation of each term:
 
 $$
 \begin{aligned}
-H(X, Y)
-&= \E{-\log p(X, Y)} \\
-&= \E{-\log p(X)} + \E{-\log p(Y \mid X)} \\
-&= H(X) + H(Y \mid X).
+\entropyf{X, Y}
+&= \E{\surprisalf{X, Y}} \\
+&= \E{\surprisalf{X}} + \E{\surprisalf{Y \mid X}} \\
+&= \entropyf{X} + \entropyf{Y \mid X}.
 \end{aligned}
 $$
+
+The first line is @def-joint-entropy,
+and the last line is @rem-entropy-expected-surprisal and @def-conditional-entropy.
 
 :::
