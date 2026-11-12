@@ -41,24 +41,4 @@ $$
 = \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
 $$
 
-This exercise and @exr-forward-n-gram-conditional-entropy give each character away from the ends of the text
-the same [conditional entropy](#def-conditional-entropy) forward and backward,
-and @exr-reversed-text-total-entropy gives the whole text the same sum of conditional entropies forward and backward.
-So the reversed text carries no more information per character than the text read forward.
-The two games tie only on average:
-in English, "q" is almost always followed by "u",
-but "u" is rarely preceded by "q",
-so a single guess can be easy one way and hard the other.
-
-People find the backward game harder
-because their guesses are worse,
-not because the text holds more information.
-A reader who guesses with a [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $q$
-in place of the true [conditional probability mass function](https://morrison-lab.github.io/pds/expectation.html#def-cond-pmf) $p$
-spends $\crossentropyf{p}{q}$ [bits](#def-bit) per character on average,
-which exceeds $\entropyf{p}$ by $\kldivf{p}{q}$,
-by the [decomposition of cross-entropy](source-coding.qmd#thm-cross-entropy-decomposition).
-Years of reading forward make $q$ close to $p$ for forward guessing,
-and no such practice makes it close backward.
-
 :::

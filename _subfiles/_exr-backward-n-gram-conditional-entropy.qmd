@@ -12,7 +12,4 @@ $$
 = \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
 $$
 
-Together with @exr-reversed-text-total-entropy and @exr-forward-n-gram-conditional-entropy,
-what does this say about the two guessing games in @rem-reversed-text-guessing?
-
 :::
