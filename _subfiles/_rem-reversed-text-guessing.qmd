@@ -1,0 +1,13 @@
+:::{#rem-reversed-text-guessing}
+#### Guessing a text backward
+
+A reader can guess a text one character at a time from its start,
+guessing each character from the characters already read.
+The reader can also guess it from its end,
+guessing each character from the characters that follow it.
+Most people find the backward game harder.
+That raises a question:
+does a reversed text carry more information per character than the text read forward
+[@mackay2003information, exercise 8.11]?
+
+:::

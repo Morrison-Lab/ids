@@ -1,0 +1,17 @@
+::: {#exr-reversed-text-total-entropy}
+#### The whole text costs the same in both orders
+
+Let $X_1, \ldots, X_n$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv).
+Use the [chain rule for entropy](#thm-entropy-chain-rule-n),
+with the variables listed in each of two orders,
+to show that
+
+$$
+\sum_{t=1}^{n} \entropyf{X_t \mid X_1, \ldots, X_{t-1}}
+= \sum_{t=1}^{n} \entropyf{X_t \mid X_{t+1}, \ldots, X_n},
+$$
+
+where the term for $t = 1$ on the left and the term for $t = n$ on the right
+are unconditional [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
+
+:::

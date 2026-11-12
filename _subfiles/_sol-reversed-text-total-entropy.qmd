@@ -1,0 +1,34 @@
+::: {#sol-reversed-text-total-entropy}
+
+Listing the same variables in another order does not change their [joint entropy](#def-joint-entropy),
+because the reordered vector takes each reordered value with the same [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
+as in the proof of @cor-entropy-chain-rule-reversed.
+For the same reason,
+reordering the variables in a condition does not change a [conditional entropy](#def-conditional-entropy).
+The [chain rule](#thm-entropy-chain-rule-n), with the variables in their usual order, gives
+
+$$\entropyf{X_1, \ldots, X_n} = \sum_{t=1}^{n} \entropyf{X_t \mid X_1, \ldots, X_{t-1}}.$$
+
+With the variables listed as $X_n, X_{n-1}, \ldots, X_1$,
+the $i$th variable is $X_{n+1-i}$,
+and the variables before it are $X_n, \ldots, X_{n+2-i}$.
+So
+
+$$
+\begin{aligned}
+\entropyf{X_1, \ldots, X_n}
+&= \entropyf{X_n, \ldots, X_1} \\
+&= \sum_{i=1}^{n} \entropyf{X_{n+1-i} \mid X_n, \ldots, X_{n+2-i}} \\
+&= \sum_{t=1}^{n} \entropyf{X_t \mid X_n, \ldots, X_{t+1}} \\
+&= \sum_{t=1}^{n} \entropyf{X_t \mid X_{t+1}, \ldots, X_n}.
+\end{aligned}
+$$
+
+The first line reorders the joint entropy,
+the second is the chain rule,
+the third substitutes $t = n + 1 - i$,
+and the fourth reorders each condition.
+Both sums equal $\entropyf{X_1, \ldots, X_n}$,
+so they equal each other.
+
+:::
