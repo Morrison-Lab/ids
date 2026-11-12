@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 00:51:44 (PST)
+Last modified: 2026-11-12 11:12:54 (PST)
 
 ## Welcome
 
@@ -34,6 +34,10 @@ Stanford’s information theory courses cover many of the planned topics above, 
 - [EE 274, *Data Compression, Theory and Applications*](https://stanforddatacompressionclass.github.io/Fall22/) covers entropy coding and how tools such as gzip and bzip2 work, then lossy coding of pictures and video.
 
 The courses’ own notes and slides carry no license, so these notes link to them and do not reuse their text.
+
+## Further reading
+
+- Dave’s [review of MacKay’s *Information Theory, Inference, and Learning Algorithms*](https://dfd.github.io/mackay-itila/) (2024) describes how the book connects compression, noisy-channel coding and neural networks.
 
 ## Using these notes in another site
 

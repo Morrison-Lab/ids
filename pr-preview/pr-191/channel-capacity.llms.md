@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 00:51:44 (PST)
+Last modified: 2026-11-12 11:12:54 (PST)
 
 A channel carries symbols from a sender to a receiver, and some of them are corrupted along the way. This page asks how much information a channel can carry, using the [mutual information](entropy.llms.md#sec-mutual-information) between what goes in and what comes out.
 
@@ -56,7 +56,7 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 
 > **NOTE:**
 >
-> *Remark 2* (What capacity measures). ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = H(X) - H(X \mid Y)$ ([mutual information as a reduction in entropy](entropy.llms.md#thm-mutual-information-reduction)) is the uncertainty about the [input](#def-channel), minus the uncertainty about the input left after seeing the output. So ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is how much one output tells the receiver about the input, on average, and the [capacity](channel-capacity.llms.md#def-channel-capacity) is that amount when the sender chooses how often to send each input as well as possible.
+> *Remark 2* (What capacity measures). ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ ([mutual information as a reduction in entropy](entropy.llms.md#thm-mutual-information-reduction)) is the uncertainty about the [input](#def-channel), minus the uncertainty about the input left after seeing the output. So ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is how much one output tells the receiver about the input, on average, and the [capacity](channel-capacity.llms.md#def-channel-capacity) is that amount when the sender chooses how often to send each input as well as possible.
 
 > **NOTE:**
 >
@@ -82,15 +82,15 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >
 > *Proof*. Fix any [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) for $X$. By [mutual information as a reduction in entropy](entropy.llms.md#thm-mutual-information-reduction),
 >
-> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = H(Y) - H(Y \mid X).$$
+> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.$$
 >
-> Given $X = x$, the output equals $x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \epsilon$ and differs from it with probability $\epsilon$, so the [entropy of](entropy.llms.md#def-entropy-given-value) $Y$ given $X = x$ is $h(\epsilon)$ for both values of $x$. Averaging over $x$, the [conditional entropy](entropy.llms.md#def-conditional-entropy) is $H(Y \mid X) = h(\epsilon)$, whatever $X$ is.
+> Given $X = x$, the output equals $x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \epsilon$ and differs from it with probability $\epsilon$, so the [entropy of](entropy.llms.md#def-entropy-given-value) $Y$ given $X = x$ is $h(\epsilon)$ for both values of $x$. Averaging over $x$, the [conditional entropy](entropy.llms.md#def-conditional-entropy) is ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = h(\epsilon)$, whatever $X$ is.
 >
-> $Y$ takes two values, so $H(Y) \le \log_2 2 = 1$ [bit](entropy.llms.md#def-bit) ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Therefore
+> $Y$ takes two values, so ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} \le \log_2 2 = 1$ [bit](entropy.llms.md#def-bit) ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Therefore
 >
 > $$\begin{aligned}
 > {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
-> &= H(Y) - h(\epsilon) \\
+> &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - h(\epsilon) \\
 > &\le 1 - h(\epsilon).
 > \end{aligned}$$
 >
@@ -103,7 +103,7 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 > &= \tfrac{1}{2},
 > \end{aligned}$$
 >
-> so $H(Y) = 1$ bit and ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 1 - h(\epsilon)$. This value is attained, so it is the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) $C$.
+> so ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bit and ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 1 - h(\epsilon)$. This value is attained, so it is the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) $C$.
 
 > **NOTE:**
 >
@@ -126,11 +126,11 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >
 > **Exercise 1 (Capacity of the binary erasure channel)** Send $X$ through the [binary erasure channel](#def-binary-erasure-channel) with erasure [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\alpha$, where $0 < \alpha < 1$, and write $\pi \stackrel{\text{def}}{=}\mathbb{P}(X = 1)$. Let $E$ be $1$ if the output $Y$ is the erasure symbol $\mathrm{e}$, and $0$ otherwise. Use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) and the [binary entropy function](#def-binary-entropy) $h$.
 >
-> 1.  Show that $H(Y \mid X) = h(\alpha)$.
+> 1.  Show that ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = h(\alpha)$.
 >
-> 2.  $E$ is a function of $Y$. Use the [chain rule for entropy](entropy.llms.md#thm-entropy-chain-rule), expanded in both orders, to show that $H(Y) = H(E) + H(Y \mid E)$.
+> 2.  $E$ is a function of $Y$. Use the [chain rule for entropy](entropy.llms.md#thm-entropy-chain-rule), expanded in both orders, to show that ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}$.
 >
-> 3.  Show that $H(Y) = h(\alpha) + (1 - \alpha) \, h(\pi)$.
+> 3.  Show that ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = h(\alpha) + (1 - \alpha) \, h(\pi)$.
 >
 > 4.  Conclude that the [capacity](channel-capacity.llms.md#def-channel-capacity) is $C = 1 - \alpha$ [bits](entropy.llms.md#def-bit) per channel use.
 
@@ -138,19 +138,19 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >
 > *Solution 1*.
 >
-> 1.  Given $X = x$, the output is $x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \alpha$ and $\mathrm{e}$ with probability $\alpha$, so $H(Y \mid X = x) = h(\alpha)$ for both values of $x$, and averaging over $x$ gives $H(Y \mid X) = h(\alpha)$.
+> 1.  Given $X = x$, the output is $x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \alpha$ and $\mathrm{e}$ with probability $\alpha$, so ${\mathbb{H}\mathopen{}\left(Y \mid X = x\right)\mathclose{}} = h(\alpha)$ for both values of $x$, and averaging over $x$ gives ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = h(\alpha)$.
 >
 > 2.  The chain rule gives
 >
->     $$H(Y) + H(E \mid Y) = H(Y, E) = H(E) + H(Y \mid E).$$
+>     $${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(E \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y, E\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}.$$
 >
->     Each value $y$ of $Y$ fixes $E$, so $H(E \mid Y = y) = 0$ for every $y$, and $H(E \mid Y) = 0$. Hence $H(Y) = H(E) + H(Y \mid E)$.
+>     Each value $y$ of $Y$ fixes $E$, so ${\mathbb{H}\mathopen{}\left(E \mid Y = y\right)\mathclose{}} = 0$ for every $y$, and ${\mathbb{H}\mathopen{}\left(E \mid Y\right)\mathclose{}} = 0$. Hence ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}$.
 >
-> 3.  The channel erases with probability $\alpha$ whatever the [input](#def-channel), so $E$ is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $X$ and $H(E) = h(\alpha)$. Given $E = 1$, $Y = \mathrm{e}$ for certain, so $H(Y \mid E = 1) = 0$. Given $E = 0$, $Y = X$, and since $E$ is independent of $X$, $\mathbb{P}(Y = 1 \mid E = 0) = \mathbb{P}(X = 1) = \pi$, so $H(Y \mid E = 0) = h(\pi)$. Therefore
+> 3.  The channel erases with probability $\alpha$ whatever the [input](#def-channel), so $E$ is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $X$ and ${\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} = h(\alpha)$. Given $E = 1$, $Y = \mathrm{e}$ for certain, so ${\mathbb{H}\mathopen{}\left(Y \mid E = 1\right)\mathclose{}} = 0$. Given $E = 0$, $Y = X$, and since $E$ is independent of $X$, $\mathbb{P}(Y = 1 \mid E = 0) = \mathbb{P}(X = 1) = \pi$, so ${\mathbb{H}\mathopen{}\left(Y \mid E = 0\right)\mathclose{}} = h(\pi)$. Therefore
 >
 >     $$\begin{aligned}
->     H(Y)
->     &= H(E) + \mathbb{P}(E = 1) \, H(Y \mid E = 1) + \mathbb{P}(E = 0) \, H(Y \mid E = 0) \\
+>     {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}
+>     &= {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + \mathbb{P}(E = 1) \, {\mathbb{H}\mathopen{}\left(Y \mid E = 1\right)\mathclose{}} + \mathbb{P}(E = 0) \, {\mathbb{H}\mathopen{}\left(Y \mid E = 0\right)\mathclose{}} \\
 >     &= h(\alpha) + \alpha \cdot 0 + (1 - \alpha) \, h(\pi) \\
 >     &= h(\alpha) + (1 - \alpha) \, h(\pi).
 >     \end{aligned}$$
@@ -159,7 +159,7 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >
 >     $$\begin{aligned}
 >     {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
->     &= H(Y) - H(Y \mid X) \\
+>     &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \\
 >     &= h(\alpha) + (1 - \alpha) \, h(\pi) - h(\alpha) \\
 >     &= (1 - \alpha) \, h(\pi).
 >     \end{aligned}$$

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 00:51:44 (PST)
+Last modified: 2026-11-12 11:12:54 (PST)
 
 A [Huffman code](huffman-codes.llms.md#def-huffman-code) gives each value a whole number of [bits](entropy.llms.md#def-bit), so its [expected length](source-coding.llms.md#def-expected-length) can exceed the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) by nearly one bit per value. This page shows how to code a whole message at once, so that the waste is shared among all of its values.
 

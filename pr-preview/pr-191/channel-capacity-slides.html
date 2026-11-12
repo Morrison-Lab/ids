@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-12 00:51:44 (PST)</p>
+  <p class="date">Last modified: 2026-11-12 11:12:54 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -327,7 +327,7 @@ p(y \mid x) =
 <section class="slide level2">
 
 <div id="rem-capacity-meaning" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (What capacity measures). </span><span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = H(X) - H(X \mid Y)\)</span> (<a href="./entropy.html#thm-mutual-information-reduction">mutual information as a reduction in entropy</a>) is the uncertainty about the <a href="#/def-channel">input</a>, minus the uncertainty about the input left after seeing the output. So <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}\)</span> is how much one output tells the receiver about the input, on average, and the <a href="./channel-capacity.html#def-channel-capacity">capacity</a> is that amount when the sender chooses how often to send each input as well as possible.</p>
+<p><span class="proof-title"><em>Remark 2</em> (What capacity measures). </span><span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}\)</span> (<a href="./entropy.html#thm-mutual-information-reduction">mutual information as a reduction in entropy</a>) is the uncertainty about the <a href="#/def-channel">input</a>, minus the uncertainty about the input left after seeing the output. So <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}\)</span> is how much one output tells the receiver about the input, on average, and the <a href="./channel-capacity.html#def-channel-capacity">capacity</a> is that amount when the sender chooses how often to send each input as well as possible.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -353,13 +353,13 @@ p(y \mid x) =
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Fix any <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> for <span class="math inline">\(X\)</span>. By <a href="./entropy.html#thm-mutual-information-reduction">mutual information as a reduction in entropy</a>,</p>
-<p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = H(Y) - H(Y \mid X).\]</span></p>
-<p>Given <span class="math inline">\(X = x\)</span>, the output equals <span class="math inline">\(x\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1 - \epsilon\)</span> and differs from it with probability <span class="math inline">\(\epsilon\)</span>, so the <a href="./entropy.html#def-entropy-given-value">entropy of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X = x\)</span></a> is <span class="math inline">\(h(\epsilon)\)</span> for both values of <span class="math inline">\(x\)</span>. Averaging over <span class="math inline">\(x\)</span>, the <a href="./entropy.html#def-conditional-entropy">conditional entropy</a> is <span class="math inline">\(H(Y \mid X) = h(\epsilon)\)</span>, whatever <span class="math inline">\(X\)</span> is.</p>
-<p><span class="math inline">\(Y\)</span> takes two values, so <span class="math inline">\(H(Y) \le \log_2 2 = 1\)</span> <a href="./entropy.html#def-bit">bit</a> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>. Therefore</p>
+<p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.\]</span></p>
+<p>Given <span class="math inline">\(X = x\)</span>, the output equals <span class="math inline">\(x\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1 - \epsilon\)</span> and differs from it with probability <span class="math inline">\(\epsilon\)</span>, so the <a href="./entropy.html#def-entropy-given-value">entropy of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X = x\)</span></a> is <span class="math inline">\(h(\epsilon)\)</span> for both values of <span class="math inline">\(x\)</span>. Averaging over <span class="math inline">\(x\)</span>, the <a href="./entropy.html#def-conditional-entropy">conditional entropy</a> is <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = h(\epsilon)\)</span>, whatever <span class="math inline">\(X\)</span> is.</p>
+<p><span class="math inline">\(Y\)</span> takes two values, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} \le \log_2 2 = 1\)</span> <a href="./entropy.html#def-bit">bit</a> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>. Therefore</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
-&amp;= H(Y) - h(\epsilon) \\
+&amp;= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - h(\epsilon) \\
 &amp;\le 1 - h(\epsilon).
 \end{aligned}
 \]</span></p>
@@ -372,7 +372,7 @@ p(y \mid x) =
 &amp;= \tfrac{1}{2},
 \end{aligned}
 \]</span></p>
-<p>so <span class="math inline">\(H(Y) = 1\)</span> bit and <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 1 - h(\epsilon)\)</span>. This value is attained, so it is the <a href="https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum">maximum</a> <span class="math inline">\(C\)</span>.</p>
+<p>so <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1\)</span> bit and <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 1 - h(\epsilon)\)</span>. This value is attained, so it is the <a href="https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum">maximum</a> <span class="math inline">\(C\)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -397,9 +397,9 @@ h(0.1)
 <div id="exr-bec-capacity" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1 (Capacity of the binary erasure channel)</strong></span> Send <span class="math inline">\(X\)</span> through the <a href="#/def-binary-erasure-channel">binary erasure channel</a> with erasure <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\alpha\)</span>, where <span class="math inline">\(0 &lt; \alpha &lt; 1\)</span>, and write <span class="math inline">\(\pi \stackrel{\text{def}}{=}\mathbb{P}(X = 1)\)</span>. Let <span class="math inline">\(E\)</span> be <span class="math inline">\(1\)</span> if the output <span class="math inline">\(Y\)</span> is the erasure symbol <span class="math inline">\(\mathrm{e}\)</span>, and <span class="math inline">\(0\)</span> otherwise. Use base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithms</a> and the <a href="#/def-binary-entropy">binary entropy function</a> <span class="math inline">\(h\)</span>.</p>
 <ol type="1">
-<li><p>Show that <span class="math inline">\(H(Y \mid X) = h(\alpha)\)</span>.</p></li>
-<li><p><span class="math inline">\(E\)</span> is a function of <span class="math inline">\(Y\)</span>. Use the <a href="./entropy.html#thm-entropy-chain-rule">chain rule for entropy</a>, expanded in both orders, to show that <span class="math inline">\(H(Y) = H(E) + H(Y \mid E)\)</span>.</p></li>
-<li><p>Show that <span class="math inline">\(H(Y) = h(\alpha) + (1 - \alpha) \, h(\pi)\)</span>.</p></li>
+<li><p>Show that <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = h(\alpha)\)</span>.</p></li>
+<li><p><span class="math inline">\(E\)</span> is a function of <span class="math inline">\(Y\)</span>. Use the <a href="./entropy.html#thm-entropy-chain-rule">chain rule for entropy</a>, expanded in both orders, to show that <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}\)</span>.</p></li>
+<li><p>Show that <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = h(\alpha) + (1 - \alpha) \, h(\pi)\)</span>.</p></li>
 <li><p>Conclude that the <a href="./channel-capacity.html#def-channel-capacity">capacity</a> is <span class="math inline">\(C = 1 - \alpha\)</span> <a href="./entropy.html#def-bit">bits</a> per channel use.</p></li>
 </ol>
 </div>
@@ -409,15 +409,15 @@ h(0.1)
 <div id="sol-bec-capacity" class="proof solution">
 <p><span class="proof-title"><em>Solution 1</em>. </span></p>
 <ol type="1">
-<li><p>Given <span class="math inline">\(X = x\)</span>, the output is <span class="math inline">\(x\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1 - \alpha\)</span> and <span class="math inline">\(\mathrm{e}\)</span> with probability <span class="math inline">\(\alpha\)</span>, so <span class="math inline">\(H(Y \mid X = x) = h(\alpha)\)</span> for both values of <span class="math inline">\(x\)</span>, and averaging over <span class="math inline">\(x\)</span> gives <span class="math inline">\(H(Y \mid X) = h(\alpha)\)</span>.</p></li>
+<li><p>Given <span class="math inline">\(X = x\)</span>, the output is <span class="math inline">\(x\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1 - \alpha\)</span> and <span class="math inline">\(\mathrm{e}\)</span> with probability <span class="math inline">\(\alpha\)</span>, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X = x\right)\mathclose{}} = h(\alpha)\)</span> for both values of <span class="math inline">\(x\)</span>, and averaging over <span class="math inline">\(x\)</span> gives <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = h(\alpha)\)</span>.</p></li>
 <li><p>The chain rule gives</p>
-<p><span class="math display">\[H(Y) + H(E \mid Y) = H(Y, E) = H(E) + H(Y \mid E).\]</span></p>
-<p>Each value <span class="math inline">\(y\)</span> of <span class="math inline">\(Y\)</span> fixes <span class="math inline">\(E\)</span>, so <span class="math inline">\(H(E \mid Y = y) = 0\)</span> for every <span class="math inline">\(y\)</span>, and <span class="math inline">\(H(E \mid Y) = 0\)</span>. Hence <span class="math inline">\(H(Y) = H(E) + H(Y \mid E)\)</span>.</p></li>
-<li><p>The channel erases with probability <span class="math inline">\(\alpha\)</span> whatever the <a href="#/def-channel">input</a>, so <span class="math inline">\(E\)</span> is <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> of <span class="math inline">\(X\)</span> and <span class="math inline">\(H(E) = h(\alpha)\)</span>. Given <span class="math inline">\(E = 1\)</span>, <span class="math inline">\(Y = \mathrm{e}\)</span> for certain, so <span class="math inline">\(H(Y \mid E = 1) = 0\)</span>. Given <span class="math inline">\(E = 0\)</span>, <span class="math inline">\(Y = X\)</span>, and since <span class="math inline">\(E\)</span> is independent of <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathbb{P}(Y = 1 \mid E = 0) = \mathbb{P}(X = 1) = \pi\)</span>, so <span class="math inline">\(H(Y \mid E = 0) = h(\pi)\)</span>. Therefore</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(E \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y, E\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}.\]</span></p>
+<p>Each value <span class="math inline">\(y\)</span> of <span class="math inline">\(Y\)</span> fixes <span class="math inline">\(E\)</span>, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(E \mid Y = y\right)\mathclose{}} = 0\)</span> for every <span class="math inline">\(y\)</span>, and <span class="math inline">\({\mathbb{H}\mathopen{}\left(E \mid Y\right)\mathclose{}} = 0\)</span>. Hence <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}\)</span>.</p></li>
+<li><p>The channel erases with probability <span class="math inline">\(\alpha\)</span> whatever the <a href="#/def-channel">input</a>, so <span class="math inline">\(E\)</span> is <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> of <span class="math inline">\(X\)</span> and <span class="math inline">\({\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} = h(\alpha)\)</span>. Given <span class="math inline">\(E = 1\)</span>, <span class="math inline">\(Y = \mathrm{e}\)</span> for certain, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid E = 1\right)\mathclose{}} = 0\)</span>. Given <span class="math inline">\(E = 0\)</span>, <span class="math inline">\(Y = X\)</span>, and since <span class="math inline">\(E\)</span> is independent of <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathbb{P}(Y = 1 \mid E = 0) = \mathbb{P}(X = 1) = \pi\)</span>, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid E = 0\right)\mathclose{}} = h(\pi)\)</span>. Therefore</p>
 <p><span class="math display">\[
 \begin{aligned}
-H(Y)
-&amp;= H(E) + \mathbb{P}(E = 1) \, H(Y \mid E = 1) + \mathbb{P}(E = 0) \, H(Y \mid E = 0) \\
+{\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}
+&amp;= {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + \mathbb{P}(E = 1) \, {\mathbb{H}\mathopen{}\left(Y \mid E = 1\right)\mathclose{}} + \mathbb{P}(E = 0) \, {\mathbb{H}\mathopen{}\left(Y \mid E = 0\right)\mathclose{}} \\
 &amp;= h(\alpha) + \alpha \cdot 0 + (1 - \alpha) \, h(\pi) \\
 &amp;= h(\alpha) + (1 - \alpha) \, h(\pi).
 \end{aligned}
@@ -426,7 +426,7 @@ H(Y)
 <p><span class="math display">\[
 \begin{aligned}
 {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
-&amp;= H(Y) - H(Y \mid X) \\
+&amp;= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \\
 &amp;= h(\alpha) + (1 - \alpha) \, h(\pi) - h(\alpha) \\
 &amp;= (1 - \alpha) \, h(\pi).
 \end{aligned}
