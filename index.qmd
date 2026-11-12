@@ -74,6 +74,11 @@ and they publish their course pages:
 The courses' own notes and slides carry no license,
 so these notes link to them and do not reuse their text.
 
+## Further reading {.unnumbered}
+
+- Dave's [review of MacKay's *Information Theory, Inference, and Learning Algorithms*](https://dfd.github.io/mackay-itila/) (2024)
+  describes how the book connects compression, noisy-channel coding and neural networks.
+
 ## Using these notes in another site {.unnumbered}
 
 Course sites link to these pages by URL;
