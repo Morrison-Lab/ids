@@ -1752,11 +1752,11 @@
   ],
   [
    "ids/entropy#def-conditional-entropy",
-   "ids/entropy#def-entropy-given-value"
+   "ids/entropy#def-conditional-surprisal"
   ],
   [
    "ids/entropy#def-conditional-entropy",
-   "ids/entropy#def-joint-entropy"
+   "ids/entropy#def-joint-surprisal"
   ],
   [
    "ids/entropy#def-conditional-entropy",
@@ -1784,7 +1784,11 @@
   ],
   [
    "ids/entropy#def-entropy-given-value",
-   "ids/entropy#def-joint-entropy"
+   "ids/entropy#def-conditional-surprisal"
+  ],
+  [
+   "ids/entropy#def-entropy-given-value",
+   "ids/entropy#def-joint-surprisal"
   ],
   [
    "ids/entropy#def-entropy-given-value",
@@ -1796,15 +1800,11 @@
   ],
   [
    "ids/entropy#def-joint-entropy",
-   "pds/expectation#def-entropy"
+   "ids/entropy#def-joint-surprisal"
   ],
   [
    "ids/entropy#def-joint-entropy",
-   "pds/random-variables#def-discrete-rv"
-  ],
-  [
-   "ids/entropy#def-joint-entropy",
-   "pds/random-variables#def-joint-pmf"
+   "pds/expectation#def-expectation"
   ],
   [
    "ids/entropy#def-joint-surprisal",
@@ -2016,11 +2016,15 @@
   ],
   [
    "ids/entropy#thm-conditional-entropy-average",
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-average",
    "ids/entropy#def-entropy-given-value"
   ],
   [
    "ids/entropy#thm-conditional-entropy-average",
-   "ids/entropy#def-joint-entropy"
+   "ids/entropy#def-joint-surprisal"
   ],
   [
    "ids/entropy#thm-conditional-entropy-average",
@@ -2080,11 +2084,19 @@
   ],
   [
    "ids/entropy#thm-entropy-chain-rule",
-   "ids/entropy#def-entropy-given-value"
+   "ids/entropy#cor-surprisal-discrete-nonnegative"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "ids/entropy#def-conditional-entropy"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule",
    "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule",
+   "ids/entropy#thm-surprisal-chain-rule"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule",

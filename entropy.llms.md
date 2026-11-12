@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 01:32:04 (PST)
+Last modified: 2026-11-12 01:39:35 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
@@ -24,7 +24,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Definition 1 (Surprisal)** The **surprisal** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with $\mathbb{P}(X=x) > 0$ is
 >
-> $$s(x) \stackrel{\text{def}}{=}-\log \mathbb{P}(X=x).$$
+> $${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}-\log \mathbb{P}(X=x).$$
 >
 > With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), surprisal is also called the **Shannon information content** of the value $x$ ([MacKay 2003, sec. 2.4](#ref-mackay2003information)).
 
@@ -35,7 +35,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > One bit is the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$: for a value $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
 >
 > $$\begin{aligned}
-> s(x) = 1 \text{ bit}
+> {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = 1 \text{ bit}
 > &\iff -\log_2 \mathbb{P}(X=x) = 1\\
 > &\iff \mathbb{P}(X=x) = 2^{-1} = \tfrac{1}{2}.
 > \end{aligned}$$
@@ -60,7 +60,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > Ten tosses that all land heads have probability $2^{-10}$, so
 >
 > $$\begin{aligned}
-> s(\text{ten heads})
+> {\mathbb{s}\mathopen{}\left(\text{ten heads}\right)\mathclose{}}
 > &= -\log_2 2^{-10} \\
 > &= 10 \text{ bits}.
 > \end{aligned}$$
@@ -69,7 +69,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Theorem 1 (Surprisal as a logarithm to base one half)** For a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with $\mathbb{P}(X=x) > 0$, the [surprisal](#def-surprisal) in [bits](#def-bit) is
 >
-> $$s(x) = \log_{1/2} \mathbb{P}(X=x).$$
+> $${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = \log_{1/2} \mathbb{P}(X=x).$$
 
 > **NOTE:**
 >
@@ -85,7 +85,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= \frac{{\operatorname{log}\mathopen{}\left\{p\right\}\mathclose{}}}{-{\operatorname{log}\mathopen{}\left\{2\right\}\mathclose{}}} \\
 > &= -\frac{{\operatorname{log}\mathopen{}\left\{p\right\}\mathclose{}}}{{\operatorname{log}\mathopen{}\left\{2\right\}\mathclose{}}} \\
 > &= -\log_2 p \\
-> &= s(x).
+> &= {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}.
 > \end{aligned}$$
 >
 > The step from the third to the fourth line is the change of base formula with $b = 2$.
@@ -119,7 +119,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > One nat is the surprisal of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/\text{e}$: for a value $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$,
 >
 > $$\begin{aligned}
-> s(x) = 1 \text{ nat}
+> {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} = 1 \text{ nat}
 > &\iff -\ln \mathbb{P}(X=x) = 1\\
 > &\iff \mathbb{P}(X=x) = \text{e}^{-1} = 1/\text{e}\approx 0.368.
 > \end{aligned}$$
@@ -129,7 +129,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > **Example 3 (One fair coin toss in nats)** By [Example 1](#exm-surprisal-coins) with $k = 1$, one toss of a fair coin landing heads has a [surprisal](#def-surprisal) of $1$ [bit](#def-bit). In [nats](#def-nat), the same [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) has a surprisal of
 >
 > $$\begin{aligned}
-> s(\text{heads})
+> {\mathbb{s}\mathopen{}\left(\text{heads}\right)\mathclose{}}
 > &= -\ln \tfrac{1}{2} \\
 > &= \ln 2 \\
 > &\approx 0.693 \text{ nats}.
@@ -158,12 +158,12 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > *Remark 4* (Entropy is expected surprisal). The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [surprisal](#def-surprisal):
 >
 > $$\begin{aligned}
-> H(X)
+> {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}
 > &= {\mathbb{E}\mathopen{}\left[-\log \mathbb{P}(X)\right]\mathclose{}} \\
-> &= {\mathbb{E}\mathopen{}\left[s(X)\right]\mathclose{}}.
+> &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}}.
 > \end{aligned}$$
 >
-> So $H(X)$ is the average number of [bits](entropy.llms.md#def-bit) (with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm)) needed to record a value of $X$ when each value $x$ costs $s(x)$ bits. The [source coding theorem](source-coding.llms.md#thm-source-coding), on a later page of these notes, makes that average precise: no [uniquely decodable code](source-coding.llms.md#def-uniquely-decodable) does better.
+> So ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ is the average number of [bits](entropy.llms.md#def-bit) (with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm)) needed to record a value of $X$ when each value $x$ costs ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ bits. The [source coding theorem](source-coding.llms.md#thm-source-coding), on a later page of these notes, makes that average precise: no [uniquely decodable code](source-coding.llms.md#def-uniquely-decodable) does better.
 
 > **NOTE:**
 >
@@ -486,31 +486,148 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $$\left.{\frac{\partial^2}{\partial \theta^2} {{D_{\mathrm{KL}}}\mathopen{}\left(\theta_0 \,\Vert\, \theta\right)\mathclose{}}}\right|_{\theta= \theta_0} = \mathcal{I}(\theta_0).$$
 
-## 2 Joint and conditional entropy
+## 2 Joint and conditional surprisal and entropy
 
 > **NOTE:**
 >
-> **Definition 8 (Joint entropy)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. Their **joint entropy** is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the pair $(X, Y)$:
+> **Definition 8 (Joint surprisal)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. The **joint surprisal** of a pair of [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $(x, y)$ with $p(x, y) > 0$ is the [surprisal](#def-surprisal) of that pair:
 >
-> $$H(X, Y) \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[-\log p(X, Y)\right]\mathclose{}}.$$
+> $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} \stackrel{\text{def}}{=}-\log p(x, y).$$
 
 > **NOTE:**
 >
-> **Definition 9 (Entropy given one value)** For $X$ and $Y$ as in [Definition 8](#def-joint-entropy), write $p(y \mid x) \stackrel{\text{def}}{=}\mathbb{P}(Y=y \mid X=x)$. The **entropy of** $Y$ given $X=x$, for a value $x$ with $\mathbb{P}(X=x) > 0$, is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $-\log p(Y \mid x)$ given $X=x$:
+> **Definition 9 (Conditional surprisal)** For $X$ and $Y$ as in [Definition 8](#def-joint-surprisal), the **conditional surprisal** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $y$ given a value $x$ with $\mathbb{P}(X=x) > 0$ and $\mathbb{P}(Y=y \mid X=x) > 0$ is
 >
-> $$H(Y \mid X=x) \stackrel{\text{def}}{=}{{\mathbb{E}\mathopen{}\left[-\log p(Y \mid x) \mid X=x\right]\mathclose{}}}.$$
+> $${\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} \stackrel{\text{def}}{=}-\log \mathbb{P}(Y=y \mid X=x).$$
 
 > **NOTE:**
 >
-> **Definition 10 (Conditional entropy)** For $X$ and $Y$ as in [Definition 8](#def-joint-entropy) and $p(y \mid x)$ as in [Definition 9](#def-entropy-given-value), the **conditional entropy** of $Y$ given $X$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of $-\log p(Y \mid X)$:
+> **Example 9 (Joint and conditional surprisal of a noisy copy)**  
 >
-> $$H(Y \mid X) \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[-\log p(Y \mid X)\right]\mathclose{}}.$$
+> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. Take the pair of values $x = 0$ and $y = 1$. The joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $\mathbb{P}(X=0, Y=1) = 0.1$, the probability of $X=0$ is $0.5$, and the [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) is $\mathbb{P}(Y=1 \mid X=0) = 0.2$. The chunk computes the three [surprisals](#def-surprisal), in [bits](#def-bit).
+>
+> Show code
+>
+> ``` r
+> s_xy <- -log2(0.1)
+> s_x <- -log2(0.5)
+> s_y_given_x <- -log2(0.2)
+> c(s_xy = s_xy, s_x = s_x, s_y_given_x = s_y_given_x)
+> #>        s_xy         s_x s_y_given_x 
+> #>    3.321928    1.000000    2.321928
+> ```
+>
+> The [joint surprisal](#def-joint-surprisal) is ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits, the [surprisal](#def-surprisal) of $x = 0$ alone is ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ [bit](#def-bit), and the [conditional surprisal](#def-conditional-surprisal) is ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits.
 
 > **NOTE:**
 >
-> **Theorem 7 (Conditional entropy as an average of entropies given a value)** For $X$ and $Y$ as in [Definition 8](#def-joint-entropy),
+> **Theorem 7 (Chain rule for surprisal)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ and [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ and $y$ with $\mathbb{P}(X=x, Y=y) > 0$,
 >
-> $$H(Y \mid X) = \sum_{x} p(x) \, H(Y \mid X=x),$$
+> $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Since $\mathbb{P}(X=x, Y=y) = \mathbb{P}(X=x) \, \mathbb{P}(Y=y \mid X=x)$,
+>
+> $$\begin{aligned}
+> {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}}
+> &= -\log \mathbb{P}(X=x, Y=y) \\
+> &= -\log \mathopen{}\left[\mathbb{P}(X=x) \, \mathbb{P}(Y=y \mid X=x)\right]\mathclose{} \\
+> &= -\log \mathbb{P}(X=x) - \log \mathbb{P}(Y=y \mid X=x) \\
+> &= {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Corollary 2 (Conditional surprisal as a difference)** For $X$, $Y$, $x$ and $y$ as in [Theorem 7](#thm-surprisal-chain-rule),
+>
+> $${\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Subtract ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ from both sides of [Theorem 7](#thm-surprisal-chain-rule):
+>
+> $$\begin{aligned}
+> {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}
+> &= {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} \\
+> &= {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Example 10 (Chain rule for surprisal with a noisy copy)**  
+>
+> For the pair of values in [Example 9](#exm-joint-conditional-surprisal), the chunk recomputes the three [surprisals](#def-surprisal) in [bits](#def-bit).
+>
+> Show code
+>
+> ``` r
+> s_xy <- -log2(0.1)
+> s_x <- -log2(0.5)
+> s_y_given_x <- -log2(0.2)
+> c(sum = s_x + s_y_given_x, joint = s_xy)
+> #>      sum    joint 
+> #> 3.321928 3.321928
+> ```
+>
+> The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$ is $3.322$ [bits](#def-bit). This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Theorem 7](#thm-surprisal-chain-rule)). Subtracting ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ [bit](#def-bit) from the joint surprisal recovers ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits ([Corollary 2](#cor-conditional-surprisal-difference)).
+
+> **NOTE:**
+>
+> **Lemma 1 (Chain rule for surprisal with the conditioning reversed)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ and [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ and $y$ with $\mathbb{P}(X=x, Y=y) > 0$,
+>
+> $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x \mid y\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Applying [Theorem 7](#thm-surprisal-chain-rule) with the roles of $X$ and $Y$ swapped gives
+>
+> $${\mathbb{s}\mathopen{}\left(y, x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(y\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(x \mid y\right)\mathclose{}}.$$
+>
+> Both $\mathbb{P}(Y=y, X=x)$ and $\mathbb{P}(X=x, Y=y)$ are the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the same pair of values, so ${\mathbb{s}\mathopen{}\left(y, x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}}$. Substituting this into the display above, and swapping the two summands, gives the claim.
+
+> **NOTE:**
+>
+> **Example 11 (Chain rule for surprisal with the conditioning reversed, for a noisy copy)**  
+>
+> For the pair of values in [Example 9](#exm-joint-conditional-surprisal), $\mathbb{P}(X=0, Y=1) = 0.1$, $\mathbb{P}(Y=1) = 0.5$ and $\mathbb{P}(X=0 \mid Y=1) = 0.2$. The chunk computes the three [surprisals](#def-surprisal) in [bits](#def-bit).
+>
+> Show code
+>
+> ``` r
+> s_xy <- -log2(0.1)
+> s_y <- -log2(0.5)
+> s_x_given_y <- -log2(0.2)
+> c(sum = s_x_given_y + s_y, joint = s_xy)
+> #>      sum    joint 
+> #> 3.321928 3.321928
+> ```
+>
+> The [conditional surprisal](#def-conditional-surprisal) of $x = 0$ given $y = 1$ plus the [surprisal](#def-surprisal) of $y = 1$ is $3.322$ bits. This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Lemma 1](#lem-surprisal-chain-rule-reversed)).
+
+> **NOTE:**
+>
+> **Definition 10 (Joint entropy)** For $X$ and $Y$ as in [Definition 8](#def-joint-surprisal), their **joint entropy** is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of their [joint surprisal](#def-joint-surprisal):
+>
+> $${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X, Y\right)\mathclose{}}\right]\mathclose{}}.$$
+
+> **NOTE:**
+>
+> **Definition 11 (Entropy given one value)** For $X$ and $Y$ as in [Definition 8](#def-joint-surprisal), the **entropy of** $Y$ given $X=x$, for a value $x$ with $\mathbb{P}(X=x) > 0$, is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) given $X=x$ of ${\mathbb{s}\mathopen{}\left(Y \mid x\right)\mathclose{}}$, the [conditional surprisal](#def-conditional-surprisal) of $Y$ given $x$:
+>
+> $${\mathbb{H}\mathopen{}\left(Y \mid X=x\right)\mathclose{}} \stackrel{\text{def}}{=}{{\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid x\right)\mathclose{}} \mid X=x\right]\mathclose{}}}.$$
+
+> **NOTE:**
+>
+> **Definition 12 (Conditional entropy)** For $X$ and $Y$ as in [Definition 8](#def-joint-surprisal), the **conditional entropy** of $Y$ given $X$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [conditional surprisal](#def-conditional-surprisal) of $Y$ given $X$:
+>
+> $${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}}.$$
+
+> **NOTE:**
+>
+> **Theorem 8 (Conditional entropy as an average of entropies given a value)** For $X$ and $Y$ as in [Definition 8](#def-joint-surprisal),
+>
+> $${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = \sum_{x} p(x) \, {\mathbb{H}\mathopen{}\left(Y \mid X=x\right)\mathclose{}},$$
 >
 > where $p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)$, and the sum runs over the values $x$ with $p(x) > 0$.
 
@@ -519,39 +636,53 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > *Proof*. The [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie) conditions on $X$:
 >
 > $$\begin{aligned}
-> H(Y \mid X)
-> &= {\mathbb{E}\mathopen{}\left[-\log p(Y \mid X)\right]\mathclose{}} \\
-> &= {\mathbb{E}\mathopen{}\left[{{\mathbb{E}\mathopen{}\left[-\log p(Y \mid X) \mid X\right]\mathclose{}}}\right]\mathclose{}} \\
-> &= \sum_{x} p(x) \, {{\mathbb{E}\mathopen{}\left[-\log p(Y \mid x) \mid X=x\right]\mathclose{}}} \\
-> &= \sum_{x} p(x) \, H(Y \mid X=x).
+> {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}
+> &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}} \\
+> &= {\mathbb{E}\mathopen{}\left[{{\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid X\right)\mathclose{}} \mid X\right]\mathclose{}}}\right]\mathclose{}} \\
+> &= \sum_{x} p(x) \, {{\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid x\right)\mathclose{}} \mid X=x\right]\mathclose{}}} \\
+> &= \sum_{x} p(x) \, {\mathbb{H}\mathopen{}\left(Y \mid X=x\right)\mathclose{}}.
 > \end{aligned}$$
 >
-> The third line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the values $x$ of $X$, and the last line is [Definition 9](#def-entropy-given-value).
+> The first line is [Definition 12](#def-conditional-entropy), the third line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the values $x$ of $X$, and the last line is [Definition 11](#def-entropy-given-value).
 
 > **NOTE:**
 >
-> **Theorem 8 (Chain rule for entropy)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
+> **Theorem 9 (Chain rule for entropy)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
 >
-> $$H(X, Y) = H(X) + H(Y \mid X).$$
+> $${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> *Proof*. Use the notation of [Definition 8](#def-joint-entropy) and [Definition 9](#def-entropy-given-value). With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, $p(X, Y) = p(X) \, p(Y \mid X)$ and $p(X, Y) > 0$, so
+> *Proof*. With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, the pair $(X, Y)$ takes a value $(x, y)$ with $\mathbb{P}(X=x, Y=y) > 0$, so [Theorem 7](#thm-surprisal-chain-rule) applies at $(x, y) = (X, Y)$:
 >
-> $$-\log p(X, Y) = -\log p(X) - \log p(Y \mid X).$$
+> $${\mathbb{s}\mathopen{}\left(X, Y\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(Y \mid X\right)\mathclose{}}.$$
 >
-> Both terms on the right are nonnegative, so the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the sum is the sum of the expectation of each term:
+> Both terms on the right are nonnegative ([Corollary 1](#cor-surprisal-discrete-nonnegative)), so the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the sum is the sum of the expectation of each term:
 >
 > $$\begin{aligned}
-> H(X, Y)
-> &= {\mathbb{E}\mathopen{}\left[-\log p(X, Y)\right]\mathclose{}} \\
-> &= {\mathbb{E}\mathopen{}\left[-\log p(X)\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[-\log p(Y \mid X)\right]\mathclose{}} \\
-> &= H(X) + H(Y \mid X).
+> {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}
+> &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X, Y\right)\mathclose{}}\right]\mathclose{}} \\
+> &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}} + {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.
 > \end{aligned}$$
+>
+> The first line is [Definition 10](#def-joint-entropy), and the last line is [Remark 4](#rem-entropy-expected-surprisal) and [Definition 12](#def-conditional-entropy).
 
 > **NOTE:**
 >
-> **Corollary 2 (Chain rule for entropy, other order)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
+> *Remark 13* (The chain rule for entropy is the chain rule for surprisal on average). [Theorem 7](#thm-surprisal-chain-rule) holds for each pair of [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $(x, y)$ with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability). Each [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) in [Theorem 9](#thm-entropy-chain-rule) is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the matching [surprisal](#def-surprisal), by [Definition 10](#def-joint-entropy), [Remark 4](#rem-entropy-expected-surprisal) and [Definition 12](#def-conditional-entropy):
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X, Y\right)\mathclose{}}\right]\mathclose{}} \\
+> {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}} \\
+> {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}}.
+> \end{aligned}$$
+>
+> So the chain rule for entropy is the chain rule for surprisal, averaged over the pair $(X, Y)$. The [joint surprisal](#def-joint-surprisal) is the surprisal of the pair $(X, Y)$, so the [joint entropy](#def-joint-entropy) is also the entropy of that pair.
+
+> **NOTE:**
+>
+> **Corollary 3 (Chain rule for entropy, other order)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
 >
 > $${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.$$
 
@@ -569,13 +700,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Corollary 3 (Conditional entropy as a difference)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+> **Corollary 4 (Conditional entropy as a difference)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> *Proof*. Subtract ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ from both sides of [Corollary 2](#cor-entropy-chain-rule-reversed):
+> *Proof*. Subtract ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ from both sides of [Corollary 3](#cor-entropy-chain-rule-reversed):
 >
 > $$\begin{aligned}
 > {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}
@@ -585,7 +716,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 9 (Chain rule for entropy with a noisy copy)**  
+> **Example 12 (Chain rule for entropy with a noisy copy)**  
 >
 > Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. The [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) gives probability $0.4$ to $(0, 0)$ and $(1, 1)$, and $0.1$ to $(0, 1)$ and $(1, 0)$. The chunk computes each [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) from its definition, in [bits](#def-bit).
 >
@@ -609,135 +740,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #>   1.7219281   0.7219281   1.0000000
 > ```
 >
-> The chunk computes ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ as the average of the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) given each value of $Y$, as in [Theorem 7](#thm-conditional-entropy-average) with $X$ and $Y$ exchanged. Here ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = 1.722$ bits, ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = 0.722$ bits and ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bits. So ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Corollary 2](#cor-entropy-chain-rule-reversed)), and ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 0.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ ([Corollary 3](#cor-conditional-entropy-difference)).
-
-> **NOTE:**
->
-> **Definition 11 (Joint surprisal)** Let $X$ and $Y$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) $p(x, y) \stackrel{\text{def}}{=}\mathbb{P}(X=x, Y=y)$. The **joint surprisal** of a pair of [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $(x, y)$ with $p(x, y) > 0$ is the [surprisal](#def-surprisal) of that pair:
->
-> $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} \stackrel{\text{def}}{=}-\log p(x, y).$$
-
-> **NOTE:**
->
-> **Definition 12 (Conditional surprisal)** For $X$ and $Y$ as in [Definition 11](#def-joint-surprisal), the **conditional surprisal** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $y$ given a value $x$ with $\mathbb{P}(X=x) > 0$ and $\mathbb{P}(Y=y \mid X=x) > 0$ is
->
-> $${\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} \stackrel{\text{def}}{=}-\log \mathbb{P}(Y=y \mid X=x).$$
-
-> **NOTE:**
->
-> **Example 10 (Joint and conditional surprisal of a noisy copy)**  
->
-> Let $X$ be a fair coin toss, coded $0$ or $1$. Let $Y$ be a noisy copy of $X$: it equals $X$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and the other value with probability $0.2$. Take the pair of values $x = 0$ and $y = 1$. The joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $\mathbb{P}(X=0, Y=1) = 0.1$, the probability of $X=0$ is $0.5$, and the [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) is $\mathbb{P}(Y=1 \mid X=0) = 0.2$. The chunk computes the three [surprisals](#def-surprisal), in [bits](#def-bit).
->
-> Show code
->
-> ``` r
-> s_xy <- -log2(0.1)
-> s_x <- -log2(0.5)
-> s_y_given_x <- -log2(0.2)
-> c(s_xy = s_xy, s_x = s_x, s_y_given_x = s_y_given_x)
-> #>        s_xy         s_x s_y_given_x 
-> #>    3.321928    1.000000    2.321928
-> ```
->
-> The [joint surprisal](#def-joint-surprisal) is ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits, the [surprisal](#def-surprisal) of $x = 0$ alone is ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ [bit](#def-bit), and the [conditional surprisal](#def-conditional-surprisal) is ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits.
-
-> **NOTE:**
->
-> **Theorem 9 (Chain rule for surprisal)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ and [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ and $y$ with $\mathbb{P}(X=x, Y=y) > 0$,
->
-> $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.$$
-
-> **NOTE:**
->
-> *Proof*. Since $\mathbb{P}(X=x, Y=y) = \mathbb{P}(X=x) \, \mathbb{P}(Y=y \mid X=x)$,
->
-> $$\begin{aligned}
-> {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}}
-> &= -\log \mathbb{P}(X=x, Y=y) \\
-> &= -\log \mathopen{}\left[\mathbb{P}(X=x) \, \mathbb{P}(Y=y \mid X=x)\right]\mathclose{} \\
-> &= -\log \mathbb{P}(X=x) - \log \mathbb{P}(Y=y \mid X=x) \\
-> &= {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.
-> \end{aligned}$$
-
-> **NOTE:**
->
-> **Corollary 4 (Conditional surprisal as a difference)** For $X$, $Y$, $x$ and $y$ as in [Theorem 9](#thm-surprisal-chain-rule),
->
-> $${\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}.$$
-
-> **NOTE:**
->
-> *Proof*. Subtract ${\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}$ from both sides of [Theorem 9](#thm-surprisal-chain-rule):
->
-> $$\begin{aligned}
-> {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}}
-> &= {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(x\right)\mathclose{}} \\
-> &= {\mathbb{s}\mathopen{}\left(y \mid x\right)\mathclose{}}.
-> \end{aligned}$$
-
-> **NOTE:**
->
-> **Example 11 (Chain rule for surprisal with a noisy copy)**  
->
-> For the pair of values in [Example 10](#exm-joint-conditional-surprisal), the chunk recomputes the three [surprisals](#def-surprisal) in [bits](#def-bit).
->
-> Show code
->
-> ``` r
-> s_xy <- -log2(0.1)
-> s_x <- -log2(0.5)
-> s_y_given_x <- -log2(0.2)
-> c(sum = s_x + s_y_given_x, joint = s_xy)
-> #>      sum    joint 
-> #> 3.321928 3.321928
-> ```
->
-> The [surprisal](#def-surprisal) of $x = 0$ plus the [conditional surprisal](#def-conditional-surprisal) of $y = 1$ given $x = 0$ is $3.322$ [bits](#def-bit). This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Theorem 9](#thm-surprisal-chain-rule)). Subtracting ${\mathbb{s}\mathopen{}\left(0\right)\mathclose{}} = 1$ [bit](#def-bit) from the joint surprisal recovers ${\mathbb{s}\mathopen{}\left(1 \mid 0\right)\mathclose{}} = 2.322$ bits ([Corollary 4](#cor-conditional-surprisal-difference)).
-
-> **NOTE:**
->
-> **Lemma 1 (Chain rule for surprisal with the conditioning reversed)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ and [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ and $y$ with $\mathbb{P}(X=x, Y=y) > 0$,
->
-> $${\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x \mid y\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(y\right)\mathclose{}}.$$
-
-> **NOTE:**
->
-> *Proof*. Applying [Theorem 9](#thm-surprisal-chain-rule) with the roles of $X$ and $Y$ swapped gives
->
-> $${\mathbb{s}\mathopen{}\left(y, x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(y\right)\mathclose{}} + {\mathbb{s}\mathopen{}\left(x \mid y\right)\mathclose{}}.$$
->
-> Both $\mathbb{P}(Y=y, X=x)$ and $\mathbb{P}(X=x, Y=y)$ are the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the same pair of values, so ${\mathbb{s}\mathopen{}\left(y, x\right)\mathclose{}} = {\mathbb{s}\mathopen{}\left(x, y\right)\mathclose{}}$. Substituting this into the display above, and swapping the two summands, gives the claim.
-
-> **NOTE:**
->
-> **Example 12 (Chain rule for surprisal with the conditioning reversed, for a noisy copy)**  
->
-> For the pair of values in [Example 10](#exm-joint-conditional-surprisal), $\mathbb{P}(X=0, Y=1) = 0.1$, $\mathbb{P}(Y=1) = 0.5$ and $\mathbb{P}(X=0 \mid Y=1) = 0.2$. The chunk computes the three [surprisals](#def-surprisal) in [bits](#def-bit).
->
-> Show code
->
-> ``` r
-> s_xy <- -log2(0.1)
-> s_y <- -log2(0.5)
-> s_x_given_y <- -log2(0.2)
-> c(sum = s_x_given_y + s_y, joint = s_xy)
-> #>      sum    joint 
-> #> 3.321928 3.321928
-> ```
->
-> The [conditional surprisal](#def-conditional-surprisal) of $x = 0$ given $y = 1$ plus the [surprisal](#def-surprisal) of $y = 1$ is $3.322$ bits. This sum is the [joint surprisal](#def-joint-surprisal) ${\mathbb{s}\mathopen{}\left(0, 1\right)\mathclose{}} = 3.322$ bits ([Lemma 1](#lem-surprisal-chain-rule-reversed)).
-
-> **NOTE:**
->
-> *Remark 13* (The chain rule for entropy is the chain rule for surprisal on average). The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a pair is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [joint surprisal](#def-joint-surprisal), and the [conditional entropy](#def-conditional-entropy) is the expectation of the [conditional surprisal](#def-conditional-surprisal):
->
-> $$\begin{aligned}
-> {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X, Y\right)\mathclose{}}\right]\mathclose{}} \\
-> {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(Y \mid X\right)\mathclose{}}\right]\mathclose{}}.
-> \end{aligned}$$
->
-> Taking the expectation of both sides of [Theorem 9](#thm-surprisal-chain-rule) therefore gives [Theorem 8](#thm-entropy-chain-rule).
+> The chunk computes ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ as the average of the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) given each value of $Y$, as in [Theorem 8](#thm-conditional-entropy-average) with $X$ and $Y$ exchanged. Here ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} = 1.722$ bits, ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} = 0.722$ bits and ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bits. So ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}}$ ([Corollary 3](#cor-entropy-chain-rule-reversed)), and ${\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 0.722$ bits agrees with ${\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}$ ([Corollary 4](#cor-conditional-entropy-difference)).
 
 ## 3 Mutual information
 
@@ -795,7 +798,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. By [Corollary 3](#cor-conditional-entropy-difference) and the [chain rule](#thm-entropy-chain-rule), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of each variable is the [joint entropy](#def-joint-entropy) minus a [conditional entropy](#def-conditional-entropy):
+> *Proof*. By [Corollary 4](#cor-conditional-entropy-difference) and the [chain rule](#thm-entropy-chain-rule), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of each variable is the [joint entropy](#def-joint-entropy) minus a [conditional entropy](#def-conditional-entropy):
 >
 > $$\begin{aligned}
 > {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} &= {\mathbb{H}\mathopen{}\left(X, Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \\
@@ -862,7 +865,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 13 (Mutual information identities with a noisy copy)**  
 >
-> Take the fair coin $X$ and its noisy copy $Y$ from [Example 9](#exm-entropy-chain-rule-noisy-copy). The chunk computes the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) from the joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) in [bits](#def-bit), then the [mutual information](#def-mutual-information) in four ways.
+> Take the fair coin $X$ and its noisy copy $Y$ from [Example 12](#exm-entropy-chain-rule-noisy-copy). The chunk computes the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) from the joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) in [bits](#def-bit), then the [mutual information](#def-mutual-information) in four ways.
 >
 > Show code
 >
@@ -1081,7 +1084,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $${\mathbb{H}\mathopen{}\left(X \mid X=x\right)\mathclose{}} = 0.$$
 >
-> By [Theorem 7](#thm-conditional-entropy-average),
+> By [Theorem 8](#thm-conditional-entropy-average),
 >
 > $$\begin{aligned}
 > {\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}}
@@ -1109,7 +1112,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 16* (Information gain is mutual information). Draw one point from the node of [Definition 14](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) at the node is $H(Y)$, the weighted entropy left in the branches is $H(Y \mid X)$, and the [information gain](#def-information-gain) is the [mutual information](#def-mutual-information) ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$.
+> *Remark 16* (Information gain is mutual information). Draw one point from the node of [Definition 14](#def-information-gain), and let $Y$ be its class and $X$ the branch it falls into. Then the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) at the node is ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$, the weighted entropy left in the branches is ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$, and the [information gain](#def-information-gain) is the [mutual information](#def-mutual-information) ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$.
 
 > **NOTE:**
 >
@@ -1124,9 +1127,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > Draw one point from the node, each equally likely, let $Y$ be its color, and let $X$ be the branch it falls into ([Remark 16](#rem-information-gain)). The [information gain](#def-information-gain) of each split is then ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$. Use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) throughout.
 >
-> 1.  Compute $H(Y)$.
+> 1.  Compute ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$.
 >
-> 2.  For each split, compute $H(Y \mid X = x)$ for both branches, and then $H(Y \mid X)$.
+> 2.  For each split, compute ${\mathbb{H}\mathopen{}\left(Y \mid X = x\right)\mathclose{}}$ for both branches, and then ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$.
 >
 > 3.  Compute the information gain ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$ for each split. Which split has the larger gain?
 
@@ -1137,7 +1140,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > 1.  Half the points are red, so
 >
 >     $$\begin{aligned}
->     H(Y)
+>     {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}
 >     &= -\tfrac{1}{2} \log_2 \tfrac{1}{2} - \tfrac{1}{2} \log_2 \tfrac{1}{2} \\
 >     &= 1 \text{ bit}.
 >     \end{aligned}$$
@@ -1145,7 +1148,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > 2.  A branch holding one color only has [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $0$. For split A, the “no” branch holds $6$ red and $10$ green points of $16$:
 >
 >     $$\begin{aligned}
->     H(Y \mid X = \text{no})
+>     {\mathbb{H}\mathopen{}\left(Y \mid X = \text{no}\right)\mathclose{}}
 >     &= -\tfrac{6}{16} \log_2 \tfrac{6}{16} - \tfrac{10}{16} \log_2 \tfrac{10}{16} \\
 >     &\approx 0.531 + 0.424 \\
 >     &\approx 0.954 \text{ bits}.
@@ -1154,7 +1157,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >     The “yes” branch holds $4$ of the $20$ points and the “no” branch $16$, so
 >
 >     $$\begin{aligned}
->     H(Y \mid X)
+>     {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}
 >     &= \tfrac{4}{20} \cdot 0 + \tfrac{16}{20} \cdot 0.954 \\
 >     &\approx 0.764 \text{ bits}.
 >     \end{aligned}$$
@@ -1162,7 +1165,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >     For split B, the “yes” branch holds $5$ red and $10$ green points of $15$:
 >
 >     $$\begin{aligned}
->     H(Y \mid X = \text{yes})
+>     {\mathbb{H}\mathopen{}\left(Y \mid X = \text{yes}\right)\mathclose{}}
 >     &= -\tfrac{1}{3} \log_2 \tfrac{1}{3} - \tfrac{2}{3} \log_2 \tfrac{2}{3} \\
 >     &\approx 0.528 + 0.390 \\
 >     &\approx 0.918 \text{ bits}.
@@ -1171,12 +1174,12 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >     The “yes” branch holds $15$ of the $20$ points and the “no” branch $5$, so
 >
 >     $$\begin{aligned}
->     H(Y \mid X)
+>     {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}
 >     &= \tfrac{15}{20} \cdot 0.918 + \tfrac{5}{20} \cdot 0 \\
 >     &\approx 0.689 \text{ bits}.
 >     \end{aligned}$$
 >
-> 3.  By [Theorem 11](#thm-mutual-information-reduction), the gain is $H(Y) - H(Y \mid X)$:
+> 3.  By [Theorem 11](#thm-mutual-information-reduction), the gain is ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$:
 >
 >     - split A: $1 - 0.764 = 0.236$ [bits](entropy.llms.md#def-bit)
 >     - split B: $1 - 0.689 = 0.311$ bits
@@ -1197,7 +1200,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > *Proof*. The proof is by [induction](https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction) on $n$. The claim for $n = 1$ is ${\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}}$.
 >
-> Let $n \ge 2$, and suppose the claim holds for $n - 1$ variables. Treat $(X_1, \ldots, X_{n-1})$ as a single variable. The chain rule for two variables ([Theorem 8](#thm-entropy-chain-rule)) gives
+> Let $n \ge 2$, and suppose the claim holds for $n - 1$ variables. Treat $(X_1, \ldots, X_{n-1})$ as a single variable. The chain rule for two variables ([Theorem 9](#thm-entropy-chain-rule)) gives
 >
 > $${\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{n-1}\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X_n \mid X_1, \ldots, X_{n-1}\right)\mathclose{}}.$$
 >
@@ -1321,7 +1324,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Proof*. For each value $z$ with $\mathbb{P}(Z=z) > 0$, let ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ be the [mutual information](#def-mutual-information) of $X$ and $Y$ computed from their joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) given $Z=z$, so that ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}$. Applying [Definition 10](#def-conditional-entropy) to ${\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}$ and to ${\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}$ expands each over the values $z$ of $Z$:
+> *Proof*. For each value $z$ with $\mathbb{P}(Z=z) > 0$, let ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ be the [mutual information](#def-mutual-information) of $X$ and $Y$ computed from their joint [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) given $Z=z$, so that ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y \mid Z=z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z=z\right)\mathclose{}}$. Applying [Definition 12](#def-conditional-entropy) to ${\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}}$ and to ${\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}$ expands each over the values $z$ of $Z$:
 >
 > $$\begin{aligned}
 > {\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}}
