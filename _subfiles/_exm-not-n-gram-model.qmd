@@ -4,7 +4,7 @@
 
 Let $X_1$ and $X_2$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coin tosses, coded $0$ or $1$,
 and let $X_t = X_{t-2}$ for each $t \ge 3$.
-The sequence is not a 2-gram model (@def-n-gram-model).
+The [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) is not a 2-gram model (@def-n-gram-model).
 Given both earlier tosses, $X_3$ is fixed:
 
 $$\P(X_3 = 0 \mid X_1 = 0, X_2 = 0) = 1.$$

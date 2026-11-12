@@ -1,8 +1,8 @@
 :::{#def-n-gram-model}
 #### $N$-gram model
 
-An **$N$-gram model**, for an integer $N \ge 1$,
-is a sequence $X_1, X_2, \ldots$ of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+An **$N$-gram model**, for an [integer](https://morrison-lab.github.io/mcs/number-systems.html#def-integers) $N \ge 1$,
+is a [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) $X_1, X_2, \ldots$ of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
 in which each variable depends on the earlier ones
 only through the $N - 1$ variables just before it:
 for every $t > N$ and all values $x_1, \ldots, x_t$

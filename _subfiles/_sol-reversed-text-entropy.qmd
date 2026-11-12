@@ -5,7 +5,7 @@ write $p(x_a, \ldots, x_b)$ for $\P(X_a = x_a, \ldots, X_b = x_b)$,
 and $p(x_a \mid x_c, \ldots, x_d)$ for $\P(X_a = x_a \mid X_c = x_c, \ldots, X_d = x_d)$.
 Each value's subscript says which variable takes it.
 
-1. Listing the same variables in another order does not change their joint [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+1. Listing the same variables in another order does not change their [joint entropy](#def-joint-entropy),
    because the reordered vector takes each reordered value with the same [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
    as in the proof of @cor-entropy-chain-rule-reversed.
    For the same reason,
@@ -39,7 +39,7 @@ Each value's subscript says which variable takes it.
 2. Fix $t$ with $N < t \le n$.
    For values $x_1, \ldots, x_{t-1}$ with $p(x_1, \ldots, x_{t-1}) > 0$,
    @def-entropy-given-value makes $\entropyf{X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}}$
-   a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) of the conditional [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(\cdot \mid x_1, \ldots, x_{t-1})$ alone.
+   a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) of the [conditional probability mass function](https://morrison-lab.github.io/pds/expectation.html#def-cond-pmf) $p(\cdot \mid x_1, \ldots, x_{t-1})$ alone.
    The [$N$-gram model](#def-n-gram-model) makes that conditional probability mass function equal to $p(\cdot \mid x_{t-N+1}, \ldots, x_{t-1})$,
    so
 
@@ -64,7 +64,7 @@ Each value's subscript says which variable takes it.
    with $(X_1, \ldots, X_{t-1})$ as the conditioning variable.
    The second line uses the display above.
    The third line sums over $x_1, \ldots, x_{t-N}$ first:
-   the entropy factor does not depend on them,
+   the second factor of each term does not depend on them,
    and summing $p(x_1, \ldots, x_{t-1})$ over them gives the [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x_{t-N+1}, \ldots, x_{t-1})$.
    The fourth line is @thm-conditional-entropy-average again.
 
@@ -84,7 +84,7 @@ Each value's subscript says which variable takes it.
    = \entropyf{X_{t-N+1}, \ldots, X_t} - \entropyf{X_{t-N+1}, \ldots, X_{t-1}}.
    $$
 
-   An entropy depends only on the joint probability mass function.
+   An [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) depends only on the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf).
    The [stationary sequence](#def-stationary-sequence) with shift $s = t - N$ gives
    $(X_{t-N+1}, \ldots, X_t)$ the same joint probability mass function as $(X_1, \ldots, X_N)$,
    and $(X_{t-N+1}, \ldots, X_{t-1})$ the same one as $(X_1, \ldots, X_{N-1})$.
@@ -164,7 +164,7 @@ Each value's subscript says which variable takes it.
    and the fourth is the definition of conditional probability again.
 
 4. Fix $t$ with $1 \le t \le n - N + 1$.
-   The argument of part 2 carries over,
+   The reasoning of part 2 carries over,
    with the later characters in place of the earlier ones
    and part 3 in place of the [$N$-gram model](#def-n-gram-model):
 
@@ -197,21 +197,21 @@ Each value's subscript says which variable takes it.
    $$
 
    Parts 2 and 4 give each character away from the ends of the text
-   the same conditional entropy in both directions,
-   and part 1 gives the whole text the same total in both directions.
+   the same conditional entropy forward and backward,
+   and part 1 gives the whole text the same total forward and backward.
    So the reversed text carries no more information per character than the text read forward.
    The two games tie only on average:
    in English, "q" is almost always followed by "u",
    but "u" is rarely preceded by "q",
-   so single predictions can be easy in one direction and hard in the other.
+   so a single guess can be easy one way and hard the other.
 
-   People find the backward game harder because their predictor is worse, not because the text holds more information.
-   A reader who predicts with a [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $q$
+   People find the backward game harder because their guesses are worse, not because the text holds more information.
+   A reader who guesses with a [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $q$
    in place of the true conditional probability mass function $p$
    spends $\crossentropyf{p}{q}$ [bits](#def-bit) per character on average,
    which exceeds $\entropyf{p}$ by $\kldivf{p}{q}$,
    by the [decomposition of cross-entropy](source-coding.qmd#thm-cross-entropy-decomposition).
-   Years of reading forward make $q$ close to $p$ in that direction,
+   Years of reading forward make $q$ close to $p$ for forward guessing,
    and no such practice makes it close backward.
 
 :::

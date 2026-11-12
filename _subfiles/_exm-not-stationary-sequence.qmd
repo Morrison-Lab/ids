@@ -3,7 +3,7 @@
 <!-- no-figure: the example is a short argument with no data to plot -->
 
 Let $X_1 = 0$, and let $X_t = 1 - X_{t-1}$ for each $t \ge 2$,
-so the sequence is $0, 1, 0, 1, \ldots$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$.
+so the [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) is $0, 1, 0, 1, \ldots$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$.
 The sequence is not a [stationary sequence](#def-stationary-sequence):
 with length $k = 1$ and shift $s = 1$,
 

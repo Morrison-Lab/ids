@@ -2,9 +2,9 @@
 #### Predicting a text backward
 
 A reader can guess a text one character at a time from its start,
-predicting each character from the characters already read.
+guessing each character from the characters already read.
 The reader can also guess it from its end,
-predicting each character from the characters that follow it.
+guessing each character from the characters that follow it.
 Most people find the backward game harder,
 so does a reversed text carry more information per character than the text read forward
 [@mackay2003information, exercise 8.11]?
@@ -31,7 +31,7 @@ and let $n \ge N$.
 
 3. For $1 \le t \le n - N + 1$, show that given all the later characters,
    $X_t$ depends only on the $N - 1$ characters just after it:
-   for all values $x_t, \ldots, x_n$ with $\P(X_{t+1} = x_{t+1}, \ldots, X_n = x_n) > 0$,
+   for every choice of values $x_t, \ldots, x_n$ with $\P(X_{t+1} = x_{t+1}, \ldots, X_n = x_n) > 0$,
 
    $$
    \P(X_t = x_t \mid X_{t+1} = x_{t+1}, \ldots, X_n = x_n)
