@@ -77,7 +77,7 @@ so these notes link to them and do not reuse their text.
 ## Further reading {.unnumbered}
 
 - Dave's [review of MacKay's *Information Theory, Inference, and Learning Algorithms*](https://dfd.github.io/mackay-itila/) (2024)
-  describes how the book connects compression, noisy-channel coding, Bayesian statistics and neural networks.
+  describes how the book connects compression, noisy-channel coding and neural networks.
 
 ## Using these notes in another site {.unnumbered}
 
