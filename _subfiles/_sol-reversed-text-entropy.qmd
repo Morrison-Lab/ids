@@ -111,7 +111,8 @@ Each value's subscript says which variable takes it.
    $$
 
    The first line is the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob-conditional), given $X_t, \ldots, X_{s-1}$.
-   The second line is the [$N$-gram model](#def-n-gram-model), which applies because $s > N$.
+   The second line is the [$N$-gram model](#def-n-gram-model),
+   which applies because $s > N$.
    The third line takes the factor that does not depend on $x_1, \ldots, x_{t-1}$ out of the sum.
    The fourth line uses that a conditional probability mass function sums to $1$.
    Because $s - N + 1 \ge t + 1$,
@@ -122,7 +123,8 @@ Each value's subscript says which variable takes it.
    $$R \eqdef \prod_{s=t+N}^{n} p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}),$$
 
    which is $1$ when $n = t + N - 1$.
-   No factor involves $x_t$, because each starts at $x_{s-N+1}$ with $s - N + 1 \ge t + 1$.
+   No factor involves $x_t$,
+   because each starts at $x_{s-N+1}$ with $s - N + 1 \ge t + 1$.
    Applying the [multiplication rule](https://morrison-lab.github.io/pds/probability-basics.html#thm-law-conditional-prob) once for each $s$ from $t + N$ to $n$,
    and then the cut above to each factor,
    gives
@@ -205,7 +207,8 @@ Each value's subscript says which variable takes it.
    but "u" is rarely preceded by "q",
    so a single guess can be easy one way and hard the other.
 
-   People find the backward game harder because their guesses are worse, not because the text holds more information.
+   People find the backward game harder because their guesses are worse,
+   not because the text holds more information.
    A reader who guesses with a [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $q$
    in place of the true conditional probability mass function $p$
    spends $\crossentropyf{p}{q}$ [bits](#def-bit) per character on average,
