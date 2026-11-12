@@ -398,6 +398,14 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 {{< include ids/_subfiles/_exm-not-n-gram-model.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exr-reversed-text-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_sol-reversed-text-entropy.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

@@ -1,0 +1,217 @@
+::: {#sol-reversed-text-entropy}
+
+To shorten the displays,
+write $p(x_a, \ldots, x_b)$ for $\P(X_a = x_a, \ldots, X_b = x_b)$,
+and $p(x_a \mid x_c, \ldots, x_d)$ for $\P(X_a = x_a \mid X_c = x_c, \ldots, X_d = x_d)$.
+Each value's subscript says which variable takes it.
+
+1. Listing the same variables in another order does not change their [joint entropy](#def-joint-entropy),
+   because the reordered vector takes each reordered value with the same [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
+   as in the proof of @cor-entropy-chain-rule-reversed.
+   For the same reason,
+   reordering the variables in a condition does not change a [conditional entropy](#def-conditional-entropy).
+   The [chain rule](#thm-entropy-chain-rule-n), with the variables in their usual order, gives
+
+   $$\entropyf{X_1, \ldots, X_n} = \sum_{t=1}^{n} \entropyf{X_t \mid X_1, \ldots, X_{t-1}}.$$
+
+   With the variables listed as $X_n, X_{n-1}, \ldots, X_1$,
+   the $i$th variable is $X_{n+1-i}$,
+   and the variables before it are $X_n, \ldots, X_{n+2-i}$.
+   So
+
+   $$
+   \begin{aligned}
+   \entropyf{X_1, \ldots, X_n}
+   &= \entropyf{X_n, \ldots, X_1} \\
+   &= \sum_{i=1}^{n} \entropyf{X_{n+1-i} \mid X_n, \ldots, X_{n+2-i}} \\
+   &= \sum_{t=1}^{n} \entropyf{X_t \mid X_n, \ldots, X_{t+1}} \\
+   &= \sum_{t=1}^{n} \entropyf{X_t \mid X_{t+1}, \ldots, X_n}.
+   \end{aligned}
+   $$
+
+   The first line reorders the joint entropy,
+   the second is the chain rule,
+   the third substitutes $t = n + 1 - i$,
+   and the fourth reorders each condition.
+   Both sums equal $\entropyf{X_1, \ldots, X_n}$,
+   so they equal each other.
+
+2. Fix $t$ with $N < t \le n$.
+   For values $x_1, \ldots, x_{t-1}$ with $p(x_1, \ldots, x_{t-1}) > 0$,
+   @def-entropy-given-value makes $\entropyf{X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}}$
+   a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) of the [conditional probability mass function](https://morrison-lab.github.io/pds/expectation.html#def-cond-pmf) $p(\cdot \mid x_1, \ldots, x_{t-1})$ alone.
+   The [$N$-gram model](#def-n-gram-model) makes that conditional probability mass function equal to $p(\cdot \mid x_{t-N+1}, \ldots, x_{t-1})$,
+   so
+
+   $$
+   \entropyf{X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}}
+   = \entropyf{X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}}.
+   $$
+
+   Then
+
+   $$
+   \begin{aligned}
+   \entropyf{X_t \mid X_1, \ldots, X_{t-1}}
+   &= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1}) \, \entropyf{X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}} \\
+   &= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1}) \, \entropyf{X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}} \\
+   &= \sum_{x_{t-N+1}, \ldots, x_{t-1}} p(x_{t-N+1}, \ldots, x_{t-1}) \, \entropyf{X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}} \\
+   &= \entropyf{X_t \mid X_{t-N+1}, \ldots, X_{t-1}}.
+   \end{aligned}
+   $$
+
+   The first line is @thm-conditional-entropy-average,
+   with $(X_1, \ldots, X_{t-1})$ as the conditioning variable.
+   The second line uses the display above.
+   The third line sums over $x_1, \ldots, x_{t-N}$ first:
+   the second factor of each term does not depend on them,
+   and summing $p(x_1, \ldots, x_{t-1})$ over them gives the [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x_{t-N+1}, \ldots, x_{t-1})$.
+   The fourth line is @thm-conditional-entropy-average again.
+
+   The two-variable [chain rule](#thm-entropy-chain-rule),
+   with $(X_{t-N+1}, \ldots, X_{t-1})$ as its first variable and $X_t$ as its second,
+   gives
+
+   $$
+   \entropyf{X_{t-N+1}, \ldots, X_t}
+   = \entropyf{X_{t-N+1}, \ldots, X_{t-1}} + \entropyf{X_t \mid X_{t-N+1}, \ldots, X_{t-1}}.
+   $$
+
+   Subtracting $\entropyf{X_{t-N+1}, \ldots, X_{t-1}}$ from both sides gives
+
+   $$
+   \entropyf{X_t \mid X_{t-N+1}, \ldots, X_{t-1}}
+   = \entropyf{X_{t-N+1}, \ldots, X_t} - \entropyf{X_{t-N+1}, \ldots, X_{t-1}}.
+   $$
+
+   An [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) depends only on the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf).
+   The [stationary sequence](#def-stationary-sequence) with shift $s = t - N$ gives
+   $(X_{t-N+1}, \ldots, X_t)$ the same joint probability mass function as $(X_1, \ldots, X_N)$,
+   and $(X_{t-N+1}, \ldots, X_{t-1})$ the same one as $(X_1, \ldots, X_{N-1})$.
+   So
+
+   $$
+   \entropyf{X_t \mid X_1, \ldots, X_{t-1}}
+   = \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
+   $$
+
+3. Fix $t$ with $1 \le t \le n - N + 1$.
+   First, for each $s$ with $t + N \le s \le n$,
+   the condition on $X_t, \ldots, X_{s-1}$ can be cut to the $N - 1$ variables just before $X_s$:
+   for values with $p(x_t, \ldots, x_{s-1}) > 0$,
+
+   $$
+   \begin{aligned}
+   p(x_s \mid x_t, \ldots, x_{s-1})
+   &= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1} \mid x_t, \ldots, x_{s-1}) \, p(x_s \mid x_1, \ldots, x_{s-1}) \\
+   &= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1} \mid x_t, \ldots, x_{s-1}) \, p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}) \\
+   &= p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}) \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1} \mid x_t, \ldots, x_{s-1}) \\
+   &= p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}).
+   \end{aligned}
+   $$
+
+   The first line is the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob-conditional), given $X_t, \ldots, X_{s-1}$.
+   The second line is the [$N$-gram model](#def-n-gram-model), which applies because $s > N$.
+   The third line takes the factor that does not depend on $x_1, \ldots, x_{t-1}$ out of the sum.
+   The fourth line uses that a conditional probability mass function sums to $1$.
+   Because $s - N + 1 \ge t + 1$,
+   the same holds with $t + 1$ in place of $t$.
+
+   Write $R$ for the product of these factors:
+
+   $$R \eqdef \prod_{s=t+N}^{n} p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}),$$
+
+   which is $1$ when $n = t + N - 1$.
+   No factor involves $x_t$, because each starts at $x_{s-N+1}$ with $s - N + 1 \ge t + 1$.
+   Applying the [multiplication rule](https://morrison-lab.github.io/pds/probability-basics.html#thm-law-conditional-prob) once for each $s$ from $t + N$ to $n$,
+   and then the cut above to each factor,
+   gives
+
+   $$
+   \begin{aligned}
+   p(x_t, \ldots, x_n)
+   &= p(x_t, \ldots, x_{t+N-1}) \prod_{s=t+N}^{n} p(x_s \mid x_t, \ldots, x_{s-1}) \\
+   &= p(x_t, \ldots, x_{t+N-1}) \, R.
+   \end{aligned}
+   $$
+
+   The same two steps, starting from $x_{t+1}$, give
+
+   $$
+   \begin{aligned}
+   p(x_{t+1}, \ldots, x_n)
+   &= p(x_{t+1}, \ldots, x_{t+N-1}) \prod_{s=t+N}^{n} p(x_s \mid x_{t+1}, \ldots, x_{s-1}) \\
+   &= p(x_{t+1}, \ldots, x_{t+N-1}) \, R.
+   \end{aligned}
+   $$
+
+   The left side of the second display is positive by assumption,
+   so $R > 0$ and $p(x_{t+1}, \ldots, x_{t+N-1}) > 0$.
+   By the definition of [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob),
+
+   $$
+   \begin{aligned}
+   p(x_t \mid x_{t+1}, \ldots, x_n)
+   &= \frac{p(x_t, \ldots, x_n)}{p(x_{t+1}, \ldots, x_n)} \\
+   &= \frac{p(x_t, \ldots, x_{t+N-1}) \, R}{p(x_{t+1}, \ldots, x_{t+N-1}) \, R} \\
+   &= \frac{p(x_t, \ldots, x_{t+N-1})}{p(x_{t+1}, \ldots, x_{t+N-1})} \\
+   &= p(x_t \mid x_{t+1}, \ldots, x_{t+N-1}).
+   \end{aligned}
+   $$
+
+   The second line substitutes the two displays above,
+   the third cancels $R$,
+   and the fourth is the definition of conditional probability again.
+
+4. Fix $t$ with $1 \le t \le n - N + 1$.
+   The reasoning of part 2 carries over,
+   with the later characters in place of the earlier ones
+   and part 3 in place of the [$N$-gram model](#def-n-gram-model):
+
+   $$
+   \begin{aligned}
+   \entropyf{X_t \mid X_{t+1}, \ldots, X_n}
+   &= \sum_{x_{t+1}, \ldots, x_n} p(x_{t+1}, \ldots, x_n) \, \entropyf{X_t \mid X_{t+1} = x_{t+1}, \ldots, X_n = x_n} \\
+   &= \sum_{x_{t+1}, \ldots, x_n} p(x_{t+1}, \ldots, x_n) \, \entropyf{X_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}} \\
+   &= \sum_{x_{t+1}, \ldots, x_{t+N-1}} p(x_{t+1}, \ldots, x_{t+N-1}) \, \entropyf{X_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}} \\
+   &= \entropyf{X_t \mid X_{t+1}, \ldots, X_{t+N-1}}.
+   \end{aligned}
+   $$
+
+   The [chain rule](#thm-entropy-chain-rule), with $(X_{t+1}, \ldots, X_{t+N-1})$ as its first variable,
+   then gives
+
+   $$
+   \entropyf{X_t \mid X_{t+1}, \ldots, X_{t+N-1}}
+   = \entropyf{X_t, \ldots, X_{t+N-1}} - \entropyf{X_{t+1}, \ldots, X_{t+N-1}}.
+   $$
+
+   The [stationary sequence](#def-stationary-sequence) with shift $s = t - 1$ gives
+   $(X_t, \ldots, X_{t+N-1})$ the same joint probability mass function as $(X_1, \ldots, X_N)$,
+   and with shift $s = t$ it gives $(X_{t+1}, \ldots, X_{t+N-1})$ the same one as $(X_1, \ldots, X_{N-1})$.
+   So
+
+   $$
+   \entropyf{X_t \mid X_{t+1}, \ldots, X_n}
+   = \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
+   $$
+
+   Parts 2 and 4 give each character away from the ends of the text
+   the same conditional entropy forward and backward,
+   and part 1 gives the whole text the same total forward and backward.
+   So the reversed text carries no more information per character than the text read forward.
+   The two games tie only on average:
+   in English, "q" is almost always followed by "u",
+   but "u" is rarely preceded by "q",
+   so a single guess can be easy one way and hard the other.
+
+   People find the backward game harder because their guesses are worse, not because the text holds more information.
+   A reader who guesses with a [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $q$
+   in place of the true conditional probability mass function $p$
+   spends $\crossentropyf{p}{q}$ [bits](#def-bit) per character on average,
+   which exceeds $\entropyf{p}$ by $\kldivf{p}{q}$,
+   by the [decomposition of cross-entropy](source-coding.qmd#thm-cross-entropy-decomposition).
+   Years of reading forward make $q$ close to $p$ for forward guessing,
+   and no such practice makes it close backward.
+
+:::
