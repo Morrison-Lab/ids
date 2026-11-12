@@ -24,7 +24,7 @@ Ten tosses that all land heads have probability $2^{-10}$, so
 
 $$
 \begin{aligned}
-s(\text{ten heads})
+\surprisalf{\text{ten heads}}
 &= -\log_2 2^{-10} \\
 &= 10 \text{ bits}.
 \end{aligned}

@@ -10,7 +10,7 @@ for a value $x$ of a [discrete random variable](https://morrison-lab.github.io/p
 
 $$
 \begin{aligned}
-s(x) = 1 \text{ bit}
+\surprisalf{x} = 1 \text{ bit}
 &\iff -\log_2 \P(X=x) = 1\\
 &\iff \P(X=x) = 2^{-1} = \tfrac{1}{2}.
 \end{aligned}

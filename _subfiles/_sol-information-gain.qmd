@@ -4,7 +4,7 @@
 
    $$
    \begin{aligned}
-   H(Y)
+   \entropyf{Y}
    &= -\tfrac{1}{2} \log_2 \tfrac{1}{2} - \tfrac{1}{2} \log_2 \tfrac{1}{2} \\
    &= 1 \text{ bit}.
    \end{aligned}
@@ -15,7 +15,7 @@
 
    $$
    \begin{aligned}
-   H(Y \mid X = \text{no})
+   \entropyf{Y \mid X = \text{no}}
    &= -\tfrac{6}{16} \log_2 \tfrac{6}{16} - \tfrac{10}{16} \log_2 \tfrac{10}{16} \\
    &\approx 0.531 + 0.424 \\
    &\approx 0.954 \text{ bits}.
@@ -26,7 +26,7 @@
 
    $$
    \begin{aligned}
-   H(Y \mid X)
+   \entropyf{Y \mid X}
    &= \tfrac{4}{20} \cdot 0 + \tfrac{16}{20} \cdot 0.954 \\
    &\approx 0.764 \text{ bits}.
    \end{aligned}
@@ -36,7 +36,7 @@
 
    $$
    \begin{aligned}
-   H(Y \mid X = \text{yes})
+   \entropyf{Y \mid X = \text{yes}}
    &= -\tfrac{1}{3} \log_2 \tfrac{1}{3} - \tfrac{2}{3} \log_2 \tfrac{2}{3} \\
    &\approx 0.528 + 0.390 \\
    &\approx 0.918 \text{ bits}.
@@ -47,13 +47,13 @@
 
    $$
    \begin{aligned}
-   H(Y \mid X)
+   \entropyf{Y \mid X}
    &= \tfrac{15}{20} \cdot 0.918 + \tfrac{5}{20} \cdot 0 \\
    &\approx 0.689 \text{ bits}.
    \end{aligned}
    $$
 
-3. By @thm-mutual-information-reduction, the gain is $H(Y) - H(Y \mid X)$:
+3. By @thm-mutual-information-reduction, the gain is $\entropyf{Y} - \entropyf{Y \mid X}$:
 
    - split A: $1 - 0.764 = 0.236$ [bits](entropy.qmd#def-bit)
    - split B: $1 - 0.689 = 0.311$ bits

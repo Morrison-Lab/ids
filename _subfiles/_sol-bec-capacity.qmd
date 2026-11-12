@@ -3,29 +3,29 @@
 1. Given $X = x$, the output is $x$ with
    [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \alpha$
    and $\mathrm{e}$ with probability $\alpha$,
-   so $H(Y \mid X = x) = h(\alpha)$ for both values of $x$,
-   and averaging over $x$ gives $H(Y \mid X) = h(\alpha)$.
+   so $\entropyf{Y \mid X = x} = h(\alpha)$ for both values of $x$,
+   and averaging over $x$ gives $\entropyf{Y \mid X} = h(\alpha)$.
 
 2. The chain rule gives
 
-   $$H(Y) + H(E \mid Y) = H(Y, E) = H(E) + H(Y \mid E).$$
+   $$\entropyf{Y} + \entropyf{E \mid Y} = \entropyf{Y, E} = \entropyf{E} + \entropyf{Y \mid E}.$$
 
    Each value $y$ of $Y$ fixes $E$,
-   so $H(E \mid Y = y) = 0$ for every $y$, and $H(E \mid Y) = 0$.
-   Hence $H(Y) = H(E) + H(Y \mid E)$.
+   so $\entropyf{E \mid Y = y} = 0$ for every $y$, and $\entropyf{E \mid Y} = 0$.
+   Hence $\entropyf{Y} = \entropyf{E} + \entropyf{Y \mid E}$.
 
 3. The channel erases with probability $\alpha$ whatever the [input](#def-channel),
-   so $E$ is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $X$ and $H(E) = h(\alpha)$.
-   Given $E = 1$, $Y = \mathrm{e}$ for certain, so $H(Y \mid E = 1) = 0$.
+   so $E$ is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $X$ and $\entropyf{E} = h(\alpha)$.
+   Given $E = 1$, $Y = \mathrm{e}$ for certain, so $\entropyf{Y \mid E = 1} = 0$.
    Given $E = 0$, $Y = X$, and since $E$ is independent of $X$,
    $\P(Y = 1 \mid E = 0) = \P(X = 1) = \pi$,
-   so $H(Y \mid E = 0) = h(\pi)$.
+   so $\entropyf{Y \mid E = 0} = h(\pi)$.
    Therefore
 
    $$
    \begin{aligned}
-   H(Y)
-   &= H(E) + \P(E = 1) \, H(Y \mid E = 1) + \P(E = 0) \, H(Y \mid E = 0) \\
+   \entropyf{Y}
+   &= \entropyf{E} + \P(E = 1) \, \entropyf{Y \mid E = 1} + \P(E = 0) \, \entropyf{Y \mid E = 0} \\
    &= h(\alpha) + \alpha \cdot 0 + (1 - \alpha) \, h(\pi) \\
    &= h(\alpha) + (1 - \alpha) \, h(\pi).
    \end{aligned}
@@ -36,7 +36,7 @@
    $$
    \begin{aligned}
    \mutinfof{X}{Y}
-   &= H(Y) - H(Y \mid X) \\
+   &= \entropyf{Y} - \entropyf{Y \mid X} \\
    &= h(\alpha) + (1 - \alpha) \, h(\pi) - h(\alpha) \\
    &= (1 - \alpha) \, h(\pi).
    \end{aligned}
