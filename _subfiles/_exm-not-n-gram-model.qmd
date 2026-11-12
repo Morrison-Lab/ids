@@ -1,0 +1,21 @@
+:::{#exm-not-n-gram-model}
+#### A sequence that repeats every second value
+<!-- no-figure: the example is a short argument with no data to plot -->
+
+Let $X_1$ and $X_2$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coin tosses, coded $0$ or $1$,
+and let $X_t = X_{t-2}$ for each $t \ge 3$.
+The [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) is not a 2-gram model (@def-n-gram-model).
+Given both earlier tosses, $X_3$ is fixed:
+
+$$\P(X_3 = 0 \mid X_1 = 0, X_2 = 0) = 1.$$
+
+Given $X_2$ alone, $X_3 = X_1$ is still a fair coin,
+because $X_1$ is independent of $X_2$:
+
+$$\P(X_3 = 0 \mid X_2 = 0) = \frac{1}{2}.$$
+
+The sequence is a 3-gram model,
+because $X_t$ is fixed by $X_{t-2}$,
+one of the two variables just before it.
+
+:::
