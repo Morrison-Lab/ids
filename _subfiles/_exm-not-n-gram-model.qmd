@@ -9,10 +9,13 @@ Given both earlier tosses, $X_3$ is fixed:
 
 $$\P(X_3 = 0 \mid X_1 = 0, X_2 = 0) = 1.$$
 
-Given $X_2$ alone, $X_3 = X_1$ is still a fair coin, because $X_1$ is independent of $X_2$:
+Given $X_2$ alone, $X_3 = X_1$ is still a fair coin,
+because $X_1$ is independent of $X_2$:
 
 $$\P(X_3 = 0 \mid X_2 = 0) = \frac{1}{2}.$$
 
-The sequence is a 3-gram model, because $X_t$ is fixed by $X_{t-2}$, one of the two variables just before it.
+The sequence is a 3-gram model,
+because $X_t$ is fixed by $X_{t-2}$,
+one of the two variables just before it.
 
 :::
