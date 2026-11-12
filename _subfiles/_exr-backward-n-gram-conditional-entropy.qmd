@@ -1,0 +1,18 @@
+::: {#exr-backward-n-gram-conditional-entropy}
+#### Conditional entropy of an $N$-gram model read backward
+
+Let $X_1, X_2, \ldots$ be a [stationary sequence](#def-stationary-sequence)
+that is also an [$N$-gram model](#def-n-gram-model) with $N \ge 2$,
+let $n \ge N$,
+and let $1 \le t \le n - N + 1$.
+Use @exr-reversed-n-gram-model to show that the backward [conditional entropy](#def-conditional-entropy) of $X_t$ is
+
+$$
+\entropyf{X_t \mid X_{t+1}, \ldots, X_n}
+= \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
+$$
+
+Together with @exr-reversed-text-total-entropy and @exr-forward-n-gram-conditional-entropy,
+what does this say about the two guessing games in @rem-reversed-text-guessing?
+
+:::

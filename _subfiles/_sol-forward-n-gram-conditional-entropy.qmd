@@ -1,0 +1,66 @@
+::: {#sol-forward-n-gram-conditional-entropy}
+
+To shorten the displays,
+write $p(x_a, \ldots, x_b)$ for $\P(X_a = x_a, \ldots, X_b = x_b)$,
+and $p(x_a \mid x_c, \ldots, x_d)$ for $\P(X_a = x_a \mid X_c = x_c, \ldots, X_d = x_d)$.
+Each value's subscript says which variable takes it.
+
+For values $x_1, \ldots, x_{t-1}$ with $p(x_1, \ldots, x_{t-1}) > 0$,
+@def-entropy-given-value makes $\entropyf{X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}}$
+a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) of the [conditional probability mass function](https://morrison-lab.github.io/pds/expectation.html#def-cond-pmf) $p(\cdot \mid x_1, \ldots, x_{t-1})$ alone.
+The [$N$-gram model](#def-n-gram-model) makes that conditional probability mass function equal to $p(\cdot \mid x_{t-N+1}, \ldots, x_{t-1})$,
+so
+
+$$
+\entropyf{X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}}
+= \entropyf{X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\entropyf{X_t \mid X_1, \ldots, X_{t-1}}
+&= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1}) \, \entropyf{X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}} \\
+&= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1}) \, \entropyf{X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}} \\
+&= \sum_{x_{t-N+1}, \ldots, x_{t-1}} p(x_{t-N+1}, \ldots, x_{t-1}) \, \entropyf{X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}} \\
+&= \entropyf{X_t \mid X_{t-N+1}, \ldots, X_{t-1}}.
+\end{aligned}
+$$
+
+The first line is @thm-conditional-entropy-average,
+with $(X_1, \ldots, X_{t-1})$ as the conditioning variable.
+The second line uses the display above.
+The third line sums over $x_1, \ldots, x_{t-N}$ first:
+the second factor of each term does not depend on them,
+and summing $p(x_1, \ldots, x_{t-1})$ over them gives the [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x_{t-N+1}, \ldots, x_{t-1})$.
+The fourth line is @thm-conditional-entropy-average again.
+
+The two-variable [chain rule](#thm-entropy-chain-rule),
+with $(X_{t-N+1}, \ldots, X_{t-1})$ as its first variable and $X_t$ as its second,
+gives
+
+$$
+\entropyf{X_{t-N+1}, \ldots, X_t}
+= \entropyf{X_{t-N+1}, \ldots, X_{t-1}} + \entropyf{X_t \mid X_{t-N+1}, \ldots, X_{t-1}}.
+$$
+
+Subtracting $\entropyf{X_{t-N+1}, \ldots, X_{t-1}}$ from both sides gives
+
+$$
+\entropyf{X_t \mid X_{t-N+1}, \ldots, X_{t-1}}
+= \entropyf{X_{t-N+1}, \ldots, X_t} - \entropyf{X_{t-N+1}, \ldots, X_{t-1}}.
+$$
+
+An [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) depends only on the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf).
+The [stationary sequence](#def-stationary-sequence) with shift $s = t - N$ gives
+$(X_{t-N+1}, \ldots, X_t)$ the same joint probability mass function as $(X_1, \ldots, X_N)$,
+and $(X_{t-N+1}, \ldots, X_{t-1})$ the same one as $(X_1, \ldots, X_{N-1})$.
+So
+
+$$
+\entropyf{X_t \mid X_1, \ldots, X_{t-1}}
+= \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
+$$
+
+:::

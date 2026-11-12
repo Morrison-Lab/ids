@@ -1,0 +1,14 @@
+::: {#exr-forward-n-gram-conditional-entropy}
+#### Conditional entropy of an $N$-gram model read forward
+
+Let $X_1, X_2, \ldots$ be a [stationary sequence](#def-stationary-sequence)
+that is also an [$N$-gram model](#def-n-gram-model) with $N \ge 2$.
+For every $t > N$,
+show that the forward [conditional entropy](#def-conditional-entropy) of $X_t$ is
+
+$$
+\entropyf{X_t \mid X_1, \ldots, X_{t-1}}
+= \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
+$$
+
+:::
