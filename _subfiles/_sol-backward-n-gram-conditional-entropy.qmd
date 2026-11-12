@@ -1,0 +1,44 @@
+::: {#sol-backward-n-gram-conditional-entropy}
+
+To shorten the displays,
+write $p(x_a, \ldots, x_b)$ for $\P(X_a = x_a, \ldots, X_b = x_b)$.
+Each value's subscript says which variable takes it.
+
+The reasoning of @sol-forward-n-gram-conditional-entropy carries over,
+with the later variables in place of the earlier ones
+and @exr-reversed-n-gram-model in place of the [$N$-gram model](#def-n-gram-model):
+
+$$
+\begin{aligned}
+\entropyf{X_t \mid X_{t+1}, \ldots, X_n}
+&= \sum_{x_{t+1}, \ldots, x_n} p(x_{t+1}, \ldots, x_n) \, \entropyf{X_t \mid X_{t+1} = x_{t+1}, \ldots, X_n = x_n} \\
+&= \sum_{x_{t+1}, \ldots, x_n} p(x_{t+1}, \ldots, x_n) \, \entropyf{X_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}} \\
+&= \sum_{x_{t+1}, \ldots, x_{t+N-1}} p(x_{t+1}, \ldots, x_{t+N-1}) \, \entropyf{X_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}} \\
+&= \entropyf{X_t \mid X_{t+1}, \ldots, X_{t+N-1}}.
+\end{aligned}
+$$
+
+The first and fourth lines are @thm-conditional-entropy-average.
+The second line uses @exr-reversed-n-gram-model and @def-entropy-given-value.
+The third line sums over $x_{t+N}, \ldots, x_n$ first,
+which gives the [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x_{t+1}, \ldots, x_{t+N-1})$.
+
+The [chain rule](#thm-entropy-chain-rule), with $(X_{t+1}, \ldots, X_{t+N-1})$ as its first variable,
+then gives
+
+$$
+\entropyf{X_t \mid X_{t+1}, \ldots, X_{t+N-1}}
+= \entropyf{X_t, \ldots, X_{t+N-1}} - \entropyf{X_{t+1}, \ldots, X_{t+N-1}}.
+$$
+
+The [stationary sequence](#def-stationary-sequence) with shift $s = t - 1$ gives
+$(X_t, \ldots, X_{t+N-1})$ the same [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) as $(X_1, \ldots, X_N)$,
+and with shift $s = t$ it gives $(X_{t+1}, \ldots, X_{t+N-1})$ the same one as $(X_1, \ldots, X_{N-1})$.
+So
+
+$$
+\entropyf{X_t \mid X_{t+1}, \ldots, X_n}
+= \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
+$$
+
+:::

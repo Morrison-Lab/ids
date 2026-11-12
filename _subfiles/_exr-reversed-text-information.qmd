@@ -1,0 +1,8 @@
+::: {#exr-reversed-text-information}
+#### Which guessing game is harder?
+
+Use @exr-reversed-text-total-entropy, @exr-forward-n-gram-conditional-entropy and @exr-backward-n-gram-conditional-entropy
+to compare the information per character in a reversed text and in the text read forward,
+and use that comparison to explain the difference in difficulty described in @rem-reversed-text-guessing.
+
+:::
