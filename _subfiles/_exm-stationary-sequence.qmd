@@ -1,0 +1,20 @@
+:::{#exm-stationary-sequence}
+#### A sticky coin
+<!-- no-figure: the example is a short argument with no data to plot -->
+
+Let $X_1$ be a fair coin toss, coded $0$ or $1$.
+For each $t \ge 2$, let $X_t$ equal $X_{t-1}$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.9$
+and $1 - X_{t-1}$ with probability $0.1$,
+independently of $X_1, \ldots, X_{t-2}$ given $X_{t-1}$.
+If $X_{t-1}$ is fair, then so is $X_t$, because
+
+$$\P(X_t = 1) = 0.9 \cdot \tfrac{1}{2} + 0.1 \cdot \tfrac{1}{2},$$
+
+which is $1/2$.
+So, by [induction](https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction) on $t$, every $X_t$ is $0$ or $1$ with probability $1/2$.
+The probability that $k$ consecutive tosses take given values
+is then $1/2$ times $0.9$ for each repeat and $0.1$ for each switch,
+whichever toss the run starts at.
+So the sticky coin is a [stationary sequence](#def-stationary-sequence).
+
+:::

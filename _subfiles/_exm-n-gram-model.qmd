@@ -1,0 +1,11 @@
+:::{#exm-n-gram-model}
+#### The sticky coin is a 2-gram model
+<!-- no-figure: the example is a short argument with no data to plot -->
+
+In the [sticky coin](#exm-stationary-sequence),
+given all the earlier tosses,
+$X_t$ repeats $X_{t-1}$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.9$.
+That [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) involves only the one toss just before $X_t$,
+so the sticky coin is a 2-gram model (@def-n-gram-model).
+
+:::

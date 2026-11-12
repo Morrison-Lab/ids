@@ -372,6 +372,40 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 {{< include ids/_subfiles/_exm-data-processing-inequality-noisy-copies.qmd >}}
 
+## Entropy of a sequence read backward {#sec-sequence-read-backward}
+
+<!-- No slidebreak here: the heading shares its slide with the def-stationary-sequence div. -->
+
+{{< include ids/_subfiles/_def-stationary-sequence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-stationary-sequence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-not-stationary-sequence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-n-gram-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-n-gram-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-not-n-gram-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exr-reversed-text-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_sol-reversed-text-entropy.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}
