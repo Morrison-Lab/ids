@@ -2,8 +2,7 @@
 #### Which guessing game is harder?
 
 Use @exr-reversed-text-total-entropy, @exr-forward-n-gram-conditional-entropy and @exr-backward-n-gram-conditional-entropy
-to answer the question in @rem-reversed-text-guessing:
-does a reversed text carry more information per character than the text read forward?
-If not, why do people find the backward game harder?
+to compare the information per character in a reversed text and in the text read forward,
+and use that comparison to explain the difference in difficulty described in @rem-reversed-text-guessing.
 
 :::
