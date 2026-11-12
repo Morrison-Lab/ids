@@ -418,6 +418,22 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 {{< include ids/_subfiles/_sol-forward-n-gram-conditional-entropy.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exr-reversed-n-gram-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_sol-reversed-n-gram-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exr-backward-n-gram-conditional-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_sol-backward-n-gram-conditional-entropy.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}
