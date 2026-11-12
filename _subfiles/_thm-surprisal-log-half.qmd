@@ -5,7 +5,7 @@ For a [value](https://morrison-lab.github.io/pds/random-variables.html#def-reali
 with $\P(X=x) > 0$,
 the [surprisal](#def-surprisal) in [bits](#def-bit) is
 
-$$s(x) = \log_{1/2} \P(X=x).$$
+$$\surprisalf{x} = \log_{1/2} \P(X=x).$$
 
 :::
 
@@ -26,7 +26,7 @@ $$
 &= \frac{\logf{p}}{-\logf{2}} \\
 &= -\frac{\logf{p}}{\logf{2}} \\
 &= -\log_2 p \\
-&= s(x).
+&= \surprisalf{x}.
 \end{aligned}
 $$
 

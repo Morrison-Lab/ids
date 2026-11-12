@@ -17,23 +17,23 @@ A uniform [input](#def-channel) achieves it.
 Fix any [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) for $X$.
 By [mutual information as a reduction in entropy](entropy.qmd#thm-mutual-information-reduction),
 
-$$\mutinfof{X}{Y} = H(Y) - H(Y \mid X).$$
+$$\mutinfof{X}{Y} = \entropyf{Y} - \entropyf{Y \mid X}.$$
 
 Given $X = x$, the output equals $x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \epsilon$
 and differs from it with probability $\epsilon$,
 so the [entropy of $Y$ given $X = x$](entropy.qmd#def-entropy-given-value)
 is $h(\epsilon)$ for both values of $x$.
 Averaging over $x$, the [conditional entropy](entropy.qmd#def-conditional-entropy)
-is $H(Y \mid X) = h(\epsilon)$, whatever $X$ is.
+is $\entropyf{Y \mid X} = h(\epsilon)$, whatever $X$ is.
 
-$Y$ takes two values, so $H(Y) \le \log_2 2 = 1$ [bit](entropy.qmd#def-bit)
+$Y$ takes two values, so $\entropyf{Y} \le \log_2 2 = 1$ [bit](entropy.qmd#def-bit)
 [@cover2006elements, section 2.6].
 Therefore
 
 $$
 \begin{aligned}
 \mutinfof{X}{Y}
-&= H(Y) - h(\epsilon) \\
+&= \entropyf{Y} - h(\epsilon) \\
 &\le 1 - h(\epsilon).
 \end{aligned}
 $$
@@ -49,7 +49,7 @@ $$
 \end{aligned}
 $$
 
-so $H(Y) = 1$ bit and $\mutinfof{X}{Y} = 1 - h(\epsilon)$.
+so $\entropyf{Y} = 1$ bit and $\mutinfof{X}{Y} = 1 - h(\epsilon)$.
 This value is attained, so it is the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) $C$.
 
 :::

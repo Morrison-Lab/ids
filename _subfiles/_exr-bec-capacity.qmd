@@ -8,13 +8,13 @@ Let $E$ be $1$ if the output $Y$ is the erasure symbol $\mathrm{e}$, and $0$ oth
 Use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) and the
 [binary entropy function](#def-binary-entropy) $h$.
 
-1. Show that $H(Y \mid X) = h(\alpha)$.
+1. Show that $\entropyf{Y \mid X} = h(\alpha)$.
 
 2. $E$ is a function of $Y$.
    Use the [chain rule for entropy](entropy.qmd#thm-entropy-chain-rule),
-   expanded in both orders, to show that $H(Y) = H(E) + H(Y \mid E)$.
+   expanded in both orders, to show that $\entropyf{Y} = \entropyf{E} + \entropyf{Y \mid E}$.
 
-3. Show that $H(Y) = h(\alpha) + (1 - \alpha) \, h(\pi)$.
+3. Show that $\entropyf{Y} = h(\alpha) + (1 - \alpha) \, h(\pi)$.
 
 4. Conclude that the [capacity](channel-capacity.qmd#def-channel-capacity) is
    $C = 1 - \alpha$ [bits](entropy.qmd#def-bit) per channel use.
