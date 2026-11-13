@@ -320,7 +320,15 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 ## Chain rules {#sec-chain-rules}
 
-<!-- No slidebreak here: the heading shares its slide with the thm-entropy-chain-rule-n div. -->
+<!-- No slidebreak here: the heading shares its slide with the thm-surprisal-chain-rule-n div. -->
+
+{{< include ids/_subfiles/_thm-surprisal-chain-rule-n.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-surprisal-chain-rule-n-copies.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include ids/_subfiles/_thm-entropy-chain-rule-n.qmd >}}
 

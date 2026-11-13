@@ -1,0 +1,32 @@
+:::{#exm-surprisal-chain-rule-n-copies}
+#### Chain rule for surprisal along a chain of noisy copies
+<!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
+
+Let $X_1$ be a fair coin toss, coded $0$ or $1$.
+Let $X_2$ be a noisy copy of $X_1$ that flips it with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.2$,
+and let $X_3$ be a noisy copy of $X_2$ that flips it with probability $0.2$,
+independently of $X_1$ given $X_2$.
+The chunk computes the [surprisals](#def-surprisal) of the values $(x_1, x_2, x_3) = (0, 0, 1)$, in [bits](#def-bit),
+and compares the [joint surprisal](#def-joint-surprisal) with the sum in @thm-surprisal-chain-rule-n.
+
+```{r}
+#| code-fold: show
+s_x1 <- -log2(0.5)
+s_x2_given_x1 <- -log2(0.8)
+s_x3_given_x12 <- -log2(0.2)
+s_joint <- -log2(0.5 * 0.8 * 0.2)
+c(sum = s_x1 + s_x2_given_x1 + s_x3_given_x12, joint = s_joint)
+```
+
+The first term of the sum is $\surprisalf{0} = `r round(s_x1, 3)`$ [bit](#def-bit).
+The second is the [conditional surprisal](#def-conditional-surprisal) of $x_2 = 0$ given $x_1 = 0$,
+a copy that keeps its value,
+so $\surprisalf{0 \mid 0} = `r round(s_x2_given_x1, 3)`$ bits.
+The third is the conditional surprisal of $x_3 = 1$ given $(x_1, x_2) = (0, 0)$,
+a copy that flips,
+so $\surprisalf{1 \mid 0, 0} = `r round(s_x3_given_x12, 3)`$ bits.
+The sum is $`r round(s_x1 + s_x2_given_x1 + s_x3_given_x12, 3)`$ bits,
+which equals $\surprisalf{0, 0, 1} = `r round(s_joint, 3)`$ bits.
+The rare flip from $X_2$ to $X_3$ carries most of the surprisal.
+
+:::

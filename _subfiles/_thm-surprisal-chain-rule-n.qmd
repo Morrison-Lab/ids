@@ -1,0 +1,37 @@
+:::{#thm-surprisal-chain-rule-n}
+#### Chain rule for surprisal, many variables
+
+For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$
+and [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x_1, \ldots, x_n$ with $\P(X_1=x_1, \ldots, X_n=x_n) > 0$,
+
+$$\surprisalf{x_1, \ldots, x_n} = \sum_{i=1}^{n} \surprisalf{x_i \mid x_1, \ldots, x_{i-1}},$$
+
+where the term for $i = 1$ is $\surprisalf{x_1}$.
+
+:::
+
+::: {.proof}
+
+The proof is by [induction](https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction) on $n$.
+The claim for $n = 1$ is $\surprisalf{x_1} = \surprisalf{x_1}$.
+
+Let $n \ge 2$,
+and suppose the claim holds for $n - 1$ variables.
+Treat $(X_1, \ldots, X_{n-1})$ as a single variable, with value $(x_1, \ldots, x_{n-1})$.
+That value has positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
+since $\P(X_1=x_1, \ldots, X_{n-1}=x_{n-1}) \ge \P(X_1=x_1, \ldots, X_n=x_n) > 0$.
+The chain rule for two variables (@thm-surprisal-chain-rule) gives
+
+$$\surprisalf{x_1, \ldots, x_n} = \surprisalf{x_1, \ldots, x_{n-1}} + \surprisalf{x_n \mid x_1, \ldots, x_{n-1}}.$$
+
+The induction hypothesis expands the first summand on the right:
+
+$$
+\begin{aligned}
+\surprisalf{x_1, \ldots, x_n}
+&= \sum_{i=1}^{n-1} \surprisalf{x_i \mid x_1, \ldots, x_{i-1}} + \surprisalf{x_n \mid x_1, \ldots, x_{n-1}} \\
+&= \sum_{i=1}^{n} \surprisalf{x_i \mid x_1, \ldots, x_{i-1}}.
+\end{aligned}
+$$
+
+:::
