@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 15:52:42 (PST)
+Last modified: 2026-11-12 15:58:09 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
@@ -1530,6 +1530,178 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > $$\mathbb{P}(X_3 = 0 \mid X_2 = 0) = \frac{1}{2}.$$
 >
 > The sequence is a 3-gram model, because $X_t$ is fixed by $X_{t-2}$, one of the two variables just before it.
+
+> **NOTE:**
+>
+> *Remark 17* (Guessing a text backward). A reader can guess a text one character at a time from its start, guessing each character from the characters already read. The reader can also guess it from its end, guessing each character from the characters that follow it. Most people find the backward game harder. That raises a question: does a reversed text carry more information per character than the text read forward ([MacKay 2003](#ref-mackay2003information), exercise 8.11)?
+
+> **NOTE:**
+>
+> **Exercise 2 (The whole text costs the same in both orders)** Let $X_1, \ldots, X_n$ be [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv). Use the [chain rule for entropy](#thm-entropy-chain-rule-n), with the variables listed in each of two orders, to show that
+>
+> $$\sum_{t=1}^{n} {\mathbb{H}\mathopen{}\left(X_t \mid X_1, \ldots, X_{t-1}\right)\mathclose{}}
+> = \sum_{t=1}^{n} {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_n\right)\mathclose{}},$$
+>
+> where the term for $t = 1$ on the left and the term for $t = n$ on the right are unconditional [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
+
+> **NOTE:**
+>
+> *Solution 2*. Listing the same variables in another order does not change their [joint entropy](#def-joint-entropy), because the reordered vector takes each reordered value with the same [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), as in the proof of [Corollary 3](#cor-entropy-chain-rule-reversed). For the same reason, reordering the variables in a condition does not change a [conditional entropy](#def-conditional-entropy). The [chain rule](#thm-entropy-chain-rule-n), with the variables in their usual order, gives
+>
+> $${\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = \sum_{t=1}^{n} {\mathbb{H}\mathopen{}\left(X_t \mid X_1, \ldots, X_{t-1}\right)\mathclose{}}.$$
+>
+> With the variables listed as $X_n, X_{n-1}, \ldots, X_1$, the $i$th variable is $X_{n+1-i}$, and the variables before it are $X_n, \ldots, X_{n+2-i}$. So
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}}
+> &= {\mathbb{H}\mathopen{}\left(X_n, \ldots, X_1\right)\mathclose{}} \\
+> &= \sum_{i=1}^{n} {\mathbb{H}\mathopen{}\left(X_{n+1-i} \mid X_n, \ldots, X_{n+2-i}\right)\mathclose{}} \\
+> &= \sum_{t=1}^{n} {\mathbb{H}\mathopen{}\left(X_t \mid X_n, \ldots, X_{t+1}\right)\mathclose{}} \\
+> &= \sum_{t=1}^{n} {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_n\right)\mathclose{}}.
+> \end{aligned}$$
+>
+> The first line reorders the joint entropy, the second is the chain rule, the third substitutes $t = n + 1 - i$, and the fourth reorders each condition. Both sums equal ${\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}}$, so they equal each other.
+
+> **NOTE:**
+>
+> **Exercise 3 (Conditional entropy of an** $N$-gram model read forward) Let $X_1, X_2, \ldots$ be a [stationary sequence](#def-stationary-sequence) that is also an $N$-gram model with $N \ge 2$. For every $t > N$, show that the forward [conditional entropy](#def-conditional-entropy) of $X_t$ is
+>
+> $${\mathbb{H}\mathopen{}\left(X_t \mid X_1, \ldots, X_{t-1}\right)\mathclose{}}
+> = {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_N\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{N-1}\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Solution 3*. To shorten the displays, write $p(x_a, \ldots, x_b)$ for $\mathbb{P}(X_a = x_a, \ldots, X_b = x_b)$, and $p(x_a \mid x_c, \ldots, x_d)$ for $\mathbb{P}(X_a = x_a \mid X_c = x_c, \ldots, X_d = x_d)$. Each value’s subscript says which variable takes it.
+>
+> For values $x_1, \ldots, x_{t-1}$ with $p(x_1, \ldots, x_{t-1}) > 0$, [Definition 11](#def-entropy-given-value) makes ${\mathbb{H}\mathopen{}\left(X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}}$ a [function](https://morrison-lab.github.io/mcs/functions.html#def-function) of the [conditional probability mass function](https://morrison-lab.github.io/pds/expectation.html#def-cond-pmf) $p(\cdot \mid x_1, \ldots, x_{t-1})$ alone. The $N$-gram model makes that conditional probability mass function equal to $p(\cdot \mid x_{t-N+1}, \ldots, x_{t-1})$, so
+>
+> $${\mathbb{H}\mathopen{}\left(X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}}
+> = {\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}}.$$
+>
+> Then
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X_t \mid X_1, \ldots, X_{t-1}\right)\mathclose{}}
+> &= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1}) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}} \\
+> &= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1}) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}} \\
+> &= \sum_{x_{t-N+1}, \ldots, x_{t-1}} p(x_{t-N+1}, \ldots, x_{t-1}) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}}.
+> \end{aligned}$$
+>
+> The first line is [Theorem 8](#thm-conditional-entropy-average), with $(X_1, \ldots, X_{t-1})$ as the conditioning variable. The second line uses the display above. The third line sums over $x_1, \ldots, x_{t-N}$ first: the second factor of each term does not depend on them, and summing $p(x_1, \ldots, x_{t-1})$ over them gives the [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x_{t-N+1}, \ldots, x_{t-1})$. The fourth line is [Theorem 8](#thm-conditional-entropy-average) again.
+>
+> The two-variable [chain rule](#thm-entropy-chain-rule), with $(X_{t-N+1}, \ldots, X_{t-1})$ as its first variable and $X_t$ as its second, gives
+>
+> $${\mathbb{H}\mathopen{}\left(X_{t-N+1}, \ldots, X_t\right)\mathclose{}}
+> = {\mathbb{H}\mathopen{}\left(X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}}.$$
+>
+> Subtracting ${\mathbb{H}\mathopen{}\left(X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}}$ from both sides gives
+>
+> $${\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}}
+> = {\mathbb{H}\mathopen{}\left(X_{t-N+1}, \ldots, X_t\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}}.$$
+>
+> An [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) depends only on the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf). The [stationary sequence](#def-stationary-sequence) with shift $s = t - N$ gives $(X_{t-N+1}, \ldots, X_t)$ the same joint probability mass function as $(X_1, \ldots, X_N)$, and $(X_{t-N+1}, \ldots, X_{t-1})$ the same one as $(X_1, \ldots, X_{N-1})$. So
+>
+> $${\mathbb{H}\mathopen{}\left(X_t \mid X_1, \ldots, X_{t-1}\right)\mathclose{}}
+> = {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_N\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{N-1}\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> **Exercise 4 (An** $N$-gram model read backward) Let $X_1, X_2, \ldots$ be an $N$-gram model with $N \ge 2$, let $n \ge N$, and let $1 \le t \le n - N + 1$. Show that given all the later variables, $X_t$ depends only on the $N - 1$ variables just after it: for every choice of values $x_t, \ldots, x_n$ with $\mathbb{P}(X_{t+1} = x_{t+1}, \ldots, X_n = x_n) > 0$,
+>
+> $$\mathbb{P}(X_t = x_t \mid X_{t+1} = x_{t+1}, \ldots, X_n = x_n)
+> = \mathbb{P}(X_t = x_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}).$$
+
+> **NOTE:**
+>
+> *Solution 4*. To shorten the displays, write $p(x_a, \ldots, x_b)$ for $\mathbb{P}(X_a = x_a, \ldots, X_b = x_b)$, and $p(x_a \mid x_c, \ldots, x_d)$ for $\mathbb{P}(X_a = x_a \mid X_c = x_c, \ldots, X_d = x_d)$. Each value’s subscript says which variable takes it.
+>
+> First, for each $s$ with $t + N \le s \le n$, the condition on $X_t, \ldots, X_{s-1}$ can be cut to the $N - 1$ variables just before $X_s$: for values with $p(x_t, \ldots, x_{s-1}) > 0$,
+>
+> $$\begin{aligned}
+> p(x_s \mid x_t, \ldots, x_{s-1})
+> &= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1} \mid x_t, \ldots, x_{s-1}) \, p(x_s \mid x_1, \ldots, x_{s-1}) \\
+> &= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1} \mid x_t, \ldots, x_{s-1}) \, p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}) \\
+> &= p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}) \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1} \mid x_t, \ldots, x_{s-1}) \\
+> &= p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}).
+> \end{aligned}$$
+>
+> The first line is the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob-conditional), given $X_t, \ldots, X_{s-1}$. The second line is the $N$-gram model, which applies because $s > N$. The third line takes the factor that does not depend on $x_1, \ldots, x_{t-1}$ out of the sum. The fourth line uses that a [conditional probability mass function](https://morrison-lab.github.io/pds/expectation.html#def-cond-pmf) sums to $1$. Because $s - N + 1 \ge t + 1$, the same holds with $t + 1$ in place of $t$.
+>
+> Write $R$ for the product of these factors:
+>
+> $$R = \prod_{s=t+N}^{n} p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}).$$
+>
+> The product is empty, and $R$ is $1$, when $n = t + N - 1$. No factor involves $x_t$, because each starts at $x_{s-N+1}$ with $s - N + 1 \ge t + 1$. Applying the [multiplication rule](https://morrison-lab.github.io/pds/probability-basics.html#thm-law-conditional-prob) once for each $s$ from $t + N$ to $n$, and then the cut above to each factor, gives
+>
+> $$\begin{aligned}
+> p(x_t, \ldots, x_n)
+> &= p(x_t, \ldots, x_{t+N-1}) \prod_{s=t+N}^{n} p(x_s \mid x_t, \ldots, x_{s-1}) \\
+> &= p(x_t, \ldots, x_{t+N-1}) \, R.
+> \end{aligned}$$
+>
+> The same two steps, starting from $x_{t+1}$, give
+>
+> $$\begin{aligned}
+> p(x_{t+1}, \ldots, x_n)
+> &= p(x_{t+1}, \ldots, x_{t+N-1}) \prod_{s=t+N}^{n} p(x_s \mid x_{t+1}, \ldots, x_{s-1}) \\
+> &= p(x_{t+1}, \ldots, x_{t+N-1}) \, R.
+> \end{aligned}$$
+>
+> The left side of the second display is positive by assumption, so $R > 0$ and $p(x_{t+1}, \ldots, x_{t+N-1}) > 0$. By the definition of [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob),
+>
+> $$\begin{aligned}
+> p(x_t \mid x_{t+1}, \ldots, x_n)
+> &= \frac{p(x_t, \ldots, x_n)}{p(x_{t+1}, \ldots, x_n)} \\
+> &= \frac{p(x_t, \ldots, x_{t+N-1}) \, R}{p(x_{t+1}, \ldots, x_{t+N-1}) \, R} \\
+> &= \frac{p(x_t, \ldots, x_{t+N-1})}{p(x_{t+1}, \ldots, x_{t+N-1})} \\
+> &= p(x_t \mid x_{t+1}, \ldots, x_{t+N-1}).
+> \end{aligned}$$
+>
+> The second line substitutes the two displays above, the third cancels $R$, and the fourth is the definition of conditional probability again.
+
+> **NOTE:**
+>
+> **Exercise 5 (Conditional entropy of an** $N$-gram model read backward) Let $X_1, X_2, \ldots$ be a [stationary sequence](#def-stationary-sequence) that is also an $N$-gram model with $N \ge 2$, let $n \ge N$, and let $1 \le t \le n - N + 1$. Use [Exercise 4](#exr-reversed-n-gram-model) to show that the backward [conditional entropy](#def-conditional-entropy) of $X_t$ is
+>
+> $${\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_n\right)\mathclose{}}
+> = {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_N\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{N-1}\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Solution 5*. To shorten the displays, write $p(x_a, \ldots, x_b)$ for $\mathbb{P}(X_a = x_a, \ldots, X_b = x_b)$. Each value’s subscript says which variable takes it.
+>
+> The reasoning of [Solution 3](#sol-forward-n-gram-conditional-entropy) carries over, with the later variables in place of the earlier ones and [Exercise 4](#exr-reversed-n-gram-model) in place of the $N$-gram model:
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_n\right)\mathclose{}}
+> &= \sum_{x_{t+1}, \ldots, x_n} p(x_{t+1}, \ldots, x_n) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1} = x_{t+1}, \ldots, X_n = x_n\right)\mathclose{}} \\
+> &= \sum_{x_{t+1}, \ldots, x_n} p(x_{t+1}, \ldots, x_n) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}\right)\mathclose{}} \\
+> &= \sum_{x_{t+1}, \ldots, x_{t+N-1}} p(x_{t+1}, \ldots, x_{t+N-1}) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}\right)\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_{t+N-1}\right)\mathclose{}}.
+> \end{aligned}$$
+>
+> The first and fourth lines are [Theorem 8](#thm-conditional-entropy-average). The second line uses [Exercise 4](#exr-reversed-n-gram-model) and [Definition 11](#def-entropy-given-value). The third line sums over $x_{t+N}, \ldots, x_n$ first, which gives the [marginal](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) $p(x_{t+1}, \ldots, x_{t+N-1})$.
+>
+> The [chain rule](#thm-entropy-chain-rule), with $(X_{t+1}, \ldots, X_{t+N-1})$ as its first variable, then gives
+>
+> $${\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_{t+N-1}\right)\mathclose{}}
+> = {\mathbb{H}\mathopen{}\left(X_t, \ldots, X_{t+N-1}\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_{t+1}, \ldots, X_{t+N-1}\right)\mathclose{}}.$$
+>
+> The [stationary sequence](#def-stationary-sequence) with shift $s = t - 1$ gives $(X_t, \ldots, X_{t+N-1})$ the same [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) as $(X_1, \ldots, X_N)$, and with shift $s = t$ it gives $(X_{t+1}, \ldots, X_{t+N-1})$ the same one as $(X_1, \ldots, X_{N-1})$. So
+>
+> $${\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_n\right)\mathclose{}}
+> = {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_N\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{N-1}\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> **Exercise 6 (Which guessing game is harder?)** Use [Exercise 2](#exr-reversed-text-total-entropy), [Exercise 3](#exr-forward-n-gram-conditional-entropy) and [Exercise 5](#exr-backward-n-gram-conditional-entropy) to compare the information per character in a reversed text and in the text read forward, and use that comparison to explain the difference in difficulty described in [Remark 17](#rem-reversed-text-guessing).
+
+> **NOTE:**
+>
+> *Solution 6*. [Exercise 3](#exr-forward-n-gram-conditional-entropy) and [Exercise 5](#exr-backward-n-gram-conditional-entropy) give each character away from the ends of the text the same [conditional entropy](#def-conditional-entropy) forward and backward, and [Exercise 2](#exr-reversed-text-total-entropy) gives the whole text the same sum of conditional entropies forward and backward. So the reversed text carries no more information per character than the text read forward. The two games tie only on average: in English, “q” is almost always followed by “u”, but “u” is rarely preceded by “q”, so a single guess can be easy one way and hard the other.
+>
+> People find the backward game harder because their guesses are worse, not because the text holds more information. A reader who guesses with a [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $g$ in place of the true [conditional probability mass function](https://morrison-lab.github.io/pds/expectation.html#def-cond-pmf) $f$ spends ${\mathbb{H}\mathopen{}\left(f, g\right)\mathclose{}}$ [bits](#def-bit) per character on average, which exceeds ${\mathbb{H}\mathopen{}\left(f\right)\mathclose{}}$ by ${{D_{\mathrm{KL}}}\mathopen{}\left(f \,\Vert\, g\right)\mathclose{}}$, by the [decomposition of cross-entropy](source-coding.llms.md#thm-cross-entropy-decomposition). Years of reading forward make $g$ close to $f$ for forward guessing, and no such practice makes it close backward.
 
 ## References
 

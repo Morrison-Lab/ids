@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 15:52:42 (PST)
+Last modified: 2026-11-12 15:58:09 (PST)
 
 [Source coding](source-coding.llms.md) shows that the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a source is the least average length of a code for it, up to one [bit](entropy.llms.md#def-bit). This page asks which codes a decoder can read one codeword at a time, and how long such a code must be.
 

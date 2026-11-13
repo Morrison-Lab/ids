@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-12 15:52:42 (PST)</p>
+  <p class="date">Last modified: 2026-11-12 15:58:09 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -1940,6 +1940,194 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <p>Given <span class="math inline">\(X_2\)</span> alone, <span class="math inline">\(X_3 = X_1\)</span> is still a fair coin, because <span class="math inline">\(X_1\)</span> is independent of <span class="math inline">\(X_2\)</span>:</p>
 <p><span class="math display">\[\mathbb{P}(X_3 = 0 \mid X_2 = 0) = \frac{1}{2}.\]</span></p>
 <p>The sequence is a 3-gram model, because <span class="math inline">\(X_t\)</span> is fixed by <span class="math inline">\(X_{t-2}\)</span>, one of the two variables just before it.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="rem-reversed-text-guessing" class="proof remark">
+<p><span class="proof-title"><em>Remark 17</em> (Guessing a text backward). </span>A reader can guess a text one character at a time from its start, guessing each character from the characters already read. The reader can also guess it from its end, guessing each character from the characters that follow it. Most people find the backward game harder. That raises a question: does a reversed text carry more information per character than the text read forward <span class="citation" data-cites="mackay2003information">(<a href="#/references" role="doc-biblioref" onclick="">MacKay 2003</a>, exercise 8.11)</span>?</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exr-reversed-text-total-entropy" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 (The whole text costs the same in both orders)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a>. Use the <a href="#/thm-entropy-chain-rule-n">chain rule for entropy</a>, with the variables listed in each of two orders, to show that</p>
+<p><span class="math display">\[
+\sum_{t=1}^{n} {\mathbb{H}\mathopen{}\left(X_t \mid X_1, \ldots, X_{t-1}\right)\mathclose{}}
+= \sum_{t=1}^{n} {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_n\right)\mathclose{}},
+\]</span></p>
+<p>where the term for <span class="math inline">\(t = 1\)</span> on the left and the term for <span class="math inline">\(t = n\)</span> on the right are unconditional <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="sol-reversed-text-total-entropy" class="proof solution">
+<p><span class="proof-title"><em>Solution 2</em>. </span>Listing the same variables in another order does not change their <a href="#/def-joint-entropy">joint entropy</a>, because the reordered vector takes each reordered value with the same <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>, as in the proof of <a href="#/cor-entropy-chain-rule-reversed" class="quarto-xref">Corollary&nbsp;3</a>. For the same reason, reordering the variables in a condition does not change a <a href="#/def-conditional-entropy">conditional entropy</a>. The <a href="#/thm-entropy-chain-rule-n">chain rule</a>, with the variables in their usual order, gives</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = \sum_{t=1}^{n} {\mathbb{H}\mathopen{}\left(X_t \mid X_1, \ldots, X_{t-1}\right)\mathclose{}}.\]</span></p>
+<p>With the variables listed as <span class="math inline">\(X_n, X_{n-1}, \ldots, X_1\)</span>, the <span class="math inline">\(i\)</span>th variable is <span class="math inline">\(X_{n+1-i}\)</span>, and the variables before it are <span class="math inline">\(X_n, \ldots, X_{n+2-i}\)</span>. So</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}}
+&amp;= {\mathbb{H}\mathopen{}\left(X_n, \ldots, X_1\right)\mathclose{}} \\
+&amp;= \sum_{i=1}^{n} {\mathbb{H}\mathopen{}\left(X_{n+1-i} \mid X_n, \ldots, X_{n+2-i}\right)\mathclose{}} \\
+&amp;= \sum_{t=1}^{n} {\mathbb{H}\mathopen{}\left(X_t \mid X_n, \ldots, X_{t+1}\right)\mathclose{}} \\
+&amp;= \sum_{t=1}^{n} {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_n\right)\mathclose{}}.
+\end{aligned}
+\]</span></p>
+<p>The first line reorders the joint entropy, the second is the chain rule, the third substitutes <span class="math inline">\(t = n + 1 - i\)</span>, and the fourth reorders each condition. Both sums equal <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}}\)</span>, so they equal each other.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exr-forward-n-gram-conditional-entropy" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3 (Conditional entropy of an <span class="math inline">\(N\)</span>-gram model read forward)</strong></span> Let <span class="math inline">\(X_1, X_2, \ldots\)</span> be a <a href="#/def-stationary-sequence">stationary sequence</a> that is also an <a href="#/def-n-gram-model"><span class="math inline">\(N\)</span>-gram model</a> with <span class="math inline">\(N \ge 2\)</span>. For every <span class="math inline">\(t &gt; N\)</span>, show that the forward <a href="#/def-conditional-entropy">conditional entropy</a> of <span class="math inline">\(X_t\)</span> is</p>
+<p><span class="math display">\[
+{\mathbb{H}\mathopen{}\left(X_t \mid X_1, \ldots, X_{t-1}\right)\mathclose{}}
+= {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_N\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{N-1}\right)\mathclose{}}.
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="sol-forward-n-gram-conditional-entropy" class="proof solution">
+<p><span class="proof-title"><em>Solution 3</em>. </span>To shorten the displays, write <span class="math inline">\(p(x_a, \ldots, x_b)\)</span> for <span class="math inline">\(\mathbb{P}(X_a = x_a, \ldots, X_b = x_b)\)</span>, and <span class="math inline">\(p(x_a \mid x_c, \ldots, x_d)\)</span> for <span class="math inline">\(\mathbb{P}(X_a = x_a \mid X_c = x_c, \ldots, X_d = x_d)\)</span>. Each value’s subscript says which variable takes it.</p>
+<p>For values <span class="math inline">\(x_1, \ldots, x_{t-1}\)</span> with <span class="math inline">\(p(x_1, \ldots, x_{t-1}) &gt; 0\)</span>, <a href="#/def-entropy-given-value" class="quarto-xref">Definition&nbsp;11</a> makes <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}}\)</span> a <a href="https://morrison-lab.github.io/mcs/functions.html#def-function">function</a> of the <a href="https://morrison-lab.github.io/pds/expectation.html#def-cond-pmf">conditional probability mass function</a> <span class="math inline">\(p(\cdot \mid x_1, \ldots, x_{t-1})\)</span> alone. The <a href="#/def-n-gram-model"><span class="math inline">\(N\)</span>-gram model</a> makes that conditional probability mass function equal to <span class="math inline">\(p(\cdot \mid x_{t-N+1}, \ldots, x_{t-1})\)</span>, so</p>
+<p><span class="math display">\[
+{\mathbb{H}\mathopen{}\left(X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}}
+= {\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{H}\mathopen{}\left(X_t \mid X_1, \ldots, X_{t-1}\right)\mathclose{}}
+&amp;= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1}) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}} \\
+&amp;= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1}) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}} \\
+&amp;= \sum_{x_{t-N+1}, \ldots, x_{t-1}} p(x_{t-N+1}, \ldots, x_{t-1}) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}\right)\mathclose{}} \\
+&amp;= {\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}}.
+\end{aligned}
+\]</span></p>
+<p>The first line is <a href="#/thm-conditional-entropy-average" class="quarto-xref">Theorem&nbsp;8</a>, with <span class="math inline">\((X_1, \ldots, X_{t-1})\)</span> as the conditioning variable. The second line uses the display above. The third line sums over <span class="math inline">\(x_1, \ldots, x_{t-N}\)</span> first: the second factor of each term does not depend on them, and summing <span class="math inline">\(p(x_1, \ldots, x_{t-1})\)</span> over them gives the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginal</a> <span class="math inline">\(p(x_{t-N+1}, \ldots, x_{t-1})\)</span>. The fourth line is <a href="#/thm-conditional-entropy-average" class="quarto-xref">Theorem&nbsp;8</a> again.</p>
+<p>The two-variable <a href="#/thm-entropy-chain-rule">chain rule</a>, with <span class="math inline">\((X_{t-N+1}, \ldots, X_{t-1})\)</span> as its first variable and <span class="math inline">\(X_t\)</span> as its second, gives</p>
+<p><span class="math display">\[
+{\mathbb{H}\mathopen{}\left(X_{t-N+1}, \ldots, X_t\right)\mathclose{}}
+= {\mathbb{H}\mathopen{}\left(X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}}.
+\]</span></p>
+<p>Subtracting <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}}\)</span> from both sides gives</p>
+<p><span class="math display">\[
+{\mathbb{H}\mathopen{}\left(X_t \mid X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}}
+= {\mathbb{H}\mathopen{}\left(X_{t-N+1}, \ldots, X_t\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_{t-N+1}, \ldots, X_{t-1}\right)\mathclose{}}.
+\]</span></p>
+<p>An <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> depends only on the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a>. The <a href="#/def-stationary-sequence">stationary sequence</a> with shift <span class="math inline">\(s = t - N\)</span> gives <span class="math inline">\((X_{t-N+1}, \ldots, X_t)\)</span> the same joint probability mass function as <span class="math inline">\((X_1, \ldots, X_N)\)</span>, and <span class="math inline">\((X_{t-N+1}, \ldots, X_{t-1})\)</span> the same one as <span class="math inline">\((X_1, \ldots, X_{N-1})\)</span>. So</p>
+<p><span class="math display">\[
+{\mathbb{H}\mathopen{}\left(X_t \mid X_1, \ldots, X_{t-1}\right)\mathclose{}}
+= {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_N\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{N-1}\right)\mathclose{}}.
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exr-reversed-n-gram-model" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (An <span class="math inline">\(N\)</span>-gram model read backward)</strong></span> Let <span class="math inline">\(X_1, X_2, \ldots\)</span> be an <a href="#/def-n-gram-model"><span class="math inline">\(N\)</span>-gram model</a> with <span class="math inline">\(N \ge 2\)</span>, let <span class="math inline">\(n \ge N\)</span>, and let <span class="math inline">\(1 \le t \le n - N + 1\)</span>. Show that given all the later variables, <span class="math inline">\(X_t\)</span> depends only on the <span class="math inline">\(N - 1\)</span> variables just after it: for every choice of values <span class="math inline">\(x_t, \ldots, x_n\)</span> with <span class="math inline">\(\mathbb{P}(X_{t+1} = x_{t+1}, \ldots, X_n = x_n) &gt; 0\)</span>,</p>
+<p><span class="math display">\[
+\mathbb{P}(X_t = x_t \mid X_{t+1} = x_{t+1}, \ldots, X_n = x_n)
+= \mathbb{P}(X_t = x_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}).
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="sol-reversed-n-gram-model" class="proof solution">
+<p><span class="proof-title"><em>Solution 4</em>. </span>To shorten the displays, write <span class="math inline">\(p(x_a, \ldots, x_b)\)</span> for <span class="math inline">\(\mathbb{P}(X_a = x_a, \ldots, X_b = x_b)\)</span>, and <span class="math inline">\(p(x_a \mid x_c, \ldots, x_d)\)</span> for <span class="math inline">\(\mathbb{P}(X_a = x_a \mid X_c = x_c, \ldots, X_d = x_d)\)</span>. Each value’s subscript says which variable takes it.</p>
+<p>First, for each <span class="math inline">\(s\)</span> with <span class="math inline">\(t + N \le s \le n\)</span>, the condition on <span class="math inline">\(X_t, \ldots, X_{s-1}\)</span> can be cut to the <span class="math inline">\(N - 1\)</span> variables just before <span class="math inline">\(X_s\)</span>: for values with <span class="math inline">\(p(x_t, \ldots, x_{s-1}) &gt; 0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(x_s \mid x_t, \ldots, x_{s-1})
+&amp;= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1} \mid x_t, \ldots, x_{s-1}) \, p(x_s \mid x_1, \ldots, x_{s-1}) \\
+&amp;= \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1} \mid x_t, \ldots, x_{s-1}) \, p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}) \\
+&amp;= p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}) \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1} \mid x_t, \ldots, x_{s-1}) \\
+&amp;= p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}).
+\end{aligned}
+\]</span></p>
+<p>The first line is the <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob-conditional">law of total probability</a>, given <span class="math inline">\(X_t, \ldots, X_{s-1}\)</span>. The second line is the <a href="#/def-n-gram-model"><span class="math inline">\(N\)</span>-gram model</a>, which applies because <span class="math inline">\(s &gt; N\)</span>. The third line takes the factor that does not depend on <span class="math inline">\(x_1, \ldots, x_{t-1}\)</span> out of the sum. The fourth line uses that a <a href="https://morrison-lab.github.io/pds/expectation.html#def-cond-pmf">conditional probability mass function</a> sums to <span class="math inline">\(1\)</span>. Because <span class="math inline">\(s - N + 1 \ge t + 1\)</span>, the same holds with <span class="math inline">\(t + 1\)</span> in place of <span class="math inline">\(t\)</span>.</p>
+<p>Write <span class="math inline">\(R\)</span> for the product of these factors:</p>
+<p><span class="math display">\[R = \prod_{s=t+N}^{n} p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}).\]</span></p>
+<p>The product is empty, and <span class="math inline">\(R\)</span> is <span class="math inline">\(1\)</span>, when <span class="math inline">\(n = t + N - 1\)</span>. No factor involves <span class="math inline">\(x_t\)</span>, because each starts at <span class="math inline">\(x_{s-N+1}\)</span> with <span class="math inline">\(s - N + 1 \ge t + 1\)</span>. Applying the <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-law-conditional-prob">multiplication rule</a> once for each <span class="math inline">\(s\)</span> from <span class="math inline">\(t + N\)</span> to <span class="math inline">\(n\)</span>, and then the cut above to each factor, gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(x_t, \ldots, x_n)
+&amp;= p(x_t, \ldots, x_{t+N-1}) \prod_{s=t+N}^{n} p(x_s \mid x_t, \ldots, x_{s-1}) \\
+&amp;= p(x_t, \ldots, x_{t+N-1}) \, R.
+\end{aligned}
+\]</span></p>
+<p>The same two steps, starting from <span class="math inline">\(x_{t+1}\)</span>, give</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(x_{t+1}, \ldots, x_n)
+&amp;= p(x_{t+1}, \ldots, x_{t+N-1}) \prod_{s=t+N}^{n} p(x_s \mid x_{t+1}, \ldots, x_{s-1}) \\
+&amp;= p(x_{t+1}, \ldots, x_{t+N-1}) \, R.
+\end{aligned}
+\]</span></p>
+<p>The left side of the second display is positive by assumption, so <span class="math inline">\(R &gt; 0\)</span> and <span class="math inline">\(p(x_{t+1}, \ldots, x_{t+N-1}) &gt; 0\)</span>. By the definition of <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob">conditional probability</a>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(x_t \mid x_{t+1}, \ldots, x_n)
+&amp;= \frac{p(x_t, \ldots, x_n)}{p(x_{t+1}, \ldots, x_n)} \\
+&amp;= \frac{p(x_t, \ldots, x_{t+N-1}) \, R}{p(x_{t+1}, \ldots, x_{t+N-1}) \, R} \\
+&amp;= \frac{p(x_t, \ldots, x_{t+N-1})}{p(x_{t+1}, \ldots, x_{t+N-1})} \\
+&amp;= p(x_t \mid x_{t+1}, \ldots, x_{t+N-1}).
+\end{aligned}
+\]</span></p>
+<p>The second line substitutes the two displays above, the third cancels <span class="math inline">\(R\)</span>, and the fourth is the definition of conditional probability again.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exr-backward-n-gram-conditional-entropy" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5 (Conditional entropy of an <span class="math inline">\(N\)</span>-gram model read backward)</strong></span> Let <span class="math inline">\(X_1, X_2, \ldots\)</span> be a <a href="#/def-stationary-sequence">stationary sequence</a> that is also an <a href="#/def-n-gram-model"><span class="math inline">\(N\)</span>-gram model</a> with <span class="math inline">\(N \ge 2\)</span>, let <span class="math inline">\(n \ge N\)</span>, and let <span class="math inline">\(1 \le t \le n - N + 1\)</span>. Use <a href="#/exr-reversed-n-gram-model" class="quarto-xref">Exercise&nbsp;4</a> to show that the backward <a href="#/def-conditional-entropy">conditional entropy</a> of <span class="math inline">\(X_t\)</span> is</p>
+<p><span class="math display">\[
+{\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_n\right)\mathclose{}}
+= {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_N\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{N-1}\right)\mathclose{}}.
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="sol-backward-n-gram-conditional-entropy" class="proof solution">
+<p><span class="proof-title"><em>Solution 5</em>. </span>To shorten the displays, write <span class="math inline">\(p(x_a, \ldots, x_b)\)</span> for <span class="math inline">\(\mathbb{P}(X_a = x_a, \ldots, X_b = x_b)\)</span>. Each value’s subscript says which variable takes it.</p>
+<p>The reasoning of <a href="#/sol-forward-n-gram-conditional-entropy" class="quarto-xref">Solution&nbsp;3</a> carries over, with the later variables in place of the earlier ones and <a href="#/exr-reversed-n-gram-model" class="quarto-xref">Exercise&nbsp;4</a> in place of the <a href="#/def-n-gram-model"><span class="math inline">\(N\)</span>-gram model</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_n\right)\mathclose{}}
+&amp;= \sum_{x_{t+1}, \ldots, x_n} p(x_{t+1}, \ldots, x_n) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1} = x_{t+1}, \ldots, X_n = x_n\right)\mathclose{}} \\
+&amp;= \sum_{x_{t+1}, \ldots, x_n} p(x_{t+1}, \ldots, x_n) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}\right)\mathclose{}} \\
+&amp;= \sum_{x_{t+1}, \ldots, x_{t+N-1}} p(x_{t+1}, \ldots, x_{t+N-1}) \, {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}\right)\mathclose{}} \\
+&amp;= {\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_{t+N-1}\right)\mathclose{}}.
+\end{aligned}
+\]</span></p>
+<p>The first and fourth lines are <a href="#/thm-conditional-entropy-average" class="quarto-xref">Theorem&nbsp;8</a>. The second line uses <a href="#/exr-reversed-n-gram-model" class="quarto-xref">Exercise&nbsp;4</a> and <a href="#/def-entropy-given-value" class="quarto-xref">Definition&nbsp;11</a>. The third line sums over <span class="math inline">\(x_{t+N}, \ldots, x_n\)</span> first, which gives the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginal</a> <span class="math inline">\(p(x_{t+1}, \ldots, x_{t+N-1})\)</span>.</p>
+<p>The <a href="#/thm-entropy-chain-rule">chain rule</a>, with <span class="math inline">\((X_{t+1}, \ldots, X_{t+N-1})\)</span> as its first variable, then gives</p>
+<p><span class="math display">\[
+{\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_{t+N-1}\right)\mathclose{}}
+= {\mathbb{H}\mathopen{}\left(X_t, \ldots, X_{t+N-1}\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_{t+1}, \ldots, X_{t+N-1}\right)\mathclose{}}.
+\]</span></p>
+<p>The <a href="#/def-stationary-sequence">stationary sequence</a> with shift <span class="math inline">\(s = t - 1\)</span> gives <span class="math inline">\((X_t, \ldots, X_{t+N-1})\)</span> the same <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a> as <span class="math inline">\((X_1, \ldots, X_N)\)</span>, and with shift <span class="math inline">\(s = t\)</span> it gives <span class="math inline">\((X_{t+1}, \ldots, X_{t+N-1})\)</span> the same one as <span class="math inline">\((X_1, \ldots, X_{N-1})\)</span>. So</p>
+<p><span class="math display">\[
+{\mathbb{H}\mathopen{}\left(X_t \mid X_{t+1}, \ldots, X_n\right)\mathclose{}}
+= {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_N\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(X_1, \ldots, X_{N-1}\right)\mathclose{}}.
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exr-reversed-text-information" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6 (Which guessing game is harder?)</strong></span> Use <a href="#/exr-reversed-text-total-entropy" class="quarto-xref">Exercise&nbsp;2</a>, <a href="#/exr-forward-n-gram-conditional-entropy" class="quarto-xref">Exercise&nbsp;3</a> and <a href="#/exr-backward-n-gram-conditional-entropy" class="quarto-xref">Exercise&nbsp;5</a> to compare the information per character in a reversed text and in the text read forward, and use that comparison to explain the difference in difficulty described in <a href="#/rem-reversed-text-guessing" class="quarto-xref">Remark&nbsp;17</a>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="sol-reversed-text-information" class="proof solution">
+<p><span class="proof-title"><em>Solution 6</em>. </span><a href="#/exr-forward-n-gram-conditional-entropy" class="quarto-xref">Exercise&nbsp;3</a> and <a href="#/exr-backward-n-gram-conditional-entropy" class="quarto-xref">Exercise&nbsp;5</a> give each character away from the ends of the text the same <a href="#/def-conditional-entropy">conditional entropy</a> forward and backward, and <a href="#/exr-reversed-text-total-entropy" class="quarto-xref">Exercise&nbsp;2</a> gives the whole text the same sum of conditional entropies forward and backward. So the reversed text carries no more information per character than the text read forward. The two games tie only on average: in English, “q” is almost always followed by “u”, but “u” is rarely preceded by “q”, so a single guess can be easy one way and hard the other.</p>
+<p>People find the backward game harder because their guesses are worse, not because the text holds more information. A reader who guesses with a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> <span class="math inline">\(g\)</span> in place of the true <a href="https://morrison-lab.github.io/pds/expectation.html#def-cond-pmf">conditional probability mass function</a> <span class="math inline">\(f\)</span> spends <span class="math inline">\({\mathbb{H}\mathopen{}\left(f, g\right)\mathclose{}}\)</span> <a href="#/def-bit">bits</a> per character on average, which exceeds <span class="math inline">\({\mathbb{H}\mathopen{}\left(f\right)\mathclose{}}\)</span> by <span class="math inline">\({{D_{\mathrm{KL}}}\mathopen{}\left(f \,\Vert\, g\right)\mathclose{}}\)</span>, by the <a href="./source-coding.html#thm-cross-entropy-decomposition">decomposition of cross-entropy</a>. Years of reading forward make <span class="math inline">\(g\)</span> close to <span class="math inline">\(f\)</span> for forward guessing, and no such practice makes it close backward.</p>
 </div>
 </section>
 <section id="references" class="slide level2 unnumbered smaller scrollable">
