@@ -378,14 +378,6 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 {{< slidebreak >}}
 
-{{< include ids/_subfiles/_thm-entropy-at-most-log-values.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include ids/_subfiles/_exm-entropy-at-most-log-values.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include ids/_subfiles/_cor-question-information-bound.qmd >}}
 
 {{< slidebreak >}}
