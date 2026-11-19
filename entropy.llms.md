@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-12 15:58:09 (PST)
+Last modified: 2026-11-18 22:24:21 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
@@ -994,7 +994,54 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 17 (Mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+> **Theorem 17 (Entropy is at most the logarithm of the number of values)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with exactly $k$ [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) of positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), for a [positive integer](https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer) $k$. With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$ is at most $\log_2 k$:
+>
+> $${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \le \log_2 k,$$
+>
+> with equality exactly when $X$ is [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on those $k$ values.
+
+> **NOTE:**
+>
+> *Proof*. Let $p$ be the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of $X$, and let $q$ be the uniform probability mass function on the $k$ values $x$ with $p(x) > 0$, so $q(x) = 1/k$ at each of them. The [surprisal](#def-surprisal) measured by $q$ is then the same at every one of those values:
+>
+> $$\begin{aligned}
+> {\mathbb{s}_{q}\mathopen{}\left(x\right)\mathclose{}}
+> &= -\log_2 \tfrac{1}{k} \\
+> &= \log_2 k.
+> \end{aligned}$$
+>
+> The [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from $p$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the surprisal measured by $q$ minus the surprisal measured by $p$:
+>
+> $$\begin{aligned}
+> {{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}
+> &= {\mathbb{E}\mathopen{}\left[{\mathbb{s}_{q}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}} \\
+> &= {\mathbb{E}\mathopen{}\left[\log_2 k - {\mathbb{s}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}} \\
+> &= \log_2 k - {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}} \\
+> &= \log_2 k - {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.
+> \end{aligned}$$
+>
+> The sum in [Theorem 16](#thm-kl-divergence-nonnegative) has [finitely many](https://morrison-lab.github.io/mcs/functions.html#def-finite-set) terms, so it is finite, and [Theorem 16](#thm-kl-divergence-nonnegative) then gives ${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}} \ge 0$, with equality exactly when $q = p$. Hence $\log_2 k - {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \ge 0$, with equality exactly when $p$ is uniform on its $k$ values.
+
+> **NOTE:**
+>
+> **Example 16 (A fair coin and a loaded coin)**  
+>
+> A coin toss $X$ has $k = 2$ values, so [Theorem 17](#thm-entropy-at-most-log-values) gives ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \le \log_2 2 = 1$ [bit](#def-bit).
+>
+> - A fair coin is [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on its two values, so by the equality case of [Theorem 17](#thm-entropy-at-most-log-values) its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) equals $\log_2 2 = 1$ bit.
+>
+> - A coin that lands heads with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$ has entropy below $1$ bit:
+>
+>   $$\begin{aligned}
+>   {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}
+>   &= -\tfrac{1}{4} \log_2 \tfrac{1}{4} - \tfrac{3}{4} \log_2 \tfrac{3}{4} \\
+>   &\approx 0.500 + 0.311 \\
+>   &\approx 0.811 \text{ bits}.
+>   \end{aligned}$$
+
+> **NOTE:**
+>
+> **Theorem 18 (Mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0.$$
 >
@@ -1006,7 +1053,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 16 (Mutual information of dependent and independent coins)**  
+> **Example 17 (Mutual information of dependent and independent coins)**  
 >
 > For the noisy copy in [Example 14](#exm-mutual-information-noisy-copy), the [mutual information](#def-mutual-information) is positive, because $Y$ depends on $X$. For two [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, every joint [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) is $0.25$. The chunk computes the mutual information of both pairs.
 >
@@ -1032,7 +1079,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #>      0.2780719      0.0000000
 > ```
 >
-> So the mutual information of the independent coins is $0$ [bits](#def-bit), and that of the dependent pair is $0.278$ bits ([Theorem 17](#thm-mutual-information-nonnegative)).
+> So the mutual information of the independent coins is $0$ [bits](#def-bit), and that of the dependent pair is $0.278$ bits ([Theorem 18](#thm-mutual-information-nonnegative)).
 
 > **NOTE:**
 >
@@ -1048,11 +1095,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}.$$
 >
-> By [Theorem 17](#thm-mutual-information-nonnegative), the right side is nonnegative, and it is $0$ exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
+> By [Theorem 18](#thm-mutual-information-nonnegative), the right side is nonnegative, and it is $0$ exactly when $X$ and $Y$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
 
 > **NOTE:**
 >
-> **Example 17 (Learning a noisy copy lowers the entropy)**  
+> **Example 18 (Learning a noisy copy lowers the entropy)**  
 >
 > For the coin $X$ and noisy copy $Y$ in [Example 14](#exm-mutual-information-noisy-copy), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ is $1$ [bit](#def-bit). Given $X$, the variable $Y$ is a coin with [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.8$ and $0.2$. The chunk computes the [conditional entropy](#def-conditional-entropy) from that coin.
 >
@@ -1070,11 +1117,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 15* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define [mutual information](#def-mutual-information) as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) of $(X, Y)$ from their [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution). [Theorem 15](#thm-mutual-information-kl) proves that this divergence equals ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)), and [Theorem 17](#thm-mutual-information-nonnegative) proves that ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Learning $X$ never raises the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ on average ([Corollary 5](#cor-conditioning-reduces-entropy)).
+> *Remark 15* (Mutual information as a divergence). Cover and Thomas ([2006, sec. 2.3](#ref-cover2006elements)) define [mutual information](#def-mutual-information) as the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of the product of the [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) of $(X, Y)$ from their [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution). [Theorem 15](#thm-mutual-information-kl) proves that this divergence equals ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}$ ([Cover and Thomas 2006, sec. 2.4](#ref-cover2006elements)), and [Theorem 18](#thm-mutual-information-nonnegative) proves that ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0$ ([Cover and Thomas 2006, sec. 2.6](#ref-cover2006elements)). Learning $X$ never raises the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $Y$ on average ([Corollary 5](#cor-conditioning-reduces-entropy)).
 
 > **NOTE:**
 >
-> **Theorem 18 (Mutual information of a variable with itself)** For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+> **Theorem 19 (Mutual information of a variable with itself)** For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $${\mathbb{I}\mathopen{}\left(X ; X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.$$
 
@@ -1102,9 +1149,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 18 (A fair coin is fully informative about itself)**  
+> **Example 19 (A fair coin is fully informative about itself)**  
 >
-> Let $X$ be a fair coin toss. Its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is $1$ [bit](#def-bit). Given $X$ itself, there is no uncertainty left, so ${\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} = 0$. Hence ${\mathbb{I}\mathopen{}\left(X ; X\right)\mathclose{}} = 1 - 0 = 1$ bit ([Theorem 18](#thm-mutual-information-self)), the same as ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
+> Let $X$ be a fair coin toss. Its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is $1$ [bit](#def-bit). Given $X$ itself, there is no uncertainty left, so ${\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} = 0$. Hence ${\mathbb{I}\mathopen{}\left(X ; X\right)\mathclose{}} = 1 - 0 = 1$ bit ([Theorem 19](#thm-mutual-information-self)), the same as ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$.
 
 > **NOTE:**
 >
@@ -1186,11 +1233,158 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 >     Split B has the larger gain. Both splits isolate a branch of one color, so the gain depends on the other, mixed branch. B’s mixed branch, $5$ red against $10$ green, is more lopsided than A’s $6$ against $10$, so it has less entropy, and it also holds fewer of the points, $15$ against $16$, so its entropy counts for less.
 
-## 4 Chain rules
+## 4 Questions and answers
 
 > **NOTE:**
 >
-> **Theorem 19 (Chain rule for entropy, many variables)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+> **Definition 15 (Question)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), and let $\mathcal{X}$ be the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of its [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability). A **question** about $X$ is a [collection](https://morrison-lab.github.io/mcs/sets.html#def-collection) of nonempty, [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive) [subsets](https://morrison-lab.github.io/mcs/sets.html#def-subset) of $\mathcal{X}$ whose [union](https://morrison-lab.github.io/mcs/sets.html#def-union) is $\mathcal{X}$.
+
+> **NOTE:**
+>
+> **Definition 16 (Possible answer)** A **possible answer** to a [question](#def-question) about $X$ is one of the [subsets](https://morrison-lab.github.io/mcs/sets.html#def-subset) of $\mathcal{X}$, as in [Definition 15](#def-question), that make up the question.
+
+> **NOTE:**
+>
+> *Remark 17* (A question partitions the sample space). The [events](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $\{X \in C\}$, one for each [possible answer](#def-possible-answer) $C$ to a [question](#def-question) about $X$, are [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive), and together they hold every [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) at which $X$ takes a value in $\mathcal{X}$, an event of [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$. So, apart from an event of probability $0$, they form a [partition of the sample space](https://morrison-lab.github.io/pds/probability-basics.html#def-partition).
+
+> **NOTE:**
+>
+> **Definition 17 (Answer)** For a [question](#def-question) about $X$, write $a(x)$ for the [possible answer](#def-possible-answer) that holds the value $x$. The **answer** to the question is the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable)
+>
+> $$A \stackrel{\text{def}}{=}a(X).$$
+
+> **NOTE:**
+>
+> **Definition 18 (Polar question, yes-no question)** A **polar question**, or **yes-no question**, about $X$ is a [question](#def-question) with exactly two [possible answers](#def-possible-answer): the values of $X$ for which some statement holds, labeled “yes”, and the values for which it fails, labeled “no”.
+
+> **NOTE:**
+>
+> **Example 20 (Is the number at least 32?)**  
+>
+> Let $X$ be [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on the [integers](https://morrison-lab.github.io/mcs/number-systems.html#def-integers) $0, 1, \ldots, 63$, so that $\mathcal{X}= \{0, 1, \ldots, 63\}$. The question “Is $X \ge 32$?” has two [possible answers](#def-possible-answer):
+>
+> - “yes”, the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) $\{32, 33, \ldots, 63\}$;
+> - “no”, the set $\{0, 1, \ldots, 31\}$.
+>
+> These two sets are nonempty and [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive), and their [union](https://morrison-lab.github.io/mcs/sets.html#def-union) is $\mathcal{X}$, so they form a [question](#def-question), and a [polar question](#def-polar-question). If $X = 35$, the [answer](#def-answer) is $a(35) = \{32, 33, \ldots, 63\}$, that is, “yes”.
+
+> **NOTE:**
+>
+> **Example 21 (Overlapping sets do not form a question)**  
+>
+> Let $X$ be as in [Example 20](#exm-question). The two [sets](https://morrison-lab.github.io/mcs/sets.html#def-set) $\{0, 1, \ldots, 40\}$ and $\{32, 33, \ldots, 63\}$ cover $\mathcal{X}$, but both hold the values $32, 33, \ldots, 40$. They are not [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive), so they do not form a [question](#def-question), and neither set is a [possible answer](#def-possible-answer) of a question made from these two sets. When $X = 35$, both sets hold the value of $X$, so no single set is its answer.
+
+> **NOTE:**
+>
+> **Example 22 (A question with four possible answers is not polar)**  
+>
+> Let $X$ be as in [Example 20](#exm-question). The question “What is the remainder of $X$ divided by $4$?” has four [possible answers](#def-possible-answer), one for each remainder $r \in \{0, 1, 2, 3\}$: the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of values $x \in \mathcal{X}$ whose remainder is $r$. These four sets form a [question](#def-question), but not a [polar question](#def-polar-question), which has exactly two possible answers.
+
+> **NOTE:**
+>
+> *Remark 18* (Questions as sets of replies in semantics). Hamblin ([1973](#ref-hamblin1973questions)) took a question in natural language to denote the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of propositions that count as its replies, so that a question “sets up a choice-situation between a set of propositions”. Hamblin’s account does not require those propositions to exclude one another. Groenendijk and Stokhof ([1984](#ref-groenendijk1984studies)) took a question’s replies to be [mutually exclusive](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive) and to cover every possibility, so that a question [partitions](https://morrison-lab.github.io/pds/probability-basics.html#def-partition) the possibilities. [Definition 15](#def-question) follows Groenendijk and Stokhof: the [possible answers](#def-possible-answer) to a [question](#def-question) partition $\mathcal{X}$.
+
+> **NOTE:**
+>
+> *Remark 19* (Kinds of questions in grammar). Huddleston ([1994](#ref-huddleston1994contrast)) sorts questions into three kinds, by how each kind defines the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of its replies:
+>
+> - A [polar question](#def-polar-question), such as “Is it raining?”, has the two replies yes and no.
+> - An *alternative question*, such as “Is it red or green?”, has one reply for each alternative it lists.
+> - A *variable question*, such as “Who called?”, has one reply for each value of a variable, here the person who called. In English a variable question usually contains an interrogative word, such as *who*, *what*, *which*, *where*, *when*, *why*, or *how*, so it is often called a *wh-question*.
+>
+> Each kind is a [question](#def-question) with a different number of [possible answers](#def-possible-answer): two for a polar question, one per listed alternative for an alternative question, and one per value of the variable for a variable question, which can be many. Huddleston ([1994](#ref-huddleston1994contrast)) also separates these kinds of question from the *interrogative* clause, a grammatical form. The two need not match: a declarative clause said with rising intonation, such as “You’re leaving?”, asks a polar question.
+
+> **NOTE:**
+>
+> **Theorem 20 (The information in an answer is its entropy)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), and let $A$ be the [answer](#def-answer) to a [question](#def-question) about $X$. If $X$ and $A$ have finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy), then the [mutual information](#def-mutual-information) between $X$ and the answer is the entropy of the answer:
+>
+> $${\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(A\right)\mathclose{}}.$$
+
+> **NOTE:**
+>
+> *Proof*. Given $X=x$, the answer $A = a(X)$ equals $a(x)$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, so $\mathbb{P}(A = a(x) \mid X = x) = 1$. Hence the [conditional surprisal](#def-conditional-surprisal) of the answer $a(x)$ given $x$ is $-\log 1 = 0$, and its [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) given $X=x$ is $0$:
+>
+> $${\mathbb{H}\mathopen{}\left(A \mid X=x\right)\mathclose{}} = 0.$$
+>
+> By [Theorem 8](#thm-conditional-entropy-average),
+>
+> $$\begin{aligned}
+> {\mathbb{H}\mathopen{}\left(A \mid X\right)\mathclose{}}
+> &= \sum_{x} p(x) \, {\mathbb{H}\mathopen{}\left(A \mid X=x\right)\mathclose{}} \\
+> &= 0,
+> \end{aligned}$$
+>
+> where $p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)$. By [Theorem 11](#thm-mutual-information-reduction) with $Y = A$,
+>
+> $$\begin{aligned}
+> {\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}}
+> &= {\mathbb{H}\mathopen{}\left(A\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(A \mid X\right)\mathclose{}} \\
+> &= {\mathbb{H}\mathopen{}\left(A\right)\mathclose{}}.
+> \end{aligned}$$
+
+> **NOTE:**
+>
+> **Example 23 (Two polar questions about the same number)**  
+>
+> Let $X$ be as in [Example 20](#exm-question), let $A$ be the [answer](#def-answer) to each of the two questions below in turn, and use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
+>
+> - **“Is** $X \ge 32$?” Each [possible answer](#def-possible-answer) has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $32/64 = 1/2$, so its [surprisal](#def-surprisal) is $1$ [bit](#def-bit), and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the answer, its [expected](https://morrison-lab.github.io/pds/expectation.html#def-expectation) surprisal, is $1$ bit. By [Theorem 20](#thm-answer-information), the answer carries ${\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}} = 1$ bit about $X$.
+>
+> - **“Is** $X = 0$?” The possible answer “yes” has probability $1/64$ and the possible answer “no” has probability $63/64$, so the entropy of the answer is
+>
+>   $$\begin{aligned}
+>   {\mathbb{H}\mathopen{}\left(A\right)\mathclose{}}
+>   &= -\tfrac{1}{64} \log_2 \tfrac{1}{64} - \tfrac{63}{64} \log_2 \tfrac{63}{64} \\
+>   &\approx 0.094 + 0.022 \\
+>   &\approx 0.116 \text{ bits}.
+>   \end{aligned}$$
+>
+>   By [Theorem 20](#thm-answer-information), the answer carries about $0.116$ bits about $X$.
+>
+> The reply “yes” to “Is $X = 0$?” is worth $6$ bits, but it is rare, so on average asking “Is $X = 0$?” gains far less than the $1$ bit from “Is $X \ge 32$?”.
+
+> **NOTE:**
+>
+> **Corollary 6 (An answer carries at most the logarithm of the number of possible answers)** Let $A$ be the [answer](#def-answer) to a [question](#def-question) with [finitely many](https://morrison-lab.github.io/mcs/functions.html#def-finite-set) [possible answers](#def-possible-answer), $k$ of them, about a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy). With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), the [mutual information](#def-mutual-information) between $X$ and the answer is at most $\log_2 k$ [bits](#def-bit):
+>
+> $${\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}} \le \log_2 k,$$
+>
+> with equality exactly when the $k$ possible answers are equally likely. For a [polar question](#def-polar-question), $k = 2$, so the answer carries at most $1$ bit about $X$.
+
+> **NOTE:**
+>
+> *Proof*. Each [possible answer](#def-possible-answer) is a nonempty [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of values of $X$ with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), so the answer $A$ has exactly $k$ values with positive probability, and its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is finite. By [Theorem 20](#thm-answer-information) and then [Theorem 17](#thm-entropy-at-most-log-values),
+>
+> $$\begin{aligned}
+> {\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}}
+> &= {\mathbb{H}\mathopen{}\left(A\right)\mathclose{}} \\
+> &\le \log_2 k,
+> \end{aligned}$$
+>
+> with equality exactly when $A$ is [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on its $k$ values. A [polar question](#def-polar-question) has $k = 2$ possible answers, and $\log_2 2 = 1$.
+
+> **NOTE:**
+>
+> **Example 24 (The game of sixty-three)**  
+>
+> In the game of twenty questions, one player thinks of an object, and the other identifies it by asking [polar questions](#def-polar-question). MacKay ([2003, 70](#ref-mackay2003information)) simplifies the game to “sixty-three”: find an [integer](https://morrison-lab.github.io/mcs/number-systems.html#def-integers) $X$ between $0$ and $63$, each equally likely, using polar questions. Six questions suffice:
+>
+> 1.  Is $X \ge 32$?
+> 2.  Is the remainder of $X$ divided by $32$ at least $16$?
+> 3.  Is the remainder of $X$ divided by $16$ at least $8$?
+> 4.  Is the remainder of $X$ divided by $8$ at least $4$?
+> 5.  Is the remainder of $X$ divided by $4$ at least $2$?
+> 6.  Is $X$ odd?
+>
+> Reading “yes” as $1$ and “no” as $0$, the six [answers](#def-answer) spell the binary expansion of $X$: $X = 35$ gives $100011$. Given the answers so far, each next question splits the values still possible into two equal halves, so each answer has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$ and carries $1$ [bit](#def-bit), the most that [Corollary 6](#cor-question-information-bound) allows for a polar question. The six answers carry $6$ bits in all, which is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = \log_2 64 = 6$ bits. No strategy can be sure to finish in fewer than six polar questions: five polar questions have at most $2^5 = 32$ combinations of answers, too few to tell $64$ values apart.
+>
+> The single [variable question](#rem-question-types) “What is $X$?” has $64$ equally likely [possible answers](#def-possible-answer), so by [Corollary 6](#cor-question-information-bound) its answer carries all $\log_2 64 = 6$ bits at once.
+
+## 5 Chain rules
+
+> **NOTE:**
+>
+> **Theorem 21 (Chain rule for entropy, many variables)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X_1, \ldots, X_n$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $${\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = \sum_{i=1}^{n} {\mathbb{H}\mathopen{}\left(X_i \mid X_1, \ldots, X_{i-1}\right)\mathclose{}},$$
 >
@@ -1214,9 +1408,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 19 (Chain rule for entropy along a chain of noisy copies)**  
+> **Example 25 (Chain rule for entropy along a chain of noisy copies)**  
 >
-> Let $X_1$ be a fair coin toss, coded $0$ or $1$. Let $X_2$ be a noisy copy of $X_1$ that flips it with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.2$, and let $X_3$ be a noisy copy of $X_2$ that flips it with probability $0.2$, independently of $X_1$ given $X_2$. The chunk builds the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) of $(X_1, X_2, X_3)$ and compares their [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), in [bits](#def-bit), with the sum in [Theorem 19](#thm-entropy-chain-rule-n).
+> Let $X_1$ be a fair coin toss, coded $0$ or $1$. Let $X_2$ be a noisy copy of $X_1$ that flips it with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.2$, and let $X_3$ be a noisy copy of $X_2$ that flips it with probability $0.2$, independently of $X_1$ given $X_2$. The chunk builds the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) of $(X_1, X_2, X_3)$ and compares their [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy), in [bits](#def-bit), with the sum in [Theorem 21](#thm-entropy-chain-rule-n).
 >
 > Show code
 >
@@ -1247,15 +1441,15 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 15 (Conditional mutual information)** The **conditional mutual information** of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ given a third one, $Z$, with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy), is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$ from also learning $X$:
+> **Definition 19 (Conditional mutual information)** The **conditional mutual information** of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ given a third one, $Z$, with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy), is the reduction in the [conditional entropy](#def-conditional-entropy) of $Y$ given $Z$ from also learning $X$:
 >
 > $${\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}.$$
 
 > **NOTE:**
 >
-> **Example 20 (Conditional mutual information along a chain of noisy copies)**  
+> **Example 26 (Conditional mutual information along a chain of noisy copies)**  
 >
-> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 19](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the [prediction](https://morrison-lab.github.io/pds/expectation.html#def-prediction) of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
+> Take the chain of noisy copies $X_1$, $X_2$, $X_3$ from [Example 25](#exm-entropy-chain-rule-n-copies). Once $X_2$ is known, $X_1$ adds nothing to the [prediction](https://morrison-lab.github.io/pds/expectation.html#def-prediction) of $X_3$, so ${\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}$, and both equal the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $h$ of a coin with flip [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.2$. The chunk computes the [conditional mutual information](#def-conditional-mutual-information).
 >
 > Show code
 >
@@ -1272,7 +1466,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 20 (Chain rule for mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ whose [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$, ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ and ${\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}$ are finite,
+> **Theorem 22 (Chain rule for mutual information)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ whose [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$, ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}$ and ${\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}$ are finite,
 >
 > $${\mathbb{I}\mathopen{}\left(X, Z ; Y\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(Z ; Y\right)\mathclose{}} + {\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}}.$$
 
@@ -1293,13 +1487,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= {\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}},
 > \end{aligned}$$
 >
-> where the last line is [Definition 15](#def-conditional-mutual-information).
+> where the last line is [Definition 19](#def-conditional-mutual-information).
 
 > **NOTE:**
 >
-> **Example 21 (Chain rule for mutual information along a chain of noisy copies)**  
+> **Example 27 (Chain rule for mutual information along a chain of noisy copies)**  
 >
-> For the chain in [Example 19](#exm-entropy-chain-rule-n-copies), the [marginal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
+> For the chain in [Example 25](#exm-entropy-chain-rule-n-copies), the [marginal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) of $X_3$ is a fair coin, so ${\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1$ [bit](#def-bit). The chunk computes the [mutual information](#def-mutual-information) of $X_3$ with $X_2$, and with the pair $(X_1, X_2)$.
 >
 > Show code
 >
@@ -1314,11 +1508,11 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 0.2780719 0.2780719
 > ```
 >
-> Here ${\mathbb{I}\mathopen{}\left(X_2 ; X_3\right)\mathclose{}} = 0.278$ [bits](#def-bit) and ${\mathbb{I}\mathopen{}\left(X_1, X_2 ; X_3\right)\mathclose{}} = 0.278$ bits. The difference is ${\mathbb{I}\mathopen{}\left(X_1 ; X_3 \mid X_2\right)\mathclose{}} = 0$ ([Theorem 20](#thm-mutual-information-chain-rule)), as in [Example 20](#exm-conditional-mutual-information).
+> Here ${\mathbb{I}\mathopen{}\left(X_2 ; X_3\right)\mathclose{}} = 0.278$ [bits](#def-bit) and ${\mathbb{I}\mathopen{}\left(X_1, X_2 ; X_3\right)\mathclose{}} = 0.278$ bits. The difference is ${\mathbb{I}\mathopen{}\left(X_1 ; X_3 \mid X_2\right)\mathclose{}} = 0$ ([Theorem 22](#thm-mutual-information-chain-rule)), as in [Example 26](#exm-conditional-mutual-information).
 
 > **NOTE:**
 >
-> **Theorem 21 (Conditional mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+> **Theorem 23 (Conditional mutual information is nonnegative)** For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 >
 > $${\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \ge 0.$$
 
@@ -1333,13 +1527,13 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > &= \sum_z \mathbb{P}(Z=z) \, {\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}.
 > \end{aligned}$$
 >
-> Each ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is nonnegative by [Theorem 17](#thm-mutual-information-nonnegative). Since $\mathbb{P}(Z=z) \ge 0$ as well, every summand $\mathbb{P}(Z=z) \, {\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is nonnegative, so ${\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \ge 0$.
+> Each ${\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is nonnegative by [Theorem 18](#thm-mutual-information-nonnegative). Since $\mathbb{P}(Z=z) \ge 0$ as well, every summand $\mathbb{P}(Z=z) \, {\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}$ is nonnegative, so ${\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \ge 0$.
 
 > **NOTE:**
 >
-> **Example 22 (Learning a third variable can create information)**  
+> **Example 28 (Learning a third variable can create information)**  
 >
-> Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$, and let $Z = X + Y \bmod 2$ record whether they differ. The two coins are independent, so ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0$ ([Theorem 17](#thm-mutual-information-nonnegative)). Given $Z$, each of $X$ and $Y$ determines the other. The chunk computes the [conditional mutual information](#def-conditional-mutual-information) from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
+> Let $X$ and $Y$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coins, coded $0$ or $1$, and let $Z = X + Y \bmod 2$ record whether they differ. The two coins are independent, so ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0$ ([Theorem 18](#thm-mutual-information-nonnegative)). Given $Z$, each of $X$ and $Y$ determines the other. The chunk computes the [conditional mutual information](#def-conditional-mutual-information) from the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf), in [bits](#def-bit).
 >
 > Show code
 >
@@ -1362,19 +1556,19 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> [1] 1
 > ```
 >
-> So ${\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} = 1$ [bit](#def-bit), which is nonnegative ([Theorem 21](#thm-conditional-mutual-information-nonnegative)), although ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0$.
+> So ${\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} = 1$ [bit](#def-bit), which is nonnegative ([Theorem 23](#thm-conditional-mutual-information-nonnegative)), although ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0$.
 
 > **NOTE:**
 >
-> **Definition 16 (Markov chain of three random variables)** [Discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ form a **Markov chain** $X \to Y \to Z$ ([Cover and Thomas 2006, sec. 2.8](#ref-cover2006elements)) if $X$ and $Z$ are [conditionally independent](https://morrison-lab.github.io/pds/independence.html#def-cind) given $Y$: for every value $y$ with $\mathbb{P}(Y=y) > 0$ and all values $x$ and $z$,
+> **Definition 20 (Markov chain of three random variables)** [Discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$ form a **Markov chain** $X \to Y \to Z$ ([Cover and Thomas 2006, sec. 2.8](#ref-cover2006elements)) if $X$ and $Z$ are [conditionally independent](https://morrison-lab.github.io/pds/independence.html#def-cind) given $Y$: for every value $y$ with $\mathbb{P}(Y=y) > 0$ and all values $x$ and $z$,
 >
 > $$\mathbb{P}(X=x, Z=z \mid Y=y) = \mathbb{P}(X=x \mid Y=y) \, \mathbb{P}(Z=z \mid Y=y).$$
 
 > **NOTE:**
 >
-> **Example 23 (A chain of noisy copies is a Markov chain)**  
+> **Example 29 (A chain of noisy copies is a Markov chain)**  
 >
-> In [Example 19](#exm-entropy-chain-rule-n-copies), each of $X_2$ and $X_3$ is a noisy copy of the variable before it. So $X_3$ depends on $X_1$ only through $X_2$. The chunk builds the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) of $(X_1, X_2, X_3)$ and checks the defining equation of the chain $X_1 \to X_2 \to X_3$ for each value of $X_2$.
+> In [Example 25](#exm-entropy-chain-rule-n-copies), each of $X_2$ and $X_3$ is a noisy copy of the variable before it. So $X_3$ depends on $X_1$ only through $X_2$. The chunk builds the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) of $(X_1, X_2, X_3)$ and checks the defining equation of the chain $X_1 \to X_2 \to X_3$ for each value of $X_2$.
 >
 > Show code
 >
@@ -1421,7 +1615,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > $${\mathbb{H}\mathopen{}\left(X \mid Y, Z\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.$$
 >
-> By [Definition 15](#def-conditional-mutual-information),
+> By [Definition 19](#def-conditional-mutual-information),
 >
 > $$\begin{aligned}
 > {\mathbb{I}\mathopen{}\left(Z ; X \mid Y\right)\mathclose{}}
@@ -1432,7 +1626,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 22 (Data processing inequality)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$, $Y$ and $Z$ are finite, then
+> **Theorem 24 (Data processing inequality)** If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain) and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$, $Y$ and $Z$ are finite, then
 >
 > $${\mathbb{I}\mathopen{}\left(X ; Z\right)\mathclose{}} \le {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}.$$
 
@@ -1445,7 +1639,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > {\mathbb{I}\mathopen{}\left(Y, Z ; X\right)\mathclose{}} &= {\mathbb{I}\mathopen{}\left(Z ; X\right)\mathclose{}} + {\mathbb{I}\mathopen{}\left(Y ; X \mid Z\right)\mathclose{}}.
 > \end{aligned}$$
 >
-> The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables, so ${\mathbb{I}\mathopen{}\left(Z, Y ; X\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(Y, Z ; X\right)\mathclose{}}$. By [Lemma 2](#lem-markov-chain-conditional-mutual-information), ${\mathbb{I}\mathopen{}\left(Z ; X \mid Y\right)\mathclose{}} = 0$. By [Theorem 21](#thm-conditional-mutual-information-nonnegative), ${\mathbb{I}\mathopen{}\left(Y ; X \mid Z\right)\mathclose{}} \ge 0$. Therefore
+> The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables, so ${\mathbb{I}\mathopen{}\left(Z, Y ; X\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(Y, Z ; X\right)\mathclose{}}$. By [Lemma 2](#lem-markov-chain-conditional-mutual-information), ${\mathbb{I}\mathopen{}\left(Z ; X \mid Y\right)\mathclose{}} = 0$. By [Theorem 23](#thm-conditional-mutual-information-nonnegative), ${\mathbb{I}\mathopen{}\left(Y ; X \mid Z\right)\mathclose{}} \ge 0$. Therefore
 >
 > $$\begin{aligned}
 > {\mathbb{I}\mathopen{}\left(Y ; X\right)\mathclose{}}
@@ -1457,9 +1651,9 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 24 (Each extra noisy copy loses information)**  
+> **Example 30 (Each extra noisy copy loses information)**  
 >
-> For the chain $X_1 \to X_2 \to X_3$ in [Example 23](#exm-markov-chain-noisy-copies), the chunk computes the [mutual information](#def-mutual-information) of $X_1$ with $X_2$ and with $X_3$, in [bits](#def-bit). Each variable is a fair coin. The variable $X_3$ differs from $X_1$ when exactly one of the two copies flips, which has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2 \times 0.2 \times 0.8 = 0.32$.
+> For the chain $X_1 \to X_2 \to X_3$ in [Example 29](#exm-markov-chain-noisy-copies), the chunk computes the [mutual information](#def-mutual-information) of $X_1$ with $X_2$ and with $X_3$, in [bits](#def-bit). Each variable is a fair coin. The variable $X_3$ differs from $X_1$ when exactly one of the two copies flips, which has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $2 \times 0.2 \times 0.8 = 0.32$.
 >
 > Show code
 >
@@ -1472,19 +1666,19 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 > #> 0.27807191 0.09561854
 > ```
 >
-> Here ${\mathbb{I}\mathopen{}\left(X_1 ; X_3\right)\mathclose{}} = 0.096$ bits is below ${\mathbb{I}\mathopen{}\left(X_1 ; X_2\right)\mathclose{}} = 0.278$ bits ([Theorem 22](#thm-data-processing-inequality)).
+> Here ${\mathbb{I}\mathopen{}\left(X_1 ; X_3\right)\mathclose{}} = 0.096$ bits is below ${\mathbb{I}\mathopen{}\left(X_1 ; X_2\right)\mathclose{}} = 0.278$ bits ([Theorem 24](#thm-data-processing-inequality)).
 
-## 5 Stationary sequences
+## 6 Stationary sequences
 
 > **NOTE:**
 >
-> **Definition 17 (Stationary sequence)** A **stationary sequence** is a [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) $X_1, X_2, \ldots$ of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) whose [joint probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) do not change when the sequence is shifted in time: for every length $k \ge 1$, every shift $s \ge 0$ and all values $x_1, \ldots, x_k$,
+> **Definition 21 (Stationary sequence)** A **stationary sequence** is a [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) $X_1, X_2, \ldots$ of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) whose [joint probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) do not change when the sequence is shifted in time: for every length $k \ge 1$, every shift $s \ge 0$ and all values $x_1, \ldots, x_k$,
 >
 > $$\mathbb{P}(X_{1+s} = x_1, \ldots, X_{k+s} = x_k) = \mathbb{P}(X_1 = x_1, \ldots, X_k = x_k).$$
 
 > **NOTE:**
 >
-> **Example 25 (A sticky coin)**  
+> **Example 31 (A sticky coin)**  
 >
 > Let $X_1$ be a fair coin toss, coded $0$ or $1$. For each $t \ge 2$, let $X_t$ equal $X_{t-1}$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.9$ and $1 - X_{t-1}$ with probability $0.1$, independently of $X_1, \ldots, X_{t-2}$ given $X_{t-1}$. If $X_{t-1}$ is fair, then so is $X_t$, because
 >
@@ -1494,7 +1688,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Example 26 (An alternating sequence that starts at zero)**  
+> **Example 32 (An alternating sequence that starts at zero)**  
 >
 > Let $X_1 = 0$, and let $X_t = 1 - X_{t-1}$ for each $t \ge 2$, so the [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) is $0, 1, 0, 1, \ldots$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$. The sequence is not a [stationary sequence](#def-stationary-sequence): with length $k = 1$ and shift $s = 1$,
 >
@@ -1506,22 +1700,22 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 18 (**$N$-gram model) An $N$-gram model, for an [integer](https://morrison-lab.github.io/mcs/number-systems.html#def-integers) $N \ge 1$, is a [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) $X_1, X_2, \ldots$ of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) in which each variable depends on the earlier ones only through the $N - 1$ variables just before it: for every $t > N$ and all values $x_1, \ldots, x_t$ with $\mathbb{P}(X_1 = x_1, \ldots, X_{t-1} = x_{t-1}) > 0$,
+> **Definition 22 (**$N$-gram model) An $N$-gram model, for an [integer](https://morrison-lab.github.io/mcs/number-systems.html#def-integers) $N \ge 1$, is a [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) $X_1, X_2, \ldots$ of [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) in which each variable depends on the earlier ones only through the $N - 1$ variables just before it: for every $t > N$ and all values $x_1, \ldots, x_t$ with $\mathbb{P}(X_1 = x_1, \ldots, X_{t-1} = x_{t-1}) > 0$,
 >
 > $$\mathbb{P}(X_t = x_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1})
 > = \mathbb{P}(X_t = x_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}).$$
 
 > **NOTE:**
 >
-> **Example 27 (The sticky coin is a 2-gram model)**  
+> **Example 33 (The sticky coin is a 2-gram model)**  
 >
-> In the [sticky coin](#exm-stationary-sequence), given all the earlier tosses, $X_t$ repeats $X_{t-1}$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.9$. That [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) involves only the one toss just before $X_t$, so the sticky coin is a 2-gram model ([Definition 18](#def-n-gram-model)).
+> In the [sticky coin](#exm-stationary-sequence), given all the earlier tosses, $X_t$ repeats $X_{t-1}$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $0.9$. That [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) involves only the one toss just before $X_t$, so the sticky coin is a 2-gram model ([Definition 22](#def-n-gram-model)).
 
 > **NOTE:**
 >
-> **Example 28 (A sequence that repeats every second value)**  
+> **Example 34 (A sequence that repeats every second value)**  
 >
-> Let $X_1$ and $X_2$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coin tosses, coded $0$ or $1$, and let $X_t = X_{t-2}$ for each $t \ge 3$. The [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) is not a 2-gram model ([Definition 18](#def-n-gram-model)). Given both earlier tosses, $X_3$ is fixed:
+> Let $X_1$ and $X_2$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) fair coin tosses, coded $0$ or $1$, and let $X_t = X_{t-2}$ for each $t \ge 3$. The [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence) is not a 2-gram model ([Definition 22](#def-n-gram-model)). Given both earlier tosses, $X_3$ is fixed:
 >
 > $$\mathbb{P}(X_3 = 0 \mid X_1 = 0, X_2 = 0) = 1.$$
 >
@@ -1533,7 +1727,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> *Remark 17* (Guessing a text backward). A reader can guess a text one character at a time from its start, guessing each character from the characters already read. The reader can also guess it from its end, guessing each character from the characters that follow it. Most people find the backward game harder. That raises a question: does a reversed text carry more information per character than the text read forward ([MacKay 2003](#ref-mackay2003information), exercise 8.11)?
+> *Remark 20* (Guessing a text backward). A reader can guess a text one character at a time from its start, guessing each character from the characters already read. The reader can also guess it from its end, guessing each character from the characters that follow it. Most people find the backward game harder. That raises a question: does a reversed text carry more information per character than the text read forward ([MacKay 2003](#ref-mackay2003information), exercise 8.11)?
 
 > **NOTE:**
 >
@@ -1695,7 +1889,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Exercise 6 (Which guessing game is harder?)** Use [Exercise 2](#exr-reversed-text-total-entropy), [Exercise 3](#exr-forward-n-gram-conditional-entropy) and [Exercise 5](#exr-backward-n-gram-conditional-entropy) to compare the information per character in a reversed text and in the text read forward, and use that comparison to explain the difference in difficulty described in [Remark 17](#rem-reversed-text-guessing).
+> **Exercise 6 (Which guessing game is harder?)** Use [Exercise 2](#exr-reversed-text-total-entropy), [Exercise 3](#exr-forward-n-gram-conditional-entropy) and [Exercise 5](#exr-backward-n-gram-conditional-entropy) to compare the information per character in a reversed text and in the text read forward, and use that comparison to explain the difference in difficulty described in [Remark 20](#rem-reversed-text-guessing).
 
 > **NOTE:**
 >
@@ -1708,6 +1902,12 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 Cover, Thomas M., and Joy A. Thomas. 2006. *Elements of Information Theory*. 2nd ed. Wiley-Interscience. <https://doi.org/10.1002/047174882X>.
 
 Grinstead, Charles M., and J. Laurie Snell. 1997. *Introduction to Probability*. 2nd ed. American Mathematical Society.
+
+Groenendijk, Jeroen, and Martin Stokhof. 1984. “Studies on the Semantics of Questions and the Pragmatics of Answers.” PhD thesis, University of Amsterdam.
+
+Hamblin, C. L. 1973. “Questions in Montague English.” *Foundations of Language* 10 (1): 41–53. <https://www.jstor.org/stable/25000703>.
+
+Huddleston, Rodney. 1994. “The Contrast Between Interrogatives and Questions.” *Journal of Linguistics* 30 (2): 411–39. <https://doi.org/10.1017/S0022226700016704>.
 
 International Electrotechnical Commission. 2008. *Quantities and Units — Part 13: Information Science and Technology*. IEC 80000-13:2008. International Electrotechnical Commission.
 
