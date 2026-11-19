@@ -14,6 +14,7 @@ These two sets are nonempty and [disjoint](https://morrison-lab.github.io/pds/pr
 and their [union](https://morrison-lab.github.io/mcs/sets.html#def-union) is $\srcalph$,
 so they form a [question](#def-question),
 and a [polar question](#def-polar-question).
-If $X = 35$, the [answer](#def-answer) is $a(35) = \{32, 33, \ldots, 63\}$, that is, "yes".
+If $X = 35$, the [answer](#def-answer) is $a(35) = \{32, 33, \ldots, 63\}$,
+that is, "yes".
 
 :::

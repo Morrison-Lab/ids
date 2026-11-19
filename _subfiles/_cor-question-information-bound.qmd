@@ -10,7 +10,8 @@ the [mutual information](#def-mutual-information) between $X$ and the answer is 
 $$\mutinfof{X}{A} \le \log_2 k,$$
 
 with equality exactly when the $k$ possible answers are equally likely.
-For a [polar question](#def-polar-question), $k = 2$, so the answer carries at most $1$ bit about $X$.
+For a [polar question](#def-polar-question), $k = 2$,
+so the answer carries at most $1$ bit about $X$.
 
 :::
 

@@ -41,7 +41,8 @@ $$
 \end{aligned}
 $$
 
-The sum in @thm-kl-divergence-nonnegative has [finitely many](https://morrison-lab.github.io/mcs/functions.html#def-finite-set) terms, so it is finite,
+The sum in @thm-kl-divergence-nonnegative has [finitely many](https://morrison-lab.github.io/mcs/functions.html#def-finite-set) terms,
+so it is finite,
 and @thm-kl-divergence-nonnegative then gives $\kldivf{p}{q} \ge 0$,
 with equality exactly when $q = p$.
 Hence $\log_2 k - \entropyf{X} \ge 0$,
