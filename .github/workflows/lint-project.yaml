@@ -11,7 +11,8 @@ permissions: read-all
 
 jobs:
   lint-project:
-    runs-on: ubuntu-latest
+    # Pinned to match the noble binary repo used below (issue #199).
+    runs-on: ubuntu-24.04
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:

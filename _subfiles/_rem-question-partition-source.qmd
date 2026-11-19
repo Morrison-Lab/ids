@@ -1,0 +1,12 @@
+::: {#rem-question-partition-source}
+#### Questions as sets of replies in semantics
+
+@hamblin1973questions took a question in natural language to denote the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of propositions that count as its replies,
+so that a question "sets up a choice-situation between a set of propositions".
+Hamblin's account does not require those propositions to exclude one another.
+@groenendijk1984studies took a question's replies to be [mutually exclusive](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive) and to cover every possibility,
+so that a question [partitions](https://morrison-lab.github.io/pds/probability-basics.html#def-partition) the possibilities.
+@def-question follows Groenendijk and Stokhof:
+the [possible answers](#def-possible-answer) to a [question](#def-question) partition $\srcalph$.
+
+:::
