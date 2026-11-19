@@ -1,0 +1,11 @@
+::: {#rem-question-partition-events}
+#### A question partitions the sample space
+
+The [events](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $\{X \in C\}$,
+one for each [possible answer](#def-possible-answer) $C$ to a [question](#def-question) about $X$,
+are disjoint, and together they hold every outcome at which $X$ takes a value in $\srcalph$,
+an event of [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$.
+So, apart from an event of probability $0$, they form a
+[partition of the sample space](https://morrison-lab.github.io/pds/probability-basics.html#def-partition).
+
+:::

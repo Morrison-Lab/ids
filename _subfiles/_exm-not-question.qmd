@@ -1,11 +1,13 @@
 :::{#exm-not-question}
-#### Overlapping answers do not form a question
+#### Overlapping sets do not form a question
 <!-- no-figure: the example lists two sets, with nothing to plot -->
 
 Let $X$ be as in @exm-question.
-The two sets $\{0, 1, \ldots, 40\}$ and $\{32, 33, \ldots, 63\}$ cover $\srcalph$,
+The two [sets](https://morrison-lab.github.io/mcs/sets.html#def-set) $\{0, 1, \ldots, 40\}$ and $\{32, 33, \ldots, 63\}$ cover $\srcalph$,
 but both hold the values $32, 33, \ldots, 40$.
-They are not disjoint, so they do not form a [question](#def-question):
-when $X = 35$, no single possible answer holds the value of $X$.
+They are not [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive),
+so they do not form a [question](#def-question),
+and neither set is a [possible answer](#def-possible-answer):
+when $X = 35$, no single one of the two sets holds the value of $X$.
 
 :::

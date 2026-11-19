@@ -326,6 +326,14 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_def-possible-answer.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-question-partition-events.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_def-answer.qmd >}}
 
 {{< slidebreak >}}

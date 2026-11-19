@@ -7,12 +7,12 @@ let $A$ be the [answer](#def-answer) to each of the two questions below in turn,
 and use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 
 - **"Is $X \ge 32$?"**
-  Each answer has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $32/64 = 1/2$,
+  Each [possible answer](#def-possible-answer) has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $32/64 = 1/2$,
   so its [surprisal](#def-surprisal) is $1$ [bit](#def-bit),
-  and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the answer, its expected surprisal, is $1$ bit.
+  and the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the answer, its [expected](https://morrison-lab.github.io/pds/expectation.html#def-expectation) surprisal, is $1$ bit.
   By @thm-answer-information, the answer carries $\mutinfof{X}{A} = 1$ bit about $X$.
 - **"Is $X = 0$?"**
-  The answer "yes" has probability $1/64$ and the answer "no" has probability $63/64$,
+  The possible answer "yes" has probability $1/64$ and the possible answer "no" has probability $63/64$,
   so the entropy of the answer is
 
   $$
@@ -26,8 +26,8 @@ and use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponenti
 
   By @thm-answer-information, the answer carries about $0.116$ bits about $X$.
 
-The answer "yes" to "Is $X = 0$?" is worth $6$ bits,
+The reply "yes" to "Is $X = 0$?" is worth $6$ bits,
 but it is rare,
-so the expected information from asking is far below the $1$ bit from "Is $X \ge 32$?".
+so on average asking "Is $X = 0$?" gains far less than the $1$ bit from "Is $X \ge 32$?".
 
 :::

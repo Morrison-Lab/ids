@@ -2,12 +2,10 @@
 #### Question
 
 Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
-and let $\srcalph$ be the set of its [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization)
+and let $\srcalph$ be the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of its [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization)
 with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
-A **question** about $X$ is a collection of nonempty, disjoint subsets of $\srcalph$ whose union is $\srcalph$,
-called its possible answers.
-Apart from an event of probability zero,
-the events $\{X \in C\}$, one for each possible answer $C$,
-then form a [partition](https://morrison-lab.github.io/pds/probability-basics.html#def-partition) of the sample space.
+A **question** about $X$ is a [collection](https://morrison-lab.github.io/mcs/sets.html#def-collection)
+of nonempty, [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive) [subsets](https://morrison-lab.github.io/mcs/sets.html#def-subset) of $\srcalph$
+whose [union](https://morrison-lab.github.io/mcs/sets.html#def-union) is $\srcalph$.
 
 :::

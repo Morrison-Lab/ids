@@ -5,9 +5,9 @@
 A coin toss $X$ has $k = 2$ values, so @thm-entropy-at-most-log-values gives $\entropyf{X} \le \log_2 2 = 1$ [bit](#def-bit).
 
 - A fair coin is [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on its two values,
-  so its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) equals the bound, $1$ bit.
+  so its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) equals $\log_2 2 = 1$ bit.
 - A coin that lands heads with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/4$
-  has entropy below the bound:
+  has entropy below $1$ bit:
 
   $$
   \begin{aligned}
