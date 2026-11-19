@@ -1,5 +1,5 @@
 ::: {#rem-question-partition-source}
-#### Questions as sets of answers in semantics
+#### Questions as sets of replies in semantics
 
 @hamblin1973questions took a question in natural language to denote the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of propositions that count as its replies,
 so that a question "sets up a choice-situation between a set of propositions".
