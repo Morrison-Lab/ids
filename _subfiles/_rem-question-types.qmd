@@ -1,0 +1,23 @@
+::: {#rem-question-types}
+#### Kinds of questions in grammar
+
+@huddleston1994contrast sorts questions into three kinds,
+by how each kind defines its set of answers:
+
+- A [polar question](#def-polar-question), such as "Is it raining?", has the two answers yes and no.
+- An *alternative question*, such as "Is it red or green?", has one answer for each alternative it lists.
+- A *variable question*, such as "Who called?", has one answer for each value of a variable,
+  here the person who called.
+  In English a variable question opens with an interrogative word, such as *who*, *what*, *which*, *where*, *when*, *why*, or *how*,
+  so it is often called a *wh-question*.
+
+Each kind is a [question](#def-question) with a different number of possible answers:
+two for a polar question,
+one per listed alternative for an alternative question,
+and one per value of the variable for a variable question,
+which can be many.
+@huddleston1994contrast also separates these kinds of question from the *interrogative* clause, a grammatical form.
+The two need not match:
+a declarative clause said with rising intonation, such as "You're leaving?", asks a polar question.
+
+:::

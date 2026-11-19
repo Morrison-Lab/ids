@@ -1,0 +1,9 @@
+:::{#def-polar-question}
+#### Polar question, yes-no question
+
+A **polar question**, or **yes-no question**, about $X$ is a [question](#def-question) with exactly two possible answers:
+the values of $X$ for which some statement holds, the answer "yes",
+and the values for which it fails, the answer "no".
+"Polar question" is the name used below.
+
+:::

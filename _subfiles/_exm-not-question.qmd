@@ -1,0 +1,11 @@
+:::{#exm-not-question}
+#### Overlapping answers do not form a question
+<!-- no-figure: the example lists two sets, with nothing to plot -->
+
+Let $X$ be as in @exm-question.
+The two sets $\{0, 1, \ldots, 40\}$ and $\{32, 33, \ldots, 63\}$ cover $\srcalph$,
+but both hold the values $32, 33, \ldots, 40$.
+They are not disjoint, so they do not form a [question](#def-question):
+when $X = 35$, no single possible answer holds the value of $X$.
+
+:::

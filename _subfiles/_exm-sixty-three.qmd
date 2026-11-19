@@ -1,0 +1,34 @@
+:::{#exm-sixty-three}
+#### The game of sixty-three
+<!-- no-figure: the example lists six questions and their answers, with nothing to plot -->
+
+In the game of twenty questions,
+one player thinks of an object and the other identifies it by asking polar questions.
+@mackay2003information [p. 70] simplifies the game to "sixty-three":
+find an integer $X$ between $0$ and $63$, each equally likely, using [polar questions](#def-polar-question).
+Six questions suffice:
+
+1. Is $X \ge 32$?
+2. Is the remainder of $X$ divided by $32$ at least $16$?
+3. Is the remainder of $X$ divided by $16$ at least $8$?
+4. Is the remainder of $X$ divided by $8$ at least $4$?
+5. Is the remainder of $X$ divided by $4$ at least $2$?
+6. Is $X$ odd?
+
+Reading "yes" as $1$ and "no" as $0$,
+the six [answers](#def-answer) spell the binary expansion of $X$:
+$X = 35$ gives $100011$.
+Given the answers so far, each next question splits the values still possible into two equal halves,
+so each answer has [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1/2$
+and carries $1$ [bit](#def-bit),
+the most that @cor-question-information-bound allows for a polar question.
+The six answers carry $6$ bits in all,
+which is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $\entropyf{X} = \log_2 64 = 6$ bits.
+No strategy can be sure to finish in fewer than six polar questions:
+five polar questions have at most $2^5 = 32$ combinations of answers,
+too few to tell $64$ values apart.
+
+The single [variable question](#rem-question-types) "What is $X$?" has $64$ equally likely possible answers,
+so by @cor-question-information-bound its answer carries all $\log_2 64 = 6$ bits at once.
+
+:::
