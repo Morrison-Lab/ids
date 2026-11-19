@@ -7,7 +7,7 @@ The two [sets](https://morrison-lab.github.io/mcs/sets.html#def-set) $\{0, 1, \l
 but both hold the values $32, 33, \ldots, 40$.
 They are not [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive),
 so they do not form a [question](#def-question),
-and neither set is a [possible answer](#def-possible-answer).
+and neither set is a [possible answer](#def-possible-answer) of a question made from these two sets.
 When $X = 35$,
 both sets hold the value of $X$,
 so no single set is its answer.

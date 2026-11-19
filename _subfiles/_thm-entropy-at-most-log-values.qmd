@@ -3,7 +3,8 @@
 
 Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
 with exactly $k$ [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization)
-of positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
+of positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
+for a [positive integer](https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer) $k$.
 With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm),
 the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$ is at most $\log_2 k$:
 

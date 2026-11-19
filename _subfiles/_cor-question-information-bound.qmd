@@ -1,7 +1,7 @@
 :::{#cor-question-information-bound}
 #### An answer carries at most the logarithm of the number of possible answers
 
-Let $A$ be the [answer](#def-answer) to a [question](#def-question) with $k$ [possible answers](#def-possible-answer)
+Let $A$ be the [answer](#def-answer) to a [question](#def-question) with [finitely many](https://morrison-lab.github.io/mcs/functions.html#def-finite-set) [possible answers](#def-possible-answer), $k$ of them,
 about a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
 with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
 With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm),
