@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-18 20:49:03 (PST)
+Last modified: 2026-11-18 21:10:40 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
@@ -994,7 +994,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Theorem 17 (Entropy is at most the logarithm of the number of values)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with exactly $k$ [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) of positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability). With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$ is at most $\log_2 k$:
+> **Theorem 17 (Entropy is at most the logarithm of the number of values)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with exactly $k$ [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) of positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), for a [positive integer](https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer) $k$. With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$ is at most $\log_2 k$:
 >
 > $${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \le \log_2 k,$$
 >
@@ -1272,7 +1272,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 >
 > **Example 21 (Overlapping sets do not form a question)**  
 >
-> Let $X$ be as in [Example 20](#exm-question). The two [sets](https://morrison-lab.github.io/mcs/sets.html#def-set) $\{0, 1, \ldots, 40\}$ and $\{32, 33, \ldots, 63\}$ cover $\mathcal{X}$, but both hold the values $32, 33, \ldots, 40$. They are not [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive), so they do not form a [question](#def-question), and neither set is a [possible answer](#def-possible-answer). When $X = 35$, both sets hold the value of $X$, so no single set is its answer.
+> Let $X$ be as in [Example 20](#exm-question). The two [sets](https://morrison-lab.github.io/mcs/sets.html#def-set) $\{0, 1, \ldots, 40\}$ and $\{32, 33, \ldots, 63\}$ cover $\mathcal{X}$, but both hold the values $32, 33, \ldots, 40$. They are not [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive), so they do not form a [question](#def-question), and neither set is a [possible answer](#def-possible-answer) of a question made from these two sets. When $X = 35$, both sets hold the value of $X$, so no single set is its answer.
 
 > **NOTE:**
 >
@@ -1345,7 +1345,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Corollary 6 (An answer carries at most the logarithm of the number of possible answers)** Let $A$ be the [answer](#def-answer) to a [question](#def-question) with $k$ [possible answers](#def-possible-answer) about a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy). With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), the [mutual information](#def-mutual-information) between $X$ and the answer is at most $\log_2 k$ [bits](#def-bit):
+> **Corollary 6 (An answer carries at most the logarithm of the number of possible answers)** Let $A$ be the [answer](#def-answer) to a [question](#def-question) with [finitely many](https://morrison-lab.github.io/mcs/functions.html#def-finite-set) [possible answers](#def-possible-answer), $k$ of them, about a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy). With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), the [mutual information](#def-mutual-information) between $X$ and the answer is at most $\log_2 k$ [bits](#def-bit):
 >
 > $${\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}} \le \log_2 k,$$
 >

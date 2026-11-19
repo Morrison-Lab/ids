@@ -1829,6 +1829,10 @@
   ],
   [
    "ids/entropy#cor-question-information-bound",
+   "mcs/functions#def-finite-set"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
    "mcs/sets#def-set"
   ],
   [
@@ -2374,6 +2378,10 @@
   [
    "ids/entropy#thm-entropy-at-most-log-values",
    "mcs/functions#def-finite-set"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "mcs/number-systems#def-positive-integer"
   ],
   [
    "ids/entropy#thm-entropy-at-most-log-values",
