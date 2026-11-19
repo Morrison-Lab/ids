@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-18 22:24:21 (PST)
+Last modified: 2026-11-19 02:11:22 (PST)
 
 A [linear code](error-correcting-codes.llms.md#def-linear-code) is described by a [parity-check matrix](error-correcting-codes.llms.md#def-linear-code). When it has few ones, each check involves only a few positions of the word.
 

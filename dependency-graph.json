@@ -543,6 +543,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-surprisal-chain-rule-n",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-surprisal-chain-rule-n",
+   "kind": "thm",
+   "title": "Chain rule for surprisal, many variables",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-surprisal-log-half",
    "site": "ids",
    "page": "entropy",
@@ -2449,15 +2458,31 @@
   ],
   [
    "ids/entropy#thm-entropy-chain-rule-n",
-   "ids/entropy#thm-entropy-chain-rule"
+   "ids/entropy#cor-surprisal-discrete-nonnegative"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule-n",
-   "mcs/induction#def-proof-by-induction"
+   "ids/entropy#def-conditional-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "ids/entropy#def-joint-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "ids/entropy#thm-surprisal-chain-rule-n"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule-n",
    "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-entropy-chain-rule-n",
+   "pds/probability-basics#def-probability"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule-n",
@@ -2733,6 +2758,26 @@
   ],
   [
    "ids/entropy#thm-surprisal-chain-rule",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#thm-surprisal-chain-rule-n",
+   "ids/entropy#thm-surprisal-chain-rule"
+  ],
+  [
+   "ids/entropy#thm-surprisal-chain-rule-n",
+   "mcs/induction#def-proof-by-induction"
+  ],
+  [
+   "ids/entropy#thm-surprisal-chain-rule-n",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-surprisal-chain-rule-n",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-surprisal-chain-rule-n",
    "pds/random-variables#def-realization"
   ],
   [
