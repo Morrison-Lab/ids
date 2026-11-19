@@ -1,11 +1,12 @@
 ::: {#rem-question-partition-source}
 #### Questions as sets of answers in semantics
 
-@def-question follows a line of work in the semantics of natural language.
-@hamblin1973questions took a question to denote the set of propositions that count as its answers,
+@hamblin1973questions took a question in natural language to denote the set of propositions that count as its answers,
 so that a question "sets up a choice-situation between a set of propositions".
+Those answers need not exclude one another.
 @groenendijk1984studies took a question's answers to be mutually exclusive and to cover every possibility,
-so that a question partitions the possibilities,
-as the possible answers of a question partition $\srcalph$.
+so that a question partitions the possibilities.
+@def-question follows Groenendijk and Stokhof:
+the possible answers of a question partition $\srcalph$.
 
 :::

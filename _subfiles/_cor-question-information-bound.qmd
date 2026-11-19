@@ -1,5 +1,5 @@
 :::{#cor-question-information-bound}
-#### A polar question yields at most one bit
+#### An answer carries at most the logarithm of the number of answers
 
 Let $A$ be the [answer](#def-answer) to a [question](#def-question) with $k$ possible answers
 about a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$

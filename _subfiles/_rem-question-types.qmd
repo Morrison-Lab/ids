@@ -8,7 +8,7 @@ by how each kind defines its set of answers:
 - An *alternative question*, such as "Is it red or green?", has one answer for each alternative it lists.
 - A *variable question*, such as "Who called?", has one answer for each value of a variable,
   here the person who called.
-  In English a variable question opens with an interrogative word, such as *who*, *what*, *which*, *where*, *when*, *why*, or *how*,
+  In English a variable question usually contains an interrogative word, such as *who*, *what*, *which*, *where*, *when*, *why*, or *how*,
   so it is often called a *wh-question*.
 
 Each kind is a [question](#def-question) with a different number of possible answers:
