@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-13 14:43:22 (PST)</p>
+  <p class="date">Last modified: 2026-11-18 22:57:34 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -1365,8 +1365,57 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 </section>
 <section class="slide level2">
 
+<div id="thm-entropy-at-most-log-values" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 17 (Entropy is at most the logarithm of the number of values)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> with exactly <span class="math inline">\(k\)</span> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-realization">values</a> of positive <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>, for a <a href="https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer">positive integer</a> <span class="math inline">\(k\)</span>. With base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithms</a>, the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(X\)</span> is at most <span class="math inline">\(\log_2 k\)</span>:</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \le \log_2 k,\]</span></p>
+<p>with equality exactly when <span class="math inline">\(X\)</span> is <a href="https://morrison-lab.github.io/pds/random-variables.html#def-uniform">uniform</a> on those <span class="math inline">\(k\)</span> values.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(p\)</span> be the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> of <span class="math inline">\(X\)</span>, and let <span class="math inline">\(q\)</span> be the uniform probability mass function on the <span class="math inline">\(k\)</span> values <span class="math inline">\(x\)</span> with <span class="math inline">\(p(x) &gt; 0\)</span>, so <span class="math inline">\(q(x) = 1/k\)</span> at each of them. The <a href="#/def-surprisal">surprisal</a> measured by <span class="math inline">\(q\)</span> is then the same at every one of those values:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{s}_{q}\mathopen{}\left(x\right)\mathclose{}}
+&amp;= -\log_2 \tfrac{1}{k} \\
+&amp;= \log_2 k.
+\end{aligned}
+\]</span></p>
+<p>The <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of <span class="math inline">\(q\)</span> from <span class="math inline">\(p\)</span> is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of the surprisal measured by <span class="math inline">\(q\)</span> minus the surprisal measured by <span class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}
+&amp;= {\mathbb{E}\mathopen{}\left[{\mathbb{s}_{q}\mathopen{}\left(X\right)\mathclose{}} - {\mathbb{s}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}} \\
+&amp;= {\mathbb{E}\mathopen{}\left[\log_2 k - {\mathbb{s}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}} \\
+&amp;= \log_2 k - {\mathbb{E}\mathopen{}\left[{\mathbb{s}\mathopen{}\left(X\right)\mathclose{}}\right]\mathclose{}} \\
+&amp;= \log_2 k - {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.
+\end{aligned}
+\]</span></p>
+<p>The sum in <a href="#/thm-kl-divergence-nonnegative" class="quarto-xref">Theorem&nbsp;16</a> has <a href="https://morrison-lab.github.io/mcs/functions.html#def-finite-set">finitely many</a> terms, so it is finite, and <a href="#/thm-kl-divergence-nonnegative" class="quarto-xref">Theorem&nbsp;16</a> then gives <span class="math inline">\({{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}} \ge 0\)</span>, with equality exactly when <span class="math inline">\(q = p\)</span>. Hence <span class="math inline">\(\log_2 k - {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \ge 0\)</span>, with equality exactly when <span class="math inline">\(p\)</span> is uniform on its <span class="math inline">\(k\)</span> values.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-entropy-at-most-log-values" class="theorem example">
+<p><span class="theorem-title"><strong>Example 16 (A fair coin and a loaded coin)</strong></span> &nbsp;</p>
+<!-- no-figure: the example compares two numbers, with nothing to plot -->
+<p>A coin toss <span class="math inline">\(X\)</span> has <span class="math inline">\(k = 2\)</span> values, so <a href="#/thm-entropy-at-most-log-values" class="quarto-xref">Theorem&nbsp;17</a> gives <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \le \log_2 2 = 1\)</span> <a href="#/def-bit">bit</a>.</p>
+<ul>
+<li><p>A fair coin is <a href="https://morrison-lab.github.io/pds/random-variables.html#def-uniform">uniform</a> on its two values, so by the equality case of <a href="#/thm-entropy-at-most-log-values" class="quarto-xref">Theorem&nbsp;17</a> its <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> equals <span class="math inline">\(\log_2 2 = 1\)</span> bit.</p></li>
+<li><p>A coin that lands heads with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/4\)</span> has entropy below <span class="math inline">\(1\)</span> bit:</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}
+&amp;= -\tfrac{1}{4} \log_2 \tfrac{1}{4} - \tfrac{3}{4} \log_2 \tfrac{3}{4} \\
+&amp;\approx 0.500 + 0.311 \\
+&amp;\approx 0.811 \text{ bits}.
+\end{aligned}
+\]</span></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
 <div id="thm-mutual-information-nonnegative" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 17 (Mutual information is nonnegative)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>,</p>
+<p><span class="theorem-title"><strong>Theorem 18 (Mutual information is nonnegative)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>,</p>
 <p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0.\]</span></p>
 <p>Equality holds exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a>.</p>
 </div>
@@ -1377,7 +1426,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="exm-mutual-information-dependence" class="theorem example">
-<p><span class="theorem-title"><strong>Example 16 (Mutual information of dependent and independent coins)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 17 (Mutual information of dependent and independent coins)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 <p>For the noisy copy in <a href="#/exm-mutual-information-noisy-copy" class="quarto-xref">Example&nbsp;14</a>, the <a href="#/def-mutual-information">mutual information</a> is positive, because <span class="math inline">\(Y\)</span> depends on <span class="math inline">\(X\)</span>. For two <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> fair coins, every joint <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> is <span class="math inline">\(0.25\)</span>. The chunk computes the mutual information of both pairs.</p>
 <div class="cell">
@@ -1402,7 +1451,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <span id="cb14-17"><a aria-label="17"></a><span class="co">#&gt;      0.2780719      0.0000000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>So the mutual information of the independent coins is <span class="math inline">\(0\)</span> <a href="#/def-bit">bits</a>, and that of the dependent pair is <span class="math inline">\(0.278\)</span> bits (<a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;17</a>).</p>
+<p>So the mutual information of the independent coins is <span class="math inline">\(0\)</span> <a href="#/def-bit">bits</a>, and that of the dependent pair is <span class="math inline">\(0.278\)</span> bits (<a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;18</a>).</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1415,13 +1464,13 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/thm-mutual-information-reduction" class="quarto-xref">Theorem&nbsp;11</a>,</p>
 <p><span class="math display">\[{\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}.\]</span></p>
-<p>By <a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;17</a>, the right side is nonnegative, and it is <span class="math inline">\(0\)</span> exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a>.</p>
+<p>By <a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;18</a>, the right side is nonnegative, and it is <span class="math inline">\(0\)</span> exactly when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="exm-conditioning-reduces-entropy" class="theorem example">
-<p><span class="theorem-title"><strong>Example 17 (Learning a noisy copy lowers the entropy)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 18 (Learning a noisy copy lowers the entropy)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
 <p>For the coin <span class="math inline">\(X\)</span> and noisy copy <span class="math inline">\(Y\)</span> in <a href="#/exm-mutual-information-noisy-copy" class="quarto-xref">Example&nbsp;14</a>, the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(Y\)</span> is <span class="math inline">\(1\)</span> <a href="#/def-bit">bit</a>. Given <span class="math inline">\(X\)</span>, the variable <span class="math inline">\(Y\)</span> is a coin with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probabilities</a> <span class="math inline">\(0.8\)</span> and <span class="math inline">\(0.2\)</span>. The chunk computes the <a href="#/def-conditional-entropy">conditional entropy</a> from that coin.</p>
 <div class="cell">
@@ -1440,13 +1489,13 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="rem-mutual-information-kl" class="proof remark">
-<p><span class="proof-title"><em>Remark 15</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 2.3</a>)</span> define <a href="#/def-mutual-information">mutual information</a> as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the product of the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginals</a> of <span class="math inline">\((X, Y)\)</span> from their <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution">joint distribution</a>. <a href="#/thm-mutual-information-kl" class="quarto-xref">Theorem&nbsp;15</a> proves that this divergence equals <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.4</a>)</span>, and <a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;17</a> proves that <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>. Learning <span class="math inline">\(X\)</span> never raises the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(Y\)</span> on average (<a href="#/cor-conditioning-reduces-entropy" class="quarto-xref">Corollary&nbsp;5</a>).</p>
+<p><span class="proof-title"><em>Remark 15</em> (Mutual information as a divergence). </span><span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 2.3</a>)</span> define <a href="#/def-mutual-information">mutual information</a> as the <a href="https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence">Kullback–Leibler divergence</a> of the product of the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginals</a> of <span class="math inline">\((X, Y)\)</span> from their <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution">joint distribution</a>. <a href="#/thm-mutual-information-kl" class="quarto-xref">Theorem&nbsp;15</a> proves that this divergence equals <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.4</a>)</span>, and <a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;18</a> proves that <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} \ge 0\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>. Learning <span class="math inline">\(X\)</span> never raises the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(Y\)</span> on average (<a href="#/cor-conditioning-reduces-entropy" class="quarto-xref">Corollary&nbsp;5</a>).</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="thm-mutual-information-self" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 18 (Mutual information of a variable with itself)</strong></span> For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>,</p>
+<p><span class="theorem-title"><strong>Theorem 19 (Mutual information of a variable with itself)</strong></span> For a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>,</p>
 <p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; X\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
@@ -1473,9 +1522,9 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="exm-mutual-information-self" class="theorem example">
-<p><span class="theorem-title"><strong>Example 18 (A fair coin is fully informative about itself)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 19 (A fair coin is fully informative about itself)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a single number, with nothing to plot -->
-<p>Let <span class="math inline">\(X\)</span> be a fair coin toss. Its <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> is <span class="math inline">\(1\)</span> <a href="#/def-bit">bit</a>. Given <span class="math inline">\(X\)</span> itself, there is no uncertainty left, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} = 0\)</span>. Hence <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; X\right)\mathclose{}} = 1 - 0 = 1\)</span> bit (<a href="#/thm-mutual-information-self" class="quarto-xref">Theorem&nbsp;18</a>), the same as <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>.</p>
+<p>Let <span class="math inline">\(X\)</span> be a fair coin toss. Its <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> is <span class="math inline">\(1\)</span> <a href="#/def-bit">bit</a>. Given <span class="math inline">\(X\)</span> itself, there is no uncertainty left, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(X \mid X\right)\mathclose{}} = 0\)</span>. Hence <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; X\right)\mathclose{}} = 1 - 0 = 1\)</span> bit (<a href="#/thm-mutual-information-self" class="quarto-xref">Theorem&nbsp;19</a>), the same as <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1594,11 +1643,176 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 </ol>
 </div>
 </section>
-<section id="sec-chain-rules" class="slide level2" data-number="4">
-<h2><span class="header-section-number">4</span> Chain rules</h2>
+<section id="sec-questions" class="slide level2" data-number="4">
+<h2><span class="header-section-number">4</span> Questions and answers</h2>
+<!-- No slidebreak here: the heading shares its slide with the def-question div. -->
+<div id="def-question" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 15 (Question)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, and let <span class="math inline">\(\mathcal{X}\)</span> be the <a href="https://morrison-lab.github.io/mcs/sets.html#def-set">set</a> of its <a href="https://morrison-lab.github.io/pds/random-variables.html#def-realization">values</a> with positive <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>. A <strong>question</strong> about <span class="math inline">\(X\)</span> is a <a href="https://morrison-lab.github.io/mcs/sets.html#def-collection">collection</a> of nonempty, <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive">disjoint</a> <a href="https://morrison-lab.github.io/mcs/sets.html#def-subset">subsets</a> of <span class="math inline">\(\mathcal{X}\)</span> whose <a href="https://morrison-lab.github.io/mcs/sets.html#def-union">union</a> is <span class="math inline">\(\mathcal{X}\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="def-possible-answer" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16 (Possible answer)</strong></span> A <strong>possible answer</strong> to a <a href="#/def-question">question</a> about <span class="math inline">\(X\)</span> is one of the <a href="https://morrison-lab.github.io/mcs/sets.html#def-subset">subsets</a> of <span class="math inline">\(\mathcal{X}\)</span>, as in <a href="#/def-question" class="quarto-xref">Definition&nbsp;15</a>, that make up the question.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="rem-question-partition-events" class="proof remark">
+<p><span class="proof-title"><em>Remark 17</em> (A question partitions the sample space). </span>The <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-event">events</a> <span class="math inline">\(\{X \in C\}\)</span>, one for each <a href="#/def-possible-answer">possible answer</a> <span class="math inline">\(C\)</span> to a <a href="#/def-question">question</a> about <span class="math inline">\(X\)</span>, are <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive">disjoint</a>, and together they hold every <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome">outcome</a> at which <span class="math inline">\(X\)</span> takes a value in <span class="math inline">\(\mathcal{X}\)</span>, an event of <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1\)</span>. So, apart from an event of probability <span class="math inline">\(0\)</span>, they form a <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-partition">partition of the sample space</a>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="def-answer" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 17 (Answer)</strong></span> For a <a href="#/def-question">question</a> about <span class="math inline">\(X\)</span>, write <span class="math inline">\(a(x)\)</span> for the <a href="#/def-possible-answer">possible answer</a> that holds the value <span class="math inline">\(x\)</span>. The <strong>answer</strong> to the question is the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-random-variable">random variable</a></p>
+<p><span class="math display">\[A \stackrel{\text{def}}{=}a(X).\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="def-polar-question" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 18 (Polar question, yes-no question)</strong></span> A <strong>polar question</strong>, or <strong>yes-no question</strong>, about <span class="math inline">\(X\)</span> is a <a href="#/def-question">question</a> with exactly two <a href="#/def-possible-answer">possible answers</a>: the values of <span class="math inline">\(X\)</span> for which some statement holds, labeled “yes”, and the values for which it fails, labeled “no”.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-question" class="theorem example">
+<p><span class="theorem-title"><strong>Example 20 (Is the number at least 32?)</strong></span> &nbsp;</p>
+<!-- no-figure: the example lists two sets, with nothing to plot -->
+<p>Let <span class="math inline">\(X\)</span> be <a href="https://morrison-lab.github.io/pds/random-variables.html#def-uniform">uniform</a> on the <a href="https://morrison-lab.github.io/mcs/number-systems.html#def-integers">integers</a> <span class="math inline">\(0, 1, \ldots, 63\)</span>, so that <span class="math inline">\(\mathcal{X}= \{0, 1, \ldots, 63\}\)</span>. The question “Is <span class="math inline">\(X \ge 32\)</span>?” has two <a href="#/def-possible-answer">possible answers</a>:</p>
+<ul>
+<li>“yes”, the <a href="https://morrison-lab.github.io/mcs/sets.html#def-set">set</a> <span class="math inline">\(\{32, 33, \ldots, 63\}\)</span>;</li>
+<li>“no”, the set <span class="math inline">\(\{0, 1, \ldots, 31\}\)</span>.</li>
+</ul>
+<p>These two sets are nonempty and <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive">disjoint</a>, and their <a href="https://morrison-lab.github.io/mcs/sets.html#def-union">union</a> is <span class="math inline">\(\mathcal{X}\)</span>, so they form a <a href="#/def-question">question</a>, and a <a href="#/def-polar-question">polar question</a>. If <span class="math inline">\(X = 35\)</span>, the <a href="#/def-answer">answer</a> is <span class="math inline">\(a(35) = \{32, 33, \ldots, 63\}\)</span>, that is, “yes”.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-not-question" class="theorem example">
+<p><span class="theorem-title"><strong>Example 21 (Overlapping sets do not form a question)</strong></span> &nbsp;</p>
+<!-- no-figure: the example lists two sets, with nothing to plot -->
+<p>Let <span class="math inline">\(X\)</span> be as in <a href="#/exm-question" class="quarto-xref">Example&nbsp;20</a>. The two <a href="https://morrison-lab.github.io/mcs/sets.html#def-set">sets</a> <span class="math inline">\(\{0, 1, \ldots, 40\}\)</span> and <span class="math inline">\(\{32, 33, \ldots, 63\}\)</span> cover <span class="math inline">\(\mathcal{X}\)</span>, but both hold the values <span class="math inline">\(32, 33, \ldots, 40\)</span>. They are not <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive">disjoint</a>, so they do not form a <a href="#/def-question">question</a>, and neither set is a <a href="#/def-possible-answer">possible answer</a> of a question made from these two sets. When <span class="math inline">\(X = 35\)</span>, both sets hold the value of <span class="math inline">\(X\)</span>, so no single set is its answer.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-not-polar-question" class="theorem example">
+<p><span class="theorem-title"><strong>Example 22 (A question with four possible answers is not polar)</strong></span> &nbsp;</p>
+<!-- no-figure: the example lists four sets, with nothing to plot -->
+<p>Let <span class="math inline">\(X\)</span> be as in <a href="#/exm-question" class="quarto-xref">Example&nbsp;20</a>. The question “What is the remainder of <span class="math inline">\(X\)</span> divided by <span class="math inline">\(4\)</span>?” has four <a href="#/def-possible-answer">possible answers</a>, one for each remainder <span class="math inline">\(r \in \{0, 1, 2, 3\}\)</span>: the <a href="https://morrison-lab.github.io/mcs/sets.html#def-set">set</a> of values <span class="math inline">\(x \in \mathcal{X}\)</span> whose remainder is <span class="math inline">\(r\)</span>. These four sets form a <a href="#/def-question">question</a>, but not a <a href="#/def-polar-question">polar question</a>, which has exactly two possible answers.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="rem-question-partition-source" class="proof remark">
+<p><span class="proof-title"><em>Remark 18</em> (Questions as sets of replies in semantics). </span><span class="citation" data-cites="hamblin1973questions">Hamblin (<a href="#/references" role="doc-biblioref" onclick="">1973</a>)</span> took a question in natural language to denote the <a href="https://morrison-lab.github.io/mcs/sets.html#def-set">set</a> of propositions that count as its replies, so that a question “sets up a choice-situation between a set of propositions”. Hamblin’s account does not require those propositions to exclude one another. <span class="citation" data-cites="groenendijk1984studies">Groenendijk and Stokhof (<a href="#/references" role="doc-biblioref" onclick="">1984</a>)</span> took a question’s replies to be <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive">mutually exclusive</a> and to cover every possibility, so that a question <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-partition">partitions</a> the possibilities. <a href="#/def-question" class="quarto-xref">Definition&nbsp;15</a> follows Groenendijk and Stokhof: the <a href="#/def-possible-answer">possible answers</a> to a <a href="#/def-question">question</a> partition <span class="math inline">\(\mathcal{X}\)</span>.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="rem-question-types" class="proof remark">
+<p><span class="proof-title"><em>Remark 19</em> (Kinds of questions in grammar). </span><span class="citation" data-cites="huddleston1994contrast">Huddleston (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span> sorts questions into three kinds, by how each kind defines the <a href="https://morrison-lab.github.io/mcs/sets.html#def-set">set</a> of its replies:</p>
+<ul>
+<li>A <a href="#/def-polar-question">polar question</a>, such as “Is it raining?”, has the two replies yes and no.</li>
+<li>An <em>alternative question</em>, such as “Is it red or green?”, has one reply for each alternative it lists.</li>
+<li>A <em>variable question</em>, such as “Who called?”, has one reply for each value of a variable, here the person who called. In English a variable question usually contains an interrogative word, such as <em>who</em>, <em>what</em>, <em>which</em>, <em>where</em>, <em>when</em>, <em>why</em>, or <em>how</em>, so it is often called a <em>wh-question</em>.</li>
+</ul>
+<p>Each kind is a <a href="#/def-question">question</a> with a different number of <a href="#/def-possible-answer">possible answers</a>: two for a polar question, one per listed alternative for an alternative question, and one per value of the variable for a variable question, which can be many. <span class="citation" data-cites="huddleston1994contrast">Huddleston (<a href="#/references" role="doc-biblioref" onclick="">1994</a>)</span> also separates these kinds of question from the <em>interrogative</em> clause, a grammatical form. The two need not match: a declarative clause said with rising intonation, such as “You’re leaving?”, asks a polar question.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="thm-answer-information" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 20 (The information in an answer is its entropy)</strong></span> Let <span class="math inline">\(X\)</span> be a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a>, and let <span class="math inline">\(A\)</span> be the <a href="#/def-answer">answer</a> to a <a href="#/def-question">question</a> about <span class="math inline">\(X\)</span>. If <span class="math inline">\(X\)</span> and <span class="math inline">\(A\)</span> have finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>, then the <a href="#/def-mutual-information">mutual information</a> between <span class="math inline">\(X\)</span> and the answer is the entropy of the answer:</p>
+<p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(A\right)\mathclose{}}.\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Given <span class="math inline">\(X=x\)</span>, the answer <span class="math inline">\(A = a(X)\)</span> equals <span class="math inline">\(a(x)\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1\)</span>, so <span class="math inline">\(\mathbb{P}(A = a(x) \mid X = x) = 1\)</span>. Hence the <a href="#/def-conditional-surprisal">conditional surprisal</a> of the answer <span class="math inline">\(a(x)\)</span> given <span class="math inline">\(x\)</span> is <span class="math inline">\(-\log 1 = 0\)</span>, and its <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> given <span class="math inline">\(X=x\)</span> is <span class="math inline">\(0\)</span>:</p>
+<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(A \mid X=x\right)\mathclose{}} = 0.\]</span></p>
+<p>By <a href="#/thm-conditional-entropy-average" class="quarto-xref">Theorem&nbsp;8</a>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{H}\mathopen{}\left(A \mid X\right)\mathclose{}}
+&amp;= \sum_{x} p(x) \, {\mathbb{H}\mathopen{}\left(A \mid X=x\right)\mathclose{}} \\
+&amp;= 0,
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)\)</span>. By <a href="#/thm-mutual-information-reduction" class="quarto-xref">Theorem&nbsp;11</a> with <span class="math inline">\(Y = A\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}}
+&amp;= {\mathbb{H}\mathopen{}\left(A\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(A \mid X\right)\mathclose{}} \\
+&amp;= {\mathbb{H}\mathopen{}\left(A\right)\mathclose{}}.
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="exm-answer-information" class="theorem example">
+<p><span class="theorem-title"><strong>Example 23 (Two polar questions about the same number)</strong></span> &nbsp;</p>
+<!-- no-figure: the example compares two numbers, with nothing to plot -->
+<p>Let <span class="math inline">\(X\)</span> be as in <a href="#/exm-question" class="quarto-xref">Example&nbsp;20</a>, let <span class="math inline">\(A\)</span> be the <a href="#/def-answer">answer</a> to each of the two questions below in turn, and use base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithms</a>.</p>
+<ul>
+<li><p><strong>“Is <span class="math inline">\(X \ge 32\)</span>?”</strong> Each <a href="#/def-possible-answer">possible answer</a> has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(32/64 = 1/2\)</span>, so its <a href="#/def-surprisal">surprisal</a> is <span class="math inline">\(1\)</span> <a href="#/def-bit">bit</a>, and the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of the answer, its <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expected</a> surprisal, is <span class="math inline">\(1\)</span> bit. By <a href="#/thm-answer-information" class="quarto-xref">Theorem&nbsp;20</a>, the answer carries <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}} = 1\)</span> bit about <span class="math inline">\(X\)</span>.</p></li>
+<li><p><strong>“Is <span class="math inline">\(X = 0\)</span>?”</strong> The possible answer “yes” has probability <span class="math inline">\(1/64\)</span> and the possible answer “no” has probability <span class="math inline">\(63/64\)</span>, so the entropy of the answer is</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{H}\mathopen{}\left(A\right)\mathclose{}}
+&amp;= -\tfrac{1}{64} \log_2 \tfrac{1}{64} - \tfrac{63}{64} \log_2 \tfrac{63}{64} \\
+&amp;\approx 0.094 + 0.022 \\
+&amp;\approx 0.116 \text{ bits}.
+\end{aligned}
+\]</span></p>
+<p>By <a href="#/thm-answer-information" class="quarto-xref">Theorem&nbsp;20</a>, the answer carries about <span class="math inline">\(0.116\)</span> bits about <span class="math inline">\(X\)</span>.</p></li>
+</ul>
+<p>The reply “yes” to “Is <span class="math inline">\(X = 0\)</span>?” is worth <span class="math inline">\(6\)</span> bits, but it is rare, so on average asking “Is <span class="math inline">\(X = 0\)</span>?” gains far less than the <span class="math inline">\(1\)</span> bit from “Is <span class="math inline">\(X \ge 32\)</span>?”.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div id="cor-question-information-bound" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 6 (An answer carries at most the logarithm of the number of possible answers)</strong></span> Let <span class="math inline">\(A\)</span> be the <a href="#/def-answer">answer</a> to a <a href="#/def-question">question</a> with <a href="https://morrison-lab.github.io/mcs/functions.html#def-finite-set">finitely many</a> <a href="#/def-possible-answer">possible answers</a>, <span class="math inline">\(k\)</span> of them, about a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variable</a> <span class="math inline">\(X\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>. With base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithms</a>, the <a href="#/def-mutual-information">mutual information</a> between <span class="math inline">\(X\)</span> and the answer is at most <span class="math inline">\(\log_2 k\)</span> <a href="#/def-bit">bits</a>:</p>
+<p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}} \le \log_2 k,\]</span></p>
+<p>with equality exactly when the <span class="math inline">\(k\)</span> possible answers are equally likely. For a <a href="#/def-polar-question">polar question</a>, <span class="math inline">\(k = 2\)</span>, so the answer carries at most <span class="math inline">\(1\)</span> bit about <span class="math inline">\(X\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Each <a href="#/def-possible-answer">possible answer</a> is a nonempty <a href="https://morrison-lab.github.io/mcs/sets.html#def-set">set</a> of values of <span class="math inline">\(X\)</span> with positive <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a>, so the answer <span class="math inline">\(A\)</span> has exactly <span class="math inline">\(k\)</span> values with positive probability, and its <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> is finite. By <a href="#/thm-answer-information" class="quarto-xref">Theorem&nbsp;20</a> and then <a href="#/thm-entropy-at-most-log-values" class="quarto-xref">Theorem&nbsp;17</a>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+{\mathbb{I}\mathopen{}\left(X ; A\right)\mathclose{}}
+&amp;= {\mathbb{H}\mathopen{}\left(A\right)\mathclose{}} \\
+&amp;\le \log_2 k,
+\end{aligned}
+\]</span></p>
+<p>with equality exactly when <span class="math inline">\(A\)</span> is <a href="https://morrison-lab.github.io/pds/random-variables.html#def-uniform">uniform</a> on its <span class="math inline">\(k\)</span> values. A <a href="#/def-polar-question">polar question</a> has <span class="math inline">\(k = 2\)</span> possible answers, and <span class="math inline">\(\log_2 2 = 1\)</span>.</p>
+</div>
+</section>
+<section class="slide level2 scrollable">
+
+<div id="exm-sixty-three" class="theorem example">
+<p><span class="theorem-title"><strong>Example 24 (The game of sixty-three)</strong></span> &nbsp;</p>
+<!-- no-figure: the example lists six questions and their answers, with nothing to plot -->
+<p>In the game of twenty questions, one player thinks of an object, and the other identifies it by asking <a href="#/def-polar-question">polar questions</a>. <span class="citation" data-cites="mackay2003information">MacKay (<a href="#/references" role="doc-biblioref" onclick="">2003, 70</a>)</span> simplifies the game to “sixty-three”: find an <a href="https://morrison-lab.github.io/mcs/number-systems.html#def-integers">integer</a> <span class="math inline">\(X\)</span> between <span class="math inline">\(0\)</span> and <span class="math inline">\(63\)</span>, each equally likely, using polar questions. Six questions suffice:</p>
+<ol type="1">
+<li>Is <span class="math inline">\(X \ge 32\)</span>?</li>
+<li>Is the remainder of <span class="math inline">\(X\)</span> divided by <span class="math inline">\(32\)</span> at least <span class="math inline">\(16\)</span>?</li>
+<li>Is the remainder of <span class="math inline">\(X\)</span> divided by <span class="math inline">\(16\)</span> at least <span class="math inline">\(8\)</span>?</li>
+<li>Is the remainder of <span class="math inline">\(X\)</span> divided by <span class="math inline">\(8\)</span> at least <span class="math inline">\(4\)</span>?</li>
+<li>Is the remainder of <span class="math inline">\(X\)</span> divided by <span class="math inline">\(4\)</span> at least <span class="math inline">\(2\)</span>?</li>
+<li>Is <span class="math inline">\(X\)</span> odd?</li>
+</ol>
+<p>Reading “yes” as <span class="math inline">\(1\)</span> and “no” as <span class="math inline">\(0\)</span>, the six <a href="#/def-answer">answers</a> spell the binary expansion of <span class="math inline">\(X\)</span>: <span class="math inline">\(X = 35\)</span> gives <span class="math inline">\(100011\)</span>. Given the answers so far, each next question splits the values still possible into two equal halves, so each answer has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1/2\)</span> and carries <span class="math inline">\(1\)</span> <a href="#/def-bit">bit</a>, the most that <a href="#/cor-question-information-bound" class="quarto-xref">Corollary&nbsp;6</a> allows for a polar question. The six answers carry <span class="math inline">\(6\)</span> bits in all, which is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} = \log_2 64 = 6\)</span> bits. No strategy can be sure to finish in fewer than six polar questions: five polar questions have at most <span class="math inline">\(2^5 = 32\)</span> combinations of answers, too few to tell <span class="math inline">\(64\)</span> values apart.</p>
+<p>The single <a href="#/rem-question-types">variable question</a> “What is <span class="math inline">\(X\)</span>?” has <span class="math inline">\(64\)</span> equally likely <a href="#/def-possible-answer">possible answers</a>, so by <a href="#/cor-question-information-bound" class="quarto-xref">Corollary&nbsp;6</a> its answer carries all <span class="math inline">\(\log_2 64 = 6\)</span> bits at once.</p>
+</div>
+</section>
+<section id="sec-chain-rules" class="slide level2" data-number="5">
+<h2><span class="header-section-number">5</span> Chain rules</h2>
 <!-- No slidebreak here: the heading shares its slide with the thm-surprisal-chain-rule-n div. -->
 <div id="thm-surprisal-chain-rule-n" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 19 (Chain rule for surprisal, many variables)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X_1, \ldots, X_n\)</span> and <a href="https://morrison-lab.github.io/pds/random-variables.html#def-realization">values</a> <span class="math inline">\(x_1, \ldots, x_n\)</span> with <span class="math inline">\(\mathbb{P}(X_1=x_1, \ldots, X_n=x_n) &gt; 0\)</span>,</p>
+<p><span class="theorem-title"><strong>Theorem 21 (Chain rule for surprisal, many variables)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X_1, \ldots, X_n\)</span> and <a href="https://morrison-lab.github.io/pds/random-variables.html#def-realization">values</a> <span class="math inline">\(x_1, \ldots, x_n\)</span> with <span class="math inline">\(\mathbb{P}(X_1=x_1, \ldots, X_n=x_n) &gt; 0\)</span>,</p>
 <p><span class="math display">\[{\mathbb{s}\mathopen{}\left(x_1, \ldots, x_n\right)\mathclose{}} = \sum_{i=1}^{n} {\mathbb{s}\mathopen{}\left(x_i \mid x_1, \ldots, x_{i-1}\right)\mathclose{}},\]</span></p>
 <p>where the term for <span class="math inline">\(i = 1\)</span> is <span class="math inline">\({\mathbb{s}\mathopen{}\left(x_1\right)\mathclose{}}\)</span>.</p>
 </div>
@@ -1619,9 +1833,9 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="exm-surprisal-chain-rule-n-copies" class="theorem example">
-<p><span class="theorem-title"><strong>Example 19 (Chain rule for surprisal along a chain of noisy copies)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 25 (Chain rule for surprisal along a chain of noisy copies)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>Let <span class="math inline">\(X_1\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(X_2\)</span> be a noisy copy of <span class="math inline">\(X_1\)</span> that flips it with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>, and let <span class="math inline">\(X_3\)</span> be a noisy copy of <span class="math inline">\(X_2\)</span> that flips it with probability <span class="math inline">\(0.2\)</span>, independently of <span class="math inline">\(X_1\)</span> given <span class="math inline">\(X_2\)</span>. The chunk computes the <a href="#/def-surprisal">surprisals</a> of the values <span class="math inline">\((x_1, x_2, x_3) = (0, 0, 1)\)</span>, in <a href="#/def-bit">bits</a>, and compares the <a href="#/def-joint-surprisal">joint surprisal</a> with the sum in <a href="#/thm-surprisal-chain-rule-n" class="quarto-xref">Theorem&nbsp;19</a>.</p>
+<p>Let <span class="math inline">\(X_1\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(X_2\)</span> be a noisy copy of <span class="math inline">\(X_1\)</span> that flips it with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>, and let <span class="math inline">\(X_3\)</span> be a noisy copy of <span class="math inline">\(X_2\)</span> that flips it with probability <span class="math inline">\(0.2\)</span>, independently of <span class="math inline">\(X_1\)</span> given <span class="math inline">\(X_2\)</span>. The chunk computes the <a href="#/def-surprisal">surprisals</a> of the values <span class="math inline">\((x_1, x_2, x_3) = (0, 0, 1)\)</span>, in <a href="#/def-bit">bits</a>, and compares the <a href="#/def-joint-surprisal">joint surprisal</a> with the sum in <a href="#/thm-surprisal-chain-rule-n" class="quarto-xref">Theorem&nbsp;21</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1640,12 +1854,12 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="thm-entropy-chain-rule-n" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 20 (Chain rule for entropy, many variables)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X_1, \ldots, X_n\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>,</p>
+<p><span class="theorem-title"><strong>Theorem 22 (Chain rule for entropy, many variables)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X_1, \ldots, X_n\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>,</p>
 <p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = \sum_{i=1}^{n} {\mathbb{H}\mathopen{}\left(X_i \mid X_1, \ldots, X_{i-1}\right)\mathclose{}},\]</span></p>
 <p>where the term for <span class="math inline">\(i = 1\)</span> is <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_1\right)\mathclose{}}\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>With <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1\)</span>, the tuple <span class="math inline">\((X_1, \ldots, X_n)\)</span> takes a value <span class="math inline">\((x_1, \ldots, x_n)\)</span> with <span class="math inline">\(\mathbb{P}(X_1=x_1, \ldots, X_n=x_n) &gt; 0\)</span>, so <a href="#/thm-surprisal-chain-rule-n" class="quarto-xref">Theorem&nbsp;19</a> applies at <span class="math inline">\((x_1, \ldots, x_n) = (X_1, \ldots, X_n)\)</span>:</p>
+<p><span class="proof-title"><em>Proof</em>. </span>With <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1\)</span>, the tuple <span class="math inline">\((X_1, \ldots, X_n)\)</span> takes a value <span class="math inline">\((x_1, \ldots, x_n)\)</span> with <span class="math inline">\(\mathbb{P}(X_1=x_1, \ldots, X_n=x_n) &gt; 0\)</span>, so <a href="#/thm-surprisal-chain-rule-n" class="quarto-xref">Theorem&nbsp;21</a> applies at <span class="math inline">\((x_1, \ldots, x_n) = (X_1, \ldots, X_n)\)</span>:</p>
 <p><span class="math display">\[{\mathbb{s}\mathopen{}\left(X_1, \ldots, X_n\right)\mathclose{}} = \sum_{i=1}^{n} {\mathbb{s}\mathopen{}\left(X_i \mid X_1, \ldots, X_{i-1}\right)\mathclose{}}.\]</span></p>
 <p>Every term on the right is nonnegative (<a href="#/cor-surprisal-discrete-nonnegative" class="quarto-xref">Corollary&nbsp;1</a>), so the <a href="https://morrison-lab.github.io/pds/expectation.html#def-expectation">expectation</a> of the sum is the sum of the expectation of each term:</p>
 <p><span class="math display">\[
@@ -1662,9 +1876,9 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="exm-entropy-chain-rule-n-copies" class="theorem example">
-<p><span class="theorem-title"><strong>Example 20 (Chain rule for entropy along a chain of noisy copies)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 26 (Chain rule for entropy along a chain of noisy copies)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>Let <span class="math inline">\(X_1\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(X_2\)</span> be a noisy copy of <span class="math inline">\(X_1\)</span> that flips it with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>, and let <span class="math inline">\(X_3\)</span> be a noisy copy of <span class="math inline">\(X_2\)</span> that flips it with probability <span class="math inline">\(0.2\)</span>, independently of <span class="math inline">\(X_1\)</span> given <span class="math inline">\(X_2\)</span>. The chunk builds the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a> of <span class="math inline">\((X_1, X_2, X_3)\)</span> and compares their <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>, in <a href="#/def-bit">bits</a>, with the sum in <a href="#/thm-entropy-chain-rule-n" class="quarto-xref">Theorem&nbsp;20</a>.</p>
+<p>Let <span class="math inline">\(X_1\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Let <span class="math inline">\(X_2\)</span> be a noisy copy of <span class="math inline">\(X_1\)</span> that flips it with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>, and let <span class="math inline">\(X_3\)</span> be a noisy copy of <span class="math inline">\(X_2\)</span> that flips it with probability <span class="math inline">\(0.2\)</span>, independently of <span class="math inline">\(X_1\)</span> given <span class="math inline">\(X_2\)</span>. The chunk builds the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a> of <span class="math inline">\((X_1, X_2, X_3)\)</span> and compares their <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a>, in <a href="#/def-bit">bits</a>, with the sum in <a href="#/thm-entropy-chain-rule-n" class="quarto-xref">Theorem&nbsp;22</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1696,16 +1910,16 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="def-conditional-mutual-information" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15 (Conditional mutual information)</strong></span> The <strong>conditional mutual information</strong> of <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given a third one, <span class="math inline">\(Z\)</span>, with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>, is the reduction in the <a href="#/def-conditional-entropy">conditional entropy</a> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(Z\)</span> from also learning <span class="math inline">\(X\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 19 (Conditional mutual information)</strong></span> The <strong>conditional mutual information</strong> of <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given a third one, <span class="math inline">\(Z\)</span>, with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>, is the reduction in the <a href="#/def-conditional-entropy">conditional entropy</a> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(Z\)</span> from also learning <span class="math inline">\(X\)</span>:</p>
 <p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \stackrel{\text{def}}{=}{\mathbb{H}\mathopen{}\left(Y \mid Z\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X, Z\right)\mathclose{}}.\]</span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="exm-conditional-mutual-information" class="theorem example">
-<p><span class="theorem-title"><strong>Example 21 (Conditional mutual information along a chain of noisy copies)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 27 (Conditional mutual information along a chain of noisy copies)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>Take the chain of noisy copies <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span> from <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;20</a>. Once <span class="math inline">\(X_2\)</span> is known, <span class="math inline">\(X_1\)</span> adds nothing to the <a href="https://morrison-lab.github.io/pds/expectation.html#def-prediction">prediction</a> of <span class="math inline">\(X_3\)</span>, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}\)</span>, and both equal the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> <span class="math inline">\(h\)</span> of a coin with flip <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>. The chunk computes the <a href="#/def-conditional-mutual-information">conditional mutual information</a>.</p>
+<p>Take the chain of noisy copies <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span> from <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;26</a>. Once <span class="math inline">\(X_2\)</span> is known, <span class="math inline">\(X_1\)</span> adds nothing to the <a href="https://morrison-lab.github.io/pds/expectation.html#def-prediction">prediction</a> of <span class="math inline">\(X_3\)</span>, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_3 \mid X_1, X_2\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X_3 \mid X_2\right)\mathclose{}}\)</span>, and both equal the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> <span class="math inline">\(h\)</span> of a coin with flip <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.2\)</span>. The chunk computes the <a href="#/def-conditional-mutual-information">conditional mutual information</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1723,7 +1937,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="thm-mutual-information-chain-rule" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 21 (Chain rule for mutual information)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> whose <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a> <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>, <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}\)</span> and <span class="math inline">\({\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}\)</span> are finite,</p>
+<p><span class="theorem-title"><strong>Theorem 23 (Chain rule for mutual information)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> whose <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a> <span class="math inline">\({\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}\)</span>, <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}\)</span> and <span class="math inline">\({\mathbb{H}\mathopen{}\left(Z\right)\mathclose{}}\)</span> are finite,</p>
 <p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X, Z ; Y\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(Z ; Y\right)\mathclose{}} + {\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
@@ -1742,15 +1956,15 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 &amp;= {\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}},
 \end{aligned}
 \]</span></p>
-<p>where the last line is <a href="#/def-conditional-mutual-information" class="quarto-xref">Definition&nbsp;15</a>.</p>
+<p>where the last line is <a href="#/def-conditional-mutual-information" class="quarto-xref">Definition&nbsp;19</a>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="exm-mutual-information-chain-rule-copies" class="theorem example">
-<p><span class="theorem-title"><strong>Example 22 (Chain rule for mutual information along a chain of noisy copies)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 28 (Chain rule for mutual information along a chain of noisy copies)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>For the chain in <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;20</a>, the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginal distribution</a> of <span class="math inline">\(X_3\)</span> is a fair coin, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1\)</span> <a href="#/def-bit">bit</a>. The chunk computes the <a href="#/def-mutual-information">mutual information</a> of <span class="math inline">\(X_3\)</span> with <span class="math inline">\(X_2\)</span>, and with the pair <span class="math inline">\((X_1, X_2)\)</span>.</p>
+<p>For the chain in <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;26</a>, the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-marginal">marginal distribution</a> of <span class="math inline">\(X_3\)</span> is a fair coin, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(X_3\right)\mathclose{}} = 1\)</span> <a href="#/def-bit">bit</a>. The chunk computes the <a href="#/def-mutual-information">mutual information</a> of <span class="math inline">\(X_3\)</span> with <span class="math inline">\(X_2\)</span>, and with the pair <span class="math inline">\((X_1, X_2)\)</span>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1764,13 +1978,13 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <span id="cb19-8"><a aria-label="8"></a><span class="co">#&gt; 0.2780719 0.2780719</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Here <span class="math inline">\({\mathbb{I}\mathopen{}\left(X_2 ; X_3\right)\mathclose{}} = 0.278\)</span> <a href="#/def-bit">bits</a> and <span class="math inline">\({\mathbb{I}\mathopen{}\left(X_1, X_2 ; X_3\right)\mathclose{}} = 0.278\)</span> bits. The difference is <span class="math inline">\({\mathbb{I}\mathopen{}\left(X_1 ; X_3 \mid X_2\right)\mathclose{}} = 0\)</span> (<a href="#/thm-mutual-information-chain-rule" class="quarto-xref">Theorem&nbsp;21</a>), as in <a href="#/exm-conditional-mutual-information" class="quarto-xref">Example&nbsp;21</a>.</p>
+<p>Here <span class="math inline">\({\mathbb{I}\mathopen{}\left(X_2 ; X_3\right)\mathclose{}} = 0.278\)</span> <a href="#/def-bit">bits</a> and <span class="math inline">\({\mathbb{I}\mathopen{}\left(X_1, X_2 ; X_3\right)\mathclose{}} = 0.278\)</span> bits. The difference is <span class="math inline">\({\mathbb{I}\mathopen{}\left(X_1 ; X_3 \mid X_2\right)\mathclose{}} = 0\)</span> (<a href="#/thm-mutual-information-chain-rule" class="quarto-xref">Theorem&nbsp;23</a>), as in <a href="#/exm-conditional-mutual-information" class="quarto-xref">Example&nbsp;27</a>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="thm-conditional-mutual-information-nonnegative" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 22 (Conditional mutual information is nonnegative)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>,</p>
+<p><span class="theorem-title"><strong>Theorem 24 (Conditional mutual information is nonnegative)</strong></span> For <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>,</p>
 <p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \ge 0.\]</span></p>
 </div>
 <div class="proof">
@@ -1783,15 +1997,15 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 &amp;= \sum_z \mathbb{P}(Z=z) \, {\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}.
 \end{aligned}
 \]</span></p>
-<p>Each <span class="math inline">\({\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}\)</span> is nonnegative by <a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;17</a>. Since <span class="math inline">\(\mathbb{P}(Z=z) \ge 0\)</span> as well, every summand <span class="math inline">\(\mathbb{P}(Z=z) \, {\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}\)</span> is nonnegative, so <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \ge 0\)</span>.</p>
+<p>Each <span class="math inline">\({\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}\)</span> is nonnegative by <a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;18</a>. Since <span class="math inline">\(\mathbb{P}(Z=z) \ge 0\)</span> as well, every summand <span class="math inline">\(\mathbb{P}(Z=z) \, {\mathbb{I}_{z}\mathopen{}\left(X ; Y\right)\mathclose{}}\)</span> is nonnegative, so <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} \ge 0\)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="exm-conditional-mutual-information-nonnegative" class="theorem example">
-<p><span class="theorem-title"><strong>Example 23 (Learning a third variable can create information)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 29 (Learning a third variable can create information)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> fair coins, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, and let <span class="math inline">\(Z = X + Y \bmod 2\)</span> record whether they differ. The two coins are independent, so <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0\)</span> (<a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;17</a>). Given <span class="math inline">\(Z\)</span>, each of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> determines the other. The chunk computes the <a href="#/def-conditional-mutual-information">conditional mutual information</a> from the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a>, in <a href="#/def-bit">bits</a>.</p>
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> fair coins, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, and let <span class="math inline">\(Z = X + Y \bmod 2\)</span> record whether they differ. The two coins are independent, so <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0\)</span> (<a href="#/thm-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;18</a>). Given <span class="math inline">\(Z\)</span>, each of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> determines the other. The chunk computes the <a href="#/def-conditional-mutual-information">conditional mutual information</a> from the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a>, in <a href="#/def-bit">bits</a>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1813,22 +2027,22 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <span id="cb20-16"><a aria-label="16"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>So <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} = 1\)</span> <a href="#/def-bit">bit</a>, which is nonnegative (<a href="#/thm-conditional-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;22</a>), although <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0\)</span>.</p>
+<p>So <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y \mid Z\right)\mathclose{}} = 1\)</span> <a href="#/def-bit">bit</a>, which is nonnegative (<a href="#/thm-conditional-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;24</a>), although <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 0\)</span>.</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="def-markov-chain" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 16 (Markov chain of three random variables)</strong></span> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">Discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> form a <strong>Markov chain</strong> <span class="math inline">\(X \to Y \to Z\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.8</a>)</span> if <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-cind">conditionally independent</a> given <span class="math inline">\(Y\)</span>: for every value <span class="math inline">\(y\)</span> with <span class="math inline">\(\mathbb{P}(Y=y) &gt; 0\)</span> and all values <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span>,</p>
+<p><span class="theorem-title"><strong>Definition 20 (Markov chain of three random variables)</strong></span> <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">Discrete random variables</a> <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> form a <strong>Markov chain</strong> <span class="math inline">\(X \to Y \to Z\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.8</a>)</span> if <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-cind">conditionally independent</a> given <span class="math inline">\(Y\)</span>: for every value <span class="math inline">\(y\)</span> with <span class="math inline">\(\mathbb{P}(Y=y) &gt; 0\)</span> and all values <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span>,</p>
 <p><span class="math display">\[\mathbb{P}(X=x, Z=z \mid Y=y) = \mathbb{P}(X=x \mid Y=y) \, \mathbb{P}(Z=z \mid Y=y).\]</span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="exm-markov-chain-noisy-copies" class="theorem example">
-<p><span class="theorem-title"><strong>Example 24 (A chain of noisy copies is a Markov chain)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 30 (A chain of noisy copies is a Markov chain)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>In <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;20</a>, each of <span class="math inline">\(X_2\)</span> and <span class="math inline">\(X_3\)</span> is a noisy copy of the variable before it. So <span class="math inline">\(X_3\)</span> depends on <span class="math inline">\(X_1\)</span> only through <span class="math inline">\(X_2\)</span>. The chunk builds the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a> of <span class="math inline">\((X_1, X_2, X_3)\)</span> and checks the defining equation of the chain <span class="math inline">\(X_1 \to X_2 \to X_3\)</span> for each value of <span class="math inline">\(X_2\)</span>.</p>
+<p>In <a href="#/exm-entropy-chain-rule-n-copies" class="quarto-xref">Example&nbsp;26</a>, each of <span class="math inline">\(X_2\)</span> and <span class="math inline">\(X_3\)</span> is a noisy copy of the variable before it. So <span class="math inline">\(X_3\)</span> depends on <span class="math inline">\(X_1\)</span> only through <span class="math inline">\(X_2\)</span>. The chunk builds the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass function</a> of <span class="math inline">\((X_1, X_2, X_3)\)</span> and checks the defining equation of the chain <span class="math inline">\(X_1 \to X_2 \to X_3\)</span> for each value of <span class="math inline">\(X_2\)</span>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1870,7 +2084,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <p><span class="math display">\[\mathbb{P}(X=x \mid Y=y, Z=z) = \mathbb{P}(X=x \mid Y=y)\]</span></p>
 <p>for every <span class="math inline">\(x\)</span>. So the <a href="#/def-entropy-given-value">entropy given</a> <span class="math inline">\((Y, Z) = (y, z)\)</span> is the entropy given <span class="math inline">\(Y = y\)</span>. Averaging over <span class="math inline">\((Y, Z)\)</span> and over <span class="math inline">\(Y\)</span> gives</p>
 <p><span class="math display">\[{\mathbb{H}\mathopen{}\left(X \mid Y, Z\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(X \mid Y\right)\mathclose{}}.\]</span></p>
-<p>By <a href="#/def-conditional-mutual-information" class="quarto-xref">Definition&nbsp;15</a>,</p>
+<p>By <a href="#/def-conditional-mutual-information" class="quarto-xref">Definition&nbsp;19</a>,</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\mathbb{I}\mathopen{}\left(Z ; X \mid Y\right)\mathclose{}}
@@ -1884,7 +2098,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="thm-data-processing-inequality" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 23 (Data processing inequality)</strong></span> If <span class="math inline">\(X \to Y \to Z\)</span> is a <a href="#/def-markov-chain">Markov chain</a> and the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a> of <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> are finite, then</p>
+<p><span class="theorem-title"><strong>Theorem 25 (Data processing inequality)</strong></span> If <span class="math inline">\(X \to Y \to Z\)</span> is a <a href="#/def-markov-chain">Markov chain</a> and the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a> of <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span> are finite, then</p>
 <p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; Z\right)\mathclose{}} \le {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}.\]</span></p>
 </div>
 <div class="proof">
@@ -1895,7 +2109,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 {\mathbb{I}\mathopen{}\left(Y, Z ; X\right)\mathclose{}} &amp;= {\mathbb{I}\mathopen{}\left(Z ; X\right)\mathclose{}} + {\mathbb{I}\mathopen{}\left(Y ; X \mid Z\right)\mathclose{}}.
 \end{aligned}
 \]</span></p>
-<p>The pairs <span class="math inline">\((Z, Y)\)</span> and <span class="math inline">\((Y, Z)\)</span> contain the same two variables, so <span class="math inline">\({\mathbb{I}\mathopen{}\left(Z, Y ; X\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(Y, Z ; X\right)\mathclose{}}\)</span>. By <a href="#/lem-markov-chain-conditional-mutual-information" class="quarto-xref">Lemma&nbsp;2</a>, <span class="math inline">\({\mathbb{I}\mathopen{}\left(Z ; X \mid Y\right)\mathclose{}} = 0\)</span>. By <a href="#/thm-conditional-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;22</a>, <span class="math inline">\({\mathbb{I}\mathopen{}\left(Y ; X \mid Z\right)\mathclose{}} \ge 0\)</span>. Therefore</p>
+<p>The pairs <span class="math inline">\((Z, Y)\)</span> and <span class="math inline">\((Y, Z)\)</span> contain the same two variables, so <span class="math inline">\({\mathbb{I}\mathopen{}\left(Z, Y ; X\right)\mathclose{}} = {\mathbb{I}\mathopen{}\left(Y, Z ; X\right)\mathclose{}}\)</span>. By <a href="#/lem-markov-chain-conditional-mutual-information" class="quarto-xref">Lemma&nbsp;2</a>, <span class="math inline">\({\mathbb{I}\mathopen{}\left(Z ; X \mid Y\right)\mathclose{}} = 0\)</span>. By <a href="#/thm-conditional-mutual-information-nonnegative" class="quarto-xref">Theorem&nbsp;24</a>, <span class="math inline">\({\mathbb{I}\mathopen{}\left(Y ; X \mid Z\right)\mathclose{}} \ge 0\)</span>. Therefore</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\mathbb{I}\mathopen{}\left(Y ; X\right)\mathclose{}}
@@ -1909,9 +2123,9 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="exm-data-processing-inequality-noisy-copies" class="theorem example">
-<p><span class="theorem-title"><strong>Example 25 (Each extra noisy copy loses information)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 31 (Each extra noisy copy loses information)</strong></span> &nbsp;</p>
 <!-- no-figure: the example reports a handful of numbers, with nothing to plot -->
-<p>For the chain <span class="math inline">\(X_1 \to X_2 \to X_3\)</span> in <a href="#/exm-markov-chain-noisy-copies" class="quarto-xref">Example&nbsp;24</a>, the chunk computes the <a href="#/def-mutual-information">mutual information</a> of <span class="math inline">\(X_1\)</span> with <span class="math inline">\(X_2\)</span> and with <span class="math inline">\(X_3\)</span>, in <a href="#/def-bit">bits</a>. Each variable is a fair coin. The variable <span class="math inline">\(X_3\)</span> differs from <span class="math inline">\(X_1\)</span> when exactly one of the two copies flips, which has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(2 \times 0.2 \times 0.8 = 0.32\)</span>.</p>
+<p>For the chain <span class="math inline">\(X_1 \to X_2 \to X_3\)</span> in <a href="#/exm-markov-chain-noisy-copies" class="quarto-xref">Example&nbsp;30</a>, the chunk computes the <a href="#/def-mutual-information">mutual information</a> of <span class="math inline">\(X_1\)</span> with <span class="math inline">\(X_2\)</span> and with <span class="math inline">\(X_3\)</span>, in <a href="#/def-bit">bits</a>. Each variable is a fair coin. The variable <span class="math inline">\(X_3\)</span> differs from <span class="math inline">\(X_1\)</span> when exactly one of the two copies flips, which has <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(2 \times 0.2 \times 0.8 = 0.32\)</span>.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>[Code]</summary>
@@ -1923,21 +2137,21 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <span id="cb22-6"><a aria-label="6"></a><span class="co">#&gt; 0.27807191 0.09561854</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Here <span class="math inline">\({\mathbb{I}\mathopen{}\left(X_1 ; X_3\right)\mathclose{}} = 0.096\)</span> bits is below <span class="math inline">\({\mathbb{I}\mathopen{}\left(X_1 ; X_2\right)\mathclose{}} = 0.278\)</span> bits (<a href="#/thm-data-processing-inequality" class="quarto-xref">Theorem&nbsp;23</a>).</p>
+<p>Here <span class="math inline">\({\mathbb{I}\mathopen{}\left(X_1 ; X_3\right)\mathclose{}} = 0.096\)</span> bits is below <span class="math inline">\({\mathbb{I}\mathopen{}\left(X_1 ; X_2\right)\mathclose{}} = 0.278\)</span> bits (<a href="#/thm-data-processing-inequality" class="quarto-xref">Theorem&nbsp;25</a>).</p>
 </div>
 </section>
-<section id="sec-stationary-sequences" class="slide level2" data-number="5">
-<h2><span class="header-section-number">5</span> Stationary sequences</h2>
+<section id="sec-stationary-sequences" class="slide level2" data-number="6">
+<h2><span class="header-section-number">6</span> Stationary sequences</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-stationary-sequence div. -->
 <div id="def-stationary-sequence" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 17 (Stationary sequence)</strong></span> A <strong>stationary sequence</strong> is a <a href="https://morrison-lab.github.io/mcs/functions.html#def-sequence">sequence</a> <span class="math inline">\(X_1, X_2, \ldots\)</span> of <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> whose <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass functions</a> do not change when the sequence is shifted in time: for every length <span class="math inline">\(k \ge 1\)</span>, every shift <span class="math inline">\(s \ge 0\)</span> and all values <span class="math inline">\(x_1, \ldots, x_k\)</span>,</p>
+<p><span class="theorem-title"><strong>Definition 21 (Stationary sequence)</strong></span> A <strong>stationary sequence</strong> is a <a href="https://morrison-lab.github.io/mcs/functions.html#def-sequence">sequence</a> <span class="math inline">\(X_1, X_2, \ldots\)</span> of <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> whose <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf">joint probability mass functions</a> do not change when the sequence is shifted in time: for every length <span class="math inline">\(k \ge 1\)</span>, every shift <span class="math inline">\(s \ge 0\)</span> and all values <span class="math inline">\(x_1, \ldots, x_k\)</span>,</p>
 <p><span class="math display">\[\mathbb{P}(X_{1+s} = x_1, \ldots, X_{k+s} = x_k) = \mathbb{P}(X_1 = x_1, \ldots, X_k = x_k).\]</span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="exm-stationary-sequence" class="theorem example">
-<p><span class="theorem-title"><strong>Example 26 (A sticky coin)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 32 (A sticky coin)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is a short argument with no data to plot -->
 <p>Let <span class="math inline">\(X_1\)</span> be a fair coin toss, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. For each <span class="math inline">\(t \ge 2\)</span>, let <span class="math inline">\(X_t\)</span> equal <span class="math inline">\(X_{t-1}\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.9\)</span> and <span class="math inline">\(1 - X_{t-1}\)</span> with probability <span class="math inline">\(0.1\)</span>, independently of <span class="math inline">\(X_1, \ldots, X_{t-2}\)</span> given <span class="math inline">\(X_{t-1}\)</span>. If <span class="math inline">\(X_{t-1}\)</span> is fair, then so is <span class="math inline">\(X_t\)</span>, because</p>
 <p><span class="math display">\[\mathbb{P}(X_t = 1) = 0.9 \cdot \tfrac{1}{2} + 0.1 \cdot \tfrac{1}{2},\]</span></p>
@@ -1947,7 +2161,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="exm-not-stationary-sequence" class="theorem example">
-<p><span class="theorem-title"><strong>Example 27 (An alternating sequence that starts at zero)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 33 (An alternating sequence that starts at zero)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is a short argument with no data to plot -->
 <p>Let <span class="math inline">\(X_1 = 0\)</span>, and let <span class="math inline">\(X_t = 1 - X_{t-1}\)</span> for each <span class="math inline">\(t \ge 2\)</span>, so the <a href="https://morrison-lab.github.io/mcs/functions.html#def-sequence">sequence</a> is <span class="math inline">\(0, 1, 0, 1, \ldots\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1\)</span>. The sequence is not a <a href="#/def-stationary-sequence">stationary sequence</a>: with length <span class="math inline">\(k = 1\)</span> and shift <span class="math inline">\(s = 1\)</span>,</p>
 <p><span class="math display">\[\mathbb{P}(X_2 = 0) = 0,\]</span></p>
@@ -1958,7 +2172,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="def-n-gram-model" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 18 (<span class="math inline">\(N\)</span>-gram model)</strong></span> An <strong><span class="math inline">\(N\)</span>-gram model</strong>, for an <a href="https://morrison-lab.github.io/mcs/number-systems.html#def-integers">integer</a> <span class="math inline">\(N \ge 1\)</span>, is a <a href="https://morrison-lab.github.io/mcs/functions.html#def-sequence">sequence</a> <span class="math inline">\(X_1, X_2, \ldots\)</span> of <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> in which each variable depends on the earlier ones only through the <span class="math inline">\(N - 1\)</span> variables just before it: for every <span class="math inline">\(t &gt; N\)</span> and all values <span class="math inline">\(x_1, \ldots, x_t\)</span> with <span class="math inline">\(\mathbb{P}(X_1 = x_1, \ldots, X_{t-1} = x_{t-1}) &gt; 0\)</span>,</p>
+<p><span class="theorem-title"><strong>Definition 22 (<span class="math inline">\(N\)</span>-gram model)</strong></span> An <strong><span class="math inline">\(N\)</span>-gram model</strong>, for an <a href="https://morrison-lab.github.io/mcs/number-systems.html#def-integers">integer</a> <span class="math inline">\(N \ge 1\)</span>, is a <a href="https://morrison-lab.github.io/mcs/functions.html#def-sequence">sequence</a> <span class="math inline">\(X_1, X_2, \ldots\)</span> of <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> in which each variable depends on the earlier ones only through the <span class="math inline">\(N - 1\)</span> variables just before it: for every <span class="math inline">\(t &gt; N\)</span> and all values <span class="math inline">\(x_1, \ldots, x_t\)</span> with <span class="math inline">\(\mathbb{P}(X_1 = x_1, \ldots, X_{t-1} = x_{t-1}) &gt; 0\)</span>,</p>
 <p><span class="math display">\[
 \mathbb{P}(X_t = x_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1})
 = \mathbb{P}(X_t = x_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}).
@@ -1968,17 +2182,17 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="exm-n-gram-model" class="theorem example">
-<p><span class="theorem-title"><strong>Example 28 (The sticky coin is a 2-gram model)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 34 (The sticky coin is a 2-gram model)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is a short argument with no data to plot -->
-<p>In the <a href="#/exm-stationary-sequence">sticky coin</a>, given all the earlier tosses, <span class="math inline">\(X_t\)</span> repeats <span class="math inline">\(X_{t-1}\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.9\)</span>. That <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob">conditional probability</a> involves only the one toss just before <span class="math inline">\(X_t\)</span>, so the sticky coin is a 2-gram model (<a href="#/def-n-gram-model" class="quarto-xref">Definition&nbsp;18</a>).</p>
+<p>In the <a href="#/exm-stationary-sequence">sticky coin</a>, given all the earlier tosses, <span class="math inline">\(X_t\)</span> repeats <span class="math inline">\(X_{t-1}\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(0.9\)</span>. That <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob">conditional probability</a> involves only the one toss just before <span class="math inline">\(X_t\)</span>, so the sticky coin is a 2-gram model (<a href="#/def-n-gram-model" class="quarto-xref">Definition&nbsp;22</a>).</p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="exm-not-n-gram-model" class="theorem example">
-<p><span class="theorem-title"><strong>Example 29 (A sequence that repeats every second value)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 35 (A sequence that repeats every second value)</strong></span> &nbsp;</p>
 <!-- no-figure: the example is a short argument with no data to plot -->
-<p>Let <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> be <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> fair coin tosses, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, and let <span class="math inline">\(X_t = X_{t-2}\)</span> for each <span class="math inline">\(t \ge 3\)</span>. The <a href="https://morrison-lab.github.io/mcs/functions.html#def-sequence">sequence</a> is not a 2-gram model (<a href="#/def-n-gram-model" class="quarto-xref">Definition&nbsp;18</a>). Given both earlier tosses, <span class="math inline">\(X_3\)</span> is fixed:</p>
+<p>Let <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> be <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> fair coin tosses, coded <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, and let <span class="math inline">\(X_t = X_{t-2}\)</span> for each <span class="math inline">\(t \ge 3\)</span>. The <a href="https://morrison-lab.github.io/mcs/functions.html#def-sequence">sequence</a> is not a 2-gram model (<a href="#/def-n-gram-model" class="quarto-xref">Definition&nbsp;22</a>). Given both earlier tosses, <span class="math inline">\(X_3\)</span> is fixed:</p>
 <p><span class="math display">\[\mathbb{P}(X_3 = 0 \mid X_1 = 0, X_2 = 0) = 1.\]</span></p>
 <p>Given <span class="math inline">\(X_2\)</span> alone, <span class="math inline">\(X_3 = X_1\)</span> is still a fair coin, because <span class="math inline">\(X_1\)</span> is independent of <span class="math inline">\(X_2\)</span>:</p>
 <p><span class="math display">\[\mathbb{P}(X_3 = 0 \mid X_2 = 0) = \frac{1}{2}.\]</span></p>
@@ -1988,7 +2202,7 @@ p(x) \ln \frac{q(x)}{p(x)} \le q(x) - p(x),
 <section class="slide level2">
 
 <div id="rem-reversed-text-guessing" class="proof remark">
-<p><span class="proof-title"><em>Remark 17</em> (Guessing a text backward). </span>A reader can guess a text one character at a time from its start, guessing each character from the characters already read. The reader can also guess it from its end, guessing each character from the characters that follow it. Most people find the backward game harder. That raises a question: does a reversed text carry more information per character than the text read forward <span class="citation" data-cites="mackay2003information">(<a href="#/references" role="doc-biblioref" onclick="">MacKay 2003</a>, exercise 8.11)</span>?</p>
+<p><span class="proof-title"><em>Remark 20</em> (Guessing a text backward). </span>A reader can guess a text one character at a time from its start, guessing each character from the characters already read. The reader can also guess it from its end, guessing each character from the characters that follow it. Most people find the backward game harder. That raises a question: does a reversed text carry more information per character than the text read forward <span class="citation" data-cites="mackay2003information">(<a href="#/references" role="doc-biblioref" onclick="">MacKay 2003</a>, exercise 8.11)</span>?</p>
 </div>
 </section>
 <section class="slide level2">
@@ -2163,7 +2377,7 @@ p(x_t \mid x_{t+1}, \ldots, x_n)
 <section class="slide level2">
 
 <div id="exr-reversed-text-information" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6 (Which guessing game is harder?)</strong></span> Use <a href="#/exr-reversed-text-total-entropy" class="quarto-xref">Exercise&nbsp;2</a>, <a href="#/exr-forward-n-gram-conditional-entropy" class="quarto-xref">Exercise&nbsp;3</a> and <a href="#/exr-backward-n-gram-conditional-entropy" class="quarto-xref">Exercise&nbsp;5</a> to compare the information per character in a reversed text and in the text read forward, and use that comparison to explain the difference in difficulty described in <a href="#/rem-reversed-text-guessing" class="quarto-xref">Remark&nbsp;17</a>.</p>
+<p><span class="theorem-title"><strong>Exercise 6 (Which guessing game is harder?)</strong></span> Use <a href="#/exr-reversed-text-total-entropy" class="quarto-xref">Exercise&nbsp;2</a>, <a href="#/exr-forward-n-gram-conditional-entropy" class="quarto-xref">Exercise&nbsp;3</a> and <a href="#/exr-backward-n-gram-conditional-entropy" class="quarto-xref">Exercise&nbsp;5</a> to compare the information per character in a reversed text and in the text read forward, and use that comparison to explain the difference in difficulty described in <a href="#/rem-reversed-text-guessing" class="quarto-xref">Remark&nbsp;20</a>.</p>
 </div>
 </section>
 <section class="slide level2">
@@ -2181,6 +2395,15 @@ Cover, Thomas M., and Joy A. Thomas. 2006. <em>Elements of Information Theory</e
 </div>
 <div id="ref-grinstead1997introduction" class="csl-entry" role="listitem">
 Grinstead, Charles M., and J. Laurie Snell. 1997. <em>Introduction to Probability</em>. 2nd ed. American Mathematical Society.
+</div>
+<div id="ref-groenendijk1984studies" class="csl-entry" role="listitem">
+Groenendijk, Jeroen, and Martin Stokhof. 1984. <span>“Studies on the Semantics of Questions and the Pragmatics of Answers.”</span> PhD thesis, University of Amsterdam.
+</div>
+<div id="ref-hamblin1973questions" class="csl-entry" role="listitem">
+Hamblin, C. L. 1973. <span>“Questions in <span>M</span>ontague <span>E</span>nglish.”</span> <em>Foundations of Language</em> 10 (1): 41–53. <a href="https://www.jstor.org/stable/25000703">https://www.jstor.org/stable/25000703</a>.
+</div>
+<div id="ref-huddleston1994contrast" class="csl-entry" role="listitem">
+Huddleston, Rodney. 1994. <span>“The Contrast Between Interrogatives and Questions.”</span> <em>Journal of Linguistics</em> 30 (2): 411–39. <a href="https://doi.org/10.1017/S0022226700016704">https://doi.org/10.1017/S0022226700016704</a>.
 </div>
 <div id="ref-iec80000132008" class="csl-entry" role="listitem">
 International Electrotechnical Commission. 2008. <em>Quantities and Units — Part 13: Information Science and Technology</em>. IEC 80000-13:2008. International Electrotechnical Commission.

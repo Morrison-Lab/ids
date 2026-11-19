@@ -129,12 +129,30 @@
    "external": false
   },
   {
+   "id": "ids/entropy#cor-question-information-bound",
+   "site": "ids",
+   "page": "entropy",
+   "div": "cor-question-information-bound",
+   "kind": "cor",
+   "title": "An answer carries at most the logarithm of the number of possible answers",
+   "external": false
+  },
+  {
    "id": "ids/entropy#cor-surprisal-discrete-nonnegative",
    "site": "ids",
    "page": "entropy",
    "div": "cor-surprisal-discrete-nonnegative",
    "kind": "cor",
    "title": "Surprisal of a discrete value is nonnegative",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-answer",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-answer",
+   "kind": "def",
+   "title": "Answer",
    "external": false
   },
   {
@@ -264,6 +282,33 @@
    "external": false
   },
   {
+   "id": "ids/entropy#def-polar-question",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-polar-question",
+   "kind": "def",
+   "title": "Polar question, yes-no question",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-possible-answer",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-possible-answer",
+   "kind": "def",
+   "title": "Possible answer",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#def-question",
+   "site": "ids",
+   "page": "entropy",
+   "div": "def-question",
+   "kind": "def",
+   "title": "Question",
+   "external": false
+  },
+  {
    "id": "ids/entropy#def-rarity",
    "site": "ids",
    "page": "entropy",
@@ -318,6 +363,15 @@
    "external": false
   },
   {
+   "id": "ids/entropy#thm-answer-information",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-answer-information",
+   "kind": "thm",
+   "title": "The information in an answer is its entropy",
+   "external": false
+  },
+  {
    "id": "ids/entropy#thm-collision-entropy-at-most-entropy",
    "site": "ids",
    "page": "entropy",
@@ -351,6 +405,15 @@
    "div": "thm-data-processing-inequality",
    "kind": "thm",
    "title": "Data processing inequality",
+   "external": false
+  },
+  {
+   "id": "ids/entropy#thm-entropy-at-most-log-values",
+   "site": "ids",
+   "page": "entropy",
+   "div": "thm-entropy-at-most-log-values",
+   "kind": "thm",
+   "title": "Entropy is at most the logarithm of the number of values",
    "external": false
   },
   {
@@ -1046,6 +1109,16 @@
    "url": "https://morrison-lab.github.io/mcs/proof-writing.html#def-proof-by-induction"
   },
   {
+   "id": "mcs/sets#def-collection",
+   "site": "mcs",
+   "page": "sets",
+   "div": "def-collection",
+   "kind": "def",
+   "title": "collection",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/sets.html#def-collection"
+  },
+  {
    "id": "mcs/sets#def-set",
    "site": "mcs",
    "page": "sets",
@@ -1054,6 +1127,16 @@
    "title": "set",
    "external": true,
    "url": "https://morrison-lab.github.io/mcs/sets.html#def-set"
+  },
+  {
+   "id": "mcs/sets#def-subset",
+   "site": "mcs",
+   "page": "sets",
+   "div": "def-subset",
+   "kind": "def",
+   "title": "subset",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/sets.html#def-subset"
   },
   {
    "id": "mcs/sets#def-union",
@@ -1722,6 +1805,66 @@
    "pds/random-variables#def-discrete-rv"
   ],
   [
+   "ids/entropy#cor-question-information-bound",
+   "ids/entropy#def-answer"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "ids/entropy#def-bit"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "ids/entropy#def-polar-question"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "ids/entropy#def-possible-answer"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "ids/entropy#def-question"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "ids/entropy#thm-answer-information"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "ids/entropy#thm-entropy-at-most-log-values"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "mcs/functions#def-finite-set"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "mcs/sets#def-set"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#cor-question-information-bound",
+   "pds/random-variables#def-uniform"
+  ],
+  [
    "ids/entropy#cor-surprisal-discrete-nonnegative",
    "ids/entropy#def-rarity"
   ],
@@ -1744,6 +1887,18 @@
   [
    "ids/entropy#cor-surprisal-discrete-nonnegative",
    "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#def-answer",
+   "ids/entropy#def-possible-answer"
+  ],
+  [
+   "ids/entropy#def-answer",
+   "ids/entropy#def-question"
+  ],
+  [
+   "ids/entropy#def-answer",
+   "pds/random-variables#def-random-variable"
   ],
   [
    "ids/entropy#def-bit",
@@ -1934,6 +2089,54 @@
    "pds/random-variables#def-discrete-rv"
   ],
   [
+   "ids/entropy#def-polar-question",
+   "ids/entropy#def-possible-answer"
+  ],
+  [
+   "ids/entropy#def-polar-question",
+   "ids/entropy#def-question"
+  ],
+  [
+   "ids/entropy#def-possible-answer",
+   "ids/entropy#def-question"
+  ],
+  [
+   "ids/entropy#def-possible-answer",
+   "mcs/sets#def-subset"
+  ],
+  [
+   "ids/entropy#def-question",
+   "mcs/sets#def-collection"
+  ],
+  [
+   "ids/entropy#def-question",
+   "mcs/sets#def-set"
+  ],
+  [
+   "ids/entropy#def-question",
+   "mcs/sets#def-subset"
+  ],
+  [
+   "ids/entropy#def-question",
+   "mcs/sets#def-union"
+  ],
+  [
+   "ids/entropy#def-question",
+   "pds/probability-basics#def-mutually-exclusive"
+  ],
+  [
+   "ids/entropy#def-question",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#def-question",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#def-question",
+   "pds/random-variables#def-realization"
+  ],
+  [
    "ids/entropy#def-rarity",
    "pds/probability-basics#def-probability"
   ],
@@ -2038,6 +2241,46 @@
    "pds/random-variables#def-discrete-rv"
   ],
   [
+   "ids/entropy#thm-answer-information",
+   "ids/entropy#def-answer"
+  ],
+  [
+   "ids/entropy#thm-answer-information",
+   "ids/entropy#def-conditional-surprisal"
+  ],
+  [
+   "ids/entropy#thm-answer-information",
+   "ids/entropy#def-mutual-information"
+  ],
+  [
+   "ids/entropy#thm-answer-information",
+   "ids/entropy#def-question"
+  ],
+  [
+   "ids/entropy#thm-answer-information",
+   "ids/entropy#thm-conditional-entropy-average"
+  ],
+  [
+   "ids/entropy#thm-answer-information",
+   "ids/entropy#thm-mutual-information-reduction"
+  ],
+  [
+   "ids/entropy#thm-answer-information",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-answer-information",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-answer-information",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-answer-information",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
    "ids/entropy#thm-collision-entropy-at-most-entropy",
    "ids/entropy#def-renyi-entropy"
   ],
@@ -2132,6 +2375,58 @@
   [
    "ids/entropy#thm-data-processing-inequality",
    "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "ids/entropy#def-surprisal"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "ids/entropy#thm-kl-divergence-nonnegative"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "mcs/functions#def-finite-set"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "mcs/number-systems#def-positive-integer"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "mds/algebra-exponentials#def-logarithm"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "pds/expectation#def-entropy"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "pds/expectation#def-expectation"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "pds/expectation#def-kl-divergence"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "pds/probability-basics#def-probability"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "pds/random-variables#def-discrete-rv"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "pds/random-variables#def-pmf"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "pds/random-variables#def-realization"
+  ],
+  [
+   "ids/entropy#thm-entropy-at-most-log-values",
+   "pds/random-variables#def-uniform"
   ],
   [
    "ids/entropy#thm-entropy-chain-rule",
