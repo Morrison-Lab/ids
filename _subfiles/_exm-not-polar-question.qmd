@@ -7,6 +7,7 @@ The question "What is the remainder of $X$ divided by $4$?" has four [possible a
 one for each remainder $r \in \{0, 1, 2, 3\}$:
 the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of values $x \in \srcalph$ whose remainder is $r$.
 These four sets form a [question](#def-question),
-but not a [polar question](#def-polar-question), which has exactly two possible answers.
+but not a [polar question](#def-polar-question),
+which has exactly two possible answers.
 
 :::

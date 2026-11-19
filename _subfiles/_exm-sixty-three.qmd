@@ -3,7 +3,8 @@
 <!-- no-figure: the example lists six questions and their answers, with nothing to plot -->
 
 In the game of twenty questions,
-one player thinks of an object and the other identifies it by asking [polar questions](#def-polar-question).
+one player thinks of an object,
+and the other identifies it by asking [polar questions](#def-polar-question).
 @mackay2003information [p. 70] simplifies the game to "sixty-three":
 find an [integer](https://morrison-lab.github.io/mcs/number-systems.html#def-integers) $X$ between $0$ and $63$, each equally likely, using polar questions.
 Six questions suffice:
