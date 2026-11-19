@@ -1,0 +1,50 @@
+:::{#thm-entropy-at-most-log-values}
+#### Entropy is at most the logarithm of the number of values
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv)
+with exactly $k$ [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization)
+of positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability).
+With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm),
+the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$ is at most $\log_2 k$:
+
+$$\entropyf{X} \le \log_2 k,$$
+
+with equality exactly when $X$ is [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on those $k$ values.
+
+:::
+
+::: {.proof}
+
+Let $p$ be the [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) of $X$,
+and let $q$ be the uniform probability mass function on the $k$ values $x$ with $p(x) > 0$,
+so $q(x) = 1/k$ at each of them.
+The [surprisal](#def-surprisal) measured by $q$ is then the same at every one of those values:
+
+$$
+\begin{aligned}
+\surprisalunderf{q}{x}
+&= -\log_2 \tfrac{1}{k} \\
+&= \log_2 k.
+\end{aligned}
+$$
+
+The [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from $p$
+is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the surprisal measured by $q$ minus the surprisal measured by $p$:
+
+$$
+\begin{aligned}
+\kldivf{p}{q}
+&= \E{\surprisalunderf{q}{X} - \surprisalf{X}} \\
+&= \E{\log_2 k - \surprisalf{X}} \\
+&= \log_2 k - \E{\surprisalf{X}} \\
+&= \log_2 k - \entropyf{X}.
+\end{aligned}
+$$
+
+The sum in @thm-kl-divergence-nonnegative has [finitely many](https://morrison-lab.github.io/mcs/functions.html#def-finite-set) terms, so it is finite,
+and @thm-kl-divergence-nonnegative then gives $\kldivf{p}{q} \ge 0$,
+with equality exactly when $q = p$.
+Hence $\log_2 k - \entropyf{X} \ge 0$,
+with equality exactly when $p$ is uniform on its $k$ values.
+
+:::
