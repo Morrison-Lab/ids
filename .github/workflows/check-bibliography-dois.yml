@@ -25,6 +25,8 @@ jobs:
       # mackay2003information: the book has no DOI.
       # iec80000132008: the standard has no DOI.
       # grinstead1997introduction: the book has no DOI.
+      # hamblin1973questions: the journal article has no DOI (JSTOR only).
+      # groenendijk1984studies: the thesis has no DOI.
       # shannon1948mathematical: the publisher answers the checker with HTTP
       # 202, which the check reads as an error, though the DOI resolves.
       exclude-keys: >-
@@ -33,3 +35,5 @@ jobs:
         iec80000132008
         grinstead1997introduction
         renyi1961measures
+        hamblin1973questions
+        groenendijk1984studies

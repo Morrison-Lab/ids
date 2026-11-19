@@ -1,0 +1,8 @@
+:::{#def-possible-answer}
+#### Possible answer
+
+A **possible answer** to a [question](#def-question) about $X$
+is one of the [subsets](https://morrison-lab.github.io/mcs/sets.html#def-subset) of $\srcalph$, as in @def-question,
+that make up the question.
+
+:::

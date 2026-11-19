@@ -326,6 +326,72 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 {{< include ids/_subfiles/_sol-information-gain.qmd >}}
 
+## Questions and answers {#sec-questions}
+
+<!-- No slidebreak here: the heading shares its slide with the def-question div. -->
+
+{{< include ids/_subfiles/_def-question.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-possible-answer.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-question-partition-events.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-answer.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_def-polar-question.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-question.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-not-question.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-not-polar-question.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-question-partition-source.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-question-types.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-answer-information.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-answer-information.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-entropy-at-most-log-values.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-entropy-at-most-log-values.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-question-information-bound.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-sixty-three.qmd >}}
+
 ## Chain rules {#sec-chain-rules}
 
 <!-- No slidebreak here: the heading shares its slide with the thm-entropy-chain-rule-n div. -->

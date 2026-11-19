@@ -1,0 +1,19 @@
+:::{#exm-question}
+#### Is the number at least 32?
+<!-- no-figure: the example lists two sets, with nothing to plot -->
+
+Let $X$ be [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform)
+on the [integers](https://morrison-lab.github.io/mcs/number-systems.html#def-integers) $0, 1, \ldots, 63$,
+so that $\srcalph = \{0, 1, \ldots, 63\}$.
+The question "Is $X \ge 32$?" has two [possible answers](#def-possible-answer):
+
+- "yes", the [set](https://morrison-lab.github.io/mcs/sets.html#def-set) $\{32, 33, \ldots, 63\}$;
+- "no", the set $\{0, 1, \ldots, 31\}$.
+
+These two sets are nonempty and [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive),
+and their [union](https://morrison-lab.github.io/mcs/sets.html#def-union) is $\srcalph$,
+so they form a [question](#def-question),
+and a [polar question](#def-polar-question).
+If $X = 35$, the [answer](#def-answer) is $a(35) = \{32, 33, \ldots, 63\}$, that is, "yes".
+
+:::

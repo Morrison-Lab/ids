@@ -1,0 +1,35 @@
+:::{#cor-question-information-bound}
+#### An answer carries at most the logarithm of the number of possible answers
+
+Let $A$ be the [answer](#def-answer) to a [question](#def-question) with $k$ [possible answers](#def-possible-answer)
+about a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
+with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy).
+With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm),
+the [mutual information](#def-mutual-information) between $X$ and the answer is at most $\log_2 k$ [bits](#def-bit):
+
+$$\mutinfof{X}{A} \le \log_2 k,$$
+
+with equality exactly when the $k$ possible answers are equally likely.
+For a [polar question](#def-polar-question), $k = 2$, so the answer carries at most $1$ bit about $X$.
+
+:::
+
+::: {.proof}
+
+Each [possible answer](#def-possible-answer) is a nonempty [set](https://morrison-lab.github.io/mcs/sets.html#def-set) of values of $X$ with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability),
+so the answer $A$ has exactly $k$ values with positive probability,
+and its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) is finite.
+By @thm-answer-information and then @thm-entropy-at-most-log-values,
+
+$$
+\begin{aligned}
+\mutinfof{X}{A}
+&= \entropyf{A} \\
+&\le \log_2 k,
+\end{aligned}
+$$
+
+with equality exactly when $A$ is [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on its $k$ values.
+A [polar question](#def-polar-question) has $k = 2$ possible answers, and $\log_2 2 = 1$.
+
+:::

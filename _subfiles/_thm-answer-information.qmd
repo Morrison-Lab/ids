@@ -1,0 +1,44 @@
+:::{#thm-answer-information}
+#### The information in an answer is its entropy
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+and let $A$ be the [answer](#def-answer) to a [question](#def-question) about $X$.
+If $X$ and $A$ have finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
+then the [mutual information](#def-mutual-information) between $X$ and the answer
+is the entropy of the answer:
+
+$$\mutinfof{X}{A} = \entropyf{A}.$$
+
+:::
+
+::: {.proof}
+
+Given $X=x$, the answer $A = a(X)$ equals $a(x)$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$,
+so $\P(A = a(x) \mid X = x) = 1$.
+Hence the [conditional surprisal](#def-conditional-surprisal) of the answer $a(x)$ given $x$ is $-\log 1 = 0$,
+and its [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) given $X=x$ is $0$:
+
+$$\entropyf{A \mid X=x} = 0.$$
+
+By @thm-conditional-entropy-average,
+
+$$
+\begin{aligned}
+\entropyf{A \mid X}
+&= \sum_{x} p(x) \, \entropyf{A \mid X=x} \\
+&= 0,
+\end{aligned}
+$$
+
+where $p(x) \eqdef \P(X=x)$.
+By @thm-mutual-information-reduction with $Y = A$,
+
+$$
+\begin{aligned}
+\mutinfof{X}{A}
+&= \entropyf{A} - \entropyf{A \mid X} \\
+&= \entropyf{A}.
+\end{aligned}
+$$
+
+:::
