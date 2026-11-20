@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 14:58:58 (PST)
+Last modified: 2026-11-20 15:18:34 (PST)
 
 ## Welcome
 
@@ -31,8 +31,19 @@ The planned topics still to come are:
 Stanford’s information theory courses cover many of the planned topics above, and they publish their course pages:
 
 - [EE 276, *Information Theory*](https://web.stanford.edu/class/ee276/) (Tsachy Weissman) covers [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) and [mutual information](entropy.llms.md#def-mutual-information), the asymptotic equipartition property, [prefix codes](huffman-codes.llms.md#def-prefix-code) and [Huffman codes](huffman-codes.llms.md#def-huffman-code), [channel capacity](channel-capacity.llms.md#def-channel-capacity) and the [channel coding theorem](channel-capacity.llms.md#thm-channel-coding), and lossy compression. Its [reading page](https://web.stanford.edu/class/ee276/reading.html) lists books and the founding papers of the field.
+
 - [EE 274, *Data Compression, Theory and Applications*](https://stanforddatacompressionclass.github.io/Fall22/) covers entropy coding and how tools such as gzip and bzip2 work, then lossy coding of pictures and video.
-- [Stats 311/EE 377, *Information Theory and Statistics*](https://web.stanford.edu/class/ee377/) (John Duchi) applies these tools to statistics and machine learning. It covers [KL divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) and other divergences, the [data processing inequality](entropy.llms.md#thm-data-processing-inequality), concentration inequalities and PAC-Bayes bounds, differential privacy, lower bounds on estimation error by the methods of Le Cam, Fano and Assouad, and proper loss functions and calibration. Its textbook, Duchi’s *Information Theory, Learning, and Statistics*, is a draft that Cambridge University Press lets him keep [free online](https://web.stanford.edu/~jduchi/projects/Duchi27.pdf) before publication.
+
+- [Stats 311/EE 377, *Information Theory and Statistics*](https://web.stanford.edu/class/ee377/) (John Duchi) applies these tools to statistics and machine learning. It covers:
+
+  - [KL divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) and other divergences
+  - the [data processing inequality](entropy.llms.md#thm-data-processing-inequality)
+  - concentration inequalities and PAC-Bayes [bounds](https://morrison-lab.github.io/mds/algebra-sums.html#def-upper-bound)
+  - differential privacy
+  - [lower bounds](https://morrison-lab.github.io/mds/algebra-sums.html#def-lower-bound) on [estimation error](https://morrison-lab.github.io/sds/estimation.html#def-estimation-error), by the methods of Le Cam, Fano and Assouad
+  - proper [loss functions](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) and calibration
+
+  Its textbook, Duchi’s *Information Theory, Learning, and Statistics*, is a draft that Cambridge University Press lets him keep [free online](https://web.stanford.edu/~jduchi/projects/Duchi27.pdf) before publication.
 
 The courses’ own notes, slides and textbook draft carry no license, so these notes link to them and do not reuse their text.
 
