@@ -5,7 +5,7 @@ Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/rando
 with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(x) \eqdef \P(X=x)$.
 The [expected length](#def-expected-length) of a [binary code](#def-code) for $X$ is
 
-$$L = \sum_{x} p(x) \, \ell(x).$$
+$$L = \sum_{x} p(x) \, \ell(x).$$ {#eq-thm-expected-length-sum}
 
 :::
 
@@ -15,7 +15,7 @@ The [codeword length](#def-code) $\ell(X)$ is a [random variable](https://morris
 whose possible values are the [codeword lengths](#def-code) $\ell(x)$.
 By the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation),
 
-$$L = \sum_{k} k \, \P(\ell(X) = k).$$
+$$L = \sum_{k} k \, \P(\ell(X) = k).$$ {#eq-thm-expected-length-sum-2}
 
 The [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $\ell(X) = k$
 is the [union](https://morrison-lab.github.io/mcs/sets.html#def-union)
@@ -25,12 +25,12 @@ over the values $x$ with $\ell(x) = k$.
 So $\P(\ell(X) = k) = \sum_{x : \ell(x) = k} p(x)$,
 and
 
-$$L = \sum_{k} \sum_{x : \ell(x) = k} k \, p(x).$$
+$$L = \sum_{k} \sum_{x : \ell(x) = k} k \, p(x).$$ {#eq-thm-expected-length-sum-3}
 
 On the inner sum $k = \ell(x)$.
 Every value $x$ lies in exactly one inner sum,
 so the double sum runs once over each value:
 
-$$L = \sum_{x} \ell(x) \, p(x).$$
+$$L = \sum_{x} \ell(x) \, p(x).$$ {#eq-thm-expected-length-sum-4}
 
 :::

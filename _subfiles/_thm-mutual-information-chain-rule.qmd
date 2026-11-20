@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$
 whose [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $\entropyf{X}$, $\entropyf{Y}$ and $\entropyf{Z}$ are finite,
 
-$$\mutinfof{X, Z}{Y} = \mutinfof{Z}{Y} + \cmutinfof{X}{Y}{Z}.$$
+$$\mutinfof{X, Z}{Y} = \mutinfof{Z}{Y} + \cmutinfof{X}{Y}{Z}.$$ {#eq-mutual-information-chain-rule}
 
 :::
 
@@ -17,7 +17,7 @@ $$
 \mutinfof{X, Z}{Y} &= \entropyf{Y} - \entropyf{Y \mid X, Z} \\
 \mutinfof{Z}{Y} &= \entropyf{Y} - \entropyf{Y \mid Z}.
 \end{aligned}
-$$
+$$ {#eq-mutual-information-chain-rule-2}
 
 Subtracting the second display from the first gives
 
@@ -27,7 +27,7 @@ $$
 &= \entropyf{Y \mid Z} - \entropyf{Y \mid X, Z} \\
 &= \cmutinfof{X}{Y}{Z},
 \end{aligned}
-$$
+$$ {#eq-mutual-information-chain-rule-3}
 
 where the last line is @def-conditional-mutual-information.
 

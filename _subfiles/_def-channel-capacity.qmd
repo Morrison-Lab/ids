@@ -11,7 +11,7 @@ depends on the channel and on the input [probability mass function](https://morr
 The **capacity** of the channel is the largest mutual information
 any choice of $X$ achieves:
 
-$$C \eqdef \max_{\P(X = \cdot)} \mutinfof{X}{Y},$$
+$$C \eqdef \max_{\P(X = \cdot)} \mutinfof{X}{Y},$$ {#eq-def-channel-capacity}
 
 where the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) runs over all [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on $\mathcal{X}$
 [@cover2006elements, chapter 7].

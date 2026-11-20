@@ -10,7 +10,7 @@ H = \begin{pmatrix}
 0 & 1 & 1 & 0 & 0 & 1 & 1 \\
 1 & 0 & 1 & 0 & 1 & 0 & 1
 \end{pmatrix}.
-$$
+$$ {#eq-hamming-code}
 
 Columns 1, 2 and 4 of $H$ are $(0, 0, 1)$, $(0, 1, 0)$ and $(1, 0, 0)$, so $H$ has [rank](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-rank) 3.
 Taking $H$ as the [parity-check matrix](#def-linear-code) therefore gives a [linear code](#def-linear-code)
@@ -31,7 +31,7 @@ If the codeword $c$ arrives with an error in position $j$,
 the received word is $y = c + e_j$,
 where $e_j$ has a 1 in position $j$ only, and
 
-$$H y = H c + H e_j = 0 + (\text{column } j \text{ of } H),$$
+$$H y = H c + H e_j = 0 + (\text{column } j \text{ of } H),$$ {#eq-hamming-code-2}
 
 which is $j$ in base 2.
 For example, if $c = 0101010$ arrives as $y = 0101110$,

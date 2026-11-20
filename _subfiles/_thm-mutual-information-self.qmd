@@ -4,7 +4,7 @@
 For a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
 with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$\mutinfof{X}{X} = \entropyf{X}.$$
+$$\mutinfof{X}{X} = \entropyf{X}.$$ {#eq-thm-mutual-information-self}
 
 :::
 
@@ -15,7 +15,7 @@ so $p(x \mid x) = 1$.
 Hence $-\log p(X \mid x) = -\log 1 = 0$ given $X=x$,
 and the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of this constant is $0$:
 
-$$\entropyf{X \mid X=x} = 0.$$
+$$\entropyf{X \mid X=x} = 0.$$ {#eq-thm-mutual-information-self-2}
 
 By @thm-conditional-entropy-average,
 
@@ -25,7 +25,7 @@ $$
 &= \sum_{x} p(x) \, \entropyf{X \mid X=x} \\
 &= 0.
 \end{aligned}
-$$
+$$ {#eq-thm-mutual-information-self-3}
 
 By @thm-mutual-information-reduction with $Y = X$,
 
@@ -35,6 +35,6 @@ $$
 &= \entropyf{X} - \entropyf{X \mid X} \\
 &= \entropyf{X}.
 \end{aligned}
-$$
+$$ {#eq-thm-mutual-information-self-4}
 
 :::

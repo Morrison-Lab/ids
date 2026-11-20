@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$\entropyf{X \mid Y} = \entropyf{X, Y} - \entropyf{Y}.$$
+$$\entropyf{X \mid Y} = \entropyf{X, Y} - \entropyf{Y}.$$ {#eq-conditional-entropy-difference}
 
 :::
 
@@ -18,6 +18,6 @@ $$
 &= \entropyf{X \mid Y} + \entropyf{Y} - \entropyf{Y} \\
 &= \entropyf{X \mid Y}.
 \end{aligned}
-$$
+$$ {#eq-conditional-entropy-difference-2}
 
 :::

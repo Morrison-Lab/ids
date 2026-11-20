@@ -8,7 +8,7 @@ of its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy
 with the same base as the
 [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) in the entropy:
 
-$$\perplexityf{X} \eqdef b^{\entropyf{X}}.$$
+$$\perplexityf{X} \eqdef b^{\entropyf{X}}.$$ {#eq-perplexity}
 
 With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), $\perplexityf{X} = 2^{\entropyf{X}}$ with $\entropyf{X}$ in [bits](#def-bit).
 With [natural logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-natural-log),

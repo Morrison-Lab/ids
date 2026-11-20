@@ -5,6 +5,6 @@ For a [question](#def-question) about $X$,
 write $a(x)$ for the [possible answer](#def-possible-answer) that holds the value $x$.
 The **answer** to the question is the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable)
 
-$$A \eqdef a(X).$$
+$$A \eqdef a(X).$$ {#eq-answer}
 
 :::

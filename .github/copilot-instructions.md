@@ -59,6 +59,14 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
 - Use bullet lists when the items are important and deserve emphasis
 - Technical lists (commands, file names, features) typically benefit from bullet format
 
+### Display equations
+
+Label every display equation, so it gets a number and a stable URL:
+put `{#eq-...}` after the closing `$$`, named after the subfile, as in `$$ ... $$ {#eq-kraft-inequality}`
+(a second equation in the same subfile is `eq-kraft-inequality-2`).
+The `equation-anchors` filter adds a permalink only to a labeled equation,
+and `check-equation-labels.yml` fails on an unlabeled one.
+
 ## Code Chunks
 
 ### Code Folding

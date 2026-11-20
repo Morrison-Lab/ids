@@ -16,7 +16,7 @@ $$
 &= 3 (0.01)(0.9) + 0.001 \\
 &= 0.028,
 \end{aligned}
-$$
+$$ {#eq-repetition-code}
 
 down from $0.1$ for sending the bit once.
 Repeating more often lowers the error further,

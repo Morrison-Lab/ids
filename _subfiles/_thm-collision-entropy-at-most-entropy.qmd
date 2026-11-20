@@ -4,7 +4,7 @@
 Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with values $x_1, \ldots, x_n$.
 Then the [collision entropy](#def-renyi-entropy) is at most the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy):
 
-$$\renyientropyf{2}{X} \le \entropyf{X}.$$
+$$\renyientropyf{2}{X} \le \entropyf{X}.$$ {#eq-collision-entropy-at-most-entropy}
 
 The two coincide exactly when each value that $X$ takes with positive [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) has the same probability.
 
@@ -16,7 +16,7 @@ Write $\Pf{X}$ for the [probability mass function](https://morrison-lab.github.i
 The function $-\log$ is [strictly convex](https://morrison-lab.github.io/mds/algebra-sums.html#def-convex-function),
 so [Jensen's inequality](https://morrison-lab.github.io/mds/algebra-sums.html#thm-jensen) gives
 
-$$\E{-\log \Pf{X}} \ge -\log \E{\Pf{X}},$$
+$$\E{-\log \Pf{X}} \ge -\log \E{\Pf{X}},$$ {#eq-collision-entropy-at-most-entropy-2}
 
 with equality exactly when $\Pf{X}$ is constant.
 The left side is $\entropyf{X}$.

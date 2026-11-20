@@ -8,10 +8,10 @@ so the [sequence](https://morrison-lab.github.io/mcs/functions.html#def-sequence
 The sequence is not a [stationary sequence](#def-stationary-sequence):
 with length $k = 1$ and shift $s = 1$,
 
-$$\P(X_2 = 0) = 0,$$
+$$\P(X_2 = 0) = 0,$$ {#eq-not-stationary-sequence}
 
 but
 
-$$\P(X_1 = 0) = 1.$$
+$$\P(X_1 = 0) = 1.$$ {#eq-not-stationary-sequence-2}
 
 :::

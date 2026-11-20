@@ -3,7 +3,7 @@
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
 
-$$\entropyf{X, Y} = \entropyf{X \mid Y} + \entropyf{Y}.$$
+$$\entropyf{X, Y} = \entropyf{X \mid Y} + \entropyf{Y}.$$ {#eq-entropy-chain-rule-reversed}
 
 :::
 
@@ -13,13 +13,13 @@ The pair $(Y, X)$ takes each value $(y, x)$ with the same [probability](https://
 that $(X, Y)$ takes $(x, y)$,
 so
 
-$$\entropyf{Y, X} = \entropyf{X, Y}.$$
+$$\entropyf{Y, X} = \entropyf{X, Y}.$$ {#eq-entropy-chain-rule-reversed-2}
 
 The [chain rule](#thm-entropy-chain-rule),
 applied with the roles of $X$ and $Y$ exchanged,
 gives
 
-$$\entropyf{Y, X} = \entropyf{Y} + \entropyf{X \mid Y}.$$
+$$\entropyf{Y, X} = \entropyf{Y} + \entropyf{X \mid Y}.$$ {#eq-entropy-chain-rule-reversed-3}
 
 Combining the two displays gives the claim.
 

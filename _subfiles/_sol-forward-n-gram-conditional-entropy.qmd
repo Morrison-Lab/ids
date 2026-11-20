@@ -14,7 +14,7 @@ so
 $$
 \entropyf{X_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1}}
 = \entropyf{X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}}.
-$$
+$$ {#eq-sol-forward-n-gram-conditional-entropy}
 
 Then
 
@@ -26,7 +26,7 @@ $$
 &= \sum_{x_{t-N+1}, \ldots, x_{t-1}} p(x_{t-N+1}, \ldots, x_{t-1}) \, \entropyf{X_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}} \\
 &= \entropyf{X_t \mid X_{t-N+1}, \ldots, X_{t-1}}.
 \end{aligned}
-$$
+$$ {#eq-sol-forward-n-gram-conditional-entropy-2}
 
 The first line is @thm-conditional-entropy-average,
 with $(X_1, \ldots, X_{t-1})$ as the conditioning variable.
@@ -43,14 +43,14 @@ gives
 $$
 \entropyf{X_{t-N+1}, \ldots, X_t}
 = \entropyf{X_{t-N+1}, \ldots, X_{t-1}} + \entropyf{X_t \mid X_{t-N+1}, \ldots, X_{t-1}}.
-$$
+$$ {#eq-sol-forward-n-gram-conditional-entropy-3}
 
 Subtracting $\entropyf{X_{t-N+1}, \ldots, X_{t-1}}$ from both sides gives
 
 $$
 \entropyf{X_t \mid X_{t-N+1}, \ldots, X_{t-1}}
 = \entropyf{X_{t-N+1}, \ldots, X_t} - \entropyf{X_{t-N+1}, \ldots, X_{t-1}}.
-$$
+$$ {#eq-sol-forward-n-gram-conditional-entropy-4}
 
 An [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) depends only on the [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf).
 The [stationary sequence](#def-stationary-sequence) with shift $s = t - N$ gives
@@ -61,6 +61,6 @@ So
 $$
 \entropyf{X_t \mid X_1, \ldots, X_{t-1}}
 = \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
-$$
+$$ {#eq-sol-forward-n-gram-conditional-entropy-5}
 
 :::

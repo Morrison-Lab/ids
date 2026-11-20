@@ -66,7 +66,7 @@ by deleting the last bit of their common codeword to make the codeword of $z$.
 The two codes differ only in the lengths of $x$, $y$ and $z$,
 so their expected lengths satisfy
 
-$$\expcodelen = \expcodelen' + \pf{x} + \pf{y}.$$
+$$\expcodelen = \expcodelen' + \pf{x} + \pf{y}.$$ {#eq-thm-huffman-optimal}
 
 The Huffman code for $X$ is built from a Huffman code for $X'$
 by replacing the codeword of $z$ with two codewords,

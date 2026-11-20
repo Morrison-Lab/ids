@@ -3,7 +3,7 @@
 
 For $X$, $Y$, $x$ and $y$ as in @thm-surprisal-chain-rule,
 
-$$\surprisalf{y \mid x} = \surprisalf{x, y} - \surprisalf{x}.$$
+$$\surprisalf{y \mid x} = \surprisalf{x, y} - \surprisalf{x}.$$ {#eq-conditional-surprisal-difference}
 
 :::
 
@@ -17,6 +17,6 @@ $$
 &= \surprisalf{x} + \surprisalf{y \mid x} - \surprisalf{x} \\
 &= \surprisalf{y \mid x}.
 \end{aligned}
-$$
+$$ {#eq-conditional-surprisal-difference-2}
 
 :::

@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$\mutinfof{X}{Y} \ge 0.$$
+$$\mutinfof{X}{Y} \ge 0.$$ {#eq-mutual-information-nonnegative}
 
 Equality holds exactly when $X$ and $Y$ are
 [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).

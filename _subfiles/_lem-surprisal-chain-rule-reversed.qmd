@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 and [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) $x$ and $y$ with $\P(X=x, Y=y) > 0$,
 
-$$\surprisalf{x, y} = \surprisalf{x \mid y} + \surprisalf{y}.$$
+$$\surprisalf{x, y} = \surprisalf{x \mid y} + \surprisalf{y}.$$ {#eq-surprisal-chain-rule-reversed}
 
 :::
 
@@ -12,7 +12,7 @@ $$\surprisalf{x, y} = \surprisalf{x \mid y} + \surprisalf{y}.$$
 
 Applying @thm-surprisal-chain-rule with the roles of $X$ and $Y$ swapped gives
 
-$$\surprisalf{y, x} = \surprisalf{y} + \surprisalf{x \mid y}.$$
+$$\surprisalf{y, x} = \surprisalf{y} + \surprisalf{x \mid y}.$$ {#eq-surprisal-chain-rule-reversed-2}
 
 Both $\P(Y=y, X=x)$ and $\P(X=x, Y=y)$ are the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) of the same pair of values,
 so $\surprisalf{y, x} = \surprisalf{x, y}$.

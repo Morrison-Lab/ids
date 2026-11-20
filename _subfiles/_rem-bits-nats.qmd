@@ -10,7 +10,7 @@ $$
 &= \frac{-\ln p}{\ln 2}\\
 &\approx 1.443 \times (-\ln p).
 \end{aligned}
-$$
+$$ {#eq-bits-nats}
 
 So a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) with a [surprisal](#def-surprisal) of $1$ [nat](#def-nat) has a surprisal of
 $1 / \ln 2 \approx 1.443$ [bits](#def-bit),

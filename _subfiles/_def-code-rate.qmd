@@ -3,7 +3,7 @@
 
 The **rate** of an $(M, n)$ [channel code](#def-channel-code) is
 
-$$R \eqdef \frac{\log_2 M}{n} \text{ bits per channel use}.$$
+$$R \eqdef \frac{\log_2 M}{n} \text{ bits per channel use}.$$ {#eq-code-rate}
 
 This is the definition of @cover2006elements [section 7.5].
 

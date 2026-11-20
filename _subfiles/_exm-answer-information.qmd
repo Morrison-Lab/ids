@@ -22,7 +22,7 @@ and use base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponenti
   &\approx 0.094 + 0.022 \\
   &\approx 0.116 \text{ bits}.
   \end{aligned}
-  $$
+  $$ {#eq-exm-answer-information}
 
   By @thm-answer-information, the answer carries about $0.116$ bits about $X$.
 

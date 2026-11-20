@@ -9,6 +9,6 @@ show that the forward [conditional entropy](#def-conditional-entropy) of $X_t$ i
 $$
 \entropyf{X_t \mid X_1, \ldots, X_{t-1}}
 = \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
-$$
+$$ {#eq-exr-forward-n-gram-conditional-entropy}
 
 :::

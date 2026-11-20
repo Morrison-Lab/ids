@@ -5,7 +5,7 @@ If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain)
 and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$, $Y$ and $Z$ are finite,
 then
 
-$$\mutinfof{X}{Z} \le \mutinfof{X}{Y}.$$
+$$\mutinfof{X}{Z} \le \mutinfof{X}{Y}.$$ {#eq-data-processing-inequality}
 
 :::
 
@@ -18,7 +18,7 @@ $$
 \mutinfof{Z, Y}{X} &= \mutinfof{Y}{X} + \cmutinfof{Z}{X}{Y} \\
 \mutinfof{Y, Z}{X} &= \mutinfof{Z}{X} + \cmutinfof{Y}{X}{Z}.
 \end{aligned}
-$$
+$$ {#eq-data-processing-inequality-2}
 
 The pairs $(Z, Y)$ and $(Y, Z)$ contain the same two variables,
 so $\mutinfof{Z, Y}{X} = \mutinfof{Y, Z}{X}$.
@@ -32,7 +32,7 @@ $$
 &= \mutinfof{Z}{X} + \cmutinfof{Y}{X}{Z} \\
 &\ge \mutinfof{Z}{X}.
 \end{aligned}
-$$
+$$ {#eq-data-processing-inequality-3}
 
 By @thm-mutual-information-symmetric,
 $\mutinfof{Y}{X} = \mutinfof{X}{Y}$ and $\mutinfof{Z}{X} = \mutinfof{X}{Z}$,

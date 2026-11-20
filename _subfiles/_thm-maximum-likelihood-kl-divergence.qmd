@@ -17,17 +17,17 @@ Then $n_v = n \, \ep(v)$.
 
 Group the terms of the [log-likelihood](https://morrison-lab.github.io/sds/intro-MLEs.html#def-loglik) by value:
 
-$$\sum_{i=1}^n \log_2 q_\theta(x_i) = \sum_v n \, \ep(v) \log_2 q_\theta(v).$$
+$$\sum_{i=1}^n \log_2 q_\theta(x_i) = \sum_v n \, \ep(v) \log_2 q_\theta(v).$$ {#eq-thm-maximum-likelihood-kl-divergence}
 
 Divide by $n$.
 The right side is minus the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) $\crossentropyf{\ep}{q_\theta}$:
 
-$$\frac{1}{n} \sum_{i=1}^n \log_2 q_\theta(x_i) = -\crossentropyf{\ep}{q_\theta}.$$
+$$\frac{1}{n} \sum_{i=1}^n \log_2 q_\theta(x_i) = -\crossentropyf{\ep}{q_\theta}.$$ {#eq-thm-maximum-likelihood-kl-divergence-2}
 
 By the [cross-entropy decomposition](source-coding.qmd#thm-cross-entropy-decomposition),
 the cross-entropy is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $\ep$ plus the divergence:
 
-$$-\crossentropyf{\ep}{q_\theta} = -\entropyf{\ep} - \kldivf{\ep}{q_\theta}.$$
+$$-\crossentropyf{\ep}{q_\theta} = -\entropyf{\ep} - \kldivf{\ep}{q_\theta}.$$ {#eq-thm-maximum-likelihood-kl-divergence-3}
 
 The entropy $\entropyf{\ep}$ does not depend on $\theta$.
 So $\theta$ maximizes the average log-likelihood exactly when it minimizes $\kldivf{\ep}{q_\theta}$.

@@ -7,7 +7,7 @@ each with [probability](https://morrison-lab.github.io/pds/probability-basics.ht
 Then a [Huffman code](#def-huffman-code) for $X$ has
 [expected length](source-coding.qmd#def-expected-length) $\expcodelen$ with
 
-$$\entropyf{X} \le \expcodelen < \entropyf{X} + 1,$$
+$$\entropyf{X} \le \expcodelen < \entropyf{X} + 1,$$ {#eq-thm-huffman-entropy-bound}
 
 where $\entropyf{X}$ is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy)
 of $X$ with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).

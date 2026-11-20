@@ -9,7 +9,7 @@ to show that
 $$
 \sum_{t=1}^{n} \entropyf{X_t \mid X_1, \ldots, X_{t-1}}
 = \sum_{t=1}^{n} \entropyf{X_t \mid X_{t+1}, \ldots, X_n},
-$$
+$$ {#eq-exr-reversed-text-total-entropy}
 
 where the term for $t = 1$ on the left and the term for $t = n$ on the right
 are unconditional [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy).

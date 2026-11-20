@@ -7,7 +7,7 @@ with finite [entropy](https://morrison-lab.github.io/pds/expectation.html#def-en
 With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm),
 the [mutual information](#def-mutual-information) between $X$ and the answer is at most $\log_2 k$ [bits](#def-bit):
 
-$$\mutinfof{X}{A} \le \log_2 k,$$
+$$\mutinfof{X}{A} \le \log_2 k,$$ {#eq-question-information-bound}
 
 with equality exactly when the $k$ possible answers are equally likely.
 For a [polar question](#def-polar-question), $k = 2$,
@@ -28,7 +28,7 @@ $$
 &= \entropyf{A} \\
 &\le \log_2 k,
 \end{aligned}
-$$
+$$ {#eq-question-information-bound-2}
 
 with equality exactly when $A$ is [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on its $k$ values.
 A [polar question](#def-polar-question) has $k = 2$ possible answers, and $\log_2 2 = 1$.

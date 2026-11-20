@@ -17,7 +17,7 @@ p(x_s \mid x_t, \ldots, x_{s-1})
 &= p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}) \sum_{x_1, \ldots, x_{t-1}} p(x_1, \ldots, x_{t-1} \mid x_t, \ldots, x_{s-1}) \\
 &= p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}).
 \end{aligned}
-$$
+$$ {#eq-sol-reversed-n-gram-model}
 
 The first line is the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob-conditional), given $X_t, \ldots, X_{s-1}$.
 The second line is the [$N$-gram model](#def-n-gram-model),
@@ -30,7 +30,7 @@ the same holds with $t + 1$ in place of $t$.
 
 Write $R$ for the product of these factors:
 
-$$R = \prod_{s=t+N}^{n} p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}).$$
+$$R = \prod_{s=t+N}^{n} p(x_s \mid x_{s-N+1}, \ldots, x_{s-1}).$$ {#eq-sol-reversed-n-gram-model-2}
 
 The product is empty, and $R$ is $1$,
 when $n = t + N - 1$.
@@ -46,7 +46,7 @@ p(x_t, \ldots, x_n)
 &= p(x_t, \ldots, x_{t+N-1}) \prod_{s=t+N}^{n} p(x_s \mid x_t, \ldots, x_{s-1}) \\
 &= p(x_t, \ldots, x_{t+N-1}) \, R.
 \end{aligned}
-$$
+$$ {#eq-sol-reversed-n-gram-model-3}
 
 The same two steps, starting from $x_{t+1}$, give
 
@@ -56,7 +56,7 @@ p(x_{t+1}, \ldots, x_n)
 &= p(x_{t+1}, \ldots, x_{t+N-1}) \prod_{s=t+N}^{n} p(x_s \mid x_{t+1}, \ldots, x_{s-1}) \\
 &= p(x_{t+1}, \ldots, x_{t+N-1}) \, R.
 \end{aligned}
-$$
+$$ {#eq-sol-reversed-n-gram-model-4}
 
 The left side of the second display is positive by assumption,
 so $R > 0$ and $p(x_{t+1}, \ldots, x_{t+N-1}) > 0$.
@@ -70,7 +70,7 @@ p(x_t \mid x_{t+1}, \ldots, x_n)
 &= \frac{p(x_t, \ldots, x_{t+N-1})}{p(x_{t+1}, \ldots, x_{t+N-1})} \\
 &= p(x_t \mid x_{t+1}, \ldots, x_{t+N-1}).
 \end{aligned}
-$$
+$$ {#eq-sol-reversed-n-gram-model-5}
 
 The second line substitutes the two displays above,
 the third cancels $R$,

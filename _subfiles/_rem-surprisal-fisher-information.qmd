@@ -5,12 +5,12 @@ When the [probabilities](https://morrison-lab.github.io/pds/probability-basics.h
 the [surprisal](#def-surprisal) of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ is $-\log \p(x \mid \param)$,
 which is minus the log-likelihood:
 
-$$\surprisal_{\param}(x) = -\log \p(x \mid \param) = -\llik(\param).$$
+$$\surprisal_{\param}(x) = -\log \p(x \mid \param) = -\llik(\param).$$ {#eq-surprisal-fisher-information}
 
 Its [derivative with respect to](https://morrison-lab.github.io/mds/calculus-derivatives.html#def-derivative) $\param$ is minus the
 [score](https://morrison-lab.github.io/sds/intro-MLEs.html#def-score):
 
-$$\deriv{\param} \surprisal_{\param}(x) = -\scoref{\param}.$$
+$$\deriv{\param} \surprisal_{\param}(x) = -\scoref{\param}.$$ {#eq-surprisal-fisher-information-2}
 
 The expected squared score is the
 [expected information](https://morrison-lab.github.io/sds/intro-MLEs.html#def-einf),
@@ -25,13 +25,13 @@ $$
 \einf(\param_0)
 = \Expp_{\param_0}\sb{\scoref{\param_0}^2}
 = \Expp_{\param_0}\sb{\evalAt{\dderiv{\param} \surprisal_{\param}(X)}{\param = \param_0}}.
-$$
+$$ {#eq-surprisal-fisher-information-3}
 
 It is also the second derivative, at the true parameter value,
 of the [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
 between the model at that value and the model at the varying value
 ([proved in the sds notes](https://morrison-lab.github.io/sds/intro-MLEs.html#thm-fisher-kl-curvature)):
 
-$$\evalAt{\dderiv{\param} \kldivf{\param_0}{\param}}{\param = \param_0} = \einf(\param_0).$$
+$$\evalAt{\dderiv{\param} \kldivf{\param_0}{\param}}{\param = \param_0} = \einf(\param_0).$$ {#eq-surprisal-fisher-information-4}
 
 :::

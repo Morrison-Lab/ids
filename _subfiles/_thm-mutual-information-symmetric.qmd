@@ -3,7 +3,7 @@
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$ with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$\mutinfof{X}{Y} = \mutinfof{Y}{X}.$$
+$$\mutinfof{X}{Y} = \mutinfof{Y}{X}.$$ {#eq-mutual-information-symmetric}
 
 :::
 
@@ -22,6 +22,6 @@ $$
 &= \entropyf{Y} + \entropyf{X} - \entropyf{Y, X} \\
 &= \mutinfof{Y}{X}.
 \end{aligned}
-$$
+$$ {#eq-mutual-information-symmetric-2}
 
 :::

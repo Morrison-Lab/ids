@@ -11,7 +11,7 @@ when the ciphertext tells an eavesdropper nothing about the message,
 that is,
 when $M$ and $C$ have zero [mutual information](entropy.qmd#def-mutual-information):
 
-$$\mutinfof{M}{C} = 0.$$
+$$\mutinfof{M}{C} = 0.$$ {#eq-def-perfect-secrecy}
 
 The definition is from [@shannon1949communication].
 

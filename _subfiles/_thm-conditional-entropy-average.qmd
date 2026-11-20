@@ -3,7 +3,7 @@
 
 For $X$ and $Y$ as in @def-joint-surprisal,
 
-$$\entropyf{Y \mid X} = \sum_{x} p(x) \, \entropyf{Y \mid X=x},$$
+$$\entropyf{Y \mid X} = \sum_{x} p(x) \, \entropyf{Y \mid X=x},$$ {#eq-conditional-entropy-average}
 
 where $p(x) \eqdef \P(X=x)$,
 and the sum runs over the values $x$ with $p(x) > 0$.
@@ -23,7 +23,7 @@ $$
 &= \sum_{x} p(x) \, \condE{\surprisalf{Y \mid x}}{X=x} \\
 &= \sum_{x} p(x) \, \entropyf{Y \mid X=x}.
 \end{aligned}
-$$
+$$ {#eq-conditional-entropy-average-2}
 
 The first line is @def-conditional-entropy,
 the third line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the values $x$ of $X$,

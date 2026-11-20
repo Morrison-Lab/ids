@@ -6,6 +6,6 @@ whose [joint probability mass functions](https://morrison-lab.github.io/pds/rand
 when the sequence is shifted in time:
 for every length $k \ge 1$, every shift $s \ge 0$ and all values $x_1, \ldots, x_k$,
 
-$$\P(X_{1+s} = x_1, \ldots, X_{k+s} = x_k) = \P(X_1 = x_1, \ldots, X_k = x_k).$$
+$$\P(X_{1+s} = x_1, \ldots, X_{k+s} = x_k) = \P(X_1 = x_1, \ldots, X_k = x_k).$$ {#eq-def-stationary-sequence}
 
 :::

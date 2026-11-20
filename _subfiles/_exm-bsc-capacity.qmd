@@ -11,11 +11,11 @@ h(0.1)
 &\approx 0.332 + 0.137 \\
 &\approx 0.469 \text{ bits},
 \end{aligned}
-$$
+$$ {#eq-exm-bsc-capacity}
 
 so by @thm-bsc-capacity the [capacity](channel-capacity.qmd#def-channel-capacity) is
 
-$$C \approx 1 - 0.469 = 0.531 \text{ bits per channel use}.$$
+$$C \approx 1 - 0.469 = 0.531 \text{ bits per channel use}.$$ {#eq-exm-bsc-capacity-2}
 
 Each use carries one [bit](entropy.qmd#def-bit),
 but on average only about half a bit of it gets through.

@@ -7,7 +7,7 @@ For the same reason,
 reordering the variables in a condition does not change a [conditional entropy](#def-conditional-entropy).
 The [chain rule](#thm-entropy-chain-rule-n), with the variables in their usual order, gives
 
-$$\entropyf{X_1, \ldots, X_n} = \sum_{t=1}^{n} \entropyf{X_t \mid X_1, \ldots, X_{t-1}}.$$
+$$\entropyf{X_1, \ldots, X_n} = \sum_{t=1}^{n} \entropyf{X_t \mid X_1, \ldots, X_{t-1}}.$$ {#eq-sol-reversed-text-total-entropy}
 
 With the variables listed as $X_n, X_{n-1}, \ldots, X_1$,
 the $i$th variable is $X_{n+1-i}$,
@@ -22,7 +22,7 @@ $$
 &= \sum_{t=1}^{n} \entropyf{X_t \mid X_n, \ldots, X_{t+1}} \\
 &= \sum_{t=1}^{n} \entropyf{X_t \mid X_{t+1}, \ldots, X_n}.
 \end{aligned}
-$$
+$$ {#eq-sol-reversed-text-total-entropy-2}
 
 The first line reorders the joint entropy,
 the second is the chain rule,

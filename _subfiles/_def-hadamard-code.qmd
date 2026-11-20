@@ -4,7 +4,7 @@
 The **Hadamard code** sends a message $x \in \ffield{2}^k$, for $k \ge 1$,
 to the $2^k$ values
 
-$$\dprod{x}{a} = x_1 a_1 + \cdots + x_k a_k \pmod 2,$$
+$$\dprod{x}{a} = x_1 a_1 + \cdots + x_k a_k \pmod 2,$$ {#eq-def-hadamard-code}
 
 one for each $a \in \ffield{2}^k$, so its [block length](#def-block-code) is $n = 2^k$.
 Also called the **Walsh--Hadamard code** [@arora2009computational, chapter 11].

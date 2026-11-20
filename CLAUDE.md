@@ -69,7 +69,7 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 - **Submodules**: `latex-macros/` is the only git submodule (see `.gitmodules`). Run `git submodule update --init --recursive` after cloning.
 - **Spell check**: words go in `inst/WORDLIST` (see `.github/workflows/check-spelling.yaml`). Update the wordlist instead of disabling the check.
 - **Link check**: tuned in `lychee.toml`; prefer fixing broken links over adding exceptions.
-- **Other CI checks**: workflows also verify bibliography DOIs (`check-bibliography-dois.yml`) and flag non-standard characters (`check-non-standard-chars.yaml`). Fix the flagged source rather than relaxing the check.
+- **Other CI checks**: workflows also verify bibliography DOIs (`check-bibliography-dois.yml`) and flag non-standard characters (`check-non-standard-chars.yaml`). `check-equation-labels.yml` fails on any display equation without an `{#eq-...}` label (`tools/check_equation_labels.py`), because the `equation-anchors` filter gives a permalink only to a labeled equation. Name a new label after its subfile, as in `$$ ... $$ {#eq-kraft-inequality}`. Fix the flagged source rather than relaxing the check.
 - **Dependencies**: Dependabot auto-updates the `latex-macros` submodule and GitHub Actions (see `.github/dependabot.yml`); don't bump those by hand unless a PR needs it.
 
 ## Pull request expectations

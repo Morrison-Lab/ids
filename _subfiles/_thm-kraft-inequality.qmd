@@ -7,7 +7,7 @@ and let a [prefix code](#def-prefix-code) for $X$
 have [codeword length](source-coding.qmd#def-code)s $\ell(x)$.
 Then
 
-$$\sumof{x} 2^{-\ell(x)} \le 1.$$
+$$\sumof{x} 2^{-\ell(x)} \le 1.$$ {#eq-kraft-inequality}
 
 :::
 
@@ -32,7 +32,7 @@ with no string in two groups.
 There are $2^m$ strings of $m$ bits in all,
 so the groups together hold at most that many:
 
-$$\sumof{x} 2^{m - \ell(x)} \le 2^m.$$
+$$\sumof{x} 2^{m - \ell(x)} \le 2^m.$$ {#eq-kraft-inequality-2}
 
 Dividing both sides by $2^m$ gives the claim.
 

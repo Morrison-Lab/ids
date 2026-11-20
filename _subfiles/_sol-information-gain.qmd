@@ -8,7 +8,7 @@
    &= -\tfrac{1}{2} \log_2 \tfrac{1}{2} - \tfrac{1}{2} \log_2 \tfrac{1}{2} \\
    &= 1 \text{ bit}.
    \end{aligned}
-   $$
+   $$ {#eq-sol-information-gain}
 
 2. A branch holding one color only has [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) $0$.
    For split A, the "no" branch holds $6$ red and $10$ green points of $16$:
@@ -20,7 +20,7 @@
    &\approx 0.531 + 0.424 \\
    &\approx 0.954 \text{ bits}.
    \end{aligned}
-   $$
+   $$ {#eq-sol-information-gain-2}
 
    The "yes" branch holds $4$ of the $20$ points and the "no" branch $16$, so
 
@@ -30,7 +30,7 @@
    &= \tfrac{4}{20} \cdot 0 + \tfrac{16}{20} \cdot 0.954 \\
    &\approx 0.764 \text{ bits}.
    \end{aligned}
-   $$
+   $$ {#eq-sol-information-gain-3}
 
    For split B, the "yes" branch holds $5$ red and $10$ green points of $15$:
 
@@ -41,7 +41,7 @@
    &\approx 0.528 + 0.390 \\
    &\approx 0.918 \text{ bits}.
    \end{aligned}
-   $$
+   $$ {#eq-sol-information-gain-4}
 
    The "yes" branch holds $15$ of the $20$ points and the "no" branch $5$, so
 
@@ -51,7 +51,7 @@
    &= \tfrac{15}{20} \cdot 0.918 + \tfrac{5}{20} \cdot 0 \\
    &\approx 0.689 \text{ bits}.
    \end{aligned}
-   $$
+   $$ {#eq-sol-information-gain-5}
 
 3. By @thm-mutual-information-reduction, the gain is $\entropyf{Y} - \entropyf{Y \mid X}$:
 

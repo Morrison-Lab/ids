@@ -17,7 +17,7 @@ Write $k = \codelenf{x}$,
 and let $t$ be the number whose [bits](entropy.qmd#def-bit) after the point are $c(x)$.
 Truncating $m$ to $k$ digits gives
 
-$$t \le m < t + 2^{-k}.$$
+$$t \le m < t + 2^{-k}.$$ {#eq-arithmetic-prefix-code}
 
 Because $k \ge -\log_2 w + 1$,
 we have $2^{-k} \le w/2$.

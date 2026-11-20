@@ -11,6 +11,6 @@ with $\P(X_1 = x_1, \ldots, X_{t-1} = x_{t-1}) > 0$,
 $$
 \P(X_t = x_t \mid X_1 = x_1, \ldots, X_{t-1} = x_{t-1})
 = \P(X_t = x_t \mid X_{t-N+1} = x_{t-N+1}, \ldots, X_{t-1} = x_{t-1}).
-$$
+$$ {#eq-def-n-gram-model}
 
 :::

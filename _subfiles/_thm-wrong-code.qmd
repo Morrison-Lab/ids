@@ -8,7 +8,7 @@ Suppose a code gives each value $x$ with $p(x) > 0$
 the length $\ell(x) = \lceil -\log_2 q(x) \rceil$.
 Then its [expected length](#def-expected-length) $L$ under $p$ satisfies
 
-$$\crossentropyf{p}{q} \le L < \crossentropyf{p}{q} + 1,$$
+$$\crossentropyf{p}{q} \le L < \crossentropyf{p}{q} + 1,$$ {#eq-wrong-code}
 
 where $\crossentropyf{p}{q}$ is the
 [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy)
@@ -21,7 +21,7 @@ of $q$ relative to $p$, with base-2 [logarithms](https://morrison-lab.github.io/
 Every sum here runs over the values $x$ with $p(x) > 0$.
 Rounding up adds less than one binary digit, so for each such $x$
 
-$$-\log_2 q(x) \le \ell(x) < -\log_2 q(x) + 1.$$
+$$-\log_2 q(x) \le \ell(x) < -\log_2 q(x) + 1.$$ {#eq-wrong-code-2}
 
 Multiply each part by $p(x) > 0$ and sum.
 Since $\sum_{x} p(x) = 1$,
@@ -30,7 +30,7 @@ $$
 -\sum_{x} p(x) \log_2 q(x)
 \le \sum_{x} p(x) \, \ell(x)
 < -\sum_{x} p(x) \log_2 q(x) + 1.
-$$
+$$ {#eq-wrong-code-3}
 
 The middle sum is $L$ by @thm-expected-length-sum, and the outer sums are $\crossentropyf{p}{q}$.
 
