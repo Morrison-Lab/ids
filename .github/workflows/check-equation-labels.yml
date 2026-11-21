@@ -1,26 +1,23 @@
-name: Check Equation Labels
-
 # Fails when a display equation has no {#eq-...} label.
-# The equation-anchors filter gives a permalink only to labeled equations,
+# The equation-anchors filter gives a permalink only to a labeled equation,
 # and the lab labels every display equation so it gets a number and a URL.
+# Every equation here is labeled, so the shared check scans the whole tree
+# rather than only a PR's added lines.
+# Put a label after the closing $$, such as $$ ... $$ {#eq-kraft-inequality},
+# or add <!-- check-equation-labels: allow: reason --> on the line before it.
+name: Check Equation Labels
 
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:
-      - main
-
-permissions:
-  contents: read
+  workflow_dispatch:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - name: Self-test the checker
-        run: python3 tools/tests/test_check_equation_labels.py
-      - name: Check display equations are labeled
-        run: python3 tools/check_equation_labels.py
+    permissions:
+      contents: read
+    uses: Morrison-Lab/gha/.github/workflows/check-equation-labels.yml@v3
+    with:
+      whole-tree: true
