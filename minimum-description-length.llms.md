@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 22:08:19 (PST)
+Last modified: 2026-11-20 22:16:30 (PST)
 
 A model that fits the data well gives the data a short [code](source-coding.llms.md#def-code), but a model that is itself long to describe costs [bits](entropy.llms.md#def-bit) of its own. This page counts both costs in bits, and chooses the model that makes the sum shortest.
 
@@ -26,7 +26,7 @@ A model that fits the data well gives the data a short [code](source-coding.llms
 >
 > The **two-part description length** of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ under a model $p_j$ is
 >
-> $${\ell\mathopen{}\left(p_j\right)\mathclose{}} + {\mathbb{s}_{p_j}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}.$$
+> $${\ell\mathopen{}\left(p_j\right)\mathclose{}} + {\mathbb{s}_{p_j}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}. \tag{1}$$
 >
 > The first part is the length of the codeword that names the model. The second part is the [surprisal](entropy.llms.md#def-surprisal) $\log_2 \frac{1}{p_j(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})}$ of $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ under the model, which is the length in bits of a [code](source-coding.llms.md#def-code) for $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ built from the model.
 

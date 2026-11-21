@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 22:08:19 (PST)
+Last modified: 2026-11-20 22:16:30 (PST)
 
 The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) averages its [surprisal](entropy.llms.md#def-surprisal). Other summaries of its [probabilities](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) answer other questions. This page adds the smallest of them, the [min-entropy](#def-min-entropy), to the [collision entropy](entropy.llms.md#def-renyi-entropy).
 
@@ -24,7 +24,7 @@ The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) o
 >
 > **Definition 1 (Min-entropy)** The **min-entropy** of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the reciprocal of the largest [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that $X$ takes any one value:
 >
-> $${\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}} = -\log \max_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}.$$
+> $${\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}} = -\log \max_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}. \tag{1}$$
 >
 > It is the limiting case of the [Rényi entropy](entropy.llms.md#def-renyi-entropy) of order $\alpha$ ([Rényi 1961](#ref-renyi1961measures)), which approaches it as $\alpha \to \infty$.
 
@@ -51,21 +51,21 @@ The [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) o
 >
 > **Theorem 1 (The min-entropy is at most the collision entropy)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv). Then the [min-entropy](#def-min-entropy) is at most the [collision entropy](entropy.llms.md#def-renyi-entropy):
 >
-> $${\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}} \le {\mathbb{H}_{2}\mathopen{}\left(X\right)\mathclose{}}.$$
+> $${\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}} \le {\mathbb{H}_{2}\mathopen{}\left(X\right)\mathclose{}}. \tag{2}$$
 
 > **NOTE:**
 >
 > *Proof*. Let $p_{\max} = \max_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}$. Each [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}$ is at most $p_{\max}$, so ${\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}^2 \le p_{\max} \, {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}$. Sum over the values $x$:
 >
-> $$\sum_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}^2 \le p_{\max} \sum_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}.$$
+> $$\sum_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}^2 \le p_{\max} \sum_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}. \tag{3}$$
 >
 > The probabilities sum to $1$, so the [collision probability](entropy.llms.md#def-collision-probability) is at most $p_{\max}$:
 >
-> $$\mathbb{P}(X = X') = \sum_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}^2 \le p_{\max}.$$
+> $$\mathbb{P}(X = X') = \sum_x {\mathbb{P}\mathopen{}\left(X = x\right)\mathclose{}}^2 \le p_{\max}. \tag{4}$$
 >
 > The function $-\log$ is decreasing, so taking it of both sides flips the comparison:
 >
-> $$-\log \mathbb{P}(X = X') \ge -\log p_{\max}.$$
+> $$-\log \mathbb{P}(X = X') \ge -\log p_{\max}. \tag{5}$$
 >
 > The left side is ${\mathbb{H}_{2}\mathopen{}\left(X\right)\mathclose{}}$ and the right side is ${\mathbb{H}_{\infty}\mathopen{}\left(X\right)\mathclose{}}$.
 

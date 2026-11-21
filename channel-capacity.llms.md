@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 22:08:19 (PST)
+Last modified: 2026-11-20 22:16:30 (PST)
 
 A channel carries symbols from a sender to a receiver, and some of them are corrupted along the way. This page asks how much information a channel can carry, using the [mutual information](entropy.llms.md#sec-mutual-information) between what goes in and what comes out.
 
@@ -15,7 +15,8 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 > **Definition 1 (Discrete memoryless channel)** A **discrete channel** has a finite *[input](#def-channel) alphabet* $\mathcal{X}$, a finite *output alphabet* $\mathcal{Y}$, and, for each [input](#def-channel) $x \in \mathcal{X}$, a [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(y \mid x)$ on $\mathcal{Y}$: the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that the channel outputs $y$ when it is sent $x$. The channel is **memoryless** if, over $n$ uses, each output depends only on the input sent at that use:
 >
 > $$\mathbb{P}(Y_1 = y_1, \dots, Y_n = y_n \mid X_1 = x_1, \dots, X_n = x_n)
-> = \prod_{i=1}^{n} p(y_i \mid x_i).$$
+> = \prod_{i=1}^{n} p(y_i \mid x_i).
+> \tag{1}$$
 >
 > This is the setup of Cover and Thomas ([2006, chap. 7](#ref-cover2006elements)).
 
@@ -27,7 +28,8 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 > \begin{cases}
 > 1 - \epsilon & \text{if } y = x, \\
 > \epsilon & \text{if } y \ne x.
-> \end{cases}$$
+> \end{cases}
+> \tag{2}$$
 
 > **NOTE:**
 >
@@ -38,7 +40,8 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 > 1 - \alpha & \text{if } y = x, \\
 > \alpha & \text{if } y = \mathrm{e}, \\
 > 0 & \text{otherwise}.
-> \end{cases}$$
+> \end{cases}
+> \tag{3}$$
 
 > **NOTE:**
 >
@@ -50,7 +53,7 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >
 > **Definition 4 (Channel capacity)** Send one [input](#def-channel) $X$ through a [discrete memoryless channel](#def-channel), and let $Y$ be the output. The [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) of $(X, Y)$ is $\mathbb{P}(X = x, Y = y) = \mathbb{P}(X = x) \, p(y \mid x)$, so the [mutual information](entropy.llms.md#def-mutual-information) ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}$ depends on the channel and on the input [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf). The **capacity** of the channel is the largest mutual information any choice of $X$ achieves:
 >
-> $$C \stackrel{\text{def}}{=}\max_{\mathbb{P}(X = \cdot)} {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}},$$
+> $$C \stackrel{\text{def}}{=}\max_{\mathbb{P}(X = \cdot)} {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}, \tag{4}$$
 >
 > where the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) runs over all [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on $\mathcal{X}$ ([Cover and Thomas 2006, chap. 7](#ref-cover2006elements)). With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), $C$ is measured in [bits](entropy.llms.md#def-bit) per channel use.
 
@@ -62,7 +65,7 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >
 > **Definition 5 (Binary entropy function)** The **binary entropy function** is
 >
-> $$h(\epsilon) \stackrel{\text{def}}{=}-\epsilon \log_2 \epsilon - (1 - \epsilon) \log_2 (1 - \epsilon)$$
+> $$h(\epsilon) \stackrel{\text{def}}{=}-\epsilon \log_2 \epsilon - (1 - \epsilon) \log_2 (1 - \epsilon) \tag{5}$$
 >
 > for $0 < \epsilon < 1$, with $h(0) = h(1) \stackrel{\text{def}}{=}0$.
 
@@ -74,7 +77,7 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >
 > **Theorem 1 (Capacity of the binary symmetric channel)** The [binary symmetric channel](#def-binary-symmetric-channel) with crossover [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\epsilon$ has [capacity](channel-capacity.llms.md#def-channel-capacity)
 >
-> $$C = 1 - h(\epsilon) \text{ bits per channel use},$$
+> $$C = 1 - h(\epsilon) \text{ bits per channel use}, \tag{6}$$
 >
 > where $h$ is the [binary entropy function](#def-binary-entropy). A uniform [input](#def-channel) achieves it.
 
@@ -82,7 +85,7 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >
 > *Proof*. Fix any [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) for $X$. By [mutual information as a reduction in entropy](entropy.llms.md#thm-mutual-information-reduction),
 >
-> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.$$
+> $${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}. \tag{7}$$
 >
 > Given $X = x$, the output equals $x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \epsilon$ and differs from it with probability $\epsilon$, so the [entropy of](entropy.llms.md#def-entropy-given-value) $Y$ given $X = x$ is $h(\epsilon)$ for both values of $x$. Averaging over $x$, the [conditional entropy](entropy.llms.md#def-conditional-entropy) is ${\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = h(\epsilon)$, whatever $X$ is.
 >
@@ -92,7 +95,8 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 > {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
 > &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - h(\epsilon) \\
 > &\le 1 - h(\epsilon).
-> \end{aligned}$$
+> \end{aligned}
+> \tag{8}$$
 >
 > If $X$ is uniform on $\{0, 1\}$, then
 >
@@ -101,7 +105,8 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 > &= \mathbb{P}(X = 0) \, \epsilon + \mathbb{P}(X = 1) \, (1 - \epsilon) \\
 > &= \tfrac{1}{2} \epsilon + \tfrac{1}{2} (1 - \epsilon) \\
 > &= \tfrac{1}{2},
-> \end{aligned}$$
+> \end{aligned}
+> \tag{9}$$
 >
 > so ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1$ bit and ${\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 1 - h(\epsilon)$. This value is attained, so it is the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) $C$.
 
@@ -114,11 +119,12 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 > &= -0.1 \log_2 0.1 - 0.9 \log_2 0.9 \\
 > &\approx 0.332 + 0.137 \\
 > &\approx 0.469 \text{ bits},
-> \end{aligned}$$
+> \end{aligned}
+> \tag{10}$$
 >
 > so by [Theorem 1](#thm-bsc-capacity) the [capacity](channel-capacity.llms.md#def-channel-capacity) is
 >
-> $$C \approx 1 - 0.469 = 0.531 \text{ bits per channel use}.$$
+> $$C \approx 1 - 0.469 = 0.531 \text{ bits per channel use}. \tag{11}$$
 >
 > Each use carries one [bit](entropy.llms.md#def-bit), but on average only about half a bit of it gets through. At $\epsilon = 1/2$, $h(1/2) = 1$ and $C = 0$: the output is [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of the [input](#def-channel). At $\epsilon = 1$, $C = 1$ again, since the receiver can flip every bit back.
 
@@ -142,7 +148,7 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >
 > 2.  The chain rule gives
 >
->     $${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(E \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y, E\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}.$$
+>     $${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(E \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y, E\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}. \tag{12}$$
 >
 >     Each value $y$ of $Y$ fixes $E$, so ${\mathbb{H}\mathopen{}\left(E \mid Y = y\right)\mathclose{}} = 0$ for every $y$, and ${\mathbb{H}\mathopen{}\left(E \mid Y\right)\mathclose{}} = 0$. Hence ${\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}$.
 >
@@ -153,7 +159,8 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >     &= {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + \mathbb{P}(E = 1) \, {\mathbb{H}\mathopen{}\left(Y \mid E = 1\right)\mathclose{}} + \mathbb{P}(E = 0) \, {\mathbb{H}\mathopen{}\left(Y \mid E = 0\right)\mathclose{}} \\
 >     &= h(\alpha) + \alpha \cdot 0 + (1 - \alpha) \, h(\pi) \\
 >     &= h(\alpha) + (1 - \alpha) \, h(\pi).
->     \end{aligned}$$
+>     \end{aligned}
+>     \tag{13}$$
 >
 > 4.  Combining parts 1 and 3,
 >
@@ -162,7 +169,8 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >     &= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \\
 >     &= h(\alpha) + (1 - \alpha) \, h(\pi) - h(\alpha) \\
 >     &= (1 - \alpha) \, h(\pi).
->     \end{aligned}$$
+>     \end{aligned}
+>     \tag{14}$$
 >
 >     Since $h(\pi) \le 1$, with equality at $\pi = 1/2$, the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) over input [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) is $C = 1 - \alpha$. The receiver loses a share $\alpha$ of the [bits](entropy.llms.md#def-bit) and learns the rest exactly; Cover and Thomas ([2006, sec. 7.1](#ref-cover2006elements)) reach the same [capacity](channel-capacity.llms.md#def-channel-capacity).
 
@@ -181,7 +189,7 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 >
 > **Definition 7 (Rate of a channel code)** The **rate** of an $(M, n)$ [channel code](#def-channel-code) is
 >
-> $$R \stackrel{\text{def}}{=}\frac{\log_2 M}{n} \text{ bits per channel use}.$$
+> $$R \stackrel{\text{def}}{=}\frac{\log_2 M}{n} \text{ bits per channel use}. \tag{15}$$
 >
 > This is the definition of Cover and Thomas ([2006, sec. 7.5](#ref-cover2006elements)).
 
@@ -198,7 +206,8 @@ A channel carries symbols from a sender to a receiver, and some of them are corr
 > &= 3 \epsilon^2 (1 - \epsilon) + \epsilon^3 \\
 > &= 3 (0.01)(0.9) + 0.001 \\
 > &= 0.028,
-> \end{aligned}$$
+> \end{aligned}
+> \tag{16}$$
 >
 > down from $0.1$ for sending the bit once. Repeating more often lowers the error further, but the rate falls toward $0$ as it does. MacKay ([2003, chap. 1](#ref-mackay2003information)) works through this code.
 

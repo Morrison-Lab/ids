@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 22:08:19 (PST)
+Last modified: 2026-11-20 22:16:30 (PST)
 
 [Source coding](source-coding.llms.md) shows that the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of a source is the least average length of a code for it, up to one [bit](entropy.llms.md#def-bit). This page asks which codes a decoder can read one codeword at a time, and how long such a code must be.
 
@@ -28,7 +28,7 @@ Last modified: 2026-11-20 22:08:19 (PST)
 >
 > **Theorem 1 (Kraft’s inequality)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes a finite number of values, and let a [prefix code](#def-prefix-code) for $X$ have [codeword length](source-coding.llms.md#def-code)s $\ell(x)$. Then
 >
-> $${s_{x}} 2^{-\ell(x)} \le 1.$$
+> $${s_{x}} 2^{-\ell(x)} \le 1. \tag{1}$$
 
 > **NOTE:**
 >
@@ -40,7 +40,7 @@ Last modified: 2026-11-20 22:08:19 (PST)
 >
 > There are $2^m$ strings of $m$ bits in all, so the groups together hold at most that many:
 >
-> $${s_{x}} 2^{m - \ell(x)} \le 2^m.$$
+> $${s_{x}} 2^{m - \ell(x)} \le 2^m. \tag{2}$$
 >
 > Dividing both sides by $2^m$ gives the claim.
 
@@ -48,7 +48,7 @@ Last modified: 2026-11-20 22:08:19 (PST)
 >
 > **Theorem 2 (Prefix codes exist for lengths that satisfy Kraft’s inequality)** Let $\ell_1 \le \ell_2 \le \cdots \le \ell_n$ be [positive integer](https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer)s with
 >
-> $$\sum_{i=1}^{n} 2^{-\ell_i} \le 1.$$
+> $$\sum_{i=1}^{n} 2^{-\ell_i} \le 1. \tag{3}$$
 >
 > Then some [prefix code](#def-prefix-code) on $n$ values has [codeword length](source-coding.llms.md#def-code)s $\ell_1, \ldots, \ell_n$.
 
@@ -56,7 +56,7 @@ Last modified: 2026-11-20 22:08:19 (PST)
 >
 > *Proof*. For each $i$, let
 >
-> $$a_i = {s_{j < i}} 2^{-\ell_j},$$
+> $$a_i = {s_{j < i}} 2^{-\ell_j}, \tag{4}$$
 >
 > so that $a_1 = 0$. Let the codeword $c_i$ be the $\ell_i$ [bits](entropy.llms.md#def-bit) that spell $N_i = 2^{\ell_i} a_i$ as a base-2 number, with zeros added at the front to reach $\ell_i$ digits.
 >
@@ -197,7 +197,7 @@ Last modified: 2026-11-20 22:08:19 (PST)
 >
 > Next, let $X'$ be the [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) that merges $x$ and $y$ into one value $z$ with $\mathbb{p}'\mathopen{}\left(z\right)\mathclose{} = {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{p}\mathopen{}\left(y\right)\mathclose{}}$ and keeps every other value and probability. Any prefix code for $X$ in which $x$ and $y$ are siblings turns into a prefix code for $X'$ by deleting the last bit of their common codeword to make the codeword of $z$. The two codes differ only in the lengths of $x$, $y$ and $z$, so their expected lengths satisfy
 >
-> $$L= L' + {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{p}\mathopen{}\left(y\right)\mathclose{}}.$$
+> $$L= L' + {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} + {\mathbb{p}\mathopen{}\left(y\right)\mathclose{}}. \tag{5}$$
 >
 > The Huffman code for $X$ is built from a Huffman code for $X'$ by replacing the codeword of $z$ with two codewords, one that ends in $0$ and one that ends in $1$. By the induction hypothesis, a Huffman code for $X'$ has the least expected length $L'$ among prefix codes for $X'$. So no prefix code for $X$ in which $x$ and $y$ are siblings has an expected length below that of the Huffman code for $X$. By the first part, a prefix code with the least expected length is among these, so the Huffman code has the least expected length among all prefix codes.
 
@@ -228,7 +228,7 @@ Last modified: 2026-11-20 22:08:19 (PST)
 >
 > **Theorem 5 (A Huffman code is within one bit of the entropy)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes $n \ge 2$ values, each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) ${\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} > 0$. Then a [Huffman code](#def-huffman-code) for $X$ has [expected length](source-coding.llms.md#def-expected-length) $L$ with
 >
-> $${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \le L< {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1,$$
+> $${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} \le L< {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 1, \tag{6}$$
 >
 > where ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ is the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$ with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 

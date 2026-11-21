@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 22:08:19 (PST)
+Last modified: 2026-11-20 22:16:30 (PST)
 
 An error-correcting code adds redundancy to a message so that the receiver can still recover it after some symbols are changed. This page covers the basic definitions, the Hamming and [Reed–Solomon codes](#def-reed-solomon-code), and then how codes that can be decoded by reading only a few symbols lead to central results of computational complexity.
 
@@ -18,7 +18,7 @@ An error-correcting code adds redundancy to a message so that the receiver can s
 >
 > **Definition 2 (Hamming distance and minimum distance)** The **Hamming distance** ${\Delta\mathopen{}\left(x, y\right)\mathclose{}}$ between two strings $x, y \in \Sigma^n$ is the number of positions $i$ with $x_i \ne y_i$. The **minimum distance** of a [block code](#def-block-code) with codewords $C$ is
 >
-> $$d \stackrel{\text{def}}{=}\min {\mathopen{}\left\{{\Delta\mathopen{}\left(c, c'\right)\mathclose{}} : c, c' \in C, \ c \ne c'\right\}\mathclose{}}.$$
+> $$d \stackrel{\text{def}}{=}\min {\mathopen{}\left\{{\Delta\mathopen{}\left(c, c'\right)\mathclose{}} : c, c' \in C, \ c \ne c'\right\}\mathclose{}}. \tag{1}$$
 
 > **NOTE:**
 >
@@ -38,7 +38,8 @@ An error-correcting code adds redundancy to a message so that the receiver can s
 > \ge {\Delta\mathopen{}\left(c, c'\right)\mathclose{}} - {\Delta\mathopen{}\left(c, y\right)\mathclose{}}
 > \ge d - t
 > \ge t + 1
-> > {\Delta\mathopen{}\left(c, y\right)\mathclose{}},$$
+> > {\Delta\mathopen{}\left(c, y\right)\mathclose{}},
+> \tag{2}$$
 >
 > where $d - t \ge t + 1$ because $2t \le d - 1$.
 
@@ -72,7 +73,8 @@ An error-correcting code adds redundancy to a message so that the receiver can s
 > 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
 > 0 & 1 & 1 & 0 & 0 & 1 & 1 \\
 > 1 & 0 & 1 & 0 & 1 & 0 & 1
-> \end{pmatrix}.$$
+> \end{pmatrix}.
+> \tag{3}$$
 >
 > Columns 1, 2 and 4 of $H$ are $(0, 0, 1)$, $(0, 1, 0)$ and $(1, 0, 0)$, so $H$ has [rank](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-rank) 3. Taking $H$ as the [parity-check matrix](#def-linear-code) therefore gives a [linear code](#def-linear-code) of [dimension](https://morrison-lab.github.io/mds/linear-algebra-subspaces.html#def-dimension) $k = 7 - 3 = 4$, with $2^4 = 16$ codewords. By [Remark 2](#rem-linear-code-weight), $d$ is the smallest [weight](#def-weight) of a nonzero codeword, and $d = 3$:
 >
@@ -84,7 +86,7 @@ An error-correcting code adds redundancy to a message so that the receiver can s
 >
 > Decoding is direct. If the codeword $c$ arrives with an error in position $j$, the received word is $y = c + e_j$, where $e_j$ has a 1 in position $j$ only, and
 >
-> $$H y = H c + H e_j = 0 + (\text{column } j \text{ of } H),$$
+> $$H y = H c + H e_j = 0 + (\text{column } j \text{ of } H), \tag{4}$$
 >
 > which is $j$ in base 2. For example, if $c = 0101010$ arrives as $y = 0101110$, then $H y = (1, 0, 1)$, which is 5 in base 2, so the decoder flips position 5. MacKay ([2003, sec. 1.2](#ref-mackay2003information)) builds the same code from parity checks, with its positions in a different order.
 
@@ -102,7 +104,7 @@ An error-correcting code adds redundancy to a message so that the receiver can s
 >
 > **Definition 5 (Reed–Solomon code)** Let $\mathbb{F}_{q}$ be a finite field, let $k \le n \le q$, and fix $n$ distinct points $a_1, \ldots, a_n \in \mathbb{F}_{q}$. The **Reed–Solomon code** sends a message $m = (m_0, \ldots, m_{k-1}) \in \mathbb{F}_{q}^k$ to the values of the [polynomial](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-polynomial) $f_m(t) \stackrel{\text{def}}{=}m_0 + m_1 t + \cdots + m_{k-1} t^{k-1}$ at the $n$ points:
 >
-> $$E(m) \stackrel{\text{def}}{=}\mathopen{}\left(f_m(a_1), \ldots, f_m(a_n)\right)\mathclose{}.$$
+> $$E(m) \stackrel{\text{def}}{=}\mathopen{}\left(f_m(a_1), \ldots, f_m(a_n)\right)\mathclose{}. \tag{5}$$
 >
 > Reed and Solomon ([1960](#ref-reed1960polynomial)) introduced these codes.
 
@@ -118,7 +120,7 @@ An error-correcting code adds redundancy to a message so that the receiver can s
 >
 > **Example 3 (A small Reed–Solomon code)** Take $q = n = 5$, $k = 2$, and the points $0, 1, 2, 3, 4$ of $\mathbb{F}_{5}$, the [integers](https://morrison-lab.github.io/mcs/number-systems.html#def-integers) modulo 5. The message $m = (1, 2)$ gives the line $f_m(t) = 1 + 2t$, and
 >
-> $$E(m) = (1, 3, 0, 2, 4),$$
+> $$E(m) = (1, 3, 0, 2, 4), \tag{6}$$
 >
 > since $f_m(2) = 5 \equiv 0$, $f_m(3) = 7 \equiv 2$ and $f_m(4) = 9 \equiv 4$. By [Theorem 3](#thm-reed-solomon-distance) the [minimum distance](#def-hamming-distance) is $5 - 2 + 1 = 4$, so the code corrects one error. In terms of lines: with one error, the true line passes through at least four of the five received values. Any other line meets the true line in at most one point, so it passes through at most two of the received values, and the nearest codeword is the true line.
 
@@ -130,7 +132,7 @@ Complexity theory uses codes that can be decoded by reading only a few symbols o
 >
 > **Definition 6 (Hadamard code)** The **Hadamard code** sends a message $x \in \mathbb{F}_{2}^k$, for $k \ge 1$, to the $2^k$ values
 >
-> $$x \cdot a = x_1 a_1 + \cdots + x_k a_k \pmod 2,$$
+> $$x \cdot a = x_1 a_1 + \cdots + x_k a_k \pmod 2, \tag{7}$$
 >
 > one for each $a \in \mathbb{F}_{2}^k$, so its [block length](#def-block-code) is $n = 2^k$. Also called the **Walsh–Hadamard code** ([Arora and Barak 2009, chap. 11](#ref-arora2009computational)).
 
@@ -161,7 +163,7 @@ Complexity theory uses codes that can be decoded by reading only a few symbols o
 >
 > *Proof*. Both $a$ and $a + e_i$ are [uniformly distributed](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on $\mathbb{F}_{2}^k$, so each of $w(a)$ and $w(a + e_i)$ is wrong with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) at most $\delta$, and the chance that either is wrong is at most $2\delta$, so both are correct with probability at least $1 - 2\delta$. When both are correct, the output is
 >
-> $$x \cdot a + x \cdot \mathopen{}\left(a + e_i\right)\mathclose{} = x \cdot e_i = x_i,$$
+> $$x \cdot a + x \cdot \mathopen{}\left(a + e_i\right)\mathclose{} = x \cdot e_i = x_i, \tag{8}$$
 >
 > because $x \cdot a + x \cdot a = 0$ modulo 2.
 

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 22:08:19 (PST)
+Last modified: 2026-11-20 22:16:30 (PST)
 
 The [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior) of an unobserved quantity is often too hard to compute. Variational inference replaces it with a simpler stand-in that is close to it, where closeness is measured by the [KL divergence](kl-divergence.llms.md).
 
@@ -24,31 +24,31 @@ The [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-p
 >
 > **Definition 1 (Evidence lower bound (ELBO))** Let $x$ be observed data, and let $z$ be an unobserved [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv), with [joint probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-joint-pmf) ${\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}$. Let $q$ be a [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) for $z$. Require that $q$ gives [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) zero to every value $z$ where the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior) ${\mathbb{p}\mathopen{}\left(z \mid x\right)\mathclose{}}$ is zero. The **evidence lower bound** (**ELBO**) of $q$ is the average, over $z$ drawn from $q$, of the difference between the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of ${\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}$ and the logarithm of $q(z)$:
 >
-> $$\mathrm{ELBO}(q) = {\mathbb{E}_{q}\mathopen{}\left[{\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}}\right]\mathclose{}}.$$
+> $$\mathrm{ELBO}(q) = {\mathbb{E}_{q}\mathopen{}\left[{\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}}\right]\mathclose{}}. \tag{1}$$
 >
 > Written as a sum over the values $z$ with $q(z) > 0$, the average is
 >
-> $$\mathrm{ELBO}(q) = \sum_z q(z) \mathopen{}\left({\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}}\right)\mathclose{}.$$
+> $$\mathrm{ELBO}(q) = \sum_z q(z) \mathopen{}\left({\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}}\right)\mathclose{}. \tag{2}$$
 
 > **NOTE:**
 >
 > **Theorem 1 (The log evidence is the ELBO plus a divergence)** Let ${\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}$ and $q$ be as in [Definition 1](#def-evidence-lower-bound). Let ${\mathbb{p}\mathopen{}\left(x\right)\mathclose{}} = \sum_z {\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}$ be the [evidence](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood) of the data, also called its [marginal likelihood](https://morrison-lab.github.io/sds/bayesian-inference.html#def-marginal-likelihood). The evidence is nonzero, because a data value $x$ was observed. Then the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the evidence is the [ELBO](#def-evidence-lower-bound) of $q$ plus the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from the [posterior](https://morrison-lab.github.io/sds/bayesian-inference.html#def-posterior):
 >
-> $${\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} = \mathrm{ELBO}(q) + {{D_{\mathrm{KL}}}\mathopen{}\left(q \,\Vert\, {\mathbb{p}\mathopen{}\left(\cdot \mid x\right)\mathclose{}}\right)\mathclose{}}.$$
+> $${\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} = \mathrm{ELBO}(q) + {{D_{\mathrm{KL}}}\mathopen{}\left(q \,\Vert\, {\mathbb{p}\mathopen{}\left(\cdot \mid x\right)\mathclose{}}\right)\mathclose{}}. \tag{3}$$
 
 > **NOTE:**
 >
 > *Proof*. Let $z$ be a value with $q(z) > 0$. Then ${\mathbb{p}\mathopen{}\left(z \mid x\right)\mathclose{}} \ne 0$, and ${\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}} = {\mathbb{p}\mathopen{}\left(z \mid x\right)\mathclose{}} \, {\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}$. Apply $\operatorname{log}$ to both sides and rearrange:
 >
-> $${\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(z \mid x\right)\mathclose{}}\right\}\mathclose{}}.$$
+> $${\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} = {\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(z \mid x\right)\mathclose{}}\right\}\mathclose{}}. \tag{4}$$
 >
 > Add and subtract ${\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}}$ on the right:
 >
-> $${\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} = \mathopen{}\left({\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}}\right)\mathclose{} + \mathopen{}\left({\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(z \mid x\right)\mathclose{}}\right\}\mathclose{}}\right)\mathclose{}.$$
+> $${\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} = \mathopen{}\left({\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}}\right)\mathclose{} + \mathopen{}\left({\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(z \mid x\right)\mathclose{}}\right\}\mathclose{}}\right)\mathclose{}. \tag{5}$$
 >
 > Multiply both sides by $q(z)$, then sum over the values $z$ with $q(z) > 0$. The left side sums to ${\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}}$, because $q$ sums to $1$:
 >
-> $${\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} = \sum_z q(z) \mathopen{}\left({\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}}\right)\mathclose{} + \sum_z q(z) \mathopen{}\left({\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(z \mid x\right)\mathclose{}}\right\}\mathclose{}}\right)\mathclose{}.$$
+> $${\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x\right)\mathclose{}}\right\}\mathclose{}} = \sum_z q(z) \mathopen{}\left({\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(x, z\right)\mathclose{}}\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}}\right)\mathclose{} + \sum_z q(z) \mathopen{}\left({\operatorname{log}\mathopen{}\left\{q(z)\right\}\mathclose{}} - {\operatorname{log}\mathopen{}\left\{{\mathbb{p}\mathopen{}\left(z \mid x\right)\mathclose{}}\right\}\mathclose{}}\right)\mathclose{}. \tag{6}$$
 >
 > The first sum is $\mathrm{ELBO}(q)$ by its definition. The second sum is ${{D_{\mathrm{KL}}}\mathopen{}\left(q \,\Vert\, {\mathbb{p}\mathopen{}\left(\cdot \mid x\right)\mathclose{}}\right)\mathclose{}}$ by the definition of the divergence.
 

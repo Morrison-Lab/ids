@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-20 22:08:19 (PST)</p>
+  <p class="date">Last modified: 2026-11-20 22:16:30 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -347,11 +347,11 @@
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(n_v\)</span> be the number of data equal to <span class="math inline">\(v\)</span>. Then <span class="math inline">\(n_v = n \, \mathop{\hat{\mathbb{p}}}\nolimits(v)\)</span>.</p>
 <p>Group the terms of the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-loglik">log-likelihood</a> by value:</p>
-<p><span class="math display">\[\sum_{i=1}^n \log_2 q_\theta(x_i) = \sum_v n \, \mathop{\hat{\mathbb{p}}}\nolimits(v) \log_2 q_\theta(v).\]</span></p>
+<p><span id="eq-thm-maximum-likelihood-kl-divergence"><span class="math display">\[\sum_{i=1}^n \log_2 q_\theta(x_i) = \sum_v n \, \mathop{\hat{\mathbb{p}}}\nolimits(v) \log_2 q_\theta(v). \tag{1}\]</span></span></p>
 <p>Divide by <span class="math inline">\(n\)</span>. The right side is minus the <a href="https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy">cross-entropy</a> <span class="math inline">\({\mathbb{H}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits, q_\theta\right)\mathclose{}}\)</span>:</p>
-<p><span class="math display">\[\frac{1}{n} \sum_{i=1}^n \log_2 q_\theta(x_i) = -{\mathbb{H}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits, q_\theta\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-thm-maximum-likelihood-kl-divergence-2"><span class="math display">\[\frac{1}{n} \sum_{i=1}^n \log_2 q_\theta(x_i) = -{\mathbb{H}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits, q_\theta\right)\mathclose{}}. \tag{2}\]</span></span></p>
 <p>By the <a href="./source-coding.html#thm-cross-entropy-decomposition">cross-entropy decomposition</a>, the cross-entropy is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of <span class="math inline">\(\mathop{\hat{\mathbb{p}}}\nolimits\)</span> plus the divergence:</p>
-<p><span class="math display">\[-{\mathbb{H}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits, q_\theta\right)\mathclose{}} = -{\mathbb{H}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits\right)\mathclose{}} - {{D_{\mathrm{KL}}}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits \,\Vert\, q_\theta\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-thm-maximum-likelihood-kl-divergence-3"><span class="math display">\[-{\mathbb{H}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits, q_\theta\right)\mathclose{}} = -{\mathbb{H}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits\right)\mathclose{}} - {{D_{\mathrm{KL}}}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits \,\Vert\, q_\theta\right)\mathclose{}}. \tag{3}\]</span></span></p>
 <p>The entropy <span class="math inline">\({\mathbb{H}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits\right)\mathclose{}}\)</span> does not depend on <span class="math inline">\(\theta\)</span>. So <span class="math inline">\(\theta\)</span> maximizes the average log-likelihood exactly when it minimizes <span class="math inline">\({{D_{\mathrm{KL}}}\mathopen{}\left(\mathop{\hat{\mathbb{p}}}\nolimits \,\Vert\, q_\theta\right)\mathclose{}}\)</span>. The <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithm</a> increases, and dividing by <span class="math inline">\(n\)</span> keeps the order, so <span class="math inline">\(\theta\)</span> maximizes the average log-likelihood exactly when it maximizes the <a href="https://morrison-lab.github.io/sds/intro-MLEs.html#def-lik">likelihood</a>.</p>
 </div>
 </section>

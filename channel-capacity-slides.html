@@ -264,7 +264,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-20 22:08:19 (PST)</p>
+  <p class="date">Last modified: 2026-11-20 22:16:30 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -275,10 +275,10 @@
 <!-- No slidebreak here: the heading shares its slide with the def-channel div. -->
 <div id="def-channel" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Discrete memoryless channel)</strong></span> A <strong>discrete channel</strong> has a finite <em><a href="#/def-channel">input</a> alphabet</em> <span class="math inline">\(\mathcal{X}\)</span>, a finite <em>output alphabet</em> <span class="math inline">\(\mathcal{Y}\)</span>, and, for each <a href="#/def-channel">input</a> <span class="math inline">\(x \in \mathcal{X}\)</span>, a <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> <span class="math inline">\(p(y \mid x)\)</span> on <span class="math inline">\(\mathcal{Y}\)</span>: the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> that the channel outputs <span class="math inline">\(y\)</span> when it is sent <span class="math inline">\(x\)</span>. The channel is <strong>memoryless</strong> if, over <span class="math inline">\(n\)</span> uses, each output depends only on the input sent at that use:</p>
-<p><span class="math display">\[
+<p><span id="eq-channel"><span class="math display">\[
 \mathbb{P}(Y_1 = y_1, \dots, Y_n = y_n \mid X_1 = x_1, \dots, X_n = x_n)
 = \prod_{i=1}^{n} p(y_i \mid x_i).
-\]</span></p>
+\tag{1}\]</span></span></p>
 <p>This is the setup of <span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, chap. 7</a>)</span>.</p>
 </div>
 </section>
@@ -286,27 +286,27 @@
 
 <div id="def-binary-symmetric-channel" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Binary symmetric channel)</strong></span> The <strong>binary symmetric channel</strong> with <em>crossover <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a></em> <span class="math inline">\(\epsilon \in [0, 1]\)</span> is the <a href="#/def-channel">discrete memoryless channel</a> with <span class="math inline">\(\mathcal{X} = \mathcal{Y} = \{0, 1\}\)</span> that flips its <a href="#/def-channel">input</a> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\epsilon\)</span>:</p>
-<p><span class="math display">\[
+<p><span id="eq-binary-symmetric-channel"><span class="math display">\[
 p(y \mid x) =
 \begin{cases}
 1 - \epsilon &amp; \text{if } y = x, \\
 \epsilon &amp; \text{if } y \ne x.
 \end{cases}
-\]</span></p>
+\tag{2}\]</span></span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <div id="def-binary-erasure-channel" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Binary erasure channel)</strong></span> The <strong>binary erasure channel</strong> with <em>erasure <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a></em> <span class="math inline">\(\alpha \in [0, 1]\)</span> is the <a href="#/def-channel">discrete memoryless channel</a> with <span class="math inline">\(\mathcal{X} = \{0, 1\}\)</span> and <span class="math inline">\(\mathcal{Y} = \{0, \mathrm{e}, 1\}\)</span> that delivers its <a href="#/def-channel">input</a> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1 - \alpha\)</span> and otherwise outputs the erasure symbol <span class="math inline">\(\mathrm{e}\)</span>:</p>
-<p><span class="math display">\[
+<p><span id="eq-binary-erasure-channel"><span class="math display">\[
 p(y \mid x) =
 \begin{cases}
 1 - \alpha &amp; \text{if } y = x, \\
 \alpha &amp; \text{if } y = \mathrm{e}, \\
 0 &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
+\tag{3}\]</span></span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -320,7 +320,7 @@ p(y \mid x) =
 <!-- No slidebreak here: the heading shares its slide with the def-channel-capacity div. -->
 <div id="def-channel-capacity" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Channel capacity)</strong></span> Send one <a href="#/def-channel">input</a> <span class="math inline">\(X\)</span> through a <a href="#/def-channel">discrete memoryless channel</a>, and let <span class="math inline">\(Y\)</span> be the output. The <a href="https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution">joint distribution</a> of <span class="math inline">\((X, Y)\)</span> is <span class="math inline">\(\mathbb{P}(X = x, Y = y) = \mathbb{P}(X = x) \, p(y \mid x)\)</span>, so the <a href="./entropy.html#def-mutual-information">mutual information</a> <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}\)</span> depends on the channel and on the input <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a>. The <strong>capacity</strong> of the channel is the largest mutual information any choice of <span class="math inline">\(X\)</span> achieves:</p>
-<p><span class="math display">\[C \stackrel{\text{def}}{=}\max_{\mathbb{P}(X = \cdot)} {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}},\]</span></p>
+<p><span id="eq-def-channel-capacity"><span class="math display">\[C \stackrel{\text{def}}{=}\max_{\mathbb{P}(X = \cdot)} {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}, \tag{4}\]</span></span></p>
 <p>where the <a href="https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum">maximum</a> runs over all <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass functions</a> on <span class="math inline">\(\mathcal{X}\)</span> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, chap. 7</a>)</span>. With base-2 <a href="https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm">logarithms</a>, <span class="math inline">\(C\)</span> is measured in <a href="./entropy.html#def-bit">bits</a> per channel use.</p>
 </div>
 </section>
@@ -334,7 +334,7 @@ p(y \mid x) =
 
 <div id="def-binary-entropy" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Binary entropy function)</strong></span> The <strong>binary entropy function</strong> is</p>
-<p><span class="math display">\[h(\epsilon) \stackrel{\text{def}}{=}-\epsilon \log_2 \epsilon - (1 - \epsilon) \log_2 (1 - \epsilon)\]</span></p>
+<p><span id="eq-def-binary-entropy"><span class="math display">\[h(\epsilon) \stackrel{\text{def}}{=}-\epsilon \log_2 \epsilon - (1 - \epsilon) \log_2 (1 - \epsilon) \tag{5}\]</span></span></p>
 <p>for <span class="math inline">\(0 &lt; \epsilon &lt; 1\)</span>, with <span class="math inline">\(h(0) = h(1) \stackrel{\text{def}}{=}0\)</span>.</p>
 </div>
 </section>
@@ -348,30 +348,30 @@ p(y \mid x) =
 
 <div id="thm-bsc-capacity" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (Capacity of the binary symmetric channel)</strong></span> The <a href="#/def-binary-symmetric-channel">binary symmetric channel</a> with crossover <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(\epsilon\)</span> has <a href="./channel-capacity.html#def-channel-capacity">capacity</a></p>
-<p><span class="math display">\[C = 1 - h(\epsilon) \text{ bits per channel use},\]</span></p>
+<p><span id="eq-thm-bsc-capacity"><span class="math display">\[C = 1 - h(\epsilon) \text{ bits per channel use}, \tag{6}\]</span></span></p>
 <p>where <span class="math inline">\(h\)</span> is the <a href="#/def-binary-entropy">binary entropy function</a>. A uniform <a href="#/def-channel">input</a> achieves it.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Fix any <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass function</a> for <span class="math inline">\(X\)</span>. By <a href="./entropy.html#thm-mutual-information-reduction">mutual information as a reduction in entropy</a>,</p>
-<p><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-thm-bsc-capacity-2"><span class="math display">\[{\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}}. \tag{7}\]</span></span></p>
 <p>Given <span class="math inline">\(X = x\)</span>, the output equals <span class="math inline">\(x\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1 - \epsilon\)</span> and differs from it with probability <span class="math inline">\(\epsilon\)</span>, so the <a href="./entropy.html#def-entropy-given-value">entropy of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X = x\)</span></a> is <span class="math inline">\(h(\epsilon)\)</span> for both values of <span class="math inline">\(x\)</span>. Averaging over <span class="math inline">\(x\)</span>, the <a href="./entropy.html#def-conditional-entropy">conditional entropy</a> is <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = h(\epsilon)\)</span>, whatever <span class="math inline">\(X\)</span> is.</p>
 <p><span class="math inline">\(Y\)</span> takes two values, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} \le \log_2 2 = 1\)</span> <a href="./entropy.html#def-bit">bit</a> <span class="citation" data-cites="cover2006elements">(<a href="#/references" role="doc-biblioref" onclick="">Cover and Thomas 2006, sec. 2.6</a>)</span>. Therefore</p>
-<p><span class="math display">\[
+<p><span id="eq-thm-bsc-capacity-3"><span class="math display">\[
 \begin{aligned}
 {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
 &amp;= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - h(\epsilon) \\
 &amp;\le 1 - h(\epsilon).
 \end{aligned}
-\]</span></p>
+\tag{8}\]</span></span></p>
 <p>If <span class="math inline">\(X\)</span> is uniform on <span class="math inline">\(\{0, 1\}\)</span>, then</p>
-<p><span class="math display">\[
+<p><span id="eq-thm-bsc-capacity-4"><span class="math display">\[
 \begin{aligned}
 \mathbb{P}(Y = 1)
 &amp;= \mathbb{P}(X = 0) \, \epsilon + \mathbb{P}(X = 1) \, (1 - \epsilon) \\
 &amp;= \tfrac{1}{2} \epsilon + \tfrac{1}{2} (1 - \epsilon) \\
 &amp;= \tfrac{1}{2},
 \end{aligned}
-\]</span></p>
+\tag{9}\]</span></span></p>
 <p>so <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = 1\)</span> bit and <span class="math inline">\({\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}} = 1 - h(\epsilon)\)</span>. This value is attained, so it is the <a href="https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum">maximum</a> <span class="math inline">\(C\)</span>.</p>
 </div>
 </section>
@@ -379,16 +379,16 @@ p(y \mid x) =
 
 <div id="exm-bsc-capacity" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (A channel that flips one bit in ten)</strong></span> For a <a href="#/def-binary-symmetric-channel">binary symmetric channel</a> with <span class="math inline">\(\epsilon = 0.1\)</span>,</p>
-<p><span class="math display">\[
+<p><span id="eq-exm-bsc-capacity"><span class="math display">\[
 \begin{aligned}
 h(0.1)
 &amp;= -0.1 \log_2 0.1 - 0.9 \log_2 0.9 \\
 &amp;\approx 0.332 + 0.137 \\
 &amp;\approx 0.469 \text{ bits},
 \end{aligned}
-\]</span></p>
+\tag{10}\]</span></span></p>
 <p>so by <a href="#/thm-bsc-capacity" class="quarto-xref">Theorem&nbsp;1</a> the <a href="./channel-capacity.html#def-channel-capacity">capacity</a> is</p>
-<p><span class="math display">\[C \approx 1 - 0.469 = 0.531 \text{ bits per channel use}.\]</span></p>
+<p><span id="eq-exm-bsc-capacity-2"><span class="math display">\[C \approx 1 - 0.469 = 0.531 \text{ bits per channel use}. \tag{11}\]</span></span></p>
 <p>Each use carries one <a href="./entropy.html#def-bit">bit</a>, but on average only about half a bit of it gets through. At <span class="math inline">\(\epsilon = 1/2\)</span>, <span class="math inline">\(h(1/2) = 1\)</span> and <span class="math inline">\(C = 0\)</span>: the output is <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> of the <a href="#/def-channel">input</a>. At <span class="math inline">\(\epsilon = 1\)</span>, <span class="math inline">\(C = 1\)</span> again, since the receiver can flip every bit back.</p>
 </div>
 </section>
@@ -411,26 +411,26 @@ h(0.1)
 <ol type="1">
 <li><p>Given <span class="math inline">\(X = x\)</span>, the output is <span class="math inline">\(x\)</span> with <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(1 - \alpha\)</span> and <span class="math inline">\(\mathrm{e}\)</span> with probability <span class="math inline">\(\alpha\)</span>, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X = x\right)\mathclose{}} = h(\alpha)\)</span> for both values of <span class="math inline">\(x\)</span>, and averaging over <span class="math inline">\(x\)</span> gives <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} = h(\alpha)\)</span>.</p></li>
 <li><p>The chain rule gives</p>
-<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(E \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y, E\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-sol-bec-capacity"><span class="math display">\[{\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(E \mid Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(Y, E\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}. \tag{12}\]</span></span></p>
 <p>Each value <span class="math inline">\(y\)</span> of <span class="math inline">\(Y\)</span> fixes <span class="math inline">\(E\)</span>, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(E \mid Y = y\right)\mathclose{}} = 0\)</span> for every <span class="math inline">\(y\)</span>, and <span class="math inline">\({\mathbb{H}\mathopen{}\left(E \mid Y\right)\mathclose{}} = 0\)</span>. Hence <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(Y \mid E\right)\mathclose{}}\)</span>.</p></li>
 <li><p>The channel erases with probability <span class="math inline">\(\alpha\)</span> whatever the <a href="#/def-channel">input</a>, so <span class="math inline">\(E\)</span> is <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> of <span class="math inline">\(X\)</span> and <span class="math inline">\({\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} = h(\alpha)\)</span>. Given <span class="math inline">\(E = 1\)</span>, <span class="math inline">\(Y = \mathrm{e}\)</span> for certain, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid E = 1\right)\mathclose{}} = 0\)</span>. Given <span class="math inline">\(E = 0\)</span>, <span class="math inline">\(Y = X\)</span>, and since <span class="math inline">\(E\)</span> is independent of <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathbb{P}(Y = 1 \mid E = 0) = \mathbb{P}(X = 1) = \pi\)</span>, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(Y \mid E = 0\right)\mathclose{}} = h(\pi)\)</span>. Therefore</p>
-<p><span class="math display">\[
+<p><span id="eq-sol-bec-capacity-2"><span class="math display">\[
 \begin{aligned}
 {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}}
 &amp;= {\mathbb{H}\mathopen{}\left(E\right)\mathclose{}} + \mathbb{P}(E = 1) \, {\mathbb{H}\mathopen{}\left(Y \mid E = 1\right)\mathclose{}} + \mathbb{P}(E = 0) \, {\mathbb{H}\mathopen{}\left(Y \mid E = 0\right)\mathclose{}} \\
 &amp;= h(\alpha) + \alpha \cdot 0 + (1 - \alpha) \, h(\pi) \\
 &amp;= h(\alpha) + (1 - \alpha) \, h(\pi).
 \end{aligned}
-\]</span></p></li>
+\tag{13}\]</span></span></p></li>
 <li><p>Combining parts 1 and 3,</p>
-<p><span class="math display">\[
+<p><span id="eq-sol-bec-capacity-3"><span class="math display">\[
 \begin{aligned}
 {\mathbb{I}\mathopen{}\left(X ; Y\right)\mathclose{}}
 &amp;= {\mathbb{H}\mathopen{}\left(Y\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(Y \mid X\right)\mathclose{}} \\
 &amp;= h(\alpha) + (1 - \alpha) \, h(\pi) - h(\alpha) \\
 &amp;= (1 - \alpha) \, h(\pi).
 \end{aligned}
-\]</span></p>
+\tag{14}\]</span></span></p>
 <p>Since <span class="math inline">\(h(\pi) \le 1\)</span>, with equality at <span class="math inline">\(\pi = 1/2\)</span>, the <a href="https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum">maximum</a> over input <a href="https://morrison-lab.github.io/pds/random-variables.html#def-pmf">probability mass functions</a> is <span class="math inline">\(C = 1 - \alpha\)</span>. The receiver loses a share <span class="math inline">\(\alpha\)</span> of the <a href="./entropy.html#def-bit">bits</a> and learns the rest exactly; <span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 7.1</a>)</span> reach the same <a href="./channel-capacity.html#def-channel-capacity">capacity</a>.</p></li>
 </ol>
 </div>
@@ -451,7 +451,7 @@ h(0.1)
 
 <div id="def-code-rate" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Rate of a channel code)</strong></span> The <strong>rate</strong> of an <span class="math inline">\((M, n)\)</span> <a href="#/def-channel-code">channel code</a> is</p>
-<p><span class="math display">\[R \stackrel{\text{def}}{=}\frac{\log_2 M}{n} \text{ bits per channel use}.\]</span></p>
+<p><span id="eq-code-rate"><span class="math display">\[R \stackrel{\text{def}}{=}\frac{\log_2 M}{n} \text{ bits per channel use}. \tag{15}\]</span></span></p>
 <p>This is the definition of <span class="citation" data-cites="cover2006elements">Cover and Thomas (<a href="#/references" role="doc-biblioref" onclick="">2006, sec. 7.5</a>)</span>.</p>
 </div>
 </section>
@@ -465,14 +465,14 @@ h(0.1)
 
 <div id="exm-repetition-code" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Sending each bit three times)</strong></span> To send one <a href="./entropy.html#def-bit">bit</a> over the <a href="#/def-binary-symmetric-channel">binary symmetric channel</a> with <span class="math inline">\(\epsilon = 0.1\)</span>, send it three times and decode by majority vote. This is a <span class="math inline">\((2, 3)\)</span> <a href="#/def-channel-code">channel code</a>, with <a href="#/def-code-rate">rate</a> <span class="math inline">\(R = 1/3\)</span>. The decoder is wrong when two or three of the copies are flipped, so the <a href="#/def-maximal-probability-of-error">maximal probability of error</a> is</p>
-<p><span class="math display">\[
+<p><span id="eq-repetition-code"><span class="math display">\[
 \begin{aligned}
 \lambda^{(3)}
 &amp;= 3 \epsilon^2 (1 - \epsilon) + \epsilon^3 \\
 &amp;= 3 (0.01)(0.9) + 0.001 \\
 &amp;= 0.028,
 \end{aligned}
-\]</span></p>
+\tag{16}\]</span></span></p>
 <p>down from <span class="math inline">\(0.1\)</span> for sending the bit once. Repeating more often lowers the error further, but the rate falls toward <span class="math inline">\(0\)</span> as it does. <span class="citation" data-cites="mackay2003information">MacKay (<a href="#/references" role="doc-biblioref" onclick="">2003, chap. 1</a>)</span> works through this code.</p>
 </div>
 </section>

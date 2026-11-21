@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 22:08:19 (PST)
+Last modified: 2026-11-20 22:16:30 (PST)
 
 A cipher hides a message from an eavesdropper who sees only the ciphertext. [Mutual information](entropy.llms.md#def-mutual-information) says exactly how much the ciphertext can reveal, and so how much key a cipher needs.
 
@@ -24,7 +24,7 @@ A cipher hides a message from an eavesdropper who sees only the ciphertext. [Mut
 >
 > **Definition 1 (Perfect secrecy)** Let $M$ be a message, let $K$ be a key [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $M$, and let $C$ be the ciphertext made from $M$ and $K$, all [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy). The key and the ciphertext together determine the message. The cipher has **perfect secrecy** when the ciphertext tells an eavesdropper nothing about the message, that is, when $M$ and $C$ have zero [mutual information](entropy.llms.md#def-mutual-information):
 >
-> $${\mathbb{I}\mathopen{}\left(M ; C\right)\mathclose{}} = 0.$$
+> $${\mathbb{I}\mathopen{}\left(M ; C\right)\mathclose{}} = 0. \tag{1}$$
 >
 > The definition is from ([Shannon 1949](#ref-shannon1949communication)).
 
@@ -60,29 +60,29 @@ A cipher hides a message from an eavesdropper who sees only the ciphertext. [Mut
 >
 > **Theorem 1 (Perfect secrecy needs a key with at least the entropy of the message)** Let $M$, $K$ and $C$ be as in [Definition 1](#def-perfect-secrecy), and suppose the cipher has [perfect secrecy](#def-perfect-secrecy). Then the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the key is at least the entropy of the message:
 >
-> $${\mathbb{H}\mathopen{}\left(K\right)\mathclose{}} \ge {\mathbb{H}\mathopen{}\left(M\right)\mathclose{}}.$$
+> $${\mathbb{H}\mathopen{}\left(K\right)\mathclose{}} \ge {\mathbb{H}\mathopen{}\left(M\right)\mathclose{}}. \tag{2}$$
 
 > **NOTE:**
 >
 > *Proof*. By [Definition 1](#def-perfect-secrecy), ${\mathbb{I}\mathopen{}\left(M ; C\right)\mathclose{}} = 0$, so $M$ and $C$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt), and the equality case of [conditioning reduces entropy](entropy.llms.md#cor-conditioning-reduces-entropy) gives the first step:
 >
-> $${\mathbb{H}\mathopen{}\left(M\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}}.$$
+> $${\mathbb{H}\mathopen{}\left(M\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}}. \tag{3}$$
 >
 > The [chain rule](entropy.llms.md#thm-entropy-chain-rule) expands both [conditional entropies](entropy.llms.md#def-conditional-entropy) below:
 >
-> $${\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M, C\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(C\right)\mathclose{}}, \qquad {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(K, C\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(C\right)\mathclose{}}.$$
+> $${\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M, C\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(C\right)\mathclose{}}, \qquad {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(K, C\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(C\right)\mathclose{}}. \tag{4}$$
 >
 > Apply the chain rule to $(M, C)$ and $K$ jointly in two orders:
 >
-> $${\mathbb{H}\mathopen{}\left(M, C, K\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(C, K\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(M \mid C, K\right)\mathclose{}}, \qquad {\mathbb{H}\mathopen{}\left(M, C, K\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M, C\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(K \mid M, C\right)\mathclose{}}.$$
+> $${\mathbb{H}\mathopen{}\left(M, C, K\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(C, K\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(M \mid C, K\right)\mathclose{}}, \qquad {\mathbb{H}\mathopen{}\left(M, C, K\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M, C\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(K \mid M, C\right)\mathclose{}}. \tag{5}$$
 >
 > The key and the ciphertext determine the message, so ${\mathbb{H}\mathopen{}\left(M \mid C, K\right)\mathclose{}} = 0$. A conditional entropy is nonnegative, so ${\mathbb{H}\mathopen{}\left(K \mid M, C\right)\mathclose{}} \ge 0$. Equating the two expansions then gives ${\mathbb{H}\mathopen{}\left(M, C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(C, K\right)\mathclose{}}$. Subtract ${\mathbb{H}\mathopen{}\left(C\right)\mathclose{}}$ from both sides:
 >
-> $${\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}}.$$
+> $${\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}}. \tag{6}$$
 >
 > By [conditioning reduces entropy](entropy.llms.md#cor-conditioning-reduces-entropy) again, ${\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K\right)\mathclose{}}$. Chain the three comparisons:
 >
-> $${\mathbb{H}\mathopen{}\left(M\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K\right)\mathclose{}}.$$
+> $${\mathbb{H}\mathopen{}\left(M\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K\right)\mathclose{}}. \tag{7}$$
 
 > **NOTE:**
 >

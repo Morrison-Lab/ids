@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-20 22:08:19 (PST)</p>
+  <p class="date">Last modified: 2026-11-20 22:16:30 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -343,7 +343,7 @@
 <!-- No slidebreak here: the heading shares its slide with the def-perfect-secrecy div. -->
 <div id="def-perfect-secrecy" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Perfect secrecy)</strong></span> Let <span class="math inline">\(M\)</span> be a message, let <span class="math inline">\(K\)</span> be a key <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a> of <span class="math inline">\(M\)</span>, and let <span class="math inline">\(C\)</span> be the ciphertext made from <span class="math inline">\(M\)</span> and <span class="math inline">\(K\)</span>, all <a href="https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv">discrete random variables</a> with finite <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropies</a>. The key and the ciphertext together determine the message. The cipher has <strong>perfect secrecy</strong> when the ciphertext tells an eavesdropper nothing about the message, that is, when <span class="math inline">\(M\)</span> and <span class="math inline">\(C\)</span> have zero <a href="./entropy.html#def-mutual-information">mutual information</a>:</p>
-<p><span class="math display">\[{\mathbb{I}\mathopen{}\left(M ; C\right)\mathclose{}} = 0.\]</span></p>
+<p><span id="eq-def-perfect-secrecy"><span class="math display">\[{\mathbb{I}\mathopen{}\left(M ; C\right)\mathclose{}} = 0. \tag{1}\]</span></span></p>
 <p>The definition is from <span class="citation" data-cites="shannon1949communication">(<a href="#/references" role="doc-biblioref" onclick="">Shannon 1949</a>)</span>.</p>
 </div>
 </section>
@@ -380,19 +380,19 @@
 
 <div id="thm-perfect-secrecy-key-entropy" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (Perfect secrecy needs a key with at least the entropy of the message)</strong></span> Let <span class="math inline">\(M\)</span>, <span class="math inline">\(K\)</span> and <span class="math inline">\(C\)</span> be as in <a href="#/def-perfect-secrecy" class="quarto-xref">Definition&nbsp;1</a>, and suppose the cipher has <a href="#/def-perfect-secrecy">perfect secrecy</a>. Then the <a href="https://morrison-lab.github.io/pds/expectation.html#def-entropy">entropy</a> of the key is at least the entropy of the message:</p>
-<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(K\right)\mathclose{}} \ge {\mathbb{H}\mathopen{}\left(M\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-thm-perfect-secrecy-key-entropy"><span class="math display">\[{\mathbb{H}\mathopen{}\left(K\right)\mathclose{}} \ge {\mathbb{H}\mathopen{}\left(M\right)\mathclose{}}. \tag{2}\]</span></span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/def-perfect-secrecy" class="quarto-xref">Definition&nbsp;1</a>, <span class="math inline">\({\mathbb{I}\mathopen{}\left(M ; C\right)\mathclose{}} = 0\)</span>, so <span class="math inline">\(M\)</span> and <span class="math inline">\(C\)</span> are <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a>, and the equality case of <a href="./entropy.html#cor-conditioning-reduces-entropy">conditioning reduces entropy</a> gives the first step:</p>
-<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(M\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-thm-perfect-secrecy-key-entropy-2"><span class="math display">\[{\mathbb{H}\mathopen{}\left(M\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}}. \tag{3}\]</span></span></p>
 <p>The <a href="./entropy.html#thm-entropy-chain-rule">chain rule</a> expands both <a href="./entropy.html#def-conditional-entropy">conditional entropies</a> below:</p>
-<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M, C\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(C\right)\mathclose{}}, \qquad {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(K, C\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(C\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-thm-perfect-secrecy-key-entropy-3"><span class="math display">\[{\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M, C\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(C\right)\mathclose{}}, \qquad {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(K, C\right)\mathclose{}} - {\mathbb{H}\mathopen{}\left(C\right)\mathclose{}}. \tag{4}\]</span></span></p>
 <p>Apply the chain rule to <span class="math inline">\((M, C)\)</span> and <span class="math inline">\(K\)</span> jointly in two orders:</p>
-<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(M, C, K\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(C, K\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(M \mid C, K\right)\mathclose{}}, \qquad {\mathbb{H}\mathopen{}\left(M, C, K\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M, C\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(K \mid M, C\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-thm-perfect-secrecy-key-entropy-4"><span class="math display">\[{\mathbb{H}\mathopen{}\left(M, C, K\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(C, K\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(M \mid C, K\right)\mathclose{}}, \qquad {\mathbb{H}\mathopen{}\left(M, C, K\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M, C\right)\mathclose{}} + {\mathbb{H}\mathopen{}\left(K \mid M, C\right)\mathclose{}}. \tag{5}\]</span></span></p>
 <p>The key and the ciphertext determine the message, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(M \mid C, K\right)\mathclose{}} = 0\)</span>. A conditional entropy is nonnegative, so <span class="math inline">\({\mathbb{H}\mathopen{}\left(K \mid M, C\right)\mathclose{}} \ge 0\)</span>. Equating the two expansions then gives <span class="math inline">\({\mathbb{H}\mathopen{}\left(M, C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(C, K\right)\mathclose{}}\)</span>. Subtract <span class="math inline">\({\mathbb{H}\mathopen{}\left(C\right)\mathclose{}}\)</span> from both sides:</p>
-<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-thm-perfect-secrecy-key-entropy-5"><span class="math display">\[{\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}}. \tag{6}\]</span></span></p>
 <p>By <a href="./entropy.html#cor-conditioning-reduces-entropy">conditioning reduces entropy</a> again, <span class="math inline">\({\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K\right)\mathclose{}}\)</span>. Chain the three comparisons:</p>
-<p><span class="math display">\[{\mathbb{H}\mathopen{}\left(M\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-thm-perfect-secrecy-key-entropy-6"><span class="math display">\[{\mathbb{H}\mathopen{}\left(M\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(M \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K \mid C\right)\mathclose{}} \le {\mathbb{H}\mathopen{}\left(K\right)\mathclose{}}. \tag{7}\]</span></span></p>
 </div>
 </section>
 <section class="slide level2">

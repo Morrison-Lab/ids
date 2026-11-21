@@ -332,7 +332,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-11-20 22:08:19 (PST)</p>
+  <p class="date">Last modified: 2026-11-20 22:16:30 (PST)</p>
 </section>
 <section class="slide level2">
 
@@ -344,7 +344,7 @@
 <div id="def-two-part-description-length" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Two-part description length)</strong></span> Let <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> be data, and let <span class="math inline">\(p_1, \ldots, p_m\)</span> be models, each of which gives <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> a <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> <span class="math inline">\(p_j(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>. Let a <a href="./huffman-codes.html#def-prefix-code">prefix code</a> on the models give each model <span class="math inline">\(p_j\)</span> a codeword of <span class="math inline">\({\ell\mathopen{}\left(p_j\right)\mathclose{}}\)</span> <a href="./entropy.html#def-bit">bits</a>.</p>
 <p>The <strong>two-part description length</strong> of <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> under a model <span class="math inline">\(p_j\)</span> is</p>
-<p><span class="math display">\[{\ell\mathopen{}\left(p_j\right)\mathclose{}} + {\mathbb{s}_{p_j}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}.\]</span></p>
+<p><span id="eq-def-two-part-description-length"><span class="math display">\[{\ell\mathopen{}\left(p_j\right)\mathclose{}} + {\mathbb{s}_{p_j}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}}. \tag{1}\]</span></span></p>
 <p>The first part is the length of the codeword that names the model. The second part is the <a href="./entropy.html#def-surprisal">surprisal</a> <span class="math inline">\(\log_2 \frac{1}{p_j(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})}\)</span> of <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> under the model, which is the length in bits of a <a href="./source-coding.html#def-code">code</a> for <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> built from the model.</p>
 </div>
 </section>

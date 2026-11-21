@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 22:08:19 (PST)
+Last modified: 2026-11-20 22:16:30 (PST)
 
 A [Reed–Solomon code](error-correcting-codes.llms.md#def-reed-solomon-code) recovers the message when fewer than $d / 2$ symbols are corrupted, where $d$ is its [minimum distance](error-correcting-codes.llms.md#def-hamming-distance). Past that point a received word can be near several codewords, and a decoder can return all of them as a list.
 
@@ -48,7 +48,7 @@ A [Reed–Solomon code](error-correcting-codes.llms.md#def-reed-solomon-code) re
 >
 > **Theorem 1 (A bound on the list size of a Reed–Solomon code)** Let $C$ be the [Reed–Solomon code](error-correcting-codes.llms.md#def-reed-solomon-code) with length $n$ and $k$ message symbols, and let $e \in \{0, 1, \ldots, n - k\}$. Then every received word has at most
 >
-> $$\frac{\binom{n}{k}}{\binom{n - e}{k}}$$
+> $$\frac{\binom{n}{k}}{\binom{n - e}{k}} \tag{1}$$
 >
 > codewords within [Hamming distance](error-correcting-codes.llms.md#def-hamming-distance) $e$. So $C$ is $(e, L)$-list-decodable for every $L$ at least the value above.
 
@@ -62,7 +62,7 @@ A [Reed–Solomon code](error-correcting-codes.llms.md#def-reed-solomon-code) re
 >
 > Combine the two counts:
 >
-> $$|S| \binom{n - e}{k} \le \binom{n}{k}.$$
+> $$|S| \binom{n - e}{k} \le \binom{n}{k}. \tag{2}$$
 >
 > Divide both sides by $\binom{n - e}{k}$, which is nonzero because $n - e \ge k$.
 

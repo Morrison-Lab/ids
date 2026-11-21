@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 22:08:19 (PST)
+Last modified: 2026-11-20 22:16:30 (PST)
 
 ## 1 Codes
 
@@ -30,27 +30,27 @@ Last modified: 2026-11-20 22:08:19 (PST)
 >
 > **Definition 3 (Expected length)** The **expected length** of a [binary code](#def-code) for a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of its [codeword length](#def-code):
 >
-> $$L \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[\ell(X)\right]\mathclose{}}.$$
+> $$L \stackrel{\text{def}}{=}{\mathbb{E}\mathopen{}\left[\ell(X)\right]\mathclose{}}. \tag{1}$$
 
 > **NOTE:**
 >
 > **Theorem 1 (Expected length as a sum over values)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p(x) \stackrel{\text{def}}{=}\mathbb{P}(X=x)$. The [expected length](#def-expected-length) of a [binary code](#def-code) for $X$ is
 >
-> $$L = \sum_{x} p(x) \, \ell(x).$$
+> $$L = \sum_{x} p(x) \, \ell(x). \tag{2}$$
 
 > **NOTE:**
 >
 > *Proof*. The [codeword length](#def-code) $\ell(X)$ is a [random variable](https://morrison-lab.github.io/pds/random-variables.html#def-random-variable) whose possible values are the [codeword lengths](#def-code) $\ell(x)$. By the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation),
 >
-> $$L = \sum_{k} k \, \mathbb{P}(\ell(X) = k).$$
+> $$L = \sum_{k} k \, \mathbb{P}(\ell(X) = k). \tag{3}$$
 >
 > The [event](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $\ell(X) = k$ is the [union](https://morrison-lab.github.io/mcs/sets.html#def-union) of the [disjoint](https://morrison-lab.github.io/pds/probability-basics.html#def-mutually-exclusive) [events](https://morrison-lab.github.io/pds/probability-basics.html#def-event) $X = x$ over the values $x$ with $\ell(x) = k$. So $\mathbb{P}(\ell(X) = k) = \sum_{x : \ell(x) = k} p(x)$, and
 >
-> $$L = \sum_{k} \sum_{x : \ell(x) = k} k \, p(x).$$
+> $$L = \sum_{k} \sum_{x : \ell(x) = k} k \, p(x). \tag{4}$$
 >
 > On the inner sum $k = \ell(x)$. Every value $x$ lies in exactly one inner sum, so the double sum runs once over each value:
 >
-> $$L = \sum_{x} \ell(x) \, p(x).$$
+> $$L = \sum_{x} \ell(x) \, p(x). \tag{5}$$
 
 > **NOTE:**
 >
@@ -104,7 +104,7 @@ Last modified: 2026-11-20 22:08:19 (PST)
 >
 > **Theorem 3 (The cost of coding with the wrong distribution)** Let $X$ take a finite number of values, with [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) $p$, and let $q$ be such a function, possibly different from $p$, with $q(x) > 0$ wherever $p(x) > 0$. Suppose a code gives each value $x$ with $p(x) > 0$ the length $\ell(x) = \lceil -\log_2 q(x) \rceil$. Then its [expected length](#def-expected-length) $L$ under $p$ satisfies
 >
-> $${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}} \le L < {\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}} + 1,$$
+> $${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}} \le L < {\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}} + 1, \tag{6}$$
 >
 > where ${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}}$ is the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$, with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm).
 
@@ -112,13 +112,14 @@ Last modified: 2026-11-20 22:08:19 (PST)
 >
 > *Proof*. Every sum here runs over the values $x$ with $p(x) > 0$. Rounding up adds less than one binary digit, so for each such $x$
 >
-> $$-\log_2 q(x) \le \ell(x) < -\log_2 q(x) + 1.$$
+> $$-\log_2 q(x) \le \ell(x) < -\log_2 q(x) + 1. \tag{7}$$
 >
 > Multiply each part by $p(x) > 0$ and sum. Since $\sum_{x} p(x) = 1$,
 >
 > $$-\sum_{x} p(x) \log_2 q(x)
 > \le \sum_{x} p(x) \, \ell(x)
-> < -\sum_{x} p(x) \log_2 q(x) + 1.$$
+> < -\sum_{x} p(x) \log_2 q(x) + 1.
+> \tag{8}$$
 >
 > The middle sum is $L$ by [Theorem 1](#thm-expected-length-sum), and the outer sums are ${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}}$.
 
@@ -126,19 +127,21 @@ Last modified: 2026-11-20 22:08:19 (PST)
 >
 > **Theorem 4 (Cross-entropy is entropy plus divergence)** Let $p$ and $q$ be [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) on the values $x_1, \ldots, x_n$, with $q(x) > 0$ wherever $p(x) > 0$. Write ${\mathbb{H}\mathopen{}\left(p\right)\mathclose{}}$ for the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $p$, ${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}}$ for the [cross-entropy](https://morrison-lab.github.io/pds/expectation.html#def-cross-entropy) of $q$ relative to $p$, and ${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}$ for the [Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from $p$, all with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm). Then
 >
-> $${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(p\right)\mathclose{}} + {{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}.$$
+> $${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}} = {\mathbb{H}\mathopen{}\left(p\right)\mathclose{}} + {{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}. \tag{9}$$
 
 > **NOTE:**
 >
 > *Proof*. Every [sum](https://morrison-lab.github.io/mds/algebra-sums.html#def-summation) here runs over the values $x$ with $p(x) > 0$. For every such $x$,
 >
 > $$-\log_2 q(x)
-> = -\log_2 p(x) + \log_2 \frac{p(x)}{q(x)}.$$
+> = -\log_2 p(x) + \log_2 \frac{p(x)}{q(x)}.
+> \tag{10}$$
 >
 > Multiply by $p(x)$ and add over $x$:
 >
 > $$-\sum_x p(x) \log_2 q(x)
-> = -\sum_x p(x) \log_2 p(x) + \sum_x p(x) \log_2 \frac{p(x)}{q(x)}.$$
+> = -\sum_x p(x) \log_2 p(x) + \sum_x p(x) \log_2 \frac{p(x)}{q(x)}.
+> \tag{11}$$
 >
 > Reading left to right, these are ${\mathbb{H}\mathopen{}\left(p, q\right)\mathclose{}}$, ${\mathbb{H}\mathopen{}\left(p\right)\mathclose{}}$ and ${{D_{\mathrm{KL}}}\mathopen{}\left(p \,\Vert\, q\right)\mathclose{}}$.
 

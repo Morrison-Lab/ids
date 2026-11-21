@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-20 22:08:19 (PST)
+Last modified: 2026-11-20 22:16:30 (PST)
 
 A [Huffman code](huffman-codes.llms.md#def-huffman-code) gives each value a whole number of [bits](entropy.llms.md#def-bit), so its [expected length](source-coding.llms.md#def-expected-length) can exceed the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) by nearly one bit per value. This page shows how to code a whole message at once, so that the waste is shared among all of its values.
 
@@ -99,7 +99,7 @@ A [Huffman code](huffman-codes.llms.md#def-huffman-code) gives each value a whol
 >
 > *Proof*. Let $x$ be a message, let $[a, a + w)$ be its final slice, and let $m = a + w/2$. Write $k = {\ell\mathopen{}\left(x\right)\mathclose{}}$, and let $t$ be the number whose [bits](entropy.llms.md#def-bit) after the point are $c(x)$. Truncating $m$ to $k$ digits gives
 >
-> $$t \le m < t + 2^{-k}.$$
+> $$t \le m < t + 2^{-k}. \tag{1}$$
 >
 > Because $k \ge -\log_2 w + 1$, we have $2^{-k} \le w/2$. So $t > m - 2^{-k} \ge m - w/2 = a$, and $t + 2^{-k} \le m + w/2 = a + w$. This shows that the slice $[t, t + 2^{-k})$, which holds the numbers whose [bits](entropy.llms.md#def-bit) begin with $c(x)$, lies inside the final slice of $x$.
 >
@@ -109,7 +109,7 @@ A [Huffman code](huffman-codes.llms.md#def-huffman-code) gives each value a whol
 >
 > **Theorem 2 (The expected length of an arithmetic code)** Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) that takes a finite number of values, each with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability), and let ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ be its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm). Then the [arithmetic code](#def-arithmetic-code) for $n$ [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies of $X$ has [expected length](source-coding.llms.md#def-expected-length)
 >
-> $$L< n {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 2,$$
+> $$L< n {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 2, \tag{2}$$
 >
 > which is fewer than ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 2/n$ [bits](entropy.llms.md#def-bit) per copy.
 
@@ -117,7 +117,7 @@ A [Huffman code](huffman-codes.llms.md#def-huffman-code) gives each value a whol
 >
 > *Proof*. By [Lemma 1](#lem-arithmetic-interval), the final slice of a message $x = (x_1, \ldots, x_n)$ has width $w = {\mathbb{p}\mathopen{}\left(x_1\right)\mathclose{}} \cdots {\mathbb{p}\mathopen{}\left(x_n\right)\mathclose{}}$. So the [codeword length](source-coding.llms.md#def-code) satisfies
 >
-> $${\ell\mathopen{}\left(x\right)\mathclose{}} = {\mathopen{}\left\lceil-\log_2 w\right\rceil\mathclose{}} + 1 < -\log_2 w + 2 = \sum_{i=1}^{n} \mathopen{}\left(-\log_2 {\mathbb{p}\mathopen{}\left(x_i\right)\mathclose{}}\right)\mathclose{} + 2.$$
+> $${\ell\mathopen{}\left(x\right)\mathclose{}} = {\mathopen{}\left\lceil-\log_2 w\right\rceil\mathclose{}} + 1 < -\log_2 w + 2 = \sum_{i=1}^{n} \mathopen{}\left(-\log_2 {\mathbb{p}\mathopen{}\left(x_i\right)\mathclose{}}\right)\mathclose{} + 2. \tag{3}$$
 >
 > Taking the average over messages, and using that each copy $X_i$ has the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) ${\mathbb{E}\mathopen{}\left[-\log_2 {\mathbb{p}\mathopen{}\left(X_i\right)\mathclose{}}\right]\mathclose{}} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$, gives $L< n {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}} + 2$. Dividing by $n$ gives the length per copy.
 
@@ -202,7 +202,7 @@ A [Huffman code](huffman-codes.llms.md#def-huffman-code) gives each value a whol
 >
 > **Theorem 3 (The Lempel–Ziv code reaches the entropy)** Let $X_1, X_2, \ldots$ be [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) copies of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ that takes a finite number of values, and let ${\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}$ be its [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm). Let ${\ell\mathopen{}\left(x\right)\mathclose{}}$ be the number of [bits](entropy.llms.md#def-bit) that the [Lempel–Ziv code](#def-lempel-ziv-code) uses for the message $x = (X_1, \ldots, X_n)$. Then with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) one,
 >
-> $$\lim_{n \to \infty} \frac{{\ell\mathopen{}\left(x\right)\mathclose{}}}{n} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}.$$
+> $$\lim_{n \to \infty} \frac{{\ell\mathopen{}\left(x\right)\mathclose{}}}{n} = {\mathbb{H}\mathopen{}\left(X\right)\mathclose{}}. \tag{4}$$
 
 > **NOTE:**
 >
