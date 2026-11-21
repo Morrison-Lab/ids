@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$\mutinfof{X}{Y} = \entropyf{X, Y} - \sb{\entropyf{X \mid Y} + \entropyf{Y \mid X}}.$$
+$$\mutinfof{X}{Y} = \entropyf{X, Y} - \sb{\entropyf{X \mid Y} + \entropyf{Y \mid X}}.$$ {#eq-mutual-information-joint-minus-conditionals}
 
 :::
 
@@ -20,7 +20,7 @@ $$
 \entropyf{X} &= \entropyf{X, Y} - \entropyf{Y \mid X} \\
 \entropyf{Y} &= \entropyf{X, Y} - \entropyf{X \mid Y}.
 \end{aligned}
-$$
+$$ {#eq-mutual-information-joint-minus-conditionals-2}
 
 Substituting both into @def-mutual-information gives
 
@@ -31,6 +31,6 @@ $$
 &= \sb{\entropyf{X, Y} - \entropyf{Y \mid X}} + \sb{\entropyf{X, Y} - \entropyf{X \mid Y}} - \entropyf{X, Y} \\
 &= \entropyf{X, Y} - \sb{\entropyf{X \mid Y} + \entropyf{Y \mid X}}.
 \end{aligned}
-$$
+$$ {#eq-mutual-information-joint-minus-conditionals-3}
 
 :::

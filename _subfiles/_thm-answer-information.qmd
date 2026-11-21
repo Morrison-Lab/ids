@@ -7,7 +7,7 @@ If $X$ and $A$ have finite [entropies](https://morrison-lab.github.io/pds/expect
 then the [mutual information](#def-mutual-information) between $X$ and the answer
 is the entropy of the answer:
 
-$$\mutinfof{X}{A} = \entropyf{A}.$$
+$$\mutinfof{X}{A} = \entropyf{A}.$$ {#eq-thm-answer-information}
 
 :::
 
@@ -18,7 +18,7 @@ so $\P(A = a(x) \mid X = x) = 1$.
 Hence the [conditional surprisal](#def-conditional-surprisal) of the answer $a(x)$ given $x$ is $-\log 1 = 0$,
 and its [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) given $X=x$ is $0$:
 
-$$\entropyf{A \mid X=x} = 0.$$
+$$\entropyf{A \mid X=x} = 0.$$ {#eq-thm-answer-information-2}
 
 By @thm-conditional-entropy-average,
 
@@ -28,7 +28,7 @@ $$
 &= \sum_{x} p(x) \, \entropyf{A \mid X=x} \\
 &= 0,
 \end{aligned}
-$$
+$$ {#eq-thm-answer-information-3}
 
 where $p(x) \eqdef \P(X=x)$.
 By @thm-mutual-information-reduction with $Y = A$,
@@ -39,6 +39,6 @@ $$
 &= \entropyf{A} - \entropyf{A \mid X} \\
 &= \entropyf{A}.
 \end{aligned}
-$$
+$$ {#eq-thm-answer-information-4}
 
 :::

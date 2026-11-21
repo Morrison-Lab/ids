@@ -19,7 +19,7 @@ and the chance that either is wrong is at most $2\errfrac$,
 so both are correct with probability at least $1 - 2\errfrac$.
 When both are correct, the output is
 
-$$\dprod{x}{a} + \dprod{x}{\paren{a + e_i}} = \dprod{x}{e_i} = x_i,$$
+$$\dprod{x}{a} + \dprod{x}{\paren{a + e_i}} = \dprod{x}{e_i} = x_i,$$ {#eq-hadamard-local-decoding}
 
 because $\dprod{x}{a} + \dprod{x}{a} = 0$ modulo 2.
 

@@ -5,7 +5,7 @@ If $X \to Y \to Z$ is a [Markov chain](#def-markov-chain)
 and the [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$, $Y$ and $Z$ are finite,
 then
 
-$$\cmutinfof{Z}{X}{Y} = 0.$$
+$$\cmutinfof{Z}{X}{Y} = 0.$$ {#eq-markov-chain-conditional-mutual-information}
 
 :::
 
@@ -14,13 +14,13 @@ $$\cmutinfof{Z}{X}{Y} = 0.$$
 Fix values $y$ and $z$ with $\P(Y=y, Z=z) > 0$.
 Dividing the defining equation of the chain by $\P(Z=z \mid Y=y)$ gives
 
-$$\P(X=x \mid Y=y, Z=z) = \P(X=x \mid Y=y)$$
+$$\P(X=x \mid Y=y, Z=z) = \P(X=x \mid Y=y)$$ {#eq-markov-chain-conditional-mutual-information-2}
 
 for every $x$.
 So the [entropy given](#def-entropy-given-value) $(Y, Z) = (y, z)$ is the entropy given $Y = y$.
 Averaging over $(Y, Z)$ and over $Y$ gives
 
-$$\entropyf{X \mid Y, Z} = \entropyf{X \mid Y}.$$
+$$\entropyf{X \mid Y, Z} = \entropyf{X \mid Y}.$$ {#eq-markov-chain-conditional-mutual-information-3}
 
 By @def-conditional-mutual-information,
 
@@ -31,6 +31,6 @@ $$
 &= \entropyf{X \mid Y} - \entropyf{X \mid Y, Z} \\
 &= 0.
 \end{aligned}
-$$
+$$ {#eq-markov-chain-conditional-mutual-information-4}
 
 :::

@@ -16,7 +16,7 @@ k
 &= \log_2 \frac{1}{p} \\
 &= -\log_2 p,
 \end{aligned}
-$$
+$$ {#eq-surprisal-coins}
 
 which is the [surprisal](#def-surprisal) of any one of them, in [bits](#def-bit).
 
@@ -28,6 +28,6 @@ $$
 &= -\log_2 2^{-10} \\
 &= 10 \text{ bits}.
 \end{aligned}
-$$
+$$ {#eq-surprisal-coins-2}
 
 :::

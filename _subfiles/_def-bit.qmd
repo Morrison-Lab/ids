@@ -14,7 +14,7 @@ $$
 &\iff -\log_2 \P(X=x) = 1\\
 &\iff \P(X=x) = 2^{-1} = \tfrac{1}{2}.
 \end{aligned}
-$$
+$$ {#eq-bit}
 
 In words, a bit is the surprisal of the [outcome](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) of one trial
 whose two [outcomes](https://morrison-lab.github.io/pds/probability-basics.html#def-experiment-outcome) are equally likely,

@@ -4,7 +4,7 @@
 Let $\ell_1 \le \ell_2 \le \cdots \le \ell_n$
 be [positive integer](https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer)s with
 
-$$\sumto{i}{n} 2^{-\ell_i} \le 1.$$
+$$\sumto{i}{n} 2^{-\ell_i} \le 1.$$ {#eq-kraft-converse}
 
 Then some [prefix code](#def-prefix-code) on $n$ values
 has [codeword length](source-coding.qmd#def-code)s $\ell_1, \ldots, \ell_n$.
@@ -15,7 +15,7 @@ has [codeword length](source-coding.qmd#def-code)s $\ell_1, \ldots, \ell_n$.
 
 For each $i$, let
 
-$$a_i = \sumof{j < i} 2^{-\ell_j},$$
+$$a_i = \sumof{j < i} 2^{-\ell_j},$$ {#eq-kraft-converse-2}
 
 so that $a_1 = 0$.
 Let the codeword $c_i$ be the $\ell_i$ [bits](entropy.qmd#def-bit)

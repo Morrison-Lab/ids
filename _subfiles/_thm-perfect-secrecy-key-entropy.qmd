@@ -5,7 +5,7 @@ Let $M$, $K$ and $C$ be as in @def-perfect-secrecy,
 and suppose the cipher has [perfect secrecy](#def-perfect-secrecy).
 Then the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of the key is at least the entropy of the message:
 
-$$\entropyf{K} \ge \entropyf{M}.$$
+$$\entropyf{K} \ge \entropyf{M}.$$ {#eq-thm-perfect-secrecy-key-entropy}
 
 :::
 
@@ -15,15 +15,15 @@ By @def-perfect-secrecy, $\mutinfof{M}{C} = 0$,
 so $M$ and $C$ are [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt),
 and the equality case of [conditioning reduces entropy](entropy.qmd#cor-conditioning-reduces-entropy) gives the first step:
 
-$$\entropyf{M} = \entropyf{M \mid C}.$$
+$$\entropyf{M} = \entropyf{M \mid C}.$$ {#eq-thm-perfect-secrecy-key-entropy-2}
 
 The [chain rule](entropy.qmd#thm-entropy-chain-rule) expands both [conditional entropies](entropy.qmd#def-conditional-entropy) below:
 
-$$\entropyf{M \mid C} = \entropyf{M, C} - \entropyf{C}, \qquad \entropyf{K \mid C} = \entropyf{K, C} - \entropyf{C}.$$
+$$\entropyf{M \mid C} = \entropyf{M, C} - \entropyf{C}, \qquad \entropyf{K \mid C} = \entropyf{K, C} - \entropyf{C}.$$ {#eq-thm-perfect-secrecy-key-entropy-3}
 
 Apply the chain rule to $(M, C)$ and $K$ jointly in two orders:
 
-$$\entropyf{M, C, K} = \entropyf{C, K} + \entropyf{M \mid C, K}, \qquad \entropyf{M, C, K} = \entropyf{M, C} + \entropyf{K \mid M, C}.$$
+$$\entropyf{M, C, K} = \entropyf{C, K} + \entropyf{M \mid C, K}, \qquad \entropyf{M, C, K} = \entropyf{M, C} + \entropyf{K \mid M, C}.$$ {#eq-thm-perfect-secrecy-key-entropy-4}
 
 The key and the ciphertext determine the message,
 so $\entropyf{M \mid C, K} = 0$.
@@ -32,11 +32,11 @@ so $\entropyf{K \mid M, C} \ge 0$.
 Equating the two expansions then gives $\entropyf{M, C} \le \entropyf{C, K}$.
 Subtract $\entropyf{C}$ from both sides:
 
-$$\entropyf{M \mid C} \le \entropyf{K \mid C}.$$
+$$\entropyf{M \mid C} \le \entropyf{K \mid C}.$$ {#eq-thm-perfect-secrecy-key-entropy-5}
 
 By [conditioning reduces entropy](entropy.qmd#cor-conditioning-reduces-entropy) again, $\entropyf{K \mid C} \le \entropyf{K}$.
 Chain the three comparisons:
 
-$$\entropyf{M} = \entropyf{M \mid C} \le \entropyf{K \mid C} \le \entropyf{K}.$$
+$$\entropyf{M} = \entropyf{M \mid C} \le \entropyf{K \mid C} \le \entropyf{K}.$$ {#eq-thm-perfect-secrecy-key-entropy-6}
 
 :::

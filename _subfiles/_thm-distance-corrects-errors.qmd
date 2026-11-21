@@ -31,7 +31,7 @@ $$
 \ge d - t
 \ge t + 1
 > \hamdist{c}{y},
-$$
+$$ {#eq-distance-corrects-errors}
 
 where $d - t \ge t + 1$ because $2t \le d - 1$.
 

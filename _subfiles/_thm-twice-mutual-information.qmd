@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$2 \, \mutinfof{X}{Y} = \sb{\entropyf{X} - \entropyf{X \mid Y}} + \sb{\entropyf{Y} - \entropyf{Y \mid X}}.$$
+$$2 \, \mutinfof{X}{Y} = \sb{\entropyf{X} - \entropyf{X \mid Y}} + \sb{\entropyf{Y} - \entropyf{Y \mid X}}.$$ {#eq-twice-mutual-information}
 
 :::
 
@@ -17,7 +17,7 @@ $$
 \entropyf{X} - \entropyf{X \mid Y} &= \mutinfof{X}{Y} \\
 \entropyf{Y} - \entropyf{Y \mid X} &= \mutinfof{X}{Y}.
 \end{aligned}
-$$
+$$ {#eq-twice-mutual-information-2}
 
 Adding the two displays gives
 
@@ -27,6 +27,6 @@ $$
 &= \mutinfof{X}{Y} + \mutinfof{X}{Y} \\
 &= 2 \, \mutinfof{X}{Y}.
 \end{aligned}
-$$
+$$ {#eq-twice-mutual-information-3}
 
 :::

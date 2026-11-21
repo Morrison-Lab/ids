@@ -9,7 +9,7 @@ to the values of the [polynomial](https://morrison-lab.github.io/mds/algebra-exp
 $f_m(t) \eqdef m_0 + m_1 t + \cdots + m_{k-1} t^{k-1}$
 at the $n$ points:
 
-$$E(m) \eqdef \paren{f_m(a_1), \ldots, f_m(a_n)}.$$
+$$E(m) \eqdef \paren{f_m(a_1), \ldots, f_m(a_n)}.$$ {#eq-reed-solomon-code}
 
 @reed1960polynomial introduced these codes.
 

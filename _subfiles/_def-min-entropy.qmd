@@ -3,7 +3,7 @@
 
 The **min-entropy** of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of the reciprocal of the largest [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that $X$ takes any one value:
 
-$$\renyientropyf{\infty}{X} = -\log \max_x \Pf{X = x}.$$
+$$\renyientropyf{\infty}{X} = -\log \max_x \Pf{X = x}.$$ {#eq-def-min-entropy}
 
 It is the limiting case of the [Rényi entropy](entropy.qmd#def-renyi-entropy) of order $\alpha$ [@renyi1961measures],
 which approaches it as $\alpha \to \infty$.

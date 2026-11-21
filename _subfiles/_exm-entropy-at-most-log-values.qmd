@@ -18,6 +18,6 @@ so @thm-entropy-at-most-log-values gives $\entropyf{X} \le \log_2 2 = 1$ [bit](#
   &\approx 0.500 + 0.311 \\
   &\approx 0.811 \text{ bits}.
   \end{aligned}
-  $$
+  $$ {#eq-exm-entropy-at-most-log-values}
 
 :::

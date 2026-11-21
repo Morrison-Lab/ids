@@ -4,6 +4,6 @@
 The **collision probability** of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the chance that $X$ and a second variable $X'$ take the same value,
 where $X$ and $X'$ are [IID](https://morrison-lab.github.io/pds/independence.html#def-iid):
 
-$$\P(X = X').$$
+$$\P(X = X').$$ {#eq-collision-probability}
 
 :::

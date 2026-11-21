@@ -8,7 +8,7 @@ each raised to its [probability](https://morrison-lab.github.io/pds/probability-
 Take $x$ over the values with $\P(X=x) > 0$.
 Then
 
-$$\perplexityf{X} = \prod_x \rarityf{x}^{\P(X=x)}.$$
+$$\perplexityf{X} = \prod_x \rarityf{x}^{\P(X=x)}.$$ {#eq-perplexity-geometric-mean}
 
 :::
 
@@ -28,6 +28,6 @@ $$
 &= \prod_x \rarityf{x}^{\P(X=x)}
 && \text{(} b^{\log_b y} = y \text{)}
 \end{aligned}
-$$
+$$ {#eq-perplexity-geometric-mean-2}
 
 :::

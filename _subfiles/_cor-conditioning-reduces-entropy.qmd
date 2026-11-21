@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$\entropyf{Y \mid X} \le \entropyf{Y}.$$
+$$\entropyf{Y \mid X} \le \entropyf{Y}.$$ {#eq-cor-conditioning-reduces-entropy}
 
 Equality holds exactly when $X$ and $Y$ are
 [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
@@ -15,7 +15,7 @@ Equality holds exactly when $X$ and $Y$ are
 
 By @thm-mutual-information-reduction,
 
-$$\entropyf{Y} - \entropyf{Y \mid X} = \mutinfof{X}{Y}.$$
+$$\entropyf{Y} - \entropyf{Y \mid X} = \mutinfof{X}{Y}.$$ {#eq-cor-conditioning-reduces-entropy-2}
 
 By @thm-mutual-information-nonnegative,
 the right side is nonnegative,

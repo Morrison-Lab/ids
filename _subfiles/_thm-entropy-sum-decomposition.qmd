@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$\entropyf{X} + \entropyf{Y} = \entropyf{X \mid Y} + 2 \, \mutinfof{X}{Y} + \entropyf{Y \mid X}.$$
+$$\entropyf{X} + \entropyf{Y} = \entropyf{X \mid Y} + 2 \, \mutinfof{X}{Y} + \entropyf{Y \mid X}.$$ {#eq-entropy-sum-decomposition}
 
 :::
 
@@ -12,11 +12,11 @@ $$\entropyf{X} + \entropyf{Y} = \entropyf{X \mid Y} + 2 \, \mutinfof{X}{Y} + \en
 
 Rearranging @thm-mutual-information-joint-minus-conditionals gives
 
-$$\entropyf{X, Y} = \mutinfof{X}{Y} + \entropyf{X \mid Y} + \entropyf{Y \mid X}.$$
+$$\entropyf{X, Y} = \mutinfof{X}{Y} + \entropyf{X \mid Y} + \entropyf{Y \mid X}.$$ {#eq-entropy-sum-decomposition-2}
 
 Rearranging @def-mutual-information gives
 
-$$\entropyf{X} + \entropyf{Y} = \mutinfof{X}{Y} + \entropyf{X, Y}.$$
+$$\entropyf{X} + \entropyf{Y} = \mutinfof{X}{Y} + \entropyf{X, Y}.$$ {#eq-entropy-sum-decomposition-3}
 
 Substituting the first display into the second gives
 
@@ -26,6 +26,6 @@ $$
 &= \mutinfof{X}{Y} + \sb{\mutinfof{X}{Y} + \entropyf{X \mid Y} + \entropyf{Y \mid X}} \\
 &= \entropyf{X \mid Y} + 2 \, \mutinfof{X}{Y} + \entropyf{Y \mid X}.
 \end{aligned}
-$$
+$$ {#eq-entropy-sum-decomposition-4}
 
 :::

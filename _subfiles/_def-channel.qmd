@@ -12,7 +12,7 @@ each output depends only on the input sent at that use:
 $$
 \P(Y_1 = y_1, \dots, Y_n = y_n \mid X_1 = x_1, \dots, X_n = x_n)
 = \prod_{i=1}^{n} p(y_i \mid x_i).
-$$
+$$ {#eq-channel}
 
 This is the setup of @cover2006elements [chapter 7].
 

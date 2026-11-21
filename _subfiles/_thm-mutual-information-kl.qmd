@@ -9,7 +9,7 @@ then their [mutual information](#def-mutual-information) is the
 [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence)
 of the product of the [marginals](https://morrison-lab.github.io/pds/random-variables.html#def-marginal) from the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution):
 
-$$\mutinfof{X}{Y} = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$
+$$\mutinfof{X}{Y} = \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)},$$ {#eq-thm-mutual-information-kl}
 
 where the sum runs over the pairs with $p(x, y) > 0$.
 
@@ -33,7 +33,7 @@ $$
 &= \E{\log \frac{p(X, Y)}{p(X) \, p(Y)}} \\
 &= \sum_{x, y} p(x, y) \log \frac{p(x, y)}{p(x) \, p(y)}.
 \end{aligned}
-$$
+$$ {#eq-thm-mutual-information-kl-2}
 
 The last line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the pairs with $p(x, y) > 0$.
 It is the divergence of $p(x) \, p(y)$ from $p(x, y)$

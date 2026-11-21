@@ -5,7 +5,7 @@ The [binary symmetric channel](#def-binary-symmetric-channel)
 with crossover [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $\epsilon$
 has [capacity](channel-capacity.qmd#def-channel-capacity)
 
-$$C = 1 - h(\epsilon) \text{ bits per channel use},$$
+$$C = 1 - h(\epsilon) \text{ bits per channel use},$$ {#eq-thm-bsc-capacity}
 
 where $h$ is the [binary entropy function](#def-binary-entropy).
 A uniform [input](#def-channel) achieves it.
@@ -17,7 +17,7 @@ A uniform [input](#def-channel) achieves it.
 Fix any [probability mass function](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) for $X$.
 By [mutual information as a reduction in entropy](entropy.qmd#thm-mutual-information-reduction),
 
-$$\mutinfof{X}{Y} = \entropyf{Y} - \entropyf{Y \mid X}.$$
+$$\mutinfof{X}{Y} = \entropyf{Y} - \entropyf{Y \mid X}.$$ {#eq-thm-bsc-capacity-2}
 
 Given $X = x$, the output equals $x$ with [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1 - \epsilon$
 and differs from it with probability $\epsilon$,
@@ -36,7 +36,7 @@ $$
 &= \entropyf{Y} - h(\epsilon) \\
 &\le 1 - h(\epsilon).
 \end{aligned}
-$$
+$$ {#eq-thm-bsc-capacity-3}
 
 If $X$ is uniform on $\{0, 1\}$, then
 
@@ -47,7 +47,7 @@ $$
 &= \tfrac{1}{2} \epsilon + \tfrac{1}{2} (1 - \epsilon) \\
 &= \tfrac{1}{2},
 \end{aligned}
-$$
+$$ {#eq-thm-bsc-capacity-4}
 
 so $\entropyf{Y} = 1$ bit and $\mutinfof{X}{Y} = 1 - h(\epsilon)$.
 This value is attained, so it is the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) $C$.

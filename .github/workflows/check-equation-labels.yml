@@ -1,0 +1,26 @@
+name: Check Equation Labels
+
+# Fails when a display equation has no {#eq-...} label.
+# The equation-anchors filter gives a permalink only to labeled equations,
+# and the lab labels every display equation so it gets a number and a URL.
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Self-test the checker
+        run: python3 tools/tests/test_check_equation_labels.py
+      - name: Check display equations are labeled
+        run: python3 tools/check_equation_labels.py

@@ -3,7 +3,7 @@
 
 The **binary entropy function** is
 
-$$h(\epsilon) \eqdef -\epsilon \log_2 \epsilon - (1 - \epsilon) \log_2 (1 - \epsilon)$$
+$$h(\epsilon) \eqdef -\epsilon \log_2 \epsilon - (1 - \epsilon) \log_2 (1 - \epsilon)$$ {#eq-def-binary-entropy}
 
 for $0 < \epsilon < 1$, with $h(0) = h(1) \eqdef 0$.
 

@@ -8,7 +8,7 @@
 
 2. The chain rule gives
 
-   $$\entropyf{Y} + \entropyf{E \mid Y} = \entropyf{Y, E} = \entropyf{E} + \entropyf{Y \mid E}.$$
+   $$\entropyf{Y} + \entropyf{E \mid Y} = \entropyf{Y, E} = \entropyf{E} + \entropyf{Y \mid E}.$$ {#eq-sol-bec-capacity}
 
    Each value $y$ of $Y$ fixes $E$,
    so $\entropyf{E \mid Y = y} = 0$ for every $y$, and $\entropyf{E \mid Y} = 0$.
@@ -29,7 +29,7 @@
    &= h(\alpha) + \alpha \cdot 0 + (1 - \alpha) \, h(\pi) \\
    &= h(\alpha) + (1 - \alpha) \, h(\pi).
    \end{aligned}
-   $$
+   $$ {#eq-sol-bec-capacity-2}
 
 4. Combining parts 1 and 3,
 
@@ -40,7 +40,7 @@
    &= h(\alpha) + (1 - \alpha) \, h(\pi) - h(\alpha) \\
    &= (1 - \alpha) \, h(\pi).
    \end{aligned}
-   $$
+   $$ {#eq-sol-bec-capacity-3}
 
    Since $h(\pi) \le 1$, with equality at $\pi = 1/2$,
    the [maximum](https://morrison-lab.github.io/mds/algebra-basics.html#def-maximum) over input [probability mass functions](https://morrison-lab.github.io/pds/random-variables.html#def-pmf) is $C = 1 - \alpha$.

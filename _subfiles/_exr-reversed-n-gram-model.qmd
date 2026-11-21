@@ -11,6 +11,6 @@ for every choice of values $x_t, \ldots, x_n$ with $\P(X_{t+1} = x_{t+1}, \ldots
 $$
 \P(X_t = x_t \mid X_{t+1} = x_{t+1}, \ldots, X_n = x_n)
 = \P(X_t = x_t \mid X_{t+1} = x_{t+1}, \ldots, X_{t+N-1} = x_{t+N-1}).
-$$
+$$ {#eq-exr-reversed-n-gram-model}
 
 :::

@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$
 and [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ and $y$ with $\P(X=x, Y=y) > 0$,
 
-$$\surprisalf{x, y} = \surprisalf{x} + \surprisalf{y \mid x}.$$
+$$\surprisalf{x, y} = \surprisalf{x} + \surprisalf{y \mid x}.$$ {#eq-surprisal-chain-rule}
 
 :::
 
@@ -20,6 +20,6 @@ $$
 &= -\log \P(X=x) - \log \P(Y=y \mid X=x) \\
 &= \surprisalf{x} + \surprisalf{y \mid x}.
 \end{aligned}
-$$
+$$ {#eq-surprisal-chain-rule-2}
 
 :::

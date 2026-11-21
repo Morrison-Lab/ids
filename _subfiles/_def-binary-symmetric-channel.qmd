@@ -12,6 +12,6 @@ p(y \mid x) =
 1 - \epsilon & \text{if } y = x, \\
 \epsilon & \text{if } y \ne x.
 \end{cases}
-$$
+$$ {#eq-binary-symmetric-channel}
 
 :::

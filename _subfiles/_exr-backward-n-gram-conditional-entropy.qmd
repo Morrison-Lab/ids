@@ -10,6 +10,6 @@ Use @exr-reversed-n-gram-model to show that the backward [conditional entropy](#
 $$
 \entropyf{X_t \mid X_{t+1}, \ldots, X_n}
 = \entropyf{X_1, \ldots, X_N} - \entropyf{X_1, \ldots, X_{N-1}}.
-$$
+$$ {#eq-exr-backward-n-gram-conditional-entropy}
 
 :::

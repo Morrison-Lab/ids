@@ -4,7 +4,7 @@
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$, $Y$ and $Z$
 with finite [entropies](https://morrison-lab.github.io/pds/expectation.html#def-entropy),
 
-$$\cmutinfof{X}{Y}{Z} \ge 0.$$
+$$\cmutinfof{X}{Y}{Z} \ge 0.$$ {#eq-thm-conditional-mutual-information-nonnegative}
 
 :::
 
@@ -24,7 +24,7 @@ $$
 &= \sum_z \P(Z=z) \sb{\entropyf{Y \mid Z=z} - \entropyf{Y \mid X, Z=z}} \\
 &= \sum_z \P(Z=z) \, \mutinfoatf{z}{X}{Y}.
 \end{aligned}
-$$
+$$ {#eq-thm-conditional-mutual-information-nonnegative-2}
 
 Each $\mutinfoatf{z}{X}{Y}$ is nonnegative by @thm-mutual-information-nonnegative.
 Since $\P(Z=z) \ge 0$ as well,

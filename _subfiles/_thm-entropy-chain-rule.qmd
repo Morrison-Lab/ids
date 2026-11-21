@@ -3,7 +3,7 @@
 
 For [discrete random variables](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$,
 
-$$\entropyf{X, Y} = \entropyf{X} + \entropyf{Y \mid X}.$$
+$$\entropyf{X, Y} = \entropyf{X} + \entropyf{Y \mid X}.$$ {#eq-entropy-chain-rule}
 
 :::
 
@@ -12,7 +12,7 @@ $$\entropyf{X, Y} = \entropyf{X} + \entropyf{Y \mid X}.$$
 With [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) $1$, the pair $(X, Y)$ takes a value $(x, y)$ with $\P(X=x, Y=y) > 0$,
 so @thm-surprisal-chain-rule applies at $(x, y) = (X, Y)$:
 
-$$\surprisalf{X, Y} = \surprisalf{X} + \surprisalf{Y \mid X}.$$
+$$\surprisalf{X, Y} = \surprisalf{X} + \surprisalf{Y \mid X}.$$ {#eq-entropy-chain-rule-2}
 
 Both terms on the right are nonnegative (@cor-surprisal-discrete-nonnegative),
 so the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the sum is the sum of the expectation of each term:
@@ -24,7 +24,7 @@ $$
 &= \E{\surprisalf{X}} + \E{\surprisalf{Y \mid X}} \\
 &= \entropyf{X} + \entropyf{Y \mid X}.
 \end{aligned}
-$$
+$$ {#eq-entropy-chain-rule-3}
 
 The first line is @def-joint-entropy,
 and the last line is @rem-entropy-expected-surprisal and @def-conditional-entropy.

@@ -5,7 +5,7 @@ For a [value](https://morrison-lab.github.io/pds/random-variables.html#def-reali
 with $\P(X=x) > 0$,
 the [surprisal](#def-surprisal) in [bits](#def-bit) is
 
-$$\surprisalf{x} = \log_{1/2} \P(X=x).$$
+$$\surprisalf{x} = \log_{1/2} \P(X=x).$$ {#eq-thm-surprisal-log-half}
 
 :::
 
@@ -14,7 +14,7 @@ $$\surprisalf{x} = \log_{1/2} \P(X=x).$$
 Write $p = \P(X=x)$.
 The [change of base formula](https://morrison-lab.github.io/mds/algebra-exponentials.html#rem-logarithm-formula) gives
 
-$$\log_b y = \frac{\logf{y}}{\logf{b}}$$
+$$\log_b y = \frac{\logf{y}}{\logf{b}}$$ {#eq-thm-surprisal-log-half-2}
 
 for $y > 0$ and $b > 0$ with $b \ne 1$.
 With $b = 1/2$ and $y = p$,
@@ -28,7 +28,7 @@ $$
 &= -\log_2 p \\
 &= \surprisalf{x}.
 \end{aligned}
-$$
+$$ {#eq-thm-surprisal-log-half-3}
 
 The step from the third to the fourth line is the change of base formula with $b = 2$.
 

@@ -12,7 +12,7 @@ $$
 \entropyf{X} &= \E{\surprisalf{X}} \\
 \entropyf{Y \mid X} &= \E{\surprisalf{Y \mid X}}.
 \end{aligned}
-$$
+$$ {#eq-entropy-chain-rule-from-surprisal}
 
 So the chain rule for entropy is the chain rule for surprisal,
 averaged over the pair $(X, Y)$.

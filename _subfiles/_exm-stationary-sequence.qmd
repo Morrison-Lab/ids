@@ -9,7 +9,7 @@ independently of $X_1, \ldots, X_{t-2}$ given $X_{t-1}$.
 If $X_{t-1}$ is fair, then so is $X_t$,
 because
 
-$$\P(X_t = 1) = 0.9 \cdot \tfrac{1}{2} + 0.1 \cdot \tfrac{1}{2},$$
+$$\P(X_t = 1) = 0.9 \cdot \tfrac{1}{2} + 0.1 \cdot \tfrac{1}{2},$$ {#eq-exm-stationary-sequence}
 
 which is $1/2$.
 So, by [induction](https://morrison-lab.github.io/mcs/induction.html#def-proof-by-induction) on $t$, every $X_t$ is $0$ or $1$ with probability $1/2$.

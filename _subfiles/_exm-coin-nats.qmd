@@ -12,6 +12,6 @@ $$
 &= \ln 2 \\
 &\approx 0.693 \text{ nats}.
 \end{aligned}
-$$
+$$ {#eq-coin-nats}
 
 :::

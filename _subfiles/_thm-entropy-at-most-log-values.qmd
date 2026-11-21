@@ -8,7 +8,7 @@ for a [positive integer](https://morrison-lab.github.io/mcs/number-systems.html#
 With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm),
 the [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) of $X$ is at most $\log_2 k$:
 
-$$\entropyf{X} \le \log_2 k,$$
+$$\entropyf{X} \le \log_2 k,$$ {#eq-thm-entropy-at-most-log-values}
 
 with equality exactly when $X$ is [uniform](https://morrison-lab.github.io/pds/random-variables.html#def-uniform) on those $k$ values.
 
@@ -27,7 +27,7 @@ $$
 &= -\log_2 \tfrac{1}{k} \\
 &= \log_2 k.
 \end{aligned}
-$$
+$$ {#eq-thm-entropy-at-most-log-values-2}
 
 The [Kullback--Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence) of $q$ from $p$
 is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the surprisal measured by $q$ minus the surprisal measured by $p$:
@@ -40,7 +40,7 @@ $$
 &= \log_2 k - \E{\surprisalf{X}} \\
 &= \log_2 k - \entropyf{X}.
 \end{aligned}
-$$
+$$ {#eq-thm-entropy-at-most-log-values-3}
 
 The sum in @thm-kl-divergence-nonnegative has [finitely many](https://morrison-lab.github.io/mcs/functions.html#def-finite-set) terms,
 so it is finite,

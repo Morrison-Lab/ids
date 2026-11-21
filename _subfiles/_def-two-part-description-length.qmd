@@ -8,7 +8,7 @@ Let a [prefix code](huffman-codes.qmd#def-prefix-code) on the models give each m
 
 The **two-part description length** of $\vx$ under a model $p_j$ is
 
-$$\codelenf{p_j} + \surprisalunderf{p_j}{\vx}.$$
+$$\codelenf{p_j} + \surprisalunderf{p_j}{\vx}.$$ {#eq-def-two-part-description-length}
 
 The first part is the length of the codeword that names the model.
 The second part is the [surprisal](entropy.qmd#def-surprisal) $\log_2 \frac{1}{p_j(\vx)}$ of $\vx$ under the model,

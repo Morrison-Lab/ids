@@ -6,6 +6,6 @@ with [joint probability mass function](https://morrison-lab.github.io/pds/random
 The **joint surprisal** of a pair of [values](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $(x, y)$ with $p(x, y) > 0$
 is the [surprisal](#def-surprisal) of that pair:
 
-$$\surprisalf{x, y} \eqdef -\log p(x, y).$$
+$$\surprisalf{x, y} \eqdef -\log p(x, y).$$ {#eq-joint-surprisal}
 
 :::
