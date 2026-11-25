@@ -1318,6 +1318,16 @@
    "url": "https://morrison-lab.github.io/mds/linear-algebra-vectors.html#def-scalar"
   },
   {
+   "id": "mds/measures-integrals#def-absolutely-integrable",
+   "site": "mds",
+   "page": "measures-integrals",
+   "div": "def-absolutely-integrable",
+   "kind": "def",
+   "title": "absolutely integrable",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mds/measures-integrals.html#def-absolutely-integrable"
+  },
+  {
    "id": "mds/optimization-convexity#cor-log-below-tangent",
    "site": "mds",
    "page": "optimization-convexity",
@@ -1378,6 +1388,16 @@
    "url": "https://morrison-lab.github.io/pds/expectation.html#def-kl-divergence"
   },
   {
+   "id": "pds/expectation#thm-fubini-tonelli-measure",
+   "site": "pds",
+   "page": "expectation",
+   "div": "thm-fubini-tonelli-measure",
+   "kind": "thm",
+   "title": "fubini tonelli measure",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/expectation.html#thm-fubini-tonelli-measure"
+  },
+  {
    "id": "pds/expectation#thm-kl-divergence-discrete",
    "site": "pds",
    "page": "expectation",
@@ -1436,6 +1456,16 @@
    "title": "indpt",
    "external": true,
    "url": "https://morrison-lab.github.io/pds/independence.html#def-indpt"
+  },
+  {
+   "id": "pds/probability-basics#def-conditional-prob",
+   "site": "pds",
+   "page": "probability-basics",
+   "div": "def-conditional-prob",
+   "kind": "def",
+   "title": "conditional prob",
+   "external": true,
+   "url": "https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob"
   },
   {
    "id": "pds/probability-basics#def-event",
@@ -2365,6 +2395,10 @@
   ],
   [
    "ids/entropy#thm-conditional-entropy-iterated",
+   "mds/measures-integrals#def-absolutely-integrable"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-iterated",
    "pds/expectation#def-cond-expectation"
   ],
   [
@@ -2373,7 +2407,19 @@
   ],
   [
    "ids/entropy#thm-conditional-entropy-iterated",
+   "pds/expectation#thm-fubini-tonelli-measure"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-iterated",
    "pds/expectation#thm-lie"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-iterated",
+   "pds/probability-basics#def-conditional-prob"
+  ],
+  [
+   "ids/entropy#thm-conditional-entropy-iterated",
+   "pds/random-variables#def-discrete-rv"
   ],
   [
    "ids/entropy#thm-conditional-mutual-information-nonnegative",
