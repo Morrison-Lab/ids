@@ -23,7 +23,7 @@ $$ {#eq-conditional-entropy-iterated-2}
 The first line is @def-conditional-entropy,
 and the second is the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie).
 
-For discrete $X$ and $Y$, the second line regroups a double sum
+For [discrete](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ and $Y$, the second line regroups a double sum
 over the pairs $(x, y)$ with $\P(X=x, Y=y) > 0$:
 
 $$
@@ -32,9 +32,9 @@ $$
 $$ {#eq-conditional-entropy-iterated-3}
 
 Each [conditional surprisal](#def-conditional-surprisal) is nonnegative,
-because a conditional probability is at most $1$.
+because a [conditional probability](https://morrison-lab.github.io/pds/probability-basics.html#def-conditional-prob) is at most $1$.
 So [Tonelli's theorem](https://morrison-lab.github.io/pds/expectation.html#thm-fubini-tonelli-measure) allows the regrouping
-with no integrability condition,
-and the two sides are equal even when the conditional entropy is infinite.
+with no [integrability](https://morrison-lab.github.io/mds/measures-integrals.html#def-absolutely-integrable) condition,
+and the two sides are equal even when the [conditional entropy](#def-conditional-entropy) is infinite.
 
 :::
