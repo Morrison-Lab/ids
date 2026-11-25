@@ -3,7 +3,7 @@
 
 The **rarity** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$
 of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
-is the reciprocal of its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) mass:
+is the [reciprocal](https://morrison-lab.github.io/mcs/number-systems.html#def-reciprocal) of its [probability mass](https://morrison-lab.github.io/pds/random-variables.html#def-pmf):
 
 $$\rarityf{x} \eqdef \frac{1}{\P(X=x)}.$$ {#eq-rarity}
 
