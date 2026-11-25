@@ -3,7 +3,8 @@
 
 Take the fair coin $X$ and its noisy copy $Y$
 from @exm-entropy-chain-rule-noisy-copy.
-@fig-mutual-information-bars draws each [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) as a bar whose length is its value in [bits](#def-bit),
+@fig-mutual-information-bars draws each [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) as a bar
+whose length is its value in [bits](#def-bit),
 adapting the bar diagram of the same entropies in @mackay2003information.
 The bar for $\entropyf{X}$ starts at the left end of the bar for the [joint entropy](#def-joint-entropy) $\entropyf{X, Y}$,
 and the bar for $\entropyf{Y}$ ends at its right end.
@@ -13,8 +14,21 @@ $\entropyf{X \mid Y}$ and $\entropyf{Y \mid X}$.
 
 ```{r}
 #| label: fig-mutual-information-bars
-#| fig-cap: "The entropies of a fair coin $X$ and its noisy copy $Y$, in bits, as bars. The bottom row splits the joint entropy into the two conditional entropies and the mutual information. Adapted from the bar diagram of @mackay2003information."
-#| fig-alt: "Four rows of horizontal bars on a common axis in bits. The top bar, the joint entropy of X and Y, runs from 0 to about 1.72. The second, the entropy of X, runs from 0 to 1. The third, the entropy of Y, runs from about 0.72 to 1.72. The bottom row splits the top bar into three pieces: the conditional entropy of X given Y from 0 to about 0.72, the mutual information from about 0.72 to 1, and the conditional entropy of Y given X from 1 to about 1.72."
+#| fig-cap: >-
+#|   The entropies of a fair coin $X$ and its noisy copy $Y$,
+#|   in bits, as bars.
+#|   The bottom row splits the joint entropy
+#|   into the two conditional entropies and the mutual information.
+#|   Adapted from the bar diagram of @mackay2003information.
+#| fig-alt: >-
+#|   Four rows of horizontal bars on a common axis in bits.
+#|   The top bar, the joint entropy of X and Y, runs from 0 to about 1.72.
+#|   The second, the entropy of X, runs from 0 to 1.
+#|   The third, the entropy of Y, runs from about 0.72 to 1.72.
+#|   The bottom row splits the top bar into three pieces:
+#|   the conditional entropy of X given Y from 0 to about 0.72,
+#|   the mutual information from about 0.72 to 1,
+#|   and the conditional entropy of Y given X from 1 to about 1.72.
 #| dev: !expr if (knitr::is_latex_output()) "cairo_pdf" else "svg"
 #| fig-width: 7
 #| fig-height: 3
