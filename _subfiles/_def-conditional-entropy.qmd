@@ -3,8 +3,10 @@
 
 For $X$ and $Y$ as in @def-joint-surprisal,
 the **conditional entropy** of $Y$ given $X$
-is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of the [conditional surprisal](#def-conditional-surprisal) of $Y$ given $X$:
+is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation),
+over the [joint distribution](https://morrison-lab.github.io/pds/random-variables.html#def-joint-distribution) of $X$ and $Y$,
+of the [conditional surprisal](#def-conditional-surprisal) of $Y$ given $X$:
 
-$$\entropyf{Y \mid X} \eqdef \E{\surprisalf{Y \mid X}}.$$ {#eq-conditional-entropy}
+$$\entropyf{Y \mid X} \eqdef \Expfc{X, Y}{\surprisalf{Y \mid X}}.$$ {#eq-conditional-entropy}
 
 :::

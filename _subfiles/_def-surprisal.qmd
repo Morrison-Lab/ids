@@ -2,11 +2,11 @@
 #### Surprisal
 
 The **surprisal** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$
-with $\P(X=x) > 0$ is
+with $\P(X=x) > 0$ is the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [rarity](#def-rarity):
 
-$$\surprisalf{x} \eqdef -\log \P(X=x).$$ {#eq-surprisal}
+$$\surprisalf{x} \eqdef \logf{\rarityf{x}}.$$ {#eq-surprisal}
 
-With base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm), surprisal is also called the
+With base-2 logarithms, surprisal is also called the
 **Shannon information content** of the value $x$
 [@mackay2003information, section 2.4].
 

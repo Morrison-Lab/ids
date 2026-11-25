@@ -12,21 +12,17 @@ and the sum runs over the values $x$ with $p(x) > 0$.
 
 ::: {.proof}
 
-The [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie)
-conditions on $X$:
-
 $$
 \begin{aligned}
 \entropyf{Y \mid X}
-&= \E{\surprisalf{Y \mid X}} \\
-&= \E{\condE{\surprisalf{Y \mid X}}{X}} \\
-&= \sum_{x} p(x) \, \condE{\surprisalf{Y \mid x}}{X=x} \\
+&= \Expfc{X}{\Expfc{Y \mid X}{\surprisalf{Y \mid X} \given X}} \\
+&= \sum_{x} p(x) \, \Expfc{Y \mid X=x}{\surprisalf{Y \mid x} \given X=x} \\
 &= \sum_{x} p(x) \, \entropyf{Y \mid X=x}.
 \end{aligned}
 $$ {#eq-conditional-entropy-average-2}
 
-The first line is @def-conditional-entropy,
-the third line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the values $x$ of $X$,
+The first line is @thm-conditional-entropy-iterated,
+the second line is the [definition of expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over the values $x$ of $X$,
 and the last line is @def-entropy-given-value.
 
 :::

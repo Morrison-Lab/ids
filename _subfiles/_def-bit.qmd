@@ -11,8 +11,9 @@ for a value $x$ of a [discrete random variable](https://morrison-lab.github.io/p
 $$
 \begin{aligned}
 \surprisalf{x} = 1 \text{ bit}
-&\iff -\log_2 \P(X=x) = 1\\
-&\iff \P(X=x) = 2^{-1} = \tfrac{1}{2}.
+&\iff \log_2 \rarityf{x} = 1\\
+&\iff \rarityf{x} = 2\\
+&\iff \P(X=x) = \tfrac{1}{2}.
 \end{aligned}
 $$ {#eq-bit}
 

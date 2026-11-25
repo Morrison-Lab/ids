@@ -18,13 +18,41 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 ## Surprisal {#sec-surprisal}
 
-<!-- No slidebreak here: the heading shares its slide with the def-surprisal div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-rarity div. -->
+
+{{< include ids/_subfiles/_def-rarity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-rarity-die.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-rarity-source.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_rem-rarity-odds.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include ids/_subfiles/_def-surprisal.qmd >}}
 
 {{< slidebreak >}}
 
 {{< include ids/_subfiles/_def-bit.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_exm-surprisal-rarity-four.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-surprisal-neg-log-prob.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_cor-surprisal-discrete-nonnegative.qmd >}}
 
 {{< slidebreak >}}
 
@@ -60,35 +88,7 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 {{< slidebreak >}}
 
-{{< include ids/_subfiles/_rem-entropy-expected-surprisal.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include ids/_subfiles/_def-rarity.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include ids/_subfiles/_exm-rarity-die.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include ids/_subfiles/_rem-rarity-source.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include ids/_subfiles/_thm-surprisal-log-rarity.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include ids/_subfiles/_thm-surprisal-log-rarity-continuous.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include ids/_subfiles/_cor-surprisal-discrete-nonnegative.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include ids/_subfiles/_exm-surprisal-rarity-four.qmd >}}
 
 {{< slidebreak >}}
 
@@ -100,7 +100,7 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 {{< slidebreak >}}
 
-{{< include ids/_subfiles/_rem-rarity-odds.qmd >}}
+{{< include ids/_subfiles/_rem-entropy-expected-surprisal.qmd >}}
 
 {{< slidebreak >}}
 
@@ -199,6 +199,10 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 {{< slidebreak >}}
 
 {{< include ids/_subfiles/_def-conditional-entropy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include ids/_subfiles/_thm-conditional-entropy-iterated.qmd >}}
 
 {{< slidebreak >}}
 
