@@ -8,9 +8,9 @@ by @def-joint-entropy, @rem-entropy-expected-surprisal and @def-conditional-entr
 
 $$
 \begin{aligned}
-\entropyf{X, Y} &= \E{\surprisalf{X, Y}} \\
-\entropyf{X} &= \E{\surprisalf{X}} \\
-\entropyf{Y \mid X} &= \E{\surprisalf{Y \mid X}}.
+\entropyf{X, Y} &= \Expfc{X, Y}{\surprisalf{X, Y}} \\
+\entropyf{X} &= \Expfc{X}{\surprisalf{X}} \\
+\entropyf{Y \mid X} &= \Expfc{X, Y}{\surprisalf{Y \mid X}}.
 \end{aligned}
 $$ {#eq-entropy-chain-rule-from-surprisal}
 

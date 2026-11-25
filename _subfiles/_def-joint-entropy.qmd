@@ -4,6 +4,6 @@
 For $X$ and $Y$ as in @def-joint-surprisal,
 their **joint entropy** is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) of their [joint surprisal](#def-joint-surprisal):
 
-$$\entropyf{X, Y} \eqdef \E{\surprisalf{X, Y}}.$$ {#eq-joint-entropy}
+$$\entropyf{X, Y} \eqdef \Expfc{X, Y}{\surprisalf{X, Y}}.$$ {#eq-joint-entropy}
 
 :::

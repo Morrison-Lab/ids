@@ -1,0 +1,26 @@
+:::{#thm-conditional-entropy-iterated}
+#### Conditional entropy as an iterated expectation
+
+For $X$ and $Y$ as in @def-joint-surprisal,
+the [conditional entropy](#def-conditional-entropy) of $Y$ given $X$
+is the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) over $X$
+of the [conditional expectation](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation) of the [conditional surprisal](#def-conditional-surprisal) given $X$:
+
+$$\entropyf{Y \mid X} = \Expfc{X}{\Expfc{Y \mid X}{\surprisalf{Y \mid X} \given X}}.$$ {#eq-conditional-entropy-iterated}
+
+:::
+
+::: {.proof}
+
+$$
+\begin{aligned}
+\entropyf{Y \mid X}
+&= \Expfc{X, Y}{\surprisalf{Y \mid X}} \\
+&= \Expfc{X}{\Expfc{Y \mid X}{\surprisalf{Y \mid X} \given X}}.
+\end{aligned}
+$$ {#eq-conditional-entropy-iterated-2}
+
+The first line is @def-conditional-entropy,
+and the second is the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie).
+
+:::

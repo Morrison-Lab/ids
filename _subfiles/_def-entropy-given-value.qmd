@@ -6,6 +6,6 @@ the **entropy of $Y$ given $X=x$**, for a value $x$ with $\P(X=x) > 0$, is
 the [expectation](https://morrison-lab.github.io/pds/expectation.html#def-expectation) given $X=x$
 of $\surprisalf{Y \mid x}$, the [conditional surprisal](#def-conditional-surprisal) of $Y$ given $x$:
 
-$$\entropyf{Y \mid X=x} \eqdef \condE{\surprisalf{Y \mid x}}{X=x}.$$ {#eq-entropy-given-value}
+$$\entropyf{Y \mid X=x} \eqdef \Expfc{Y \mid X=x}{\surprisalf{Y \mid x} \given X=x}.$$ {#eq-entropy-given-value}
 
 :::
