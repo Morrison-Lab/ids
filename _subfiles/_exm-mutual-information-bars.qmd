@@ -5,7 +5,8 @@ Take the fair coin $X$ and its noisy copy $Y$
 from @exm-entropy-chain-rule-noisy-copy.
 @fig-mutual-information-bars draws each [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) as a bar
 whose length is its value in [bits](#def-bit),
-adapting the bar diagram of the same entropies in @mackay2003information.
+adapting the bar diagram of the same entropies
+in MacKay's book [@mackay2003information, Figure 8.1].
 The bar for $\entropyf{X}$ starts at the left end of the bar for the [joint entropy](#def-joint-entropy) $\entropyf{X, Y}$,
 and the bar for $\entropyf{Y}$ ends at its right end.
 The two bars overlap by the [mutual information](#def-mutual-information) $\mutinfof{X}{Y}$,
@@ -19,7 +20,7 @@ $\entropyf{X \mid Y}$ and $\entropyf{Y \mid X}$.
 #|   in bits, as bars.
 #|   The bottom row splits the joint entropy
 #|   into the two conditional entropies and the mutual information.
-#|   Adapted from the bar diagram of @mackay2003information.
+#|   Adapted from the bar diagram of [@mackay2003information, Figure 8.1].
 #| fig-alt: >-
 #|   Four rows of horizontal bars on a common axis in bits.
 #|   The top bar, the joint entropy of X and Y, runs from 0 to about 1.72.
