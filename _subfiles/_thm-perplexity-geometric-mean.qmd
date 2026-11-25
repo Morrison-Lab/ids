@@ -22,7 +22,7 @@ $$
 &= b^{\E{\surprisalf{X}}}
 && \text{(entropy is expected surprisal)} \\
 &= b^{\sum_x \P(X=x) \log_b \rarityf{x}}
-&& \text{(surprisal is the logarithm of the rarity)} \\
+&& \text{(definition of surprisal)} \\
 &= \prod_x b^{\P(X=x) \log_b \rarityf{x}}
 && \text{(a sum in the exponent is a product)} \\
 &= \prod_x \rarityf{x}^{\P(X=x)}

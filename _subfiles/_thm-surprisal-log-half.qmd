@@ -30,6 +30,7 @@ $$
 \end{aligned}
 $$ {#eq-thm-surprisal-log-half-3}
 
-The step from the third to the fourth line is the change of base formula with $b = 2$.
+The step from the third to the fourth line is the change of base formula with $b = 2$,
+and the last step is @thm-surprisal-neg-log-prob.
 
 :::

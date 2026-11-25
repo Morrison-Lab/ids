@@ -10,9 +10,14 @@ $$
 \begin{aligned}
 \entropyf{X}
 &= \E{-\log \P(X)} \\
-&= \E{\surprisalf{X}}.
+&= \E{\surprisalf{X}} \\
+&= \E{\logf{\rarityf{X}}}.
 \end{aligned}
 $$ {#eq-entropy-expected-surprisal}
+
+The second line is @thm-surprisal-neg-log-prob,
+and the third is the definition of [surprisal](#def-surprisal),
+so the entropy is also the expectation of the logarithm of the [rarity](#def-rarity).
 
 So $\entropyf{X}$ is the average number of [bits](entropy.qmd#def-bit) (with base-2 [logarithms](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm))
 needed to record a value of $X$

@@ -1,0 +1,23 @@
+:::{#thm-surprisal-neg-log-prob}
+#### Surprisal is the negative logarithm of the probability
+
+Let $X$ be a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv),
+and let $x$ be a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) of $X$ with $\P(X=x) > 0$.
+Then the [surprisal](#def-surprisal) of $x$ is the negative of the [logarithm](https://morrison-lab.github.io/mds/algebra-exponentials.html#def-logarithm) of its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability):
+
+$$\surprisalf{x} = -\logf{\P(X=x)}.$$ {#eq-thm-surprisal-neg-log-prob}
+
+:::
+
+::: proof
+
+$$
+\begin{aligned}
+\surprisalf{x}
+&= \logf{\rarityf{x}} && \text{(definition of surprisal)} \\
+&= \logf{\frac{1}{\P(X=x)}} && \text{(definition of rarity)} \\
+&= -\logf{\P(X=x)}. && \text{(logarithm of a reciprocal)}
+\end{aligned}
+$$ {#eq-thm-surprisal-neg-log-prob-2}
+
+:::

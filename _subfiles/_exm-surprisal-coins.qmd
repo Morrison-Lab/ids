@@ -18,7 +18,7 @@ k
 \end{aligned}
 $$ {#eq-surprisal-coins}
 
-which is the [surprisal](#def-surprisal) of any one of them, in [bits](#def-bit).
+which is the [surprisal](#def-surprisal) of any one of them, in [bits](#def-bit) (@thm-surprisal-neg-log-prob).
 
 Ten tosses that all land heads have probability $2^{-10}$, so
 
