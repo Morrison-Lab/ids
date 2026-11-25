@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-24 08:29:10 (PST)
+Last modified: 2026-11-25 01:41:06 (PST)
 
 A [Reed–Solomon code](error-correcting-codes.llms.md#def-reed-solomon-code) recovers the message when fewer than $d / 2$ symbols are corrupted, where $d$ is its [minimum distance](error-correcting-codes.llms.md#def-hamming-distance). Past that point a received word can be near several codewords, and a decoder can return all of them as a list.
 

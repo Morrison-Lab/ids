@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-11-24 08:29:10 (PST)
+Last modified: 2026-11-25 01:41:06 (PST)
 
 This page builds on the definitions of [entropy, cross-entropy and Kullback–Leibler divergence](https://morrison-lab.github.io/pds/expectation.html#sec-entropy) in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
@@ -175,7 +175,7 @@ This page builds on the definitions of [entropy, cross-entropy and Kullback–Le
 
 > **NOTE:**
 >
-> **Definition 4 (Rarity)** The **rarity** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the reciprocal of its [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) mass:
+> **Definition 4 (Rarity)** The **rarity** of a [value](https://morrison-lab.github.io/pds/random-variables.html#def-realization) $x$ of a [discrete random variable](https://morrison-lab.github.io/pds/random-variables.html#def-discrete-rv) $X$ is the [reciprocal](https://morrison-lab.github.io/mcs/number-systems.html#def-reciprocal) of its [probability mass](https://morrison-lab.github.io/pds/random-variables.html#def-pmf):
 >
 > $${\mathbb{r}\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{\mathbb{P}(X=x)}. \tag{12}$$
 >

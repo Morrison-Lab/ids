@@ -1089,6 +1089,16 @@
    "url": "https://morrison-lab.github.io/mcs/number-systems.html#def-positive-integer"
   },
   {
+   "id": "mcs/number-systems#def-reciprocal",
+   "site": "mcs",
+   "page": "number-systems",
+   "div": "def-reciprocal",
+   "kind": "def",
+   "title": "reciprocal",
+   "external": true,
+   "url": "https://morrison-lab.github.io/mcs/number-systems.html#def-reciprocal"
+  },
+  {
    "id": "mcs/proof-writing#def-contradiction",
    "site": "mcs",
    "page": "proof-writing",
@@ -2138,7 +2148,7 @@
   ],
   [
    "ids/entropy#def-rarity",
-   "pds/probability-basics#def-probability"
+   "mcs/number-systems#def-reciprocal"
   ],
   [
    "ids/entropy#def-rarity",
@@ -2151,6 +2161,10 @@
   [
    "ids/entropy#def-rarity",
    "pds/random-variables#def-pdf"
+  ],
+  [
+   "ids/entropy#def-rarity",
+   "pds/random-variables#def-pmf"
   ],
   [
    "ids/entropy#def-rarity",
