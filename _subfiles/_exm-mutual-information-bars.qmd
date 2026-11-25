@@ -1,0 +1,66 @@
+:::{#exm-mutual-information-bars}
+#### Entropies of a noisy copy as bars
+
+Take the fair coin $X$ and its noisy copy $Y$
+from @exm-entropy-chain-rule-noisy-copy.
+@fig-mutual-information-bars draws each [entropy](https://morrison-lab.github.io/pds/expectation.html#def-entropy) as a bar whose length is its value in [bits](#def-bit),
+adapting the bar diagram of the same entropies in @mackay2003information.
+The bar for $\entropyf{X}$ starts at the left end of the bar for the [joint entropy](#def-joint-entropy) $\entropyf{X, Y}$,
+and the bar for $\entropyf{Y}$ ends at its right end.
+The two bars overlap by the [mutual information](#def-mutual-information) $\mutinfof{X}{Y}$,
+and the parts outside the overlap are the [conditional entropies](#def-conditional-entropy)
+$\entropyf{X \mid Y}$ and $\entropyf{Y \mid X}$.
+
+```{r}
+#| label: fig-mutual-information-bars
+#| fig-cap: "The entropies of a fair coin $X$ and its noisy copy $Y$, in bits, as bars. The bottom row splits the joint entropy into the two conditional entropies and the mutual information. Adapted from the bar diagram of @mackay2003information."
+#| fig-alt: "Four rows of horizontal bars on a common axis in bits. The top bar, the joint entropy of X and Y, runs from 0 to about 1.72. The second, the entropy of X, runs from 0 to 1. The third, the entropy of Y, runs from about 0.72 to 1.72. The bottom row splits the top bar into three pieces: the conditional entropy of X given Y from 0 to about 0.72, the mutual information from about 0.72 to 1, and the conditional entropy of Y given X from 1 to about 1.72."
+#| dev: !expr if (knitr::is_latex_output()) "cairo_pdf" else "svg"
+#| fig-width: 7
+#| fig-height: 3
+#| code-fold: true
+entropy_bits <- function(p) -sum(p * log2(p))
+joint_copy <- matrix(data = c(0.4, 0.1, 0.1, 0.4), nrow = 2)
+h_xy_bars <- entropy_bits(joint_copy)
+h_x_bars <- entropy_bits(rowSums(joint_copy))
+h_y_bars <- entropy_bits(colSums(joint_copy))
+h_x_given_y_bars <- h_xy_bars - h_y_bars
+bars <- data.frame(
+  label = c(
+    "ℍ(X, Y)", "ℍ(X)", "ℍ(Y)",
+    "ℍ(X | Y)", "\U1D540(X ; Y)", "ℍ(Y | X)"
+  ),
+  left = c(0, 0, h_xy_bars - h_y_bars, 0, h_x_given_y_bars, h_x_bars),
+  right = c(
+    h_xy_bars, h_x_bars, h_xy_bars,
+    h_x_given_y_bars, h_x_bars, h_xy_bars
+  ),
+  row = c(4, 3, 2, 1, 1, 1)
+)
+old_par <- par(mar = c(4, 1, 1, 1), family = "DejaVu Sans")
+plot.new()
+plot.window(xlim = c(0, h_xy_bars), ylim = c(0.5, 4.5))
+rect(
+  xleft = bars$left,
+  ybottom = bars$row - 0.35,
+  xright = bars$right,
+  ytop = bars$row + 0.35,
+  col = "grey95",
+  border = "black"
+)
+text(
+  x = (bars$left + bars$right) / 2,
+  y = bars$row,
+  labels = bars$label
+)
+axis(side = 1)
+title(xlab = "bits")
+par(old_par)
+```
+
+In bits, the bars for $\entropyf{X}$ and $\entropyf{Y}$ each have length $`r round(h_x_bars, 3)`$,
+and the bar for $\entropyf{X, Y}$ has length $`r round(h_xy_bars, 3)`$.
+Their overlap, $\mutinfof{X}{Y} = `r round(h_x_bars + h_y_bars - h_xy_bars, 3)`$,
+matches @exm-mutual-information-identities-noisy-copy.
+
+:::
