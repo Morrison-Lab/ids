@@ -264,6 +264,10 @@ in *[Probability for Data Science](https://morrison-lab.github.io/pds/)*.
 
 {{< slidebreak >}}
 
+{{< include ids/_subfiles/_exm-mutual-information-bars.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include ids/_subfiles/_thm-mutual-information-kl.qmd >}}
 
 {{< slidebreak >}}
